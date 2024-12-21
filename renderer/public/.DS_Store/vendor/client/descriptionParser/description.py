@@ -7,15 +7,20 @@ from services.statNameBuilder import convert_stat_name
 class Description:
     english_ref = None
 
-    def __init__(self, lines: list[str]):
+    def __init__(self, lines: list[str], lang="English"):
         self.lines = lines
+        self.lang = lang
         if not lines[0].startswith("description"):
             raise ValueError("Invalid description block")
         self.id = self.parse_id(lines)
+        print(self.id)
 
         # self.english_ref = self.get_ref(lines)
 
         self.data = self.parse_lines(self.lines, self.id)
+
+    def __str__(self):
+        return f"Description(id={self.id}, english_ref={self.english_ref})"
 
     def parse_id(self, lines: list[str]) -> str:
         assert lines[0].startswith("description")
@@ -28,12 +33,21 @@ class Description:
 
         blocks = self.parse_blocks(sanitized_lines)
         lang_blocks = [self.simplify_block(block) for block in blocks]
+
+        # Create the lang_dict
         lang_dict = {
             lang: self.get_matchers(mod_lines, lang == "English")
             for lang, mod_lines in lang_blocks
         }
 
-        return lang_dict
+        # Filter lang_dict for only English and self.lang
+        filtered_lang_dict = {
+            lang: matchers
+            for lang, matchers in lang_dict.items()
+            if lang in ["English", self.lang]
+        }
+
+        return filtered_lang_dict
 
     def sanitize_lines(self, lines: list[str]) -> list[str]:
         return [line.strip() for line in lines[1:]]

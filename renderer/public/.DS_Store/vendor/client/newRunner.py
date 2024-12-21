@@ -18,6 +18,7 @@ if __name__ == "__main__":
     print(desc.english_ref)
     print(desc.id)
 
-    other_desc = Description(
+    other_desc = DescriptionFile(
         f"{os.path.dirname(os.path.realpath(__file__))}/descriptionParser/fewDesc.csd",
+        encoding="utf-8",
     )
