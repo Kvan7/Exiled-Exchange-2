@@ -1,4 +1,4 @@
-# ![Divine Orb](./renderer/public/images/divine.png) Exiled Exchange 2
+# ![Perfect Jewelers Orb](./renderer/public/images/jeweler.png) Exiled Exchange 2
 
 ![GitHub Downloads (specific asset, latest release)](https://img.shields.io/github/downloads/kvan7/exiled-exchange-2/latest/latest.yml?style=for-the-badge&link=https%3A%2F%2Ftooomm.github.io%2Fgithub-release-stats%2F%3Fusername%3Dkvan7%26repository%3DExiled-Exchange-2)
 ![GitHub Tag](https://img.shields.io/github/v/tag/kvan7/exiled-exchange-2?style=for-the-badge&label=latest%20version)
