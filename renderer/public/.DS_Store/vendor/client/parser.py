@@ -392,6 +392,12 @@ class Parser:
                 # unique item
                 flags = item.get("flags")
 
+                id = item.get("_index")
+                # refName = name
+                # if id is not None:
+                #     if id in self.base_en_items_lookup:
+                #         refName = self.base_en_items_lookup[id]
+
                 self.unique_items.append(
                     {
                         "name": name,
@@ -420,7 +426,7 @@ class Parser:
             # update name to localized keep ref name as english
             self.items[id] = {
                 "name": name,
-                "refName": name,
+                "refName": refName,
                 "namespace": "ITEM",
                 "class": class_key,
                 "dropLevel": item.get("DropLevel"),
