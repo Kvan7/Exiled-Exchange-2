@@ -1,5 +1,11 @@
 # ![Divine Orb](./renderer/public/images/divine.png) Exiled Exchange 2
 
+![GitHub Downloads (specific asset, latest release)](https://img.shields.io/github/downloads/kvan7/exiled-exchange-2/latest/latest.yml?style=for-the-badge&link=https%3A%2F%2Ftooomm.github.io%2Fgithub-release-stats%2F%3Fusername%3Dkvan7%26repository%3DExiled-Exchange-2)
+![GitHub Tag](https://img.shields.io/github/v/tag/kvan7/exiled-exchange-2?style=for-the-badge&label=latest%20version)
+![GitHub commits since latest release (branch)](https://img.shields.io/github/commits-since/kvan7/exiled-exchange-2/latest/dev?style=for-the-badge)
+
+Path of Exile 2 overlay program for price checking items. Fork of [Awakened PoE Trade](https://github.com/SnosMe/awakened-poe-trade).
+
 ## Moving from POE1/Awakened PoE Trade
 
 1. Download latest release from [releases](https://github.com/Kvan7/exiled-exchange-2/releases)
