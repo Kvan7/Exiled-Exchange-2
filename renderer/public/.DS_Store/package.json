@@ -31,7 +31,8 @@
     "langs-anon-vodka-python": "cd ./vendor/client && python ./parserRunner.py",
     "temp-images": "python ./data/imageFix.py",
     "copy-py-ndjson": "bash ./copy-py-ndjson.sh",
-    "fetch-json": "bash ./pull-json.sh"
+    "fetch-json": "bash ./pull-json.sh",
+    "run-all": "sh export-data.sh"
   },
   "keywords": [],
   "author": "",
