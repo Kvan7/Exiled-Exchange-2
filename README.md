@@ -1,4 +1,4 @@
-# ![Perfect Jewelers Orb](./renderer/public/images/jeweler.png) Exiled Exchange 2
+# ![Divine Orb](./renderer/public/images/divine.png) Exiled Exchange 2
 
 ## Moving from POE1/Awakened PoE Trade
 
