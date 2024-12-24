@@ -16,6 +16,6 @@ for lang in "${SUPPORTED_LANG[@]}"; do
     # Loop through each file and push it to the actual data directory, overwriting any existing files
     for file in $FILES; do
         echo "Pushing $file to data/$lang"
-        cp $file ../data/$lang
+        cp $file ../public/data/$lang
     done
 done
