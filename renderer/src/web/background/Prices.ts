@@ -24,7 +24,7 @@ interface DbQuery {
 export interface CurrencyValue {
   min: number;
   max: number;
-  currency: "chaos" | "div";
+  currency: "exalted" | "div";
 }
 
 export const usePoeninja = createGlobalState(() => {
@@ -39,41 +39,42 @@ export const usePoeninja = createGlobalState(() => {
   let lastInterestTime = 0;
 
   async function load(force: boolean = false) {
-    const league = leagues.selected.value;
-    if (!league || !league.isPopular || league.realm !== "pc-ggg") return;
+    return;
+    // const league = leagues.selected.value;
+    // if (!league || !league.isPopular || league.realm !== "pc-ggg") return;
 
-    if (
-      !force &&
-      (Date.now() - lastUpdateTime < UPDATE_INTERVAL_MS ||
-        Date.now() - lastInterestTime > INTEREST_SPAN_MS)
-    )
-      return;
-    if (downloadController) downloadController.abort();
+    // if (
+    //   !force &&
+    //   (Date.now() - lastUpdateTime < UPDATE_INTERVAL_MS ||
+    //     Date.now() - lastInterestTime > INTEREST_SPAN_MS)
+    // )
+    //   return;
+    // if (downloadController) downloadController.abort();
 
-    try {
-      isLoading.value = true;
-      downloadController = new AbortController();
-      const response = await Host.proxy(
-        `poe.ninja/api/data/DenseOverviews?league=${league.id}&language=en`,
-        {
-          signal: downloadController.signal,
-        },
-      );
-      const jsonBlob = await response.text();
+    // try {
+    //   isLoading.value = true;
+    //   downloadController = new AbortController();
+    //   const response = await Host.proxy(
+    //     `poe.ninja/api/data/DenseOverviews?league=${league.id}&language=en`,
+    //     {
+    //       signal: downloadController.signal,
+    //     },
+    //   );
+    //   const jsonBlob = await response.text();
 
-      PRICES_DB = splitJsonBlob(jsonBlob);
-      const divine = findPriceByQuery({
-        ns: "ITEM",
-        name: "Divine Orb",
-        variant: undefined,
-      });
-      if (divine && divine.chaos >= 30) {
-        xchgRate.value = divine.chaos;
-      }
-      lastUpdateTime = Date.now();
-    } finally {
-      isLoading.value = false;
-    }
+    //   PRICES_DB = splitJsonBlob(jsonBlob);
+    //   const divine = findPriceByQuery({
+    //     ns: "ITEM",
+    //     name: "Divine Orb",
+    //     variant: undefined,
+    //   });
+    //   if (divine && divine.chaos >= 30) {
+    //     xchgRate.value = divine.chaos;
+    //   }
+    //   lastUpdateTime = Date.now();
+    // } finally {
+    //   isLoading.value = false;
+    // }
   }
 
   function queuePricesFetch() {
@@ -124,28 +125,28 @@ export const usePoeninja = createGlobalState(() => {
     if (Array.isArray(value)) {
       if (value[1] > (xchgRate.value || 9999)) {
         return {
-          min: chaosToStable(value[0]),
-          max: chaosToStable(value[1]),
+          min: exaltedToStable(value[0]),
+          max: exaltedToStable(value[1]),
           currency: "div",
         };
       }
-      return { min: value[0], max: value[1], currency: "chaos" };
+      return { min: value[0], max: value[1], currency: "exalted" };
     }
     if (value > (xchgRate.value || 9999) * 0.94) {
       if (value < (xchgRate.value || 9999) * 1.06) {
         return { min: 1, max: 1, currency: "div" };
       } else {
         return {
-          min: chaosToStable(value),
-          max: chaosToStable(value),
+          min: exaltedToStable(value),
+          max: exaltedToStable(value),
           currency: "div",
         };
       }
     }
-    return { min: value, max: value, currency: "chaos" };
+    return { min: value, max: value, currency: "exalted" };
   }
 
-  function chaosToStable(count: number) {
+  function exaltedToStable(count: number) {
     return count / (xchgRate.value || 9999);
   }
 

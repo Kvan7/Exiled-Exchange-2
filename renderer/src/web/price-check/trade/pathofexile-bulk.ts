@@ -80,7 +80,7 @@ async function requestTradeResultList(
       {
         method: "POST",
         headers: {
-          "Accept": "application/json",
+          Accept: "application/json",
           "Content-Type": "application/json",
         },
         body: JSON.stringify(body),
@@ -188,7 +188,7 @@ export async function execBulkSearch(
     );
 
     const loadedOnDemand =
-      tradeTag === "chaos" &&
+      tradeTag === "exalted" &&
       resultsTag.length < SHOW_RESULTS &&
       query.total > API_FETCH_LIMIT;
     if (loadedOnDemand) return null;

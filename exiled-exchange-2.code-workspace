@@ -10,7 +10,7 @@
     },
     {
       "name": "DataStore",
-      "path": "./renderer/public/.DS_Store"
+      "path": "./renderer/public/DS_Store"
     },
     {
       "name": "docs",

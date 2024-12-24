@@ -31,61 +31,62 @@ export interface RareItemPrice {
 export async function requestPoeprices(
   item: ParsedItem,
 ): Promise<RareItemPrice> {
-  const query = querystring({
-    i: utf8ToBase64(transformItemText(item.rawText)),
-    l: useLeagues().selectedId.value,
-    s: "awakened-poe-trade", // might be required name here
-  });
+  throw new Error("poeprices.info is not available in this version.");
+  // const query = querystring({
+  //   i: utf8ToBase64(transformItemText(item.rawText)),
+  //   l: useLeagues().selectedId.value,
+  //   s: "awakened-poe-trade", // might be required name here
+  // });
 
-  let data = cache.get<PoepricesApiResponse>(query);
-  if (!data) {
-    const response = await Host.proxy(`www.poeprices.info/api?${query}`);
-    try {
-      data = (await response.json()) as PoepricesApiResponse;
-    } catch (e) {
-      throw new Error(
-        `${response.status}, poeprices.info API is under load or down.`,
-      );
-    }
+  // let data = cache.get<PoepricesApiResponse>(query);
+  // if (!data) {
+  //   const response = await Host.proxy(`www.poeprices.info/api?${query}`);
+  //   try {
+  //     data = (await response.json()) as PoepricesApiResponse;
+  //   } catch (e) {
+  //     throw new Error(
+  //       `${response.status}, poeprices.info API is under load or down.`,
+  //     );
+  //   }
 
-    if (data.error !== 0) {
-      throw new Error(data.error_msg);
-    }
+  //   if (data.error !== 0) {
+  //     throw new Error(data.error_msg);
+  //   }
 
-    cache.set<PoepricesApiResponse>(query, data, 300);
-  }
+  //   cache.set<PoepricesApiResponse>(query, data, 300);
+  // }
 
-  if (data.currency === "exalt") {
-    const { findPriceByQuery, autoCurrency } = usePoeninja();
-    const xchgExalted = findPriceByQuery({
-      ns: "ITEM",
-      name: "Exalted Orb",
-      variant: undefined,
-    });
-    if (!xchgExalted) {
-      throw new Error("poeprices.info gave the price in Exalted Orbs.");
-    }
-    const converted = autoCurrency([
-      data.min * xchgExalted.chaos,
-      data.max * xchgExalted.chaos,
-    ]);
-    data.min = converted.min;
-    data.max = converted.max;
-    data.currency = converted.currency === "div" ? "divine" : "chaos";
-  } else if (data.currency !== "divine" && data.currency !== "chaos") {
-    throw new Error("poeprices.info gave the price in unknown currency.");
-  }
+  // if (data.currency === "exalt") {
+  //   const { findPriceByQuery, autoCurrency } = usePoeninja();
+  //   const xchgExalted = findPriceByQuery({
+  //     ns: "ITEM",
+  //     name: "Exalted Orb",
+  //     variant: undefined,
+  //   });
+  //   if (!xchgExalted) {
+  //     throw new Error("poeprices.info gave the price in Exalted Orbs.");
+  //   }
+  //   const converted = autoCurrency([
+  //     data.min * xchgExalted.chaos,
+  //     data.max * xchgExalted.chaos,
+  //   ]);
+  //   data.min = converted.min;
+  //   data.max = converted.max;
+  //   data.currency = converted.currency === "div" ? "divine" : "chaos";
+  // } else if (data.currency !== "divine" && data.currency !== "chaos") {
+  //   throw new Error("poeprices.info gave the price in unknown currency.");
+  // }
 
-  return {
-    currency: data.currency === "divine" ? "div" : "chaos",
-    min: data.min,
-    max: data.max,
-    confidence: Math.round(data.pred_confidence_score),
-    explanation: data.pred_explanation.map((expl) => ({
-      name: expl[0],
-      contrib: Math.round(expl[1] * 100),
-    })),
-  };
+  // return {
+  //   currency: data.currency === "divine" ? "div" : "chaos",
+  //   min: data.min,
+  //   max: data.max,
+  //   confidence: Math.round(data.pred_confidence_score),
+  //   explanation: data.pred_explanation.map((expl) => ({
+  //     name: expl[0],
+  //     contrib: Math.round(expl[1] * 100),
+  //   })),
+  // };
 }
 
 export function getExternalLink(item: ParsedItem): string {
@@ -119,7 +120,7 @@ export async function sendFeedback(
     body,
   });
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const text = await response.text();
+  // const text = await response.text();
   // console.assert(text === `"${feedback.option}"`)
 }
 
