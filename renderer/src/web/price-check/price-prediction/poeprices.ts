@@ -21,7 +21,7 @@ export interface RareItemPrice {
   max: number;
   min: number;
   confidence: number;
-  currency: "chaos" | "div";
+  currency: "exalted" | "div";
   explanation: Array<{
     name: string;
     contrib: number;
@@ -77,7 +77,7 @@ export async function requestPoeprices(
   }
 
   return {
-    currency: data.currency === "divine" ? "div" : "chaos",
+    currency: data.currency === "divine" ? "div" : "exalted",
     min: data.min,
     max: data.max,
     confidence: Math.round(data.pred_confidence_score),
