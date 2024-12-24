@@ -10,8 +10,14 @@ logger = logging.getLogger(__name__)
 class Description:
     english_ref = None
 
-    def __init__(self, lines: list[str], lang="English", log_level=logging.FATAL):
+    def __init__(
+        self, lines: list[str], lang="English", log_level=logging.FATAL, manual=None
+    ):
         self.lang = lang
+        if manual is not None:
+            self.id = manual["id"]
+            self.data = manual["data"]
+            return
 
         logger.debug(f"Initializing Description with lang: {lang}")
 
@@ -117,6 +123,10 @@ class Description:
             has_negate = matcher.find("negate") > 0
             if has_negate:
                 matcher = matcher[: matcher.find('"')].strip()
+
+            if "+#" in matcher:
+                matcher = matcher.replace("+#", "#")
+
             matchers.append({"string": matcher, "negate": has_negate})
             if is_en and self.english_ref is None:
                 self.english_ref = stat_name
@@ -134,6 +144,6 @@ if __name__ == "__main__":
     ) as f:
         lines = f.readlines()
     logger.debug(f"Loaded lines for testing: {lines}")
-    desc = Description(lines)
+    desc = Description(lines, lang="Korean")
 
     print(desc.english_ref)

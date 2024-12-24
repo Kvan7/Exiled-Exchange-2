@@ -576,19 +576,8 @@ class Parser:
         f.close()
 
         # somehow not a thing? - possibly missing some data
-        # self.mods["physical_local_damage_+%"] = {
-        #     "ref": "#% increased Physical Damage",
-        #     "better": 1,
-        #     "id": "physical_local_damage_+%",
-        #     "matchers": [{"string": "#% increased Physical Damage"}],
-        #     "trade": {
-        #         "ids": {
-        #             "explicit": ["explicit.stat_419810844"],
-        #             "fractured": ["fractured.stat_419810844"],
-        #             "rune": ["rune.stat_419810844"],
-        #         }
-        #     },
-        # }
+
+        self.add_missing_mods()
 
         seen = set()
         m = open(
@@ -628,6 +617,27 @@ class Parser:
             f.write(
                 json.dumps(self.matchers_no_trade_ids, indent=4, ensure_ascii=False)
             )
+
+    def add_missing_mods(self):
+        phys_local = {
+            "en": {"string": "#% increased Physical Damage"},
+            "ru": {"string": "#% увеличение физического урона"},
+            "ko": {"string": "물리 피해 #% 증가"},
+            "cmn-Hant": {"string": "增加 #% 物理傷害"},
+        }
+        self.mods["physical_local_damage_+%"] = {
+            "ref": "#% increased Physical Damage",
+            "better": 1,
+            "id": "physical_local_damage_+%",
+            "matchers": [phys_local.get(self.lang)],
+            "trade": {
+                "ids": {
+                    "explicit": ["explicit.stat_419810844"],
+                    "fractured": ["fractured.stat_419810844"],
+                    "rune": ["rune.stat_419810844"],
+                }
+            },
+        }
 
     def run(self):
         self.parse_trade_ids()
