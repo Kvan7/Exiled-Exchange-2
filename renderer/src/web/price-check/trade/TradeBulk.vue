@@ -152,7 +152,6 @@ import {
   shallowRef,
   shallowReactive,
   inject,
-  ShallowRef,
 } from "vue";
 import { useI18nNs } from "@/web/i18n";
 import UiErrorBox from "@/web/ui/UiErrorBox.vue";
@@ -275,24 +274,24 @@ function useBulkApi() {
   return { error, result, search };
 }
 
-function tempOverrideApi() {
-  async function search(item: ParsedItem, filters: ItemFilters) {
-    console.warn("Bulk Exchange is not available in this version.");
-  }
+// function tempOverrideApi() {
+//   async function search(item: ParsedItem, filters: ItemFilters) {
+//     console.warn("Bulk Exchange is not available in this version.");
+//   }
 
-  const error = shallowRef<string | null>(null);
-  error.value = "Bulk Exchange is not available in this version.";
+//   const error = shallowRef<string | null>(null);
+//   error.value = "Bulk Exchange is not available in this version.";
 
-  const result: ShallowRef<Record<
-    "xchgExalted" | "xchgStable",
-    {
-      listed: Ref<BulkSearch | null>;
-      listedLazy: ComputedRef<PricingResult[]>;
-    }
-  > | null> = shallowRef(null);
+//   const result: ShallowRef<Record<
+//     "xchgExalted" | "xchgStable",
+//     {
+//       listed: Ref<BulkSearch | null>;
+//       listedLazy: ComputedRef<PricingResult[]>;
+//     }
+//   > | null> = shallowRef(null);
 
-  return { error: error, result: result, search };
-}
+//   return { error, result, search };
+// }
 
 export default defineComponent({
   components: { OnlineFilter, TradeLinks, UiErrorBox },

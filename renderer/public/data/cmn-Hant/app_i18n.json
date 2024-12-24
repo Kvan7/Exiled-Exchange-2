@@ -131,7 +131,8 @@
     "accessory_trinket": "飾品",
     "sanctum_relic": "聖殿遺物",
     "tincture": "色澤",
-    "azmeri_charm": "阿茲麥麗符咒"
+    "azmeri_charm": "阿茲麥麗符咒",
+    "weapon_crossbow": "Crossbow"
   },
   "filters": {
     "selected_some": "已選擇：{0}/{1}，屬性",
@@ -170,7 +171,8 @@
     "tag_explicit_warlord": "戰爭領主",
     "tag_explicit_delve": "采掘",
     "tag_explicit_veiled": "笼罩",
-    "tag_explicit_incursion": "侵入"
+    "tag_explicit_incursion": "侵入",
+    "tag_rune": "Rune"
   },
   "online_filter": {
     "offline_toggle": "離線 & 在線",
@@ -185,7 +187,9 @@
     "currency_any": "任意貨幣",
     "currency_only_chaos": "混沌石",
     "currency_only_div": "神聖石",
-    "currency_chaos_div": "兩者皆可"
+    "currency_chaos_div": "兩者皆可",
+    "currency_exalted_div": "兩者皆可",
+    "currency_only_exalted": "Exalted Orbs"
   },
   "widget": {
     "title": "小工具標題",
@@ -306,6 +310,7 @@
     "hotkey": "自動隱藏模式",
     "hotkey_locked": "開啟無需自動隱藏",
     "enable_browser": "啟用內置瀏覽器",
+    "use_pseudo": "Use pseudo mods (disable if you have issues with auth)",
     "builtin_browser_warning": "我知道未來的版本可能會包含惡意代碼，可能會竊取我的 POESESSID。",
     "highlight_hint": "即使此設置關閉，您的物品也會被突出顯示",
     "show_seller": "顯示賣家",
