@@ -26,6 +26,7 @@ export interface ItemFilters {
   rarity?: {
     value: string;
   };
+  socketNumber?: FilterNumeric;
   linkedSockets?: FilterNumeric;
   whiteSockets?: FilterNumeric;
   corrupted?: {

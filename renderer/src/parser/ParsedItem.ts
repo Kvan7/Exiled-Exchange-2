@@ -38,6 +38,7 @@ export interface ParsedItem {
   talismanTier?: number;
   quality?: number;
   sockets?: {
+    number: number;
     linked?: number; // only 5 or 6
     white: number;
   };

@@ -266,6 +266,7 @@
     "seller": "Seller",
     "item_level": "iLvl",
     "gem_level": "Level",
+    "gem_sockets": "Sockets",
     "quality": "Quality",
     "base_item": "Base item",
     "graph_7d": "Last 7 days",

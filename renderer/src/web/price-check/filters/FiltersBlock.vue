@@ -2,6 +2,11 @@
   <div>
     <div class="flex flex-wrap items-center pb-3 gap-2">
       <filter-btn-numeric
+        v-if="filters.socketNumber"
+        :filter="filters.socketNumber"
+        :name="t('item.gem_sockets')"
+      />
+      <filter-btn-numeric
         v-if="filters.linkedSockets"
         :filter="filters.linkedSockets"
         :name="t('item.linked_sockets')"

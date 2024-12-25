@@ -535,6 +535,7 @@ function parseSockets(section: string[], item: ParsedItem) {
     let sockets = section[0].slice(_$.SOCKETS.length).trimEnd();
 
     item.sockets = {
+      number: Math.ceil(sockets.length/2),
       white: sockets.split("W").length - 1,
       linked: undefined,
     };

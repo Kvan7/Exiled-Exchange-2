@@ -215,6 +215,7 @@ interface FetchResult {
     ilvl?: number;
     stackSize?: number;
     corrupted?: boolean;
+    gemSockets?: Array<String>;
     properties?: Array<{
       values: [[string, number]];
       type:
@@ -243,6 +244,7 @@ export interface PricingResult {
   corrupted?: boolean;
   quality?: string;
   level?: string;
+  gemSockets?: number;
   relativeDate: string;
   priceAmount: number;
   priceCurrency: string;
@@ -386,6 +388,14 @@ export function createTradeRequest(
       query.filters,
       "misc_filters.filters.gem_level.min",
       filters.gemLevel.value,
+    );
+  }
+
+  if (filters.socketNumber && !filters.socketNumber.disabled) {
+    propSet(
+      query.filters,
+      "misc_filters.filters.gem_sockets.min",
+      filters.socketNumber.value,
     );
   }
 
@@ -772,6 +782,7 @@ export async function requestResults(
         ?.values[0][0],
       level: result.item.properties?.find((prop) => prop.type === 5)
         ?.values[0][0],
+      gemSockets: result.item.gemSockets?.length,
       relativeDate:
         DateTime.fromISO(result.listing.indexed).toRelative({
           style: "short",

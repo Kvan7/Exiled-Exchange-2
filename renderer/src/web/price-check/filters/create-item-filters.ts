@@ -428,6 +428,13 @@ function createGemFilters(
     return filters;
   }
 
+  if (item.sockets!) {
+    filters.socketNumber = {
+      value: item.sockets.number,
+      disabled: item.sockets.number < 3,
+    };
+  }
+
   if (item.quality) {
     filters.quality = {
       value: item.quality,
