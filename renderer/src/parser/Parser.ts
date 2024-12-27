@@ -97,7 +97,8 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
 
 export function parseClipboard(clipboard: string): Result<ParsedItem, string> {
   try {
-    let sections = itemTextToSections(clipboard);
+    const parseChatString = parseChat(clipboard);
+    let sections = itemTextToSections(parseChatString);
 
     if (sections[0][2] === _$.CANNOT_USE_ITEM) {
       sections[0].pop(); // remove CANNOT_USE_ITEM line
@@ -1339,4 +1340,15 @@ export function removeLinesEnding(
   return lines.map((line) =>
     line.endsWith(ending) ? line.slice(0, -ending.length) : line,
   );
+}
+
+function parseChat(clipboard: string): string {
+  // check if clipboard from chat
+  const chatRegex = /\[.*?\]|\[.*?\|.*?\]/;
+  if (!chatRegex.test(clipboard)) return clipboard;
+  // choose the right item includes "|"
+  let preprocessString = clipboard.replace(/\[.*?\|(.*?)\]/g, "$1");
+  // remove brackets
+  preprocessString = preprocessString.replace(/\[(.*?)\]/g, "$1");
+  return preprocessString;
 }
