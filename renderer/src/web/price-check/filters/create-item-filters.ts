@@ -213,16 +213,16 @@ export function createFilters(
     }
   }
 
-  if (item.sockets?.linked) {
+  if (item.gemSockets?.linked) {
     filters.linkedSockets = {
-      value: item.sockets.linked,
+      value: item.gemSockets.linked,
       disabled: false,
     };
   }
 
-  if (item.sockets?.white) {
+  if (item.gemSockets?.white) {
     filters.whiteSockets = {
-      value: item.sockets.white,
+      value: item.gemSockets.white,
       disabled: false,
     };
   }
@@ -428,10 +428,10 @@ function createGemFilters(
     return filters;
   }
 
-  if (item.sockets!) {
+  if (item.gemSockets!) {
     filters.socketNumber = {
-      value: item.sockets.number,
-      disabled: item.sockets.number < 3,
+      value: item.gemSockets.number,
+      disabled: item.gemSockets.number < 3,
     };
   }
 

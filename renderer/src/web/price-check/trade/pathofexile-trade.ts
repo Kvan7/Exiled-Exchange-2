@@ -215,7 +215,7 @@ interface FetchResult {
     ilvl?: number;
     stackSize?: number;
     corrupted?: boolean;
-    gemSockets?: Array<String>;
+    gemSockets?: string[];
     properties?: Array<{
       values: [[string, number]];
       type:

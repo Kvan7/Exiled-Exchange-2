@@ -19,12 +19,6 @@ export enum ItemInfluence {
   Warlord = "Warlord",
 }
 
-export interface RuneSocket {
-  isEmpty: boolean;
-  rune?: string;
-  rawRuneText?: string;
-}
-
 export interface ParsedItem {
   rarity?: ItemRarity;
   itemLevel?: number;
@@ -43,8 +37,8 @@ export interface ParsedItem {
   areaLevel?: number;
   talismanTier?: number;
   quality?: number;
-  runeSockets?: RuneSocket[];
-  sockets?: {
+  runeSockets?: number;
+  gemSockets?: {
     number: number;
     linked?: number; // only 5 or 6
     white: number;
