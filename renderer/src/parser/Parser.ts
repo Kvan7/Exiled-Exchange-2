@@ -74,6 +74,7 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseInfluence,
   parseMap,
   parseSockets,
+  parseRuneSockets,
   parseHeistBlueprint,
   parseAreaLevel,
   parseAtzoatlRooms,
@@ -85,7 +86,7 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseLogbookArea,
   parseLogbookArea,
   parseModifiersPoe2, // enchant
-  parseModifiersPoe2, // scourge
+  parseModifiersPoe2, // rune
   parseModifiersPoe2, // implicit
   parseModifiersPoe2, // explicit
   { virtual: transformToLegacyModifiers },
@@ -532,6 +533,17 @@ function parseStackSize(section: string[], item: ParsedItem) {
       .split("/")
       .map(Number);
     item.stackSize = { value, max };
+
+    return "SECTION_PARSED";
+  }
+  return "SECTION_SKIPPED";
+}
+
+function parseRuneSockets(section: string[], item: ParsedItem) {
+  const categoryMax = getMaxSockets(item.category);
+  if (section[0].startsWith(_$.SOCKETS)) {
+    const sockets = section[0].slice(_$.SOCKETS.length).trimEnd();
+    const totalMax = Math.max(sockets.split("S").length - 1, categoryMax);
 
     return "SECTION_PARSED";
   }
@@ -1363,4 +1375,32 @@ function parseChat(clipboard: string): string {
   // remove brackets
   preprocessString = preprocessString.replace(/\[(.*?)\]/g, "$1");
   return preprocessString;
+}
+function getMaxSockets(category: ItemCategory | undefined) {
+  switch (category) {
+    case ItemCategory.BodyArmour:
+    case ItemCategory.TwoHandedAxe:
+    case ItemCategory.TwoHandedMace:
+    case ItemCategory.TwoHandedSword:
+    case ItemCategory.Crossbow:
+    case ItemCategory.Bow:
+    case ItemCategory.Warstaff:
+    case ItemCategory.Staff:
+      return 2;
+    case ItemCategory.Helmet:
+    case ItemCategory.Shield:
+    case ItemCategory.Gloves:
+    case ItemCategory.Boots:
+    case ItemCategory.OneHandedAxe:
+    case ItemCategory.OneHandedMace:
+    case ItemCategory.OneHandedSword:
+    case ItemCategory.Quiver:
+    case ItemCategory.Claw:
+    case ItemCategory.Dagger:
+    case ItemCategory.Wand:
+    case ItemCategory.Sceptre:
+      return 1;
+    default:
+      return 0;
+  }
 }
