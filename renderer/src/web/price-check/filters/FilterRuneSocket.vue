@@ -34,8 +34,9 @@ import { useI18n } from "vue-i18n";
 // import { ParsedItem } from "@/parser";
 
 import ItemModifierText from "../../ui/ItemModifierText.vue";
-import { defineComponent, PropType } from "vue";
+import { computed, defineComponent, PropType, ref } from "vue";
 import { ParsedItem } from "@/parser";
+import { Rune } from "@/parser/ParsedItem";
 
 export default defineComponent({
   components: { ItemModifierText },
@@ -44,21 +45,30 @@ export default defineComponent({
       type: Object as PropType<ParsedItem>,
       required: true,
     },
+    rune: {
+      type: Object as PropType<Rune>,
+      required: true,
+    },
   },
   setup(props) {
     const { t } = useI18n();
     const item = props.item;
-    const text = "string";
-    let isDisabled = false;
+    const isDisabled = ref(false);
 
     function toggleFilter() {
-      isDisabled = !isDisabled;
+      isDisabled.value = !isDisabled.value;
     }
 
     return {
       t,
       item,
-      text,
+      text: computed(() => {
+        if (props.rune.isEmpty) {
+          return t("filters.empty_rune_socket");
+        } else {
+          return props.rune.text!;
+        }
+      }),
       isDisabled,
       toggleFilter,
     };

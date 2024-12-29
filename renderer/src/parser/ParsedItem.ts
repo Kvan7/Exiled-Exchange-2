@@ -19,6 +19,14 @@ export enum ItemInfluence {
   Warlord = "Warlord",
 }
 
+export interface Rune {
+  isEmpty: boolean;
+  rune?: string;
+  text?: string; // Text of modifier
+  modifier?: ParsedModifier; // @deprecated
+  statCalculated?: StatCalculated; // @deprecated
+}
+
 export interface ParsedItem {
   rarity?: ItemRarity;
   itemLevel?: number;
@@ -40,6 +48,7 @@ export interface ParsedItem {
   runeSockets?: {
     total: number;
     empty: number;
+    runes: Rune[];
   };
   gemSockets?: {
     number: number;

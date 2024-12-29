@@ -165,8 +165,9 @@
 
     <div class="mb-4" v-if="!runeSocketsVisibility.disabled && hasRuneSockets">
       <filter-rune-socket
-        v-for="rune in item.runeSockets!.total"
+        v-for="rune in item.runeSockets!.runes"
         :item="item"
+        :rune="rune"
       />
     </div>
 

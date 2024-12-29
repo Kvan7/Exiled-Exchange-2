@@ -365,6 +365,14 @@ export function createTradeRequest(
 
   // EQUIPMENT FILTERS
 
+  if (filters.emptyRuneSockets && !filters.emptyRuneSockets.disabled) {
+    propSet(
+      query.filters,
+      "equipment_filters.filters.rune_sockets.min",
+      filters.emptyRuneSockets.value,
+    );
+  }
+
   // REQ FILTERS
 
   // MAP (WAYSTONE) FILTERS

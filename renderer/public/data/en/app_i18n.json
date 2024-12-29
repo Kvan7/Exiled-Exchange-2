@@ -139,6 +139,7 @@
     "selected_open_runes": "{0} of {1}, Runes",
     "selected_none": "Stats ignored",
     "selected_full_runes": "Runes Full, ignored",
+    "empty_rune_socket": "Empty Rune Socket",
     "hidden_toggle": "Hidden",
     "collapse": "Collapse",
     "mods_toggle": "Mods",

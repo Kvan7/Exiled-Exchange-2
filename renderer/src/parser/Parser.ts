@@ -6,8 +6,9 @@ import {
   ITEM_BY_REF,
   STAT_BY_MATCH_STR,
   BaseType,
+  RUNE_SINGLE_VALUE,
 } from "@/assets/data";
-import { ModifierType, sumStatsByModType } from "./modifiers";
+import { ModifierType, StatCalculated, sumStatsByModType } from "./modifiers";
 import {
   linesToStatStrings,
   tryParseTranslation,
@@ -19,6 +20,7 @@ import {
   ParsedItem,
   ItemInfluence,
   ItemRarity,
+  Rune,
 } from "./ParsedItem";
 import { magicBasetype } from "./magic-name";
 import {
@@ -545,12 +547,12 @@ function parseRuneSockets(section: string[], item: ParsedItem) {
   if (section[0].startsWith(_$.SOCKETS)) {
     const sockets = section[0].slice(_$.SOCKETS.length).trimEnd();
     const totalMax = Math.max(sockets.split("S").length - 1, categoryMax);
-    item.runeSockets = { total: totalMax, empty: totalMax };
+    item.runeSockets = { total: totalMax, empty: totalMax, runes: [] };
 
     return "SECTION_PARSED";
   }
   if (categoryMax) {
-    item.runeSockets = { total: categoryMax, empty: categoryMax };
+    item.runeSockets = { total: categoryMax, empty: categoryMax, runes: [] };
   }
   return "SECTION_SKIPPED";
 }
@@ -972,56 +974,35 @@ function applyRuneSockets(item: ParsedItem) {
   // If we have any rune sockets
   if (item.runeSockets) {
     // Count current mods that are of type Rune
-    const runeMods = item.statsByType.filter(
+    const runeMods = item.newMods.filter(
+      (mod) => mod.info.type === ModifierType.Rune,
+    );
+    const runeStats = item.statsByType.filter(
       (calc) => calc.type === ModifierType.Rune,
     );
-    const potentialEmptySockets = item.runeSockets.total - runeMods.length;
+    const runes = runeMods
+      .map((mod) => {
+        const stat = runeStats.find(
+          (stat) => stat.sources[0].stat === mod.stats[0],
+        );
+        if (!stat) return [];
+        return statToRune(mod, stat);
+      })
+      .flat();
+
+    item.runeSockets.runes.push(...runes);
+
+    const potentialEmptySockets = item.runeSockets.total - runes.length;
 
     item.runeSockets.empty = potentialEmptySockets;
     // If we have any empty sockets, add them
-    // if (potentialEmptySockets > 0) {
-    //   for (let i = 0; i < potentialEmptySockets; i++) {
-    //     // item.statsByType.push({
-    //     //   type: ModifierType.Rune,
-    //     //   sources: [],
-    //     //   stat: {
-    //     //     ref: "Rune",
-    //     //     better: 0,
-    //     //     matchers: [],
-    //     //     trade: {
-    //     //       ids: {},
-    //     //     },
-    //     //   },
-    //     // });
-    //     item.newMods.push({
-    //       info: { type: ModifierType.Rune, tags: [] },
-    //       stats: [
-    //         {
-    //           roll: {
-    //             unscalable: true,
-    //             dp: false,
-    //             value: 0,
-    //             min: 0,
-    //             max: 0,
-    //           },
-    //           stat: {
-    //             ref: "Empty Rune Socket",
-    //             better: 0,
-    //             matchers: [],
-    //             trade: {
-    //               ids: {
-    //                 rune: ["rune.empty_rune_socket"],
-    //               },
-    //             },
-    //           },
-    //           translation: {
-    //             string: "Empty Rune Socket",
-    //           },
-    //         },
-    //       ],
-    //     });
-    //  }
-    // }
+    if (potentialEmptySockets > 0) {
+      for (let i = 0; i < potentialEmptySockets; i++) {
+        item.runeSockets.runes.push({
+          isEmpty: true,
+        });
+      }
+    }
   }
 }
 
@@ -1465,4 +1446,30 @@ function getMaxSockets(category: ItemCategory | undefined) {
     default:
       return 0;
   }
+}
+
+function statToRune(mod: ParsedModifier, statCalc: StatCalculated): Rune[] {
+  if (mod.info.type !== ModifierType.Rune) return [];
+  const runeTradeId = statCalc.stat.trade.ids[ModifierType.Rune][0];
+  const runeSingle = RUNE_SINGLE_VALUE[runeTradeId];
+
+  // Calculate how many of this rune are in the item
+  const runeAppliedValue = statCalc.sources[0].contributes!.value;
+  const runeSingleValue = runeSingle.values[0];
+  const totalRunes = Math.floor(runeAppliedValue / runeSingleValue);
+
+  // Get original mod ref text
+  const modRef = runeSingle.baseStat;
+
+  // Return one rune for each rune in the item
+  const runes: Rune[] = [];
+  for (let i = 0; i < totalRunes; i++) {
+    runes.push({
+      isEmpty: false,
+      rune: runeSingle.rune,
+      text: modRef,
+    });
+  }
+
+  return runes;
 }

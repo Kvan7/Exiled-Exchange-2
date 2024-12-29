@@ -227,6 +227,13 @@ export function createFilters(
     };
   }
 
+  if (item.runeSockets?.empty) {
+    filters.emptyRuneSockets = {
+      value: item.runeSockets.empty,
+      disabled: false,
+    };
+  }
+
   const forAdornedJewel =
     item.rarity === ItemRarity.Magic &&
     // item.isCorrupted && -- let the buyer corrupt
