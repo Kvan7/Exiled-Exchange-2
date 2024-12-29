@@ -136,7 +136,9 @@
   },
   "filters": {
     "selected_some": "{0} of {1}, stats",
+    "selected_open_runes": "{0} of {1}, Runes",
     "selected_none": "Stats ignored",
+    "selected_full_runes": "Runes Full, ignored",
     "hidden_toggle": "Hidden",
     "collapse": "Collapse",
     "mods_toggle": "Mods",

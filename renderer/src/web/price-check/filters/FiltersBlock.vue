@@ -117,6 +117,20 @@
             : t('filters.selected_none')
         "
       />
+      <filter-btn-logical
+        v-if="hasRuneSockets"
+        :collapse="runeSocketsVisibility.disabled"
+        :filter="runeSocketsVisibility"
+        :active="item.runeSockets!.empty > 0"
+        :text="
+          item.runeSockets!.empty > 0
+            ? t('filters.selected_open_runes', [
+                item.runeSockets!.total - item.runeSockets!.empty,
+                item.runeSockets!.total,
+              ])
+            : t('filters.selected_full_runes')
+        "
+      />
     </div>
     <!-- Warning that many stats may not work -->
     <!-- <div
@@ -148,6 +162,13 @@
     >
       {{ t("poe2_new.bulk_exchange") }}
     </div> -->
+
+    <div class="mb-4" v-if="!runeSocketsVisibility.disabled && hasRuneSockets">
+      <filter-rune-socket
+        v-for="rune in item.runeSockets!.total"
+        :item="item"
+      />
+    </div>
 
     <div
       v-if="!statsVisibility.disabled && hasStats"
@@ -231,6 +252,7 @@ import UiToggle from "@/web/ui/UiToggle.vue";
 import FilterModifier from "./FilterModifier.vue";
 import FilterBtnNumeric from "./FilterBtnNumeric.vue";
 import FilterBtnLogical from "./FilterBtnLogical.vue";
+import FilterRuneSocket from "./FilterRuneSocket.vue";
 import UnknownModifier from "./UnknownModifier.vue";
 import { ItemFilters, StatFilter } from "./interfaces";
 import { ParsedItem, ItemRarity, ItemCategory } from "@/parser";
@@ -244,6 +266,7 @@ export default defineComponent({
     FilterBtnLogical,
     UnknownModifier,
     UiToggle,
+    FilterRuneSocket,
   },
   props: {
     presets: {
@@ -265,6 +288,7 @@ export default defineComponent({
   },
   setup(props, ctx) {
     const statsVisibility = shallowReactive({ disabled: false });
+    const runeSocketsVisibility = shallowReactive({ disabled: true });
     const showHidden = shallowRef(false);
     const showFilterSources = shallowRef(false);
 
@@ -273,6 +297,7 @@ export default defineComponent({
       () => {
         showHidden.value = false;
         statsVisibility.disabled = false;
+        runeSocketsVisibility.disabled = true;
       },
     );
 
@@ -291,10 +316,14 @@ export default defineComponent({
     return {
       t,
       statsVisibility,
+      runeSocketsVisibility,
       showHidden,
       showFilterSources,
       totalSelectedMods: computed(() => {
         return props.stats.filter((stat) => !stat.disabled).length;
+      }),
+      totalSelectedRunes: computed(() => {
+        return props.item.runeSockets!.empty;
       }),
       filteredStats: computed(() => {
         if (showHidden.value) {
@@ -309,6 +338,9 @@ export default defineComponent({
           props.stats.length ||
           (showUnknownMods.value && props.item.rarity === ItemRarity.Unique) ||
           props.presets.length > 1,
+      ),
+      hasRuneSockets: computed(
+        () => props.item.runeSockets && props.item.runeSockets.total > 0,
       ),
       handleStatsSubmit() {
         ctx.emit("submit");
