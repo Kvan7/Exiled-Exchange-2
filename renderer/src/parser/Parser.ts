@@ -536,7 +536,7 @@ function parseSockets(section: string[], item: ParsedItem) {
     let sockets = section[0].slice(_$.SOCKETS.length).trimEnd();
 
     item.sockets = {
-      number: Math.ceil(sockets.length/2),
+      number: Math.ceil(sockets.length / 2),
       white: sockets.split("W").length - 1,
       linked: undefined,
     };
@@ -1265,10 +1265,12 @@ function parseStatsFromMod(
         translation: found.matcher,
       });
     } else {
-      item.unknownModifiers.push({
-        text: modifier.info.name!,
-        type: modifier.info.type,
-      });
+      if (item.rarity !== ItemRarity.Unique) {
+        item.unknownModifiers.push({
+          text: modifier.info.name!,
+          type: modifier.info.type,
+        });
+      }
     }
     return true;
   }
@@ -1285,12 +1287,14 @@ function parseStatsFromMod(
     }
   }
 
-  item.unknownModifiers.push(
-    ...stat.value.map((line) => ({
-      text: line,
-      type: modifier.info.type,
-    })),
-  );
+  if (item.rarity !== ItemRarity.Unique) {
+    item.unknownModifiers.push(
+      ...stat.value.map((line) => ({
+        text: line,
+        type: modifier.info.type,
+      })),
+    );
+  }
   return true;
 }
 
