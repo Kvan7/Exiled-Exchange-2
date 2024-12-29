@@ -4,14 +4,19 @@
       <div class="pb-px flex items-baseline justify-between">
         <button
           class="flex items-baseline text-left min-w-0"
+          :class="{
+            'pointer-events-none opacity-50': !rune.isEmpty,
+          }"
           type="button"
+          @disabled="!rune.isEmpty"
           @click="toggleFilter"
         >
           <i
             class="w-5"
             :class="{
-              'far fa-square text-gray-500': isDisabled,
-              'fas fa-check-square': !isDisabled,
+              'far fa-check-square text-gray-500 opacity-50': !rune.isEmpty, // Inverted checked box
+              'far fa-square text-gray-500': isDisabled && rune.isEmpty,
+              'fas fa-check-square': !isDisabled && rune.isEmpty,
             }"
           ></i>
           <div
@@ -25,6 +30,16 @@
           </div>
         </button>
       </div>
+      <div class="flex">
+        <div class="w-5 flex items-start"></div>
+        <div class="flex-1 flex items-start gap-x-2">
+          <span
+            v-if="!rune.isEmpty"
+            :class="[$style['tag'], $style[`tag-explicit`]]"
+            >{{ rune.rune }}</span
+          >
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -34,9 +49,9 @@ import { useI18n } from "vue-i18n";
 // import { ParsedItem } from "@/parser";
 
 import ItemModifierText from "../../ui/ItemModifierText.vue";
-import { computed, defineComponent, PropType, ref } from "vue";
+import { computed, defineComponent, PropType } from "vue";
 import { ParsedItem } from "@/parser";
-import { Rune } from "@/parser/ParsedItem";
+import { RuneFilter } from "./interfaces";
 
 export default defineComponent({
   components: { ItemModifierText },
@@ -46,17 +61,17 @@ export default defineComponent({
       required: true,
     },
     rune: {
-      type: Object as PropType<Rune>,
+      type: Object as PropType<RuneFilter>,
       required: true,
     },
   },
   setup(props) {
     const { t } = useI18n();
     const item = props.item;
-    const isDisabled = ref(false);
 
     function toggleFilter() {
-      isDisabled.value = !isDisabled.value;
+      if (!props.rune.isEmpty) return;
+      props.rune.disabled = !props.rune.disabled;
     }
 
     return {
@@ -69,7 +84,7 @@ export default defineComponent({
           return props.rune.text!;
         }
       }),
-      isDisabled,
+      isDisabled: computed(() => props.rune.disabled),
       toggleFilter,
     };
   },

@@ -6,6 +6,7 @@ export interface FilterPreset {
   id: string;
   filters: ItemFilters;
   stats: StatFilter[];
+  runeFilters: RuneFilter[];
 }
 
 interface SearchFilter {

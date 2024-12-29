@@ -121,12 +121,12 @@
         v-if="hasRuneSockets"
         :collapse="runeSocketsVisibility.disabled"
         :filter="runeSocketsVisibility"
-        :active="item.runeSockets!.empty > 0"
+        :active="totalSelectedRunes > 0"
         :text="
           item.runeSockets!.empty > 0
             ? t('filters.selected_open_runes', [
-                item.runeSockets!.total - item.runeSockets!.empty,
-                item.runeSockets!.total,
+                totalSelectedRunes,
+                item.runeSockets!.empty,
               ])
             : t('filters.selected_full_runes')
         "
@@ -164,11 +164,7 @@
     </div> -->
 
     <div class="mb-4" v-if="!runeSocketsVisibility.disabled && hasRuneSockets">
-      <filter-rune-socket
-        v-for="rune in item.runeSockets!.runes"
-        :item="item"
-        :rune="rune"
-      />
+      <filter-rune-socket v-for="rune in runes" :item="item" :rune="rune" />
     </div>
 
     <div
@@ -255,7 +251,7 @@ import FilterBtnNumeric from "./FilterBtnNumeric.vue";
 import FilterBtnLogical from "./FilterBtnLogical.vue";
 import FilterRuneSocket from "./FilterRuneSocket.vue";
 import UnknownModifier from "./UnknownModifier.vue";
-import { ItemFilters, StatFilter } from "./interfaces";
+import { ItemFilters, RuneFilter, StatFilter } from "./interfaces";
 import { ParsedItem, ItemRarity, ItemCategory } from "@/parser";
 
 export default defineComponent({
@@ -284,6 +280,10 @@ export default defineComponent({
     },
     item: {
       type: Object as PropType<ParsedItem>,
+      required: true,
+    },
+    runes: {
+      type: Object as PropType<RuneFilter[]>,
       required: true,
     },
   },
@@ -324,7 +324,8 @@ export default defineComponent({
         return props.stats.filter((stat) => !stat.disabled).length;
       }),
       totalSelectedRunes: computed(() => {
-        return props.item.runeSockets!.empty;
+        return props.runes.filter((rune) => rune.isEmpty && !rune.disabled)
+          .length;
       }),
       filteredStats: computed(() => {
         if (showHidden.value) {
@@ -333,6 +334,7 @@ export default defineComponent({
           return props.stats.filter((s) => !s.hidden);
         }
       }),
+      // filteredRunes: computed(() => props.runes),
       showUnknownMods,
       hasStats: computed(
         () =>

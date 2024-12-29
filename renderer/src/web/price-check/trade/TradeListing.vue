@@ -152,7 +152,7 @@ import {
 import { getTradeEndpoint } from "./common";
 import { AppConfig } from "@/web/Config";
 import { PriceCheckWidget } from "@/web/overlay/interfaces";
-import { ItemFilters, StatFilter } from "../filters/interfaces";
+import { ItemFilters, RuneFilter, StatFilter } from "../filters/interfaces";
 import { ParsedItem } from "@/parser";
 import { artificialSlowdown } from "./artificial-slowdown";
 import OnlineFilter from "./OnlineFilter.vue";
@@ -204,6 +204,7 @@ function useTradeApi() {
     filters: ItemFilters,
     stats: StatFilter[],
     item: ParsedItem,
+    runeFilters: RuneFilter[],
   ) {
     try {
       searchId += 1;
@@ -213,7 +214,7 @@ function useTradeApi() {
       fetchResults.value = _fetchResults;
 
       const _searchId = searchId;
-      const request = createTradeRequest(filters, stats, item);
+      const request = createTradeRequest(filters, stats, item, runeFilters);
       const _searchResult = await requestTradeResultList(
         request,
         filters.trade.league,
@@ -298,6 +299,10 @@ export default defineComponent({
       type: Object as PropType<ParsedItem>,
       required: true,
     },
+    runeFilters: {
+      type: Array as PropType<RuneFilter[]>,
+      required: true,
+    },
   },
   setup(props) {
     const widget = computed(() => AppConfig<PriceCheckWidget>("price-check")!);
@@ -316,7 +321,7 @@ export default defineComponent({
     function makeTradeLink() {
       return searchResult.value
         ? `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}/${searchResult.value.id}`
-        : `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}?q=${JSON.stringify(createTradeRequest(props.filters, props.stats, props.item))}`;
+        : `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}?q=${JSON.stringify(createTradeRequest(props.filters, props.stats, props.item, props.runeFilters))}`;
     }
 
     const { t } = useI18nNs("trade_result");
@@ -337,7 +342,7 @@ export default defineComponent({
         }
       }),
       execSearch: () => {
-        search(props.filters, props.stats, props.item);
+        search(props.filters, props.stats, props.item, props.runeFilters);
       },
       error,
       showSeller: computed(() => widget.value.showSeller),

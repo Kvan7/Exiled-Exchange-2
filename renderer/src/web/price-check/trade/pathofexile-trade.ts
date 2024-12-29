@@ -4,6 +4,7 @@ import {
   StatFilter,
   INTERNAL_TRADE_IDS,
   InternalTradeId,
+  RuneFilter,
 } from "../filters/interfaces";
 import { setProperty as propSet } from "dot-prop";
 import { DateTime } from "luxon";
@@ -259,6 +260,7 @@ export function createTradeRequest(
   filters: ItemFilters,
   stats: StatFilter[],
   item: ParsedItem,
+  runeFilters: RuneFilter[],
 ) {
   const body: TradeRequest = {
     query: {
@@ -365,12 +367,15 @@ export function createTradeRequest(
 
   // EQUIPMENT FILTERS
 
-  if (filters.emptyRuneSockets && !filters.emptyRuneSockets.disabled) {
-    propSet(
-      query.filters,
-      "equipment_filters.filters.rune_sockets.min",
-      filters.emptyRuneSockets.value,
-    );
+  if (runeFilters.length > 0) {
+    const emptyRuneSockets = runeFilters.filter((rune) => rune.isEmpty);
+    if (emptyRuneSockets.length > 0) {
+      propSet(
+        query.filters,
+        "equipment_filters.filters.rune_sockets.min",
+        emptyRuneSockets.filter((rune) => !rune.disabled).length,
+      );
+    }
   }
 
   // REQ FILTERS
