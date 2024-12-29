@@ -544,15 +544,27 @@ function parseStackSize(section: string[], item: ParsedItem) {
 
 function parseRuneSockets(section: string[], item: ParsedItem) {
   const categoryMax = getMaxSockets(item.category);
+  const armourOrWeapon = categoryMax && isArmourOrWeapon(item.category);
+  if (!armourOrWeapon) return "PARSER_SKIPPED";
   if (section[0].startsWith(_$.SOCKETS)) {
     const sockets = section[0].slice(_$.SOCKETS.length).trimEnd();
     const totalMax = Math.max(sockets.split("S").length - 1, categoryMax);
-    item.runeSockets = { total: totalMax, empty: totalMax, runes: [] };
+    item.runeSockets = {
+      total: totalMax,
+      empty: totalMax,
+      runes: [],
+      type: armourOrWeapon,
+    };
 
     return "SECTION_PARSED";
   }
   if (categoryMax) {
-    item.runeSockets = { total: categoryMax, empty: categoryMax, runes: [] };
+    item.runeSockets = {
+      total: categoryMax,
+      empty: categoryMax,
+      runes: [],
+      type: armourOrWeapon,
+    };
   }
   return "SECTION_SKIPPED";
 }
@@ -1445,6 +1457,37 @@ function getMaxSockets(category: ItemCategory | undefined) {
       return 1;
     default:
       return 0;
+  }
+}
+
+function isArmourOrWeapon(
+  category: ItemCategory | undefined,
+): "armour" | "weapon" | undefined {
+  switch (category) {
+    case ItemCategory.BodyArmour:
+    case ItemCategory.Boots:
+    case ItemCategory.Gloves:
+    case ItemCategory.Helmet:
+    case ItemCategory.Shield:
+      return "armour";
+    case ItemCategory.OneHandedAxe:
+    case ItemCategory.OneHandedMace:
+    case ItemCategory.OneHandedSword:
+    case ItemCategory.Quiver:
+    case ItemCategory.Claw:
+    case ItemCategory.Dagger:
+    case ItemCategory.Wand:
+    case ItemCategory.Sceptre:
+    case ItemCategory.TwoHandedAxe:
+    case ItemCategory.TwoHandedMace:
+    case ItemCategory.TwoHandedSword:
+    case ItemCategory.Crossbow:
+    case ItemCategory.Bow:
+    case ItemCategory.Warstaff:
+    case ItemCategory.Staff:
+      return "weapon";
+    default:
+      return undefined;
   }
 }
 

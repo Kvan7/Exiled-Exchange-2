@@ -29,6 +29,9 @@
             /></span>
           </div>
         </button>
+        <div v-if="rune.isEmpty" class="flex items-baseline gap-x-1">
+          <div class="$style['rollInput']">fake rune</div>
+        </div>
       </div>
       <div class="flex">
         <div class="w-5 flex items-start"></div>
@@ -46,7 +49,6 @@
 
 <script lang="ts">
 import { useI18n } from "vue-i18n";
-// import { ParsedItem } from "@/parser";
 
 import ItemModifierText from "../../ui/ItemModifierText.vue";
 import { computed, defineComponent, PropType } from "vue";

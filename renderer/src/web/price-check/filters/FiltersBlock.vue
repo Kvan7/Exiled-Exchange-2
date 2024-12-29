@@ -165,6 +165,8 @@
 
     <div class="mb-4" v-if="!runeSocketsVisibility.disabled && hasRuneSockets">
       <filter-rune-socket v-for="rune in runes" :item="item" :rune="rune" />
+      <!-- separator -->
+      <div class="w-full border-2 rounded-lg border-gray-700" />
     </div>
 
     <div

@@ -46,6 +46,7 @@ export interface ParsedItem {
   talismanTier?: number;
   quality?: number;
   runeSockets?: {
+    type: "armour" | "weapon";
     total: number;
     empty: number;
     runes: Rune[];
