@@ -30,6 +30,7 @@ LANG_CODES_TO_NAMES = {
     "ru": "Russian",
     "ko": "Korean",
     "cmn-Hant": "Traditional Chinese",
+    "ja": "Japanese",
 }
 
 
@@ -624,6 +625,7 @@ class Parser:
             "ru": {"string": "#% увеличение физического урона"},
             "ko": {"string": "물리 피해 #% 증가"},
             "cmn-Hant": {"string": "增加 #% 物理傷害"},
+            "ja": {"string": "物理ダメージが#%増加する"},
         }
         self.mods["physical_local_damage_+%"] = {
             "ref": "#% increased Physical Damage",

@@ -8,7 +8,7 @@ def get_script_dir():
 
 
 # List of localization codes
-localizations = ["en", "ru", "ko", "cmn-Hant"]
+localizations = ["en", "ru", "ko", "cmn-Hant", "ja"]
 
 
 def process_filtered_pseudo_stats(loc):
