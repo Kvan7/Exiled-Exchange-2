@@ -92,6 +92,7 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   { virtual: transformToLegacyModifiers },
   { virtual: parseFractured },
   { virtual: parseBlightedMap },
+  { virtual: applyRuneSockets },
   { virtual: pickCorrectVariant },
   { virtual: calcBasePercentile },
 ];
@@ -544,16 +545,18 @@ function parseRuneSockets(section: string[], item: ParsedItem) {
   if (section[0].startsWith(_$.SOCKETS)) {
     const sockets = section[0].slice(_$.SOCKETS.length).trimEnd();
     const totalMax = Math.max(sockets.split("S").length - 1, categoryMax);
-    item.runeSockets = totalMax;
+    item.runeSockets = { total: totalMax, empty: totalMax };
 
     return "SECTION_PARSED";
   }
-  item.runeSockets = categoryMax;
+  if (categoryMax) {
+    item.runeSockets = { total: categoryMax, empty: categoryMax };
+  }
   return "SECTION_SKIPPED";
 }
 
 function parseSockets(section: string[], item: ParsedItem) {
-  if (section[0].startsWith(_$.SOCKETS)) {
+  if (item.category === ItemCategory.Gem && section[0].startsWith(_$.SOCKETS)) {
     let sockets = section[0].slice(_$.SOCKETS.length).trimEnd();
     sockets = sockets.replace(/[^ -]/g, "#");
 
@@ -964,6 +967,63 @@ function parseModifiersPoe2(section: string[], item: ParsedItem) {
 
 //   return "SECTION_PARSED";
 // }
+
+function applyRuneSockets(item: ParsedItem) {
+  // If we have any rune sockets
+  if (item.runeSockets) {
+    // Count current mods that are of type Rune
+    const runeMods = item.statsByType.filter(
+      (calc) => calc.type === ModifierType.Rune,
+    );
+    const potentialEmptySockets = item.runeSockets.total - runeMods.length;
+
+    item.runeSockets.empty = potentialEmptySockets;
+    // If we have any empty sockets, add them
+    // if (potentialEmptySockets > 0) {
+    //   for (let i = 0; i < potentialEmptySockets; i++) {
+    //     // item.statsByType.push({
+    //     //   type: ModifierType.Rune,
+    //     //   sources: [],
+    //     //   stat: {
+    //     //     ref: "Rune",
+    //     //     better: 0,
+    //     //     matchers: [],
+    //     //     trade: {
+    //     //       ids: {},
+    //     //     },
+    //     //   },
+    //     // });
+    //     item.newMods.push({
+    //       info: { type: ModifierType.Rune, tags: [] },
+    //       stats: [
+    //         {
+    //           roll: {
+    //             unscalable: true,
+    //             dp: false,
+    //             value: 0,
+    //             min: 0,
+    //             max: 0,
+    //           },
+    //           stat: {
+    //             ref: "Empty Rune Socket",
+    //             better: 0,
+    //             matchers: [],
+    //             trade: {
+    //               ids: {
+    //                 rune: ["rune.empty_rune_socket"],
+    //               },
+    //             },
+    //           },
+    //           translation: {
+    //             string: "Empty Rune Socket",
+    //           },
+    //         },
+    //       ],
+    //     });
+    //  }
+    // }
+  }
+}
 
 function parseMirrored(section: string[], item: ParsedItem) {
   if (section.length === 1) {

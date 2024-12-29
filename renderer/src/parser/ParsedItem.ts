@@ -37,7 +37,10 @@ export interface ParsedItem {
   areaLevel?: number;
   talismanTier?: number;
   quality?: number;
-  runeSockets?: number;
+  runeSockets?: {
+    total: number;
+    empty: number;
+  };
   gemSockets?: {
     number: number;
     linked?: number; // only 5 or 6
