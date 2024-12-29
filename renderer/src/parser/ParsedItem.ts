@@ -20,8 +20,9 @@ export enum ItemInfluence {
 }
 
 export interface RuneSocket {
+  isEmpty: boolean;
   rune?: string;
-  rawText?: string;
+  rawRuneText?: string;
 }
 
 export interface ParsedItem {
