@@ -34,6 +34,10 @@ LANG_CODES_TO_NAMES = {
 }
 
 
+def find_first_matching_item(items, field: str, value: str) -> dict | None:
+    return next((item for item in items if item.get(field) == value), None)
+
+
 class Parser:
     def get_script_dir(self):
         """Returns the directory where the script is located."""
@@ -66,6 +70,7 @@ class Parser:
         self.stats_file = self.load_file("Stats")
         self.translation_files = os.listdir(f"{self.cwd}/descriptions")
         self.mods_file = self.load_file("Mods")
+        self.words_file = self.load_file("Words")
         # NOTE: could need to add local here?
         self.trade_stats = json.loads(
             open(
@@ -404,17 +409,29 @@ class Parser:
                 type = item.get("type")
                 # unique item
                 flags = item.get("flags")
+                refName = name
 
-                id = item.get("_index")
-                # refName = name
+                # id = item.get("_index")
                 # if id is not None:
                 #     if id in self.base_en_items_lookup:
                 #         refName = self.base_en_items_lookup[id]
 
+                # get first value in words file
+                words_entry = find_first_matching_item(self.words_file, "Text2", name)
+                if words_entry is not None:
+                    refName = words_entry.get("Text")
+
+                refType = type
+                id = find_first_matching_item(self.base_items, "Name", type)
+                if id is not None:
+                    index = id.get("_index")
+                    if index is not None and index in self.base_en_items_lookup:
+                        refType = self.base_en_items_lookup[index]
+
                 self.unique_items.append(
                     {
                         "name": name,
-                        "refName": name,
+                        "refName": refName,
                         "namespace": "UNIQUE",
                         "unique": {"base": type},
                     }
@@ -682,5 +699,5 @@ class Parser:
 
 if __name__ == "__main__":
     logger.info("Starting parser")
-    set_log_level(logging.INFO)
-    Parser("en").run()
+    set_log_level(logging.WARNING)
+    Parser("ru").run()
