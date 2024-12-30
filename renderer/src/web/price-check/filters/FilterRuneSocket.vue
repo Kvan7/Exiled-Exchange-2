@@ -30,7 +30,11 @@
           </div>
         </button>
         <div v-if="rune.isEmpty" class="flex items-baseline gap-x-1">
-          <select :class="$style['rollInput']" v-model="selectedRune">
+          <select
+            :disabled="isDisabled"
+            :class="$style['rollInput']"
+            v-model="selectedRune"
+          >
             <option value="" disabled>Select a rune</option>
             <option
               v-for="option in runeOptions"
