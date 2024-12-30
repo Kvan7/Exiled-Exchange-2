@@ -30,7 +30,16 @@
           </div>
         </button>
         <div v-if="rune.isEmpty" class="flex items-baseline gap-x-1">
-          <div class="$style['rollInput']">fake rune</div>
+          <select :class="$style['rollInput']" v-model="selectedRune">
+            <option value="" disabled>Select a rune</option>
+            <option
+              v-for="option in runeOptions"
+              :key="option.value"
+              :value="option.value"
+            >
+              {{ option.text }}
+            </option>
+          </select>
         </div>
       </div>
       <div class="flex">
@@ -51,7 +60,7 @@
 import { useI18n } from "vue-i18n";
 
 import ItemModifierText from "../../ui/ItemModifierText.vue";
-import { computed, defineComponent, PropType } from "vue";
+import { computed, defineComponent, PropType, ref } from "vue";
 import { ParsedItem } from "@/parser";
 import { RuneFilter } from "./interfaces";
 
@@ -70,6 +79,14 @@ export default defineComponent({
   setup(props) {
     const { t } = useI18n();
     const item = props.item;
+    const selectedRune = ref<string>(""); // Initialize selectedRune
+
+    // Sample rune options you can modify according to your needs
+    const runeOptions = [
+      { value: "rune1", text: "%NOT_IMPLEMENTED% 1" },
+      { value: "rune2", text: "%NOT_IMPLEMENTED% 2" },
+      { value: "rune3", text: "%NOT_IMPLEMENTED% 3" },
+    ];
 
     function toggleFilter() {
       if (!props.rune.isEmpty) return;
@@ -79,6 +96,8 @@ export default defineComponent({
     return {
       t,
       item,
+      selectedRune,
+      runeOptions,
       text: computed(() => {
         if (props.rune.isEmpty) {
           return t("filters.empty_rune_socket");
@@ -105,7 +124,6 @@ export default defineComponent({
   @apply bg-gray-900;
   @apply text-gray-300;
   @apply text-center;
-  @apply w-12;
   @apply px-1;
   @apply border border-transparent;
 
@@ -125,8 +143,11 @@ export default defineComponent({
 
   &:focus {
     @apply border-gray-500;
-    cursor: none;
   }
+}
+
+.rollInput option {
+  direction: ltr;
 }
 
 .qualityLabel {
