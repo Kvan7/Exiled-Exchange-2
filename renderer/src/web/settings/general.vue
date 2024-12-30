@@ -13,11 +13,11 @@
     <div class="mb-4">
       <div class="flex-1 mb-1">{{ t(":preferred_trade_site") }}</div>
       <select v-model="preferredTradeSite" class="p-1 rounded bg-gray-700 w-24">
-        <option value="en">English</option>
-        <option value="ru">Русский</option>
-        <option value="cmn-Hant">正體中文</option>
-        <option value="ko">한국어</option>
-        <option value="ja">日本語</option>
+        <option value="en">www.pathofexile.com</option>
+        <option value="ru">ru.pathofexile.com</option>
+        <option value="cmn-Hant">pathofexile.tw</option>
+        <option value="ko">poe.game.daum.net</option>
+        <option value="ja">jp.pathofexile.com</option>
       </select>
     </div>
     <div class="mb-4" v-if="language === 'cmn-Hant'">

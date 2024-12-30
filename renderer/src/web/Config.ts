@@ -584,7 +584,7 @@ function upgradeConfig(_config: Config): Config {
   }
 
   if (config.configVersion < 17) {
-    config.preferredTradeSite = "en";
+    config.preferredTradeSite = config.language;
     config.configVersion = 17;
   }
 
