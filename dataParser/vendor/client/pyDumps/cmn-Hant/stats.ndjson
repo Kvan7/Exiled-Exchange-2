@@ -1546,7 +1546,6 @@
 {"ref": "#% chance to gain an additional Vaal Soul per Enemy Shattered", "better": 1, "id": "chance_to_gain_vaal_soul_on_enemy_shatter_%", "matchers": [{"string": "擊碎敵人時有 #% 機率額外獲得 1 個瓦爾靈魂", "negate": false}], "trade": {"ids": null}}
 {"ref": "#% increased Experience Gain for Corrupted Gems", "better": 1, "id": "corrupted_gem_experience_gain_+%", "matchers": [{"string": "增加 #% 被汙染寶石經驗獲得", "negate": false}, {"string": "減少 #% 被汙染寶石經驗獲得", "negate": true}], "trade": {"ids": null}}
 {"ref": "With 5 Corrupted Items Equipped: Gain Soul Eater for # seconds on Vaal Skill use", "better": 1, "id": "gain_soul_eater_with_equipped_corrupted_items_on_vaal_skill_use_ms", "matchers": [{"string": "裝備 5 個已汙染物品時，瓦爾技能獲得 # 秒噬魂者", "negate": false}], "trade": {"ids": null}}
-{"ref": "Lose #% of Life on Kill", "better": 1, "id": "maximum_life_%_lost_on_kill", "matchers": [{"string": "擊殺時失去 #% 生命", "negate": false}], "trade": {"ids": null}}
 {"ref": "Lose #% of Energy Shield on Kill", "better": 1, "id": "maximum_energy_shield_%_lost_on_kill", "matchers": [{"string": "擊殺時失去 #% 能量護盾", "negate": false}], "trade": {"ids": null}}
 {"ref": "Curses you with Punishment on Kill", "better": 1, "id": "chance_to_curse_self_with_punishment_on_kill_%", "matchers": [{"string": "擊殺時使你被懲戒詛咒", "negate": false}], "trade": {"ids": null}}
 {"ref": "An additional Curse can be applied to you", "better": 1, "id": "number_of_additional_curses_allowed_on_self", "matchers": [{"string": "你可以受到 1 個額外的詛咒", "negate": false}], "trade": {"ids": null}}

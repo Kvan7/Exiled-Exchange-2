@@ -615,6 +615,7 @@ class Parser:
         self.add_missing_mods()
 
         seen = set()
+        skip = {"maximum_life_%_lost_on_kill"}
         m = open(
             f"{self.out_dir}/stats.ndjson",
             "w",
@@ -623,7 +624,7 @@ class Parser:
         for mod in self.mods.values():
             id = mod.get("id")
 
-            if id in seen:
+            if id in seen or id in skip:
                 continue
 
             m.write(json.dumps(mod, ensure_ascii=False) + "\n")
