@@ -21,7 +21,7 @@ export function createRuneFilters(
         rune: rune.rune,
         isEmpty: rune.isEmpty,
         text: rune.text,
-        disabled: false,
+        disabled: rune.isEmpty,
       });
     }
   }
