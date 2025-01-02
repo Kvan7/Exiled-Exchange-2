@@ -88,8 +88,22 @@
         </div>
         <div class="flex flex-col gap-y-1">
           <template v-if="currencyRatio">
-            <div>{{ localCurrencyRatio }} ex : 1 div</div>
-
+            <ui-popover
+              tag-name="div"
+              class="flex"
+              placement="top"
+              boundary="#price-window"
+            >
+              <template #target>
+                <div>{{ localCurrencyRatio }} ex : 1 div</div>
+              </template>
+              <template #content>
+                <div style="max-width: 18.5rem">
+                  Ratio used for sorting locally <br />
+                  Default on trade site is 7.5:1
+                </div>
+              </template>
+            </ui-popover>
             <input
               id="currency-ratio"
               type="range"
