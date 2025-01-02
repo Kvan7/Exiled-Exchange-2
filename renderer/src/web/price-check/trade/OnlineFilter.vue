@@ -7,7 +7,11 @@
     <template #target>
       <button
         class="rounded mr-1 px-2 truncate"
-        :class="showWarning() ? 'text-orange-500' : 'text-gray-500'"
+        :class="
+          showWarning()
+            ? 'text-orange-500'
+            : 'text-gray-500' + (suggest ? ' ring-4 ring-orange-200' : '')
+        "
       >
         <span
           ><i class="fas fa-history"></i>
@@ -127,7 +131,7 @@ import { useI18nNs } from "@/web/i18n";
 import UiRadio from "@/web/ui/UiRadio.vue";
 import UiToggle from "@/web/ui/UiToggle.vue";
 import UiPopover from "@/web/ui/Popover.vue";
-import type { ItemFilters } from "../filters/interfaces";
+import type { ItemFilters, Suggestion } from "../filters/interfaces";
 import { useLeagues } from "@/web/background/Leagues";
 
 export default defineComponent({
@@ -144,6 +148,10 @@ export default defineComponent({
     currencyRatio: {
       type: Boolean,
       default: false,
+    },
+    suggest: {
+      type: Object as PropType<Suggestion | undefined>,
+      default: undefined,
     },
   },
   setup(props) {

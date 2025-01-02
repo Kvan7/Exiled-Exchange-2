@@ -17,6 +17,13 @@ interface SearchFilter {
   category?: ItemCategory;
 }
 
+export interface Suggestion {
+  type: "exalted";
+  text?: string;
+  text2?: string;
+  confidenceLevel?: "Low" | "Medium" | "High";
+}
+
 export interface ItemFilters {
   searchExact: SearchFilter;
   searchRelaxed?: SearchFilter & { disabled: boolean };

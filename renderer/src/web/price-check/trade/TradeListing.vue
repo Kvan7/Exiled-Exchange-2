@@ -11,10 +11,29 @@
         :by-time="true"
         :filters="filters"
         :currency-ratio="true"
+        :suggest="suggest"
       />
       <div class="flex-1"></div>
       <trade-links v-if="list" :get-link="makeTradeLink" />
     </div>
+    <ui-popover
+      :delay="[150, null]"
+      placement="bottom-end"
+      boundary="#price-window"
+      v-if="suggest"
+    >
+      <template #target>
+        <div v-if="suggest" class="mb-4 text-center bg-orange-800 rounded-xl">
+          {{ suggest.text }}
+        </div>
+      </template>
+      <template #content>
+        <div style="max-width: 18.5rem" class="text-xs">
+          Use Online Filter to fix<br />
+          Disable this alert in settings
+        </div>
+      </template>
+    </ui-popover>
     <div class="layout-column overflow-y-auto overflow-x-hidden">
       <table class="table-stripped w-full">
         <thead>
@@ -144,8 +163,10 @@ import {
   inject,
   shallowReactive,
   shallowRef,
+  ref,
 } from "vue";
 import { useI18nNs } from "@/web/i18n";
+import UiPopover from "@/web/ui/Popover.vue";
 import UiErrorBox from "@/web/ui/UiErrorBox.vue";
 import {
   requestTradeResultList,
@@ -157,7 +178,12 @@ import {
 import { getTradeEndpoint } from "./common";
 import { AppConfig } from "@/web/Config";
 import { PriceCheckWidget } from "@/web/overlay/interfaces";
-import { ItemFilters, RuneFilter, StatFilter } from "../filters/interfaces";
+import {
+  ItemFilters,
+  RuneFilter,
+  StatFilter,
+  Suggestion,
+} from "../filters/interfaces";
 import { ParsedItem } from "@/parser";
 import { artificialSlowdown } from "./artificial-slowdown";
 import OnlineFilter from "./OnlineFilter.vue";
@@ -321,7 +347,7 @@ function useTradeApi() {
 }
 
 export default defineComponent({
-  components: { OnlineFilter, TradeLinks, UiErrorBox },
+  components: { OnlineFilter, TradeLinks, UiErrorBox, UiPopover },
   props: {
     filters: {
       type: Object as PropType<ItemFilters>,
@@ -354,17 +380,67 @@ export default defineComponent({
 
     const showBrowser = inject<(url: string) => void>("builtin-browser")!;
 
+    const suggest = ref<Suggestion | undefined>(undefined);
+
     function makeTradeLink() {
       return searchResult.value
         ? `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}/${searchResult.value.id}`
         : `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}?q=${JSON.stringify(createTradeRequest(props.filters, props.stats, props.item, props.runeFilters))}`;
     }
 
+    watch(groupedResults, (values) => {
+      if (!values.length) return;
+      const totalResults = values.length;
+      const divineResults = values.filter(
+        (result) => result.priceCurrency === "divine",
+      );
+      const divineCount = divineResults.length;
+      if (!divineCount) return;
+      const maxDivine = divineResults.reduce(
+        (max, result) => Math.max(max, result.priceAmount),
+        0,
+      );
+      const oneDivCount = divineResults.filter(
+        (result) => result.priceAmount === 1,
+      ).length;
+      const text = `Trade site hiding results > ${maxDivine * 7.5} ex and < ${props.filters.trade.currencyRatio ?? 130 * maxDivine} ex`;
+      if (oneDivCount === totalResults) {
+        suggest.value = {
+          type: "exalted",
+          text,
+          confidenceLevel: "High",
+        };
+      } else if (
+        divineCount === totalResults &&
+        divineResults.every((result) => result.priceAmount < 5)
+      ) {
+        suggest.value = {
+          type: "exalted",
+          text,
+          confidenceLevel: "Medium",
+        };
+      } else if (
+        divineCount > (totalResults / 3) * 2 &&
+        divineCount < totalResults &&
+        maxDivine <= 3
+      ) {
+        suggest.value = {
+          type: "exalted",
+          text,
+          confidenceLevel: "Medium",
+        };
+      } else {
+        suggest.value = undefined;
+      }
+      console.log(suggest.value);
+    });
+
     const { t } = useI18nNs("trade_result");
 
     return {
       t,
       list: searchResult,
+      suggest,
       groupedResults: computed(() => {
         if (!slowdown.isReady.value) {
           return Array<undefined>(SHOW_RESULTS);
