@@ -6,7 +6,12 @@
         <span v-if="!list" class="text-gray-600">...</span>
         <span v-else>{{ list.total }}{{ list.inexact ? "+" : "" }}</span>
       </div>
-      <online-filter v-if="list" :by-time="true" :filters="filters" />
+      <online-filter
+        v-if="list"
+        :by-time="true"
+        :filters="filters"
+        :currency-ratio="true"
+      />
       <div class="flex-1"></div>
       <trade-links v-if="list" :get-link="makeTradeLink" />
     </div>
@@ -249,6 +254,37 @@ function useTradeApi() {
               )
             : Promise.resolve();
         await Promise.all([r1, r2]);
+      }
+
+      if (filters.trade.currencyRatio) {
+        // Check if there exists any entry with priceCurrency "DIVINE"
+        const hasDivine = fetchResults.value.some(
+          (result) => result.priceCurrency === "divine",
+        );
+
+        if (hasDivine) {
+          // Sort the fetch results based on the exchange ratios
+          fetchResults.value.sort((a, b) => {
+            const getCurrencyValue = (currency: string): number => {
+              switch (currency) {
+                case "exalted":
+                  return 1; // 1:1
+                case "divine":
+                  return filters.trade.currencyRatio!; // 1:<currencyRatio>
+                case "chaos":
+                  return 5; // 1:5
+                default:
+                  return 1 / 40; // Default 40:1 for all other currencies
+              }
+            };
+
+            const aValue = a.priceAmount * getCurrencyValue(a.priceCurrency);
+            const bValue = b.priceAmount * getCurrencyValue(b.priceCurrency);
+
+            // Ascending order
+            return aValue - bValue;
+          });
+        }
       }
 
       let fetched = 20;
