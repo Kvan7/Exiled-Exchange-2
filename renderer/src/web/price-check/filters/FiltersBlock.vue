@@ -164,7 +164,12 @@
     </div> -->
 
     <div class="mb-4" v-if="!runeSocketsVisibility.disabled && hasRuneSockets">
-      <filter-rune-socket v-for="rune in runes" :item="item" :rune="rune" />
+      <filter-rune-socket
+        v-for="rune in runes"
+        :item="item"
+        :rune="rune"
+        :change-item="changeItem"
+      />
       <!-- separator -->
       <div class="w-full border-2 rounded-lg border-gray-700" />
     </div>
@@ -286,6 +291,10 @@ export default defineComponent({
     },
     runes: {
       type: Object as PropType<RuneFilter[]>,
+      required: true,
+    },
+    changeItem: {
+      type: Function as PropType<(newItem: ParsedItem) => void>,
       required: true,
     },
   },

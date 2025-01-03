@@ -64,10 +64,11 @@
 import { useI18n } from "vue-i18n";
 
 import ItemModifierText from "../../ui/ItemModifierText.vue";
-import { computed, defineComponent, PropType, ref } from "vue";
+import { computed, defineComponent, PropType, ref, watch } from "vue";
 import { ParsedItem } from "@/parser";
 import { RuneFilter } from "./interfaces";
 import { RUNE_LIST } from "@/assets/data";
+import { ModifierType } from "@/parser/modifiers";
 
 export default defineComponent({
   components: { ItemModifierText },
@@ -78,6 +79,10 @@ export default defineComponent({
     },
     rune: {
       type: Object as PropType<RuneFilter>,
+      required: true,
+    },
+    changeItem: {
+      type: Function as PropType<(newItem: ParsedItem) => void>,
       required: true,
     },
   },
@@ -97,6 +102,140 @@ export default defineComponent({
       if (!props.rune.isEmpty) return;
       props.rune.disabled = !props.rune.disabled;
     }
+    watch(
+      () => selectedRune.value,
+      () => {
+        if (!selectedRune.value) return;
+        const newItem = item;
+        newItem.statsByType.push({
+          stat: {
+            ref: "+#% to Critical Hit Chance",
+            better: 1,
+            id: "local_critical_strike_chance",
+            matchers: [
+              {
+                string: "#% to Critical Hit Chance",
+              },
+            ],
+            trade: {
+              ids: {
+                explicit: ["explicit.stat_518292764"],
+              },
+            },
+          } as any,
+          type: ModifierType.Explicit,
+          sources: [
+            {
+              modifier: {
+                info: {
+                  type: ModifierType.Explicit,
+                  tags: [],
+                },
+                stats: [
+                  {
+                    stat: {
+                      ref: "+#% to Critical Hit Chance",
+                      better: 1,
+                      id: "local_critical_strike_chance",
+                      matchers: [
+                        {
+                          string: "#% to Critical Hit Chance",
+                        },
+                      ],
+                      trade: {
+                        ids: {
+                          explicit: ["explicit.stat_518292764"],
+                        },
+                      },
+                    } as any,
+                    translation: {
+                      string: "#% to Critical Hit Chance",
+                    },
+                    roll: {
+                      unscalable: false,
+                      dp: true,
+                      value: 2.42,
+                      min: 2.42,
+                      max: 2.42,
+                    },
+                  },
+                ],
+              },
+              stat: {
+                stat: {
+                  ref: "+#% to Critical Hit Chance",
+                  better: 1,
+                  id: "local_critical_strike_chance",
+                  matchers: [
+                    {
+                      string: "#% to Critical Hit Chance",
+                    },
+                  ],
+                  trade: {
+                    ids: {
+                      explicit: ["explicit.stat_518292764"],
+                    },
+                  },
+                } as any,
+                translation: {
+                  string: "#% to Critical Hit Chance",
+                },
+                roll: {
+                  unscalable: false,
+                  dp: true,
+                  value: 2.42,
+                  min: 2.42,
+                  max: 2.42,
+                },
+              },
+              contributes: {
+                value: 2.42,
+                min: 2.42,
+                max: 2.42,
+              },
+            },
+          ],
+        });
+        newItem.newMods.push({
+          info: {
+            type: ModifierType.Explicit,
+            tags: [],
+          },
+          stats: [
+            {
+              stat: {
+                ref: "+#% to Critical Hit Chance",
+                better: 1,
+                id: "local_critical_strike_chance",
+                matchers: [
+                  {
+                    string: "#% to Critical Hit Chance",
+                  },
+                ],
+                trade: {
+                  ids: {
+                    explicit: ["explicit.stat_518292764"],
+                  },
+                },
+              } as any,
+              translation: {
+                string: "#% to Critical Hit Chance",
+              },
+              roll: {
+                unscalable: false,
+                dp: true,
+                value: 2.42,
+                min: 2.42,
+                max: 2.42,
+              },
+            },
+          ],
+        });
+        console.log("runeSocket", newItem);
+        props.changeItem(newItem);
+      },
+      { immediate: true },
+    );
 
     return {
       t,

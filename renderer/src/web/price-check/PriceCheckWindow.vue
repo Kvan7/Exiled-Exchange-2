@@ -78,6 +78,7 @@
             v-if="isLeagueSelected"
             :item="item.value"
             :advanced-check="advancedCheck"
+            :change-item="changeItem"
           />
         </template>
         <div v-if="isBrowserShown" class="bg-gray-900 px-6 py-2 truncate">
@@ -223,7 +224,15 @@ export default defineComponent({
       wm.show(props.config.wmId);
       checkPosition.value = e.position;
       advancedCheck.value = e.focusOverlay;
-      item.value = (
+      item.value = handleItemPaste({ clipboard: e.clipboard, item: e.item });
+
+      if (item.value.isOk()) {
+        queuePricesFetch();
+      }
+    });
+
+    function handleItemPaste(e: { clipboard: string; item: any }) {
+      const newItem = (
         e.item ? ok(e.item as ParsedItem) : parseClipboard(e.clipboard)
       )
         .andThen((item) =>
@@ -239,11 +248,14 @@ export default defineComponent({
           message: `${err}_help`,
           rawText: e.clipboard,
         }));
+      return newItem;
+    }
 
-      if (item.value.isOk()) {
-        queuePricesFetch();
-      }
-    });
+    function changeItem(newItem: ParsedItem) {
+      console.log("change item", newItem);
+      item.value = handleItemPaste({ clipboard: newItem.rawText, item });
+      console.log("changed item.value", item.value);
+    }
 
     function handleIdentification(identified: ParsedItem) {
       item.value = ok(identified);
@@ -354,6 +366,7 @@ export default defineComponent({
       overlayKey,
       isLeagueSelected,
       openLeagueSelection,
+      changeItem,
     };
   },
 });

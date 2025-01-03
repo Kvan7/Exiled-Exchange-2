@@ -11,6 +11,7 @@
       :item="item"
       :presets="presets"
       :runes="runeFilters"
+      :change-item="changeItem"
       @preset="selectPreset"
       @submit="doSearch = true"
     />
@@ -119,6 +120,10 @@ export default defineComponent({
       type: Boolean,
       required: true,
     },
+    changeItem: {
+      type: Function as PropType<(newItem: ParsedItem) => void>,
+      required: true,
+    },
   },
   setup(props) {
     const widget = computed(() => AppConfig<PriceCheckWidget>("price-check")!);
@@ -155,6 +160,7 @@ export default defineComponent({
     watch(
       () => props.item,
       (item, prevItem) => {
+        console.log("checked item, make presets", item);
         const prevCurrency =
           presets.value != null ? itemFilters.value.trade.currency : undefined;
 
@@ -202,12 +208,13 @@ export default defineComponent({
           itemFilters.value,
         );
       },
-      { immediate: true },
+      { immediate: true, deep: true },
     );
 
     watch(
       () => [props.item, doSearch.value],
       () => {
+        console.log("checked item, do search", props.item);
         if (doSearch.value === false) return;
 
         tradeAPI.value = apiToSatisfySearch(
@@ -245,6 +252,7 @@ export default defineComponent({
     watch(
       () => [props.item, JSON.stringify(itemFilters.value.trade)],
       (curr, prev) => {
+        console.log("checked item, trade", curr);
         const cItem = curr[0];
         const pItem = prev[0];
         const cTrade = curr[1];
