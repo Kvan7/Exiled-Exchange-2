@@ -188,6 +188,8 @@ export default defineComponent({
             ["en", "ru", "ko", "cmn-Hant"].includes(lang.value),
         });
 
+        console.log("item", item);
+
         if (
           (!props.advancedCheck && !widget.value.smartInitialSearch) ||
           (props.advancedCheck && !widget.value.lockedInitialSearch)

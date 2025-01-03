@@ -77,6 +77,7 @@ import {
   replaceHashWithValues,
 } from "@/parser/Parser";
 import { sumStatsByModType } from "@/parser/modifiers";
+import { calcBaseDamage, calcTotalDamage } from "@/parser/calc-base";
 
 export default defineComponent({
   components: { ItemModifierText },
@@ -104,18 +105,11 @@ export default defineComponent({
     const runeOptions = computed(() => {
       if (widget.value.enableAlphas && widget.value.alphas.includes("runes")) {
         // Return modified rune options if enableAlphas is true
-        return [
-          {
-            value: "Iron Rune",
-            text: "Alpha Iron Rune",
-            icon: "https://cdn.poe2db.tw/image/art/2ditems/currency/runes/enhancerune.webp",
-          },
-          {
-            value: "Body Rune",
-            text: "Alpha Body Rune",
-            icon: "https://cdn.poe2db.tw/image/art/2ditems/currency/runes/enhancerune.webp",
-          },
-        ];
+        return RUNE_LIST.map((rune) => ({
+          value: rune.refName,
+          text: `Alpha ${rune.refName}`,
+          icon: rune.icon,
+        }));
       } else {
         // Return current rune options if enableAlphas is false
         return RUNE_LIST.map((rune) => ({
@@ -129,7 +123,6 @@ export default defineComponent({
     watch(
       () => props.rune,
       () => {
-        console.log("rune filter filter", props.rune, props.item.runeSockets);
         if (props.rune.isFake) {
           selectedRune.value = props.rune.rune!;
         } else {
@@ -144,36 +137,32 @@ export default defineComponent({
     }
     watch(
       () => selectedRune.value,
-      () => {
+      (selected, prev) => {
         if (
-          !selectedRune.value ||
+          !selected ||
           !widget.value.enableAlphas ||
           !widget.value.alphas.includes("runes")
         )
           return;
 
-        console.log("rune filter starting item", item);
-
-        if (selectedRune.value === "empty" && item.originalItem) {
+        if (selected === "empty" && item.originalItem) {
           const newItem = item.originalItem;
           props.changeItem(newItem);
-          console.log("reset item", newItem);
           return;
-        } else if (selectedRune.value === "empty") {
+        } else if (selected === "empty") {
           return;
         }
-        if (item.runeSockets!.empty - 1 < 0) return;
-        const newItem = JSON.parse(JSON.stringify(item));
-        newItem.originalItem = JSON.parse(JSON.stringify(item));
+        // if (item.runeSockets!.empty - 1 < 0) return;
+        const itemToChange = prev !== "empty" ? item.originalItem : item;
+        const newItem = JSON.parse(JSON.stringify(itemToChange)) as ParsedItem;
+        newItem.originalItem = JSON.parse(
+          JSON.stringify(itemToChange),
+        ) as ParsedItem;
         newItem.runeSockets!.empty -= 1;
 
-        console.log("RUNE_DATA_BY_RUNE", RUNE_DATA_BY_RUNE);
-        console.log("selectedRune", selectedRune.value);
-
-        const runeData = RUNE_DATA_BY_RUNE[selectedRune.value].find(
+        const runeData = RUNE_DATA_BY_RUNE[selected].find(
           (rune) => rune.type === isArmourOrWeapon(item.category),
         );
-        console.log("runeData", runeData);
         if (!runeData) return;
         const statString = replaceHashWithValues(
           runeData.baseStat,
@@ -182,179 +171,30 @@ export default defineComponent({
         parseModifiersPoe2([statString], newItem);
         newItem.statsByType = sumStatsByModType(newItem.newMods);
 
-        // newItem.statsByType.push({
-        //   stat: {
-        //     ref: "Causes #% increased Stun Buildup",
-        //     better: 1,
-        //     id: "local_hit_damage_stun_multiplier_+%",
-        //     matchers: [
-        //       {
-        //         string: "Causes #% increased Stun Buildup",
-        //         negate: false,
-        //       },
-        //       {
-        //         string: "Causes #% reduced Stun Buildup",
-        //         negate: true,
-        //       },
-        //     ],
-        //     trade: {
-        //       ids: {
-        //         explicit: ["explicit.stat_791928121"],
-        //         implicit: ["implicit.stat_791928121"],
-        //         enchant: ["enchant.stat_791928121"],
-        //         rune: ["rune.stat_791928121"],
-        //       },
-        //     },
-        //   },
-        //   type: ModifierType.FakeRune,
-        //   sources: [
-        //     {
-        //       modifier: {
-        //         info: {
-        //           type: ModifierType.FakeRune,
-        //           tags: [],
-        //         },
-        //         stats: [
-        //           {
-        //             stat: {
-        //               ref: "Causes #% increased Stun Buildup",
-        //               better: 1,
-        //               id: "local_hit_damage_stun_multiplier_+%",
-        //               matchers: [
-        //                 {
-        //                   string: "Causes #% increased Stun Buildup",
-        //                   negate: false,
-        //                 },
-        //                 {
-        //                   string: "Causes #% reduced Stun Buildup",
-        //                   negate: true,
-        //                 },
-        //               ],
-        //               trade: {
-        //                 ids: {
-        //                   explicit: ["explicit.stat_791928121"],
-        //                   implicit: ["implicit.stat_791928121"],
-        //                   enchant: ["enchant.stat_791928121"],
-        //                   rune: ["rune.stat_791928121"],
-        //                 },
-        //               },
-        //             },
-        //             translation: {
-        //               string: "Causes #% increased Stun Buildup",
-        //               negate: false,
-        //             },
-        //             roll: {
-        //               unscalable: false,
-        //               dp: false,
-        //               value: 25,
-        //               min: 25,
-        //               max: 25,
-        //             },
-        //           },
-        //         ],
-        //       },
-        //       stat: {
-        //         stat: {
-        //           ref: "Causes #% increased Stun Buildup",
-        //           better: 1,
-        //           id: "local_hit_damage_stun_multiplier_+%",
-        //           matchers: [
-        //             {
-        //               string: "Causes #% increased Stun Buildup",
-        //               negate: false,
-        //             },
-        //             {
-        //               string: "Causes #% reduced Stun Buildup",
-        //               negate: true,
-        //             },
-        //           ],
-        //           trade: {
-        //             ids: {
-        //               explicit: ["explicit.stat_791928121"],
-        //               implicit: ["implicit.stat_791928121"],
-        //               enchant: ["enchant.stat_791928121"],
-        //               rune: ["rune.stat_791928121"],
-        //             },
-        //           },
-        //         },
-        //         translation: {
-        //           string: "Causes #% increased Stun Buildup",
-        //           negate: false,
-        //         },
-        //         roll: {
-        //           unscalable: false,
-        //           dp: false,
-        //           value: 25,
-        //           min: 25,
-        //           max: 25,
-        //         },
-        //       },
-        //       contributes: {
-        //         value: 25,
-        //         min: 25,
-        //         max: 25,
-        //       },
-        //     },
-        //   ],
-        // });
-        // newItem.newMods.push({
-        //   info: {
-        //     type: ModifierType.FakeRune,
-        //     tags: [],
-        //   },
-        //   stats: [
-        //     {
-        //       stat: {
-        //         ref: "Causes #% increased Stun Buildup",
-        //         better: 1,
-        //         id: "local_hit_damage_stun_multiplier_+%",
-        //         matchers: [
-        //           {
-        //             string: "Causes #% increased Stun Buildup",
-        //             negate: false,
-        //           },
-        //           {
-        //             string: "Causes #% reduced Stun Buildup",
-        //             negate: true,
-        //           },
-        //         ],
-        //         trade: {
-        //           ids: {
-        //             explicit: ["explicit.stat_791928121"],
-        //             implicit: ["implicit.stat_791928121"],
-        //             enchant: ["enchant.stat_791928121"],
-        //             rune: ["rune.stat_791928121"],
-        //           },
-        //         },
-        //       },
-        //       translation: {
-        //         string: "Causes #% increased Stun Buildup",
-        //         negate: false,
-        //       },
-        //       roll: {
-        //         unscalable: false,
-        //         dp: false,
-        //         value: 25,
-        //         min: 25,
-        //         max: 25,
-        //       },
-        //     },
-        //   ],
-        // });
-        // replace empty rune with selected rune by index
+        // Redo damage calc
+        if (selectedRune.value === "Iron Rune") {
+          console.log("Iron Rune");
+          if (isArmourOrWeapon(item.category) === "weapon") {
+            const baseDamage = calcBaseDamage(newItem.originalItem!);
+            const totalDamage = calcTotalDamage(newItem, baseDamage);
+            if (totalDamage > 0) {
+              newItem.weaponPHYSICAL = totalDamage;
+            }
+          }
+        }
+
         const index = props.item.runeSockets!.runes.findIndex(
           (rune) => rune.index === props.rune.index,
         );
         if (index === -1) throw new Error("rune not found");
 
         // replace empty rune with selected rune by rune index
-        newItem.runeSockets.runes[index] = {
+        newItem.runeSockets!.runes[index] = {
           isEmpty: true,
           isFake: true,
-          rune: selectedRune.value,
+          rune: selected,
           index,
         };
-        console.log("runeSocket", newItem);
         props.changeItem(newItem);
       },
       { immediate: false },
