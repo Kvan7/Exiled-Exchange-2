@@ -1466,6 +1466,7 @@ function isArmourOrWeapon(
     case ItemCategory.Gloves:
     case ItemCategory.Helmet:
     case ItemCategory.Shield:
+    case ItemCategory.Focus:
       return "armour";
     case ItemCategory.OneHandedAxe:
     case ItemCategory.OneHandedMace:
