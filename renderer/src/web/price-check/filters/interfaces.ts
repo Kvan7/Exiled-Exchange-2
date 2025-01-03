@@ -17,6 +17,13 @@ interface SearchFilter {
   category?: ItemCategory;
 }
 
+export interface Suggestion {
+  type: "exalted";
+  text?: string;
+  text2?: string;
+  confidenceLevel?: "Low" | "Medium" | "High";
+}
+
 export interface ItemFilters {
   searchExact: SearchFilter;
   searchRelaxed?: SearchFilter & { disabled: boolean };
@@ -74,6 +81,7 @@ export interface ItemFilters {
     currency: string | undefined;
     league: string;
     collapseListings: "api" | "app";
+    currencyRatio?: number;
   };
 }
 

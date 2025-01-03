@@ -130,7 +130,7 @@ export interface Config {
 }
 
 export const defaultConfig = (): Config => ({
-  configVersion: 17,
+  configVersion: 18,
   overlayKey: "Shift + Space",
   overlayBackground: "rgba(129, 139, 149, 0.15)",
   overlayBackgroundClose: true,
@@ -209,7 +209,7 @@ export const defaultConfig = (): Config => ({
       lockedInitialSearch: true,
       activateStockFilter: false,
       builtinBrowser: false,
-      usePseudo: true,
+      usePseudo: false,
       hotkey: "D",
       hotkeyHold: "Ctrl",
       hotkeyLocked: "Ctrl + Alt + D",
@@ -218,6 +218,7 @@ export const defaultConfig = (): Config => ({
       showCursor: true,
       requestPricePrediction: false,
       rememberCurrency: false,
+      showSuggestWarning: "help",
     } as widget.PriceCheckWidget,
     {
       wmId: 3,
@@ -586,6 +587,15 @@ function upgradeConfig(_config: Config): Config {
   if (config.configVersion < 17) {
     config.preferredTradeSite = config.language;
     config.configVersion = 17;
+  }
+
+  if (config.configVersion < 18) {
+    const priceCheck = config.widgets.find(
+      (w) => w.wmType === "price-check",
+    ) as widget.PriceCheckWidget;
+    priceCheck.showSuggestWarning = "help";
+    priceCheck.usePseudo = false;
+    config.configVersion = 18;
   }
 
   if (config.logKeys === undefined) {
