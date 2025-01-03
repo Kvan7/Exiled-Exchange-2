@@ -341,8 +341,9 @@ export default defineComponent({
         return props.stats.filter((stat) => !stat.disabled).length;
       }),
       totalSelectedRunes: computed(() => {
-        return props.runes.filter((rune) => rune.isEmpty && !rune.disabled)
-          .length;
+        return props.runes.filter(
+          (rune) => rune.isEmpty && !rune.disabled && !rune.isFake,
+        ).length;
       }),
       filteredStats: computed(() => {
         if (showHidden.value) {
@@ -353,7 +354,6 @@ export default defineComponent({
       }),
       sortedRunes: computed(() => {
         const r = props.runes.sort((a, b) => a.index - b.index);
-        console.log("rune sort", r);
         return r;
       }),
       // filteredRunes: computed(() => props.runes),

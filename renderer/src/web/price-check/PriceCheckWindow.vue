@@ -234,9 +234,6 @@ export default defineComponent({
     });
 
     function handleItemPaste(e: { clipboard: string; item: any }) {
-      if (e.item) {
-        console.log("item item test", ok(e.item as ParsedItem));
-      }
       const newItem = (
         e.item ? ok(e.item as ParsedItem) : parseClipboard(e.clipboard)
       )
@@ -253,7 +250,6 @@ export default defineComponent({
           message: `${err}_help`,
           rawText: e.clipboard,
         }));
-      console.log("item item out", newItem);
       return newItem;
     }
 
@@ -263,7 +259,6 @@ export default defineComponent({
         item: newItem,
       });
       rebuildKey.value += 1;
-      console.log("changed item.value", item.value, rebuildKey.value);
     }
 
     function handleIdentification(identified: ParsedItem) {
