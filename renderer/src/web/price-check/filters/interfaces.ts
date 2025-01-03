@@ -95,6 +95,8 @@ export interface RuneFilter {
   rune?: string;
   text?: string;
   isEmpty: boolean;
+  isFake: boolean;
+  index: number;
   disabled: boolean; // NOTE: mutable in UI
 }
 
@@ -167,4 +169,6 @@ export enum FilterTag {
   Delve = "explicit-delve",
   Unveiled = "explicit-veiled",
   Incursion = "explicit-incursion",
+  Rune = "rune",
+  FakeRune = "fake-rune",
 }
