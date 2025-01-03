@@ -364,6 +364,7 @@ export default defineComponent({
   @apply sticky top-0;
   @apply bg-gray-800;
   @apply p-0 m-0;
+  @apply whitespace-nowrap;
 
   & > div {
     @apply border-b border-gray-700;
