@@ -312,7 +312,9 @@
     "restore_clipboard": "Restore clipboard",
     "show_overlay_ready": "Show a notification when the Overlay detects a PoE window",
     "debug_hotkeys": "Record all key presses",
-    "preferred_trade_site": "Preferred trade site"
+    "preferred_trade_site": "Preferred trade site",
+    "enable_alphas": "Enable alphas",
+    "alphas_warning": "Alphas are extremely experimental and will probably not work as expected. Please report any issues you encounter."
   },
   "price_check": {
     "name": "Price check",

@@ -1011,9 +1011,15 @@ function applyRuneSockets(item: ParsedItem) {
     if (potentialEmptySockets > 0) {
       for (let i = 0; i < potentialEmptySockets; i++) {
         item.runeSockets.runes.push({
+          index: i + runes.length,
           isEmpty: true,
         });
       }
+    }
+
+    // reset indices just to be safe
+    for (let i = 0; i < item.runeSockets.runes.length; i++) {
+      item.runeSockets.runes[i].index = i;
     }
   }
 }
@@ -1505,6 +1511,7 @@ function statToRune(mod: ParsedModifier, statCalc: StatCalculated): Rune[] {
   const runes: Rune[] = [];
   for (let i = 0; i < totalRunes; i++) {
     runes.push({
+      index: i,
       isEmpty: false,
       rune: runeSingle.rune,
       text: modRef,

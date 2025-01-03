@@ -195,7 +195,10 @@ export function calculatedStatToFilter(
   let filter: StatFilter;
   if (stat.trade.option) {
     filter = {
-      tradeId: stat.trade.ids[type],
+      tradeId:
+        stat.trade.ids[
+          type === ModifierType.FakeRune ? ModifierType.Rune : type
+        ],
       statRef: stat.ref,
       text: sources[0].stat.translation.string,
       tag:
@@ -216,7 +219,8 @@ export function calculatedStatToFilter(
   const translation = translateStatWithRoll(calc, roll);
 
   filter ??= {
-    tradeId: stat.trade.ids[type],
+    tradeId:
+      stat.trade.ids[type === ModifierType.FakeRune ? ModifierType.Rune : type],
     statRef: stat.ref,
     text: translation.string,
     tag: type as unknown as FilterTag,

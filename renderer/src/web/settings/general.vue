@@ -97,11 +97,27 @@
         class="rounded bg-gray-900 px-1 block w-full mb-1 font-poe"
       />
     </div>
+    <div class="mb-4" :class="{ 'p-2 bg-orange-800 rounded': enableAlphas }">
+      <ui-checkbox class="mb-4" v-model="enableAlphas">{{
+        t(":enable_alphas")
+      }}</ui-checkbox>
+      <input
+        v-if="enableAlphas"
+        v-model.trim="alphasText"
+        class="rounded bg-gray-900 px-1 block w-full font-poe"
+      />
+      <div class="mb-4" v-if="enableAlphas">
+        Selected alphas: [{{ config.alphas.join(", ") }}]
+      </div>
+      <div v-if="enableAlphas" class="mt-1">
+        {{ t(":alphas_warning") }}
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, watch } from "vue";
 import { useI18nNs } from "@/web/i18n";
 import UiRadio from "@/web/ui/UiRadio.vue";
 import UiCheckbox from "@/web/ui/UiCheckbox.vue";
@@ -114,6 +130,27 @@ export default defineComponent({
   props: configProp(),
   setup(props) {
     const { t } = useI18nNs("settings");
+    const alphasText = configModelValue(() => props.config, "alphasText");
+    const availableAlphas = ["runes"];
+
+    watch(alphasText, (alphasText) => {
+      try {
+        const alphas = alphasText.split(";").map((a) => a.trim());
+        const validAlphas = Array.from(
+          new Set(alphas.filter((alpha) => availableAlphas.includes(alpha))),
+        );
+        const invalidAlphas = alphas.filter(
+          (alpha) => !availableAlphas.includes(alpha),
+        );
+
+        if (invalidAlphas.length === 0) {
+          props.config.alphas = validAlphas as Array<"runes">;
+        }
+      } catch (error) {
+        console.log(error);
+        props.config.alphas = [];
+      }
+    });
 
     return {
       t,
@@ -163,6 +200,8 @@ export default defineComponent({
         "overlayAlwaysClose",
       ),
       windowTitle: configModelValue(() => props.config, "windowTitle"),
+      enableAlphas: configModelValue(() => props.config, "enableAlphas"),
+      alphasText,
     };
   },
 });

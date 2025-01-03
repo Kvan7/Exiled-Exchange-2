@@ -165,7 +165,8 @@
 
     <div class="mb-4" v-if="!runeSocketsVisibility.disabled && hasRuneSockets">
       <filter-rune-socket
-        v-for="rune in runes"
+        v-for="rune in sortedRunes"
+        :key="rebuildKey + '/' + (rune.rune ?? 'empty') + '/' + rune.index"
         :item="item"
         :rune="rune"
         :change-item="changeItem"
@@ -297,6 +298,10 @@ export default defineComponent({
       type: Function as PropType<(newItem: ParsedItem) => void>,
       required: true,
     },
+    rebuildKey: {
+      type: Number,
+      required: true,
+    },
   },
   setup(props, ctx) {
     const statsVisibility = shallowReactive({ disabled: false });
@@ -309,7 +314,8 @@ export default defineComponent({
       () => {
         showHidden.value = false;
         statsVisibility.disabled = false;
-        runeSocketsVisibility.disabled = true;
+        runeSocketsVisibility.disabled =
+          props.item.runeSockets?.runes.every((rune) => !rune.isFake) ?? true;
       },
     );
 
@@ -344,6 +350,11 @@ export default defineComponent({
         } else {
           return props.stats.filter((s) => !s.hidden);
         }
+      }),
+      sortedRunes: computed(() => {
+        const r = props.runes.sort((a, b) => a.index - b.index);
+        console.log("rune sort", r);
+        return r;
       }),
       // filteredRunes: computed(() => props.runes),
       showUnknownMods,

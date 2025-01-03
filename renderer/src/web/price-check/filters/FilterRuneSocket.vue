@@ -6,15 +6,17 @@
           class="flex items-baseline text-left min-w-0"
           :class="{
             'pointer-events-none opacity-50': !rune.isEmpty,
+            'pointer-events-none': rune.isFake,
           }"
           type="button"
-          @disabled="!rune.isEmpty"
+          @disabled="!rune.isEmpty || rune.isFake"
           @click="toggleFilter"
         >
           <i
             class="w-5"
             :class="{
-              'far fa-check-square text-gray-500 opacity-50': !rune.isEmpty, // Inverted checked box
+              'far fa-check-square text-gray-500 opacity-50':
+                !rune.isEmpty || rune.isFake, // Inverted checked box
               'far fa-square text-gray-500': isDisabled && rune.isEmpty,
               'fas fa-check-square': !isDisabled && rune.isEmpty,
             }"
@@ -35,10 +37,10 @@
             :class="$style['rollInput']"
             v-model="selectedRune"
           >
-            <option value="" disabled>Select a rune</option>
+            <option value="empty">Empty Socket</option>
             <option
               v-for="option in runeOptions"
-              :key="option.value"
+              :key="option.value + option.text"
               :value="option.value"
             >
               {{ option.text }}
@@ -69,6 +71,7 @@ import { ParsedItem } from "@/parser";
 import { RuneFilter } from "./interfaces";
 import { RUNE_LIST } from "@/assets/data";
 import { ModifierType } from "@/parser/modifiers";
+import { AppConfig } from "@/web/Config";
 
 export default defineComponent({
   components: { ItemModifierText },
@@ -87,154 +90,248 @@ export default defineComponent({
     },
   },
   setup(props) {
+    const widget = computed(() => AppConfig());
     const { t } = useI18n();
     const item = props.item;
-    const selectedRune = ref<string>(""); // Initialize selectedRune
+    const selectedRune = ref("empty"); // Initialize
 
     // Sample rune options you can modify according to your needs
-    const runeOptions = RUNE_LIST.map((rune) => ({
-      value: rune.refName,
-      text: `%NOT_IMPLEMENTED% ${rune.refName}`,
-      icon: rune.icon,
-    }));
+    const runeOptions = computed(() => {
+      if (widget.value.enableAlphas && widget.value.alphas.includes("runes")) {
+        // Return modified rune options if enableAlphas is true
+        return [
+          {
+            value: "Iron Rune",
+            text: "Alpha Iron Rune",
+            icon: "https://cdn.poe2db.tw/image/art/2ditems/currency/runes/enhancerune.webp",
+          },
+        ];
+      } else {
+        // Return current rune options if enableAlphas is false
+        return RUNE_LIST.map((rune) => ({
+          value: rune.refName,
+          text: `%NOT_IMPLEMENTED% ${rune.refName}`,
+          icon: rune.icon,
+        }));
+      }
+    });
 
+    watch(
+      () => props.rune,
+      () => {
+        console.log("rune filter filter", props.rune, props.item.runeSockets);
+        if (props.rune.isFake) {
+          selectedRune.value = props.rune.rune!;
+        } else {
+          selectedRune.value = "empty";
+        }
+      },
+      { immediate: true },
+    );
     function toggleFilter() {
-      if (!props.rune.isEmpty) return;
+      if (!props.rune.isEmpty || props.rune.isFake) return;
       props.rune.disabled = !props.rune.disabled;
     }
     watch(
       () => selectedRune.value,
       () => {
-        if (!selectedRune.value) return;
-        const newItem = item;
+        if (
+          !selectedRune.value ||
+          !widget.value.enableAlphas ||
+          !widget.value.alphas.includes("runes")
+        )
+          return;
+
+        console.log("rune filter starting item", item);
+
+        if (selectedRune.value === "empty" && item.originalItem) {
+          const newItem = item.originalItem;
+          props.changeItem(newItem);
+          console.log("reset item", newItem);
+          return;
+        } else if (selectedRune.value === "empty") {
+          return;
+        }
+        if (item.runeSockets!.empty - 1 < 0) return;
+        const newItem = JSON.parse(JSON.stringify(item));
+        newItem.originalItem = JSON.parse(JSON.stringify(item));
+        newItem.runeSockets!.empty -= 1;
         newItem.statsByType.push({
           stat: {
-            ref: "+#% to Critical Hit Chance",
+            ref: "Causes #% increased Stun Buildup",
             better: 1,
-            id: "local_critical_strike_chance",
+            id: "local_hit_damage_stun_multiplier_+%",
             matchers: [
               {
-                string: "#% to Critical Hit Chance",
+                string: "Causes #% increased Stun Buildup",
+                negate: false,
+              },
+              {
+                string: "Causes #% reduced Stun Buildup",
+                negate: true,
               },
             ],
             trade: {
               ids: {
-                explicit: ["explicit.stat_518292764"],
+                explicit: ["explicit.stat_791928121"],
+                implicit: ["implicit.stat_791928121"],
+                enchant: ["enchant.stat_791928121"],
+                rune: ["rune.stat_791928121"],
               },
             },
-          } as any,
-          type: ModifierType.Explicit,
+          },
+          type: ModifierType.FakeRune,
           sources: [
             {
               modifier: {
                 info: {
-                  type: ModifierType.Explicit,
+                  type: ModifierType.FakeRune,
                   tags: [],
                 },
                 stats: [
                   {
                     stat: {
-                      ref: "+#% to Critical Hit Chance",
+                      ref: "Causes #% increased Stun Buildup",
                       better: 1,
-                      id: "local_critical_strike_chance",
+                      id: "local_hit_damage_stun_multiplier_+%",
                       matchers: [
                         {
-                          string: "#% to Critical Hit Chance",
+                          string: "Causes #% increased Stun Buildup",
+                          negate: false,
+                        },
+                        {
+                          string: "Causes #% reduced Stun Buildup",
+                          negate: true,
                         },
                       ],
                       trade: {
                         ids: {
-                          explicit: ["explicit.stat_518292764"],
+                          explicit: ["explicit.stat_791928121"],
+                          implicit: ["implicit.stat_791928121"],
+                          enchant: ["enchant.stat_791928121"],
+                          rune: ["rune.stat_791928121"],
                         },
                       },
-                    } as any,
+                    },
                     translation: {
-                      string: "#% to Critical Hit Chance",
+                      string: "Causes #% increased Stun Buildup",
+                      negate: false,
                     },
                     roll: {
                       unscalable: false,
-                      dp: true,
-                      value: 2.42,
-                      min: 2.42,
-                      max: 2.42,
+                      dp: false,
+                      value: 25,
+                      min: 25,
+                      max: 25,
                     },
                   },
                 ],
               },
               stat: {
                 stat: {
-                  ref: "+#% to Critical Hit Chance",
+                  ref: "Causes #% increased Stun Buildup",
                   better: 1,
-                  id: "local_critical_strike_chance",
+                  id: "local_hit_damage_stun_multiplier_+%",
                   matchers: [
                     {
-                      string: "#% to Critical Hit Chance",
+                      string: "Causes #% increased Stun Buildup",
+                      negate: false,
+                    },
+                    {
+                      string: "Causes #% reduced Stun Buildup",
+                      negate: true,
                     },
                   ],
                   trade: {
                     ids: {
-                      explicit: ["explicit.stat_518292764"],
+                      explicit: ["explicit.stat_791928121"],
+                      implicit: ["implicit.stat_791928121"],
+                      enchant: ["enchant.stat_791928121"],
+                      rune: ["rune.stat_791928121"],
                     },
                   },
-                } as any,
+                },
                 translation: {
-                  string: "#% to Critical Hit Chance",
+                  string: "Causes #% increased Stun Buildup",
+                  negate: false,
                 },
                 roll: {
                   unscalable: false,
-                  dp: true,
-                  value: 2.42,
-                  min: 2.42,
-                  max: 2.42,
+                  dp: false,
+                  value: 25,
+                  min: 25,
+                  max: 25,
                 },
               },
               contributes: {
-                value: 2.42,
-                min: 2.42,
-                max: 2.42,
+                value: 25,
+                min: 25,
+                max: 25,
               },
             },
           ],
         });
-        newItem.newMods.push({
-          info: {
-            type: ModifierType.Explicit,
-            tags: [],
-          },
-          stats: [
-            {
-              stat: {
-                ref: "+#% to Critical Hit Chance",
-                better: 1,
-                id: "local_critical_strike_chance",
-                matchers: [
-                  {
-                    string: "#% to Critical Hit Chance",
-                  },
-                ],
-                trade: {
-                  ids: {
-                    explicit: ["explicit.stat_518292764"],
-                  },
-                },
-              } as any,
-              translation: {
-                string: "#% to Critical Hit Chance",
-              },
-              roll: {
-                unscalable: false,
-                dp: true,
-                value: 2.42,
-                min: 2.42,
-                max: 2.42,
-              },
-            },
-          ],
-        });
+        // newItem.newMods.push({
+        //   info: {
+        //     type: ModifierType.FakeRune,
+        //     tags: [],
+        //   },
+        //   stats: [
+        //     {
+        //       stat: {
+        //         ref: "Causes #% increased Stun Buildup",
+        //         better: 1,
+        //         id: "local_hit_damage_stun_multiplier_+%",
+        //         matchers: [
+        //           {
+        //             string: "Causes #% increased Stun Buildup",
+        //             negate: false,
+        //           },
+        //           {
+        //             string: "Causes #% reduced Stun Buildup",
+        //             negate: true,
+        //           },
+        //         ],
+        //         trade: {
+        //           ids: {
+        //             explicit: ["explicit.stat_791928121"],
+        //             implicit: ["implicit.stat_791928121"],
+        //             enchant: ["enchant.stat_791928121"],
+        //             rune: ["rune.stat_791928121"],
+        //           },
+        //         },
+        //       },
+        //       translation: {
+        //         string: "Causes #% increased Stun Buildup",
+        //         negate: false,
+        //       },
+        //       roll: {
+        //         unscalable: false,
+        //         dp: false,
+        //         value: 25,
+        //         min: 25,
+        //         max: 25,
+        //       },
+        //     },
+        //   ],
+        // });
+        // replace empty rune with selected rune by index
+        const index = props.item.runeSockets!.runes.findIndex(
+          (rune) => rune.index === props.rune.index,
+        );
+        if (index === -1) throw new Error("rune not found");
+
+        // replace empty rune with selected rune by rune index
+        newItem.runeSockets.runes[index] = {
+          isEmpty: true,
+          isFake: true,
+          rune: selectedRune.value,
+          index,
+        };
         console.log("runeSocket", newItem);
         props.changeItem(newItem);
       },
-      { immediate: true },
+      { immediate: false },
     );
 
     return {

@@ -17,12 +17,16 @@ export function createRuneFilters(
 
   if (runeSockets.runes.length) {
     for (const rune of runeSockets.runes) {
+      console.log("rune", rune);
       filters.push({
+        index: rune.index,
         rune: rune.rune,
         isEmpty: rune.isEmpty,
         text: rune.text,
-        disabled: rune.isEmpty,
+        disabled: rune.isEmpty && !(rune.isFake ?? false),
+        isFake: rune.isFake ?? false,
       });
+      console.log("filter", filters[filters.length - 1]);
     }
   }
 

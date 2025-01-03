@@ -14,6 +14,7 @@
       :change-item="changeItem"
       @preset="selectPreset"
       @submit="doSearch = true"
+      :rebuild-key="rebuildKey"
     />
     <trade-listing
       v-if="tradeAPI === 'trade' && doSearch"
@@ -124,6 +125,10 @@ export default defineComponent({
       type: Function as PropType<(newItem: ParsedItem) => void>,
       required: true,
     },
+    rebuildKey: {
+      type: Number,
+      required: true,
+    },
   },
   setup(props) {
     const widget = computed(() => AppConfig<PriceCheckWidget>("price-check")!);
@@ -160,7 +165,6 @@ export default defineComponent({
     watch(
       () => props.item,
       (item, prevItem) => {
-        console.log("checked item, make presets", item);
         const prevCurrency =
           presets.value != null ? itemFilters.value.trade.currency : undefined;
 
@@ -214,7 +218,6 @@ export default defineComponent({
     watch(
       () => [props.item, doSearch.value],
       () => {
-        console.log("checked item, do search", props.item);
         if (doSearch.value === false) return;
 
         tradeAPI.value = apiToSatisfySearch(
@@ -252,7 +255,6 @@ export default defineComponent({
     watch(
       () => [props.item, JSON.stringify(itemFilters.value.trade)],
       (curr, prev) => {
-        console.log("checked item, trade", curr);
         const cItem = curr[0];
         const pItem = prev[0];
         const cTrade = curr[1];

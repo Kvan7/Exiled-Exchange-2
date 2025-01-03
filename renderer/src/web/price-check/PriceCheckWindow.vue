@@ -79,6 +79,7 @@
             :item="item.value"
             :advanced-check="advancedCheck"
             :change-item="changeItem"
+            :rebuild-key="rebuildKey"
           />
         </template>
         <div v-if="isBrowserShown" class="bg-gray-900 px-6 py-2 truncate">
@@ -188,6 +189,7 @@ export default defineComponent({
     });
 
     const item = shallowRef<null | Result<ParsedItem, ParseError>>(null);
+    const rebuildKey = shallowRef(2);
     const advancedCheck = shallowRef(false);
     const checkPosition = shallowRef({ x: 1, y: 1 });
 
@@ -232,6 +234,9 @@ export default defineComponent({
     });
 
     function handleItemPaste(e: { clipboard: string; item: any }) {
+      if (e.item) {
+        console.log("item item test", ok(e.item as ParsedItem));
+      }
       const newItem = (
         e.item ? ok(e.item as ParsedItem) : parseClipboard(e.clipboard)
       )
@@ -248,13 +253,17 @@ export default defineComponent({
           message: `${err}_help`,
           rawText: e.clipboard,
         }));
+      console.log("item item out", newItem);
       return newItem;
     }
 
     function changeItem(newItem: ParsedItem) {
-      console.log("change item", newItem);
-      item.value = handleItemPaste({ clipboard: newItem.rawText, item });
-      console.log("changed item.value", item.value);
+      item.value = handleItemPaste({
+        clipboard: newItem.rawText,
+        item: newItem,
+      });
+      rebuildKey.value += 1;
+      console.log("changed item.value", item.value, rebuildKey.value);
     }
 
     function handleIdentification(identified: ParsedItem) {
@@ -367,6 +376,7 @@ export default defineComponent({
       isLeagueSelected,
       openLeagueSelection,
       changeItem,
+      rebuildKey,
     };
   },
 });
