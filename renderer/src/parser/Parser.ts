@@ -889,7 +889,7 @@ Item Level: 39
  * 
  */
 
-function parseModifiersPoe2(section: string[], item: ParsedItem) {
+export function parseModifiersPoe2(section: string[], item: ParsedItem) {
   if (
     item.rarity !== ItemRarity.Normal &&
     item.rarity !== ItemRarity.Magic &&
@@ -1463,7 +1463,7 @@ function getMaxSockets(category: ItemCategory | undefined) {
   }
 }
 
-function isArmourOrWeapon(
+export function isArmourOrWeapon(
   category: ItemCategory | undefined,
 ): "armour" | "weapon" | undefined {
   switch (category) {
@@ -1505,7 +1505,7 @@ function statToRune(mod: ParsedModifier, statCalc: StatCalculated): Rune[] {
   const totalRunes = Math.floor(runeAppliedValue / runeSingleValue);
 
   // Get original mod ref text
-  const modRef = runeSingle.baseStat;
+  const modRef = replaceHashWithValues(runeSingle.baseStat, runeSingle.values);
 
   // Return one rune for each rune in the item
   const runes: Rune[] = [];
@@ -1519,4 +1519,12 @@ function statToRune(mod: ParsedModifier, statCalc: StatCalculated): Rune[] {
   }
 
   return runes;
+}
+
+export function replaceHashWithValues(template: string, values: number[]) {
+  let result = template;
+  values.forEach((value: number) => {
+    result = result.replace("#", value.toString()); // Replace the first occurrence of #
+  });
+  return result;
 }

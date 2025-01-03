@@ -69,9 +69,14 @@ import ItemModifierText from "../../ui/ItemModifierText.vue";
 import { computed, defineComponent, PropType, ref, watch } from "vue";
 import { ParsedItem } from "@/parser";
 import { RuneFilter } from "./interfaces";
-import { RUNE_LIST } from "@/assets/data";
-import { ModifierType } from "@/parser/modifiers";
+import { RUNE_LIST, RUNE_DATA_BY_RUNE } from "@/assets/data";
 import { AppConfig } from "@/web/Config";
+import {
+  isArmourOrWeapon,
+  parseModifiersPoe2,
+  replaceHashWithValues,
+} from "@/parser/Parser";
+import { sumStatsByModType } from "@/parser/modifiers";
 
 export default defineComponent({
   components: { ItemModifierText },
@@ -103,6 +108,11 @@ export default defineComponent({
           {
             value: "Iron Rune",
             text: "Alpha Iron Rune",
+            icon: "https://cdn.poe2db.tw/image/art/2ditems/currency/runes/enhancerune.webp",
+          },
+          {
+            value: "Body Rune",
+            text: "Alpha Body Rune",
             icon: "https://cdn.poe2db.tw/image/art/2ditems/currency/runes/enhancerune.webp",
           },
         ];
@@ -156,121 +166,137 @@ export default defineComponent({
         const newItem = JSON.parse(JSON.stringify(item));
         newItem.originalItem = JSON.parse(JSON.stringify(item));
         newItem.runeSockets!.empty -= 1;
-        newItem.statsByType.push({
-          stat: {
-            ref: "Causes #% increased Stun Buildup",
-            better: 1,
-            id: "local_hit_damage_stun_multiplier_+%",
-            matchers: [
-              {
-                string: "Causes #% increased Stun Buildup",
-                negate: false,
-              },
-              {
-                string: "Causes #% reduced Stun Buildup",
-                negate: true,
-              },
-            ],
-            trade: {
-              ids: {
-                explicit: ["explicit.stat_791928121"],
-                implicit: ["implicit.stat_791928121"],
-                enchant: ["enchant.stat_791928121"],
-                rune: ["rune.stat_791928121"],
-              },
-            },
-          },
-          type: ModifierType.FakeRune,
-          sources: [
-            {
-              modifier: {
-                info: {
-                  type: ModifierType.FakeRune,
-                  tags: [],
-                },
-                stats: [
-                  {
-                    stat: {
-                      ref: "Causes #% increased Stun Buildup",
-                      better: 1,
-                      id: "local_hit_damage_stun_multiplier_+%",
-                      matchers: [
-                        {
-                          string: "Causes #% increased Stun Buildup",
-                          negate: false,
-                        },
-                        {
-                          string: "Causes #% reduced Stun Buildup",
-                          negate: true,
-                        },
-                      ],
-                      trade: {
-                        ids: {
-                          explicit: ["explicit.stat_791928121"],
-                          implicit: ["implicit.stat_791928121"],
-                          enchant: ["enchant.stat_791928121"],
-                          rune: ["rune.stat_791928121"],
-                        },
-                      },
-                    },
-                    translation: {
-                      string: "Causes #% increased Stun Buildup",
-                      negate: false,
-                    },
-                    roll: {
-                      unscalable: false,
-                      dp: false,
-                      value: 25,
-                      min: 25,
-                      max: 25,
-                    },
-                  },
-                ],
-              },
-              stat: {
-                stat: {
-                  ref: "Causes #% increased Stun Buildup",
-                  better: 1,
-                  id: "local_hit_damage_stun_multiplier_+%",
-                  matchers: [
-                    {
-                      string: "Causes #% increased Stun Buildup",
-                      negate: false,
-                    },
-                    {
-                      string: "Causes #% reduced Stun Buildup",
-                      negate: true,
-                    },
-                  ],
-                  trade: {
-                    ids: {
-                      explicit: ["explicit.stat_791928121"],
-                      implicit: ["implicit.stat_791928121"],
-                      enchant: ["enchant.stat_791928121"],
-                      rune: ["rune.stat_791928121"],
-                    },
-                  },
-                },
-                translation: {
-                  string: "Causes #% increased Stun Buildup",
-                  negate: false,
-                },
-                roll: {
-                  unscalable: false,
-                  dp: false,
-                  value: 25,
-                  min: 25,
-                  max: 25,
-                },
-              },
-              contributes: {
-                value: 25,
-                min: 25,
-                max: 25,
-              },
-            },
-          ],
-        });
+
+        console.log("RUNE_DATA_BY_RUNE", RUNE_DATA_BY_RUNE);
+        console.log("selectedRune", selectedRune.value);
+
+        const runeData = RUNE_DATA_BY_RUNE[selectedRune.value].find(
+          (rune) => rune.type === isArmourOrWeapon(item.category),
+        );
+        console.log("runeData", runeData);
+        if (!runeData) return;
+        const statString = replaceHashWithValues(
+          runeData.baseStat,
+          runeData.values,
+        );
+        parseModifiersPoe2([statString], newItem);
+        newItem.statsByType = sumStatsByModType(newItem.newMods);
+
+        // newItem.statsByType.push({
+        //   stat: {
+        //     ref: "Causes #% increased Stun Buildup",
+        //     better: 1,
+        //     id: "local_hit_damage_stun_multiplier_+%",
+        //     matchers: [
+        //       {
+        //         string: "Causes #% increased Stun Buildup",
+        //         negate: false,
+        //       },
+        //       {
+        //         string: "Causes #% reduced Stun Buildup",
+        //         negate: true,
+        //       },
+        //     ],
+        //     trade: {
+        //       ids: {
+        //         explicit: ["explicit.stat_791928121"],
+        //         implicit: ["implicit.stat_791928121"],
+        //         enchant: ["enchant.stat_791928121"],
+        //         rune: ["rune.stat_791928121"],
+        //       },
+        //     },
+        //   },
+        //   type: ModifierType.FakeRune,
+        //   sources: [
+        //     {
+        //       modifier: {
+        //         info: {
+        //           type: ModifierType.FakeRune,
+        //           tags: [],
+        //         },
+        //         stats: [
+        //           {
+        //             stat: {
+        //               ref: "Causes #% increased Stun Buildup",
+        //               better: 1,
+        //               id: "local_hit_damage_stun_multiplier_+%",
+        //               matchers: [
+        //                 {
+        //                   string: "Causes #% increased Stun Buildup",
+        //                   negate: false,
+        //                 },
+        //                 {
+        //                   string: "Causes #% reduced Stun Buildup",
+        //                   negate: true,
+        //                 },
+        //               ],
+        //               trade: {
+        //                 ids: {
+        //                   explicit: ["explicit.stat_791928121"],
+        //                   implicit: ["implicit.stat_791928121"],
+        //                   enchant: ["enchant.stat_791928121"],
+        //                   rune: ["rune.stat_791928121"],
+        //                 },
+        //               },
+        //             },
+        //             translation: {
+        //               string: "Causes #% increased Stun Buildup",
+        //               negate: false,
+        //             },
+        //             roll: {
+        //               unscalable: false,
+        //               dp: false,
+        //               value: 25,
+        //               min: 25,
+        //               max: 25,
+        //             },
+        //           },
+        //         ],
+        //       },
+        //       stat: {
+        //         stat: {
+        //           ref: "Causes #% increased Stun Buildup",
+        //           better: 1,
+        //           id: "local_hit_damage_stun_multiplier_+%",
+        //           matchers: [
+        //             {
+        //               string: "Causes #% increased Stun Buildup",
+        //               negate: false,
+        //             },
+        //             {
+        //               string: "Causes #% reduced Stun Buildup",
+        //               negate: true,
+        //             },
+        //           ],
+        //           trade: {
+        //             ids: {
+        //               explicit: ["explicit.stat_791928121"],
+        //               implicit: ["implicit.stat_791928121"],
+        //               enchant: ["enchant.stat_791928121"],
+        //               rune: ["rune.stat_791928121"],
+        //             },
+        //           },
+        //         },
+        //         translation: {
+        //           string: "Causes #% increased Stun Buildup",
+        //           negate: false,
+        //         },
+        //         roll: {
+        //           unscalable: false,
+        //           dp: false,
+        //           value: 25,
+        //           min: 25,
+        //           max: 25,
+        //         },
+        //       },
+        //       contributes: {
+        //         value: 25,
+        //         min: 25,
+        //         max: 25,
+        //       },
+        //     },
+        //   ],
+        // });
         // newItem.newMods.push({
         //   info: {
         //     type: ModifierType.FakeRune,
