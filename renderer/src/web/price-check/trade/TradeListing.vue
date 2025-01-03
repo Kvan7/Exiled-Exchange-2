@@ -20,7 +20,7 @@
       :delay="[150, null]"
       placement="bottom-end"
       boundary="#price-window"
-      v-if="suggest"
+      v-if="suggest && showSuggestWarning === 'help'"
     >
       <template #target>
         <div v-if="suggest" class="mb-4 text-center bg-orange-800 rounded-xl">
@@ -29,11 +29,17 @@
       </template>
       <template #content>
         <div style="max-width: 18.5rem" class="text-xs">
-          Use Online Filter to fix<br />
-          Disable this alert in settings
+          {{ t(":results_warn_tooltip") }}
         </div>
       </template>
     </ui-popover>
+    <div
+      v-if="suggest && showSuggestWarning === 'warn'"
+      class="mb-4 text-center bg-orange-800 rounded-xl"
+    >
+      {{ suggest.text }}
+    </div>
+
     <div class="layout-column overflow-y-auto overflow-x-hidden">
       <table class="table-stripped w-full">
         <thead>
@@ -381,6 +387,7 @@ export default defineComponent({
     const showBrowser = inject<(url: string) => void>("builtin-browser")!;
 
     const suggest = ref<Suggestion | undefined>(undefined);
+    const { t } = useI18nNs("trade_result");
 
     function makeTradeLink() {
       return searchResult.value
@@ -389,53 +396,58 @@ export default defineComponent({
     }
 
     watch(groupedResults, (values) => {
-      if (!values.length) return;
-      const totalResults = values.length;
-      const divineResults = values.filter(
-        (result) => result.priceCurrency === "divine",
-      );
-      const divineCount = divineResults.length;
-      if (!divineCount) return;
-      const maxDivine = divineResults.reduce(
-        (max, result) => Math.max(max, result.priceAmount),
-        0,
-      );
-      const oneDivCount = divineResults.filter(
-        (result) => result.priceAmount === 1,
-      ).length;
-      const text = `Trade site hiding results > ${maxDivine * 7.5} ex and < ${props.filters.trade.currencyRatio ?? 130 * maxDivine} ex`;
-      if (oneDivCount === totalResults) {
-        suggest.value = {
-          type: "exalted",
-          text,
-          confidenceLevel: "High",
-        };
-      } else if (
-        divineCount === totalResults &&
-        divineResults.every((result) => result.priceAmount < 5)
+      if (
+        widget.value.showSuggestWarning !== "none" &&
+        !props.filters.trade.currency
       ) {
-        suggest.value = {
-          type: "exalted",
-          text,
-          confidenceLevel: "Medium",
-        };
-      } else if (
-        divineCount > (totalResults / 3) * 2 &&
-        divineCount < totalResults &&
-        maxDivine <= 3
-      ) {
-        suggest.value = {
-          type: "exalted",
-          text,
-          confidenceLevel: "Medium",
-        };
-      } else {
-        suggest.value = undefined;
+        if (!values.length) return;
+        const totalResults = values.length;
+        const divineResults = values.filter(
+          (result) => result.priceCurrency === "divine",
+        );
+        const divineCount = divineResults.length;
+        if (!divineCount) return;
+        const maxDivine = divineResults.reduce(
+          (max, result) => Math.max(max, result.priceAmount),
+          0,
+        );
+        const oneDivCount = divineResults.filter(
+          (result) => result.priceAmount === 1,
+        ).length;
+        const text = t(":results_warn_message", [
+          maxDivine * 7.5,
+          props.filters.trade.currencyRatio ?? 130 * maxDivine,
+        ]);
+        if (oneDivCount === totalResults) {
+          suggest.value = {
+            type: "exalted",
+            text,
+            confidenceLevel: "High",
+          };
+        } else if (
+          divineCount === totalResults &&
+          divineResults.every((result) => result.priceAmount < 5)
+        ) {
+          suggest.value = {
+            type: "exalted",
+            text,
+            confidenceLevel: "Medium",
+          };
+        } else if (
+          divineCount > (totalResults / 3) * 2 &&
+          divineCount < totalResults &&
+          maxDivine <= 3
+        ) {
+          suggest.value = {
+            type: "exalted",
+            text,
+            confidenceLevel: "Medium",
+          };
+        } else {
+          suggest.value = undefined;
+        }
       }
-      console.log(suggest.value);
     });
-
-    const { t } = useI18nNs("trade_result");
 
     return {
       t,
@@ -458,6 +470,7 @@ export default defineComponent({
       },
       error,
       showSeller: computed(() => widget.value.showSeller),
+      showSuggestWarning: computed(() => widget.value.showSuggestWarning),
       makeTradeLink,
       openTradeLink() {
         if (widget.value.builtinBrowser && Host.isElectron) {

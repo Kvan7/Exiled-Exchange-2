@@ -10,7 +10,10 @@
         :class="
           showWarning()
             ? 'text-orange-500'
-            : 'text-gray-500' + (suggest ? ' ring-4 ring-orange-200' : '')
+            : 'text-gray-500' +
+              (suggest && showSuggestWarning === 'help'
+                ? ' ring-4 ring-orange-200'
+                : '')
         "
       >
         <span
@@ -103,8 +106,7 @@
               </template>
               <template #content>
                 <div style="max-width: 18.5rem">
-                  Ratio used for sorting locally <br />
-                  Default on trade site is 7.5:1
+                  {{ t(":ratio_tooltip") }}
                 </div>
               </template>
             </ui-popover>
@@ -126,13 +128,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, ref } from "vue";
+import { computed, defineComponent, PropType, ref } from "vue";
 import { useI18nNs } from "@/web/i18n";
 import UiRadio from "@/web/ui/UiRadio.vue";
 import UiToggle from "@/web/ui/UiToggle.vue";
 import UiPopover from "@/web/ui/Popover.vue";
 import type { ItemFilters, Suggestion } from "../filters/interfaces";
 import { useLeagues } from "@/web/background/Leagues";
+import { AppConfig } from "@/web/Config";
+import { PriceCheckWidget } from "@/web/overlay/widgets";
 
 export default defineComponent({
   components: { UiRadio, UiToggle, UiPopover },
@@ -155,6 +159,7 @@ export default defineComponent({
     },
   },
   setup(props) {
+    const widget = computed(() => AppConfig<PriceCheckWidget>("price-check")!);
     const defaultCurrencyRatio = 130;
     const leagues = useLeagues();
     const { t } = useI18nNs("online_filter");
@@ -173,6 +178,7 @@ export default defineComponent({
 
     return {
       t,
+      showSuggestWarning: computed(() => widget.value.showSuggestWarning),
       tradeLeagues: leagues.list,
       localCurrencyRatio,
       updateCurrencyRatio,
