@@ -110,6 +110,5 @@ export default {
   CHARM_HELP_TEXT: '達成特定條件時會自動使用。',
   FIRE_DAMAGE: '火焰傷害: ',
   LIGHTNING_DAMAGE: '閃電傷害: ',
-  COLD_DAMAGE: '冰冷傷害: ',
-  SELL_TEXT: '筆記:' // google translate
+  COLD_DAMAGE: '冰冷傷害: '
 }

@@ -315,9 +315,7 @@ export default defineComponent({
         showHidden.value = false;
         statsVisibility.disabled = false;
         runeSocketsVisibility.disabled =
-          (props.item.runeSockets?.runes.every((rune) => !rune.isFake) ??
-            true) &&
-          (props.runes.every((rune) => !rune.shouldFill) ?? true);
+          props.item.runeSockets?.runes.every((rune) => !rune.isFake) ?? true;
       },
     );
 

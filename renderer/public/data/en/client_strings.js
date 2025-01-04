@@ -110,7 +110,6 @@ export default {
   BASE_SPIRIT: 'Spirit:',
   QUIVER_HELP_TEXT: 'Can only be equipped',
   FLASK_HELP_TEXT: 'Right click to drink.',
-  CHARM_HELP_TEXT: 'Used automatically when condition',
-  SELL_TEXT: 'Note:'
+  CHARM_HELP_TEXT: 'Used automatically when condition'
 }
 
