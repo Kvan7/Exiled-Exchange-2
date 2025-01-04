@@ -81,7 +81,7 @@ export interface ItemFilters {
     currency: string | undefined;
     league: string;
     collapseListings: "api" | "app";
-    currencyRatio?: number;
+    currencyRatio: number;
   };
 }
 

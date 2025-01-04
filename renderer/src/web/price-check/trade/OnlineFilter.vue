@@ -137,6 +137,7 @@ import type { ItemFilters, Suggestion } from "../filters/interfaces";
 import { useLeagues } from "@/web/background/Leagues";
 import { AppConfig } from "@/web/Config";
 import { PriceCheckWidget } from "@/web/overlay/widgets";
+import { CURRENCY_RATIO } from "../filters/create-item-filters";
 
 export default defineComponent({
   components: { UiRadio, UiToggle, UiPopover },
@@ -160,13 +161,10 @@ export default defineComponent({
   },
   setup(props) {
     const widget = computed(() => AppConfig<PriceCheckWidget>("price-check")!);
-    const defaultCurrencyRatio = 100;
     const leagues = useLeagues();
     const { t } = useI18nNs("online_filter");
 
-    const localCurrencyRatio = ref(
-      props.filters.trade.currencyRatio || defaultCurrencyRatio,
-    );
+    const localCurrencyRatio = ref(props.filters.trade.currencyRatio);
 
     const updateCurrencyRatio = () => {
       props.filters.trade.currencyRatio = localCurrencyRatio.value;
@@ -189,7 +187,7 @@ export default defineComponent({
           (props.filters.trade.listed &&
             ["1day", "3days", "1week"].includes(props.filters.trade.listed)) ||
             props.filters.trade.currency ||
-            defaultCurrencyRatio !== props.filters.trade.currencyRatio,
+            CURRENCY_RATIO !== props.filters.trade.currencyRatio,
         ),
       onOfflineUpdate(offline: boolean) {
         const { filters } = props;
