@@ -24,6 +24,8 @@
     >
       <template #target>
         <div v-if="suggest" class="mb-4 text-center bg-orange-800 rounded-xl">
+          {{ t(":results_warn_title") }}
+          <br />
           {{ suggest.text }}
         </div>
       </template>
@@ -37,6 +39,8 @@
       v-if="suggest && showSuggestWarning === 'warn'"
       class="mb-4 text-center bg-orange-800 rounded-xl"
     >
+      {{ t(":results_warn_title") }}
+      <br />
       {{ suggest.text }}
     </div>
 

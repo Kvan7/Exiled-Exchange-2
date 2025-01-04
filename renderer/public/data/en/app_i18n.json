@@ -280,6 +280,7 @@
     "you_have": "You have",
     "stack": "Stack",
     "results_warn_tooltip": "Enable Exalted Only in Online Filter. You can disable this alert in settings.",
+    "results_warn_title": "Price likely too high",
     "results_warn_message": "Trade site hiding results between {0} and {1} ex"
   },
   "settings": {
@@ -335,7 +336,7 @@
     "select_stock": "Always select \"Stock\" filter",
     "show_prediction": "Show price prediction",
     "remember_currency": "Remember the Buyout Currency filter",
-    "show_suggest_warning": "Show divine warning",
+    "show_suggest_warning": "Price check wrong warning",
     "show_suggest_warning_none": "Disable",
     "show_suggest_warning_warn": "Show alert",
     "show_suggest_warning_help": "Show alert and help"
