@@ -173,7 +173,6 @@ export default defineComponent({
 
         // Redo damage calc
         if (selectedRune.value === "Iron Rune") {
-          console.log("Iron Rune");
           if (isArmourOrWeapon(item.category) === "weapon") {
             const baseDamage = calcBaseDamage(newItem.originalItem!);
             const totalDamage = calcTotalDamage(newItem, baseDamage);

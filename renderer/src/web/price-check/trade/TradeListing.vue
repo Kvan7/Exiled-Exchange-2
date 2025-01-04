@@ -24,8 +24,9 @@
     >
       <template #target>
         <div v-if="suggest" class="mb-4 text-center bg-orange-800 rounded-xl">
-          {{ t(":results_warn_title") }}
-          <br />
+          <div class="font-bold" v-if="suggest.confidenceLevel === 'High'">
+            {{ t(":results_warn_title") }}
+          </div>
           {{ suggest.text }}
         </div>
       </template>
@@ -39,8 +40,9 @@
       v-if="suggest && showSuggestWarning === 'warn'"
       class="mb-4 text-center bg-orange-800 rounded-xl"
     >
-      {{ t(":results_warn_title") }}
-      <br />
+      <div class="font-bold" v-if="suggest.confidenceLevel === 'High'">
+        {{ t(":results_warn_title") }}
+      </div>
       {{ suggest.text }}
     </div>
 
@@ -411,7 +413,15 @@ export default defineComponent({
         );
         const divineCount = divineResults.length;
         if (!divineCount) return;
+        const exaltResults = values.filter(
+          (result) => result.priceCurrency === "exalted",
+        );
+        const exaltCount = exaltResults.length;
         const maxDivine = divineResults.reduce(
+          (max, result) => Math.max(max, result.priceAmount),
+          0,
+        );
+        const maxExalt = exaltResults.reduce(
           (max, result) => Math.max(max, result.priceAmount),
           0,
         );
@@ -420,9 +430,10 @@ export default defineComponent({
         ).length;
         const text = t(":results_warn_message", [
           maxDivine * 7.5,
-          props.filters.trade.currencyRatio ?? 130 * maxDivine,
+          props.filters.trade.currencyRatio ?? 100 * maxDivine,
         ]);
         if (oneDivCount === totalResults) {
+          // console.log("Condition only one div");
           suggest.value = {
             type: "exalted",
             text,
@@ -430,18 +441,31 @@ export default defineComponent({
           };
         } else if (
           divineCount === totalResults &&
-          divineResults.every((result) => result.priceAmount < 5)
+          divineResults.every((result) => result.priceAmount <= 3)
         ) {
+          // console.log("All divs and less than 3 max");
           suggest.value = {
             type: "exalted",
             text,
-            confidenceLevel: "Medium",
+            confidenceLevel: "Low",
           };
         } else if (
           divineCount > (totalResults / 3) * 2 &&
           divineCount < totalResults &&
           maxDivine <= 3
         ) {
+          // console.log("divs more than 2/3 of results and less than 3 max");
+          suggest.value = {
+            type: "exalted",
+            text,
+            confidenceLevel: "Medium",
+          };
+        } else if (
+          divineCount > totalResults / 2 &&
+          exaltCount > 0 &&
+          maxExalt <= 30
+        ) {
+          // console.log("Exalted and less than 30 max");
           suggest.value = {
             type: "exalted",
             text,

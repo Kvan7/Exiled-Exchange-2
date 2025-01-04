@@ -160,7 +160,7 @@ export default defineComponent({
   },
   setup(props) {
     const widget = computed(() => AppConfig<PriceCheckWidget>("price-check")!);
-    const defaultCurrencyRatio = 130;
+    const defaultCurrencyRatio = 100;
     const leagues = useLeagues();
     const { t } = useI18nNs("online_filter");
 
