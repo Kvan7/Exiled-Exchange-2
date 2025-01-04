@@ -1,5 +1,6 @@
 import { ParsedItem } from "@/parser";
 import { RuneFilter } from "./interfaces";
+import { isPdpsImportant } from "./pseudo/item-property";
 
 export function createRuneFilters(
   item: ParsedItem,
@@ -17,14 +18,26 @@ export function createRuneFilters(
 
   if (runeSockets.runes.length) {
     for (const rune of runeSockets.runes) {
-      filters.push({
-        index: rune.index,
-        rune: rune.rune,
-        isEmpty: rune.isEmpty,
-        text: rune.text,
-        disabled: rune.isEmpty && !(rune.isFake ?? false),
-        isFake: rune.isFake ?? false,
-      });
+      if (isPdpsImportant(item) && rune.isEmpty && !(rune.isFake ?? false)) {
+        filters.push({
+          index: rune.index,
+          rune: rune.rune,
+          isEmpty: rune.isEmpty,
+          text: rune.text,
+          disabled: false,
+          isFake: true,
+          shouldFill: true,
+        });
+      } else {
+        filters.push({
+          index: rune.index,
+          rune: rune.rune,
+          isEmpty: rune.isEmpty,
+          text: rune.text,
+          disabled: rune.isEmpty && !(rune.isFake ?? false),
+          isFake: rune.isFake ?? false,
+        });
+      }
     }
   }
 

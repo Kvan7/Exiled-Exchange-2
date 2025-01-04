@@ -153,7 +153,8 @@ export default defineComponent({
           return;
         }
         // if (item.runeSockets!.empty - 1 < 0) return;
-        const itemToChange = prev !== "empty" ? item.originalItem : item;
+        const itemToChange =
+          prev && prev !== "empty" ? item.originalItem : item;
         const newItem = JSON.parse(JSON.stringify(itemToChange)) as ParsedItem;
         newItem.originalItem = JSON.parse(
           JSON.stringify(itemToChange),
@@ -198,6 +199,15 @@ export default defineComponent({
       },
       { immediate: false },
     );
+
+    if (
+      widget.value.enableAlphas &&
+      widget.value.alphas.includes("runes") &&
+      props.rune.shouldFill
+    ) {
+      console.log("Filling rune", props.rune, props.item);
+      selectedRune.value = "Iron Rune";
+    }
 
     return {
       t,

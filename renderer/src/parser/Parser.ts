@@ -68,6 +68,7 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseWeapon,
   parseFlask,
   parseCharmSlots,
+  parseSellText,
   parseSpirit,
   parseHelpText,
   parseStackSize,
@@ -1069,6 +1070,15 @@ function parseCharmSlots(section: string[], item: ParsedItem) {
   }
 
   return isParsed;
+}
+
+function parseSellText(section: string[], item: ParsedItem) {
+  for (const line of section) {
+    if (line.startsWith(_$.SELL_TEXT)) {
+      return "SECTION_PARSED";
+    }
+  }
+  return "SECTION_SKIPPED";
 }
 
 function parseSpirit(section: string[], item: ParsedItem) {

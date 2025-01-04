@@ -96,6 +96,7 @@ export interface RuneFilter {
   text?: string;
   isEmpty: boolean;
   isFake: boolean;
+  shouldFill?: boolean;
   index: number;
   disabled: boolean; // NOTE: mutable in UI
 }

@@ -194,6 +194,7 @@ export interface TranslationDict {
   FIRE_DAMAGE: string;
   LIGHTNING_DAMAGE: string;
   COLD_DAMAGE: string;
+  SELL_TEXT: string;
 }
 
 export interface Filter {

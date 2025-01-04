@@ -301,7 +301,7 @@ function isSingleAttrArmour(item: ParsedItem) {
   );
 }
 
-function isPdpsImportant(item: ParsedItem) {
+export function isPdpsImportant(item: ParsedItem) {
   switch (item.category) {
     case ItemCategory.OneHandedAxe:
     case ItemCategory.TwoHandedAxe:
