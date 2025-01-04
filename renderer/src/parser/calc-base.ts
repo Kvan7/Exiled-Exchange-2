@@ -31,7 +31,11 @@ export function calcTotalDamage(item: ParsedItem, baseDamage: number) {
 
   const { incr, flat } = calcPropBase(QUALITY_STATS.PHYSICAL_DAMAGE, item);
 
-  const damage = calcIncreased(baseDamage + flat.value, incr.value);
+  const damage = calcIncreased(
+    baseDamage + flat.value,
+    incr.value,
+    item.quality ?? 0,
+  );
 
   return damage;
 }
