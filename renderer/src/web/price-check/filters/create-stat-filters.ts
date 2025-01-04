@@ -409,11 +409,12 @@ function hideNotVariableStat(filter: StatFilter, item: ParsedItem) {
 
   if (!filter.roll) {
     filter.hidden = "filters.hide_const_roll";
-  } else if (!filter.roll.bounds) {
-    filter.roll.min = undefined;
-    filter.roll.max = undefined;
-    filter.hidden = "filters.hide_const_roll";
   }
+  // else if (!filter.roll.bounds) {
+  //   filter.roll.min = undefined;
+  //   filter.roll.max = undefined;
+  //   filter.hidden = "filters.hide_const_roll";
+  // }
 }
 
 function filterFillMinMax(
