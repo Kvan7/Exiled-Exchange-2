@@ -174,8 +174,9 @@ export default defineComponent({
           activateStockFilter: widget.value.activateStockFilter,
           searchStatRange: widget.value.searchStatRange,
           useEn:
-            AppConfig().language === "cmn-Hant" &&
-            AppConfig().realm === "pc-ggg",
+            (AppConfig().language === "cmn-Hant" &&
+              AppConfig().realm === "pc-ggg") ||
+            AppConfig().preferredTradeSite === "www",
           currency:
             widget.value.rememberCurrency ||
             (prevItem &&

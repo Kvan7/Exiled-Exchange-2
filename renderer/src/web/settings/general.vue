@@ -10,14 +10,11 @@
         <option value="ja">日本語</option>
       </select>
     </div>
-    <div class="mb-4">
+    <div class="mb-4" v-if="language !== 'en'">
       <div class="flex-1 mb-1">{{ t(":preferred_trade_site") }}</div>
       <select v-model="preferredTradeSite" class="p-1 rounded bg-gray-700 w-24">
-        <option value="en">www.pathofexile.com</option>
-        <option value="ru">ru.pathofexile.com</option>
-        <option value="cmn-Hant">pathofexile.tw</option>
-        <option value="ko">poe.game.daum.net</option>
-        <option value="ja">jp.pathofexile.com</option>
+        <option value="default">{{ tradeUrl }}</option>
+        <option value="www">www.pathofexile.com</option>
       </select>
     </div>
     <div class="mb-4" v-if="language === 'cmn-Hant'">
@@ -177,6 +174,22 @@ export default defineComponent({
           }
         },
       }),
+      tradeUrl: computed(() => {
+        switch (props.config.language) {
+          case "en":
+            return "www.pathofexile.com";
+          case "ru":
+            return "ru.pathofexile.com";
+          case "cmn-Hant":
+            return props.config.realm === "pc-garena"
+              ? "pathofexile.tw"
+              : "www.pathofexile.com";
+          case "ko":
+            return "poe.game.daum.net";
+          case "ja":
+            return "jp.pathofexile.com";
+        }
+      }),
       preferredTradeSite: computed<typeof props.config.preferredTradeSite>({
         get() {
           return props.config.preferredTradeSite;
@@ -186,6 +199,7 @@ export default defineComponent({
           AppConfig().preferredTradeSite = value;
         },
       }),
+
       realm: configModelValue(() => props.config, "realm"),
       restoreClipboard: configModelValue(
         () => props.config,

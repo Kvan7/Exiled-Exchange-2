@@ -311,6 +311,10 @@ export function createTradeRequest(
       ? filters.searchRelaxed
       : filters.searchExact;
 
+  console.log("activeSearch", activeSearch);
+  console.log("filters e", filters.searchExact);
+  console.log("filters r", filters.searchRelaxed);
+
   if (activeSearch.nameTrade) {
     query.name = nameToQuery(activeSearch.nameTrade, filters);
   } else if (activeSearch.name) {

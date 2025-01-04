@@ -87,8 +87,11 @@ export async function initConfig() {
 }
 
 export function poeWebApi() {
-  const { realm, preferredTradeSite } = AppConfig();
-  switch (preferredTradeSite) {
+  const { realm, preferredTradeSite, language } = AppConfig();
+  if (preferredTradeSite === "www") {
+    return "www.pathofexile.com";
+  }
+  switch (language) {
     case "en":
       return "www.pathofexile.com";
     case "ru":
@@ -121,7 +124,7 @@ export interface Config {
   accountName: string;
   stashScroll: boolean;
   language: "en" | "ru" | "cmn-Hant" | "ko" | "ja";
-  preferredTradeSite: "en" | "ru" | "cmn-Hant" | "ko" | "ja";
+  preferredTradeSite: "default" | "www";
   realm: "pc-ggg" | "pc-garena";
   widgets: widget.Widget[];
   fontSize: number;
@@ -179,7 +182,7 @@ export const defaultConfig = (): Config => ({
   accountName: "",
   stashScroll: true,
   language: "en",
-  preferredTradeSite: "en",
+  preferredTradeSite: "default",
   realm: "pc-ggg",
   fontSize: 16,
   enableAlphas: false,
@@ -591,7 +594,7 @@ function upgradeConfig(_config: Config): Config {
   }
 
   if (config.configVersion < 17) {
-    config.preferredTradeSite = config.language;
+    // config.preferredTradeSite = config.language;
     config.configVersion = 17;
   }
 
@@ -604,6 +607,7 @@ function upgradeConfig(_config: Config): Config {
     config.enableAlphas = false;
     config.alphasText = "";
     config.alphas = [];
+    config.preferredTradeSite = "default";
     config.configVersion = 18;
   }
 
