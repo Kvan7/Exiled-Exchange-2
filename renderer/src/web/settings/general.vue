@@ -98,14 +98,10 @@
       <ui-checkbox class="mb-4" v-model="enableAlphas">{{
         t(":enable_alphas")
       }}</ui-checkbox>
-      <input
-        v-if="enableAlphas"
-        v-model.trim="alphasText"
-        class="rounded bg-gray-900 px-1 block w-full font-poe"
-      />
-      <div class="mb-4" v-if="enableAlphas">
-        Selected alphas: [{{ config.alphas.join(", ") }}]
-      </div>
+      <ui-checkbox class="mb-4" v-model="runesAlpha" v-if="enableAlphas">
+        runes
+      </ui-checkbox>
+
       <div v-if="enableAlphas" class="mt-1">
         {{ t(":alphas_warning") }}
       </div>
@@ -114,7 +110,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, watch } from "vue";
+import { defineComponent, computed, ref, watch } from "vue";
 import { useI18nNs } from "@/web/i18n";
 import UiRadio from "@/web/ui/UiRadio.vue";
 import UiCheckbox from "@/web/ui/UiCheckbox.vue";
@@ -127,27 +123,22 @@ export default defineComponent({
   props: configProp(),
   setup(props) {
     const { t } = useI18nNs("settings");
-    const alphasText = configModelValue(() => props.config, "alphasText");
-    const availableAlphas = ["runes"];
-
-    watch(alphasText, (alphasText) => {
-      try {
-        const alphas = alphasText.split(";").map((a) => a.trim());
-        const validAlphas = Array.from(
-          new Set(alphas.filter((alpha) => availableAlphas.includes(alpha))),
-        );
-        const invalidAlphas = alphas.filter(
-          (alpha) => !availableAlphas.includes(alpha),
-        );
-
-        if (invalidAlphas.length === 0) {
-          props.config.alphas = validAlphas as Array<"runes">;
+    const runesAlpha = ref(
+      AppConfig().enableAlphas && AppConfig().alphas.includes("runes"),
+    );
+    watch(
+      runesAlpha,
+      (value) => {
+        if (value) {
+          props.config.alphas.push("runes");
+        } else {
+          props.config.alphas = props.config.alphas.filter(
+            (alpha) => alpha !== "runes",
+          );
         }
-      } catch (error) {
-        console.log(error);
-        props.config.alphas = [];
-      }
-    });
+      },
+      { immediate: true },
+    );
 
     return {
       t,
@@ -215,7 +206,7 @@ export default defineComponent({
       ),
       windowTitle: configModelValue(() => props.config, "windowTitle"),
       enableAlphas: configModelValue(() => props.config, "enableAlphas"),
-      alphasText,
+      runesAlpha,
     };
   },
 });

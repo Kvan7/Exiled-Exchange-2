@@ -131,7 +131,6 @@ export interface Config {
   showAttachNotification: boolean;
   overlayAlwaysClose: boolean;
   enableAlphas: boolean;
-  alphasText: string;
   alphas: Array<"runes">;
 }
 
@@ -186,7 +185,6 @@ export const defaultConfig = (): Config => ({
   realm: "pc-ggg",
   fontSize: 16,
   enableAlphas: false,
-  alphasText: "",
   alphas: [],
   widgets: [
     // --- REQUIRED ---
@@ -605,7 +603,6 @@ function upgradeConfig(_config: Config): Config {
     priceCheck.showSuggestWarning = "help";
     priceCheck.usePseudo = false;
     config.enableAlphas = false;
-    config.alphasText = "";
     config.alphas = [];
     config.preferredTradeSite = "default";
     config.configVersion = 18;

@@ -107,7 +107,7 @@ export default defineComponent({
         // Return modified rune options if enableAlphas is true
         return RUNE_LIST.map((rune) => ({
           value: rune.refName,
-          text: `Alpha ${rune.refName}`,
+          text: `%Test% ${rune.refName}`,
           icon: rune.icon,
         }));
       } else {
