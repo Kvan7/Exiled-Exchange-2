@@ -501,13 +501,14 @@ function finalFilterTweaks(ctx: FiltersCreationContext) {
   }
 
   if (item.rarity === ItemRarity.Unique) {
-    const countVisible = ctx.filters.reduce(
-      (cnt, filter) => (filter.hidden ? cnt : cnt + 1),
-      0,
-    );
-    if (countVisible <= 3) {
-      enableAllFilters(ctx.filters);
-    }
+    // const countVisible = ctx.filters.reduce(
+    //   (cnt, filter) => (filter.hidden ? cnt : cnt + 1),
+    //   0,
+    // );
+    // if (countVisible <= 3) {
+    //   enableAllFilters(ctx.filters);
+    // }
+    enableAllFilters(ctx.filters);
   }
 }
 
