@@ -428,7 +428,7 @@ function parseInfluence(section: string[], item: ParsedItem) {
 }
 
 function parseCorrupted(section: string[], item: ParsedItem) {
-  if (section[0] === _$.CORRUPTED) {
+  if (section[0].trim() === _$.CORRUPTED) {
     item.isCorrupted = true;
     return "SECTION_PARSED";
   } else if (section[0] === _$.UNMODIFIABLE) {
