@@ -1529,3 +1529,7 @@ export function replaceHashWithValues(template: string, values: number[]) {
   });
   return result;
 }
+
+export const __testExports = {
+  itemTextToSections,
+};
