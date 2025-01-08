@@ -96,7 +96,8 @@
         "Stat4Value",
         "Stat5Value",
         "Stat6Value",
-        "RadiusJewelType"
+        "RadiusJewelType",
+        "Level"
       ]
     },
     {

@@ -25,6 +25,7 @@ from clientStrings.clientStringBuilder import (
     write_client_strings,
 )
 from descriptionParser.descriptionFile import DescriptionFile
+from modTiers.modTierBuilder import modTierBuilder
 from services.logger_setup import set_log_level
 
 logger = logging.getLogger(__name__)
@@ -40,6 +41,24 @@ LANG_CODES_TO_NAMES = {
 
 def find_first_matching_item(items, field: str, value: str) -> dict | None:
     return next((item for item in items if item.get(field) == value), None)
+
+
+def flatten_stats_ids(input_data):
+    if isinstance(input_data, list):
+        if len(input_data) == 1:
+            return input_data[0]
+        else:
+            result = {}
+            for item in input_data:
+                for key, values in item.items():
+                    if key not in result:
+                        result[key] = []
+                    result[key].extend(values)
+            return result
+    elif isinstance(input_data, dict):
+        return input_data
+    else:
+        raise ValueError("Invalid input format")
 
 
 class Parser:
@@ -327,57 +346,88 @@ class Parser:
 
         logger.info(f"Mod translations: {len(self.mod_translations)}")
 
-        for mod in self.mods_file:
-            id = mod.get("Id")
-            stats_key = mod.get("Stat1")
+        for id, mod_value_list in modTierBuilder(self.mods_file).items():
+            value_counts = len(mod_value_list)
+            if value_counts < 1:
+                continue
+            ids_list = []
+            translations = []
 
-            logger.debug(f"Processing mod - ID: {id}, Stat: {stats_key}")
+            stats_keys = mod_value_list[0].get("mod_stat_ids")
+            for stats_key in stats_keys:
+                logger.debug(f"Processing mod - ID: {id}, Stat: {stats_key}")
 
-            if stats_key is not None:
-                stats_id = self.stats.get(stats_key)
-                translation = self.mod_translations.get(stats_id)
+                if stats_key is not None:
+                    stats_id = self.stats.get(stats_key)
+                    translation = self.mod_translations.get(stats_id)
 
-                if translation:
-                    ref = translation.get("ref")
-                    matchers = translation.get("matchers")
+                    if translation:
+                        ref = translation.get("ref")
+                        matchers = translation.get("matchers")
 
-                    if matchers is None or len(matchers) == 0:
-                        logger.warning(f"No matchers found for stats ID: {stats_id}.")
-                        continue
-
-                    ids = self.stats_trade_ids.get(matchers[0].get("string"))
-
-                    if ids is None and len(matchers) > 1:
-                        ids = self.stats_trade_ids.get(matchers[1].get("string"))
-                        if ids is None:
+                        if matchers is None or len(matchers) == 0:
                             logger.warning(
-                                f"No trade IDs found for matchers: {matchers[0].get('string')} or {matchers[1].get('string')}."
+                                f"No matchers found for stats ID: {stats_id}."
                             )
-                            self.matchers_no_trade_ids.extend(
-                                [matchers[0].get("string"), matchers[1].get("string")]
-                            )
-                    elif ids is None:
-                        logger.warning(
-                            f"No trade IDs found for matcher: {matchers[0].get('string')}."
-                        )
-                        self.matchers_no_trade_ids.append(matchers[0].get("string"))
+                            continue
 
-                    trade = {"ids": ids}
-                    self.mods[id] = {
-                        "ref": translation.get("ref"),
-                        "better": 1,
-                        "id": stats_id,
-                        "matchers": translation.get("matchers"),
-                        "trade": trade,
-                    }
+                        ids = self.stats_trade_ids.get(matchers[0].get("string"))
+
+                        if ids is None and len(matchers) > 1:
+                            ids = self.stats_trade_ids.get(matchers[1].get("string"))
+                            if ids is None:
+                                logger.warning(
+                                    f"No trade IDs found for matchers: {matchers[0].get('string')} or {matchers[1].get('string')}."
+                                )
+                                self.matchers_no_trade_ids.extend(
+                                    [
+                                        matchers[0].get("string"),
+                                        matchers[1].get("string"),
+                                    ]
+                                )
+                        elif ids is None:
+                            logger.warning(
+                                f"No trade IDs found for matcher: {matchers[0].get('string')}."
+                            )
+                            self.matchers_no_trade_ids.append(matchers[0].get("string"))
+                        else:
+                            ids_list.append(ids)
+                            translations.append(translation)
+                    else:
+                        logger.debug(
+                            f"Mod {id} has no translations. [stats_key: {stats_key}, stats_id: {stats_id}]"
+                        )
                 else:
                     logger.debug(
-                        f"Mod {id} has no translations. [stats_key: {stats_key}, stats_id: {stats_id}]"
+                        f"Mod {id} has no stats_key. [stats_key: {stats_key}, stats_id: {stats_id}]"
                     )
-            else:
+            if len(ids_list) == 0 or len(translations) == 0:
                 logger.debug(
                     f"Mod {id} has no stats_key. [stats_key: {stats_key}, stats_id: {stats_id}]"
                 )
+                continue
+
+            tiers = [
+                {
+                    "tier": m.get("mod_index") + 1,
+                    "ilevel": m.get("mod_level"),
+                    "id": m.get("mod_unique_id"),
+                    "name": m.get("mod_name"),
+                    "values": m.get("mod_stat_values"),
+                }
+                for m in mod_value_list
+            ]
+
+            flatten_stats = flatten_stats_ids(ids_list)
+            trade = {"ids": flatten_stats}
+            self.mods[id] = {
+                "ref": translations[0].get("ref"),
+                "better": 1,
+                # "id": stats_id,
+                "matchers": translations[0].get("matchers"),
+                "trade": trade,
+                "tiers": tiers,
+            }
 
         logger.debug("Completed parsing mods.")
 
