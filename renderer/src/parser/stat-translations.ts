@@ -1,6 +1,6 @@
 import { CLIENT_STRINGS as _$, STAT_BY_MATCH_STR } from "@/assets/data";
 import type { StatMatcher, Stat } from "@/assets/data";
-import type { ModifierType } from "./modifiers";
+import { ModifierType } from "./modifiers";
 
 // This file is a little messy and scary,
 // but that's how stats translations are parsed :-D
@@ -157,7 +157,7 @@ function* _statPlaceholderGenerator(stat: string) {
 export function tryParseTranslation(
   stat: StatString,
   modType: ModifierType,
-): ParsedStat | undefined {
+): { stat: ParsedStat; tier: number | undefined } | undefined {
   for (const combination of _statPlaceholderGenerator(stat.string)) {
     const found = STAT_BY_MATCH_STR(combination.stat);
     if (!found || !found.stat.trade.ids || !found.stat.trade.ids[modType]) {
@@ -183,6 +183,38 @@ export function tryParseTranslation(
         min: 1,
         max: uses.bounds?.max ?? uses.roll,
       };
+    }
+
+    let foundTier: number | undefined;
+
+    if (modType === ModifierType.Explicit && found.stat.tiers) {
+      // Find the tier where all values match up
+      const tier = found.stat.tiers.find((t) =>
+        combination.values.every((stat, index) => {
+          const tierBounds = t.values[index];
+          return (
+            tierBounds &&
+            tierBounds[0] <= stat.roll &&
+            stat.roll <= tierBounds[1]
+          );
+        }),
+      );
+
+      console.log(tier);
+
+      if (tier) {
+        // Set bounds for each stat from the tier
+        combination.values.forEach((stat, index) => {
+          const tierBounds = tier.values[index];
+          if (tierBounds) {
+            stat.bounds = {
+              min: tierBounds[0],
+              max: tierBounds[1],
+            };
+          }
+        });
+        foundTier = tier.tier;
+      }
     }
 
     for (const stat of combination.values) {
@@ -223,25 +255,29 @@ export function tryParseTranslation(
     }
 
     return {
-      stat: found.stat,
-      translation: found.matcher,
-      roll: combination.values.length
-        ? {
-            unscalable: stat.unscalable,
-            legacy: legacyStatRolls || undefined,
-            dp:
-              found.stat.dp || combination.values.some((stat) => stat.decimal),
-            value: getRollOrMinmaxAvg(
-              combination.values.map((stat) => stat.roll),
-            ),
-            min: getRollOrMinmaxAvg(
-              combination.values.map((stat) => stat.bounds?.min ?? stat.roll),
-            ),
-            max: getRollOrMinmaxAvg(
-              combination.values.map((stat) => stat.bounds?.max ?? stat.roll),
-            ),
-          }
-        : undefined,
+      stat: {
+        stat: found.stat,
+        translation: found.matcher,
+        roll: combination.values.length
+          ? {
+              unscalable: stat.unscalable,
+              legacy: legacyStatRolls || undefined,
+              dp:
+                found.stat.dp ||
+                combination.values.some((stat) => stat.decimal),
+              value: getRollOrMinmaxAvg(
+                combination.values.map((stat) => stat.roll),
+              ),
+              min: getRollOrMinmaxAvg(
+                combination.values.map((stat) => stat.bounds?.min ?? stat.roll),
+              ),
+              max: getRollOrMinmaxAvg(
+                combination.values.map((stat) => stat.bounds?.max ?? stat.roll),
+              ),
+            }
+          : undefined,
+      },
+      tier: foundTier,
     };
   }
 }
