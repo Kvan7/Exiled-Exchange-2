@@ -8,6 +8,14 @@ export interface StatMatcher {
   oils?: string; // Amulet anointment
 }
 
+export interface StatTier {
+  tier: number;
+  ilvl: number;
+  id: string;
+  name: string;
+  values: number[][];
+}
+
 export enum StatBetter {
   NegativeRoll = -1,
   PositiveRoll = 1,
@@ -30,6 +38,7 @@ export interface Stat {
       [type: string]: string[];
     };
   };
+  tiers?: StatTier[];
   // isFakePseudo?: true;
 }
 
