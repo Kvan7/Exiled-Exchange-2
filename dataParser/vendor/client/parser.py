@@ -409,13 +409,13 @@ class Parser:
 
             tiers = [
                 {
-                    "tier": m.get("mod_index") + 1,
-                    "ilevel": m.get("mod_level"),
+                    "tier": i + 1,
+                    "ilvl": m.get("mod_level"),
                     "id": m.get("mod_unique_id"),
                     "name": m.get("mod_name"),
                     "values": m.get("mod_stat_values"),
                 }
-                for m in mod_value_list
+                for i, m in enumerate(mod_value_list)
             ]
 
             flatten_stats = flatten_stats_ids(ids_list)
@@ -423,13 +423,14 @@ class Parser:
             self.mods[id] = {
                 "ref": translations[0].get("ref"),
                 "better": 1,
-                # "id": stats_id,
+                "id": mod_value_list[0].get("mod_stat_ids")[0],
                 "matchers": translations[0].get("matchers"),
                 "trade": trade,
                 "tiers": tiers,
             }
 
         logger.debug("Completed parsing mods.")
+        logger.info(f"Mods: {len(self.mods)}")
 
     def parse_categories(self):
         # parse item categories
@@ -767,5 +768,5 @@ class Parser:
 
 if __name__ == "__main__":
     logger.info("Starting parser")
-    set_log_level(logging.WARNING)
-    Parser("ru").run()
+    set_log_level(logging.INFO)
+    Parser("en").run()
