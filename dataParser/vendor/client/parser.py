@@ -390,9 +390,9 @@ class Parser:
                                 f"No trade IDs found for matcher: {matchers[0].get('string')}."
                             )
                             self.matchers_no_trade_ids.append(matchers[0].get("string"))
-                        else:
-                            ids_list.append(ids)
-                            translations.append(translation)
+
+                        ids_list.append(ids)
+                        translations.append(translation)
                     else:
                         logger.debug(
                             f"Mod {id} has no translations. [stats_key: {stats_key}, stats_id: {stats_id}]"
@@ -401,7 +401,7 @@ class Parser:
                     logger.debug(
                         f"Mod {id} has no stats_key. [stats_key: {stats_key}, stats_id: {stats_id}]"
                     )
-            if len(ids_list) == 0 or len(translations) == 0:
+            if len(translations) == 0:
                 logger.debug(
                     f"Mod {id} has no stats_key. [stats_key: {stats_key}, stats_id: {stats_id}]"
                 )
@@ -418,7 +418,12 @@ class Parser:
                 for i, m in enumerate(mod_value_list)
             ]
 
-            flatten_stats = flatten_stats_ids(ids_list)
+            ids_list = [x for x in ids_list if x is not None]
+
+            if len(ids_list) == 0:
+                flatten_stats = None
+            else:
+                flatten_stats = flatten_stats_ids(ids_list)
             trade = {"ids": flatten_stats}
             self.mods[id] = {
                 "ref": translations[0].get("ref"),
