@@ -195,6 +195,7 @@ import {
   RuneFilter,
   StatFilter,
   Suggestion,
+  WeightStatGroup,
 } from "../filters/interfaces";
 import { ParsedItem } from "@/parser";
 import { artificialSlowdown } from "./artificial-slowdown";
@@ -248,6 +249,7 @@ function useTradeApi() {
     stats: StatFilter[],
     item: ParsedItem,
     runeFilters: RuneFilter[],
+    weightFilters: WeightStatGroup[]
   ) {
     try {
       searchId += 1;
@@ -257,7 +259,7 @@ function useTradeApi() {
       fetchResults.value = _fetchResults;
 
       const _searchId = searchId;
-      const request = createTradeRequest(filters, stats, item, runeFilters);
+      const request = createTradeRequest(filters, stats, item, runeFilters, weightFilters);
       const _searchResult = await requestTradeResultList(
         request,
         filters.trade.league,
@@ -377,6 +379,10 @@ export default defineComponent({
       type: Array as PropType<RuneFilter[]>,
       required: true,
     },
+    weightFilters: {
+      type: Array as PropType<WeightStatGroup[]>,
+      required: true,
+    },
   },
   setup(props) {
     const widget = computed(() => AppConfig<PriceCheckWidget>("price-check")!);
@@ -398,7 +404,7 @@ export default defineComponent({
     function makeTradeLink() {
       return searchResult.value
         ? `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}/${searchResult.value.id}`
-        : `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}?q=${JSON.stringify(createTradeRequest(props.filters, props.stats, props.item, props.runeFilters))}`;
+        : `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}?q=${JSON.stringify(createTradeRequest(props.filters, props.stats, props.item, props.runeFilters, props.weightFilters))}`;
     }
 
     watch(groupedResults, (values) => {
@@ -494,7 +500,7 @@ export default defineComponent({
         }
       }),
       execSearch: () => {
-        search(props.filters, props.stats, props.item, props.runeFilters);
+        search(props.filters, props.stats, props.item, props.runeFilters, props.weightFilters);
       },
       error,
       showSeller: computed(() => widget.value.showSeller),

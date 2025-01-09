@@ -202,6 +202,7 @@
           :filter="filter"
           :item="item"
           :show-sources="showFilterSources"
+          :use-weight-resistances="useWeightResistances"
           @submit="handleStatsSubmit"
         />
         <div
@@ -238,6 +239,11 @@
           class="ml-auto text-gray-400 pt-2"
           >{{ t("filters.mods_toggle") }}</ui-toggle
         >
+        <ui-toggle
+          v-model="useWeightResistances"
+          class="ml-auto text-gray-400 pt-2"
+          >{{ t("filters.weight_res_toggle") }}</ui-toggle
+        >
       </div>
     </div>
   </div>
@@ -251,6 +257,7 @@ import {
   shallowReactive,
   computed,
   PropType,
+  ref,
 } from "vue";
 import { useI18n } from "vue-i18n";
 import UiToggle from "@/web/ui/UiToggle.vue";
@@ -259,7 +266,7 @@ import FilterBtnNumeric from "./FilterBtnNumeric.vue";
 import FilterBtnLogical from "./FilterBtnLogical.vue";
 import FilterRuneSocket from "./FilterRuneSocket.vue";
 import UnknownModifier from "./UnknownModifier.vue";
-import { ItemFilters, RuneFilter, StatFilter } from "./interfaces";
+import { ItemFilters, RESISTANCE_WEIGHT_GROUP, RuneFilter, StatFilter, WeightStatGroup } from "./interfaces";
 import { ParsedItem, ItemRarity, ItemCategory } from "@/parser";
 
 export default defineComponent({
@@ -294,6 +301,10 @@ export default defineComponent({
       type: Object as PropType<RuneFilter[]>,
       required: true,
     },
+    weightFilters: {
+      type: Object as PropType<WeightStatGroup[]>,
+      required: true,
+    },
     changeItem: {
       type: Function as PropType<(newItem: ParsedItem) => void>,
       required: true,
@@ -308,6 +319,8 @@ export default defineComponent({
     const runeSocketsVisibility = shallowReactive({ disabled: true });
     const showHidden = shallowRef(false);
     const showFilterSources = shallowRef(false);
+    const useWeightResistances = ref(false);
+  
 
     watch(
       () => props.item,
@@ -316,7 +329,20 @@ export default defineComponent({
         statsVisibility.disabled = false;
         runeSocketsVisibility.disabled =
           props.item.runeSockets?.runes.every((rune) => !rune.isFake) ?? true;
+        props.weightFilters
+          .filter((group) => group.name == RESISTANCE_WEIGHT_GROUP)
+          .forEach((group) => group.disabled = !useWeightResistances.value);
       },
+    );
+
+    watch(
+      () => useWeightResistances,
+      () => {
+        props.weightFilters
+          .filter((group) => group.name == RESISTANCE_WEIGHT_GROUP)
+          .forEach((group) => group.disabled = !useWeightResistances.value);
+      },
+      { deep: true }
     );
 
     const showUnknownMods = computed(
@@ -337,6 +363,7 @@ export default defineComponent({
       runeSocketsVisibility,
       showHidden,
       showFilterSources,
+      useWeightResistances,
       totalSelectedMods: computed(() => {
         return props.stats.filter((stat) => !stat.disabled).length;
       }),
