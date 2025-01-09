@@ -1530,6 +1530,8 @@ export function replaceHashWithValues(template: string, values: number[]) {
   return result;
 }
 
+// Disable since this is export for tests
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export const __testExports = {
   itemTextToSections,
 };
