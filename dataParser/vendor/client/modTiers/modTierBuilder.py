@@ -2,6 +2,8 @@ import logging
 import os
 import re
 import uuid
+from collections import defaultdict
+from pprint import pprint
 
 logger = logging.getLogger(__name__)
 
@@ -81,7 +83,16 @@ def modTierBuilder(mod_data):
     return by_id
 
 
-def modTierBuilderB(mod_data, base_item_types, gold_mod_prices):
+def modTierBuilderB(mod_data, base_item_types, gold_mod_prices, tags):
+    gold_with_readable_tags = {
+        mod_data[gold_row["Mod"]]["Id"]: {
+            tags[tag]["Id"] if "armour" not in tags[tag]["Id"] else "body_armour"
+            for tag in gold_row["Tags"]
+            if tag
+        }
+        for gold_row in gold_mod_prices
+    }
+
     # Flatten mods data for easier processing
     flat_mods = []
     logger.info("Starting to build mods")
@@ -99,6 +110,7 @@ def modTierBuilderB(mod_data, base_item_types, gold_mod_prices):
         mod_jewel_radius = mod.get("RadiusJewelType")
         mod_stats = []
         mod_stat_ids = []
+        mod_allowed_base_types = gold_with_readable_tags.get(mod_unique_id, [])
         for stat_index in range(1, 7):
             stat = mod.get(f"Stat{stat_index}")
             if stat is None:
@@ -119,68 +131,47 @@ def modTierBuilderB(mod_data, base_item_types, gold_mod_prices):
             "mod_jewel_radius": mod_jewel_radius,
             "mod_stat_values": mod_stats,
             "mod_stat_ids": mod_stat_ids,
+            "mod_allowed_base_types": mod_allowed_base_types,
         }
         flat_mods.append(mod_mod)
 
     logger.info(f"Created {len(flat_mods)} mods")
 
-    # Create mapping of BaseItemTypes.Tags and Mods
-    item_tags_map = {
-        row["Id"]: set(row["Tags"].split(",") if row["Tags"] else [])
-        for row in base_item_types
-    }
-    mod_tags_map = {
-        row["Mod"]: set(row["Tags"].split(",") if row["Tags"] else [])
-        for row in gold_mod_prices
-    }
-
-    # Step 2: Filter mods by applicable items
-    filtered_mods = []
+    # step 2
+    by_id = {}
     for mod in flat_mods:
-        mod_id = mod.get("mod_unique_id")
-        mod_tags = mod_tags_map.get(mod_id, set())
-        applicable_items = []
+        mod_id_with_trailing_num = mod.get("mod_unique_id")
+        mod_id = re.sub(r"\d+_?$", "", mod_id_with_trailing_num.strip())
+        if mod_id not in by_id:
+            by_id[mod_id] = {
+                "mods": [],
+                "mods_id": mod_id,
+                "mod_type": mod["mod_type"],
+                "mod_allowed_base_types": set(mod["mod_allowed_base_types"]),
+                "mod_stat_ids": set(mod["mod_stat_ids"]),
+            }
+        by_id[mod_id]["mods"].append(mod)
+        by_id[mod_id]["mod_stat_ids"] = by_id[mod_id]["mod_stat_ids"].union(
+            set(mod["mod_stat_ids"])
+        )
+        by_id[mod_id]["mod_allowed_base_types"] = by_id[mod_id][
+            "mod_allowed_base_types"
+        ].union(set(mod["mod_allowed_base_types"]))
 
-        for item_id, item_tags in item_tags_map.items():
-            # Check if the mod's tags overlap with the item's tags
-            if mod_tags.intersection(item_tags):
-                applicable_items.append(item_id)
+    logger.info(f"Created {len(by_id)} unique mods")
 
-        if applicable_items:
-            mod["applicable_items"] = applicable_items
-            filtered_mods.append(mod)
+    grouped_by_mod_type = defaultdict(list)
+    for mod_id, mod_group in by_id.items():
+        grouped_by_mod_type[mod_group["mod_type"]].append(mod_group)
 
-    logger.info(f"Filtered mods to {len(filtered_mods)} with applicable items")
+    output_data = []
 
-    # Step 3: Organize mods by stat and tiers for applicable items
-    base_item_stats = {}
-    for mod in filtered_mods:
-        for item_id in mod["applicable_items"]:
-            if item_id not in base_item_stats:
-                base_item_stats[item_id] = {}
+    for mod_type, mod_groups in grouped_by_mod_type.items():
+        all_stats = set()
+        for mod_group in mod_groups:
+            all_stats = all_stats.union(mod_group["mod_stat_ids"])
 
-            for stat_id in mod["mod_stat_ids"]:
-                if stat_id not in base_item_stats[item_id]:
-                    base_item_stats[item_id][stat_id] = []
-
-                base_item_stats[item_id][stat_id].append(
-                    {
-                        "tier": len(base_item_stats[item_id][stat_id]) + 1,
-                        "mod_id": mod["mod_unique_id"],
-                        "mod_name": mod["mod_name"],
-                        "mod_level": mod["mod_level"],
-                        "mod_stat_values": mod["mod_stat_values"],
-                    }
-                )
-
-    # Step 4: Sort tiers within each stat for consistency
-    for item_id, stats in base_item_stats.items():
-        for stat_id, tiers in stats.items():
-            tiers.sort(key=lambda x: x["mod_level"])
-
-    logger.info(f"Generated tiers for {len(base_item_stats)} item base types")
-
-    return base_item_stats
+    return output_data
 
 
 if __name__ == "__main__":
@@ -204,5 +195,11 @@ if __name__ == "__main__":
         encoding="utf-8",
     ) as f:
         gold_data = json.load(f)
+    with open(
+        f"{os.path.dirname(os.path.realpath(__file__))}/../tables/en/Tags.json",
+        "r",
+        encoding="utf-8",
+    ) as f:
+        tags = json.load(f)
     logging.basicConfig(level=logging.INFO)
-    modTierBuilderB(mod_data, base_item_data, gold_data)
+    modTierBuilderB(mod_data, base_item_data, gold_data, tags)

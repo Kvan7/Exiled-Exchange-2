@@ -25,7 +25,7 @@ from clientStrings.clientStringBuilder import (
     write_client_strings,
 )
 from descriptionParser.descriptionFile import DescriptionFile
-from modTiers.modTierBuilder import modTierBuilder
+from modTiers.modTierBuilder import modTierBuilderB
 from services.logger_setup import set_log_level
 
 logger = logging.getLogger(__name__)
@@ -95,6 +95,7 @@ class Parser:
         self.mods_file = self.load_file("Mods")
         self.words_file = self.load_file("Words")
         self.gold_mod_prices = self.load_file("GoldModPrices")
+        self.tags = self.load_file("Tags")
         self.client_strings_file = self.load_file("ClientStrings")
         # NOTE: could need to add local here?
         self.trade_stats = json.loads(
@@ -347,57 +348,84 @@ class Parser:
 
         logger.info(f"Mod translations: {len(self.mod_translations)}")
 
-        for mod in self.mods_file:
-            id = mod.get("Id")
-            stats_key = mod.get("Stat1")
+        for ids, tiers in modTierBuilderB(self.mods_file):
+            value_counts = len(ids)
+            if value_counts < 1:
+                continue
+            ids_list = []
+            translations = []
+            stat_id = None
 
-            logger.debug(f"Processing mod - ID: {id}, Stat: {stats_key}")
+            for stats_key in ids:
+                logger.debug(f"Processing mod - ID: {id}, Stat: {stats_key}")
 
-            if stats_key is not None:
-                stats_id = self.stats.get(stats_key)
-                translation = self.mod_translations.get(stats_id)
+                if stats_key is not None:
+                    stats_id = self.stats.get(stats_key)
+                    translation = self.mod_translations.get(stats_id)
 
-                if translation:
-                    ref = translation.get("ref")
-                    matchers = translation.get("matchers")
+                    if translation:
+                        ref = translation.get("ref")
+                        matchers = translation.get("matchers")
 
-                    if matchers is None or len(matchers) == 0:
-                        logger.warning(f"No matchers found for stats ID: {stats_id}.")
-                        continue
-
-                    ids = self.stats_trade_ids.get(matchers[0].get("string"))
-
-                    if ids is None and len(matchers) > 1:
-                        ids = self.stats_trade_ids.get(matchers[1].get("string"))
-                        if ids is None:
+                        if matchers is None or len(matchers) == 0:
                             logger.warning(
-                                f"No trade IDs found for matchers: {matchers[0].get('string')} or {matchers[1].get('string')}."
+                                f"No matchers found for stats ID: {stats_id}."
                             )
-                            self.matchers_no_trade_ids.extend(
-                                [matchers[0].get("string"), matchers[1].get("string")]
-                            )
-                    elif ids is None:
-                        logger.warning(
-                            f"No trade IDs found for matcher: {matchers[0].get('string')}."
-                        )
-                        self.matchers_no_trade_ids.append(matchers[0].get("string"))
+                            continue
 
-                    trade = {"ids": ids}
-                    self.mods[id] = {
-                        "ref": translation.get("ref"),
-                        "better": 1,
-                        "id": stats_id,
-                        "matchers": translation.get("matchers"),
-                        "trade": trade,
-                    }
+                        ids = self.stats_trade_ids.get(matchers[0].get("string"))
+                        if stat_id is None:
+                            stat_id = stats_id
+
+                        if ids is None and len(matchers) > 1:
+                            ids = self.stats_trade_ids.get(matchers[1].get("string"))
+                            if ids is None:
+                                logger.warning(
+                                    f"No trade IDs found for matchers: {matchers[0].get('string')} or {matchers[1].get('string')}."
+                                )
+                                self.matchers_no_trade_ids.extend(
+                                    [
+                                        matchers[0].get("string"),
+                                        matchers[1].get("string"),
+                                    ]
+                                )
+                        elif ids is None:
+                            logger.warning(
+                                f"No trade IDs found for matcher: {matchers[0].get('string')}."
+                            )
+                            self.matchers_no_trade_ids.append(matchers[0].get("string"))
+
+                        ids_list.append(ids)
+                        translations.append(translation)
+                    else:
+                        logger.debug(
+                            f"Mod {id} has no translations. [stats_key: {stats_key}, stats_id: {stats_id}]"
+                        )
                 else:
                     logger.debug(
-                        f"Mod {id} has no translations. [stats_key: {stats_key}, stats_id: {stats_id}]"
+                        f"Mod {id} has no stats_key. [stats_key: {stats_key}, stats_id: {stats_id}]"
                     )
-            else:
+            if len(translations) == 0:
                 logger.debug(
                     f"Mod {id} has no stats_key. [stats_key: {stats_key}, stats_id: {stats_id}]"
                 )
+                continue
+
+            ids_list = [x for x in ids_list if x is not None]
+
+            if len(ids_list) == 0:
+                flatten_stats = None
+            else:
+                flatten_stats = flatten_stats_ids(ids_list)
+            trade = {"ids": flatten_stats}
+            self.mods[id] = {
+                "ref": translations[0].get("ref"),
+                "better": 1,
+                "id": stat_id,
+                "matchers": translations[0].get("matchers"),
+                "trade": trade,
+                "tiers": tiers,
+            }
 
         logger.debug("Completed parsing mods.")
         logger.info(f"Mods: {len(self.mods)}")
