@@ -20,6 +20,10 @@ import re
 import urllib.parse
 from pprint import pprint
 
+from clientStrings.clientStringBuilder import (
+    create_client_strings,
+    write_client_strings,
+)
 from descriptionParser.descriptionFile import DescriptionFile
 from services.logger_setup import set_log_level
 
@@ -71,6 +75,7 @@ class Parser:
         self.translation_files = os.listdir(f"{self.cwd}/descriptions")
         self.mods_file = self.load_file("Mods")
         self.words_file = self.load_file("Words")
+        self.client_strings_file = self.load_file("ClientStrings")
         # NOTE: could need to add local here?
         self.trade_stats = json.loads(
             open(
@@ -688,6 +693,17 @@ class Parser:
             },
         }
 
+    def do_client_strings(self):
+        cl = create_client_strings(self.client_strings_file)
+        out_string = write_client_strings(cl)
+        print(out_string)
+        # with open(
+        #     f"{self.get_script_dir()}/pyDumps/{self.lang}/client_strings.js",
+        #     "w",
+        #     encoding="utf-8",
+        # ) as f:
+        #     f.write(out_string)
+
     def run(self):
         self.parse_trade_ids()
         self.parse_mods()
@@ -696,6 +712,7 @@ class Parser:
         self.resolve_item_classes()
         self.parse_trade_exchange_items()
         self.write_to_file()
+        self.do_client_strings()
 
 
 if __name__ == "__main__":

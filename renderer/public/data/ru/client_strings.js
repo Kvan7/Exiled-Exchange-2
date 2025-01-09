@@ -25,7 +25,7 @@ export default {
   ATTACK_SPEED: 'Атак в секунду: ',
   ARMOUR: 'Броня: ',
   EVASION: 'Уклонение: ',
-  ENERGY_SHIELD: 'Энерг. щит: ',
+  ENERGY_SHIELD: 'Энергетический щит: ',
   BLOCK_CHANCE: 'Шанс заблокировать удар: ',
   CORRUPTED: 'Осквернено',
   UNIDENTIFIED: 'Неопознано',
