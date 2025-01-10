@@ -14,9 +14,10 @@
       />
       <div class="flex-1"></div>
       <trade-links
-        v-if="list && !usePseudo"
+        v-if="list && showPseudoLink"
         :get-link="makeTradeLinkPseudo"
         text="filters.tag_pseudo"
+        class="mr-1"
       />
       <trade-links v-if="list" :get-link="makeTradeLink" />
     </div>
@@ -380,9 +381,7 @@ export default defineComponent({
     }
 
     function makeTradeLinkPseudo() {
-      return searchResult.value
-        ? `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}/${searchResult.value.id}`
-        : `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}?q=${JSON.stringify(createTradeRequest(props.filters, props.stats, props.item, props.runeFilters, props.weightFilters))}`;
+      return `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}?q=${JSON.stringify(createTradeRequest(props.filters, props.stats, props.item, props.runeFilters, props.weightFilters))}`;
     }
 
     return {
@@ -414,17 +413,13 @@ export default defineComponent({
           window.open(makeTradeLink());
         }
       },
-      openTradeLinkPseudo() {
-        if (widget.value.builtinBrowser && Host.isElectron) {
-          showBrowser(makeTradeLinkPseudo());
-        } else {
-          window.open(makeTradeLinkPseudo());
-        }
-      },
-      usePseudo: computed(
+      showPseudoLink: computed(
         () =>
-          widget.value.usePseudo &&
-          ["en", "ru", "ko", "cmn-Hant"].includes(AppConfig().language),
+          props.weightFilters.length &&
+          !(
+            widget.value.usePseudo &&
+            ["en", "ru", "ko", "cmn-Hant"].includes(AppConfig().language)
+          ),
       ),
     };
   },

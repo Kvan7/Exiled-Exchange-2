@@ -263,7 +263,7 @@ export function createTradeRequest(
   stats: StatFilter[],
   item: ParsedItem,
   runeFilters: RuneFilter[],
-  weightGroups?: WeightStatGroup[]
+  weightGroups?: WeightStatGroup[],
 ) {
   const body: TradeRequest = {
     query: {
@@ -716,8 +716,8 @@ export function createTradeRequest(
       query.stats.push({
         type: "weight",
         value: weightGroup.value,
-        disabled: weightGroup.disabled,
-        filters: weightStatsToFilters(weightGroup.stats)
+        disabled: false,
+        filters: weightStatsToFilters(weightGroup.stats),
       });
     }
   }
@@ -728,14 +728,14 @@ export function createTradeRequest(
 function weightStatsToFilters(weightStats: StatFilter[]) {
   const filters: any[] = [];
 
-  for (const stat of weightStats) { 
-    for(const tradeId of stat.tradeId) {
+  for (const stat of weightStats) {
+    for (const tradeId of stat.tradeId) {
       filters.push({
-        disabled: stat.disabled,
+        disabled: false,
         id: tradeId,
         value: {
-          weight: stat.weight
-        }
+          weight: stat.weight,
+        },
       });
     }
   }

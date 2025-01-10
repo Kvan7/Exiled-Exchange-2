@@ -38,12 +38,14 @@
           {{ t("Search") }}
         </button>
       </div>
-      <trade-links
-        v-if="tradeAPI === 'trade' && !usePseudo"
-        :get-link="makeTradeLinkPseudo"
-        text="filters.tag_pseudo"
-      />
-      <trade-links v-if="tradeAPI === 'trade'" :get-link="makeTradeLink" />
+      <div class="flex flex-row gap-1">
+        <trade-links
+          v-if="tradeAPI === 'trade' && showPseudoLink"
+          :get-link="makeTradeLinkPseudo"
+          text="filters.tag_pseudo"
+        />
+        <trade-links v-if="tradeAPI === 'trade'" :get-link="makeTradeLink" />
+      </div>
     </div>
     <stack-value :filters="itemFilters" :item="item" />
     <div v-if="showSupportLinks" class="mt-auto border border-dashed p-2">
@@ -371,10 +373,13 @@ export default defineComponent({
       selectPreset(id: string) {
         presets.value.active = id;
       },
-      usePseudo: computed(
+      showPseudoLink: computed(
         () =>
-          widget.value.usePseudo &&
-          ["en", "ru", "ko", "cmn-Hant"].includes(AppConfig().language),
+          weightFilters.value.length &&
+          !(
+            widget.value.usePseudo &&
+            ["en", "ru", "ko", "cmn-Hant"].includes(AppConfig().language)
+          ),
       ),
       makeTradeLink() {
         return `https://${getTradeEndpoint()}/trade2/search/poe2/${itemFilters.value.trade.league}?q=${JSON.stringify(createTradeRequest(itemFilters.value, itemStats.value, props.item, runeFilters.value))}`;
