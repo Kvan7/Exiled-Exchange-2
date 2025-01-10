@@ -13,6 +13,12 @@
         :currency-ratio="true"
       />
       <div class="flex-1"></div>
+      <trade-links
+        v-if="list && showPseudoLink"
+        :get-link="makeTradeLinkPseudo"
+        text="filters.tag_pseudo"
+        class="mr-1"
+      />
       <trade-links v-if="list" :get-link="makeTradeLink" />
     </div>
 
@@ -159,7 +165,12 @@ import {
 import { getTradeEndpoint } from "./common";
 import { AppConfig } from "@/web/Config";
 import { PriceCheckWidget } from "@/web/overlay/interfaces";
-import { ItemFilters, RuneFilter, StatFilter } from "../filters/interfaces";
+import {
+  ItemFilters,
+  RuneFilter,
+  StatFilter,
+  WeightStatGroup,
+} from "../filters/interfaces";
 import { ParsedItem } from "@/parser";
 import { artificialSlowdown } from "./artificial-slowdown";
 import OnlineFilter from "./OnlineFilter.vue";
@@ -342,6 +353,10 @@ export default defineComponent({
       type: Array as PropType<RuneFilter[]>,
       required: true,
     },
+    weightFilters: {
+      type: Array as PropType<WeightStatGroup[]>,
+      required: true,
+    },
   },
   setup(props) {
     const widget = computed(() => AppConfig<PriceCheckWidget>("price-check")!);
@@ -365,6 +380,10 @@ export default defineComponent({
         : `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}?q=${JSON.stringify(createTradeRequest(props.filters, props.stats, props.item, props.runeFilters))}`;
     }
 
+    function makeTradeLinkPseudo() {
+      return `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}?q=${JSON.stringify(createTradeRequest(props.filters, props.stats, props.item, props.runeFilters, props.weightFilters))}`;
+    }
+
     return {
       t,
       list: searchResult,
@@ -386,6 +405,7 @@ export default defineComponent({
       error,
       showSeller: computed(() => widget.value.showSeller),
       makeTradeLink,
+      makeTradeLinkPseudo,
       openTradeLink() {
         if (widget.value.builtinBrowser && Host.isElectron) {
           showBrowser(makeTradeLink());
@@ -393,6 +413,14 @@ export default defineComponent({
           window.open(makeTradeLink());
         }
       },
+      showPseudoLink: computed(
+        () =>
+          props.weightFilters.length &&
+          !(
+            widget.value.usePseudo &&
+            ["en", "ru", "ko", "cmn-Hant"].includes(AppConfig().language)
+          ),
+      ),
     };
   },
 });
