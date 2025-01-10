@@ -420,6 +420,9 @@ class Parser:
 
         logger.info(f"Mod translations: {len(self.mod_translations)}")
 
+        hybrid_count = 0
+        hybrids = []
+
         for ids, tiers, base_id in modTierBuilderB(
             self.mods_file, self.base_items, self.gold_mod_prices, self.tags
         ):
@@ -495,6 +498,11 @@ class Parser:
             trade = {"ids": flatten_stats}
             if base_id in self.mods:
                 logger.warn(f"Duplicate mod {base_id}")
+
+            if len(translations) > 1 and translations[0].get("ref", "").count("#") == 1:
+                hybrid_count += 1
+                hybrids.append((base_id, translations))
+                continue
             self.mods[base_id] = {
                 "ref": translations[0].get("ref"),
                 "better": 1,
@@ -506,6 +514,7 @@ class Parser:
 
         logger.debug("Completed parsing mods.")
         logger.info(f"Mods: {len(self.mods)}")
+        logger.info(f"Hybrid mods: {hybrid_count}")
 
     def parse_categories(self):
         # parse item categories
