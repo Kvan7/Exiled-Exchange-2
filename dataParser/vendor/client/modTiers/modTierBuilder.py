@@ -269,7 +269,7 @@ if __name__ == "__main__":
         tags = json.load(f)
     logging.basicConfig(level=logging.INFO)
     data = modTierBuilderB(mod_data, base_item_data, gold_data, tags)
-    for keys, mods in data:
+    for keys, mods, id in data:
         if len(mods["explicit"]) > 1:
             x = mods["explicit"]
             print(x)

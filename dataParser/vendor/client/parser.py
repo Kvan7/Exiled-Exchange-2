@@ -674,7 +674,7 @@ class Parser:
         self.add_missing_mods()
 
         seen = set()
-        skip = {"maximum_life_%_lost_on_kill"}
+        skip = {"maximum_life_%_lost_on_kill", "base_spirit"}
         m = open(
             f"{self.out_dir}/stats.ndjson",
             "w",

@@ -47,6 +47,7 @@ export interface Stat {
     };
   };
   tiers?: {
+    [key: string]: StatTierMod[] | { [type: string]: StatTierMod };
     explicit: StatTierMod[];
     implicit: {
       [type: string]: StatTierMod;

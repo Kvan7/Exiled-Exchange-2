@@ -1367,6 +1367,7 @@ function parseStatsFromMod(
     const parsedStatAndTier = tryParseTranslation(
       stat.value,
       modifier.info.type,
+      item.category,
     );
     if (parsedStatAndTier) {
       const { stat: parsedStat, tier } = parsedStatAndTier;

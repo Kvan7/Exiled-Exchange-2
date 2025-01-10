@@ -1,6 +1,8 @@
 import { CLIENT_STRINGS as _$, STAT_BY_MATCH_STR } from "@/assets/data";
 import type { StatMatcher, Stat } from "@/assets/data";
 import { ModifierType } from "./modifiers";
+import { ItemCategory } from "./meta";
+import { getModTier, getTier, getTierNumber } from "./mod-tiers";
 
 // This file is a little messy and scary,
 // but that's how stats translations are parsed :-D
@@ -157,6 +159,7 @@ function* _statPlaceholderGenerator(stat: string) {
 export function tryParseTranslation(
   stat: StatString,
   modType: ModifierType,
+  itemCategory?: ItemCategory,
 ): { stat: ParsedStat; tier: number | undefined } | undefined {
   for (const combination of _statPlaceholderGenerator(stat.string)) {
     const found = STAT_BY_MATCH_STR(combination.stat);
@@ -187,33 +190,32 @@ export function tryParseTranslation(
 
     let foundTier: number | undefined;
 
-    if (modType === ModifierType.Explicit && found.stat.tiers) {
-      // Find the tier where all values match up
-      const tier = found.stat.tiers.find((t) =>
-        combination.values.every((stat, index) => {
-          const tierBounds = t.values[index];
-          return (
-            tierBounds &&
-            tierBounds[0] <= stat.roll &&
-            stat.roll <= tierBounds[1]
-          );
-        }),
+    if (modType === ModifierType.Explicit && found.stat.tiers && itemCategory) {
+      const modTiers = getModTier(
+        combination.values,
+        found.stat.tiers,
+        itemCategory,
+        modType,
       );
 
-      console.log(tier);
-
-      if (tier) {
-        // Set bounds for each stat from the tier
-        combination.values.forEach((stat, index) => {
-          const tierBounds = tier.values[index];
-          if (tierBounds) {
-            stat.bounds = {
-              min: tierBounds[0],
-              max: tierBounds[1],
-            };
+      if (modTiers) {
+        const tierMatch = getTier(combination.values, modTiers);
+        if (tierMatch) {
+          // Set bounds for each stat from the tier
+          combination.values.forEach((stat, index) => {
+            const tierBounds = tierMatch.values[index];
+            if (tierBounds) {
+              stat.bounds = {
+                min: tierBounds[0],
+                max: tierBounds[1],
+              };
+            }
+          });
+          const tierNumber = getTierNumber(tierMatch, modTiers, itemCategory);
+          if (tierNumber !== -1) {
+            foundTier = tierNumber;
           }
-        });
-        foundTier = tier.tier;
+        }
       }
     }
 
