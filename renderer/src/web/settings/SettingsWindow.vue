@@ -123,7 +123,11 @@ import {
 } from "@/web/Config";
 import { APP_PATRONS } from "@/assets/data";
 import { Host } from "@/web/background/IPC";
-import type { Widget, WidgetManager } from "@/web/overlay/interfaces";
+import type {
+  Widget,
+  WidgetManager,
+  WidgetSpec,
+} from "@/web/overlay/interfaces";
 import AppTitleBar from "@/web/ui/AppTitlebar.vue";
 import SettingsHotkeys from "./hotkeys.vue";
 import SettingsChat from "./chat.vue";
@@ -161,6 +165,20 @@ function quit() {
 }
 
 export default defineComponent({
+  widget: {
+    type: "settings",
+    instances: "single",
+    initInstance: () => {
+      return {
+        wmId: 0,
+        wmType: "settings",
+        wmTitle: "",
+        wmWants: "hide",
+        wmZorder: "exclusive",
+        wmFlags: ["invisible-on-blur", "ignore-ui-visibility"],
+      };
+    },
+  } satisfies WidgetSpec,
   components: { AppTitleBar, ConversionWarningBanner },
   props: {
     config: {
