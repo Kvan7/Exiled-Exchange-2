@@ -18,6 +18,8 @@ import logging
 import os
 import re
 import urllib.parse
+from collections import defaultdict
+from copy import deepcopy
 from pprint import pprint
 
 from clientStrings.clientStringBuilder import (
@@ -59,6 +61,76 @@ def flatten_stats_ids(input_data):
         return input_data
     else:
         raise ValueError("Invalid input format")
+
+
+def flatten_mods(mods):
+    # Create a dictionary to group mods by "ref"
+    grouped_mods = defaultdict(
+        lambda: {
+            "ref": None,
+            "better": None,
+            "id": None,
+            "matchers": [],
+            "trade": {"ids": None},  # Default to None for trade.ids
+            "tiers": None,  # Default to None for tiers
+        }
+    )
+
+    for base_id, mod in mods.items():
+        ref = mod["ref"]
+        if not grouped_mods[ref]["ref"]:
+            grouped_mods[ref]["ref"] = ref
+            grouped_mods[ref]["better"] = mod["better"]
+            grouped_mods[ref]["id"] = mod["id"]
+
+        # Merge matchers
+        for matcher in mod.get("matchers") or []:
+            if matcher not in grouped_mods[ref]["matchers"]:
+                grouped_mods[ref]["matchers"].append(matcher)
+
+        # Merge trade IDs
+        if grouped_mods[ref]["trade"]["ids"] is None:
+            grouped_mods[ref]["trade"]["ids"] = (
+                None if mod["trade"]["ids"] is None else deepcopy(mod["trade"]["ids"])
+            )
+        elif mod["trade"]["ids"] is not None:
+            # Merge trade.ids only if both are not None
+            for key, ids in mod["trade"]["ids"].items():
+                grouped_mods[ref]["trade"]["ids"].setdefault(key, []).extend(ids)
+
+        # Merge tiers
+        if grouped_mods[ref]["tiers"] is None:
+            grouped_mods[ref]["tiers"] = (
+                None if "tiers" not in mod else deepcopy(mod["tiers"])
+            )
+        elif mod["tiers"] is not None:
+            for tier_type, tier_data in mod["tiers"].items():
+                if tier_type == "implicit":
+                    # Merge implicit tiers (dictionary)
+                    for base_type, implicit_data in tier_data.items():
+                        if base_type not in grouped_mods[ref]["tiers"]["implicit"]:
+                            grouped_mods[ref]["tiers"]["implicit"][base_type] = (
+                                deepcopy(implicit_data)
+                            )
+                        else:
+                            grouped_mods[ref]["tiers"]["implicit"][base_type][
+                                "mods"
+                            ].extend(deepcopy(implicit_data["mods"]))
+                else:
+                    # Merge list-based tiers
+                    grouped_mods[ref]["tiers"][tier_type].extend(deepcopy(tier_data))
+
+    # Convert back to dictionary with unique base_ids
+    flattened_mods = {}
+    for i, (ref, group) in enumerate(grouped_mods.items()):
+        # Deduplicate trade IDs if they are not None
+        if group["trade"]["ids"] is not None:
+            group["trade"]["ids"] = {
+                k: list(set(v)) for k, v in group["trade"]["ids"].items()
+            }
+        flattened_mods[f"merged_{i}"] = group  # Use a new unique key for merged mods
+
+    return flattened_mods
 
 
 class Parser:
@@ -233,9 +305,9 @@ class Parser:
                 "===================================================================="
             )
             print(f"[i:{i}, id:{id}] {stats_translations[i]}")
-            print(f"[i:{i+1}, id:{id}] {stats_translations[i+1]}")
-            print(f"[i:{i+2}, id:{id}] {stats_translations[i+2]}")
-            print(f"[i:{i+3}, id:{id}] {stats_translations[i+3]}")
+            print(f"[i:{i + 1}, id:{id}] {stats_translations[i + 1]}")
+            print(f"[i:{i + 2}, id:{id}] {stats_translations[i + 2]}")
+            print(f"[i:{i + 3}, id:{id}] {stats_translations[i + 3]}")
         line = stats_translations[i + 3].strip()  # skip first 2 characters
         start = line.find('"')
         end = line.rfind('"')
@@ -673,6 +745,8 @@ class Parser:
 
         self.add_missing_mods()
 
+        self.mods = flatten_mods(self.mods)
+
         seen = set()
         skip = {"maximum_life_%_lost_on_kill", "base_spirit"}
         m = open(
@@ -703,21 +777,21 @@ class Parser:
         m.close()
 
         with open(
-            f"{self.get_script_dir()}/pyDumps/{self.lang+'-out'}/items_dump.json",
+            f"{self.get_script_dir()}/pyDumps/{self.lang + '-out'}/items_dump.json",
             "w",
             encoding="utf-8",
         ) as f:
             f.write(json.dumps(self.items, indent=4, ensure_ascii=False))
 
         with open(
-            f"{self.get_script_dir()}/pyDumps/{self.lang+'-out'}/mods_dump.json",
+            f"{self.get_script_dir()}/pyDumps/{self.lang + '-out'}/mods_dump.json",
             "w",
             encoding="utf-8",
         ) as f:
             f.write(json.dumps(self.mods, indent=4, ensure_ascii=False))
 
         with open(
-            f"{self.get_script_dir()}/pyDumps/{self.lang+'-out'}/matchers_no_trade_ids.json",
+            f"{self.get_script_dir()}/pyDumps/{self.lang + '-out'}/matchers_no_trade_ids.json",
             "w",
             encoding="utf-8",
         ) as f:
