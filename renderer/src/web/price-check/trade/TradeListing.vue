@@ -13,6 +13,11 @@
         :currency-ratio="true"
       />
       <div class="flex-1"></div>
+      <trade-links
+        v-if="list && !usePseudo"
+        :get-link="makeTradeLinkPseudo"
+        text="filters.tag_pseudo"
+      />
       <trade-links v-if="list" :get-link="makeTradeLink" />
     </div>
 
@@ -218,7 +223,6 @@ function useTradeApi() {
     stats: StatFilter[],
     item: ParsedItem,
     runeFilters: RuneFilter[],
-    weightFilters: WeightStatGroup[]
   ) {
     try {
       searchId += 1;
@@ -228,7 +232,7 @@ function useTradeApi() {
       fetchResults.value = _fetchResults;
 
       const _searchId = searchId;
-      const request = createTradeRequest(filters, stats, item, runeFilters, weightFilters);
+      const request = createTradeRequest(filters, stats, item, runeFilters);
       const _searchResult = await requestTradeResultList(
         request,
         filters.trade.league,
@@ -372,6 +376,12 @@ export default defineComponent({
     function makeTradeLink() {
       return searchResult.value
         ? `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}/${searchResult.value.id}`
+        : `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}?q=${JSON.stringify(createTradeRequest(props.filters, props.stats, props.item, props.runeFilters))}`;
+    }
+
+    function makeTradeLinkPseudo() {
+      return searchResult.value
+        ? `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}/${searchResult.value.id}`
         : `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}?q=${JSON.stringify(createTradeRequest(props.filters, props.stats, props.item, props.runeFilters, props.weightFilters))}`;
     }
 
@@ -391,11 +401,12 @@ export default defineComponent({
         }
       }),
       execSearch: () => {
-        search(props.filters, props.stats, props.item, props.runeFilters, props.weightFilters);
+        search(props.filters, props.stats, props.item, props.runeFilters);
       },
       error,
       showSeller: computed(() => widget.value.showSeller),
       makeTradeLink,
+      makeTradeLinkPseudo,
       openTradeLink() {
         if (widget.value.builtinBrowser && Host.isElectron) {
           showBrowser(makeTradeLink());
@@ -403,6 +414,18 @@ export default defineComponent({
           window.open(makeTradeLink());
         }
       },
+      openTradeLinkPseudo() {
+        if (widget.value.builtinBrowser && Host.isElectron) {
+          showBrowser(makeTradeLinkPseudo());
+        } else {
+          window.open(makeTradeLinkPseudo());
+        }
+      },
+      usePseudo: computed(
+        () =>
+          widget.value.usePseudo &&
+          ["en", "ru", "ko", "cmn-Hant"].includes(AppConfig().language),
+      ),
     };
   },
 });

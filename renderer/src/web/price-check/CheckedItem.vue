@@ -38,6 +38,11 @@
           {{ t("Search") }}
         </button>
       </div>
+      <trade-links
+        v-if="tradeAPI === 'trade' && !usePseudo"
+        :get-link="makeTradeLinkPseudo"
+        text="filters.tag_pseudo"
+      />
       <trade-links v-if="tradeAPI === 'trade'" :get-link="makeTradeLink" />
     </div>
     <stack-value :filters="itemFilters" :item="item" />
@@ -366,7 +371,15 @@ export default defineComponent({
       selectPreset(id: string) {
         presets.value.active = id;
       },
+      usePseudo: computed(
+        () =>
+          widget.value.usePseudo &&
+          ["en", "ru", "ko", "cmn-Hant"].includes(AppConfig().language),
+      ),
       makeTradeLink() {
+        return `https://${getTradeEndpoint()}/trade2/search/poe2/${itemFilters.value.trade.league}?q=${JSON.stringify(createTradeRequest(itemFilters.value, itemStats.value, props.item, runeFilters.value))}`;
+      },
+      makeTradeLinkPseudo() {
         return `https://${getTradeEndpoint()}/trade2/search/poe2/${itemFilters.value.trade.league}?q=${JSON.stringify(createTradeRequest(itemFilters.value, itemStats.value, props.item, runeFilters.value, weightFilters.value))}`;
       },
     };
