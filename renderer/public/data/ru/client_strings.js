@@ -144,5 +144,6 @@ export default {
   CHARM_HELP_TEXT: 'Используется автоматически при определённых условиях',
   FIRE_DAMAGE: 'Урон от огня:',
   LIGHTNING_DAMAGE: 'Урон от молнии:',
-  COLD_DAMAGE: 'Урон от холода:'
+  COLD_DAMAGE: 'Урон от холода:',
+  PRICE_NOTE: 'Примечание: '
 }

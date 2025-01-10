@@ -72,6 +72,7 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseFlask,
   parseCharmSlots,
   parseSpirit,
+  parsePriceNote,
   parseHelpText,
   parseStackSize,
   parseCorrupted,
@@ -1085,6 +1086,19 @@ function parseSpirit(section: string[], item: ParsedItem) {
 
   for (const line of section) {
     if (line.startsWith(_$.BASE_SPIRIT)) {
+      isParsed = "SECTION_PARSED";
+      break;
+    }
+  }
+
+  return isParsed;
+}
+
+function parsePriceNote(section: string[], item: ParsedItem) {
+  let isParsed: SectionParseResult = "SECTION_SKIPPED";
+
+  for (const line of section) {
+    if (line.startsWith(_$.PRICE_NOTE)) {
       isParsed = "SECTION_PARSED";
       break;
     }
