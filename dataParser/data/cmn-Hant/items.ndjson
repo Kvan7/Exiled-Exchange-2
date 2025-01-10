@@ -89,25 +89,11 @@
 {"name": "伊瑞之鑰", "refName": "Yriel's Key", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
 {"name": "伊瑞之鑰", "refName": "Yriel's Key", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
 {"name": "伊茲．邁拉書冊", "refName": "Ez Myrae Tome", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
-<<<<<<< HEAD
-<<<<<<< HEAD
 {"name": "伏擊", "refName": "Ambush", "namespace": "GEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9BbWJ1c2hTa2lsbEdlbSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/92a4cb4028/AmbushSkillGem.png", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "低語的培育器", "refName": "Whispering Incubator", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRXNzZW5jZSIsInNjYWxlIjoxfV0/839bf6cef9/IncubationEssence.png", "craftable": {"category": "Incubator"}, "w": 1, "h": 1}
 {"name": "低語的培育器", "refName": "Whispering Incubator", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRXNzZW5jZSIsInNjYWxlIjoxfV0/839bf6cef9/IncubationEssence.png", "craftable": {"category": "Incubator"}, "w": 1, "h": 1}
 {"name": "低階工匠石", "refName": "Lesser Jeweller's Orb", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "低階法杖", "refName": "Crude Ward", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvQ3J1ZGVXYXJkIiwidyI6MiwiaCI6Miwic2NhbGUiOjF9XQ/0308021b23/CrudeWard.png", "craftable": {"category": "HeistEquipmentTool"}, "w": 2, "h": 2}
-=======
-{"name": "伏擊", "refName": "Ambush", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "低語的培育器", "refName": "Whispering Incubator", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Incubator"}, "w": 1, "h": 1}
-{"name": "低語的培育器", "refName": "Whispering Incubator", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Incubator"}, "w": 1, "h": 1}
-{"name": "低階法杖", "refName": "Crude Ward", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistEquipmentTool"}, "w": 2, "h": 2}
->>>>>>> e85f549 (update data)
-=======
-{"name": "伏擊", "refName": "Ambush", "namespace": "GEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9BbWJ1c2hTa2lsbEdlbSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/92a4cb4028/AmbushSkillGem.png", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "低語的培育器", "refName": "Whispering Incubator", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRXNzZW5jZSIsInNjYWxlIjoxfV0/839bf6cef9/IncubationEssence.png", "craftable": {"category": "Incubator"}, "w": 1, "h": 1}
-{"name": "低語的培育器", "refName": "Whispering Incubator", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRXNzZW5jZSIsInNjYWxlIjoxfV0/839bf6cef9/IncubationEssence.png", "craftable": {"category": "Incubator"}, "w": 1, "h": 1}
-{"name": "低階法杖", "refName": "Crude Ward", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvQ3J1ZGVXYXJkIiwidyI6MiwiaCI6Miwic2NhbGUiOjF9XQ/0308021b23/CrudeWard.png", "craftable": {"category": "HeistEquipmentTool"}, "w": 2, "h": 2}
->>>>>>> 1102736 (last update for data)
 {"name": "低階生命藥劑", "refName": "Lesser Life Flask", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Flask"}, "w": 1, "h": 2}
 {"name": "低階異能灰燼", "refName": "Lesser Eldritch Ember", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ2xlYW5zaW5nRmlyZU9yYlJhbmsxIiwic2NhbGUiOjF9XQ/c7df0e0316/CleansingFireOrbRank1.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "低階異能靈液", "refName": "Lesser Eldritch Ichor", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvVGFuZ2xlT3JiUmFuazEiLCJzY2FsZSI6MX1d/70e5e53590/TangleOrbRank1.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
@@ -3021,8 +3007,8 @@
 {"name": "力抗黑暗", "refName": "Against the Darkness", "namespace": "UNIQUE", "unique": {"base": "時迭鑽石"}}
 {"name": "受控的蛻變", "refName": "Controlled Metamorphosis", "namespace": "UNIQUE", "unique": {"base": "鑽石"}}
 {"name": "從無到有", "refName": "From Nothing", "namespace": "UNIQUE", "unique": {"base": "鑽石"}}
-{"name": "巨光譜", "refName": "Grand Spectrum", "namespace": "UNIQUE", "unique": {"base": "翠綠碧雲"}}
 {"name": "巨光譜", "refName": "Grand Spectrum", "namespace": "UNIQUE", "unique": {"base": "紅玉"}}
+{"name": "巨光譜", "refName": "Grand Spectrum", "namespace": "UNIQUE", "unique": {"base": "翠綠碧雲"}}
 {"name": "巨光譜", "refName": "Grand Spectrum", "namespace": "UNIQUE", "unique": {"base": "藍玉"}}
 {"name": "英雄悲劇", "refName": "Heroic Tragedy", "namespace": "UNIQUE", "unique": {"base": "永恆珠寶"}}
 {"name": "妄想症", "refName": "Megalomaniac", "namespace": "UNIQUE", "unique": {"base": "鑽石"}}

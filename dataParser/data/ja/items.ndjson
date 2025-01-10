@@ -140,30 +140,13 @@
 {"name": "アーチクロー", "refName": "Arced Claw", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Claw"}, "w": 2, "h": 2}
 {"name": "アーチネメシスモッド", "refName": "Archnemesis Mod", "namespace": "ITEM", "icon": "%NOT_FOUND%", "w": 1, "h": 1}
 {"name": "アーチメイジ", "refName": "Archmage", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-<<<<<<< HEAD
-<<<<<<< HEAD
 {"name": "アーティラリーバリスタ", "refName": "Artillery Ballista", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9Nb3J0YXJUb3RlbUJvd1NraWxsR2VtIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/5636ae404e/MortarTotemBowSkillGem.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-=======
-{"name": "アーティラリーバリスタ", "refName": "Artillery Ballista", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-=======
-{"name": "アーティラリーバリスタ", "refName": "Artillery Ballista", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9Nb3J0YXJUb3RlbUJvd1NraWxsR2VtIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/5636ae404e/MortarTotemBowSkillGem.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
->>>>>>> 1102736 (last update for data)
-{"name": "アーマーエクスプロージョン", "refName": "Armour Explosion", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
->>>>>>> e85f549 (update data)
 {"name": "アーマードキャップ", "refName": "Armoured Cap", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ev": [222, 222]}, "w": 2, "h": 2}
 {"name": "アーマードクロー", "refName": "Armoured Claw", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Claw"}, "w": 2, "h": 2}
 {"name": "アーマードベスト", "refName": "Armoured Vest", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"ev": [406, 406]}, "w": 2, "h": 3}
 {"name": "アーマーブレイカー", "refName": "Armour Breaker", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-<<<<<<< HEAD
-<<<<<<< HEAD
 {"name": "アーマー爆破", "refName": "Armour Explosion", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "イグザングイネイト", "refName": "Exsanguinate", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9CbG9vZFRlbmRyaWxzU2tpbGxHZW0iLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/d421c5c70e/BloodTendrilsSkillGem.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-=======
-{"name": "イグザングイネイト", "refName": "Exsanguinate", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
->>>>>>> e85f549 (update data)
-=======
-{"name": "イグザングイネイト", "refName": "Exsanguinate", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9CbG9vZFRlbmRyaWxzU2tpbGxHZW0iLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/d421c5c70e/BloodTendrilsSkillGem.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
->>>>>>> 1102736 (last update for data)
 {"name": "イグナグドゥクの不気味な槍", "refName": "Ignagduk's Ghastly Spear", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 2, "h": 3}
 {"name": "イシリアルブレード", "refName": "Ethereal Blade", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Dagger"}, "w": 1, "h": 3}
 {"name": "イノセンスの血", "refName": "Blood of Innocence", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 4}
@@ -272,19 +255,9 @@
 {"name": "エンバーストーンエイペックスセンチネル", "refName": "Emberstone Apex Sentinel", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "SentinelDrone"}, "w": 2, "h": 2}
 {"name": "エンバーストーンストーカーセンチネル", "refName": "Emberstone Stalker Sentinel", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "SentinelDrone"}, "w": 2, "h": 2}
 {"name": "エンバーストーンパンデモニウムセンチネル", "refName": "Emberstone Pandemonium Sentinel", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "SentinelDrone"}, "w": 2, "h": 2}
-<<<<<<< HEAD
 {"name": "エンバーフシレイド", "refName": "Ember Fusillade", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "エンバーフシレイド", "refName": "Ember Fusillade", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "エンフィーブル", "refName": "Enfeeble", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9FbmZlZWJsZSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/e85edd0ad5/Enfeeble.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-=======
-{"name": "エンバーフジレイド", "refName": "Ember Fusillade", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "エンバーフジレイド", "refName": "Ember Fusillade", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-<<<<<<< HEAD
-{"name": "エンフィーブル", "refName": "Enfeeble", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
->>>>>>> e85f549 (update data)
-=======
-{"name": "エンフィーブル", "refName": "Enfeeble", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9FbmZlZWJsZSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/e85edd0ad5/Enfeeble.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
->>>>>>> 1102736 (last update for data)
 {"name": "エンボスのブーツ", "refName": "Embossed Boots", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Boots"}, "armour": {"ev": [50, 50]}, "w": 2, "h": 2}
 {"name": "エーテルの化石", "refName": "Aetheric Fossil", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVsdmUvQWV0aGVyaWNGb3NzaWwiLCJzY2FsZSI6MX1d/4c874e6fa9/AethericFossil.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "オイルグレネード", "refName": "Oil Grenade", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -294,20 +267,9 @@
 {"name": "オブシディアンの研ぎ石", "refName": "Obsidian Sharpening Stone", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvT2JzaWRpYW5TaGFycGVuaW5nU3RvbmUiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MX1d/3b585d05fe/ObsidianSharpeningStone.png", "craftable": {"category": "HeistEquipmentWeapon"}, "w": 2, "h": 2}
 {"name": "オルバラ5度目の冒険が描かれた石版", "refName": "Orbala's Fifth Adventure", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 4}
 {"name": "オークグレートハンマー", "refName": "Oak Greathammer", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Two Hand Mace"}, "w": 2, "h": 4}
-<<<<<<< HEAD
 {"name": "オーバーウェルミングプレゼンス", "refName": "Overwhelming Presence", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "オーブオブストーム", "refName": "Orb of Storms", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9TdG9ybUNsb3VkR2VtIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/5b77e4b3b2/StormCloudGem.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "カットラス", "refName": "Cutlass", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9PbmVIYW5kU3dvcmRzL09uZUhhbmRTd29yZDMiLCJ3IjoxLCJoIjozLCJzY2FsZSI6MX1d/0aa55ff7a1/OneHandSword3.png", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
-=======
-{"name": "オーバーウェルミングプレッシャー", "refName": "Overwhelming Presence", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-<<<<<<< HEAD
-{"name": "オーブオブストーム", "refName": "Orb of Storms", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "カットラス", "refName": "Cutlass", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
->>>>>>> e85f549 (update data)
-=======
-{"name": "オーブオブストーム", "refName": "Orb of Storms", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9TdG9ybUNsb3VkR2VtIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/5b77e4b3b2/StormCloudGem.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "カットラス", "refName": "Cutlass", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9PbmVIYW5kU3dvcmRzL09uZUhhbmRTd29yZDMiLCJ3IjoxLCJoIjozLCJzY2FsZSI6MX1d/0aa55ff7a1/OneHandSword3.png", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
->>>>>>> 1102736 (last update for data)
 {"name": "カニのエサ", "refName": "Craicic Lure", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
 {"name": "カバラの部族の遺物", "refName": "Kabala Clan Relic", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 2}
 {"name": "カバードサバトン", "refName": "Covered Sabatons", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Boots"}, "armour": {"ar": [73, 73], "ev": [65, 65]}, "w": 2, "h": 2}
@@ -489,16 +451,7 @@
 {"name": "シャッタリングコンコクション", "refName": "Shattering Concoction", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "シャードスカベンジャー", "refName": "Shard Scavenger", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "シャーマンの外套", "refName": "Shaman Mantle", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"ar": [100, 100], "es": [39, 39]}, "w": 2, "h": 3}
-<<<<<<< HEAD
-<<<<<<< HEAD
 {"name": "ショックウェーブトーテム", "refName": "Shockwave Totem", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9TaG9ja3dhdmVUb3RlbSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/406bc8da09/ShockwaveTotem.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-=======
-{"name": "ショックウェーブトーテム", "refName": "Shockwave Totem", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-=======
-{"name": "ショックウェーブトーテム", "refName": "Shockwave Totem", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9TaG9ja3dhdmVUb3RlbSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/406bc8da09/ShockwaveTotem.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
->>>>>>> 1102736 (last update for data)
-{"name": "ショックサイフォン", "refName": "Shock Siphon", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
->>>>>>> e85f549 (update data)
 {"name": "ショックチェインアロー", "refName": "Shockchain Arrow", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ショックノヴァ", "refName": "Shock Nova", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9TaG9ja05vdmEiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/671a5ad79a/ShockNova.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ショックバースト弾", "refName": "Shockburst Rounds", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -761,29 +714,11 @@
 {"name": "ビリジアンウォッチストーン", "refName": "Viridian Watchstone", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "AtlasUpgradeItem"}, "w": 1, "h": 1}
 {"name": "ビーズのサークレット", "refName": "Beaded Circlet", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"es": [34, 34]}, "w": 2, "h": 2}
 {"name": "ピクトクロー", "refName": "Pict Claw", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Claw"}, "w": 2, "h": 2}
-<<<<<<< HEAD
-<<<<<<< HEAD
 {"name": "ピュリティオブアイス", "refName": "Purity of Ice", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9Db2xkUmVzaXN0QXVyYSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/0ebc7da568/ColdResistAura.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ピュリティオブファイヤー", "refName": "Purity of Fire", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9GaXJlUmVzaXN0QXVyYSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/973e94bf0a/FireResistAura.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ピュリティオブライトニング", "refName": "Purity of Lightning", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9MaWdodG5pbmdSZXNpc3RBdXJhIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/4c883997e3/LightningResistAura.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ファイヤーストーム", "refName": "Firestorm", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9GaXJlc3Rvcm0iLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/86d85233c1/Firestorm.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ファイヤーボール", "refName": "Fireball", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9GaXJlYmFsbCIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/8f374db219/Fireball.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-=======
-{"name": "ピュリティオブアイス", "refName": "Purity of Ice", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "ピュリティオブファイヤー", "refName": "Purity of Fire", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "ピュリティオブライトニング", "refName": "Purity of Lightning", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "ファイヤリィデス", "refName": "Fiery Death", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "ファイヤーストーム", "refName": "Firestorm", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "ファイヤーボール", "refName": "Fireball", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
->>>>>>> e85f549 (update data)
-=======
-{"name": "ピュリティオブアイス", "refName": "Purity of Ice", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9Db2xkUmVzaXN0QXVyYSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/0ebc7da568/ColdResistAura.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "ピュリティオブファイヤー", "refName": "Purity of Fire", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9GaXJlUmVzaXN0QXVyYSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/973e94bf0a/FireResistAura.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "ピュリティオブライトニング", "refName": "Purity of Lightning", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9MaWdodG5pbmdSZXNpc3RBdXJhIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/4c883997e3/LightningResistAura.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "ファイヤリィデス", "refName": "Fiery Death", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "ファイヤーストーム", "refName": "Firestorm", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9GaXJlc3Rvcm0iLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/86d85233c1/Firestorm.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "ファイヤーボール", "refName": "Fireball", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9GaXJlYmFsbCIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/8f374db219/Fireball.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
->>>>>>> 1102736 (last update for data)
 {"name": "ファランクスのタワーシールド", "refName": "Phalanx Tower Shield", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Shield"}, "armour": {"ar": [125, 125]}, "w": 2, "h": 4}
 {"name": "ファルシオン", "refName": "Falchion", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
 {"name": "ファルードの骨壷", "refName": "Urn of Farud", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
@@ -818,16 +753,7 @@
 {"name": "フロストボム", "refName": "Frost Bomb", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9Gcm9zdEJvbWIiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/c8aeb75684/FrostBomb.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "フロストボルト", "refName": "Frostbolt", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9Gcm9zdEJvbHQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/33202c1f22/FrostBolt.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "フローズンローカス", "refName": "Frozen Locus", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-<<<<<<< HEAD
 {"name": "フード付きのマント", "refName": "Hooded Cloak", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvSG9vZGVkQ2xvYWsiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MX1d/cc1771375c/HoodedCloak.png", "craftable": {"category": "HeistEquipmentUtility"}, "w": 2, "h": 2}
-=======
-{"name": "フローズンヴォーテックス", "refName": "Frozen Vortex", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-<<<<<<< HEAD
-{"name": "フード付きのマント", "refName": "Hooded Cloak", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistEquipmentUtility"}, "w": 2, "h": 2}
->>>>>>> e85f549 (update data)
-=======
-{"name": "フード付きのマント", "refName": "Hooded Cloak", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvSG9vZGVkQ2xvYWsiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MX1d/cc1771375c/HoodedCloak.png", "craftable": {"category": "HeistEquipmentUtility"}, "w": 2, "h": 2}
->>>>>>> 1102736 (last update for data)
 {"name": "フード付きの仮面", "refName": "Hooded Mask", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ev": [37, 37], "es": [19, 19]}, "w": 2, "h": 2}
 {"name": "ブライト偵察報告書", "refName": "Blighted Scouting Report", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NvdXRpbmdSZXBvcnQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/584635f3c8/ScoutingReport.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "ブラックガードの人事ファイル", "refName": "Blackguard Personnel Files", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
@@ -1162,17 +1088,8 @@
 {"name": "ヴァールオーブ", "refName": "Vaal Orb", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lWYWFsIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/72bc84396c/CurrencyVaal.png", "tradeTag": "vaal", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "ヴァール偵察報告書", "refName": "Vaal Scouting Report", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NvdXRpbmdSZXBvcnQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/584635f3c8/ScoutingReport.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "ヴィリディの指", "refName": "Viridi's Finger", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
-<<<<<<< HEAD
-<<<<<<< HEAD
 {"name": "ヴェリタニアの紋章", "refName": "Veritania's Crest", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9SZWRlZW1lckZyYWdtZW50Iiwic2NhbGUiOjF9XQ/86d22a34cc/RedeemerFragment.png", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
 {"name": "ヴェールの毒の霊薬", "refName": "Venom Draught of the Veil", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 2}
-=======
-{"name": "ヴェリタニアの紋章", "refName": "Veritania's Crest", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
-=======
-{"name": "ヴェリタニアの紋章", "refName": "Veritania's Crest", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9SZWRlZW1lckZyYWdtZW50Iiwic2NhbGUiOjF9XQ/86d22a34cc/RedeemerFragment.png", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
->>>>>>> 1102736 (last update for data)
-{"name": "ヴェールの毒ビール", "refName": "Venom Draught of the Veil", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 2}
->>>>>>> e85f549 (update data)
 {"name": "ヴェールの混沌のオーブ", "refName": "Veiled Chaos Orb", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "ヴォイドボーンの聖廟の鍵", "refName": "Voidborn Reliquary Key", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9Db3NtaWNDb3JlU3VwcG9ydGVyVmF1bHRLZXkiLCJzY2FsZSI6MX1d/1f2d34a36d/CosmicCoreSupporterVaultKey.png", "craftable": {"category": "VaultKey"}, "w": 1, "h": 1}
 {"name": "ヴォイドボーンの聖廟の鍵", "refName": "Voidborn Reliquary Key", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9Db3NtaWNDb3JlU3VwcG9ydGVyVmF1bHRLZXkiLCJzY2FsZSI6MX1d/1f2d34a36d/CosmicCoreSupporterVaultKey.png", "craftable": {"category": "VaultKey"}, "w": 1, "h": 1}
@@ -1392,17 +1309,8 @@
 {"name": "付加のパワーコア", "refName": "Augmenting Power Core", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "仙骨の矢筒", "refName": "Sacral Quiver", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Quiver"}, "w": 2, "h": 3}
 {"name": "伝導", "refName": "Conduction", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-<<<<<<< HEAD
-<<<<<<< HEAD
 {"name": "伝導の数珠", "refName": "Conduit Line", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvQ29uZHVpdExpbmVNYWdpY1N0b25lIiwidyI6MiwiaCI6Miwic2NhbGUiOjF9XQ/a7c30a541b/ConduitLineMagicStone.png", "craftable": {"category": "HeistEquipmentWeapon"}, "w": 2, "h": 2}
 {"name": "伝説の戦士、ヤマンラ", "refName": "Jamanra, the Legendary Warrior", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
-=======
-{"name": "伝導の数珠", "refName": "Conduit Line", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistEquipmentWeapon"}, "w": 2, "h": 2}
-=======
-{"name": "伝導の数珠", "refName": "Conduit Line", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvQ29uZHVpdExpbmVNYWdpY1N0b25lIiwidyI6MiwiaCI6Miwic2NhbGUiOjF9XQ/a7c30a541b/ConduitLineMagicStone.png", "craftable": {"category": "HeistEquipmentWeapon"}, "w": 2, "h": 2}
->>>>>>> 1102736 (last update for data)
-{"name": "伝説の戦士、ヤマンラー", "refName": "Jamanra, the Legendary Warrior", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
->>>>>>> e85f549 (update data)
 {"name": "低体温化", "refName": "Hypothermia", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "体勢崩し", "refName": "Break Posture", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "余震", "refName": "Aftershock", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -1418,17 +1326,8 @@
 {"name": "依頼書: カーストの復讐", "refName": "Contract: Karst's Revenge", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
 {"name": "依頼書: トンネル", "refName": "Contract: Tunnels", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvQ29udHJhY3RJdGVtNiIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/fda76bd516/ContractItem6.png", "craftable": {"category": "HeistContract"}, "w": 1, "h": 1}
 {"name": "依頼書: ハイリの贈り物", "refName": "Contract: Hyrri's Gift", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
-<<<<<<< HEAD
-<<<<<<< HEAD
 {"name": "依頼書: バンカー", "refName": "Contract: Bunker", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvQ29udHJhY3RJdGVtIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/8262f2ca0e/ContractItem.png", "craftable": {"category": "HeistContract"}, "w": 1, "h": 1}
 {"name": "依頼書: ヤマンラの本", "refName": "Contract: The Book of Jamanra", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
-=======
-{"name": "依頼書: バンカー", "refName": "Contract: Bunker", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistContract"}, "w": 1, "h": 1}
-=======
-{"name": "依頼書: バンカー", "refName": "Contract: Bunker", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvQ29udHJhY3RJdGVtIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/8262f2ca0e/ContractItem.png", "craftable": {"category": "HeistContract"}, "w": 1, "h": 1}
->>>>>>> 1102736 (last update for data)
-{"name": "依頼書: ヤマンラーの本", "refName": "Contract: The Book of Jamanra", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
->>>>>>> e85f549 (update data)
 {"name": "依頼書: ヴィンデーリの爆薬", "refName": "Contract: The Vinderi Bomb", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
 {"name": "依頼書: 交渉", "refName": "Contract: The Negotiation", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
 {"name": "依頼書: 倉庫", "refName": "Contract: Repository", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvQ29udHJhY3RJdGVtNCIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/d555dbf890/ContractItem4.png", "craftable": {"category": "HeistContract"}, "w": 1, "h": 1}
@@ -1631,23 +1530,10 @@
 {"name": "命をもつ氷", "refName": "Living Ice", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "命令", "refName": "Bidding", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "咆哮のスタッフ", "refName": "Roaring Staff", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Staff"}, "w": 1, "h": 4}
-<<<<<<< HEAD
 {"name": "喪失の毒の霊薬", "refName": "Venom Draught of the Lost", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 2}
 {"name": "囁きのインキュベーター", "refName": "Whispering Incubator", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRXNzZW5jZSIsInNjYWxlIjoxfV0/839bf6cef9/IncubationEssence.png", "craftable": {"category": "Incubator"}, "w": 1, "h": 1}
 {"name": "囁きのインキュベーター", "refName": "Whispering Incubator", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRXNzZW5jZSIsInNjYWxlIjoxfV0/839bf6cef9/IncubationEssence.png", "craftable": {"category": "Incubator"}, "w": 1, "h": 1}
 {"name": "囁きを編み込んだマント", "refName": "Whisper-woven Cloak", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvV2hpc3BlcldvdmVuQ2xvYWsiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MX1d/5d44c09a37/WhisperWovenCloak.png", "craftable": {"category": "HeistEquipmentUtility"}, "w": 2, "h": 2}
-=======
-{"name": "喪失の毒ビール", "refName": "Venom Draught of the Lost", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 2}
-<<<<<<< HEAD
-{"name": "囁きのインキュベーター", "refName": "Whispering Incubator", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Incubator"}, "w": 1, "h": 1}
-{"name": "囁きのインキュベーター", "refName": "Whispering Incubator", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Incubator"}, "w": 1, "h": 1}
-{"name": "囁きを編み込んだマント", "refName": "Whisper-woven Cloak", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistEquipmentUtility"}, "w": 2, "h": 2}
->>>>>>> e85f549 (update data)
-=======
-{"name": "囁きのインキュベーター", "refName": "Whispering Incubator", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRXNzZW5jZSIsInNjYWxlIjoxfV0/839bf6cef9/IncubationEssence.png", "craftable": {"category": "Incubator"}, "w": 1, "h": 1}
-{"name": "囁きのインキュベーター", "refName": "Whispering Incubator", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRXNzZW5jZSIsInNjYWxlIjoxfV0/839bf6cef9/IncubationEssence.png", "craftable": {"category": "Incubator"}, "w": 1, "h": 1}
-{"name": "囁きを編み込んだマント", "refName": "Whisper-woven Cloak", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvV2hpc3BlcldvdmVuQ2xvYWsiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MX1d/5d44c09a37/WhisperWovenCloak.png", "craftable": {"category": "HeistEquipmentUtility"}, "w": 2, "h": 2}
->>>>>>> 1102736 (last update for data)
 {"name": "回転撃", "refName": "Whirling Assault", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "困惑", "refName": "Discombobulate", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "固定", "refName": "Pin", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -1902,17 +1788,8 @@
 {"name": "新弾倉", "refName": "Fresh Clip", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "旅人のジャケット", "refName": "Wayfarer Jacket", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"ev": [88, 88], "es": [39, 39]}, "w": 2, "h": 3}
 {"name": "族長の胴鎧", "refName": "Chieftain Cuirass", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"ar": [294, 294]}, "w": 2, "h": 3}
-<<<<<<< HEAD
-<<<<<<< HEAD
 {"name": "明瞭", "refName": "Clarity", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9DbGFyaXR5IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/30046e480b/Clarity.png", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "明瞭さの毒の霊薬", "refName": "Venom Draught of Clarity", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 2}
-=======
-{"name": "明瞭", "refName": "Clarity", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-=======
-{"name": "明瞭", "refName": "Clarity", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9DbGFyaXR5IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/30046e480b/Clarity.png", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
->>>>>>> 1102736 (last update for data)
-{"name": "明瞭さの毒ビール", "refName": "Venom Draught of Clarity", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 2}
->>>>>>> e85f549 (update data)
 {"name": "星のアミュレット", "refName": "Stellar Amulet", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Amulet"}, "w": 1, "h": 1}
 {"name": "時と光の巻物", "refName": "Time-light Scroll", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGFydmVzdC9IYXJiaW5nZXJUb2tlbkJlbHQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/cd4f70a070/HarbingerTokenBelt.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "時の試験のバリャ", "refName": "Test of Time Barya", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MiscMapItem"}, "w": 1, "h": 1}
@@ -1951,16 +1828,8 @@
 {"name": "極上の錬金術のレゾネーター", "refName": "Prime Alchemical Resonator", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVsdmUvVXBncmFkZTJ4MkMiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MX1d/5192b134c8/Upgrade2x2C.png", "craftable": {"category": "DelveSocketableCurrency"}, "w": 2, "h": 2}
 {"name": "極上の錬金術のレゾネーター", "refName": "Prime Alchemical Resonator", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVsdmUvVXBncmFkZTJ4MkMiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MX1d/5192b134c8/Upgrade2x2C.png", "craftable": {"category": "DelveSocketableCurrency"}, "w": 2, "h": 2}
 {"name": "極寒のスタッフ", "refName": "Gelid Staff", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Staff"}, "w": 1, "h": 4}
-<<<<<<< HEAD
-<<<<<<< HEAD
 {"name": "極寒の化石", "refName": "Frigid Fossil", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVsdmUvQW1iZXJGYW5nIiwic2NhbGUiOjF9XQ/2e63199a3e/AmberFang.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "極致", "refName": "Culmination", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-=======
-{"name": "極寒の化石", "refName": "Frigid Fossil", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
->>>>>>> e85f549 (update data)
-=======
-{"name": "極寒の化石", "refName": "Frigid Fossil", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVsdmUvQW1iZXJGYW5nIiwic2NhbGUiOjF9XQ/2e63199a3e/AmberFang.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
->>>>>>> 1102736 (last update for data)
 {"name": "榴散弾のトラップ", "refName": "Shrapnel Trap", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "TrapTool"}, "w": 1, "h": 3}
 {"name": "標準的なロックピック", "refName": "Standard Lockpick", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvU3RhbmRhcmRMb2NrcGljayIsInciOjIsImgiOjIsInNjYWxlIjoxfV0/c07ad566fa/StandardLockpick.png", "craftable": {"category": "HeistEquipmentTool"}, "w": 2, "h": 2}
 {"name": "標準的な研ぎ石", "refName": "Standard Sharpening Stone", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvU3RhbmRhcmRTaGFycGVuaW5nU3RvbmUiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MX1d/451be8e369/StandardSharpeningStone.png", "craftable": {"category": "HeistEquipmentWeapon"}, "w": 2, "h": 2}
@@ -2296,17 +2165,8 @@
 {"name": "石のフレイル", "refName": "Stone Flail", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Flail"}, "w": 2, "h": 3}
 {"name": "石のルーン", "refName": "Stone Rune", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvU3R1blJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f7830fb594/StunRune.png", "tradeTag": "stone-rune", "craftable": {"category": "SoulCore"}, "w": 1, "h": 1}
 {"name": "石の大剣", "refName": "Stone Greatsword", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Two Hand Sword"}, "w": 2, "h": 4}
-<<<<<<< HEAD
 {"name": "石の毒の霊薬", "refName": "Venom Draught of Stone", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 2}
 {"name": "石無しの指輪", "refName": "Unset Ring", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvRW1wdHktU29ja2V0IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/82146b3aa4/Empty-Socket.png", "craftable": {"category": "Ring"}, "w": 1, "h": 1}
-=======
-{"name": "石の毒ビール", "refName": "Venom Draught of Stone", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 2}
-<<<<<<< HEAD
-{"name": "石無しの指輪", "refName": "Unset Ring", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Ring"}, "w": 1, "h": 1}
->>>>>>> e85f549 (update data)
-=======
-{"name": "石無しの指輪", "refName": "Unset Ring", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvRW1wdHktU29ja2V0IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/82146b3aa4/Empty-Socket.png", "craftable": {"category": "Ring"}, "w": 1, "h": 1}
->>>>>>> 1102736 (last update for data)
 {"name": "砂時計", "refName": "Hourglass", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "砂漠のルーン", "refName": "Desert Rune", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvRmlyZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/eeabf0e7a0/FireRune.png", "tradeTag": "desert-rune", "craftable": {"category": "SoulCore"}, "w": 1, "h": 1}
 {"name": "砕掌", "refName": "Shattering Palm", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -2347,17 +2207,8 @@
 {"name": "穢れのお告げ", "refName": "Omen of Corruption", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMzUmVkIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/9cfdcc9e1a/VoodooOmens3Red.png", "tradeTag": "omen-of-corruption", "craftable": {"category": "Omen"}, "w": 1, "h": 1}
 {"name": "究極のマナフラスコ", "refName": "Ultimate Mana Flask", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Flask"}, "w": 1, "h": 2}
 {"name": "究極のライフフラスコ", "refName": "Ultimate Life Flask", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Flask"}, "w": 1, "h": 2}
-<<<<<<< HEAD
 {"name": "空の毒の霊薬", "refName": "Venom Draught of the Sky", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 2}
 {"name": "空虚の断片", "refName": "Fragment of Emptiness", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VYmVyRWxkZXIwMiIsInNjYWxlIjoxfV0/085f7abd0b/UberElder02.png", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
-=======
-{"name": "空の毒ビール", "refName": "Venom Draught of the Sky", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 2}
-<<<<<<< HEAD
-{"name": "空虚の断片", "refName": "Fragment of Emptiness", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
->>>>>>> e85f549 (update data)
-=======
-{"name": "空虚の断片", "refName": "Fragment of Emptiness", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VYmVyRWxkZXIwMiIsInNjYWxlIjoxfV0/085f7abd0b/UberElder02.png", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
->>>>>>> 1102736 (last update for data)
 {"name": "突風", "refName": "Wind Blast", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "第三の盟約の印", "refName": "Sigil of the Third Pact", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 2, "h": 2}
 {"name": "簡素な六分儀", "refName": "Simple Sextant", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
@@ -2848,16 +2699,8 @@
 {"name": "電気刺激", "refName": "Innervate", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "電流のスタッフ", "refName": "Voltaic Staff", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Staff"}, "w": 1, "h": 4}
 {"name": "電流の呪印", "refName": "Voltaic Mark", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-<<<<<<< HEAD
-<<<<<<< HEAD
 {"name": "震動", "refName": "Tremors", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "震動する化石", "refName": "Shuddering Fossil", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVsdmUvU2h1ZGRlcmluZ0Zvc3NpbCIsInNjYWxlIjoxfV0/ecd4122277/ShudderingFossil.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
-=======
-{"name": "震動する化石", "refName": "Shuddering Fossil", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
->>>>>>> e85f549 (update data)
-=======
-{"name": "震動する化石", "refName": "Shuddering Fossil", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVsdmUvU2h1ZGRlcmluZ0Zvc3NpbCIsInNjYWxlIjoxfV0/ecd4122277/ShudderingFossil.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
->>>>>>> 1102736 (last update for data)
 {"name": "霜の核", "refName": "Frost Core", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "InstanceLocalItem"}, "w": 1, "h": 2}
 {"name": "霜の核", "refName": "Frost Core", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "InstanceLocalItem"}, "w": 1, "h": 2}
 {"name": "青いキノコ", "refName": "Blue Mushroom", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 3}
@@ -3189,13 +3032,14 @@
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "鉤付き斧"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "黒焦げのショートソード"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "簡素な短剣"}}
+{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "処刑人の大斧"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "リップルグレートソード"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "クローンナイフ"}}
-{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "処刑人の大斧"}}
-{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "腐食したグレートソード"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "髭斧"}}
+{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "ブロードソード"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "割り大斧"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "弓型の大斧"}}
+{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "腐食したグレートソード"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "月の短剣"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "鈍らな手斧"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "ハンティングスピアー"}}
@@ -3204,7 +3048,6 @@
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "ウォースピアー"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "祝福されたクレイモア"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "双頭のフレイル"}}
-{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "ブロードソード"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "ブロードグレートソード"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "チェインフレイル"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "山賊の手斧"}}

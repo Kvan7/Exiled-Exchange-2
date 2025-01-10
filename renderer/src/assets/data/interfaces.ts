@@ -9,11 +9,19 @@ export interface StatMatcher {
 }
 
 export interface StatTier {
-  tier: number;
   ilvl: number;
   id: string;
   name: string;
   values: number[][];
+  items: string[];
+}
+
+export interface StatTierMod {
+  id: string;
+  items: {
+    [type: string]: number;
+  };
+  mods: StatTier[];
 }
 
 export enum StatBetter {
@@ -38,7 +46,18 @@ export interface Stat {
       [type: string]: string[];
     };
   };
-  tiers?: StatTier[];
+  tiers?: {
+    explicit: StatTierMod[];
+    implicit: {
+      [type: string]: StatTierMod;
+    };
+    unique: StatTierMod[];
+    corruption: StatTierMod[];
+    crafted: StatTierMod[];
+    jewel: StatTierMod[];
+    corruptionjewel: StatTierMod[];
+    uniquejewel: StatTierMod[];
+  };
   // isFakePseudo?: true;
 }
 

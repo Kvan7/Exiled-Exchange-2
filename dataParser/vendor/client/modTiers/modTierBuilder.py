@@ -141,7 +141,7 @@ def modTierBuilderB(mod_data, base_item_types, gold_mod_prices, tags):
     by_id = {}
     for mod in flat_mods:
         mod_id_with_trailing_num = mod.get("mod_unique_id")
-        mod_id = re.sub(r"\d+_?$", "", mod_id_with_trailing_num.strip())
+        mod_id = re.sub(r"\d+_*$", "", mod_id_with_trailing_num.strip())
         if mod_id not in by_id:
             by_id[mod_id] = {
                 "mods": [],
@@ -167,10 +167,76 @@ def modTierBuilderB(mod_data, base_item_types, gold_mod_prices, tags):
     output_data = []
 
     for mod_type, mod_groups in grouped_by_mod_type.items():
+        one_id = None
+        sorted_row = {
+            "explicit": [],
+            "implicit": {},
+            "unique": [],
+            "corruption": [],
+            "crafted": [],
+            "jewel": [],
+            "corruptionjewel": [],
+            "uniquejewel": [],
+        }
         all_stats = set()
         for mod_group in mod_groups:
             all_stats = all_stats.union(mod_group["mod_stat_ids"])
+            mod_id = mod_group["mods_id"].lower()
+            if one_id is None:
+                one_id = mod_id
+            if "implicit" in mod_id:
+                implicit_index = mod_id.index("implicit")
+                base_type = mod_id[:implicit_index].lower()
+                sorted_row["implicit"][base_type] = modGroupToOutputTier(mod_group)
+            elif "unique" in mod_id:
+                if "jewel" in mod_id:
+                    sorted_row["uniquejewel"].append(modGroupToOutputTier(mod_group))
+                else:
+                    sorted_row["unique"].append(modGroupToOutputTier(mod_group))
+            elif "crafted" in mod_id:
+                sorted_row["crafted"].append(modGroupToOutputTier(mod_group))
+            elif "jewel" in mod_id:
+                sorted_row["jewel"].append(modGroupToOutputTier(mod_group))
+            elif "corruption" in mod_id:
+                if "jewel" in mod_id:
+                    sorted_row["corruptionjewel"].append(
+                        modGroupToOutputTier(mod_group)
+                    )
+                else:
+                    sorted_row["corruption"].append(modGroupToOutputTier(mod_group))
+            else:
+                if len(mod_group["mod_allowed_base_types"]) > 0:
+                    sorted_row["explicit"].append(modGroupToOutputTier(mod_group))
+                else:
+                    sorted_row["unique"].append(modGroupToOutputTier(mod_group))
+                    logger.debug(f"No base type for {mod_group['mods_id']}")
+        output_data.append((tuple(all_stats), sorted_row, one_id))
+    logger.info(f"Created {len(output_data)} mod groups.")
+    return output_data
 
+
+def modGroupToOutputTier(mod_group):
+    base_counts_dict = {
+        base: len(
+            [mod for mod in mod_group["mods"] if base in mod["mod_allowed_base_types"]]
+        )
+        for base in mod_group["mod_allowed_base_types"]
+    }
+    mods = [
+        {
+            "ilvl": mod["mod_level"],
+            "id": mod["mod_unique_id"],
+            "name": mod["mod_name"],
+            "values": mod["mod_stat_values"],
+            "items": list(mod["mod_allowed_base_types"]),
+        }
+        for mod in mod_group["mods"]
+    ]
+    output_data = {
+        "id": mod_group["mods_id"],
+        "items": base_counts_dict,
+        "mods": mods,
+    }
     return output_data
 
 
@@ -202,4 +268,8 @@ if __name__ == "__main__":
     ) as f:
         tags = json.load(f)
     logging.basicConfig(level=logging.INFO)
-    modTierBuilderB(mod_data, base_item_data, gold_data, tags)
+    data = modTierBuilderB(mod_data, base_item_data, gold_data, tags)
+    for keys, mods in data:
+        if len(mods["explicit"]) > 1:
+            x = mods["explicit"]
+            print(x)

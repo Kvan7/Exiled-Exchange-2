@@ -348,16 +348,19 @@ class Parser:
 
         logger.info(f"Mod translations: {len(self.mod_translations)}")
 
-        for ids, tiers in modTierBuilderB(self.mods_file):
+        for ids, tiers, base_id in modTierBuilderB(
+            self.mods_file, self.base_items, self.gold_mod_prices, self.tags
+        ):
             value_counts = len(ids)
             if value_counts < 1:
+                logger.debug(f"No stat_ids for {base_id}")
                 continue
             ids_list = []
             translations = []
             stat_id = None
 
             for stats_key in ids:
-                logger.debug(f"Processing mod - ID: {id}, Stat: {stats_key}")
+                logger.debug(f"Processing mod - ID: {base_id}, Stat: {stats_key}")
 
                 if stats_key is not None:
                     stats_id = self.stats.get(stats_key)
@@ -399,15 +402,15 @@ class Parser:
                         translations.append(translation)
                     else:
                         logger.debug(
-                            f"Mod {id} has no translations. [stats_key: {stats_key}, stats_id: {stats_id}]"
+                            f"Mod {base_id} has no translations. [stats_key: {stats_key}, stats_id: {stats_id}]"
                         )
                 else:
                     logger.debug(
-                        f"Mod {id} has no stats_key. [stats_key: {stats_key}, stats_id: {stats_id}]"
+                        f"Mod {base_id} has no stats_key. [stats_key: {stats_key}, stats_id: {stats_id}]"
                     )
             if len(translations) == 0:
                 logger.debug(
-                    f"Mod {id} has no stats_key. [stats_key: {stats_key}, stats_id: {stats_id}]"
+                    f"Mod {base_id} has no stats_key. [stats_key: {stats_key}, stats_id: {stats_id}]"
                 )
                 continue
 
@@ -418,7 +421,9 @@ class Parser:
             else:
                 flatten_stats = flatten_stats_ids(ids_list)
             trade = {"ids": flatten_stats}
-            self.mods[id] = {
+            if base_id in self.mods:
+                logger.warn(f"Duplicate mod {base_id}")
+            self.mods[base_id] = {
                 "ref": translations[0].get("ref"),
                 "better": 1,
                 "id": stat_id,
@@ -766,5 +771,5 @@ class Parser:
 
 if __name__ == "__main__":
     logger.info("Starting parser")
-    set_log_level(logging.INFO)
+    set_log_level(logging.WARNING)
     Parser("en").run()
