@@ -13,6 +13,7 @@
       "columns": [
         "Id",
         "Name",
+        "InheritsFrom",
         "IsCorrupted",
         "Width",
         "Height",
@@ -88,7 +89,16 @@
         "Stat3",
         "Stat4",
         "Stat5",
-        "Stat6"
+        "Stat6",
+        "ModType",
+        "Stat1Value",
+        "Stat2Value",
+        "Stat3Value",
+        "Stat4Value",
+        "Stat5Value",
+        "Stat6Value",
+        "RadiusJewelType",
+        "Level"
       ]
     },
     {
@@ -145,6 +155,13 @@
       "columns": [
         "Id",
         "Text"
+      ]
+    },
+    {
+      "name": "GoldModPrices",
+      "columns": [
+        "Mod",
+        "Tags"
       ]
     }
   ]

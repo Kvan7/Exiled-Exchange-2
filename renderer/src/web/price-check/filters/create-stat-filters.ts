@@ -364,9 +364,8 @@ export function calculatedStatToFilter(
               max: percentRoll(roll.value, +percent, Math.ceil, dp),
             };
 
-    // HACK: This is #64 and #88
-    // filterDefault.min = Math.max(filterDefault.min, filterBounds.min);
-    // filterDefault.max = Math.min(filterDefault.max, filterBounds.max);
+    filterDefault.min = Math.max(filterDefault.min, filterBounds.min);
+    filterDefault.max = Math.min(filterDefault.max, filterBounds.max);
 
     filter.roll = {
       value: roundRoll(roll.value, dp),
