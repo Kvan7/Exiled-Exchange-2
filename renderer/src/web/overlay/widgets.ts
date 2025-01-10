@@ -8,16 +8,16 @@ export interface Widget {
 }
 
 export interface WidgetSpec {
-  type: string
-  instances: 'single' | 'multi'
-  trNameKey?: string
-  initInstance?: () => Widget
-  defaultInstances?: () => Widget[]
+  type: string;
+  instances: "single" | "multi";
+  trNameKey?: string;
+  initInstance?: () => Widget;
+  defaultInstances?: () => Widget[];
 }
 
 export type WellKnownFlag =
   | "uninitialized"
-  | "skip-menu"
+  | "menu::skip"
   | "has-browser"
   | "invisible-on-blur"
   | "hide-on-blur"

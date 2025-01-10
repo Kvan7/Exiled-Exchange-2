@@ -27,7 +27,7 @@ export default {
         wmTitle: "",
         wmWants: "hide",
         wmZorder: "exclusive",
-        wmFlags: ["hide-on-blur", "skip-menu"],
+        wmFlags: ["hide-on-blur", "menu::skip"],
         hotkey: null,
         wikiKey: null,
         poedbKey: null,

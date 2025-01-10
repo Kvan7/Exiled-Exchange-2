@@ -17,6 +17,7 @@
             "
             class="bg-gray-800 rounded text-gray-100 p-2 leading-none whitespace-nowrap border"
           >
+            <<<<<<< HEAD
             <i
               v-if="widget.wmType === 'settings'"
               class="fas fa-cog align-bottom"
@@ -28,6 +29,14 @@
             <template v-else>{{
               widget.wmTitle || `#${widget.wmId}`
             }}</template>
+            =======
+            <i
+              v-if="widget.icon"
+              class="fas align-bottom"
+              :class="widget.icon"
+            />
+            <template v-if="widget.title">{{ widget.title }}</template>
+            >>>>>>> e6936f6 (remove icon special cases)
           </button>
         </template>
         <ui-popover>
@@ -99,7 +108,7 @@ export default defineComponent({
         wmTitle: "",
         wmWants: "show",
         wmZorder: 1,
-        wmFlags: ["invisible-on-blur", "skip-menu"],
+        wmFlags: ["invisible-on-blur", "menu::skip"],
         anchor: {
           pos: "tl",
           x: 5,
@@ -123,11 +132,25 @@ export default defineComponent({
       return [
         wm.widgets.value.find((widget) => widget.wmType === "settings")!,
         ...wm.widgets.value.filter((widget) => widget.wmType !== "settings"),
-      ].filter(
-        (widget) =>
-          !widget.wmFlags.includes("skip-menu") &&
-          (props.config.alwaysShow || widget.wmWants === "hide"),
-      );
+      ]
+        .filter(
+          (widget) =>
+            !widget.wmFlags.includes("menu::skip") &&
+            (props.config.alwaysShow || widget.wmWants === "hide"),
+        )
+        .map((widget) => {
+          const regexMatch = widget.wmTitle.match(
+            /^(?:\{icon=(?<icon>[^}]+)\}\s*)?(?<title>.*)$/,
+          );
+          return {
+            wmId: widget.wmId,
+            wmWants: widget.wmWants,
+            title:
+              regexMatch?.groups!.title ||
+              (!regexMatch?.groups!.icon ? `#${widget.wmId}` : undefined),
+            icon: regexMatch?.groups!.icon,
+          };
+        });
     });
 
     const { t } = useI18nNs("widget_menu");
@@ -143,7 +166,7 @@ export default defineComponent({
       createOfType(type: string) {
         wm.create(type);
       },
-      toggle(widget: IWidget) {
+      toggle(widget: Pick<IWidget, "wmId" | "wmWants">) {
         if (widget.wmWants === "hide") {
           wm.show(widget.wmId);
         } else {
