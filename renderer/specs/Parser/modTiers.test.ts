@@ -2,7 +2,12 @@ import { expect, test, describe } from "vitest";
 import { getModTier, getTier, getTierNumber } from "@/parser/mod-tiers";
 import { ModifierType } from "@/parser/modifiers";
 import { ItemCategory } from "@/parser";
-import { addedFireDamageStat, maxManaStat, strengthStat } from "../static";
+import {
+  addedFireDamageStat,
+  gainManaOnKillStat,
+  maxManaStat,
+  strengthStat,
+} from "../static";
 
 describe("getModTier", () => {
   test("If 'found' is undefined, should throw", () => {
@@ -178,6 +183,24 @@ describe("getModTier", () => {
       ),
     ).toEqual(addedFireDamageStat!.explicit[1]);
   });
+
+  test("If item is weapon, it should be able to still return correct tier", () => {
+    const values = [
+      {
+        roll: 5,
+        decimal: false,
+      },
+    ];
+
+    expect(
+      getModTier(
+        values,
+        gainManaOnKillStat,
+        ItemCategory.OneHandedSword,
+        ModifierType.Explicit,
+      ),
+    ).toEqual(gainManaOnKillStat!.explicit[0]);
+  });
 });
 
 describe("getTier", () => {
@@ -262,24 +285,27 @@ describe("getTierNumber", () => {
     const tier = strengthStat!.explicit[0].mods[0];
     const mod = strengthStat!.explicit[0];
     const itemCategory = ItemCategory.OneHandedSword;
+    const tierArray = strengthStat!.explicit;
 
-    const result = getTierNumber(tier, mod, itemCategory);
+    const result = getTierNumber(tier, mod, itemCategory, tierArray);
     expect(result).toEqual(8);
   });
   test("If tier is the best, should be 1", () => {
     const tier = strengthStat!.explicit[0].mods.at(-1);
     const mod = strengthStat!.explicit[0];
     const itemCategory = ItemCategory.OneHandedSword;
+    const tierArray = strengthStat!.explicit;
 
-    const result = getTierNumber(tier!, mod, itemCategory);
+    const result = getTierNumber(tier!, mod, itemCategory, tierArray);
     expect(result).toEqual(1);
   });
   test("If category not in items, should return -1", () => {
     const tier = strengthStat!.explicit[0].mods[0];
     const mod = strengthStat!.explicit[0];
     const itemCategory = ItemCategory.Quiver;
+    const tierArray = strengthStat!.explicit;
 
-    const result = getTierNumber(tier, mod, itemCategory);
+    const result = getTierNumber(tier, mod, itemCategory, tierArray);
     expect(result).toEqual(-1);
   });
 });

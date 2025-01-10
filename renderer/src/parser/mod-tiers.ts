@@ -4,11 +4,11 @@ import { ModifierType } from "./modifiers";
 
 function mapItemCategoryToKeys(itemCategory: ItemCategory): string[] {
   const categoryMap: Record<ItemCategory, string[]> = {
-    [ItemCategory.OneHandedSword]: ["sword", "one_hand_weapon"],
-    [ItemCategory.TwoHandedSword]: ["sword", "two_hand_weapon"],
-    [ItemCategory.Staff]: ["staff"],
+    [ItemCategory.OneHandedSword]: ["sword", "one_hand_weapon", "weapon"],
+    [ItemCategory.TwoHandedSword]: ["sword", "two_hand_weapon", "weapon"],
+    [ItemCategory.Staff]: ["staff", "two_hand_weapon", "weapon"],
     [ItemCategory.Ring]: ["ring"],
-    [ItemCategory.Quiver]: ["quiver"],
+    [ItemCategory.Quiver]: ["quiver", "one_hand_weapon", "weapon"],
     [ItemCategory.Map]: [""],
     [ItemCategory.CapturedBeast]: [""],
     [ItemCategory.MetamorphSample]: [""],
@@ -22,18 +22,18 @@ function mapItemCategoryToKeys(itemCategory: ItemCategory): string[] {
     [ItemCategory.Flask]: ["flask"],
     [ItemCategory.AbyssJewel]: ["jewel"],
     [ItemCategory.Jewel]: ["jewel"],
-    [ItemCategory.Claw]: ["claw"],
-    [ItemCategory.Bow]: ["bow"],
-    [ItemCategory.Sceptre]: ["sceptre"],
-    [ItemCategory.Wand]: ["wand"],
-    [ItemCategory.FishingRod]: [""],
-    [ItemCategory.Warstaff]: ["warstaff"],
-    [ItemCategory.Dagger]: ["dagger"],
-    [ItemCategory.RuneDagger]: ["rune_dagger"],
-    [ItemCategory.OneHandedAxe]: ["axe", "one_hand_weapon"],
-    [ItemCategory.TwoHandedAxe]: ["axe", "two_hand_weapon"],
-    [ItemCategory.OneHandedMace]: ["mace", "one_hand_weapon"],
-    [ItemCategory.TwoHandedMace]: ["mace", "two_hand_weapon"],
+    [ItemCategory.Claw]: ["claw", "one_hand_weapon", "weapon"],
+    [ItemCategory.Bow]: ["bow", "one_hand_weapon", "weapon"],
+    [ItemCategory.Sceptre]: ["sceptre", "two_hand_weapon", "weapon"],
+    [ItemCategory.Wand]: ["wand", "one_hand_weapon", "weapon"],
+    [ItemCategory.FishingRod]: ["weapon"],
+    [ItemCategory.Warstaff]: ["warstaff", "two_hand_weapon", "weapon"],
+    [ItemCategory.Dagger]: ["dagger", "one_hand_weapon", "weapon"],
+    [ItemCategory.RuneDagger]: ["rune_dagger", "one_hand_weapon", "weapon"],
+    [ItemCategory.OneHandedAxe]: ["axe", "one_hand_weapon", "weapon"],
+    [ItemCategory.TwoHandedAxe]: ["axe", "two_hand_weapon", "weapon"],
+    [ItemCategory.OneHandedMace]: ["mace", "one_hand_weapon", "weapon"],
+    [ItemCategory.TwoHandedMace]: ["mace", "two_hand_weapon", "weapon"],
     [ItemCategory.ClusterJewel]: ["jewel"],
     [ItemCategory.HeistBlueprint]: [""],
     [ItemCategory.HeistContract]: [""],
@@ -52,16 +52,41 @@ function mapItemCategoryToKeys(itemCategory: ItemCategory): string[] {
     [ItemCategory.SanctumRelic]: [""],
     [ItemCategory.Tincture]: [""],
     [ItemCategory.Charm]: [""],
-    [ItemCategory.Crossbow]: ["crossbow"],
+    [ItemCategory.Crossbow]: ["crossbow", "two_hand_weapon", "weapon"],
     [ItemCategory.SkillGem]: [""],
     [ItemCategory.SupportGem]: [""],
     [ItemCategory.MetaGem]: [""],
-    [ItemCategory.Focus]: [""],
+    [ItemCategory.Focus]: ["focus"],
   };
 
   return categoryMap[itemCategory] || [itemCategory.toLowerCase()];
 }
 
+export function findCategoryMatch(
+  itemCategory: ItemCategory,
+  tierArray: StatTierMod[],
+  searchLevels: string[] = [],
+): { match: StatTierMod | null; level: string | null } {
+  let matchedTiers: StatTierMod[] = [];
+  let matchingLevel = null;
+
+  for (const level of searchLevels) {
+    // Filter tiers that match the current search level
+    matchedTiers = tierArray.filter((mod) => mod.items[level] !== undefined);
+
+    if (matchedTiers.length > 0) {
+      matchingLevel = level;
+
+      // If only one match is found, stop searching
+      if (matchedTiers.length === 1) {
+        return { match: matchedTiers[0], level: matchingLevel };
+      }
+    }
+  }
+
+  // If multiple matches exist after all levels, return the first
+  return { match: matchedTiers[0] || null, level: matchingLevel };
+}
 export function getModTier(
   values: Array<
     Pick<
@@ -92,19 +117,26 @@ export function getModTier(
       ? tier
       : Object.values(tier);
 
-    // Map ItemCategory to the corresponding items keys
-    const categoryKeys = mapItemCategoryToKeys(itemCategory);
-
-    let categoryMatch = tierArray.find((mod) =>
-      categoryKeys.every((key) => mod.items[key] !== undefined),
+    // Get the broad category key for the item category
+    const { match: categoryMatch } = findCategoryMatch(
+      itemCategory,
+      tierArray,
+      mapItemCategoryToKeys(itemCategory),
     );
 
-    if (!categoryMatch) {
-      // If no match for all keys, try matching any of the category keys
-      categoryMatch = tierArray.find((mod) =>
-        categoryKeys.some((key) => mod.items[key] !== undefined),
-      );
-    }
+    // Prioritize tiers matching the broader category
+    // let categoryMatch = tierArray.find(
+    //   (mod) => mod.items[categoryKey] !== undefined,
+    // );
+
+    // if (!categoryMatch) {
+    //   // If no match for the broader category, fallback to individual matches
+    //   categoryMatch = tierArray.find((mod) =>
+    //     Object.keys(mod.items).some(
+    //       (key) => key === itemCategory.toLowerCase(),
+    //     ),
+    //   );
+    // }
 
     if (categoryMatch) {
       const tierMatch = categoryMatch.mods.find((t) =>
@@ -230,10 +262,37 @@ export function getTier(
   return undefined;
 }
 
+export function findModCategoryMatch(
+  itemCategory: ItemCategory,
+  statTierMod: StatTierMod,
+  searchLevels: string[] = [],
+): { match: StatTier | null; level: string | null } {
+  let matchedMods: StatTier[] = [];
+  let matchingLevel: string | null = null;
+
+  for (const level of searchLevels) {
+    // Filter mods that match the current search level
+    matchedMods = statTierMod.mods.filter((tier) => tier.items.includes(level));
+
+    if (matchedMods.length > 0) {
+      matchingLevel = level;
+
+      // If only one match is found, stop searching
+      if (matchedMods.length === 1) {
+        return { match: matchedMods[0], level: matchingLevel };
+      }
+    }
+  }
+
+  // If multiple matches exist after all levels, return the first
+  return { match: matchedMods[0] || null, level: matchingLevel };
+}
+
 export function getTierNumber(
   tier: StatTier,
   mod: StatTierMod,
   itemCategory: ItemCategory,
+  tierArray: StatTierMod[],
 ): number {
   if (mod === undefined || mod.mods === undefined || !mod.mods) {
     console.warn("No mods found for mod", mod);
@@ -246,16 +305,14 @@ export function getTierNumber(
   }
 
   // Map the itemCategory to its corresponding key(s)
-  const categoryKeys = mapItemCategoryToKeys(itemCategory);
+  const { match: categoryExists, level: primaryCategoryKey } =
+    findCategoryMatch(
+      itemCategory,
+      tierArray,
+      mapItemCategoryToKeys(itemCategory),
+    );
 
-  // Use the first key from the mapped category keys
-  const primaryCategoryKey = categoryKeys[0];
-
-  // Check if the category exists in items for any mod
-  const categoryExists = mod.mods.some((t) =>
-    t.items.includes(primaryCategoryKey),
-  );
-  if (!categoryExists) {
+  if (!categoryExists || !primaryCategoryKey) {
     return -1; // Return -1 if the category is not found in any mod
   }
 

@@ -218,7 +218,9 @@ export function tryParseTranslation(
               };
             }
           });
-          const tierNumber = getTierNumber(tierMatch, modTiers, itemCategory);
+          const tierNumber = getTierNumber(tierMatch, modTiers, itemCategory, [
+            modTiers,
+          ]);
           if (tierNumber !== -1) {
             foundTier = tierNumber;
           }
