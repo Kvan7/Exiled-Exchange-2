@@ -3,6 +3,7 @@ import type { StatMatcher, Stat } from "@/assets/data";
 import { ModifierType } from "./modifiers";
 import { ItemCategory } from "./meta";
 import { getModTier, getTier, getTierNumber } from "./mod-tiers";
+import { ItemRarity } from "./ParsedItem";
 
 // This file is a little messy and scary,
 // but that's how stats translations are parsed :-D
@@ -160,6 +161,7 @@ export function tryParseTranslation(
   stat: StatString,
   modType: ModifierType,
   itemCategory?: ItemCategory,
+  itemRarity?: ItemRarity,
 ): { stat: ParsedStat; tier: number | undefined } | undefined {
   for (const combination of _statPlaceholderGenerator(stat.string)) {
     const found = STAT_BY_MATCH_STR(combination.stat);
@@ -190,7 +192,12 @@ export function tryParseTranslation(
 
     let foundTier: number | undefined;
 
-    if (modType === ModifierType.Explicit && found.stat.tiers && itemCategory) {
+    if (
+      modType === ModifierType.Explicit &&
+      found.stat.tiers &&
+      itemCategory &&
+      itemRarity !== ItemRarity.Unique
+    ) {
       const modTiers = getModTier(
         combination.values,
         found.stat.tiers,

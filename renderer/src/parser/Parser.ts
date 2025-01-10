@@ -1368,6 +1368,7 @@ function parseStatsFromMod(
       stat.value,
       modifier.info.type,
       item.category,
+      item.rarity,
     );
     if (parsedStatAndTier) {
       const { stat: parsedStat, tier } = parsedStatAndTier;
