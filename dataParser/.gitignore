@@ -179,3 +179,5 @@ vendor/json-api/ru/*.json
 vendor/json-api/ko/*.json
 vendor/json-api/cmn-Hant/*.json
 vendor/json-api/ja/*.json
+
+EXPORT/files/**/*.csd

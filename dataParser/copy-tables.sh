@@ -21,3 +21,7 @@ cp -n vendor/client/tables/en/* vendor/client/tables/ru/
 cp -n vendor/client/tables/en/* vendor/client/tables/ko/
 cp -n vendor/client/tables/en/* vendor/client/tables/cmn-Hant/
 cp -n vendor/client/tables/en/* vendor/client/tables/ja/
+
+# Copy description files from EXPORT/files to client/descriptions
+echo "Copying description files from EXPORT/files to client/descriptions"
+cp -R EXPORT/files/* vendor/client/descriptions/
