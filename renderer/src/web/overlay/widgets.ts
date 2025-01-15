@@ -45,6 +45,7 @@ export interface PriceCheckWidget extends Widget {
   usePseudo: boolean;
   rememberCurrency: boolean;
   defaultAllSelected: boolean;
+  defaultRuneOption: "None" | "Empty" | "Iron Rune";
 }
 
 export interface StopwatchWidget extends Widget {

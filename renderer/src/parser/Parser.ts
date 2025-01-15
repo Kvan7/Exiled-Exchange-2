@@ -39,6 +39,8 @@ import {
   parseModInfoLine,
 } from "./advanced-mod-desc";
 import { calcPropPercentile, QUALITY_STATS } from "./calc-q20";
+import { AppConfig } from "@/web/Config";
+import { PriceCheckWidget } from "@/web/overlay/widgets";
 
 type SectionParseResult =
   | "SECTION_PARSED"
@@ -144,6 +146,14 @@ export function parseClipboard(clipboard: string): Result<ParsedItem, string> {
     if (parsed.isOk() && isFromChat) {
       parsed.value.fromChat = isFromChat;
     }
+
+    if (
+      AppConfig<PriceCheckWidget>("price-check")?.defaultRuneOption ===
+      "Iron Rune"
+    ) {
+      parsed.value.originalItem = parsed.value;
+    }
+
     return Object.freeze(parsed);
   } catch (e) {
     console.log(e);
