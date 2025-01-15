@@ -103,6 +103,8 @@ export function poeWebApi() {
       return "poe.game.daum.net";
     case "ja":
       return "jp.pathofexile.com";
+    case "de":
+      return "de.pathofexile.com";
   }
 }
 
@@ -124,7 +126,7 @@ export interface Config {
   logKeys: boolean;
   accountName: string;
   stashScroll: boolean;
-  language: "en" | "ru" | "cmn-Hant" | "ko" | "ja";
+  language: "en" | "ru" | "cmn-Hant" | "ko" | "ja" | "de";
   preferredTradeSite: "default" | "www";
   realm: "pc-ggg" | "pc-garena";
   widgets: widget.Widget[];
