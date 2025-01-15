@@ -220,7 +220,8 @@ class Description:
 
             matchers.append(matcher_data)
 
-        logger.debug(f"Final matchers: {matchers}")
+        if is_en:
+            logger.info(f"Final matchers: {matchers}")
         return matchers
 
 
