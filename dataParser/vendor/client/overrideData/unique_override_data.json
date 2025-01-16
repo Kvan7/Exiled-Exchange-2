@@ -1,5 +1,25 @@
 {
   "Adds # to # Physical Damage": {
+    "Hoghunt": [
+      [
+        16,
+        20
+      ],
+      [
+        23,
+        27
+      ]
+    ],
+    "Chober Chaber": [
+      [
+        58,
+        65
+      ],
+      [
+        102,
+        110
+      ]
+    ],
     "Redbeak": [
       [
         3,
@@ -22,62 +42,62 @@
     ],
     "Brynhand's Mark": [
       [
-        3,
-        4
+        10,
+        14
       ],
       [
-        6,
-        8
+        16,
+        20
       ]
     ],
     "Wylund's Stake": [
-      [
-        2,
-        3
-      ],
-      [
-        4,
-        5
-      ]
-    ],
-    "Frostbreath": [
       [
         4,
         6
       ],
       [
         8,
+        10
+      ]
+    ],
+    "Frostbreath": [
+      [
+        8,
         12
+      ],
+      [
+        16,
+        20
       ]
     ],
     "Trenchtimbre": [
       [
-        10,
-        12
+        13,
+        15
       ],
       [
-        18,
-        22
+        22,
+        25
       ]
     ],
     "Trephina": [
       [
-        7,
-        10
+        12,
+        25
       ],
       [
-        12,
-        18
+        22,
+        25
       ]
     ],
     "Brain Rattler": [
       [
-        10,
-        12
-      ],
-      [
         18,
         22
+      ],
+      [
+        24,
+        28
       ]
     ],
     "Splinter of Loratta": [
@@ -92,29 +112,27 @@
     ],
     "The Blood Thorn": [
       [
-        3,
-        5
+        8,
+        12
       ],
       [
-        9,
-        11
+        16,
+        18
+      ]
+    ],
+    "Nazir's Judgement": [
+      [
+        30,
+        36
+      ],
+      [
+        75,
+        81
       ]
     ]
   },
   "#% increased Physical Damage": {
-    "Hoghunt": [
-      [
-        100,
-        150
-      ]
-    ],
     "Hrimnor's Hymn": [
-      [
-        60,
-        80
-      ]
-    ],
-    "Chober Chaber": [
       [
         80,
         120
@@ -122,20 +140,14 @@
     ],
     "Quecholli": [
       [
-        80,
-        120
-      ]
-    ],
-    "Nazir's Judgement": [
-      [
-        80,
-        120
+        100,
+        150
       ]
     ],
     "Splinterheart": [
       [
-        60,
-        80
+        120,
+        160
       ]
     ],
     "Rampart Raptor": [
@@ -146,6 +158,12 @@
     ]
   },
   "+# to Accuracy Rating": {
+    "The Sentry": [
+      [
+        30,
+        50
+      ]
+    ],
     "Brynhand's Mark": [
       [
         30,
@@ -191,7 +209,7 @@
     "Erian's Cobble": [
       [
         0,
-        30
+        60
       ]
     ],
     "The Smiling Knight": [
@@ -232,10 +250,22 @@
     ]
   },
   "+# to Strength": {
+    "Irongrasp": [
+      [
+        20,
+        30
+      ]
+    ],
+    "Deidbell": [
+      [
+        10,
+        20
+      ]
+    ],
     "Brynhand's Mark": [
       [
-        5,
-        10
+        10,
+        20
       ]
     ],
     "The Blood Thorn": [
@@ -283,7 +313,7 @@
     "Erian's Cobble": [
       [
         0,
-        5
+        10
       ]
     ],
     "Mask of the Sanguimancer": [
@@ -300,8 +330,8 @@
     ],
     "Wondertrap": [
       [
-        5,
-        15
+        10,
+        20
       ]
     ],
     "Dionadair": [
@@ -318,8 +348,8 @@
     ],
     "Feathered Fortress": [
       [
-        10,
-        20
+        20,
+        30
       ]
     ],
     "Revered Resin": [
@@ -379,7 +409,13 @@
     "Wylund's Stake": [
       [
         10,
-        30
+        20
+      ]
+    ],
+    "Ashrend": [
+      [
+        10,
+        20
       ]
     ]
   },
@@ -412,6 +448,28 @@
     ],
     "The Sentry": [
       [
+        25,
+        32
+      ],
+      [
+        40,
+        50
+      ]
+    ],
+    "Blackgleam": [
+      [
+        3,
+        5
+      ],
+      [
+        6,
+        9
+      ]
+    ]
+  },
+  "Adds # to # Cold Damage": {
+    "Frostbreath": [
+      [
         8,
         12
       ],
@@ -419,27 +477,15 @@
         16,
         20
       ]
-    ]
-  },
-  "Adds # to # Cold Damage": {
-    "Frostbreath": [
-      [
-        4,
-        6
-      ],
-      [
-        8,
-        12
-      ]
     ],
     "Seeing Stars": [
       [
-        9,
-        12
+        12,
+        16
       ],
       [
-        18,
-        22
+        22,
+        25
       ]
     ],
     "Winter's Bite": [
@@ -454,18 +500,18 @@
     ],
     "Mist Whisper": [
       [
-        4,
-        6
+        8,
+        10
       ],
       [
-        9,
-        12
+        13,
+        15
       ]
     ],
     "Matsya": [
       [
-        4,
-        8
+        6,
+        9
       ],
       [
         10,
@@ -480,8 +526,8 @@
         1
       ],
       [
-        30,
-        35
+        40,
+        45
       ]
     ],
     "Olrovasara": [
@@ -500,8 +546,8 @@
         1
       ],
       [
-        36,
-        42
+        50,
+        55
       ]
     ],
     "Skysliver": [
@@ -517,11 +563,11 @@
     "Matsya": [
       [
         1,
-        3
+        1
       ],
       [
-        20,
-        40
+        19,
+        29
       ]
     ]
   },
@@ -534,6 +580,12 @@
     ]
   },
   "#% increased Attack Speed": {
+    "Deathblow": [
+      [
+        5,
+        10
+      ]
+    ],
     "Trenchtimbre": [
       [
         20,
@@ -627,6 +679,12 @@
         30,
         50
       ]
+    ],
+    "Treefingers": [
+      [
+        20,
+        30
+      ]
     ]
   },
   "Gain # Life per Enemy Killed": {
@@ -668,6 +726,12 @@
     ]
   },
   "+# to maximum Mana": {
+    "Bones of Ullr": [
+      [
+        20,
+        40
+      ]
+    ],
     "Chober Chaber": [
       [
         80,
@@ -737,7 +801,7 @@
     "Erian's Cobble": [
       [
         0,
-        10
+        20
       ]
     ],
     "Ironride": [
@@ -766,8 +830,8 @@
     ],
     "Alkem Eira": [
       [
-        15,
-        30
+        50,
+        70
       ]
     ],
     "Serpent's Lesson": [
@@ -847,9 +911,27 @@
         40,
         60
       ]
+    ],
+    "Arvil's Wheel": [
+      [
+        40,
+        60
+      ]
     ]
   },
   "+# to all Attributes": {
+    "Pariah's Embrace": [
+      [
+        10,
+        15
+      ]
+    ],
+    "The Road Warrior": [
+      [
+        10,
+        15
+      ]
+    ],
     "Quecholli": [
       [
         10,
@@ -918,6 +1000,12 @@
     ]
   },
   "+# to Dexterity": {
+    "Leer Cast": [
+      [
+        10,
+        20
+      ]
+    ],
     "Skysliver": [
       [
         10,
@@ -962,8 +1050,8 @@
     ],
     "Elevore": [
       [
-        10,
-        20
+        20,
+        30
       ]
     ],
     "Sandstorm Visage": [
@@ -981,7 +1069,7 @@
     "Erian's Cobble": [
       [
         0,
-        5
+        10
       ]
     ],
     "Atsak's Sight": [
@@ -1022,14 +1110,14 @@
     ],
     "Wondertrap": [
       [
-        5,
-        15
+        10,
+        20
       ]
     ],
     "Feathered Fortress": [
       [
-        10,
-        20
+        20,
+        30
       ]
     ],
     "Idol of Uldurn": [
@@ -1104,6 +1192,16 @@
     ]
   },
   "# to # Physical Thorns damage": {
+    "Crown of the Pale King": [
+      [
+        10,
+        15
+      ],
+      [
+        20,
+        25
+      ]
+    ],
     "The Blood Thorn": [
       [
         4,
@@ -1132,6 +1230,26 @@
       [
         6,
         10
+      ]
+    ],
+    "Belly of the Beast": [
+      [
+        25,
+        30
+      ],
+      [
+        35,
+        40
+      ]
+    ],
+    "Briarpatch": [
+      [
+        10,
+        15
+      ],
+      [
+        20,
+        25
       ]
     ]
   },
@@ -1260,8 +1378,8 @@
     ],
     "The Burrower": [
       [
-        25,
-        35
+        30,
+        50
       ]
     ],
     "Call of the Brotherhood": [
@@ -1459,6 +1577,12 @@
         20,
         30
       ]
+    ],
+    "Candlemaker": [
+      [
+        20,
+        10
+      ]
     ]
   },
   "#% increased Lightning Damage": {
@@ -1480,6 +1604,12 @@
       [
         20,
         30
+      ]
+    ],
+    "Candlemaker": [
+      [
+        20,
+        40
       ]
     ]
   },
@@ -1504,6 +1634,12 @@
       [
         50,
         70
+      ]
+    ],
+    "Killjoy": [
+      [
+        20,
+        30
       ]
     ]
   },
@@ -1536,6 +1672,12 @@
     ]
   },
   "+# to Intelligence": {
+    "Tetzlapokal's Desire": [
+      [
+        20,
+        30
+      ]
+    ],
     "The Dark Defiler": [
       [
         5,
@@ -1581,7 +1723,7 @@
     "Erian's Cobble": [
       [
         0,
-        5
+        10
       ]
     ],
     "Cornathaum": [
@@ -1646,8 +1788,8 @@
     ],
     "Wondertrap": [
       [
-        5,
-        15
+        10,
+        20
       ]
     ],
     "Windscream": [
@@ -1750,9 +1892,21 @@
     ]
   },
   "+# to maximum Life": {
+    "Ironride": [
+      [
+        30,
+        50
+      ]
+    ],
+    "The Devouring Diadem": [
+      [
+        40,
+        60
+      ]
+    ],
     "Bramblejack": [
       [
-        50,
+        60,
         80
       ]
     ],
@@ -1776,8 +1930,8 @@
     ],
     "Quatl's Molt": [
       [
-        30,
-        50
+        60,
+        80
       ]
     ],
     "Necromantle": [
@@ -1812,8 +1966,8 @@
     ],
     "Ezomyte Peak": [
       [
-        30,
-        50
+        50,
+        80
       ]
     ],
     "Corona of the Red Sun": [
@@ -1825,13 +1979,7 @@
     "Erian's Cobble": [
       [
         0,
-        15
-      ]
-    ],
-    "Bronzebeard": [
-      [
-        40,
-        60
+        30
       ]
     ],
     "Crown of the Pale King": [
@@ -1965,13 +2113,31 @@
         40,
         60
       ]
+    ],
+    "Arvil's Wheel": [
+      [
+        30,
+        50
+      ]
+    ],
+    "Bones of Ullr": [
+      [
+        20,
+        40
+      ]
     ]
   },
   "+# to Stun Threshold": {
-    "Bramblejack": [
+    "Wandering Reliquary": [
       [
         60,
-        100
+        80
+      ]
+    ],
+    "Bramblejack": [
+      [
+        40,
+        60
       ]
     ],
     "Blackbraid": [
@@ -2006,8 +2172,8 @@
     ],
     "Legionstride": [
       [
-        30,
-        50
+        50,
+        70
       ]
     ],
     "Briarpatch": [
@@ -2060,16 +2226,10 @@
         160
       ]
     ],
-    "The Immortan": [
-      [
-        50,
-        100
-      ]
-    ],
     "Titanrot Cataphract": [
       [
-        200,
-        300
+        400,
+        500
       ]
     ],
     "Wandering Reliquary": [
@@ -2086,8 +2246,8 @@
     ],
     "The Brass Dome": [
       [
-        300,
-        400
+        400,
+        500
       ]
     ],
     "Ezomyte Peak": [
@@ -2121,12 +2281,6 @@
       ]
     ],
     "Hateforge": [
-      [
-        50,
-        80
-      ]
-    ],
-    "Legionstride": [
       [
         50,
         80
@@ -2194,10 +2348,22 @@
     ]
   },
   "+#% to Fire Resistance": {
-    "The Immortan": [
+    "Gloomform": [
+      [
+        10,
+        20
+      ]
+    ],
+    "Corona of the Red Sun": [
+      [
+        20,
+        25
+      ]
+    ],
+    "The Road Warrior": [
       [
         15,
-        25
+        30
       ]
     ],
     "Greed's Embrace": [
@@ -2208,8 +2374,8 @@
     ],
     "Ashrend": [
       [
-        20,
-        30
+        30,
+        40
       ]
     ],
     "Cloak of Flame": [
@@ -2227,19 +2393,13 @@
     "Erian's Cobble": [
       [
         0,
-        5
-      ]
-    ],
-    "Painter's Servant": [
-      [
-        5,
         10
       ]
     ],
     "Candlemaker": [
       [
-        15,
-        30
+        20,
+        40
       ]
     ],
     "Blueflame Bracers": [
@@ -2250,14 +2410,14 @@
     ],
     "Birth of Fury": [
       [
-        10,
-        20
+        20,
+        30
       ]
     ],
     "Feathered Fortress": [
       [
-        10,
-        20
+        20,
+        30
       ]
     ],
     "Saffell's Frame": [
@@ -2298,8 +2458,8 @@
     ],
     "Infernoclasp": [
       [
-        25,
-        35
+        30,
+        50
       ]
     ],
     "Wylund's Stake": [
@@ -2310,10 +2470,22 @@
     ]
   },
   "+#% to Lightning Resistance": {
-    "The Immortan": [
+    "Visage of Ayah": [
+      [
+        10,
+        20
+      ]
+    ],
+    "Prayers for Rain": [
+      [
+        10,
+        20
+      ]
+    ],
+    "The Road Warrior": [
       [
         15,
-        25
+        30
       ]
     ],
     "Queen of the Fores": [
@@ -2324,8 +2496,8 @@
     ],
     "Sierran Inheritance": [
       [
-        15,
-        25
+        30,
+        40
       ]
     ],
     "The Dancing Mirage": [
@@ -2343,7 +2515,7 @@
     "Erian's Cobble": [
       [
         0,
-        5
+        10
       ]
     ],
     "Ironride": [
@@ -2352,22 +2524,16 @@
         15
       ]
     ],
-    "Painter's Servant": [
-      [
-        5,
-        10
-      ]
-    ],
     "Gamblesprint": [
       [
-        5,
-        15
+        15,
+        25
       ]
     ],
     "Thunderstep": [
       [
-        25,
-        35
+        30,
+        50
       ]
     ],
     "Darkray Vectors": [
@@ -2414,16 +2580,16 @@
     ],
     "Brynabas": [
       [
-        20,
-        30
+        30,
+        40
       ]
     ]
   },
   "#% increased Strength": {
     "Titanrot Cataphract": [
       [
-        10,
-        20
+        15,
+        30
       ]
     ],
     "Black Sun Crest": [
@@ -2499,12 +2665,6 @@
         5,
         10
       ]
-    ],
-    "Blackbraid": [
-      [
-        5,
-        15
-      ]
     ]
   },
   "#% increased Rarity of Items found": {
@@ -2541,7 +2701,7 @@
     "Erian's Cobble": [
       [
         0,
-        10
+        20
       ]
     ],
     "Crown of the Victor": [
@@ -2612,7 +2772,7 @@
     ],
     "Gamblesprint": [
       [
-        5,
+        10,
         15
       ]
     ]
@@ -2638,10 +2798,10 @@
     ]
   },
   "#% increased Evasion Rating": {
-    "Bristleboar": [
+    "Innsmouth": [
       [
-        40,
-        80
+        20,
+        30
       ]
     ],
     "Dustbloom": [
@@ -2733,9 +2893,33 @@
         50,
         80
       ]
+    ],
+    "Briskwrap": [
+      [
+        60,
+        100
+      ]
     ]
   },
   "+# to Evasion Rating": {
+    "Quatl's Molt": [
+      [
+        60,
+        80
+      ]
+    ],
+    "Northpaw": [
+      [
+        15,
+        25
+      ]
+    ],
+    "Mask of the Sanguimancer": [
+      [
+        20,
+        25
+      ]
+    ],
     "Foxshade": [
       [
         50,
@@ -2751,7 +2935,7 @@
     "Erian's Cobble": [
       [
         0,
-        15
+        30
       ]
     ],
     "Blessed Bonds": [
@@ -2802,6 +2986,30 @@
     ]
   },
   "+#% to Cold Resistance": {
+    "Grip of Winter": [
+      [
+        20,
+        30
+      ]
+    ],
+    "Gravebind": [
+      [
+        10,
+        15
+      ]
+    ],
+    "Candlemaker": [
+      [
+        -20,
+        -10
+      ]
+    ],
+    "The Black Doubt": [
+      [
+        10,
+        20
+      ]
+    ],
     "Briskwrap": [
       [
         20,
@@ -2840,19 +3048,13 @@
     ],
     "Forbidden Gaze": [
       [
-        25,
-        35
+        30,
+        50
       ]
     ],
     "Erian's Cobble": [
       [
         0,
-        5
-      ]
-    ],
-    "Painter's Servant": [
-      [
-        5,
         10
       ]
     ],
@@ -2864,8 +3066,8 @@
     ],
     "Feathered Fortress": [
       [
-        10,
-        20
+        20,
+        30
       ]
     ],
     "Saffell's Frame": [
@@ -2912,6 +3114,18 @@
     ]
   },
   "+#% to Chaos Resistance": {
+    "Voll's Protector": [
+      [
+        13,
+        17
+      ]
+    ],
+    "Doomgate": [
+      [
+        13,
+        17
+      ]
+    ],
     "Quatl's Molt": [
       [
         17,
@@ -2932,8 +3146,8 @@
     ],
     "Husk of Dreams": [
       [
-        13,
-        17
+        17,
+        23
       ]
     ],
     "Innsmouth": [
@@ -2998,8 +3212,8 @@
     ],
     "Original Sin": [
       [
-        7,
-        13
+        17,
+        23
       ]
     ],
     "Blackflame": [
@@ -3010,6 +3224,30 @@
     ]
   },
   "# Life Regeneration per second": {
+    "Snakebite": [
+      [
+        6,
+        10
+      ]
+    ],
+    "The Road Warrior": [
+      [
+        10,
+        15
+      ]
+    ],
+    "Ezomyte Peak": [
+      [
+        3,
+        6
+      ]
+    ],
+    "The Dionadair": [
+      [
+        3,
+        5
+      ]
+    ],
     "Quatl's Molt": [
       [
         10,
@@ -3025,7 +3263,7 @@
     "Erian's Cobble": [
       [
         0,
-        3
+        6
       ]
     ],
     "The Vile Knight": [
@@ -3074,6 +3312,12 @@
       [
         7,
         12
+      ]
+    ],
+    "Bristleboar": [
+      [
+        3,
+        5
       ]
     ]
   },
@@ -3186,6 +3430,30 @@
     ]
   },
   "+# to maximum Energy Shield": {
+    "Wondertrap": [
+      [
+        30,
+        50
+      ]
+    ],
+    "Mask of the Sanguimancer": [
+      [
+        10,
+        15
+      ]
+    ],
+    "Luminous Pace": [
+      [
+        20,
+        30
+      ]
+    ],
+    "The Doedre's Tenure": [
+      [
+        20,
+        30
+      ]
+    ],
     "Temporalis": [
       [
         100,
@@ -3207,7 +3475,7 @@
     "Erian's Cobble": [
       [
         0,
-        10
+        20
       ]
     ],
     "Demon Stitcher": [
@@ -3338,8 +3606,8 @@
     ],
     "The Smiling Knight": [
       [
-        30,
-        50
+        150,
+        200
       ]
     ],
     "The Vile Knight": [
@@ -3508,8 +3776,8 @@
   "#% increased Flask Charges used": {
     "Husk of Dreams": [
       [
-        25,
-        50
+        20,
+        30
       ]
     ]
   },
@@ -3542,8 +3810,8 @@
     ],
     "The Dancing Mirage": [
       [
-        60,
-        100
+        150,
+        200
       ]
     ],
     "The Vertex": [
@@ -3586,6 +3854,12 @@
       [
         60,
         120
+      ]
+    ],
+    "Atsak's Sight": [
+      [
+        100,
+        150
       ]
     ]
   },
@@ -3638,6 +3912,12 @@
     ]
   },
   "#% increased Critical Hit Chance": {
+    "Ungil's Harmony": [
+      [
+        100,
+        200
+      ]
+    ],
     "Visage of Ayah": [
       [
         20,
@@ -3647,7 +3927,7 @@
     "Erian's Cobble": [
       [
         0,
-        15
+        30
       ]
     ],
     "The Smiling Knight": [
@@ -3664,7 +3944,7 @@
     ],
     "Atsak's Sight": [
       [
-        20,
+        30,
         40
       ]
     ],
@@ -3676,8 +3956,8 @@
     ],
     "Atziri's Acuity": [
       [
-        20,
-        30
+        30,
+        50
       ]
     ],
     "Maligaro's Virtuosity": [
@@ -3718,10 +3998,22 @@
     ]
   },
   "+# to Armour": {
+    "Lochtonial Caress": [
+      [
+        15,
+        25
+      ]
+    ],
+    "Legionstride": [
+      [
+        50,
+        70
+      ]
+    ],
     "Erian's Cobble": [
       [
         0,
-        20
+        40
       ]
     ],
     "Birthright Buckle": [
@@ -3734,6 +4026,12 @@
       [
         100,
         150
+      ]
+    ],
+    "Blackbraid": [
+      [
+        40,
+        60
       ]
     ]
   },
@@ -3772,22 +4070,22 @@
   "Adds # to # Physical Damage to Attacks": {
     "Treefingers": [
       [
-        3,
-        5
+        6,
+        10
       ],
       [
-        6,
-        8
+        12,
+        16
       ]
     ],
     "Northpaw": [
       [
-        2,
-        3
+        3,
+        5
       ],
       [
-        5,
-        6
+        8,
+        10
       ]
     ],
     "Jarngreipr": [
@@ -3861,6 +4159,16 @@
         6,
         8
       ]
+    ],
+    "Asphyxia's Wrath": [
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        8
+      ]
     ]
   },
   "#% increased Magnitude of Chill you inflict": {
@@ -3898,8 +4206,14 @@
   "#% chance to Poison on Hit": {
     "Plaguefinger": [
       [
-        5,
-        10
+        20,
+        30
+      ]
+    ],
+    "Snakebite": [
+      [
+        20,
+        30
       ]
     ]
   },
@@ -3921,7 +4235,7 @@
     "Thunderstep": [
       [
         10,
-        15
+        20
       ]
     ],
     "Bushwhack": [
@@ -3933,13 +4247,13 @@
     "Wondertrap": [
       [
         5,
-        15
+        20
       ]
     ],
     "Windscream": [
       [
         10,
-        15
+        20
       ]
     ],
     "Powertread": [
@@ -4021,12 +4335,6 @@
       ]
     ],
     "The Surrender": [
-      [
-        40,
-        60
-      ]
-    ],
-    "Arvil's Wheel": [
       [
         40,
         60
@@ -4177,12 +4485,6 @@
         10,
         15
       ]
-    ],
-    "Brynhand's Mark": [
-      [
-        15,
-        25
-      ]
     ]
   },
   "Attacks Gain #% of Physical Damage as extra Chaos Damage": {
@@ -4308,12 +4610,12 @@
   "Adds # to # Chaos Damage to Attacks": {
     "Blackheart": [
       [
-        2,
-        3
+        4,
+        6
       ],
       [
-        4,
-        5
+        8,
+        10
       ]
     ]
   },
@@ -4530,6 +4832,46 @@
       [
         5,
         10
+      ]
+    ]
+  },
+  "#% to all Maximum Elemental Resistances": {
+    "The Brass Dome": [
+      [
+        -5,
+        -1
+      ]
+    ]
+  },
+  "Minions deal #% increased Damage": {
+    "Carrion Call": [
+      [
+        20,
+        30
+      ]
+    ]
+  },
+  "#% increased Elemental Ailment Threshold": {
+    "The Knight-errant": [
+      [
+        30,
+        50
+      ]
+    ]
+  },
+  "Minions have #% to Chaos Resistance": {
+    "Necromantle": [
+      [
+        17,
+        23
+      ]
+    ]
+  },
+  "Curse Skills have #% increased Cast Speed": {
+    "Windscream": [
+      [
+        10,
+        20
       ]
     ]
   }
