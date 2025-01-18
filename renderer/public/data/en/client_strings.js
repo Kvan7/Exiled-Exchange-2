@@ -113,6 +113,7 @@ export default {
   CHARM_HELP_TEXT: 'Used automatically when condition',
   PRICE_NOTE: 'Note: ',
   WAYSTONE_TIER: 'Waystone Tier: ',
-  WAYSTONE_HELP: 'Can be used in a Map Device,'
+  WAYSTONE_HELP: 'Can be used in a Map Device,',
+  // ItemDescriptionPassiveJewel
+  JEWEL_HELP: 'Place into'
 }
-

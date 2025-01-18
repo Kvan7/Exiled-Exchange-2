@@ -113,5 +113,6 @@ export default {
   CHARM_HELP_TEXT: '条件を満たした時に自動的に使用される。',
   PRICE_NOTE: 'メモ: ',
   WAYSTONE_TIER: 'ウェイストーン ティア: ',
-  WAYSTONE_HELP: 'マップデバイスで使用すると、'
+  WAYSTONE_HELP: 'マップデバイスで使用すると、',
+  JEWEL_HELP: 'パッシブツリ'
 }

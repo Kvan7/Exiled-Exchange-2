@@ -113,5 +113,6 @@ export default {
   COLD_DAMAGE: '번개 피해: ',
   PRICE_NOTE: '알림: ',
   WAYSTONE_TIER: '경로석 등급:',
-  WAYSTONE_HELP: '지도 장치에서 사용하면 '
+  WAYSTONE_HELP: '지도 장치에서 사용하면 ',
+  JEWEL_HELP: '패시브 스킬'
 }

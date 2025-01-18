@@ -181,7 +181,9 @@ def modTierBuilderB(mod_data, base_item_types, gold_mod_prices, tags):
         }
         all_stats = set()
         for mod_group in mod_groups:
-            all_stats = all_stats.union(mod_group["mod_stat_ids"])
+            # HACK: overwrite for things that are not hybrid that should be included
+            if mod_group["mods_id"] not in ("ShockEffectUnique__"):
+                all_stats = all_stats.union(mod_group["mod_stat_ids"])
             mod_id = mod_group["mods_id"].lower()
             if one_id is None:
                 one_id = mod_id
