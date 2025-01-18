@@ -1129,7 +1129,8 @@ function parseHelpText(section: string[], item: ParsedItem) {
     item.category !== ItemCategory.Flask &&
     item.category !== ItemCategory.Charm &&
     item.category !== ItemCategory.Waystone &&
-    item.category !== ItemCategory.Map
+    item.category !== ItemCategory.Map &&
+    item.category !== ItemCategory.Jewel
   )
     return "PARSER_SKIPPED";
 
@@ -1138,7 +1139,8 @@ function parseHelpText(section: string[], item: ParsedItem) {
       line.startsWith(_$.QUIVER_HELP_TEXT) ||
       line.startsWith(_$.FLASK_HELP_TEXT) ||
       line.startsWith(_$.CHARM_HELP_TEXT) ||
-      line.startsWith(_$.WAYSTONE_HELP)
+      line.startsWith(_$.WAYSTONE_HELP) ||
+      line.startsWith(_$.JEWEL_HELP)
     ) {
       return "SECTION_PARSED";
     }

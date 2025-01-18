@@ -236,6 +236,7 @@ export interface TranslationDict {
   PRICE_NOTE: string;
   WAYSTONE_TIER: string;
   WAYSTONE_HELP: string;
+  JEWEL_HELP: string;
 }
 
 export interface Filter {
