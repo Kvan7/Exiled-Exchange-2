@@ -11,7 +11,7 @@ export function magicBasetype(name: string) {
   const perm: string[] = words.flatMap((_, start) =>
     Array(words.length - start)
       .fill(undefined)
-      .map((_, idx) => words.slice(start, start + idx + 1).join(" ")),
+      .map((_, idx) => words.slice(start, start + idx + 1).join(separator)),
   );
 
   const result = perm
