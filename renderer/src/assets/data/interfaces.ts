@@ -57,9 +57,9 @@ export interface Stat {
     implicit: {
       [type: string]: StatTierMod;
     };
-    unique: {
-      [type: string]: number[][];
-    };
+    // unique: {
+    //   [type: string]: number[][];
+    // };
     corruption: StatTierMod[];
     crafted: StatTierMod[];
     jewel: StatTierMod[];
@@ -101,6 +101,9 @@ export interface BaseType {
   unique?: {
     base: BaseType["refName"];
     fixedStats?: Array<Stat["ref"]>;
+    stats?: {
+      [key: string]: number[][];
+    };
   };
   map?: {
     screenshot?: string;
