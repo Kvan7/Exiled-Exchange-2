@@ -269,6 +269,8 @@ class Parser:
                 type = entry.get("type")
                 text = self.convert_stat_name(text)
 
+                text = text.replace("+#", "#")
+
                 logger.debug(f"Processing entry - ID: {id}, Text: {text}, Type: {type}")
 
                 if text not in self.stats_trade_ids:

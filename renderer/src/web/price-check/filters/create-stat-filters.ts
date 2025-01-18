@@ -501,6 +501,10 @@ function hideNotVariableStat(filter: StatFilter, item: ParsedItem) {
     filter.tag !== FilterTag.Pseudo
   )
     return;
+  // show all rolls for
+  if (item.info.refName === "Morior Invictus") {
+    return;
+  }
 
   if (!filter.roll) {
     filter.hidden = "filters.hide_const_roll";
