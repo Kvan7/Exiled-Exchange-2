@@ -99,14 +99,11 @@ def parse_unique_input_by_item(input_text, in_name: str | None = None):
                 ranges.append([int(match[5]), int(match[6])])  # Range for (x–y)
                 ranges.append([int(match[7]), int(match[7])])  # Single value for z
 
-        if stat_key not in item_out:
-            item_out[stat_key] = []
-        else:
-            item_out[f"(implicit) {stat_key}"] = item_out[stat_key]
-            item_out[stat_key] = []
-        item_out[stat_key].extend(ranges)
+        if stat_key in item_out:
+            imp_str = f"(implicit) {stat_key}"
+            item_out[imp_str] = item_out[stat_key]
 
-    pprint.pprint(item_out)
+        item_out[stat_key] = ranges
 
     return (item_name, item_out)
 
