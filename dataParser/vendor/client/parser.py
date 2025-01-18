@@ -199,6 +199,12 @@ class Parser:
                 f"{self.cwd}/../json-api/{self.lang}/static.json", encoding="utf-8"
             ).read()
         )  # content of https://www.pathofexile.com/api/trade2/data/static
+        self.unique_item_stats_lookup = json.loads(
+            open(
+                f"{self.cwd}/overrideData/unique_override_data_by_item.json",
+                encoding="utf-8",
+            ).read()
+        )
 
         self.items = {}
         self.unique_items = []
@@ -592,14 +598,19 @@ class Parser:
                     if index is not None and index in self.base_en_items_lookup:
                         refType = self.base_en_items_lookup[index]
 
-                self.unique_items.append(
-                    {
-                        "name": name,
-                        "refName": refName,
-                        "namespace": "UNIQUE",
-                        "unique": {"base": type},
-                    }
-                )
+                unique_item = {
+                    "name": name,
+                    "refName": refName,
+                    "namespace": "UNIQUE",
+                    "unique": {"base": type},
+                }
+
+                if refName is not None and refType is not None:
+                    full_name = f"{refName} {refType}"
+                    item_stats = self.unique_item_stats_lookup.get(full_name)
+                    if item_stats is not None:
+                        unique_item["unique"]["stats"] = item_stats
+                self.unique_items.append(unique_item)
 
         # parse base items
         for item in self.base_items:
@@ -779,15 +790,6 @@ class Parser:
         self.add_missing_mods()
 
         self.mods = flatten_mods(self.mods)
-
-        words_lookup = {w.get("Text"): w.get("Text2") for w in self.words_file}
-
-        with open(
-            f"{self.get_script_dir()}/overrideData/unique_override_data.json",
-            "r",
-            encoding="utf-8",
-        ) as f:
-            self.mods = add_unique_mods(self.mods, json.load(f), words_lookup)
 
         seen = set()
         skip = {"maximum_life_%_lost_on_kill", "base_spirit"}

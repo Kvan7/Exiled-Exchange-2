@@ -231,23 +231,39 @@ export function tryParseTranslation(
           }
         }
       }
-    } else if (found.stat.tiers && itemRarity === ItemRarity.Unique && item) {
-      if (found.stat.tiers.unique) {
-        const uniqueName = item.info.refName;
-        if (uniqueName in found.stat.tiers.unique) {
-          const uniqueModValues = found.stat.tiers.unique[uniqueName];
-          if (uniqueModValues) {
-            combination.values.forEach((stat, index) => {
-              const tierBounds = uniqueModValues[index];
-              if (tierBounds) {
-                stat.bounds = {
-                  min: tierBounds[0],
-                  max: tierBounds[1],
-                };
-              }
-            });
+    } else if (
+      found.stat &&
+      itemRarity === ItemRarity.Unique &&
+      item?.info.unique?.stats
+    ) {
+      // replace +# with # in ref
+      const refName = found.stat.ref.replace(/\+#+/g, "#");
+      const implicitTestString = `(implicit) ${refName}`;
+      if (
+        modType === ModifierType.Implicit &&
+        implicitTestString in item.info.unique.stats
+      ) {
+        const thisModValues = item.info.unique.stats[implicitTestString];
+        combination.values.forEach((stat, index) => {
+          const tierBounds = thisModValues[index];
+          if (tierBounds) {
+            stat.bounds = {
+              min: tierBounds[0],
+              max: tierBounds[1],
+            };
           }
-        }
+        });
+      } else if (refName in item.info.unique.stats) {
+        const thisModValues = item.info.unique.stats[refName];
+        combination.values.forEach((stat, index) => {
+          const tierBounds = thisModValues[index];
+          if (tierBounds) {
+            stat.bounds = {
+              min: tierBounds[0],
+              max: tierBounds[1],
+            };
+          }
+        });
       } else {
         if (item.info.refName === "Controlled Metamorphosis") {
           const matchedName = found.matcher.string;
