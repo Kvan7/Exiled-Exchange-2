@@ -7,7 +7,13 @@
           :key="mod"
           class="flex items-center justify-between"
         >
-          <span class="flex-grow text-center">{{ mod }}</span>
+          <span
+            v-if="section.key === 'corrupted'"
+            class="flex-grow text-center text-red-600"
+          >
+            {{ mod }}
+          </span>
+          <span v-else class="flex-grow text-center">{{ mod }}</span>
           <!-- <span class="ml-2 text-gray-400">▲</span> -->
         </div>
       </div>
