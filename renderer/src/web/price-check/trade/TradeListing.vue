@@ -116,7 +116,6 @@ import { AppConfig } from "@/web/Config";
 import { PriceCheckWidget } from "@/web/overlay/interfaces";
 import {
   ItemFilters,
-  RuneFilter,
   StatFilter,
   WeightStatGroup,
 } from "../filters/interfaces";
@@ -173,7 +172,6 @@ function useTradeApi() {
     filters: ItemFilters,
     stats: StatFilter[],
     item: ParsedItem,
-    runeFilters: RuneFilter[],
   ) {
     try {
       searchId += 1;
@@ -183,7 +181,7 @@ function useTradeApi() {
       fetchResults.value = _fetchResults;
 
       const _searchId = searchId;
-      const request = createTradeRequest(filters, stats, item, runeFilters);
+      const request = createTradeRequest(filters, stats, item);
       const _searchResult = await requestTradeResultList(
         request,
         filters.trade.league,
@@ -299,10 +297,6 @@ export default defineComponent({
       type: Object as PropType<ParsedItem>,
       required: true,
     },
-    runeFilters: {
-      type: Array as PropType<RuneFilter[]>,
-      required: true,
-    },
     weightFilters: {
       type: Array as PropType<WeightStatGroup[]>,
       required: true,
@@ -327,11 +321,11 @@ export default defineComponent({
     function makeTradeLink() {
       return searchResult.value
         ? `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}/${searchResult.value.id}`
-        : `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}?q=${JSON.stringify(createTradeRequest(props.filters, props.stats, props.item, props.runeFilters))}`;
+        : `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}?q=${JSON.stringify(createTradeRequest(props.filters, props.stats, props.item))}`;
     }
 
     function makeTradeLinkPseudo() {
-      return `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}?q=${JSON.stringify(createTradeRequest(props.filters, props.stats, props.item, props.runeFilters, props.weightFilters))}`;
+      return `https://${getTradeEndpoint()}/trade2/search/poe2/${props.filters.trade.league}?q=${JSON.stringify(createTradeRequest(props.filters, props.stats, props.item, props.weightFilters))}`;
     }
 
     // Shift Key Detection
@@ -375,7 +369,7 @@ export default defineComponent({
         }
       }),
       execSearch: () => {
-        search(props.filters, props.stats, props.item, props.runeFilters);
+        search(props.filters, props.stats, props.item);
       },
       error,
       showSeller: computed(() => widget.value.showSeller),

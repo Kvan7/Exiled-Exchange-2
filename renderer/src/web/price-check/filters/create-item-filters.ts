@@ -237,10 +237,10 @@ export function createFilters(
     };
   }
 
-  if (item.runeSockets?.empty) {
-    filters.emptyRuneSockets = {
-      value: item.runeSockets.empty,
-      disabled: false,
+  if (item.runeSockets?.current) {
+    filters.runeSockets = {
+      value: item.runeSockets.current,
+      disabled: item.runeSockets.current <= item.runeSockets.normal,
     };
   }
 

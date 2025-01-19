@@ -20,7 +20,6 @@ import {
   ParsedItem,
   ItemInfluence,
   ItemRarity,
-  Rune,
 } from "./ParsedItem";
 import { magicBasetype } from "./magic-name";
 import {
@@ -568,22 +567,22 @@ function parseRuneSockets(section: string[], item: ParsedItem) {
   if (!armourOrWeapon) return "PARSER_SKIPPED";
   if (section[0].startsWith(_$.SOCKETS)) {
     const sockets = section[0].slice(_$.SOCKETS.length).trimEnd();
-    const totalMax = Math.max(sockets.split("S").length - 1, categoryMax);
+    const current = sockets.split("S").length - 1;
     item.runeSockets = {
-      total: totalMax,
-      empty: totalMax,
-      runes: [],
       type: armourOrWeapon,
+      empty: 0,
+      current,
+      normal: categoryMax,
     };
 
     return "SECTION_PARSED";
   }
   if (categoryMax) {
     item.runeSockets = {
-      total: categoryMax,
-      empty: categoryMax,
-      runes: [],
       type: armourOrWeapon,
+      empty: categoryMax,
+      current: 0,
+      normal: categoryMax,
     };
   }
   return "SECTION_SKIPPED";
@@ -1026,29 +1025,16 @@ function applyRuneSockets(item: ParsedItem) {
           (stat) => stat.sources[0].stat === mod.stats[0],
         );
         if (!stat) return [];
-        return statToRune(mod, stat);
+        return runeCount(mod, stat);
       })
       .flat();
 
-    item.runeSockets.runes.push(...runes);
-
-    const potentialEmptySockets = item.runeSockets.total - runes.length;
+    const potentialEmptySockets =
+      Math.max(item.runeSockets.normal, item.runeSockets.current) -
+      runes.reduce((x, y) => x + y, 0);
 
     item.runeSockets.empty = potentialEmptySockets;
-    // If we have any empty sockets, add them
-    if (potentialEmptySockets > 0) {
-      for (let i = 0; i < potentialEmptySockets; i++) {
-        item.runeSockets.runes.push({
-          index: i + runes.length,
-          isEmpty: true,
-        });
-      }
-    }
-
-    // reset indices just to be safe
-    for (let i = 0; i < item.runeSockets.runes.length; i++) {
-      item.runeSockets.runes[i].index = i;
-    }
+    console.log(item.runeSockets);
   }
 }
 
@@ -1547,8 +1533,8 @@ export function isArmourOrWeapon(
   }
 }
 
-function statToRune(mod: ParsedModifier, statCalc: StatCalculated): Rune[] {
-  if (mod.info.type !== ModifierType.Rune) return [];
+function runeCount(mod: ParsedModifier, statCalc: StatCalculated): number {
+  if (mod.info.type !== ModifierType.Rune) return 0;
   const runeTradeId = statCalc.stat.trade.ids[ModifierType.Rune][0];
   const runeSingle = RUNE_SINGLE_VALUE[runeTradeId];
 
@@ -1557,21 +1543,7 @@ function statToRune(mod: ParsedModifier, statCalc: StatCalculated): Rune[] {
   const runeSingleValue = runeSingle.values[0];
   const totalRunes = Math.floor(runeAppliedValue / runeSingleValue);
 
-  // Get original mod ref text
-  const modRef = replaceHashWithValues(runeSingle.baseStat, runeSingle.values);
-
-  // Return one rune for each rune in the item
-  const runes: Rune[] = [];
-  for (let i = 0; i < totalRunes; i++) {
-    runes.push({
-      index: i,
-      isEmpty: false,
-      rune: runeSingle.rune,
-      text: modRef,
-    });
-  }
-
-  return runes;
+  return totalRunes;
 }
 
 export function replaceHashWithValues(template: string, values: number[]) {
