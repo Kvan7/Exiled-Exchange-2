@@ -391,21 +391,13 @@ export function createTradeRequest(
 
   // EQUIPMENT FILTERS
 
-  // if (runeFilters.length > 0) {
-  //   const emptyRuneSockets = runeFilters.filter(
-  //     (rune) => rune.isEmpty && !rune.isFake,
-  //   );
-  //   if (
-  //     emptyRuneSockets.length > 0 &&
-  //     emptyRuneSockets.filter((rune) => !rune.disabled).length > 0
-  //   ) {
-  //     propSet(
-  //       query.filters,
-  //       "equipment_filters.filters.rune_sockets.min",
-  //       emptyRuneSockets.filter((rune) => !rune.disabled).length,
-  //     );
-  //   }
-  // }
+  if (filters.runeSockets && !filters.runeSockets.disabled) {
+    propSet(
+      query.filters,
+      "equipment_filters.filters.rune_sockets.min",
+      filters.runeSockets.value,
+    );
+  }
 
   // REQ FILTERS
 
