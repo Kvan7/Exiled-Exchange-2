@@ -119,6 +119,7 @@ export default defineComponent({
     // Shift Key Detection
     const isShiftPressed = ref(false);
     const isHovered = ref(false); // Track hover state
+    const requireShift = ref(false);
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Shift") {
@@ -139,8 +140,10 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      window.addEventListener("keydown", handleKeyDown);
-      window.addEventListener("keyup", handleKeyUp);
+      if (requireShift.value) {
+        window.addEventListener("keydown", handleKeyDown);
+        window.addEventListener("keyup", handleKeyUp);
+      }
 
       // tippy stuff
       instance = tippy(target.value, {
@@ -154,14 +157,16 @@ export default defineComponent({
         maxWidth: "none",
         onShow() {
           const app = createApp(TooltipItem, {
-            item: props.result.displayItem,
+            result: props.result,
           });
           const tooltipContainer = document.createElement("div");
           app.mount(tooltipContainer);
           instance.setContent(tooltipContainer);
         },
       });
-      instance.disable();
+      if (requireShift.value) {
+        instance.disable();
+      }
     });
 
     onUnmounted(() => {

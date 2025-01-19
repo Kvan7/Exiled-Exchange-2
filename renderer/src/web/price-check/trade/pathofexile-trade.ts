@@ -237,6 +237,9 @@ interface FetchResult {
       dps?: number;
       pdps?: number;
       edps?: number;
+      ar?: number;
+      ev?: number;
+      es?: number;
     };
     pseudoMods?: string[];
   };
@@ -256,6 +259,7 @@ export interface DisplayItem {
   implicitMods?: string[];
   explicitMods?: string[];
   pseudoMods?: string[];
+  extended?: FetchResult["item"]["extended"];
 }
 
 export interface PricingResult {
@@ -274,7 +278,7 @@ export interface PricingResult {
   accountName: string;
   accountStatus: "offline" | "online" | "afk";
   ign: string;
-  displayItem?: DisplayItem;
+  displayItem: DisplayItem;
 }
 
 export function createTradeRequest(
