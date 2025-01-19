@@ -4,7 +4,6 @@ import {
   StatFilter,
   INTERNAL_TRADE_IDS,
   InternalTradeId,
-  RuneFilter,
   WeightStatGroup,
 } from "../filters/interfaces";
 import { setProperty as propSet } from "dot-prop";
@@ -285,7 +284,6 @@ export function createTradeRequest(
   filters: ItemFilters,
   stats: StatFilter[],
   item: ParsedItem,
-  runeFilters: RuneFilter[],
   weightGroups?: WeightStatGroup[],
 ) {
   const body: TradeRequest = {
@@ -393,21 +391,21 @@ export function createTradeRequest(
 
   // EQUIPMENT FILTERS
 
-  if (runeFilters.length > 0) {
-    const emptyRuneSockets = runeFilters.filter(
-      (rune) => rune.isEmpty && !rune.isFake,
-    );
-    if (
-      emptyRuneSockets.length > 0 &&
-      emptyRuneSockets.filter((rune) => !rune.disabled).length > 0
-    ) {
-      propSet(
-        query.filters,
-        "equipment_filters.filters.rune_sockets.min",
-        emptyRuneSockets.filter((rune) => !rune.disabled).length,
-      );
-    }
-  }
+  // if (runeFilters.length > 0) {
+  //   const emptyRuneSockets = runeFilters.filter(
+  //     (rune) => rune.isEmpty && !rune.isFake,
+  //   );
+  //   if (
+  //     emptyRuneSockets.length > 0 &&
+  //     emptyRuneSockets.filter((rune) => !rune.disabled).length > 0
+  //   ) {
+  //     propSet(
+  //       query.filters,
+  //       "equipment_filters.filters.rune_sockets.min",
+  //       emptyRuneSockets.filter((rune) => !rune.disabled).length,
+  //     );
+  //   }
+  // }
 
   // REQ FILTERS
 

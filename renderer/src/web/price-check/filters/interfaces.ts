@@ -6,7 +6,6 @@ export interface FilterPreset {
   id: string;
   filters: ItemFilters;
   stats: StatFilter[];
-  runeFilters: RuneFilter[];
   weightFilters: WeightStatGroup[];
 }
 
@@ -92,15 +91,6 @@ export interface FilterNumeric {
   disabled: boolean;
 }
 
-export interface RuneFilter {
-  rune?: string;
-  text?: string;
-  isEmpty: boolean;
-  isFake: boolean;
-  index: number;
-  disabled: boolean; // NOTE: mutable in UI
-}
-
 export interface StatFilter {
   tradeId: string[];
   statRef: string;
@@ -123,7 +113,7 @@ export interface StatFilter {
   };
   hidden?: string;
   disabled: boolean; // NOTE: mutable in UI
-  weight?: number
+  weight?: number;
 }
 
 export interface WeightStatGroup {
@@ -136,7 +126,8 @@ export interface WeightStatGroup {
   disabled: boolean;
 }
 
-export const RESISTANCE_WEIGHT_GROUP: string = "RESISTANCE_WEIGHT_GROUP" as const;
+export const RESISTANCE_WEIGHT_GROUP: string =
+  "RESISTANCE_WEIGHT_GROUP" as const;
 
 export const INTERNAL_TRADE_IDS = [
   "item.base_percentile",
