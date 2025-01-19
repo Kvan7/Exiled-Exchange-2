@@ -117,20 +117,11 @@
             : t('filters.selected_none')
         "
       />
-      <!-- <filter-btn-logical
-        v-if="hasRuneSockets"
-        :collapse="runeSocketsVisibility.disabled"
-        :filter="runeSocketsVisibility"
-        :active="totalSelectedRunes > 0"
-        :text="
-          item.runeSockets!.empty > 0
-            ? t('filters.selected_open_runes', [
-                totalSelectedRunes,
-                item.runeSockets!.empty,
-              ])
-            : t('filters.selected_full_runes')
-        "
-      /> -->
+      <filter-btn-numeric
+        v-if="filters.runeSockets"
+        :filter="filters.runeSockets"
+        :name="t('item.rune_sockets')"
+      />
     </div>
     <!-- Warning that many stats may not work -->
     <!-- <div
@@ -248,6 +239,7 @@ import FilterBtnLogical from "./FilterBtnLogical.vue";
 import UnknownModifier from "./UnknownModifier.vue";
 import { ItemFilters, StatFilter } from "./interfaces";
 import { ParsedItem, ItemRarity, ItemCategory } from "@/parser";
+import FilterBtnDropdown from "./FilterBtnDropdown.vue";
 
 export default defineComponent({
   name: "FiltersBlock",
@@ -256,6 +248,7 @@ export default defineComponent({
     FilterModifier,
     FilterBtnNumeric,
     FilterBtnLogical,
+    FilterBtnDropdown,
     UnknownModifier,
     UiToggle,
   },

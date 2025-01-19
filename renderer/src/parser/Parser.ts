@@ -567,20 +567,20 @@ function parseRuneSockets(section: string[], item: ParsedItem) {
   if (!armourOrWeapon) return "PARSER_SKIPPED";
   if (section[0].startsWith(_$.SOCKETS)) {
     const sockets = section[0].slice(_$.SOCKETS.length).trimEnd();
-    const totalMax = Math.max(sockets.split("S").length - 1, categoryMax);
+    const current = sockets.split("S").length - 1;
     item.runeSockets = {
-      total: totalMax,
-      empty: totalMax,
       type: armourOrWeapon,
+      current,
+      normal: categoryMax,
     };
 
     return "SECTION_PARSED";
   }
   if (categoryMax) {
     item.runeSockets = {
-      total: categoryMax,
-      empty: categoryMax,
       type: armourOrWeapon,
+      current: 0,
+      normal: categoryMax,
     };
   }
   return "SECTION_SKIPPED";
@@ -1028,9 +1028,12 @@ function applyRuneSockets(item: ParsedItem) {
       .flat();
 
     const potentialEmptySockets =
-      item.runeSockets.total - runes.reduce((x, y) => x + y, 0);
+      item.runeSockets.current - runes.reduce((x, y) => x + y, 0);
 
-    item.runeSockets.empty = potentialEmptySockets;
+    item.runeSockets.current =
+      potentialEmptySockets > item.runeSockets.current
+        ? potentialEmptySockets
+        : item.runeSockets.current;
   }
 }
 

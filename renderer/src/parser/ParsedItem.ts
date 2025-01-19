@@ -49,8 +49,8 @@ export interface BaseParsedItem {
   quality?: number;
   runeSockets?: {
     type: "armour" | "weapon";
-    total: number;
-    empty: number;
+    current: number;
+    normal: number;
   };
   gemSockets?: {
     number: number;

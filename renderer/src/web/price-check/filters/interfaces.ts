@@ -37,7 +37,7 @@ export interface ItemFilters {
   socketNumber?: FilterNumeric;
   linkedSockets?: FilterNumeric;
   whiteSockets?: FilterNumeric;
-  emptyRuneSockets?: FilterNumeric;
+  runeSockets?: FilterNumeric;
   corrupted?: {
     value: boolean;
     exact?: boolean;
@@ -89,6 +89,12 @@ export interface FilterNumeric {
   value: number;
   max?: number | undefined;
   disabled: boolean;
+}
+
+export interface FilterDropdown {
+  value: string;
+  disabled: boolean;
+  options: Array<{ label: string; value: string }>;
 }
 
 export interface StatFilter {
