@@ -3008,9 +3008,9 @@
 {"name": "闇との対立", "refName": "Against the Darkness", "namespace": "UNIQUE", "unique": {"base": "古の金剛石", "stats": {}}}
 {"name": "制御されし変態", "refName": "Controlled Metamorphosis", "namespace": "UNIQUE", "unique": {"base": "金剛石", "stats": {"#% to all Elemental Resistances": [[-20, -5]], "#% to Chaos Resistance": [[-23, -3]]}}}
 {"name": "虚空より来たる", "refName": "From Nothing", "namespace": "UNIQUE", "unique": {"base": "金剛石", "stats": {}}}
-{"name": "グランド・スペクトラム", "refName": "Grand Spectrum", "namespace": "UNIQUE", "unique": {"base": "ルビー"}}
-{"name": "グランド・スペクトラム", "refName": "Grand Spectrum", "namespace": "UNIQUE", "unique": {"base": "エメラルド"}}
-{"name": "グランド・スペクトラム", "refName": "Grand Spectrum", "namespace": "UNIQUE", "unique": {"base": "サファイア"}}
+{"name": "グランド・スペクトラム", "refName": "Grand Spectrum", "namespace": "UNIQUE", "unique": {"base": "紅玉", "stats": {}}}
+{"name": "グランド・スペクトラム", "refName": "Grand Spectrum", "namespace": "UNIQUE", "unique": {"base": "翠玉"}}
+{"name": "グランド・スペクトラム", "refName": "Grand Spectrum", "namespace": "UNIQUE", "unique": {"base": "蒼玉"}}
 {"name": "英雄の悲劇", "refName": "Heroic Tragedy", "namespace": "UNIQUE", "unique": {"base": "時知らずのジュエル", "stats": {"Remembrancing # songworthy deeds by the line of Vorana": [[100, 8000]]}}}
 {"name": "メガロマニアック", "refName": "Megalomaniac", "namespace": "UNIQUE", "unique": {"base": "金剛石", "stats": {}}}
 {"name": "信仰のプリズム", "refName": "Prism of Belief", "namespace": "UNIQUE", "unique": {"base": "金剛石", "stats": {"# to Level of all Specific Skill Skills": [[1, 3]]}}}
@@ -3029,19 +3029,19 @@
 {"name": "導きの掌", "refName": "Guiding Palm", "namespace": "UNIQUE", "unique": {"base": "神殿のセプター", "stats": {"Allies in your Presence deal # to # additional Attack Fire Damage": [[4, 6], [7, 10]], "# to all Attributes": [[5, 10]]}}}
 {"name": "豚狩り", "refName": "Hoghunt", "namespace": "UNIQUE", "unique": {"base": "倒木のグレートクラブ", "stats": {"Adds # to # Physical Damage": [[16, 20], [23, 27]]}}}
 {"name": "フリムノーの聖歌", "refName": "Hrimnor's Hymn", "namespace": "UNIQUE", "unique": {"base": "オークグレートハンマー", "stats": {"Causes #% increased Stun Buildup": [[30, 50]], "#% increased Physical Damage": [[80, 120]], "# to Strength": [[10, 15]], "Gain # Life per Enemy Killed": [[10, 20]]}}}
-{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "腐食したグレートソード"}}
-{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "鈍らな手斧"}}
-{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "黒焦げのショートソード"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "アイアンヘッドスピアー"}}
-{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "クローンナイフ"}}
+{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "腐食したグレートソード"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "処刑人の大斧"}}
-{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "簡素な短剣"}}
-{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "鉤付き斧"}}
+{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "鈍らな手斧"}}
+{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "クローンナイフ"}}
+{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "黒焦げのショートソード"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "割り大斧"}}
-{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "ブロードソード"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "弓型の大斧"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "リップルグレートソード"}}
+{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "簡素な短剣"}}
+{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "鉤付き斧"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "髭斧"}}
+{"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "ブロードソード"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "剥ぎ取りナイフ"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "鉄のグレートソード"}}
 {"name": "未完", "refName": "INCOMPLETE", "namespace": "UNIQUE", "unique": {"base": "月の短剣"}}

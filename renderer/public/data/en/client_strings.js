@@ -21,7 +21,7 @@ export default {
   MAP_TIER: 'Map Tier: ',
   // ItemDisplayStringRarity
   RARITY: 'Rarity: ',
-  // ItemDisplayStringItemClass
+  // ItemDisplayStringClass
   ITEM_CLASS: 'Item Class: ',
   // ItemDisplayStringItemLevel
   ITEM_LEVEL: 'Item Level: ',

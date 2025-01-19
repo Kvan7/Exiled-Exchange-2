@@ -105,6 +105,8 @@ export function poeWebApi() {
       return "jp.pathofexile.com";
     case "de":
       return "de.pathofexile.com";
+    case "es":
+      return "es.pathofexile.com";
   }
 }
 
@@ -126,7 +128,7 @@ export interface Config {
   logKeys: boolean;
   accountName: string;
   stashScroll: boolean;
-  language: "en" | "ru" | "cmn-Hant" | "ko" | "ja" | "de";
+  language: "en" | "ru" | "cmn-Hant" | "ko" | "ja" | "de" | "es";
   preferredTradeSite: "default" | "www";
   realm: "pc-ggg" | "pc-garena";
   widgets: widget.Widget[];
