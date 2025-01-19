@@ -237,6 +237,8 @@ export interface TranslationDict {
   WAYSTONE_TIER: string;
   WAYSTONE_HELP: string;
   JEWEL_HELP: string;
+  SANCTUM_HELP: string;
+  TIMELESS_RADIUS: string;
 }
 
 export interface Filter {
