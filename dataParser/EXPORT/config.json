@@ -121,7 +121,9 @@
         "Stat5Value",
         "Stat6Value",
         "RadiusJewelType",
-        "Level"
+        "Level",
+        "GenerationType",
+        "Families"
       ]
     },
     {

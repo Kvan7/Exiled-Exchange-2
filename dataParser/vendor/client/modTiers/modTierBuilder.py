@@ -113,15 +113,38 @@ def modTierBuilderB(mod_data, base_item_types, gold_mod_prices, tags):
         mod_stats = []
         mod_stat_ids = []
         mod_allowed_base_types = gold_with_readable_tags.get(mod_unique_id, [])
-        for stat_index in range(1, 7):
-            stat = mod.get(f"Stat{stat_index}")
-            if stat is None:
-                continue
-            stat_value = mod.get(f"Stat{stat_index}Value")
-            if stat_value is None or not isinstance(stat_value, list):
-                continue
-            mod_stat_ids.append(stat)
-            mod_stats.append(stat_value)
+        is_processed_map = False
+        if mod_unique_id.lower().startswith("map"):
+            stat1 = mod.get("Stat1")
+            if stat1 == 1004:
+                stat2 = mod.get("Stat2")
+                stat2_value = mod.get("Stat2Value")
+
+                if stat2 == 1202:
+                    stat3 = mod.get("Stat3")
+                    stat3_value = mod.get("Stat3Value")
+                    if (
+                        stat3 is not None
+                        and stat3_value is not None
+                        and isinstance(stat3_value, list)
+                    ):
+                        mod_stats.append(stat3_value)
+                        mod_stat_ids.append(stat3)
+                        is_processed_map = True
+                else:
+                    mod_stats.append(stat2_value)
+                    mod_stat_ids.append(stat2)
+                    is_processed_map = True
+        if not is_processed_map:
+            for stat_index in range(1, 7):
+                stat = mod.get(f"Stat{stat_index}")
+                if stat is None:
+                    continue
+                stat_value = mod.get(f"Stat{stat_index}Value")
+                if stat_value is None or not isinstance(stat_value, list):
+                    continue
+                mod_stat_ids.append(stat)
+                mod_stats.append(stat_value)
 
         mod_mod = {
             "mod_index": mod_index,

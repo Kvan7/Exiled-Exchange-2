@@ -104,7 +104,7 @@ def flatten_mods(mods):
             grouped_mods[ref]["tiers"] = (
                 None if "tiers" not in mod else deepcopy(mod["tiers"])
             )
-        elif mod["tiers"] is not None:
+        elif "tiers" in mod and mod["tiers"] is not None:
             for tier_type, tier_data in mod["tiers"].items():
                 if tier_type == "implicit":
                     # Merge implicit tiers (dictionary)
@@ -120,6 +120,14 @@ def flatten_mods(mods):
                 else:
                     # Merge list-based tiers
                     grouped_mods[ref]["tiers"][tier_type].extend(deepcopy(tier_data))
+
+        # Merge fromAreaMods
+        if "fromAreaMods" in grouped_mods[ref]:
+            grouped_mods[ref]["fromAreaMods"] = grouped_mods[ref]["fromAreaMods"] or (
+                False if "fromAreaMods" not in mod else mod["fromAreaMods"]
+            )
+        elif "fromAreaMods" in mod:
+            grouped_mods[ref]["fromAreaMods"] = mod["fromAreaMods"]
 
     # Convert back to dictionary with unique base_ids
     flattened_mods = {}
@@ -445,6 +453,8 @@ class Parser:
         hybrid_count = 0
         hybrids = []
 
+        stats_from_tiers = set()
+
         for in_ids, tiers, base_id in modTierBuilderB(
             self.mods_file, self.base_items, self.gold_mod_prices, self.tags
         ):
@@ -535,6 +545,7 @@ class Parser:
                     hybrid_count += 1
                     hybrids.append((base_id, translations))
                     continue
+            stats_from_tiers.add(stat_id)
             self.mods[base_id] = {
                 "ref": main_translation.get("ref"),
                 "better": 1,
@@ -543,6 +554,75 @@ class Parser:
                 "trade": trade,
                 "tiers": tiers,
             }
+
+            if base_id.lower().startswith("map"):
+                self.mods[base_id]["fromAreaMods"] = True
+
+        for mod in self.mods_file:
+            id = mod.get("Id")
+            stats_key = mod.get("Stat1")
+
+            logger.debug(f"Processing mod - ID: {id}, Stat: {stats_key}")
+
+            if stats_key is not None:
+                stats_id = self.stats.get(stats_key)
+                translation = self.mod_translations.get(stats_id)
+
+                if stats_id in stats_from_tiers:
+                    continue
+
+                if translation:
+                    ref = translation.get("ref")
+                    matchers = translation.get("matchers")
+
+                    if matchers is None or len(matchers) == 0:
+                        logger.warning(f"No matchers found for stats ID: {stats_id}.")
+                        continue
+
+                    if ref is None:
+                        logger.warning(f"No ref found for stats ID: {stats_id}.")
+                        continue
+
+                    ids = self.stats_trade_ids.get(matchers[0].get("string"))
+
+                    if ids is None and len(matchers) > 1:
+                        ids = self.stats_trade_ids.get(matchers[1].get("string"))
+                        if ids is None:
+                            logger.warning(
+                                f"No trade IDs found for matchers: {matchers[0].get('string')} or {matchers[1].get('string')}."
+                            )
+                            self.matchers_no_trade_ids.extend(
+                                [matchers[0].get("string"), matchers[1].get("string")]
+                            )
+                    elif ids is None:
+                        logger.warning(
+                            f"No trade IDs found for matcher: {matchers[0].get('string')}."
+                        )
+                        self.matchers_no_trade_ids.append(matchers[0].get("string"))
+
+                    trade = {"ids": ids}
+                    stats_from_tiers.add(stats_id)
+                    if id in self.mods:
+                        logger.error(f"Duplicate mod ID found: {id}. Skipping mod.")
+                        continue
+                    self.mods[id] = {
+                        "ref": translation.get("ref"),
+                        "better": 1,
+                        "id": stats_id,
+                        "matchers": translation.get("matchers"),
+                        "trade": trade,
+                    }
+
+                    if id.lower().startswith("map"):
+                        self.mods[id]["fromAreaMods"] = True
+                else:
+                    logger.debug(
+                        f"Mod {id} has no translations. [stats_key: {stats_key}, stats_id: {stats_id}]"
+                    )
+            else:
+                logger.debug(
+                    f"Mod {id} has no stats_key. [stats_key: {stats_key}, stats_id: {stats_id}]"
+                )
 
         logger.debug("Completed parsing mods.")
         logger.info(f"Mods: {len(self.mods)}")
