@@ -100,10 +100,7 @@
       <ui-checkbox class="mb-4" v-model="enableAlphas">{{
         t(":enable_alphas")
       }}</ui-checkbox>
-      <ui-checkbox class="mb-4" v-model="runesAlpha" v-if="enableAlphas">
-        runes
-      </ui-checkbox>
-
+      <div class="mt-1">No alphas available right now</div>
       <div v-if="enableAlphas" class="mt-1">
         {{ t(":alphas_warning") }}
       </div>
@@ -112,7 +109,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref, watch } from "vue";
+import { defineComponent, computed } from "vue";
 import { useI18nNs } from "@/web/i18n";
 import UiRadio from "@/web/ui/UiRadio.vue";
 import UiCheckbox from "@/web/ui/UiCheckbox.vue";
@@ -125,22 +122,6 @@ export default defineComponent({
   props: configProp(),
   setup(props) {
     const { t } = useI18nNs("settings");
-    const runesAlpha = ref(
-      AppConfig().enableAlphas && AppConfig().alphas.includes("runes"),
-    );
-    watch(
-      runesAlpha,
-      (value) => {
-        if (value) {
-          props.config.alphas.push("runes");
-        } else {
-          props.config.alphas = props.config.alphas.filter(
-            (alpha) => alpha !== "runes",
-          );
-        }
-      },
-      { immediate: true },
-    );
 
     return {
       t,
@@ -212,7 +193,6 @@ export default defineComponent({
       ),
       windowTitle: configModelValue(() => props.config, "windowTitle"),
       enableAlphas: configModelValue(() => props.config, "enableAlphas"),
-      runesAlpha,
     };
   },
 });

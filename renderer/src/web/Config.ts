@@ -136,7 +136,7 @@ export interface Config {
   showAttachNotification: boolean;
   overlayAlwaysClose: boolean;
   enableAlphas: boolean;
-  alphas: Array<"runes">;
+  alphas: [];
 }
 
 export const defaultConfig = (): Config => ({
@@ -698,6 +698,8 @@ function upgradeConfig(_config: Config): Config {
   if (config.configVersion < 21) {
     config.widgets.find((w) => w.wmType === "price-check")!.itemHoverTooltip =
       "keybind";
+
+    config.alphas = [];
 
     config.configVersion = 21;
   }
