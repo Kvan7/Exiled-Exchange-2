@@ -1,5 +1,8 @@
 <template>
-  <div class="flex flex-col gap-x-8 p-1 bg-gray-800 text-gray-400 text-center">
+  <!-- 9e9eff -->
+  <div
+    class="flex flex-col gap-x-8 p-1 bg-gray-800 text-indigo-400 text-center"
+  >
     <template v-if="item.runeMods">
       <div>
         <div v-for="runeMod in item.runeMods" :key="runeMod">
@@ -20,6 +23,17 @@
       <div>
         <div v-for="explicitMod in item.explicitMods" :key="explicitMod">
           {{ explicitMod }}
+        </div>
+      </div>
+    </template>
+    <template v-if="item.pseudoMods">
+      <div>
+        <div
+          v-for="pseudoMod in item.pseudoMods"
+          :key="pseudoMod"
+          class="text-gray-400"
+        >
+          {{ pseudoMod }}
         </div>
       </div>
     </template>

@@ -233,6 +233,12 @@ interface FetchResult {
     implicitMods?: string[];
     explicitMods?: string[];
     runeMods?: string[];
+    extended?: {
+      dps?: number;
+      pdps?: number;
+      edps?: number;
+    };
+    pseudoMods?: string[];
   };
   listing: {
     indexed: string;
@@ -249,6 +255,7 @@ export interface DisplayItem {
   runeMods?: string[];
   implicitMods?: string[];
   explicitMods?: string[];
+  pseudoMods?: string[];
 }
 
 export interface PricingResult {
@@ -839,19 +846,27 @@ export async function requestResults(
   }
 
   return data.map<PricingResult>((result) => {
-    const runeMods = result.item.runeMods?.map((runeStr) =>
-      parseAffixStrings(runeStr),
+    const runeMods = result.item.runeMods?.map((s) => parseAffixStrings(s));
+    const implicitMods = result.item.implicitMods?.map((s) =>
+      parseAffixStrings(s),
     );
-    const implicitMods = result.item.implicitMods?.map((runeStr) =>
-      parseAffixStrings(runeStr),
+    const explicitMods = result.item.explicitMods?.map((s) =>
+      parseAffixStrings(s),
     );
-    const explicitMods = result.item.explicitMods?.map((runeStr) =>
-      parseAffixStrings(runeStr),
-    );
+    const pseudoMods = result.item.pseudoMods?.map((s) => {
+      if (s.startsWith("Sum: ")) {
+        const pseudoRes = +s.slice(5);
+        if (!isNaN(pseudoRes)) {
+          return `+${pseudoRes}% total Elemental Resistance`;
+        }
+      }
+      return s;
+    });
     const displayItem: PricingResult["displayItem"] = {
       runeMods,
       implicitMods,
       explicitMods,
+      pseudoMods,
     };
     return {
       id: result.id,
