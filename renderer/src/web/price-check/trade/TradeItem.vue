@@ -64,6 +64,7 @@
 
 <script lang="ts">
 import {
+  computed,
   createApp,
   defineComponent,
   onMounted,
@@ -82,6 +83,7 @@ import TooltipItem from "./TooltipItem.vue";
 import tippy, { Instance } from "tippy.js";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
+import { AppConfig } from "@/web/Config";
 
 export default defineComponent({
   name: "TradeItem",
@@ -113,13 +115,15 @@ export default defineComponent({
   },
 
   setup(props) {
+    const tooltipOption = computed(
+      () => AppConfig<PriceCheckWidget>("price-check")!.itemHoverTooltip,
+    );
     const target = ref<HTMLElement>(null!);
     const { t } = useI18nNs("trade_result");
     let instance: Instance;
     // Shift Key Detection
     const isShiftPressed = ref(false);
     const isHovered = ref(false); // Track hover state
-    const requireShift = ref(false);
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Shift") {
@@ -140,7 +144,8 @@ export default defineComponent({
     };
 
     onMounted(() => {
-      if (requireShift.value) {
+      if (tooltipOption.value === "off") return;
+      if (tooltipOption.value === "keybind") {
         window.addEventListener("keydown", handleKeyDown);
         window.addEventListener("keyup", handleKeyUp);
       }
@@ -164,7 +169,7 @@ export default defineComponent({
           instance.setContent(tooltipContainer);
         },
       });
-      if (requireShift.value) {
+      if (tooltipOption.value === "keybind") {
         instance.disable();
       }
     });
