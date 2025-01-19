@@ -570,6 +570,7 @@ function parseRuneSockets(section: string[], item: ParsedItem) {
     const current = sockets.split("S").length - 1;
     item.runeSockets = {
       type: armourOrWeapon,
+      empty: 0,
       current,
       normal: categoryMax,
     };
@@ -579,6 +580,7 @@ function parseRuneSockets(section: string[], item: ParsedItem) {
   if (categoryMax) {
     item.runeSockets = {
       type: armourOrWeapon,
+      empty: categoryMax,
       current: 0,
       normal: categoryMax,
     };
@@ -1028,12 +1030,11 @@ function applyRuneSockets(item: ParsedItem) {
       .flat();
 
     const potentialEmptySockets =
-      item.runeSockets.current - runes.reduce((x, y) => x + y, 0);
+      Math.max(item.runeSockets.normal, item.runeSockets.current) -
+      runes.reduce((x, y) => x + y, 0);
 
-    item.runeSockets.current =
-      potentialEmptySockets > item.runeSockets.current
-        ? potentialEmptySockets
-        : item.runeSockets.current;
+    item.runeSockets.empty = potentialEmptySockets;
+    console.log(item.runeSockets);
   }
 }
 

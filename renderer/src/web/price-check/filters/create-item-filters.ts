@@ -238,7 +238,6 @@ export function createFilters(
   }
 
   if (item.runeSockets?.current) {
-    console.log(item.runeSockets);
     filters.runeSockets = {
       value: item.runeSockets.current,
       disabled: item.runeSockets.current <= item.runeSockets.normal,

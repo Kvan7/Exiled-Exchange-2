@@ -65,6 +65,11 @@
         :name="t('item.white_sockets')"
       />
       <filter-btn-numeric
+        v-if="filters.runeSockets"
+        :filter="filters.runeSockets"
+        :name="t('item.rune_sockets')"
+      />
+      <filter-btn-numeric
         v-if="filters.gemLevel"
         :filter="filters.gemLevel"
         :name="t('item.gem_level')"
@@ -116,11 +121,6 @@
             ? t('filters.selected_some', [totalSelectedMods, stats.length])
             : t('filters.selected_none')
         "
-      />
-      <filter-btn-numeric
-        v-if="filters.runeSockets"
-        :filter="filters.runeSockets"
-        :name="t('item.rune_sockets')"
       />
     </div>
     <!-- Warning that many stats may not work -->

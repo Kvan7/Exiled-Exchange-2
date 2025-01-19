@@ -49,6 +49,7 @@ export interface BaseParsedItem {
   quality?: number;
   runeSockets?: {
     type: "armour" | "weapon";
+    empty: number;
     current: number;
     normal: number;
   };
