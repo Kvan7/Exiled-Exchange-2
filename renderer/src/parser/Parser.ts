@@ -110,7 +110,7 @@ export function parseClipboard(clipboard: string): Result<ParsedItem, string> {
     const chatRegex = /\[.*?\]|\[.*?\|.*?\]/;
     const isFromChat = chatRegex.test(clipboard);
     if (isFromChat) {
-      clipboard = parseChat(clipboard);
+      clipboard = parseAffixStrings(clipboard);
     }
     let sections = itemTextToSections(clipboard);
 
@@ -1476,15 +1476,10 @@ export function removeLinesEnding(
   );
 }
 
-function parseChat(clipboard: string): string {
-  // check if clipboard from chat
-  const chatRegex = /\[.*?\]|\[.*?\|.*?\]/;
-  if (!chatRegex.test(clipboard)) return clipboard;
-  // choose the right item includes "|"
-  let preprocessString = clipboard.replace(/\[.*?\|(.*?)\]/g, "$1");
-  // remove brackets
-  preprocessString = preprocessString.replace(/\[(.*?)\]/g, "$1");
-  return preprocessString;
+export function parseAffixStrings(clipboard: string): string {
+  return clipboard.replace(/\[([^\]|]+)\|?([^\]]*)\]/g, (_, part1, part2) => {
+    return part2 || part1;
+  });
 }
 function getMaxSockets(category: ItemCategory | undefined) {
   switch (category) {

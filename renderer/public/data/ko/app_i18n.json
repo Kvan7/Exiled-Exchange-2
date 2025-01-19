@@ -347,7 +347,11 @@
     "select_stock": "Always select \"Stock\" filter",
     "show_prediction": "가격 예측 표시",
     "remember_currency": "Remember the Buyout Currency filter",
-    "default_all_selected": "Default all filters to enabled"
+    "default_all_selected": "Default all filters to enabled",
+    "use_tooltip_hover": "Show item when hovering over price",
+    "use_tooltip_keybind": "SHIFT + hover",
+    "use_tooltip_always": "hover",
+    "use_tooltip_off": "off"
   },
   "poe2_new": {
     "beta_warning": "이 버전은 베타버전입니다. 예기치 못한 버그가 있을 수 있습니다.",
