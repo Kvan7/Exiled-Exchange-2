@@ -259,7 +259,7 @@ export interface DisplayItem {
   implicitMods?: string[];
   explicitMods?: string[];
   pseudoMods?: string[];
-  extended?: FetchResult["item"]["extended"];
+  extended?: Array<{ text: string; value: number }>;
 }
 
 export interface PricingResult {
@@ -866,11 +866,35 @@ export async function requestResults(
       }
       return s;
     });
+    const extended = result.item.extended
+      ? Object.entries(result.item.extended)
+          .filter(([key, value]) => value !== undefined) // Include only keys with defined values
+          .filter(([key]) =>
+            ["ar", "ev", "es", "dps", "pdps", "edps"].includes(key),
+          ) // Exclude mods
+          .map(([key, value]) => {
+            const labels: Record<string, string> = {
+              ar: "Armour: ",
+              ev: "Evasion Rating: ",
+              es: "Energy Shield: ",
+              dps: "Total DPS: ",
+              pdps: "Physical DPS: ",
+              edps: "Elemental DPS: ",
+            };
+
+            return {
+              text: labels[key] || `${key}: `,
+              value: Math.round(value),
+            };
+          })
+      : undefined;
+
     const displayItem: PricingResult["displayItem"] = {
       runeMods,
       implicitMods,
       explicitMods,
       pseudoMods,
+      extended,
     };
     return {
       id: result.id,

@@ -4,11 +4,15 @@
       <div v-if="section.content" :key="index">
         <div
           v-for="mod in section.content"
-          :key="mod"
+          :key="isExtendedContent(mod) ? mod.text : mod"
           class="flex items-center justify-between"
         >
+          <span v-if="isExtendedContent(mod)" class="flex-grow text-center">
+            <span class="text-gray-400">{{ mod.text }}</span>
+            {{ mod.value }}
+          </span>
           <span
-            v-if="section.key === 'corrupted'"
+            v-else-if="section.key === 'corrupted'"
             class="flex-grow text-center text-red-600"
           >
             {{ mod }}
@@ -36,6 +40,7 @@ export default defineComponent({
   setup(props) {
     const item = props.result.displayItem;
     const sections = [
+      { key: "extended", content: item.extended },
       { key: "runeMods", content: item.runeMods },
       { key: "implicitMods", content: item.implicitMods },
       { key: "explicitMods", content: item.explicitMods },
@@ -45,19 +50,41 @@ export default defineComponent({
         content: props.result.corrupted ? ["Corrupted"] : [],
       },
     ];
+    function isNonEmptyObject(obj: Record<string, any>): boolean {
+      return Object.values(obj).some((value) => value !== undefined);
+    }
 
     function shouldShowDivider(currentIndex: number) {
       return (
         sections[currentIndex].content &&
-        sections
-          .slice(currentIndex + 1)
-          .some((section) => section.content && section.content.length > 0)
+        sections.slice(currentIndex + 1).some((section) => {
+          const { content } = section;
+          // Check if the content is an array or object
+          if (Array.isArray(content)) {
+            return content.length > 0; // Non-empty array
+          }
+          if (content && typeof content === "object") {
+            return isNonEmptyObject(content); // Non-empty object
+          }
+          return false; // Otherwise, not valid
+        })
+      );
+    }
+
+    function isExtendedContent(
+      content: unknown,
+    ): content is { text: string; value: number } {
+      return (
+        typeof content === "object" &&
+        content !== null &&
+        !Array.isArray(content)
       );
     }
     return {
       item,
       sections,
       shouldShowDivider,
+      isExtendedContent,
     };
   },
 });
