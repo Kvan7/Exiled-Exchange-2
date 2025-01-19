@@ -114,5 +114,7 @@ export default {
   PRICE_NOTE: 'メモ: ',
   WAYSTONE_TIER: 'ウェイストーン ティア: ',
   WAYSTONE_HELP: 'マップデバイスで使用すると、',
-  JEWEL_HELP: 'パッシブツリ'
+  JEWEL_HELP: 'パッシブツリ',
+  SANCTUM_HELP: 'セケマの試練開始時にこ',
+  TIMELESS_RADIUS: '半径: '
 }
