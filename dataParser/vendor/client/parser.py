@@ -39,6 +39,7 @@ LANG_CODES_TO_NAMES = {
     "cmn-Hant": "Traditional Chinese",
     "ja": "Japanese",
     "de": "German",
+    "es": "Spanish",
 }
 
 
@@ -948,6 +949,7 @@ class Parser:
             "cmn-Hant": {"string": "增加 #% 物理傷害"},
             "ja": {"string": "物理ダメージが#%増加する"},
             "de": {"string": "#% erhöhte physischen Schaden"},
+            "es": {"string": "#% de daño físico aumentado"},
         }
         # somehow not a thing? - possibly missing some data
         # self.mods["physical_local_damage_+%"] = {

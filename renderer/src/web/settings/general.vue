@@ -9,6 +9,7 @@
         <option value="ko">한국어</option>
         <option value="ja">日本語</option>
         <option value="de">Deutsch</option>
+        <option value="es">Español</option>
       </select>
     </div>
     <div class="mb-4" v-if="language !== 'en'">
@@ -180,6 +181,10 @@ export default defineComponent({
             return "poe.game.daum.net";
           case "ja":
             return "jp.pathofexile.com";
+          case "de":
+            return "de.pathofexile.com";
+          case "es":
+            return "es.pathofexile.com";
         }
       }),
       preferredTradeSite: computed<typeof props.config.preferredTradeSite>({
