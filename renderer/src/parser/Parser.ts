@@ -1136,7 +1136,8 @@ function parseHelpText(section: string[], item: ParsedItem) {
     item.category !== ItemCategory.Charm &&
     item.category !== ItemCategory.Waystone &&
     item.category !== ItemCategory.Map &&
-    item.category !== ItemCategory.Jewel
+    item.category !== ItemCategory.Jewel &&
+    item.category !== ItemCategory.Relic
   )
     return "PARSER_SKIPPED";
 
@@ -1146,7 +1147,8 @@ function parseHelpText(section: string[], item: ParsedItem) {
       line.startsWith(_$.FLASK_HELP_TEXT) ||
       line.startsWith(_$.CHARM_HELP_TEXT) ||
       line.startsWith(_$.WAYSTONE_HELP) ||
-      line.startsWith(_$.JEWEL_HELP)
+      line.startsWith(_$.JEWEL_HELP) ||
+      line.startsWith(_$.SANCTUM_HELP)
     ) {
       return "SECTION_PARSED";
     }

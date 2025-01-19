@@ -188,7 +188,8 @@
     "tag_explicit_delve": "Спуск",
     "tag_explicit_veiled": "Завуалирован",
     "tag_explicit_incursion": "Вмешательство",
-    "tag_rune": "Руна"
+    "tag_rune": "Руна",
+    "tag_sanctum": "Sanctum"
   },
   "online_filter": {
     "offline_toggle": "Офлайн и Онлайн",
