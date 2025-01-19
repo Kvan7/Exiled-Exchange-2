@@ -1,7 +1,6 @@
 <template>
   <!-- Render nothing directly, all behavior is applied to the element passed via ref -->
   <tr
-    :class="{ 'hover:!bg-green-400': isShiftPressed }"
     ref="target"
     @mouseenter="isHovered = true"
     @mouseleave="isHovered = false"
@@ -64,7 +63,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, onUnmounted, PropType, ref } from "vue";
+import {
+  createApp,
+  defineComponent,
+  onMounted,
+  onUnmounted,
+  PropType,
+  ref,
+} from "vue";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
 import { PricingResult } from "./pathofexile-trade";
@@ -72,12 +78,13 @@ import { ParsedItem } from "@/parser/ParsedItem";
 import { FilterNumeric } from "../filters/interfaces";
 import { useI18nNs } from "@/web/i18n";
 import { PriceCheckWidget } from "@/web/overlay/widgets";
+import TooltipItem from "./TooltipItem.vue";
 import tippy, { Instance } from "tippy.js";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
 
 export default defineComponent({
-  name: "UiPopoverRow",
+  name: "TradeItem",
   props: {
     result: {
       type: Object as PropType<
@@ -105,7 +112,7 @@ export default defineComponent({
     },
   },
 
-  setup() {
+  setup(props) {
     const target = ref<HTMLElement>(null!);
     const { t } = useI18nNs("trade_result");
     let instance: Instance;
@@ -137,14 +144,21 @@ export default defineComponent({
 
       // tippy stuff
       instance = tippy(target.value, {
-        content: "content.value",
         interactive: true,
         theme: "light",
         trigger: undefined,
         placement: "left",
         arrow: true,
-        delay: [null, null],
+        delay: [0, 0],
         maxWidth: "none",
+        onShow() {
+          const app = createApp(TooltipItem, {
+            item: props.result.displayItem,
+          });
+          const tooltipContainer = document.createElement("div");
+          app.mount(tooltipContainer);
+          instance.setContent(tooltipContainer);
+        },
       });
       instance.disable();
     });
@@ -165,3 +179,13 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="postcss">
+.tippy-box {
+  @apply rounded;
+}
+
+.tippy-content {
+  @apply p-1;
+}
+</style>
