@@ -148,5 +148,7 @@ export default {
   PRICE_NOTE: 'Примечание: ',
   WAYSTONE_TIER: 'Путевой камень Ур.:',
   WAYSTONE_HELP: 'Можно использовать в Машине картоходца,',
-  JEWEL_HELP: 'Поместите самоцвет'
+  JEWEL_HELP: 'Поместите самоцвет',
+  SANCTUM_HELP: 'Разместите этот предмет на алтаре',
+  TIMELESS_RADIUS: 'Радиус: '
 }

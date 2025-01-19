@@ -941,7 +941,13 @@ export function parseModifiersPoe2(section: string[], item: ParsedItem) {
     foundAnyMods = parseStatsFromMod(lines, item, { info: modInfo, stats: [] });
   } else {
     for (const statLines of section) {
-      const { modType, lines } = parseModType([statLines]);
+      let { modType, lines } = parseModType([statLines]);
+      if (
+        modType === ModifierType.Explicit &&
+        item.category === ItemCategory.Relic
+      ) {
+        modType = ModifierType.Sanctum;
+      }
       // const modInfo = parseModInfoLine(modLine, modType);
       foundAnyMods =
         parseStatsFromMod(lines, item, {
@@ -1130,7 +1136,8 @@ function parseHelpText(section: string[], item: ParsedItem) {
     item.category !== ItemCategory.Charm &&
     item.category !== ItemCategory.Waystone &&
     item.category !== ItemCategory.Map &&
-    item.category !== ItemCategory.Jewel
+    item.category !== ItemCategory.Jewel &&
+    item.category !== ItemCategory.Relic
   )
     return "PARSER_SKIPPED";
 
@@ -1140,7 +1147,8 @@ function parseHelpText(section: string[], item: ParsedItem) {
       line.startsWith(_$.FLASK_HELP_TEXT) ||
       line.startsWith(_$.CHARM_HELP_TEXT) ||
       line.startsWith(_$.WAYSTONE_HELP) ||
-      line.startsWith(_$.JEWEL_HELP)
+      line.startsWith(_$.JEWEL_HELP) ||
+      line.startsWith(_$.SANCTUM_HELP)
     ) {
       return "SECTION_PARSED";
     }
