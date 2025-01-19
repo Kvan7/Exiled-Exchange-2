@@ -1,29 +1,23 @@
 <template>
-  <div class="flex flex-col gap-x-8 p-2 bg-gray-800 text-gray-400">
+  <div class="flex flex-col gap-x-8 p-1 bg-gray-800 text-gray-400 text-center">
     <template v-if="item.runeMods">
-      <div class="text-lg">
+      <div>
         <div v-for="runeMod in item.runeMods" :key="runeMod">
           {{ runeMod }}
         </div>
       </div>
-      <div
-        v-if="item.implicitMods || item.explicitMods"
-        class="h-[2px] bg-gradient-to-r from-transparent via-gray-400 to-transparent my-3"
-      ></div>
+      <div v-if="item.implicitMods || item.explicitMods" class="divider"></div>
     </template>
     <template v-if="item.implicitMods">
-      <div class="text-lg">
+      <div>
         <div v-for="implicitMod in item.implicitMods" :key="implicitMod">
           {{ implicitMod }}
         </div>
       </div>
-      <div
-        v-if="item.explicitMods"
-        class="h-[2px] bg-gradient-to-r from-transparent via-gray-400 to-transparent my-3"
-      ></div>
+      <div v-if="item.explicitMods" class="divider"></div>
     </template>
     <template v-if="item.explicitMods">
-      <div class="text-lg">
+      <div>
         <div v-for="explicitMod in item.explicitMods" :key="explicitMod">
           {{ explicitMod }}
         </div>
@@ -45,3 +39,13 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="postcss">
+.divider {
+  @apply h-[2px] bg-gradient-to-r from-transparent via-gray-400 to-transparent my-1;
+}
+
+.mod {
+  @apply text-sm;
+}
+</style>

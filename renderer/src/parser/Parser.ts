@@ -1477,14 +1477,9 @@ export function removeLinesEnding(
 }
 
 export function parseAffixStrings(clipboard: string): string {
-  // check if clipboard from chat
-  const chatRegex = /\[.*?\]|\[.*?\|.*?\]/;
-  if (!chatRegex.test(clipboard)) return clipboard;
-  // choose the right item includes "|"
-  let preprocessString = clipboard.replace(/\[.*?\|(.*?)\]/g, "$1");
-  // remove brackets
-  preprocessString = preprocessString.replace(/\[(.*?)\]/g, "$1");
-  return preprocessString;
+  return clipboard.replace(/\[([^\]|]+)\|?([^\]]*)\]/g, (_, part1, part2) => {
+    return part2 || part1;
+  });
 }
 function getMaxSockets(category: ItemCategory | undefined) {
   switch (category) {

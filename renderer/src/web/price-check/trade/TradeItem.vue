@@ -150,6 +150,7 @@ export default defineComponent({
         placement: "left",
         arrow: true,
         delay: [0, 0],
+        animation: false,
         maxWidth: "none",
         onShow() {
           const app = createApp(TooltipItem, {
