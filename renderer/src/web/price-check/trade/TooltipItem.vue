@@ -57,6 +57,7 @@ export default defineComponent({
     function shouldShowDivider(currentIndex: number) {
       return (
         sections[currentIndex].content &&
+        sections[currentIndex].content.length > 0 &&
         sections.slice(currentIndex + 1).some((section) => {
           const { content } = section;
           // Check if the content is an array or object
