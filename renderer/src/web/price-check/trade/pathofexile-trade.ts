@@ -23,6 +23,7 @@ import { RateLimiter } from "./RateLimiter";
 import { ModifierType } from "@/parser/modifiers";
 import { Cache } from "./Cache";
 import { filterInPseudo } from "../filters/pseudo";
+import { parseAffixStrings } from "@/parser/Parser";
 
 export const CATEGORY_TO_TRADE_ID = new Map([
   [ItemCategory.Map, "map"],
@@ -229,6 +230,9 @@ interface FetchResult {
         | 5; // Level
     }>;
     note?: string;
+    implicitMods?: string[];
+    explicitMods?: string[];
+    runeMods?: string[];
   };
   listing: {
     indexed: string;
@@ -239,6 +243,12 @@ interface FetchResult {
     };
     account: Account;
   };
+}
+
+export interface DisplayItem {
+  runeMods?: string[];
+  implicitMods?: string[];
+  explicitMods?: string[];
 }
 
 export interface PricingResult {
@@ -257,6 +267,7 @@ export interface PricingResult {
   accountName: string;
   accountStatus: "offline" | "online" | "afk";
   ign: string;
+  displayItem?: DisplayItem;
 }
 
 export function createTradeRequest(
@@ -828,6 +839,20 @@ export async function requestResults(
   }
 
   return data.map<PricingResult>((result) => {
+    const runeMods = result.item.runeMods?.map((runeStr) =>
+      parseAffixStrings(runeStr),
+    );
+    const implicitMods = result.item.implicitMods?.map((runeStr) =>
+      parseAffixStrings(runeStr),
+    );
+    const explicitMods = result.item.explicitMods?.map((runeStr) =>
+      parseAffixStrings(runeStr),
+    );
+    const displayItem: PricingResult["displayItem"] = {
+      runeMods,
+      implicitMods,
+      explicitMods,
+    };
     return {
       id: result.id,
       itemLevel:
@@ -855,6 +880,7 @@ export async function requestResults(
           ? "afk"
           : "online"
         : "offline",
+      displayItem,
     };
   });
 }

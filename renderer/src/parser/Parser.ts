@@ -110,7 +110,7 @@ export function parseClipboard(clipboard: string): Result<ParsedItem, string> {
     const chatRegex = /\[.*?\]|\[.*?\|.*?\]/;
     const isFromChat = chatRegex.test(clipboard);
     if (isFromChat) {
-      clipboard = parseChat(clipboard);
+      clipboard = parseAffixStrings(clipboard);
     }
     let sections = itemTextToSections(clipboard);
 
@@ -1476,7 +1476,7 @@ export function removeLinesEnding(
   );
 }
 
-function parseChat(clipboard: string): string {
+export function parseAffixStrings(clipboard: string): string {
   // check if clipboard from chat
   const chatRegex = /\[.*?\]|\[.*?\|.*?\]/;
   if (!chatRegex.test(clipboard)) return clipboard;
