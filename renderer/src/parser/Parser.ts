@@ -941,7 +941,13 @@ export function parseModifiersPoe2(section: string[], item: ParsedItem) {
     foundAnyMods = parseStatsFromMod(lines, item, { info: modInfo, stats: [] });
   } else {
     for (const statLines of section) {
-      const { modType, lines } = parseModType([statLines]);
+      let { modType, lines } = parseModType([statLines]);
+      if (
+        modType === ModifierType.Explicit &&
+        item.category === ItemCategory.Relic
+      ) {
+        modType = ModifierType.Sanctum;
+      }
       // const modInfo = parseModInfoLine(modLine, modType);
       foundAnyMods =
         parseStatsFromMod(lines, item, {
