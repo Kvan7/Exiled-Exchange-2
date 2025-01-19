@@ -1,6 +1,11 @@
 <template>
   <!-- Render nothing directly, all behavior is applied to the element passed via ref -->
-  <tr :class="{ 'hover:!bg-green-400': isShiftPressed }">
+  <tr
+    :class="{ 'hover:!bg-green-400': isShiftPressed }"
+    ref="target"
+    @mouseenter="isHovered = true"
+    @mouseleave="isHovered = false"
+  >
     <td class="px-2 whitespace-nowrap">
       <span
         :class="{
@@ -66,6 +71,10 @@ import { PricingResult } from "./pathofexile-trade";
 import { ParsedItem } from "@/parser/ParsedItem";
 import { FilterNumeric } from "../filters/interfaces";
 import { useI18nNs } from "@/web/i18n";
+import { PriceCheckWidget } from "@/web/overlay/widgets";
+import tippy, { Instance } from "tippy.js";
+import "tippy.js/dist/tippy.css";
+import "tippy.js/themes/light.css";
 
 export default defineComponent({
   name: "UiPopoverRow",
@@ -83,7 +92,7 @@ export default defineComponent({
       required: true,
     },
     showSeller: {
-      type: Object as PropType<false | "account" | "ign">,
+      type: [Boolean, String] as PropType<PriceCheckWidget["showSeller"]>,
       default: undefined,
     },
     itemLevel: {
@@ -97,19 +106,27 @@ export default defineComponent({
   },
 
   setup() {
+    const target = ref<HTMLElement>(null!);
     const { t } = useI18nNs("trade_result");
-
+    let instance: Instance;
     // Shift Key Detection
     const isShiftPressed = ref(false);
+    const isHovered = ref(false); // Track hover state
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Shift") {
+        instance.enable();
+        if (isHovered.value) {
+          instance.show();
+        }
         isShiftPressed.value = true;
       }
     };
 
     const handleKeyUp = (event: KeyboardEvent) => {
       if (event.key === "Shift") {
+        instance.hide();
+        instance.disable();
         isShiftPressed.value = false;
       }
     };
@@ -117,14 +134,32 @@ export default defineComponent({
     onMounted(() => {
       window.addEventListener("keydown", handleKeyDown);
       window.addEventListener("keyup", handleKeyUp);
+
+      // tippy stuff
+      instance = tippy(target.value, {
+        content: "content.value",
+        interactive: true,
+        theme: "light",
+        trigger: undefined,
+        placement: "left",
+        arrow: true,
+        delay: [null, null],
+        maxWidth: "none",
+      });
+      instance.disable();
     });
 
     onUnmounted(() => {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
+
+      // tippy stuff
+      instance.destroy();
     });
     return {
       t,
+      target,
+      isHovered,
       isShiftPressed,
     };
   },
