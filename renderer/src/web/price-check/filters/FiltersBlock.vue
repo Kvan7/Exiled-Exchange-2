@@ -313,10 +313,8 @@ export default defineComponent({
       () => props.filters.fillEmptyRuneSockets?.disabled,
       (selected, prev) => {
         // if the fill runes value changed
-        console.log(selected, prev);
         if (selected !== prev) {
           const shouldFill = !selected;
-          console.log(shouldFill);
           handleFillButtonPress(
             props.stats,
             props.item,

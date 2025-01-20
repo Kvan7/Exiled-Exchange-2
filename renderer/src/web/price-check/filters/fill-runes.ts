@@ -1,6 +1,6 @@
 import { ItemRarity, ParsedItem } from "@/parser";
 import { StatFilter } from "./interfaces";
-import { calcBaseDamage, calcTotalDamage } from "@/parser/calc-base";
+import { applyIronRune } from "@/parser/calc-base";
 import { RUNE_DATA_BY_RUNE } from "@/assets/data";
 import {
   isArmourOrWeapon,
@@ -89,9 +89,10 @@ function createNewStatFilter(
   };
 
   if (newRune === "Iron Rune") {
-    const base = calcBaseDamage(item);
-    const total = calcTotalDamage(newItem, base);
-    newItem.weaponPHYSICAL = total;
+    // const base = calcBaseDamage(item);
+    // const total = calcTotalDamage(newItem, base);
+    // newItem.weaponPHYSICAL = total;
+    applyIronRune(newItem, item);
     filterItemProp(ctx);
     return ctx.filters;
   }
