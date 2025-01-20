@@ -170,7 +170,8 @@
     "tag_explicit_veiled": "장막",
     "tag_explicit_incursion": "기습",
     "tag_rune": "룬",
-    "tag_sanctum": "Sanctum"
+    "tag_sanctum": "Sanctum",
+    "fill_rune_iron": "Fill Runes(Iron)"
   },
   "online_filter": {
     "offline_toggle": "오프라인 & 온라인",

@@ -125,7 +125,7 @@
       <filter-btn-logical
         v-if="hasEmptyRuneSockets && filters.fillEmptyRuneSockets"
         :filter="filters.fillEmptyRuneSockets"
-        text="Fill Iron"
+        :text="t('filters.fill_rune_iron')"
       />
     </div>
     <!-- Warning that many stats may not work -->
