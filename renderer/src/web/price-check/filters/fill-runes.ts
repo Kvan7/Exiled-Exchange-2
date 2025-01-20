@@ -17,38 +17,39 @@ export function handleFillButtonPress(
   filters: StatFilter[],
   item: ParsedItem,
   shouldFill: boolean,
-  filterStorage: Record<string, StatFilter>,
+  filterStorage: StatFilter[],
 ) {
   if (shouldFill) {
+    if (filterStorage.length !== 0) return;
     // Testing with just one stat
-    const dpsFilter = filters.find((stat) =>
-      stat.tradeId.includes("item.physical_dps"),
+    const newFilters = createNewStatFilter(item, "Iron Rune");
+    if (!newFilters) return;
+    const newFiltersByRef = newFilters.reduce<Record<string, StatFilter>>(
+      (dict, filter) => {
+        if (filter.statRef) {
+          dict[filter.statRef] = filter; // Use `statRef` as the key
+        }
+        return dict;
+      },
+      {},
     );
-    console.log(dpsFilter);
-    if (dpsFilter && dpsFilter.roll) {
-      // save copy to storage
-      filterStorage.dpsFilter = JSON.parse(
-        JSON.stringify(dpsFilter),
-      ) as StatFilter;
-
-      // change it
-      const index = filters.indexOf(dpsFilter);
-      const newFilter = createNewStatFilter(item, "Iron Rune");
-      if (index !== -1 && newFilter) {
-        filters[index] = newFilter;
+    // change it
+    for (let i = 0; i < filters.length; i++) {
+      const newFilter = newFiltersByRef[filters[i].statRef];
+      if (newFilter) {
+        filterStorage.push(filters[i]);
+        filters[i] = newFilter;
       }
     }
   } else {
     // reset back to normal
-    const originalDpsFilter = filterStorage.dpsFilter;
-    const dpsFilter = filters.find((stat) =>
-      stat.tradeId.includes("item.physical_dps"),
-    );
-    console.log(dpsFilter);
-    if (dpsFilter) {
-      const index = filters.indexOf(dpsFilter);
-      if (index !== -1 && originalDpsFilter) {
-        filters[index] = originalDpsFilter;
+    while (filterStorage.length > 0) {
+      const filterToInsert = filterStorage.pop()!;
+      const filterToReplace = filters.find(
+        (stat) => stat.statRef === filterToInsert.statRef,
+      );
+      if (filterToReplace) {
+        filters[filters.indexOf(filterToReplace)] = filterToInsert;
       }
     }
   }
@@ -57,7 +58,7 @@ export function handleFillButtonPress(
 function createNewStatFilter(
   item: ParsedItem,
   newRune: string,
-): StatFilter | undefined {
+): StatFilter[] | undefined {
   const newItem = JSON.parse(JSON.stringify(item)) as ParsedItem;
   const runeData = RUNE_DATA_BY_RUNE[newRune].find(
     (rune) => rune.type === isArmourOrWeapon(item.category),
@@ -92,9 +93,6 @@ function createNewStatFilter(
     const total = calcTotalDamage(newItem, base);
     newItem.weaponPHYSICAL = total;
     filterItemProp(ctx);
-    const newFilter = ctx.filters.find((stat) =>
-      stat.tradeId.includes("item.physical_dps"),
-    );
-    return newFilter;
+    return ctx.filters;
   }
 }

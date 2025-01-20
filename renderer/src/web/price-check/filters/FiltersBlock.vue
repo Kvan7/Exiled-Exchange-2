@@ -288,7 +288,7 @@ export default defineComponent({
     const statsVisibility = shallowReactive({ disabled: false });
     const showHidden = shallowRef(false);
     const showFilterSources = shallowRef(false);
-    const fillButtonPressStorage: Record<string, StatFilter> = {};
+    const fillButtonPressStorage: StatFilter[] = [];
 
     watch(
       () => props.item,
