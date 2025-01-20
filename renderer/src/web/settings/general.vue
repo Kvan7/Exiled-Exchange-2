@@ -100,7 +100,7 @@
       <ui-checkbox class="mb-4" v-model="enableAlphas">{{
         t(":enable_alphas")
       }}</ui-checkbox>
-      <div class="mt-1">No alphas available right now</div>
+      <div v-if="enableAlphas" class="mt-1">No alphas available right now</div>
       <div v-if="enableAlphas" class="mt-1">
         {{ t(":alphas_warning") }}
       </div>
