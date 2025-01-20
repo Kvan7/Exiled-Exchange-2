@@ -177,7 +177,8 @@
     "tag_explicit_veiled": "Velado",
     "tag_explicit_incursion": "Incursión",
     "tag_rune": "Runa",
-    "tag_sanctum": "Sanctum"
+    "tag_sanctum": "Sanctum",
+    "fill_rune_iron": "Fill Runes(Iron)"
   },
   "online_filter": {
     "offline_toggle": "Desconectado & En línea",

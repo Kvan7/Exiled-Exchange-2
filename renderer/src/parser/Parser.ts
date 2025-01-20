@@ -1034,7 +1034,6 @@ function applyRuneSockets(item: ParsedItem) {
       runes.reduce((x, y) => x + y, 0);
 
     item.runeSockets.empty = potentialEmptySockets;
-    console.log(item.runeSockets);
   }
 }
 

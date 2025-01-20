@@ -189,7 +189,8 @@
     "tag_explicit_veiled": "Завуалирован",
     "tag_explicit_incursion": "Вмешательство",
     "tag_rune": "Руна",
-    "tag_sanctum": "Sanctum"
+    "tag_sanctum": "Sanctum",
+    "fill_rune_iron": "Fill Runes(Iron)"
   },
   "online_filter": {
     "offline_toggle": "Офлайн и Онлайн",

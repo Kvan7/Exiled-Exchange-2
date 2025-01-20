@@ -173,7 +173,8 @@
     "tag_explicit_veiled": "ヴェール",
     "tag_explicit_incursion": "インカージョン",
     "tag_rune": "ルーン",
-    "tag_sanctum": "Sanctum"
+    "tag_sanctum": "Sanctum",
+    "fill_rune_iron": "Fill Runes(Iron)"
   },
   "online_filter": {
     "offline_toggle": "オフライン & オンライン",

@@ -122,6 +122,11 @@
             : t('filters.selected_none')
         "
       />
+      <filter-btn-logical
+        v-if="hasEmptyRuneSockets && filters.fillEmptyRuneSockets"
+        :filter="filters.fillEmptyRuneSockets"
+        :text="t('filters.fill_rune_iron')"
+      />
     </div>
     <!-- Warning that many stats may not work -->
     <!-- <div
@@ -240,6 +245,7 @@ import UnknownModifier from "./UnknownModifier.vue";
 import { ItemFilters, StatFilter } from "./interfaces";
 import { ParsedItem, ItemRarity, ItemCategory } from "@/parser";
 import FilterBtnDropdown from "./FilterBtnDropdown.vue";
+import { handleFillButtonPress } from "./fill-runes";
 
 export default defineComponent({
   name: "FiltersBlock",
@@ -282,6 +288,7 @@ export default defineComponent({
     const statsVisibility = shallowReactive({ disabled: false });
     const showHidden = shallowRef(false);
     const showFilterSources = shallowRef(false);
+    const fillButtonPressStorage: StatFilter[] = [];
 
     watch(
       () => props.item,
@@ -299,6 +306,23 @@ export default defineComponent({
           props.item.category === ItemCategory.Map &&
           props.item.rarity === ItemRarity.Unique
         ),
+    );
+
+    // For handling filling runes
+    watch(
+      () => props.filters.fillEmptyRuneSockets?.disabled,
+      (selected, prev) => {
+        // if the fill runes value changed
+        if (selected !== prev) {
+          const shouldFill = !selected;
+          handleFillButtonPress(
+            props.stats,
+            props.item,
+            shouldFill,
+            fillButtonPressStorage,
+          );
+        }
+      },
     );
 
     const { t } = useI18n();
@@ -331,6 +355,9 @@ export default defineComponent({
       selectPreset(id: string) {
         ctx.emit("preset", id);
       },
+      hasEmptyRuneSockets: computed(() => {
+        return props.item.runeSockets && props.item.runeSockets.empty > 0;
+      }),
     };
   },
 });

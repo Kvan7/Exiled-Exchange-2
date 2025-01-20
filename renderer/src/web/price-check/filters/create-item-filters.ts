@@ -237,11 +237,18 @@ export function createFilters(
     };
   }
 
-  if (item.runeSockets?.current) {
-    filters.runeSockets = {
-      value: item.runeSockets.current,
-      disabled: item.runeSockets.current <= item.runeSockets.normal,
-    };
+  if (item.runeSockets) {
+    if (item.runeSockets.current) {
+      filters.runeSockets = {
+        value: item.runeSockets.current,
+        disabled: item.runeSockets.current <= item.runeSockets.normal,
+      };
+    }
+    if (item.runeSockets.empty > 0) {
+      filters.fillEmptyRuneSockets = {
+        disabled: true,
+      };
+    }
   }
 
   const forAdornedJewel =

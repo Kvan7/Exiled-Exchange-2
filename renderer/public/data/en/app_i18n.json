@@ -177,7 +177,8 @@
     "tag_explicit_veiled": "Veiled",
     "tag_explicit_incursion": "Incursion",
     "tag_rune": "Rune",
-    "tag_sanctum": "Sanctum"
+    "tag_sanctum": "Sanctum",
+    "fill_rune_iron": "Fill Runes(Iron)"
   },
   "online_filter": {
     "offline_toggle": "Offline & Online",
