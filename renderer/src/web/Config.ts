@@ -6,7 +6,9 @@ import type * as widget from "./overlay/widgets";
 import type { StashSearchWidget } from "./stash-search/widget";
 import type { ItemCheckWidget } from "./item-check/widget";
 import type { ItemSearchWidget } from "./item-search/widget";
+import type { FilterGeneratorWidget } from "./filter-generator/widget";
 import { registry as widgetRegistry } from "./overlay/widget-registry.js";
+import type { Widget } from "./overlay/widgets";
 
 const _config = shallowRef<Config | null>(null);
 let _lastSavedConfig: Config | null = null;
@@ -151,7 +153,7 @@ export interface Config {
 }
 
 export const defaultConfig = (): Config => ({
-  configVersion: 22,
+  configVersion: 23,
   overlayKey: "Shift + Space",
   overlayBackground: "rgba(129, 139, 149, 0.15)",
   overlayBackgroundClose: true,
@@ -539,6 +541,16 @@ function upgradeConfig(_config: Config): Config {
     config.tipsFrequency = TipsFrequency.Normal;
 
     config.configVersion = 22;
+  }
+
+  if (config.configVersion < 23) {
+    config.widgets.push({
+      ...defaultConfig().widgets.find((w) => w.wmType === "trade-viewer")!,
+      wmId: Math.max(0, ...config.widgets.map((_) => _.wmId)) + 1,
+      wmZorder: null,
+    });
+
+    config.configVersion = 23;
   }
 
   if (config.logKeys === undefined) {

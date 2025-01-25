@@ -73,7 +73,6 @@ import LoadingAnimation from "./LoadingAnimation.vue";
 // ---
 import { usePoeninja } from "@/web/background/Prices";
 import { useLeagues } from "@/web/background/Leagues";
-import { handleLine } from "@/web/client-log/client-log";
 
 type WMID = Widget["wmId"];
 
@@ -144,12 +143,6 @@ export default defineComponent({
     });
     Host.onEvent("MAIN->OVERLAY::visibility", (e) => {
       hideUI.value = !e.isVisible;
-    });
-
-    Host.onEvent("MAIN->CLIENT::game-log", (e) => {
-      for (const line of e.lines) {
-        handleLine(line);
-      }
     });
 
     onMounted(() => {
