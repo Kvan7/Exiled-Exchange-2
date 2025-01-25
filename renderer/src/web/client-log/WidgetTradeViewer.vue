@@ -1,11 +1,13 @@
 <template>
-  <Widget :config="config" move-handles="corners" :inline-edit="false">
+  <Widget :config="config" move-handles="corners" readonly :inline-edit="false">
     <div
       class="widget-default-style p-1 flex flex-col overflow-y-auto min-h-0 w-72"
+      v-if="!isMinimized || activeTrades.length"
       style="min-width: 5rem"
     >
       <div class="text-gray-100 p-1 pb-0 flex items-center justify-between gap-2">
         <span class="truncate">{{ config.wmTitle || "Untitled" }}</span>
+        <span v-if="isMinimized && activeTrades.length" class="text-red-600 font-extrabold">{{ activeTrades.length }}</span>
       </div>
       <div class="flex flex-col gap-y-1 overflow-y-auto min-h-0">
         <div
@@ -16,16 +18,21 @@
           <div class="text-base leading-4">{{ trade.item }}</div>
           <div class="relative pl-3 pr-6">
             <div class="leading-5">{{ t("trade_viewer.price") }} {{ trade.priceAmount }}x {{ trade.priceName }}</div>
-            <div class="leading-5">{{ t("trade_viewer.tab") }}: {{ trade.stashName }} ({{ t("trade_viewer.left") }}: {{ trade.stashLeft }}, {{ t("trade_viewer.top") }}: {{ trade.stashTop }})</div>
+            <div class="leading-5" v-if="!isMinimized">{{ t("trade_viewer.tab") }}: {{ trade.stashName }} ({{ t("trade_viewer.left") }}: {{ trade.stashLeft }}, {{ t("trade_viewer.top") }}: {{ trade.stashTop }})</div>
             <button
               class="flex-grow-0 rounded p-1 pt-1.5 pb-0.5 text-gray-100 bg-gray-800 absolute bottom-0 right-0 leading-4"
+              v-if="!isMinimized"
               @click="ignoreTrade(trade)"
             >
               <i class="fas fa-times text-gray-400 w-4 h-4" />
             </button>
           </div>
 
-          <div v-for="(buyer, buyerIdx) in trade.buyers.filter((_, idx) => idx < 4)" class="flex flex-row gap-1 items-center mt-1 leading-4">
+          <div
+            v-for="(buyer, buyerIdx) in trade.buyers.filter((_, idx) => idx < 4)"
+            v-if="!isMinimized"
+            class="flex flex-row gap-1 items-center mt-1 leading-4"
+          >
             <div
               class="flex-grow overflow-hidden overflow-ellipsis whitespace-nowrap h-6 leading-6">{{
                 (buyerIdx !== 3 || trade.buyers.length <= 4) ? buyer : `and ${trade.buyers.length - 3} more`
@@ -122,6 +129,7 @@ interface TradeRequest {
 
 const wm = inject<WidgetManager>("wm")!;
 const { t } = useI18n();
+const isMinimized: boolean = ref(true);
 const activeTrades: Array<TradeRequest> = ref([
   {
     id: "server-test-0-from-ego",
@@ -169,6 +177,10 @@ if (props.config.wmFlags[0] === "uninitialized") {
   props.config.entries = [];
   wm.show(props.config.wmId);
 }
+
+Host.onEvent("MAIN->OVERLAY::focus-change", (state) => {
+  isMinimized.value = !state.overlay;
+});
 
 Host.onEvent("MAIN->CLIENT::game-log", (e) => {
   for (const line of e.lines) {
