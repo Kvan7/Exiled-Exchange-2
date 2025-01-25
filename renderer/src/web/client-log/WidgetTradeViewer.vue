@@ -97,15 +97,16 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { inject, ref } from "vue";
+import { inject, ref, type Ref } from "vue";
+import Widget from "../overlay/Widget.vue";
 import { useI18n } from "vue-i18n";
 import {Host, MainProcess} from "@/web/background/IPC";
 import type { WidgetManager } from "../overlay/interfaces.js";
-import Widget from "../overlay/Widget.vue";
+import type { TradeViewerWidget} from "./widget";
 import { parseLine } from "./client-log";
 
 const props = defineProps<{
-  config: Widget;
+  config: TradeViewerWidget;
 }>();
 
 interface TradeRequest {
@@ -113,16 +114,16 @@ interface TradeRequest {
   item: string;
   priceName: string;
   priceAmount: number;
-  stashName: string;
-  stashLeft: number;
-  stashTop: number;
+  stashName?: string;
+  stashLeft?: number;
+  stashTop?: number;
   buyers: string[];
 }
 
 const wm = inject<WidgetManager>("wm")!;
 const { t } = useI18n();
-const isMinimized: boolean = ref(true);
-const activeTrades: Array<TradeRequest> = ref([]);
+const isMinimized: Ref<boolean> = ref(true);
+const activeTrades: Ref<Array<TradeRequest>> = ref([]);
 
 if (props.config.wmFlags[0] === "uninitialized") {
   props.config.wmFlags = ["invisible-on-blur"];
@@ -131,7 +132,6 @@ if (props.config.wmFlags[0] === "uninitialized") {
     x: Math.random() * (40 - 20) + 20,
     y: Math.random() * (40 - 20) + 20,
   };
-  props.config.entries = [];
   wm.show(props.config.wmId);
 }
 
@@ -209,6 +209,6 @@ function ignorePlayer(player: string, trade: TradeRequest) {
 }
 
 function ignoreTrade(trade: TradeRequest) {
-  activeTrades.value = activeTrades.value.filter(el => el.id !== trade.id);
+  activeTrades.value = activeTrades.value.filter((el: TradeRequest) => el.id !== trade.id);
 }
 </script>

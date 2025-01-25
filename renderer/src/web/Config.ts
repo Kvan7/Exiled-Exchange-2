@@ -8,7 +8,6 @@ import type { ItemCheckWidget } from "./item-check/widget";
 import type { ItemSearchWidget } from "./item-search/widget";
 import type { FilterGeneratorWidget } from "./filter-generator/widget";
 import { registry as widgetRegistry } from "./overlay/widget-registry.js";
-import type { Widget } from "./overlay/widgets";
 
 const _config = shallowRef<Config | null>(null);
 let _lastSavedConfig: Config | null = null;
