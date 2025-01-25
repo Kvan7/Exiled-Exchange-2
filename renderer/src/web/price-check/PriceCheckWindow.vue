@@ -186,6 +186,11 @@ export default defineComponent({
         showCursor: true,
         requestPricePrediction: false,
         rememberCurrency: false,
+        // New Settings EE2
+        usePseudo: false,
+        defaultAllSelected: false,
+        itemHoverTooltip: "keybind",
+        autoFillEmptyRuneSockets: false,
       };
     },
   } satisfies WidgetSpec,

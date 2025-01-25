@@ -140,7 +140,7 @@ export interface Config {
 }
 
 export const defaultConfig = (): Config => ({
-  configVersion: 17,
+  configVersion: 22,
   overlayKey: "Shift + Space",
   overlayBackground: "rgba(129, 139, 149, 0.15)",
   overlayBackgroundClose: true,
@@ -208,6 +208,8 @@ export const defaultConfig = (): Config => ({
     },
     [],
   ),
+  enableAlphas: false,
+  alphas: [],
 });
 
 function upgradeConfig(_config: Config): Config {
@@ -492,27 +494,6 @@ function upgradeConfig(_config: Config): Config {
       (w) => w.wmType === "price-check",
     )!.autoFillEmptyRuneSockets = "Iron Rune";
 
-    config.configVersion = 22;
-  }
-
-  if (config.logKeys === undefined) {
-    config.logKeys = false;
-  }
-
-  const priceCheck = config.widgets.find(
-    (w) => w.wmType === "price-check",
-  ) as widget.PriceCheckWidget;
-  if (priceCheck.rememberCurrency === undefined) {
-    priceCheck.rememberCurrency = false;
-  }
-
-  for (const widget of config.widgets) {
-    if (widget.wmType === "stash-search") {
-      (widget as StashSearchWidget).enableHotkeys ??= true;
-    }
-  }
-
-  if (config.configVersion < 17) {
     for (const widget of config.widgets) {
       for (let i = 0; i < widget.wmFlags.length; ++i) {
         if (widget.wmFlags[i] === "skip-menu") {
@@ -537,7 +518,24 @@ function upgradeConfig(_config: Config): Config {
       return 0;
     });
 
-    config.configVersion = 17;
+    config.configVersion = 22;
+  }
+
+  if (config.logKeys === undefined) {
+    config.logKeys = false;
+  }
+
+  const priceCheck = config.widgets.find(
+    (w) => w.wmType === "price-check",
+  ) as widget.PriceCheckWidget;
+  if (priceCheck.rememberCurrency === undefined) {
+    priceCheck.rememberCurrency = false;
+  }
+
+  for (const widget of config.widgets) {
+    if (widget.wmType === "stash-search") {
+      (widget as StashSearchWidget).enableHotkeys ??= true;
+    }
   }
 
   return config as unknown as Config;

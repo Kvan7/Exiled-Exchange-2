@@ -17,26 +17,12 @@
             "
             class="bg-gray-800 rounded text-gray-100 p-2 leading-none whitespace-nowrap border"
           >
-            <<<<<<< HEAD
-            <i
-              v-if="widget.wmType === 'settings'"
-              class="fas fa-cog align-bottom"
-            />
-            <i
-              v-else-if="widget.wmType === 'item-search'"
-              class="fas fa-search align-bottom"
-            />
-            <template v-else>{{
-              widget.wmTitle || `#${widget.wmId}`
-            }}</template>
-            =======
             <i
               v-if="widget.icon"
               class="fas align-bottom"
               :class="widget.icon"
             />
             <template v-if="widget.title">{{ widget.title }}</template>
-            >>>>>>> e6936f6 (remove icon special cases)
           </button>
         </template>
         <ui-popover>
@@ -96,6 +82,7 @@ import { registry } from "./widget-registry";
 import { Host } from "@/web/background/IPC";
 import Widget from "./Widget.vue";
 import { useI18nNs } from "@/web/i18n";
+import ConversionWarningBanner from "../conversion-warn-banner/ConversionWarningBanner.vue";
 
 export default defineComponent({
   widget: {
@@ -118,7 +105,7 @@ export default defineComponent({
       };
     },
   } satisfies WidgetSpec,
-  components: { Widget, UiToggle, UiPopover },
+  components: { Widget, UiToggle, UiPopover, ConversionWarningBanner },
   props: {
     config: {
       type: Object as PropType<WidgetMenu>,
