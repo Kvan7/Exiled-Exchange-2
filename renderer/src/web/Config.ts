@@ -490,6 +490,7 @@ function upgradeConfig(_config: Config): Config {
   }
 
   if (config.configVersion < 22) {
+    // NOTE: v0.7.0
     config.widgets.find(
       (w) => w.wmType === "price-check",
     )!.autoFillEmptyRuneSockets = "Iron Rune";
@@ -517,6 +518,9 @@ function upgradeConfig(_config: Config): Config {
       if (b.wmType === "settings") return 1;
       return 0;
     });
+
+    config.widgets.find((w) => w.wmType === "price-check")!.tierNumbering =
+      "poe2";
 
     config.configVersion = 22;
   }

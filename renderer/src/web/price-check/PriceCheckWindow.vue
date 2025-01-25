@@ -191,6 +191,7 @@ export default defineComponent({
         defaultAllSelected: false,
         itemHoverTooltip: "keybind",
         autoFillEmptyRuneSockets: false,
+        tierNumbering: "poe2",
       };
     },
   } satisfies WidgetSpec,

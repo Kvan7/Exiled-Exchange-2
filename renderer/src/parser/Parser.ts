@@ -1401,7 +1401,8 @@ function parseStatsFromMod(
       const { stat: parsedStat, tier } = parsedStatAndTier;
       modifier.stats.push(parsedStat);
       if (tier) {
-        modifier.info.tier = tier;
+        modifier.info.tier = tier.poe1;
+        modifier.info.rank = tier.poe2;
       }
       stat = statIterator.next(true);
     } else {

@@ -174,7 +174,8 @@
     "tag_explicit_incursion": "インカージョン",
     "tag_rune": "ルーン",
     "tag_sanctum": "Sanctum",
-    "fill_rune_iron": "Fill Runes(Iron)"
+    "fill_rune_iron": "Fill Runes(Iron)",
+    "grade": "Grade {0}"
   },
   "online_filter": {
     "offline_toggle": "オフライン & オンライン",
@@ -358,7 +359,11 @@
     "use_tooltip_hover": "Show item when hovering over price",
     "use_tooltip_keybind": "SHIFT + hover",
     "use_tooltip_always": "hover",
-    "use_tooltip_off": "off"
+    "use_tooltip_off": "off",
+    "tier_numbering": "Tier numbering style",
+    "tier_numbering_poe1": "PoE1 (lower is better)",
+    "tier_numbering_poe2": "PoE2 (higher is better)",
+    "tier_numbering_help": "To try to reduce confusion due to conflicting naming conventions with the game, PoE1 tiers will use the name \"Grade\" instead of \"Tier\". "
   },
   "poe2_new": {
     "beta_warning": "これはPOE2のベータ版です、期待通りに動作しないことがあります。",
