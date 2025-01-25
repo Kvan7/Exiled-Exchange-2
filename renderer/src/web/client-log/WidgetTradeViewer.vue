@@ -7,7 +7,6 @@
     >
       <div class="text-gray-100 p-1 pb-0 flex items-center justify-between gap-2">
         <span class="truncate">{{ config.wmTitle || "Untitled" }}</span>
-        <span v-if="isMinimized && activeTrades.length" class="text-red-600 font-extrabold">{{ activeTrades.length }}</span>
       </div>
       <div class="flex flex-col gap-y-1 overflow-y-auto min-h-0">
         <div
@@ -44,13 +43,6 @@
               @click="messagePlayer(buyer)"
             >
               <i class="fas fa-paper-plane text-gray-400 w-4 h-4" />
-            </button>
-            <button
-              class="flex-grow-0 rounded p-1 pt-1.5 pb-0.5 text-gray-100 bg-gray-800"
-              v-if="buyerIdx !== 4 || trade.buyers.length <= 5"
-              @click="teleportToPlayer(buyer)"
-            >
-              <i class="fas fa-map-marker-alt text-gray-400 w-4 h-4" />
             </button>
             <button
               class="flex-grow-0 rounded p-1 pt-1.5 pb-0.5 text-gray-100 bg-gray-800"
@@ -130,42 +122,7 @@ interface TradeRequest {
 const wm = inject<WidgetManager>("wm")!;
 const { t } = useI18n();
 const isMinimized: boolean = ref(true);
-const activeTrades: Array<TradeRequest> = ref([
-  {
-    id: "server-test-0-from-ego",
-    item: "Astramentis, Stellar Amulet, amulet over amulets, one to rule them all",
-    priceName: "Divine Orb",
-    priceAmount: 1,
-    stashName: "sale",
-    stashLeft: "1",
-    stashTop: "1",
-    buyers: [
-      "ego-2513",
-      "ego-1514",
-      "ego-101c",
-      "ego-a8e with a very long name to test it",
-      "ego-1e18",
-      "ego-2513a",
-      "ego-1514a",
-      "ego-101ca",
-      "ego-a8ea with a very long name to test it",
-      "ego-1e18a"
-    ]
-  },
-  {
-    id: "server-test-1-from-ego",
-    item: "Ingenuity, Utility Belt",
-    priceName: "Divine Orb",
-    priceAmount: 1,
-    stashName: "some crazy tab length that is to long",
-    stashLeft: "1",
-    stashTop: "1",
-    buyers: [
-      "ego-26bd",
-      // "ego-1c51"
-    ]
-  }
-]);
+const activeTrades: Array<TradeRequest> = ref([]);
 
 if (props.config.wmFlags[0] === "uninitialized") {
   props.config.wmFlags = ["invisible-on-blur"];
@@ -233,10 +190,6 @@ function sendChatEvent(text: string, send: boolean) {
 
 function messagePlayer(player: string) {
   sendChatEvent(`@${player} `, false);
-}
-
-function teleportToPlayer(player: string) {
-  sendChatEvent(`/hideout ${player} `, true);
 }
 
 function invitePlayer(player: string) {
