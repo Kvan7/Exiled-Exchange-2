@@ -254,6 +254,13 @@
     "search_text": "текст или регекс",
     "friendly_name": "нормальное название"
   },
+  "trade_viewer": {
+    "price": "Цена:",
+    "tab": "секция",
+    "links": "позиция",
+    "top": "столбец",
+    "thanks": "Спасибо!"
+  },
   "filter_generator": {
     "name": "Генератор фильтров",
     "editor": "Редактор",

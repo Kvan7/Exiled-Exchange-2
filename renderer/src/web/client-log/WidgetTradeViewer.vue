@@ -4,30 +4,68 @@
       class="widget-default-style p-1 flex flex-col overflow-y-auto min-h-0 w-72"
       style="min-width: 5rem"
     >
-      <div class="text-gray-100 p-1 flex items-center justify-between gap-4">
+      <div class="text-gray-100 p-1 pb-0 flex items-center justify-between gap-2">
         <span class="truncate">{{ config.wmTitle || "Untitled" }}</span>
       </div>
       <div class="flex flex-col gap-y-1 overflow-y-auto min-h-0">
         <div
           v-for="trade in activeTrades"
           :key="trade.id"
-          class="rounded p-2 leading-4 text-gray-100 border-b-gray-800 border-b-2 last:border-b-0"
+          class="rounded p-2 text-gray-100 border-b-gray-800 border-b-2 last:border-b-0"
         >
-          <div>{{ trade.item }} ({{ trade.priceAmount }}x {{ trade.priceName }})</div>
-          <div>Tab: {{ trade.stashName }} (left: {{ trade.stashLeft }}, top: {{ trade.stashTop }})</div>
-          <div v-for="buyer in trade.buyers" class="flex flex-row gap-1 items-center mt-1">
-            <div class="flex-grow overflow-hidden overflow-ellipsis whitespace-nowrap">{{ buyer }}</div>
+          <div class="text-base leading-4">{{ trade.item }}</div>
+          <div class="relative pl-3 pr-6">
+            <div class="leading-5">{{ t("trade_viewer.price") }} {{ trade.priceAmount }}x {{ trade.priceName }}</div>
+            <div class="leading-5">{{ t("trade_viewer.tab") }}: {{ trade.stashName }} ({{ t("trade_viewer.left") }}: {{ trade.stashLeft }}, {{ t("trade_viewer.top") }}: {{ trade.stashTop }})</div>
+            <button
+              class="flex-grow-0 rounded p-1 pt-1.5 pb-0.5 text-gray-100 bg-gray-800 absolute bottom-0 right-0 leading-4"
+              @click="ignoreTrade(trade)"
+            >
+              <i class="fas fa-times text-gray-400 w-4 h-4" />
+            </button>
+          </div>
 
-            <button class="flex-grow-0 rounded p-1 text-gray-100 bg-gray-800" @click="messagePlayer(buyer)">
-              <i class="fas fa-paper-plane text-gray-400 w-4 h-4" /></button>
-            <button class="flex-grow-0 rounded p-1 text-gray-100 bg-gray-800" @click="teleportToPlayer(buyer)">
-              <i class="fas fa-map-marker-alt text-gray-400 w-4 h-4" /></button>
-            <button class="flex-grow-0 rounded p-1 text-gray-100 bg-gray-800" @click="invitePlayer(buyer)">
-              <i class="fas fa-user-plus text-gray-400 w-4 h-4" /></button>
-            <button class="flex-grow-0 rounded p-1 text-gray-100 bg-gray-800" @click="sendThanks(buyer)">
-              <i class="fas fa-thumbs-up text-gray-400 w-4 h-4" /></button>
-            <button class="flex-grow-0 rounded p-1 text-gray-100 bg-gray-800" @click="ignore(buyer, trade)">
-              <i class="fas fa-times text-gray-400 w-4 h-4" /></button>
+          <div v-for="(buyer, buyerIdx) in trade.buyers.filter((_, idx) => idx < 4)" class="flex flex-row gap-1 items-center mt-1 leading-4">
+            <div
+              class="flex-grow overflow-hidden overflow-ellipsis whitespace-nowrap h-6 leading-6">{{
+                (buyerIdx !== 3 || trade.buyers.length <= 4) ? buyer : `and ${trade.buyers.length - 3} more`
+            }}</div>
+
+            <button
+              class="flex-grow-0 rounded p-1 pt-1.5 pb-0.5 text-gray-100 bg-gray-800"
+              v-if="buyerIdx !== 4 || trade.buyers.length <= 5"
+              @click="messagePlayer(buyer)"
+            >
+              <i class="fas fa-paper-plane text-gray-400 w-4 h-4" />
+            </button>
+            <button
+              class="flex-grow-0 rounded p-1 pt-1.5 pb-0.5 text-gray-100 bg-gray-800"
+              v-if="buyerIdx !== 4 || trade.buyers.length <= 5"
+              @click="teleportToPlayer(buyer)"
+            >
+              <i class="fas fa-map-marker-alt text-gray-400 w-4 h-4" />
+            </button>
+            <button
+              class="flex-grow-0 rounded p-1 pt-1.5 pb-0.5 text-gray-100 bg-gray-800"
+              v-if="buyerIdx !== 4 || trade.buyers.length <= 5"
+              @click="invitePlayer(buyer)"
+            >
+              <i class="fas fa-user-plus text-gray-400 w-4 h-4" />
+            </button>
+            <button
+              class="flex-grow-0 rounded p-1 pt-1.5 pb-0.5 text-gray-100 bg-gray-800"
+              v-if="buyerIdx !== 4 || trade.buyers.length <= 5"
+              @click="sendThanks(buyer, trade)"
+            >
+              <i class="fas fa-thumbs-up text-gray-400 w-4 h-4" />
+            </button>
+            <button
+              class="flex-grow-0 rounded p-1 pt-1.5 pb-0.5 text-gray-100 bg-gray-800"
+              v-if="buyerIdx !== 4 || trade.buyers.length <= 5"
+              @click="ignorePlayer(buyer, trade)"
+            >
+              <i class="fas fa-times text-gray-400 w-4 h-4" />
+            </button>
           </div>
         </div>
       </div>
@@ -84,7 +122,42 @@ interface TradeRequest {
 
 const wm = inject<WidgetManager>("wm")!;
 const { t } = useI18n();
-const activeTrades: Array<TradeRequest> = ref([]);
+const activeTrades: Array<TradeRequest> = ref([
+  {
+    id: "server-test-0-from-ego",
+    item: "Astramentis, Stellar Amulet, amulet over amulets, one to rule them all",
+    priceName: "Divine Orb",
+    priceAmount: 1,
+    stashName: "sale",
+    stashLeft: "1",
+    stashTop: "1",
+    buyers: [
+      "ego-2513",
+      "ego-1514",
+      "ego-101c",
+      "ego-a8e with a very long name to test it",
+      "ego-1e18",
+      "ego-2513a",
+      "ego-1514a",
+      "ego-101ca",
+      "ego-a8ea with a very long name to test it",
+      "ego-1e18a"
+    ]
+  },
+  {
+    id: "server-test-1-from-ego",
+    item: "Ingenuity, Utility Belt",
+    priceName: "Divine Orb",
+    priceAmount: 1,
+    stashName: "some crazy tab length that is to long",
+    stashLeft: "1",
+    stashTop: "1",
+    buyers: [
+      "ego-26bd",
+      // "ego-1c51"
+    ]
+  }
+]);
 
 if (props.config.wmFlags[0] === "uninitialized") {
   props.config.wmFlags = ["invisible-on-blur"];
@@ -117,7 +190,7 @@ Host.onEvent("MAIN->CLIENT::game-log", (e) => {
     const existingTrade = activeTrades.value.find(trade => trade.id === tradeId);
 
   if (existingTrade) {
-    existingTrade.buyers = [...new Set([...existingTrade.buyers, message.charName])]
+    existingTrade.buyers = [...new Set([...existingTrade.buyers, message.charName])];
   } else {
     activeTrades.value.push({
       id: tradeId,
@@ -158,14 +231,19 @@ function invitePlayer(player: string) {
   sendChatEvent(`/invite ${player} `, true);
 }
 
-function sendThanks(player: string) {
-  sendChatEvent(`@${player} Thanks for the trade!`, true);
+function sendThanks(player: string, trade: TradeRequest) {
+  sendChatEvent(`@${player} ${t("trade_viewer.thanks")}`, true);
+  ignoreTrade(trade);
 }
 
-function ignore(player: string, trade: TradeRequest) {
+function ignorePlayer(player: string, trade: TradeRequest) {
   trade.buyers = trade.buyers.filter(buyer => buyer !== player);
   if (trade.buyers.length === 0) {
     activeTrades.value = activeTrades.value.filter(el => el.id !== trade.id);
   }
+}
+
+function ignoreTrade(trade: TradeRequest) {
+  activeTrades.value = activeTrades.value.filter(el => el.id !== trade.id);
 }
 </script>
