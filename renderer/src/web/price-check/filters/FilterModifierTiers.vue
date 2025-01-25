@@ -4,7 +4,7 @@
     class="flex items-center text-xs leading-none gap-x-1"
   >
     <span v-for="tag of tags" :class="$style[tag.type]">{{
-      t("filters.tier", [tag.tier])
+      t(tierOption == "poe2" ? "filters.tier" : "filters.grade", [tag.tier])
     }}</span>
   </div>
 </template>
@@ -38,9 +38,9 @@ export default defineComponent({
       const out: Array<{ type: string; tier: number }> = [];
       for (const source of filter.sources) {
         const tier = source.modifier.info.tier;
-        const rank = source.modifier.info.rank;
-        if (!tier || !rank) continue;
-        const usedTier = tierOption.value === "poe1" ? tier : rank;
+        const tierNew = source.modifier.info.tierNew;
+        if (!tier || !tierNew) continue;
+        const usedTier = tierOption.value === "poe1" ? tier : tierNew;
 
         if (
           (filter.tag === FilterTag.Explicit ||

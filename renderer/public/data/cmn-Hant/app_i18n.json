@@ -89,7 +89,8 @@
     "veiled": "隱匿",
     "foil_unique": "貼模傳奇",
     "mirrored": "已複製",
-    "not_mirrored": "未複製"
+    "not_mirrored": "未複製",
+    "mod_grade": "Grade: {0}"
   },
   "item_category": {
     "prop": "類別：{0}",

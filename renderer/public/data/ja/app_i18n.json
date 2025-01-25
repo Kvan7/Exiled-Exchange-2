@@ -89,7 +89,8 @@
     "veiled": "ヴェール",
     "foil_unique": "フォイルユニーク",
     "mirrored": "ミラー化",
-    "not_mirrored": "非ミラー"
+    "not_mirrored": "非ミラー",
+    "mod_grade": "Grade: {0}"
   },
   "item_category": {
     "prop": "カテゴリー: {0}",

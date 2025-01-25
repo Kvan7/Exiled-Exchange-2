@@ -1402,7 +1402,7 @@ function parseStatsFromMod(
       modifier.stats.push(parsedStat);
       if (tier) {
         modifier.info.tier = tier.poe1;
-        modifier.info.rank = tier.poe2;
+        modifier.info.tierNew = tier.poe2;
       }
       stat = statIterator.next(true);
     } else {
