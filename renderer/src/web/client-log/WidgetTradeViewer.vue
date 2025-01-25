@@ -84,37 +84,7 @@ interface TradeRequest {
 
 const wm = inject<WidgetManager>("wm")!;
 const { t } = useI18n();
-const activeTrades: Array<TradeRequest> = ref([
-  {
-    id: "server-test-0-from-ego",
-    item: "Astramentalis Stellar Amulet",
-    priceName: "Divine Orb",
-    priceAmount: 1,
-    stashName: "sale",
-    stashLeft: "1",
-    stashTop: "1",
-    buyers: [
-      "ego-2513",
-      "ego-1514",
-      "ego-101c",
-      "ego-a8e with a very long name to test it",
-      "ego-1e18"
-    ]
-  },
-  {
-    id: "server-test-1-from-ego",
-    item: "Ingenuity, Utility Belt",
-    priceName: "Divine Orb",
-    priceAmount: 1,
-    stashName: "sale",
-    stashLeft: "1",
-    stashTop: "1",
-    buyers: [
-      "ego-26bd",
-      // "ego-1c51"
-    ]
-  }
-]);
+const activeTrades: Array<TradeRequest> = ref([]);
 
 if (props.config.wmFlags[0] === "uninitialized") {
   props.config.wmFlags = ["invisible-on-blur"];
@@ -128,11 +98,8 @@ if (props.config.wmFlags[0] === "uninitialized") {
 }
 
 Host.onEvent("MAIN->CLIENT::game-log", (e) => {
-  console.log('e', e);
   for (const line of e.lines) {
     const message = parseLine(line);
-
-    console.log('message', message)
 
     if (!message?.charName || !message?.trade) {
       continue;
