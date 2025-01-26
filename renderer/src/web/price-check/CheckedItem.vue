@@ -109,7 +109,7 @@ import { useLeagues } from "@/web/background/Leagues";
 import { randomTip, TIP_FREQUENCY_MAP } from "../help/tips";
 
 let _showSupportLinksCounter = 0;
-let _showTipCounter = 0;
+let _showTipCounter = 15;
 
 export default defineComponent({
   name: "CheckedItem",
@@ -343,7 +343,9 @@ export default defineComponent({
           showSupportLinks.value = false;
           if (
             AppConfig().tipsFrequency !== TipsFrequency.Never &&
-            _showTipCounter >= TIP_FREQUENCY_MAP[AppConfig().tipsFrequency] &&
+            (AppConfig().tipsFrequency === TipsFrequency.Always ||
+              _showTipCounter >=
+                TIP_FREQUENCY_MAP[AppConfig().tipsFrequency]) &&
             !cInteracted
           ) {
             _showTipCounter = 0;

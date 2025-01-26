@@ -12,6 +12,7 @@
           <option :value="3">{{ t(":tip_frequency_3") }}</option>
           <option :value="4">{{ t(":tip_frequency_4") }}</option>
           <option :value="5">{{ t(":tip_frequency_5") }}</option>
+          <option :value="6">{{ t(":tip_frequency_6") }}</option>
         </select>
       </div>
     </div>
