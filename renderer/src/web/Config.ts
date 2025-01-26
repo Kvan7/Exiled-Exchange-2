@@ -112,10 +112,11 @@ export function poeWebApi() {
 
 export enum TipsFrequency {
   Always = 1,
-  Normal = 2,
-  Rarely = 3,
-  VeryRarely = 4,
-  Never = 5,
+  MoreOften = 2,
+  Normal = 3,
+  Rarely = 4,
+  VeryRarely = 5,
+  Never = 6,
 }
 
 export interface Config {
