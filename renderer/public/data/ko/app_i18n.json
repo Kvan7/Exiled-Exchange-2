@@ -331,7 +331,15 @@
     "poe_cfg_file": "PoE 설정 파일",
     "restore_clipboard": "클립보드 복사 내용 복구",
     "show_overlay_ready": "오버레이가 PoE 창을 발견하면 알림을 보여줍니다",
-    "debug_hotkeys": "모든 키 스트로크 기록"
+    "debug_hotkeys": "모든 키 스트로크 기록",
+    "help": "Help",
+    "show_tips_on_startup": "Show tips on startup notification",
+    "show_tips_frequency": "How often to show tips when price checking",
+    "tip_frequency_1": "Always",
+    "tip_frequency_2": "Normal",
+    "tip_frequency_3": "Rarely",
+    "tip_frequency_4": "Very Rarely",
+    "tip_frequency_5": "Never"
   },
   "price_check": {
     "name": "가격 체크",
@@ -371,5 +379,36 @@
     "parse_error2": "아마 특정 접사가 아직 검색이 불가능한 것으로 보입니다.",
     "parse_error3": "(새로운 접사 혹은 POE 1과는 다른 이름일 수도 있습니다)",
     "bulk_exchange": "아이템 대량교환 비율 표시는 아직 시행되지 않습니다."
+  },
+  "tips": {
+    "tip_1": "You can add your own images to the cheat sheet widget by hitting \"edit\"",
+    "tip_2": "Selecting too many filters may over estimate the price of an item",
+    "tip_3": "When hovering over a price, hold SHIFT to show the item's stats",
+    "tip_4": "Enable \"mods\" when price checking to see what stats are used for each filter",
+    "tip_5": "You can switch between PoE1 and PoE2 tier numbering styles in the settings",
+    "tip_6": "To see the possible modifiers for an item, run item-check and then open in Craft of Exile",
+    "tip_7": "All actions in the item-check window can be bound to a hotkey",
+    "tip_8": "You can drag the bars that show when price checking a unique item to change their values",
+    "tip_9": "You can use the \"Fill Iron\" button to fill empty rune sockets with iron runes",
+    "tip_10": "If a stat is not shown, it may be in the \"Hidden\" section",
+    "tip_11": "Stats that contribute to a weapon's dps are not shown and instead are factored into the dps filter",
+    "tip_12": "When a tier is shown on the filter, it means that tier is the best or second best for the item",
+    "tip_13": "To not have to hold a button to keep price check open, you can use \"Auto-hide off\" in the settings",
+    "tip_14": "The \"Pseudo\" button will open the trade site also, but with resistances as a fake pseudo weighted sum",
+    "tip_15": "You can use \"Profile\" to save different map check selections for different characters",
+    "tip_16": "Use \"Find in Stash\" to search for a base type in your stash",
+    "tip_17": "We don't talk about Exiled Exchange 1",
+    "tip_19": "If you want to time something in the game, you can use the \"Stopwatch\" widget",
+    "tip_20": "If you experience any issues, please report them on GitHub",
+    "tip_21": "You can use the \"Stash search\" widget to search for items in your stash",
+    "tip_22": "Map Check can be used to quickly make sure a map doesn't have any mods you don't want",
+    "tip_23": "To enable Stash Tab Scrolling, disable \"Mousewheel Zoom\" in PoE settings (Options -> UI)",
+    "tip_24": "The question mark next to an item's price indicates item is priced using stash tab name and is probably not a real price",
+    "tip_25": "The orange circle next to an item's price shows player's status is AFK",
+    "tip_26": "The red circle next to an item's price shows player's status is Offline",
+    "tip_27": "Logs are shown under the \"Debug\" tab in settings",
+    "tip_28": "You can change your league in the settings",
+    "tip_29": "You can add custom chat command hotkeys in the settings",
+    "tip_30": "Using \"Online filter\" allows you to use more meta filtering options like \"Exalted only\" or \"Offline & Online\""
   }
 }
