@@ -152,7 +152,10 @@ def modTierBuilderB(mod_data, base_item_types, gold_mod_prices, tags):
                 if stat_value is None or not isinstance(stat_value, list):
                     continue
                 mod_stat_ids.append(stat)
-                mod_stats.append(stat_value)
+                if stat == 119:
+                    mod_stats.append([a / 60 for a in stat_value])
+                else:
+                    mod_stats.append(stat_value)
 
         mod_mod = {
             "mod_index": mod_index,
