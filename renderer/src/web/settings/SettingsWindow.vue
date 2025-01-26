@@ -135,6 +135,7 @@ import SettingsGeneral from "./general.vue";
 import SettingsAbout from "./about.vue";
 import SettingsPricecheck from "../price-check/settings-price-check.vue";
 import SettingsItemcheck from "../item-check/settings-item-check.vue";
+import SettingsHelp from "./help.vue";
 import SettingsDebug from "./debug.vue";
 import SettingsMaps from "../map-check/settings-maps.vue";
 import SettingsFilterGeneratorEditor from "../filter-generator/FilterGeneratorEditor.vue";
@@ -317,7 +318,7 @@ function menuByType(type?: string) {
         [SettingsHotkeys, SettingsChat],
         [SettingsGeneral],
         [SettingsPricecheck, SettingsMaps, SettingsItemcheck],
-        [SettingsDebug, SettingsAbout],
+        [SettingsHelp, SettingsDebug, SettingsAbout],
       ];
   }
 }

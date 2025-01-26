@@ -355,7 +355,9 @@
     "tip_frequency_2": "Normal",
     "tip_frequency_3": "Rarely",
     "tip_frequency_4": "Very Rarely",
-    "tip_frequency_5": "Never"
+    "tip_frequency_5": "Never",
+    "tips_header": "Cycle Through All Tips:",
+    "tip_number_header": "Tip #{0}"
   },
   "price_check": {
     "name": "Price check",
@@ -418,6 +420,7 @@
     "tip_15": "You can use \"Profile\" to save different map check selections for different characters",
     "tip_16": "Use \"Find in Stash\" to search for a base type in your stash",
     "tip_17": "We don't talk about Exiled Exchange 1",
+    "tip_18": "Have Fun!",
     "tip_19": "If you want to time something in the game, you can use the \"Stopwatch\" widget",
     "tip_20": "If you experience any issues, please report them on GitHub",
     "tip_21": "You can use the \"Stash search\" widget to search for items in your stash",

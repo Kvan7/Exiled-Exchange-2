@@ -110,6 +110,14 @@ export function poeWebApi() {
   }
 }
 
+export enum TipsFrequency {
+  Always = 1,
+  Normal = 2,
+  Rarely = 3,
+  VeryRarely = 4,
+  Never = 5,
+}
+
 export interface Config {
   configVersion: number;
   leagueId?: string;
@@ -137,6 +145,8 @@ export interface Config {
   overlayAlwaysClose: boolean;
   enableAlphas: boolean;
   alphas: [];
+  startupTips: boolean;
+  tipsFrequency: TipsFrequency;
 }
 
 export const defaultConfig = (): Config => ({
@@ -210,6 +220,8 @@ export const defaultConfig = (): Config => ({
   ),
   enableAlphas: false,
   alphas: [],
+  startupTips: true,
+  tipsFrequency: 1,
 });
 
 function upgradeConfig(_config: Config): Config {
@@ -521,6 +533,9 @@ function upgradeConfig(_config: Config): Config {
 
     config.widgets.find((w) => w.wmType === "price-check")!.tierNumbering =
       "poe2";
+
+    config.startupTips = true;
+    config.tipsFrequency = TipsFrequency.Normal;
 
     config.configVersion = 22;
   }
