@@ -2,7 +2,11 @@
   <div v-if="options" class="flex gap-x-1">
     <button
       v-for="option in options"
-      :class="[$style.button, { [$style.selected]: option.isSelected }]"
+      :class="[
+        $style.button,
+        { [$style.selected]: option.isSelected },
+        $style[`type-${option.tag}`],
+      ]"
       @click="option.select"
       type="button"
     >
@@ -36,18 +40,28 @@ export default defineComponent({
 
       return (
         [
-          [ItemIsElementalModifier.Any, "item.has_elemental_affix"],
-          [ItemIsElementalModifier.Fire, "item.has_elemental_fire_affix"],
-          [ItemIsElementalModifier.Cold, "item.has_elemental_cold_affix"],
+          [ItemIsElementalModifier.Any, "item.has_elemental_affix", "any"],
+          [
+            ItemIsElementalModifier.Fire,
+            "item.has_elemental_fire_affix",
+            "fire",
+          ],
+          [
+            ItemIsElementalModifier.Cold,
+            "item.has_elemental_cold_affix",
+            "cold",
+          ],
           [
             ItemIsElementalModifier.Lightning,
             "item.has_elemental_lightning_affix",
+            "lightning",
           ],
         ] as const
-      ).map(([value, text]) => ({
+      ).map(([value, text, tag]) => ({
         text,
         select: () => select(value),
         isSelected: filter.option!.value === value,
+        tag,
       }));
     });
 
@@ -68,5 +82,23 @@ export default defineComponent({
 
 .selected {
   @apply border-gray-500;
+}
+.type-fire {
+  @apply text-fire;
+}
+.type-fire.selected {
+  @apply border-fire;
+}
+.type-cold {
+  @apply text-cold;
+}
+.type-cold.selected {
+  @apply border-cold;
+}
+.type-lightning {
+  @apply text-lightning;
+}
+.type-lightning.selected {
+  @apply border-lightning;
 }
 </style>
