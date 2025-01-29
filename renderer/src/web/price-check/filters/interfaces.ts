@@ -159,6 +159,12 @@ export enum ItemHasEmptyModifier {
   Prefix = 1,
   Suffix = 2,
 }
+export enum ItemIsElementalModifier {
+  Any = 0,
+  Fire = 1,
+  Cold = 2,
+  Lightning = 3,
+}
 
 export enum FilterTag {
   Pseudo = "pseudo",

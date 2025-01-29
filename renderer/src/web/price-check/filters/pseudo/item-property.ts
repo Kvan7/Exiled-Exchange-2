@@ -11,7 +11,12 @@ import { stat, StatBetter } from "@/assets/data";
 import { ARMOUR, WEAPON, ItemCategory } from "@/parser/meta";
 import { ParsedItem } from "@/parser";
 import { ModifierType, StatRoll, StatSource } from "@/parser/modifiers";
-import { FilterTag, InternalTradeId, StatFilter } from "../interfaces";
+import {
+  FilterTag,
+  InternalTradeId,
+  ItemIsElementalModifier,
+  StatFilter,
+} from "../interfaces";
 
 export function filterItemProp(ctx: FiltersCreationContext) {
   if (ARMOUR.has(ctx.item.category!)) {
@@ -213,9 +218,12 @@ function weaponProps(ctx: FiltersCreationContext) {
           tradeId: "item.elemental_dps",
           roll: edps,
           sources: [],
-          disabled: edps.value / dps.value < 0.67,
+          disabled: edps.value / dps.value < 0.1,
           hidden:
-            edps.value / dps.value < 0.67 ? "filters.hide_ele_dps" : undefined,
+            edps.value / dps.value < 0.1 ? "filters.hide_ele_dps" : undefined,
+          option: {
+            value: ItemIsElementalModifier.Any,
+          },
         },
         ctx,
       ),
@@ -328,6 +336,7 @@ function propToFilter(
     dp?: boolean;
     disabled?: StatFilter["disabled"];
     hidden?: StatFilter["hidden"];
+    option?: StatFilter["option"];
   },
   ctx: FiltersCreationContext,
 ): StatFilter {
@@ -368,6 +377,7 @@ function propToFilter(
   filter.sources = opts.sources;
   if (opts.disabled != null) filter.disabled = opts.disabled;
   if (opts.hidden != null) filter.hidden = opts.hidden;
+  if (opts.option != null) filter.option = opts.option;
 
   return filter;
 }
