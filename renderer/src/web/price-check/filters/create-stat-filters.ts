@@ -304,7 +304,7 @@ export function shortRollToFilter(
   filterDefault.min = Math.max(filterDefault.min, filterBounds.min);
   filterDefault.max = Math.min(filterDefault.max, filterBounds.max);
 
-  return {
+  const filterRoll = {
     value: roundRoll(roll.value, dp),
     min: undefined,
     max: undefined,
@@ -318,6 +318,9 @@ export function shortRollToFilter(
     isNegated: false,
     tradeInvert: false,
   };
+  // NOTE: currently only for ele rolls so we know better is 1
+  filterFillMinMax(filterRoll, 1);
+  return filterRoll;
 }
 
 export function calculatedStatToFilter(
