@@ -37,7 +37,9 @@ export default defineComponent({
       filter.option!.value = value;
       filter.disabled = false;
       if (!filter.additionalInfo) return;
-      console.log(filter.additionalInfo[INTERNAL_TRADE_IDS[12 + value]]);
+      const selectedRoll =
+        filter.additionalInfo[INTERNAL_TRADE_IDS[12 + value]];
+      filter.roll = selectedRoll;
     }
 
     const options = computed(() => {
