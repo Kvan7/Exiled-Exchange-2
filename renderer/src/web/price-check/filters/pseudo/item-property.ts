@@ -279,9 +279,9 @@ function weaponProps(ctx: FiltersCreationContext) {
         tradeId: "item.elemental_dps",
         roll: edps,
         sources: [],
-        disabled: edps.value / dps.value < 0.1,
+        disabled: edps.value / dps.value < 0.15,
         hidden:
-          edps.value / dps.value < 0.1 ? "filters.hide_ele_dps" : undefined,
+          edps.value / dps.value < 0.15 ? "filters.hide_ele_dps" : undefined,
         option: {
           value: ItemIsElementalModifier.Any,
         },
