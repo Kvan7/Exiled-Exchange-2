@@ -2,6 +2,7 @@ import { ParsedItem, ItemRarity, ItemCategory } from "@/parser";
 import {
   ModifierType,
   StatCalculated,
+  StatRoll,
   statSourcesTotal,
   translateStatWithRoll,
 } from "@/parser/modifiers";
@@ -11,6 +12,7 @@ import {
   ItemHasEmptyModifier,
   RESISTANCE_WEIGHT_GROUP,
   StatFilter,
+  StatFilterRoll,
   WeightStatGroup,
 } from "./interfaces";
 import { filterPseudo } from "./pseudo";
@@ -281,6 +283,41 @@ export function initUiModFilters(
   }
 
   return ctx.filters;
+}
+
+export function shortRollToFilter(
+  roll: StatRoll,
+  percent: number,
+  item: ParsedItem,
+): StatFilterRoll {
+  // NOTE: assuming no dp since currently only for ele rolls
+  const dp = false;
+  const filterBounds = {
+    min: percentRoll(roll.min, -0, Math.floor, dp),
+    max: percentRoll(roll.max, +0, Math.ceil, dp),
+  };
+  const filterDefault = {
+    min: percentRoll(roll.value, -percent, Math.floor, dp),
+    max: percentRoll(roll.value, +percent, Math.ceil, dp),
+  };
+
+  filterDefault.min = Math.max(filterDefault.min, filterBounds.min);
+  filterDefault.max = Math.min(filterDefault.max, filterBounds.max);
+
+  return {
+    value: roundRoll(roll.value, dp),
+    min: undefined,
+    max: undefined,
+    default: filterDefault,
+    bounds:
+      item.rarity === ItemRarity.Unique && roll.min !== roll.max
+        ? filterBounds
+        : undefined,
+    dp,
+    // NOTE: currently only for ele rolls so we know it's not negated
+    isNegated: false,
+    tradeInvert: false,
+  };
 }
 
 export function calculatedStatToFilter(

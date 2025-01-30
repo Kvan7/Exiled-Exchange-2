@@ -1,6 +1,7 @@
 import {
   calculatedStatToFilter,
   FiltersCreationContext,
+  shortRollToFilter,
 } from "../create-stat-filters";
 import {
   calcPropBounds,
@@ -13,9 +14,11 @@ import { ParsedItem } from "@/parser";
 import { ModifierType, StatRoll, StatSource } from "@/parser/modifiers";
 import {
   FilterTag,
+  INTERNAL_TRADE_IDS,
   InternalTradeId,
   ItemIsElementalModifier,
   StatFilter,
+  StatFilterRoll,
 } from "../interfaces";
 
 export function filterItemProp(ctx: FiltersCreationContext) {
@@ -186,6 +189,31 @@ function weaponProps(ctx: FiltersCreationContext) {
     item,
   );
 
+  const fireDmg = calcPropBounds(
+    item.weaponFIRE ?? 0,
+    {
+      flat: ["Adds # to # Fire Damage"],
+      incr: [],
+    },
+    item,
+  );
+  const coldDmg = calcPropBounds(
+    item.weaponCOLD ?? 0,
+    {
+      flat: ["Adds # to # Cold Damage"],
+      incr: [],
+    },
+    item,
+  );
+  const lightningDmg = calcPropBounds(
+    item.weaponLIGHTNING ?? 0,
+    {
+      flat: ["Adds # to # Lightning Damage"],
+      incr: [],
+    },
+    item,
+  );
+
   const edps: StatRoll = {
     value: eleDmg.roll.value * attackSpeed.roll.value,
     min: eleDmg.roll.min * attackSpeed.roll.min,
@@ -196,8 +224,42 @@ function weaponProps(ctx: FiltersCreationContext) {
     min: pdpsQ20.min + edps.min,
     max: pdpsQ20.max + edps.max,
   };
+  const fireDps: StatRoll = {
+    value: fireDmg.roll.value * attackSpeed.roll.value,
+    min: fireDmg.roll.min * attackSpeed.roll.min,
+    max: fireDmg.roll.max * attackSpeed.roll.max,
+  };
+  const coldDps: StatRoll = {
+    value: coldDmg.roll.value * attackSpeed.roll.value,
+    min: coldDmg.roll.min * attackSpeed.roll.min,
+    max: coldDmg.roll.max * attackSpeed.roll.max,
+  };
+  const lightningDps: StatRoll = {
+    value: lightningDmg.roll.value * attackSpeed.roll.value,
+    min: lightningDmg.roll.min * attackSpeed.roll.min,
+    max: lightningDmg.roll.max * attackSpeed.roll.max,
+  };
 
   if (item.weaponELEMENTAL) {
+    const additionalInfo: Record<string, StatFilterRoll> = {};
+    if (fireDps.value !== 0)
+      additionalInfo[INTERNAL_TRADE_IDS[13]] = shortRollToFilter(
+        fireDps,
+        ctx.searchInRange,
+        item,
+      );
+    if (coldDps.value !== 0)
+      additionalInfo[INTERNAL_TRADE_IDS[14]] = shortRollToFilter(
+        coldDps,
+        ctx.searchInRange,
+        item,
+      );
+    if (lightningDps.value !== 0)
+      additionalInfo[INTERNAL_TRADE_IDS[15]] = shortRollToFilter(
+        lightningDps,
+        ctx.searchInRange,
+        item,
+      );
     ctx.filters.push(
       propToFilter(
         {
@@ -211,23 +273,28 @@ function weaponProps(ctx: FiltersCreationContext) {
       ),
     );
 
-    ctx.filters.push(
-      propToFilter(
-        {
-          ref: "Elemental DPS: #",
-          tradeId: "item.elemental_dps",
-          roll: edps,
-          sources: [],
-          disabled: edps.value / dps.value < 0.1,
-          hidden:
-            edps.value / dps.value < 0.1 ? "filters.hide_ele_dps" : undefined,
-          option: {
-            value: ItemIsElementalModifier.Any,
-          },
+    const elementalFilter = propToFilter(
+      {
+        ref: "Elemental DPS: #",
+        tradeId: "item.elemental_dps",
+        roll: edps,
+        sources: [],
+        disabled: edps.value / dps.value < 0.1,
+        hidden:
+          edps.value / dps.value < 0.1 ? "filters.hide_ele_dps" : undefined,
+        option: {
+          value: ItemIsElementalModifier.Any,
         },
-        ctx,
-      ),
+      },
+      ctx,
     );
+
+    if (Object.keys(additionalInfo).length) {
+      additionalInfo[INTERNAL_TRADE_IDS[12]] = elementalFilter.roll!;
+      elementalFilter.additionalInfo = additionalInfo;
+    }
+
+    ctx.filters.push(elementalFilter);
   }
 
   if (item.weaponPHYSICAL) {

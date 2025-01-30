@@ -100,6 +100,7 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   { virtual: parseFractured },
   { virtual: parseBlightedMap },
   { virtual: applyRuneSockets },
+  { virtual: applyElementalAdded },
   { virtual: pickCorrectVariant },
   { virtual: calcBasePercentile },
 ];
@@ -948,11 +949,11 @@ export function parseModifiersPoe2(section: string[], item: ParsedItem) {
         modType = ModifierType.Sanctum;
       }
       // const modInfo = parseModInfoLine(modLine, modType);
-      foundAnyMods =
-        parseStatsFromMod(lines, item, {
-          info: { type: modType, tags: [] },
-          stats: [],
-        }) || foundAnyMods;
+      const found = parseStatsFromMod(lines, item, {
+        info: { type: modType, tags: [] },
+        stats: [],
+      });
+      foundAnyMods = found || foundAnyMods;
 
       if (modType === ModifierType.Veiled) {
         item.isVeiled = true;
@@ -1426,6 +1427,43 @@ function parseStatsFromMod(
  */
 function transformToLegacyModifiers(item: ParsedItem) {
   item.statsByType = sumStatsByModType(item.newMods);
+}
+
+function applyElementalAdded(item: ParsedItem) {
+  if (item.weaponELEMENTAL) {
+    const knownRefs = new Set<string>([
+      "Adds # to # Lightning Damage",
+      "Adds # to # Cold Damage",
+      "Adds # to # Fire Damage",
+    ]);
+
+    item.statsByType.forEach((calc) => {
+      if (knownRefs.has(calc.stat.ref)) {
+        for (const source of calc.sources) {
+          if (calc.stat.ref === "Adds # to # Lightning Damage") {
+            if (item.weaponLIGHTNING) {
+              item.weaponLIGHTNING =
+                source.contributes!.value + item.weaponLIGHTNING;
+            } else {
+              item.weaponLIGHTNING = source.contributes!.value;
+            }
+          } else if (calc.stat.ref === "Adds # to # Cold Damage") {
+            if (item.weaponCOLD) {
+              item.weaponCOLD = source.contributes!.value + item.weaponCOLD;
+            } else {
+              item.weaponCOLD = source.contributes!.value;
+            }
+          } else if (calc.stat.ref === "Adds # to # Fire Damage") {
+            if (item.weaponFIRE) {
+              item.weaponFIRE = source.contributes!.value + item.weaponFIRE;
+            } else {
+              item.weaponFIRE = source.contributes!.value;
+            }
+          }
+        }
+      }
+    });
+  }
 }
 
 function calcBasePercentile(item: ParsedItem) {

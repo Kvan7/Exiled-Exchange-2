@@ -18,7 +18,11 @@
 <script lang="ts">
 import { defineComponent, PropType, computed } from "vue";
 import { useI18n } from "vue-i18n";
-import { StatFilter, ItemIsElementalModifier } from "./interfaces";
+import {
+  StatFilter,
+  ItemIsElementalModifier,
+  INTERNAL_TRADE_IDS,
+} from "./interfaces";
 
 export default defineComponent({
   props: {
@@ -32,6 +36,8 @@ export default defineComponent({
       const { filter } = props;
       filter.option!.value = value;
       filter.disabled = false;
+      if (!filter.additionalInfo) return;
+      console.log(filter.additionalInfo[INTERNAL_TRADE_IDS[12 + value]]);
     }
 
     const options = computed(() => {
@@ -40,29 +46,25 @@ export default defineComponent({
 
       return (
         [
-          [ItemIsElementalModifier.Any, "item.has_elemental_affix", "any"],
-          [
-            ItemIsElementalModifier.Fire,
-            "item.has_elemental_fire_affix",
-            "fire",
-          ],
-          [
-            ItemIsElementalModifier.Cold,
-            "item.has_elemental_cold_affix",
-            "cold",
-          ],
+          [ItemIsElementalModifier.Any, INTERNAL_TRADE_IDS[12], "any"],
+          [ItemIsElementalModifier.Fire, INTERNAL_TRADE_IDS[13], "fire"],
+          [ItemIsElementalModifier.Cold, INTERNAL_TRADE_IDS[14], "cold"],
           [
             ItemIsElementalModifier.Lightning,
-            "item.has_elemental_lightning_affix",
+            INTERNAL_TRADE_IDS[15],
             "lightning",
           ],
         ] as const
-      ).map(([value, text, tag]) => ({
-        text,
-        select: () => select(value),
-        isSelected: filter.option!.value === value,
-        tag,
-      }));
+      )
+        .filter(
+          ([, text]) => filter.additionalInfo && text in filter.additionalInfo,
+        )
+        .map(([value, text, tag]) => ({
+          text,
+          select: () => select(value),
+          isSelected: filter.option!.value === value,
+          tag,
+        }));
     });
 
     const { t } = useI18n();
