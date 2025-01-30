@@ -240,6 +240,7 @@
     "friendly_name": "名称"
   },
   "trade_viewer": {
+    "name": "トレードビューアー",
     "price": "価格:",
     "tab": "スタッシュタブ",
     "links": "左から",

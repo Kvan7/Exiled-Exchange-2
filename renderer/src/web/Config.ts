@@ -6,7 +6,6 @@ import type * as widget from "./overlay/widgets";
 import type { StashSearchWidget } from "./stash-search/widget";
 import type { ItemCheckWidget } from "./item-check/widget";
 import type { ItemSearchWidget } from "./item-search/widget";
-import type { FilterGeneratorWidget } from "./filter-generator/widget";
 import { registry as widgetRegistry } from "./overlay/widget-registry.js";
 
 const _config = shallowRef<Config | null>(null);

@@ -245,6 +245,7 @@
     "friendly_name": "nombre amigable"
   },
   "trade_viewer": {
+    "name": "Visor de Intercambios",
     "price": "Precio:",
     "tab": "Pestaña de alijo",
     "links": "izquierda",

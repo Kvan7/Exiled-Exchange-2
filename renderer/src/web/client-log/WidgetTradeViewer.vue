@@ -6,7 +6,7 @@
       style="min-width: 5rem"
     >
       <div class="text-gray-100 p-1 pb-0 flex items-center justify-between gap-2">
-        <span class="truncate">{{ config.wmTitle || "Untitled" }}</span>
+        <span class="truncate">{{ t("trade_viewer.name") }}</span>
       </div>
       <div class="flex flex-col gap-y-1 overflow-y-auto min-h-0">
         <div
@@ -73,17 +73,17 @@
 </template>
 
 <script lang="ts">
-import type { Widget } from "../overlay/widgets"
+import type { TradeViewerWidget } from "./widget"
 
 export default {
   widget: {
     type: "trade-viewer",
-    instances: "{icon=fa-filter}",
-    initInstance: (): Widget => ({
-      wmId: 105,
+    instances: "single",
+    initInstance: (): TradeViewerWidget => ({
+      wmId: 0,
       wmType: "trade-viewer",
-      wmTitle: "Trade Viewer",
-      wmWants: "show",
+      wmTitle: "{icon=fa-sack-dollar}",
+      wmWants: "hide",
       wmZorder: 106,
       wmFlags: [],
       anchor: {
@@ -102,7 +102,6 @@ import Widget from "../overlay/Widget.vue";
 import { useI18n } from "vue-i18n";
 import {Host, MainProcess} from "@/web/background/IPC";
 import type { WidgetManager } from "../overlay/interfaces.js";
-import type { TradeViewerWidget} from "./widget";
 import { parseLine } from "./client-log";
 
 const props = defineProps<{

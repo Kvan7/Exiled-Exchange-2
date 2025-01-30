@@ -245,6 +245,7 @@
     "friendly_name": "friendly name"
   },
   "trade_viewer": {
+    "name": "Trade Viewer",
     "price": "for",
     "tab": "Tab",
     "left": "left",

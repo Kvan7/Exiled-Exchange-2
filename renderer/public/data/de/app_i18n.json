@@ -245,6 +245,7 @@
     "friendly_name": "Anzeigename"
   },
   "trade_viewer": {
+    "name": "Handelsbetrachter",
     "price": "Preis:",
     "tab": "Truhenfach",
     "links": "von links",
