@@ -96,6 +96,7 @@
           >
           <filter-modifier-tiers :filter="filter" :item="item" />
           <filter-modifier-item-has-empty :filter="filter" />
+          <filter-modifier-item-is-elemental :filter="filter" />
         </div>
         <stat-roll-slider
           v-if="roll && roll.bounds"
@@ -128,6 +129,7 @@ import { AppConfig } from "@/web/Config";
 import { ItemRarity, ParsedItem } from "@/parser";
 import { FilterTag, StatFilter, INTERNAL_TRADE_IDS } from "./interfaces";
 import SourceInfo from "./SourceInfo.vue";
+import FilterModifierItemIsElemental from "./FilterModifierItemIsElemental.vue";
 
 export default defineComponent({
   components: {
@@ -138,6 +140,7 @@ export default defineComponent({
     SourceInfo,
     StatRollSlider,
     UiPopover,
+    FilterModifierItemIsElemental,
   },
   emits: ["submit"],
   props: {

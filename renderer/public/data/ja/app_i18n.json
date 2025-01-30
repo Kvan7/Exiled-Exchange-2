@@ -90,7 +90,11 @@
     "foil_unique": "フォイルユニーク",
     "mirrored": "ミラー化",
     "not_mirrored": "非ミラー",
-    "mod_grade": "Grade: {0}"
+    "mod_grade": "Grade: {0}",
+    "has_elemental_affix": "Any",
+    "has_elemental_fire_affix": "Fire",
+    "has_elemental_cold_affix": "Cold",
+    "has_elemental_lightning_affix": "Lightning"
   },
   "item_category": {
     "prop": "カテゴリー: {0}",

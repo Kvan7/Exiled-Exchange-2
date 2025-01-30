@@ -87,7 +87,11 @@
     "foil_unique": "반짝이",
     "mirrored": "복제된",
     "not_mirrored": "복제되지 않은",
-    "mod_grade": "Grade: {0}"
+    "mod_grade": "Grade: {0}",
+    "has_elemental_affix": "Any",
+    "has_elemental_fire_affix": "Fire",
+    "has_elemental_cold_affix": "Cold",
+    "has_elemental_lightning_affix": "Lightning"
   },
   "item_category": {
     "prop": "유형: {0}",
