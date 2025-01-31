@@ -217,10 +217,15 @@ export interface SearchResult {
 interface FetchResult {
   id: string;
   item: {
+    name?: string;
+    typeLine?: string;
+    baseType?: string;
+    rarity?: string;
     ilvl?: number;
     stackSize?: number;
     corrupted?: boolean;
     gemSockets?: string[];
+    note?: string;
     properties?: Array<{
       values: [[string, number]];
       type:
@@ -229,10 +234,9 @@ interface FetchResult {
         | 6 // Quality
         | 5; // Level
     }>;
-    note?: string;
+    runeMods?: string[];
     implicitMods?: string[];
     explicitMods?: string[];
-    runeMods?: string[];
     extended?: {
       dps?: number;
       pdps?: number;
@@ -240,6 +244,34 @@ interface FetchResult {
       ar?: number;
       ev?: number;
       es?: number;
+      mods?: {
+        explicit?: Array<{
+          name: string;
+          tier: string;
+          level: number;
+          magnitudes: Array<{
+            hash: string;
+            min: string;
+            max: string;
+          }>;
+        }>;
+        implicit?: Array<{
+          name: string;
+          tier: string;
+          level: number;
+          magnitudes: Array<{
+            hash: string;
+            min: string;
+            max: string;
+          }>;
+        }>;
+      };
+      hashes?: {
+        explicit?: Array<[string, number[]]>;
+        rune?: Array<[string, null]>;
+        implicit?: Array<[string, number[]]>;
+        pseudo?: Array<[string, null]>;
+      };
     };
     pseudoMods?: string[];
   };
@@ -252,6 +284,22 @@ interface FetchResult {
     };
     account: Account;
   };
+}
+
+export interface TradeMod {
+  text: string;
+  name: string;
+  tier: string;
+  level: number;
+  hash: string;
+  magnitudes: Array<{ min: number; max: number }>;
+}
+
+interface DetailedDisplayItem {
+  runeMods?: TradeMod[];
+  implicitMods?: TradeMod[];
+  explicitMods?: TradeMod[];
+  pseudoMods?: TradeMod[];
 }
 
 export interface DisplayItem {
@@ -279,6 +327,7 @@ export interface PricingResult {
   accountStatus: "offline" | "online" | "afk";
   ign: string;
   displayItem: DisplayItem;
+  detailedDisplayItem: DetailedDisplayItem;
 }
 
 export function createTradeRequest(
@@ -851,6 +900,80 @@ export async function requestTradeResultList(
   return data;
 }
 
+function transformToTradeMods(
+  modStrings: string[],
+  hashes: Array<[string, number[] | null]>,
+  modDetails: Array<{
+    name: string;
+    tier: string;
+    level: number;
+    magnitudes: Array<{ hash: string; min: string; max: string }>;
+  }>,
+): TradeMod[] {
+  return modStrings.map((mod, index) => {
+    if (index >= hashes.length) {
+      return {
+        text: mod,
+        name: "Unknown",
+        tier: "Unknown",
+        level: 0,
+        hash: "",
+        magnitudes: [],
+      };
+    }
+    const matchedHashEntry = hashes[index];
+
+    const [hash, modIndexes] = matchedHashEntry;
+    const matchedModDetail = (
+      modIndexes === null
+        ? modDetails
+        : modIndexes.map((i) => modDetails[i]).filter(Boolean)
+    )[0]; // Apply to all if null
+
+    return {
+      text: mod,
+      name: matchedModDetail?.name || "Unknown",
+      tier: matchedModDetail?.tier || "Unknown",
+      level: matchedModDetail?.level || 0,
+      hash,
+      magnitudes:
+        matchedModDetail?.magnitudes.map((m) => ({
+          min: parseFloat(m.min),
+          max: parseFloat(m.max),
+        })) || [],
+    };
+  });
+}
+
+function reduceResultItem(apiData: FetchResult["item"]): DetailedDisplayItem {
+  return {
+    runeMods: transformToTradeMods(
+      apiData.runeMods || [],
+      apiData.extended?.hashes?.rune || [],
+      apiData.extended?.mods?.explicit || [],
+    ),
+    implicitMods: transformToTradeMods(
+      apiData.implicitMods || [],
+      apiData.extended?.hashes?.implicit || [],
+      apiData.extended?.mods?.implicit || [],
+    ),
+    explicitMods: transformToTradeMods(
+      apiData.explicitMods || [],
+      apiData.extended?.hashes?.explicit || [],
+      apiData.extended?.mods?.explicit || [],
+    ),
+    pseudoMods:
+      apiData.pseudoMods?.map((mod) => ({
+        text: mod,
+        name: "Pseudo",
+        tier: "",
+        level: 0,
+        hash: "",
+        magnitudes: [],
+      })) || [],
+  };
+}
+
 export async function requestResults(
   queryId: string,
   resultIds: string[],
@@ -917,18 +1040,23 @@ export async function requestResults(
 
             return {
               text: labels[key] || `${key}: `,
-              value: Math.round(value),
+              value: Math.round(value as number),
             };
           })
       : undefined;
 
-    const displayItem: PricingResult["displayItem"] = {
+    const displayItem: DisplayItem = {
       runeMods,
       implicitMods,
       explicitMods,
       pseudoMods,
       extended,
     };
+
+    const detailedDisplayItem: DetailedDisplayItem = reduceResultItem(
+      result.item,
+    );
+
     return {
       id: result.id,
       itemLevel:
@@ -957,6 +1085,7 @@ export async function requestResults(
           : "online"
         : "offline",
       displayItem,
+      detailedDisplayItem,
     };
   });
 }
