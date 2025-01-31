@@ -59,6 +59,7 @@ function mapItemCategoryToKeys(itemCategory: ItemCategory): string[] {
     [ItemCategory.Focus]: ["focus", "armour"],
     [ItemCategory.Waystone]: [""],
     [ItemCategory.Relic]: [""],
+    [ItemCategory.Tablet]: [""],
   };
 
   return categoryMap[itemCategory] || [itemCategory.toLowerCase()];
