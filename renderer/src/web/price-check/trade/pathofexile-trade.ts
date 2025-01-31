@@ -927,7 +927,7 @@ function transformToTradeMods(
     )[0]; // Apply to all if null
 
     return {
-      text: mod,
+      text: parseAffixStrings(mod),
       name: matchedModDetail?.name || "Unknown",
       tier: matchedModDetail?.tier || "Unknown",
       level: matchedModDetail?.level || 0,
@@ -1053,7 +1053,7 @@ export async function requestResults(
 
     const resultMods = reduceResultItem(result.item);
     const detailedDisplayItem: PricingResult["detailedDisplayItem"] =
-      linkTradeModsToItem(resultMods, item.statsByType);
+      linkTradeModsToItem(resultMods, item.statsByType, displayItem);
 
     return {
       id: result.id,
