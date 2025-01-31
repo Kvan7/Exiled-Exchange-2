@@ -202,6 +202,7 @@ function useTradeApi() {
                 _searchResult.id,
                 _searchResult.result.slice(0, 10),
                 { accountName: AppConfig().accountName },
+                item,
               ).then((results) => {
                 _fetchResults.push(...results);
               })
@@ -212,6 +213,7 @@ function useTradeApi() {
                 _searchResult.id,
                 _searchResult.result.slice(10, 20),
                 { accountName: AppConfig().accountName },
+                item,
               ).then((results) =>
                 r1.then(() => {
                   _fetchResults.push(...results);
@@ -269,6 +271,7 @@ function useTradeApi() {
             _searchResult.id,
             _searchResult.result.slice(fetched, fetched + 10),
             { accountName: AppConfig().accountName },
+            item,
           ).then((results) => {
             _fetchResults.push(...results);
           });

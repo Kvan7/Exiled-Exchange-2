@@ -24,6 +24,7 @@ import { ModifierType } from "@/parser/modifiers";
 import { Cache } from "./Cache";
 import { filterInPseudo } from "../filters/pseudo";
 import { parseAffixStrings } from "@/parser/Parser";
+import { linkTradeModsToItem } from "./statLinker";
 
 export const CATEGORY_TO_TRADE_ID = new Map([
   [ItemCategory.Map, "map"],
@@ -295,13 +296,6 @@ export interface TradeMod {
   magnitudes: Array<{ min: number; max: number }>;
 }
 
-interface DetailedDisplayItem {
-  runeMods?: TradeMod[];
-  implicitMods?: TradeMod[];
-  explicitMods?: TradeMod[];
-  pseudoMods?: TradeMod[];
-}
-
 export interface DisplayItem {
   runeMods?: string[];
   implicitMods?: string[];
@@ -327,7 +321,9 @@ export interface PricingResult {
   accountStatus: "offline" | "online" | "afk";
   ign: string;
   displayItem: DisplayItem;
-  detailedDisplayItem: DetailedDisplayItem;
+  detailedDisplayItem: {
+    [ref: string]: TradeMod;
+  };
 }
 
 export function createTradeRequest(
@@ -937,47 +933,49 @@ function transformToTradeMods(
       level: matchedModDetail?.level || 0,
       hash,
       magnitudes:
-        matchedModDetail?.magnitudes.map((m) => ({
-          min: parseFloat(m.min),
-          max: parseFloat(m.max),
-        })) || [],
+        matchedModDetail?.magnitudes
+          .filter((mag) => mag.hash === hash)
+          .map((m) => ({
+            min: parseFloat(m.min),
+            max: parseFloat(m.max),
+          })) || [],
     };
   });
 }
 
-function reduceResultItem(apiData: FetchResult["item"]): DetailedDisplayItem {
-  return {
-    runeMods: transformToTradeMods(
+function reduceResultItem(apiData: FetchResult["item"]): TradeMod[] {
+  return [
+    ...transformToTradeMods(
       apiData.runeMods || [],
       apiData.extended?.hashes?.rune || [],
       apiData.extended?.mods?.explicit || [],
     ),
-    implicitMods: transformToTradeMods(
+    ...transformToTradeMods(
       apiData.implicitMods || [],
       apiData.extended?.hashes?.implicit || [],
       apiData.extended?.mods?.implicit || [],
     ),
-    explicitMods: transformToTradeMods(
+    ...transformToTradeMods(
       apiData.explicitMods || [],
       apiData.extended?.hashes?.explicit || [],
       apiData.extended?.mods?.explicit || [],
     ),
-    pseudoMods:
-      apiData.pseudoMods?.map((mod) => ({
-        text: mod,
-        name: "Pseudo",
-        tier: "",
-        level: 0,
-        hash: "",
-        magnitudes: [],
-      })) || [],
-  };
+    ...(apiData.pseudoMods?.map((mod) => ({
+      text: mod,
+      name: "Pseudo",
+      tier: "",
+      level: 0,
+      hash: "",
+      magnitudes: [],
+    })) || []),
+  ];
 }
 
 export async function requestResults(
   queryId: string,
   resultIds: string[],
   opts: { accountName: string },
+  item: ParsedItem,
 ): Promise<PricingResult[]> {
   let data = cache.get<FetchResult[]>(resultIds);
 
@@ -1053,9 +1051,9 @@ export async function requestResults(
       extended,
     };
 
-    const detailedDisplayItem: DetailedDisplayItem = reduceResultItem(
-      result.item,
-    );
+    const resultMods = reduceResultItem(result.item);
+    const detailedDisplayItem: PricingResult["detailedDisplayItem"] =
+      linkTradeModsToItem(resultMods, item.statsByType);
 
     return {
       id: result.id,
