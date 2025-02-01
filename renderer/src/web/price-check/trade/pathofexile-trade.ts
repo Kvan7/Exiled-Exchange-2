@@ -757,6 +757,26 @@ export function createTradeRequest(
     if (weightGroups && filterInPseudo(stat)) {
       overrideDisabled = true;
     }
+
+    if (stat.statRef === "Only affects Passives in # Ring") {
+      const metaSource = stat.roll!;
+      const metamorphosisCount = metaSource.bounds!.max;
+      const metamorphosisCurrent = metaSource.min as number;
+      const builtTradeFilter = Array.from(
+        { length: metamorphosisCount - metamorphosisCurrent + 1 },
+        (_, index) => ({
+          id: `${stat.tradeId[0]}|${metamorphosisCurrent + index}`,
+        }),
+      );
+      query.stats.push({
+        type: "count",
+        value: { min: 1 },
+        disabled: stat.disabled,
+        filters: builtTradeFilter,
+      });
+      continue;
+    }
+
     if (stat.tradeId[0].startsWith("pseudo.")) {
       query.stats.push(pseudoPseudoToQuery(stat.tradeId[0], stat));
     } else if (stat.tradeId.length === 1) {

@@ -324,12 +324,10 @@ export function tryParseTranslation(
         }
       } else {
         if (item.info.refName === "Controlled Metamorphosis") {
-          const matchedName = found.matcher.string;
           const matchers = found.stat.matchers.map((matcher) => matcher.string);
-          const matcherValue = matchers.indexOf(matchedName) + 1;
           combination.values = [
             {
-              roll: matcherValue,
+              roll: found.matcher.value!,
               decimal: false,
               bounds: {
                 min: 1,

@@ -1102,7 +1102,7 @@ class Parser:
             self.lang
         ]
         self.mods["local_jewel_variable_ring_radius_value"] = {
-            "ref": "Only affects Passives in Very Small Ring",
+            "ref": "Only affects Passives in # Ring",
             "better": 1,
             "id": "local_jewel_variable_ring_radius_value",
             "matchers": controlled_metamorphosis,
