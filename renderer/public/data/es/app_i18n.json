@@ -271,6 +271,8 @@
     "examples_name": "Filtrar por nombre (para Amuleto Estelar)",
     "examples_name_multi": "Filtrar por nombre (para frascos)",
     "examples_complex": "Filtrar por amuletos que cayeron en el mapa bajo el nivel 50 (nivel del mapa, no nivel del altar)",
+    "examples2_header": "Ejemplos para los estilos",
+    "examples_fallback": "Estilo de respaldo",
     "base_type_note": "Nota: Las claves distinguen entre mayúsculas y minúsculas, ej: BaseType"
   },
   "image_strip": {

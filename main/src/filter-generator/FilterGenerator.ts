@@ -1,6 +1,6 @@
 import type { Logger } from "../RemoteLogger";
 import type { ServerEvents } from "../server";
-import {type IRawFilter, IRawStyles} from "./data/IFilter";
+import type { IRawFilter, IRawStyles } from "./data/IFilter";
 import getFiltersContent from "./utils/builder";
 import getFilters from "./utils/parseRawFilters";
 import path from "node:path";

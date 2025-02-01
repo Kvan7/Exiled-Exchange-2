@@ -44,6 +44,7 @@
     <p class="mb-4 ml-1">
       {{ t("filter_generator.base_type_note") }}
     </p>
+
     <h2 class="text-lg mb-1">{{ t("filter_generator.examples_header") }}</h2>
     <div class="grid grid-cols-2 gap-1 ml-1">
       <div class="col-span-2 p-1 border-2 border-gray-600">
@@ -73,6 +74,21 @@
       <div>Belts</div>
       <div>AreaLevel</div>
       <div>&lt; 50</div>
+    </div>
+
+    <h2 class="text-lg mb-1 mt-4">
+      {{ t("filter_generator.examples2_header") }}
+    </h2>
+    <div class="grid grid-cols-2 gap-1 ml-1">
+      <div class="col-span-2 p-1 border-2 border-gray-600">
+        {{ t("filter_generator.examples_fallback") }}
+      </div>
+      <div>SetTextColor</div>
+      <div>255 255 255 150</div>
+      <div>SetBackgroundColor</div>
+      <div>249 150 25 150</div>
+      <div>SetBorderColor</div>
+      <div>249 150 25 255</div>
     </div>
   </div>
 </template>

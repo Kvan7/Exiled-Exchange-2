@@ -281,7 +281,9 @@
     "examples_name": "Фильтрация по имени (Звёздный амулет)",
     "examples_name_multi": "Фильтрация по имени (флаконы)",
     "examples_complex": "Фильтрация амулетов, выпадающих на локациях до 50 уровня (уровень локации, не тир карты)",
-    "base_type_note": "Note: Keys are case-sensitive, ei: BaseType"
+    "examples2_header": "Примеры для Стили",
+    "examples_fallback": "Запасной стиль",
+    "base_type_note": "Note: Keys are case-sensitive, i.e.: BaseType"
   },
   "image_strip": {
     "name": "Лента изображений"

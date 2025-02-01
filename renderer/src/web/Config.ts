@@ -550,6 +550,8 @@ function upgradeConfig(_config: Config): Config {
       )! as FilterGeneratorWidget;
       filterGeneratorWidget.styles = defaultWidgetSettings.styles;
     }
+
+    config.configVersion = 24;
   }
 
   if (config.logKeys === undefined) {

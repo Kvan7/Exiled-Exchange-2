@@ -266,7 +266,9 @@
     "examples_name": "Filtering by name (for Stellar Amulet)",
     "examples_name_multi": "Filtering by name (for Flasks)",
     "examples_complex": "Filtering by amulets that dropped on map under level 50 (map level, not waystone tier)",
-    "base_type_note": "Note: Keys are case-sensitive, ei: BaseType"
+    "examples2_header": "Examples for styles",
+    "examples_fallback": "Fallback style",
+    "base_type_note": "Note: Keys are case-sensitive, i.e.: BaseType"
   },
   "image_strip": {
     "name": "画像貼り付け"
