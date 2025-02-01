@@ -397,7 +397,7 @@
     "tip_14": "Der Button \"Pseudo\" öffnet ebenfalls die Handelsseite, jedoch mit Resistenzen als simulierte Pseudo-Gewichtssumme.",
     "tip_15": "Du kannst \"Profil\" verwenden, um verschiedene Map-Check-Auswahlen für unterschiedliche Charaktere zu speichern.",
     "tip_16": "Verwende \"Im Stash suchen\", um nach einem Basistyp in deinem Stash zu suchen.",
-    "tip_17": "Wir reden nicht über Exiled Exchange 1.",
+    "tip_17": "Mit \"Online-Filter\" kannst du erweiterte Meta-Filteroptionen wie \"Nur Exalted\" oder \"Offline & Online\" nutzen.",
     "tip_18": "Viel Spaß!",
     "tip_19": "Wenn du etwas im Spiel timen möchtest, kannst du das Widget \"Stoppuhr\" verwenden.",
     "tip_20": "Falls du auf Probleme stößt, melde diese bitte auf GitHub.",
@@ -410,6 +410,6 @@
     "tip_27": "Logs werden im Tab \"Debug\" in den Einstellungen angezeigt.",
     "tip_28": "Du kannst deine Liga in den Einstellungen ändern.",
     "tip_29": "Du kannst in den Einstellungen benutzerdefinierte Chat-Befehl-Hotkeys hinzufügen.",
-    "tip_30": "Mit \"Online-Filter\" kannst du erweiterte Meta-Filteroptionen wie \"Nur Exalted\" oder \"Offline & Online\" nutzen."
+    "tip_30": "Wir reden nicht über Exiled Exchange 1."
   }
 }

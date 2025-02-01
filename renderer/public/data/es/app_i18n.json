@@ -421,7 +421,7 @@
     "tip_14": "The \"Pseudo\" button will open the trade site also, but with resistances as a fake pseudo weighted sum",
     "tip_15": "You can use \"Profile\" to save different map check selections for different characters",
     "tip_16": "Use \"Find in Stash\" to search for a base type in your stash",
-    "tip_17": "We don't talk about Exiled Exchange 1",
+    "tip_17": "Using \"Online filter\" allows you to use more meta filtering options like \"Exalted only\" or \"Offline & Online\"",
     "tip_19": "If you want to time something in the game, you can use the \"Stopwatch\" widget",
     "tip_20": "If you experience any issues, please report them on GitHub",
     "tip_21": "You can use the \"Stash search\" widget to search for items in your stash",
@@ -433,6 +433,6 @@
     "tip_27": "Logs are shown under the \"Debug\" tab in settings",
     "tip_28": "You can change your league in the settings",
     "tip_29": "You can add custom chat command hotkeys in the settings",
-    "tip_30": "Using \"Online filter\" allows you to use more meta filtering options like \"Exalted only\" or \"Offline & Online\""
+    "tip_30": "We don't talk about Exiled Exchange 1"
   }
 }

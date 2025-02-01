@@ -1,6 +1,6 @@
 import { TipsFrequency } from "../Config";
 
-export const TIP_COUNT = 30; // v0.7.0
+export const TIP_COUNT = 29; // v0.7.0
 
 export function randomTip(): number {
   // random from 1 to TIP_COUNT
