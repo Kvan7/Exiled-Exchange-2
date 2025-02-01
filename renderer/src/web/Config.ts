@@ -146,7 +146,6 @@ export interface Config {
   overlayAlwaysClose: boolean;
   enableAlphas: boolean;
   alphas: [];
-  startupTips: boolean;
   tipsFrequency: TipsFrequency;
 }
 
@@ -221,7 +220,6 @@ export const defaultConfig = (): Config => ({
   ),
   enableAlphas: false,
   alphas: [],
-  startupTips: true,
   tipsFrequency: 1,
 });
 
@@ -506,7 +504,7 @@ function upgradeConfig(_config: Config): Config {
     // NOTE: v0.7.0
     config.widgets.find(
       (w) => w.wmType === "price-check",
-    )!.autoFillEmptyRuneSockets = "Iron Rune";
+    )!.autoFillEmptyRuneSockets = false;
 
     for (const widget of config.widgets) {
       for (let i = 0; i < widget.wmFlags.length; ++i) {
@@ -535,7 +533,6 @@ function upgradeConfig(_config: Config): Config {
     config.widgets.find((w) => w.wmType === "price-check")!.tierNumbering =
       "poe2";
 
-    config.startupTips = true;
     config.tipsFrequency = TipsFrequency.Normal;
 
     config.configVersion = 22;

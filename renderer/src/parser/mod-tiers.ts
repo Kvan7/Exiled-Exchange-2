@@ -60,6 +60,7 @@ function mapItemCategoryToKeys(itemCategory: ItemCategory): string[] {
     [ItemCategory.Waystone]: [""],
     [ItemCategory.Relic]: [""],
     [ItemCategory.Tablet]: [""],
+    [ItemCategory.TowerAugment]: [""],
   };
 
   return categoryMap[itemCategory] || [itemCategory.toLowerCase()];

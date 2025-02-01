@@ -1,9 +1,6 @@
 <template>
   <div class="max-w-md p-2 h-full flex flex-col justify-between">
     <div>
-      <ui-checkbox class="mb-4" v-model="startupTips">{{
-        t(":show_tips_on_startup")
-      }}</ui-checkbox>
       <div class="mb-4">
         <div class="flex-1 mb-1">{{ t(":show_tips_frequency") }}</div>
         <select v-model="tipsFrequency" class="p-1 rounded bg-gray-700 w-24">
@@ -95,7 +92,6 @@ export default defineComponent({
 
     return {
       t,
-      startupTips: configModelValue(() => props.config, "startupTips"),
       tipsFrequency: configModelValue(() => props.config, "tipsFrequency"),
       currentTip,
       showNext,
