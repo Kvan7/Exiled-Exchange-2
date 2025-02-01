@@ -1,25 +1,17 @@
-import { type IFilter, type IRawFilter } from "../data/IFilter";
+import {type IFilter, type IRawFilter, IRawStyles} from "../data/IFilter";
 import { FONT_SIZE, RGBA } from "../data/vars";
 
-const modifiers = {
-  exalt: {
-    SetFontSize: FONT_SIZE.T2,
-    SetTextColor: RGBA.BLACK(),
-    SetBorderColor: RGBA.BLACK(),
-    SetBackgroundColor: RGBA.EXALT(),
-    PlayEffect: "White",
-    MinimapIcon: "2 Orange Circle",
-  },
-  interesting: {
-    SetTextColor: RGBA.WHITE(150),
-    SetBackgroundColor: RGBA.EXALT(150),
-    SetBorderColor: RGBA.EXALT(),
-  },
+const fallbackModifiers = {
+  SetTextColor: RGBA.WHITE(150),
+  SetBackgroundColor: RGBA.EXALT(150),
+  SetBorderColor: RGBA.EXALT(),
 };
 
 export default function parseRawFilters(
-  rawFilters: Array<IRawFilter>
+  rawFilters: Array<IRawFilter>,
+  styles: Array<IRawStyles>
 ): Array<IFilter> {
+  const getStyle = getStylesFunction(styles);
   return rawFilters
     .filter((filter: IRawFilter) => {
       const identifiersCount = filter.identifiers.filter(
@@ -47,6 +39,20 @@ export default function parseRawFilters(
       ),
       hide: filter.action === "hide",
       modifiers:
-        filter.action !== "hide" ? modifiers[filter.action] : undefined,
+        filter.action !== "hide" ? getStyle(filter.action) : undefined,
     }));
+}
+
+function getStylesFunction(allStyles: Array<IRawStyles>) {
+  return (styleName: string) => {
+    const style = allStyles.find(_ => _.name === styleName);
+    if (!style) {
+      return fallbackModifiers;
+    }
+
+    return Object.values(style.rules).reduce((result, next) => {
+      result[next.key] = next.value;
+      return result;
+    }, {} as Record<string, string>)
+  }
 }

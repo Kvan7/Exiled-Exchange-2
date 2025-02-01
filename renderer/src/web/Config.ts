@@ -7,6 +7,7 @@ import type { StashSearchWidget } from "./stash-search/widget";
 import type { ItemCheckWidget } from "./item-check/widget";
 import type { ItemSearchWidget } from "./item-search/widget";
 import { registry as widgetRegistry } from "./overlay/widget-registry.js";
+import { FilterGeneratorWidget } from "@/web/filter-generator/widget";
 
 const _config = shallowRef<Config | null>(null);
 let _lastSavedConfig: Config | null = null;
@@ -150,7 +151,7 @@ export interface Config {
 }
 
 export const defaultConfig = (): Config => ({
-  configVersion: 22,
+  configVersion: 24,
   overlayKey: "Shift + Space",
   overlayBackground: "rgba(129, 139, 149, 0.15)",
   overlayBackgroundClose: true,
@@ -536,6 +537,19 @@ function upgradeConfig(_config: Config): Config {
     config.tipsFrequency = TipsFrequency.Normal;
 
     config.configVersion = 22;
+  }
+
+  if (config.configVersion < 24) {
+    const filterGeneratorWidget = config.widgets.find(
+      (w) => w.wmType === "filter-generator",
+    );
+
+    if (filterGeneratorWidget && !filterGeneratorWidget.styles) {
+      const defaultWidgetSettings = defaultConfig().widgets.find(
+        (w) => w.wmType === "filter-generator",
+      )! as FilterGeneratorWidget;
+      filterGeneratorWidget.styles = defaultWidgetSettings.styles;
+    }
   }
 
   if (config.logKeys === undefined) {

@@ -247,6 +247,7 @@
   "filter_generator": {
     "name": "Generador de Filtros",
     "editor": "Editor",
+    "styles": "Estilos",
     "open_settings": "Editar reglas adicionales",
     "update_filter": "Actualizar",
     "update_disclaimer": "Después de actualizarlo, recuerda refrescar el filtro en Configuración > Juego",
@@ -255,6 +256,7 @@
     "identifier_key": "Clave",
     "identifier_value": "Valor",
     "identifier_add": "Agregar identificador",
+    "rule_add": "Agregar regla",
     "about_folder": "Ubicación de la carpeta de archivos de filtro (cambiar solo si no está poblada por defecto o es inválida)",
     "about_file_select": "Seleccionar qué archivo de filtro se actualizará con tus reglas personalizadas:",
     "about_strategy_select": "El filtro adicional se pondrá entre comentarios dedicados. Si el archivo de filtro no tiene esos comentarios, coloca reglas adicionales en:",

@@ -1,6 +1,6 @@
 import type { Logger } from "../RemoteLogger";
 import type { ServerEvents } from "../server";
-import { type IRawFilter } from "./data/IFilter";
+import {type IRawFilter, IRawStyles} from "./data/IFilter";
 import getFiltersContent from "./utils/builder";
 import getFilters from "./utils/parseRawFilters";
 import path from "node:path";
@@ -29,6 +29,7 @@ export class FilterGenerator {
               file: string;
               strategy: "before" | "after";
               rules: Array<IRawFilter>;
+              styles: Array<IRawStyles>;
             }
           );
           return;
@@ -46,6 +47,7 @@ export class FilterGenerator {
     file: string;
     strategy: "before" | "after";
     rules: Array<IRawFilter>;
+    styles: Array<IRawStyles>;
   }) {
     this.logger.write(
       "info  [FilterGenerator] Received filter generation request"
@@ -75,7 +77,7 @@ export class FilterGenerator {
     }
 
     try {
-      const customFilters = getFilters(event.rules);
+      const customFilters = getFilters(event.rules, event.styles);
       newFilterFileContent = getFiltersContent(
         event.strategy,
         oldFilterFileContent,
