@@ -70,6 +70,7 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseArmour,
   parseWeapon,
   parseFlask,
+  parseJewelery,
   parseCharmSlots,
   parseSpirit,
   parsePriceNote,
@@ -1066,6 +1067,24 @@ function parseFlask(section: string[], item: ParsedItem) {
   }
 
   return isParsed;
+}
+
+function parseJewelery(section: string[], item: ParsedItem) {
+  if (
+    item.category !== ItemCategory.Amulet &&
+    item.category !== ItemCategory.Ring &&
+    item.category !== ItemCategory.Belt
+  ) {
+    return "PARSER_SKIPPED";
+  }
+
+  for (const line of section) {
+    if (line.startsWith(_$.QUALITY.substring(0, _$.QUALITY.indexOf(":")))) {
+      return "SECTION_PARSED";
+    }
+  }
+
+  return "SECTION_SKIPPED";
 }
 
 function parseCharmSlots(section: string[], item: ParsedItem) {
