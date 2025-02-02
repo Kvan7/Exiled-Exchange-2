@@ -95,13 +95,11 @@ export default defineComponent({
       title: configModelValue(() => props.configWidget, "wmTitle"),
       entries: configModelValue(() => props.configWidget, "entries"),
       removeEntry(id: number) {
-        console.log(props.configWidget.entries);
         props.configWidget.entries = props.configWidget.entries.filter(
           (_) => _.id !== id,
         );
       },
       addEntry() {
-        console.log(...props.configWidget.entries.map((_) => _.id));
         props.configWidget.entries.push({
           id: Math.max(0, ...props.configWidget.entries.map((_) => _.id)) + 1,
           name: "",

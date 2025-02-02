@@ -244,6 +244,14 @@
     "search_text": "buscar texto o expresión regular",
     "friendly_name": "nombre amigable"
   },
+  "trade_viewer": {
+    "name": "Visor de Intercambios",
+    "price": "Precio:",
+    "tab": "Pestaña de alijo",
+    "links": "izquierda",
+    "top": "arriba",
+    "thanks": "¡Gracias!"
+  },
   "filter_generator": {
     "name": "Generador de Filtros",
     "editor": "Editor",

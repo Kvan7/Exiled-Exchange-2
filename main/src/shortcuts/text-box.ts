@@ -13,8 +13,9 @@ const AUTO_CLEAR = [
   '/' // Command
 ]
 
-export function typeInChat (text: string, send: boolean, clipboard: HostClipboard) {
+export function typeInChat (text: string, send: boolean, clipboard: HostClipboard, overlay: OverlayWindow) {
   clipboard.restoreShortly((clipboard) => {
+    overlay.assertGameActive();
     const modifiers = process.platform === 'darwin' ? [Key.Meta] : [Key.Ctrl]
 
     if (text.startsWith(PLACEHOLDER_LAST)) {

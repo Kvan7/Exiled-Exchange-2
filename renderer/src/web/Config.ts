@@ -150,7 +150,7 @@ export interface Config {
 }
 
 export const defaultConfig = (): Config => ({
-  configVersion: 22,
+  configVersion: 23,
   overlayKey: "Shift + Space",
   overlayBackground: "rgba(129, 139, 149, 0.15)",
   overlayBackgroundClose: true,
@@ -536,6 +536,16 @@ function upgradeConfig(_config: Config): Config {
     config.tipsFrequency = TipsFrequency.Normal;
 
     config.configVersion = 22;
+  }
+
+  if (config.configVersion < 23) {
+    config.widgets.push({
+      ...defaultConfig().widgets.find((w) => w.wmType === "trade-viewer")!,
+      wmId: Math.max(0, ...config.widgets.map((_) => _.wmId)) + 1,
+      wmZorder: null,
+    });
+
+    config.configVersion = 23;
   }
 
   if (config.logKeys === undefined) {
