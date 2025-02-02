@@ -538,6 +538,11 @@ function upgradeConfig(_config: Config): Config {
           widget.wmFlags[i] = "menu::skip";
         }
       }
+      if (widget.wmType === "settings") {
+        widget.wmFlags = widget.wmFlags.filter(
+          (flag: string) => !flag.startsWith("settings::"),
+        );
+      }
     }
 
     const itemSearch = config.widgets.find(
