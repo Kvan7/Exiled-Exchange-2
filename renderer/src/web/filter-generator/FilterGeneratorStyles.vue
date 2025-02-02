@@ -3,13 +3,13 @@
     <dnd-container
       tag="div"
       class="flex flex-col gap-y-2"
-      v-model="entries"
+      v-model="styles"
       item-key="id"
       handle="[data-qa=drag-handle]"
       :animation="200"
       :force-fallback="true"
     >
-      <template #item="{ element: entry }">
+      <template #item="{ element: style }">
         <div
           class="grid gap-0.5"
           style="grid-template-columns: auto 1fr auto auto"
@@ -21,56 +21,44 @@
             <i class="fas fa-grip-vertical text-gray-400" />
           </button>
           <input
-            v-model="entry.name"
+            v-model="style.name"
             :placeholder="t('filter_generator.friendly_name')"
             class="px-1 col-span-2 leading-6"
           />
           <button
             class="leading-none rounded-r bg-gray-700 w-6 h-6"
-            @click="removeEntry(entry.id)"
+            @click="removeStyle(style)"
           >
             <i class="fas fa-times text-gray-400" />
           </button>
-          <select
-            v-model="entry.action"
-            class="p-1 rounded bg-gray-700 col-start-2"
-          >
-            <option v-for="style in styles" :value="style.name">
-              Show as {{ style.name }}
-            </option>
-            <option value="hide">Hide</option>
-          </select>
-          <div
-            v-for="(identifier, identifierIdx) in entry.identifiers"
-            :class="$style.identifiers"
-          >
+          <div v-for="(rule, ruleIdx) in style.rules" :class="$style.rules">
             <input
-              v-model="identifier.key"
+              v-model="rule.key"
               :placeholder="t('filter_generator.identifier_key')"
               class="bg-gray-700 px-1 col-start-1 rounded"
             />
             <input
-              v-model="identifier.value"
+              v-model="rule.value"
               :placeholder="t('filter_generator.identifier_value')"
               class="bg-gray-700 px-1 col-start-2 rounded"
             />
             <button
               class="rounded-r bg-gray-700 w-6 h-6 col-start-3"
-              @click="removeIdentifier(entry, identifierIdx)"
+              @click="removeRule(style, ruleIdx)"
             >
               <i class="fas fa-times text-gray-400" />
             </button>
           </div>
           <button
             class="rounded-r bg-gray-900 px-2 col-start-2 leading-6"
-            @click="addIdentifier(entry)"
+            @click="addRule(style)"
           >
-            {{ t("filter_generator.identifier_add") }}
+            {{ t("filter_generator.rule_add") }}
           </button>
         </div>
       </template>
     </dnd-container>
-    <button class="btn mt-2" style="min-width: 6rem" @click="addEntry">
+    <button class="btn mt-2" style="min-width: 6rem" @click="addStyle">
       {{ t("Add") }}
     </button>
   </div>
@@ -85,7 +73,7 @@ import { configProp, configModelValue } from "../settings/utils.js";
 import type { FilterGeneratorWidget } from "./widget.js";
 
 export default defineComponent({
-  name: "filter_generator.editor",
+  name: "filter_generator.styles",
   components: { DndContainer, HotkeyInput },
   props: configProp<FilterGeneratorWidget>(),
   setup(props) {
@@ -94,34 +82,29 @@ export default defineComponent({
     return {
       t,
       title: configModelValue(() => props.configWidget, "wmTitle"),
-      entries: configModelValue(() => props.configWidget, "entries"),
       styles: configModelValue(() => props.configWidget, "styles"),
-      removeEntry(id: number) {
-        console.log(props.configWidget.entries);
-        props.configWidget.entries = props.configWidget.entries.filter(
-          (_) => _.id !== id,
+      removeStyle(style: FilterGeneratorWidget["styles"][number]) {
+        props.configWidget.styles = props.configWidget.styles.filter(
+          (_) => _ !== style,
         );
       },
-      addEntry() {
-        console.log(...props.configWidget.entries.map((_) => _.id));
-        props.configWidget.entries.push({
-          id: Math.max(0, ...props.configWidget.entries.map((_) => _.id)) + 1,
+      addStyle() {
+        props.configWidget.styles.push({
           name: "",
-          identifiers: [{ key: "", value: "" }],
-          action: "hide",
+          rules: [{ key: "", value: "" }],
         });
       },
-      addIdentifier(entry: FilterGeneratorWidget["entries"][number]) {
-        entry.identifiers.push({
+      addRule(style: FilterGeneratorWidget["styles"][number]) {
+        style.rules.push({
           key: "",
           value: "",
         });
       },
-      removeIdentifier(
-        entry: FilterGeneratorWidget["entries"][number],
-        identifierIdx: number,
+      removeRule(
+        style: FilterGeneratorWidget["styles"][number],
+        ruleIdx: number,
       ) {
-        entry.identifiers.splice(identifierIdx, 1);
+        style.rules.splice(ruleIdx, 1);
       },
     };
   },
@@ -129,7 +112,7 @@ export default defineComponent({
 </script>
 
 <style lang="postcss" module>
-.identifiers {
+.rules {
   @apply grid;
   @apply gap-0.5;
   @apply col-start-2;

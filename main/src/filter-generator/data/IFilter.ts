@@ -12,5 +12,10 @@ export interface IFilter {
 export interface IRawFilter {
   name: string;
   identifiers: Array<{ key: string; value: string }>;
-  action: "interesting" | "exalt" | "hide";
+  action: string;
+}
+
+export interface IRawStyles {
+  name: string;
+  rules: Array<{ key: string; value: string }>;
 }

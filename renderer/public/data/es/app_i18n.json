@@ -247,6 +247,7 @@
   "filter_generator": {
     "name": "Generador de Filtros",
     "editor": "Editor",
+    "styles": "Estilos",
     "open_settings": "Editar reglas adicionales",
     "update_filter": "Actualizar",
     "update_disclaimer": "Después de actualizarlo, recuerda refrescar el filtro en Configuración > Juego",
@@ -255,6 +256,7 @@
     "identifier_key": "Clave",
     "identifier_value": "Valor",
     "identifier_add": "Agregar identificador",
+    "rule_add": "Agregar regla",
     "about_folder": "Ubicación de la carpeta de archivos de filtro (cambiar solo si no está poblada por defecto o es inválida)",
     "about_file_select": "Seleccionar qué archivo de filtro se actualizará con tus reglas personalizadas:",
     "about_strategy_select": "El filtro adicional se pondrá entre comentarios dedicados. Si el archivo de filtro no tiene esos comentarios, coloca reglas adicionales en:",
@@ -269,6 +271,8 @@
     "examples_name": "Filtrar por nombre (para Amuleto Estelar)",
     "examples_name_multi": "Filtrar por nombre (para frascos)",
     "examples_complex": "Filtrar por amuletos que cayeron en el mapa bajo el nivel 50 (nivel del mapa, no nivel del altar)",
+    "examples2_header": "Ejemplos para los estilos",
+    "examples_fallback": "Estilo de respaldo",
     "base_type_note": "Nota: Las claves distinguen entre mayúsculas y minúsculas, ej: BaseType"
   },
   "image_strip": {

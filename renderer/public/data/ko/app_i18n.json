@@ -239,6 +239,7 @@
   "filter_generator": {
     "name": "Filter Generator",
     "editor": "Editor",
+    "styles": "Styles",
     "open_settings": "Edit extra rules",
     "update_filter": "Update",
     "update_disclaimer": "After you update it, remember to refresh the filter in Settings > Game",
@@ -247,6 +248,7 @@
     "identifier_key": "Key",
     "identifier_value": "Value",
     "identifier_add": "Add identifier",
+    "rule_add": "Add rule",
     "about_folder": "Filter files folder location (change only if it's not populated by default or is invalid)",
     "about_file_select": "Select which filter file will be updated with your custom rules:",
     "about_strategy_select": "Additional filter will be put between dedicated comments. If filter file does not have those comments, put extra rules at:",
@@ -261,7 +263,9 @@
     "examples_name": "Filtering by name (for Stellar Amulet)",
     "examples_name_multi": "Filtering by name (for Flasks)",
     "examples_complex": "Filtering by amulets that dropped on map under level 50 (map level, not waystone tier)",
-    "base_type_note": "Note: Keys are case-sensitive, ei: BaseType"
+    "examples2_header": "Examples for styles",
+    "examples_fallback": "Fallback style",
+    "base_type_note": "Note: Keys are case-sensitive, i.e.: BaseType"
   },
   "image_strip": {
     "name": "이미지"

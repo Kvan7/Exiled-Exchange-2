@@ -105,6 +105,54 @@ export default {
             action: "hide",
           },
         ],
+        styles: [
+          {
+            name: "interesting",
+            rules: [
+              {
+                key: "SetTextColor",
+                value: "255 255 255 150",
+              },
+              {
+                key: "SetBackgroundColor",
+                value: "249 150 25 150",
+              },
+              {
+                key: "SetBorderColor",
+                value: "249 150 25 255",
+              },
+            ],
+          },
+          {
+            name: "exalt",
+            rules: [
+              {
+                key: "SetFontSize",
+                value: "32",
+              },
+              {
+                key: "SetTextColor",
+                value: "0 0 0 255",
+              },
+              {
+                key: "SetBorderColor",
+                value: "0 0 0 255",
+              },
+              {
+                key: "SetBackgroundColor",
+                value: "249 150 25 255",
+              },
+              {
+                key: "PlayEffect",
+                value: "White",
+              },
+              {
+                key: "MinimapIcon",
+                value: "2 Orange Circle",
+              },
+            ],
+          },
+        ],
       };
     },
   } satisfies WidgetSpec,
@@ -152,6 +200,7 @@ function regenerateFilter() {
         file: props.config.selectedFilterFile,
         strategy: props.config.filterStrategy,
         rules: props.config.entries,
+        styles: props.config.styles,
       }),
     },
   });

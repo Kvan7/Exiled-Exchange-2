@@ -12,6 +12,13 @@ export interface FilterGeneratorWidget extends Widget {
       key: string;
       value: string;
     }>;
-    action: "interesting" | "exalt" | "hide";
+    action: string;
+  }>;
+  styles: Array<{
+    name: string;
+    rules: Array<{
+      key: string;
+      value: string;
+    }>;
   }>;
 }
