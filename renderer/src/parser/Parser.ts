@@ -69,6 +69,7 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseGem,
   parseArmour,
   parseWeapon,
+  parseCaster,
   parseFlask,
   parseJewelery,
   parseCharmSlots,
@@ -757,6 +758,22 @@ function parseWeapon(section: string[], item: ParsedItem) {
   }
 
   return isParsed;
+}
+
+function parseCaster(section: string[], item: ParsedItem) {
+  if (
+    item.category !== ItemCategory.Wand &&
+    item.category !== ItemCategory.Sceptre &&
+    item.category !== ItemCategory.Staff
+  )
+    return "PARSER_SKIPPED";
+
+  if (section.length === 1 && section[0].startsWith(_$.QUALITY)) {
+    parseQualityNested(section, item);
+    return "SECTION_PARSED";
+  }
+
+  return "SECTION_SKIPPED";
 }
 
 function parseLogbookArea(section: string[], item: ParsedItem) {
