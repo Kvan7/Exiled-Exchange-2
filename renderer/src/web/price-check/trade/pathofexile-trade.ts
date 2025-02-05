@@ -763,9 +763,10 @@ export function createTradeRequest(
       const metamorphosisCount = metaSource.bounds!.max;
       const metamorphosisCurrent = metaSource.min as number;
       const builtTradeFilter = Array.from(
-        { length: metamorphosisCount - metamorphosisCurrent + 1 },
+        { length: metamorphosisCount },
         (_, index) => ({
-          id: `${stat.tradeId[0]}|${metamorphosisCurrent + index}`,
+          id: `${stat.tradeId[0]}|${index + 1}`,
+          disabled: index + 1 !== metamorphosisCurrent,
         }),
       );
       query.stats.push({
