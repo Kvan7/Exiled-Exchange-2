@@ -35,7 +35,7 @@ interface LogEntry {
   };
 }
 
-export function handleLine(line: string) {
+export function parseLine(line: string) {
   const text = line.split("] ").slice(1).join("] ");
   if (!text) return;
 
@@ -95,8 +95,6 @@ export function handleLine(line: string) {
           quality: Number(gemMatch.groups!.gem_qual),
         };
       }
-
-      // console.log(entry)
     } else if (
       (match = entry.body.match(TRADE_BULK_WHISPER[AppConfig().language]))
     ) {
@@ -119,10 +117,10 @@ export function handleLine(line: string) {
           name: pName,
         },
       };
-
-      // console.log(entry)
     }
   }
+
+  return entry;
 }
 
 const TRADE_WHISPER = {

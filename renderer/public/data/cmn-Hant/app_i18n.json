@@ -239,6 +239,14 @@
     "search_text": "搜尋文字或正則表達式",
     "friendly_name": "友好名稱"
   },
+  "trade_viewer": {
+    "name": "交易查看器",
+    "price": "價格:",
+    "tab": "位置",
+    "left": "左",
+    "top": "上",
+    "thanks": "谢谢你！"
+  },
   "filter_generator": {
     "name": "Filter Generator",
     "editor": "Editor",

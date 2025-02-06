@@ -210,6 +210,11 @@ type IpcUserAction = Event<
         | "filter-generator:list";
       text: string;
     }
+  | {
+    action: "paste-in-chat";
+    text: string;
+    send: boolean;
+  }
 >;
 
 type FilterGeneratorListEvent = Event<

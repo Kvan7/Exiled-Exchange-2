@@ -244,6 +244,14 @@
     "search_text": "search text or regex",
     "friendly_name": "friendly name"
   },
+  "trade_viewer": {
+    "name": "Trade Viewer",
+    "price": "for",
+    "tab": "Tab",
+    "left": "left",
+    "top": "top",
+    "thanks": "Thanks for the trade!"
+  },
   "filter_generator": {
     "name": "Filter Generator",
     "editor": "Editor",

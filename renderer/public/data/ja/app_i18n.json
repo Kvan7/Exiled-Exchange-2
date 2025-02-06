@@ -239,6 +239,14 @@
     "search_text": "検索文字列もしくは正規表現",
     "friendly_name": "名称"
   },
+  "trade_viewer": {
+    "name": "トレードビューアー",
+    "price": "価格:",
+    "tab": "スタッシュタブ",
+    "links": "左から",
+    "top": "上から",
+    "thanks": "ありがとう！"
+  },
   "filter_generator": {
     "name": "Filter Generator",
     "editor": "Editor",
