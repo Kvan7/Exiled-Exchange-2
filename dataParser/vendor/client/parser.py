@@ -415,6 +415,9 @@ class Parser:
             if has_negate:
                 matcher = matcher[: matcher.find('"')].strip()
 
+            if "flask_charges_used_+%" in id or "charm_charges_used_+%" in id:
+                has_negate = not has_negate
+
             matchers.append({"string": matcher, "negate": has_negate})
 
             if ref is None:

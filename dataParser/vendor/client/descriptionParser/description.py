@@ -211,6 +211,9 @@ class Description:
             if value is None and not negate and is_en and self.english_ref is None:
                 self.english_ref = data["stat_name"].pop()
 
+            if "flask_charges_used_+%" in self.id or "charm_charges_used_+%" in self.id:
+                negate = not negate
+
             matcher_data = {
                 "string": string_value,
                 "negate": negate,
