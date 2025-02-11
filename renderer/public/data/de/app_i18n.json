@@ -369,7 +369,8 @@
     "tier_numbering": "Stil der Tier-Nummerierung",
     "tier_numbering_poe1": "PoE1 (niedrigere Werte sind besser)",
     "tier_numbering_poe2": "PoE2 (höhere Werte sind besser)",
-    "tier_numbering_help": "Um Verwirrung durch widersprüchliche Namenskonventionen im Spiel zu reduzieren, werden PoE1-Tiers als \"Grad\" bezeichnet, anstatt \"Stufe\"."
+    "tier_numbering_help": "Um Verwirrung durch widersprüchliche Namenskonventionen im Spiel zu reduzieren, werden PoE1-Tiers als \"Grad\" bezeichnet, anstatt \"Stufe\".",
+    "always_show_tier": "Always show tier"
   },
   "poe2_new": {
     "beta_warning": "Dies ist eine BETA für POE2, es wird nicht immer wie erwartet funktionieren.",

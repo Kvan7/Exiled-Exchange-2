@@ -52,7 +52,9 @@ export default defineComponent({
     const tierOption = computed(
       () => AppConfig<PriceCheckWidget>("price-check")!.tierNumbering,
     );
-    const alwaysShowTier = computed(() => false);
+    const alwaysShowTier = computed(
+      () => AppConfig<PriceCheckWidget>("price-check")!.alwaysShowTier,
+    );
 
     const tags = computed(() => {
       const { filter, item } = props;
