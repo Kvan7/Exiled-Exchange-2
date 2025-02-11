@@ -177,7 +177,8 @@
     "tag_rune": "룬",
     "tag_sanctum": "Sanctum",
     "fill_rune_iron": "Fill Runes(Iron)",
-    "grade": "등급 {0}"
+    "grade": "등급 {0}",
+    "hybrid_note": "Tier may be incorrect due to the potential for a hybrid mod"
   },
   "online_filter": {
     "offline_toggle": "오프라인 & 온라인",

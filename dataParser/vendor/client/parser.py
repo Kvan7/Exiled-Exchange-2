@@ -178,6 +178,7 @@ def flatten_mods(mods):
             "matchers": [],
             "trade": {"ids": None},  # Default to None for trade.ids
             "tiers": None,  # Default to None for tiers
+            "hybrids": {},
         }
     )
 
@@ -232,6 +233,20 @@ def flatten_mods(mods):
             )
         elif "fromAreaMods" in mod:
             grouped_mods[ref]["fromAreaMods"] = mod["fromAreaMods"]
+
+        # Merge hybrids
+        if "hybrids" in mod and mod["hybrids"]:
+            for hybrid_ref, valid_equipment in mod["hybrids"].items():
+                if hybrid_ref in grouped_mods[ref]["hybrids"]:
+                    grouped_mods[ref]["hybrids"][hybrid_ref].extend(
+                        item
+                        for item in valid_equipment
+                        if item not in grouped_mods[ref]["hybrids"][hybrid_ref]
+                    )
+                else:
+                    grouped_mods[ref]["hybrids"][hybrid_ref] = list(
+                        valid_equipment
+                    )  # Ensure list type
 
     # Convert back to dictionary with unique base_ids
     flattened_mods = {}
@@ -662,7 +677,7 @@ class Parser:
                 # first translation where
                 if main_translation.get("ref").count("#") == 1:
                     hybrid_count += 1
-                    hybrids.append((base_id, translations))
+                    hybrids.append((base_id, translations, tiers))
                     continue
             stats_from_tiers.add(stat_id)
             if base_id in HARDCODE_MAP_HYBRID_MODS:
@@ -757,6 +772,35 @@ class Parser:
                 logger.debug(
                     f"Mod {id} has no stats_key. [stats_key: {stats_key}, stats_id: {stats_id}]"
                 )
+
+        for base_id, translations, tiers in hybrids:
+            # Collect all valid equipment for this hybrid
+            valid_equipment = {
+                item
+                for tier_group in tiers["explicit"]
+                for item in tier_group["items"].keys()
+            }
+
+            for hybrid_translation in translations:
+                for mod in self.mods.values():
+                    if mod["ref"] == hybrid_translation["ref"]:
+                        if "hybrids" not in mod:
+                            mod["hybrids"] = {}
+
+                        # Iterate over all other hybrid translations (except the current one)
+                        for not_same_hybrid_translation in translations:
+                            if (
+                                not_same_hybrid_translation["ref"]
+                                == hybrid_translation["ref"]
+                            ):
+                                continue  # Skip itself
+
+                            hybrid_ref = not_same_hybrid_translation["ref"]
+
+                            if hybrid_ref in mod["hybrids"]:
+                                mod["hybrids"][hybrid_ref].update(valid_equipment)
+                            else:
+                                mod["hybrids"][hybrid_ref] = set(valid_equipment)
 
         logger.debug("Completed parsing mods.")
         logger.info(f"Mods: {len(self.mods)}")

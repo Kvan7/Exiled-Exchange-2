@@ -24,6 +24,7 @@ export interface ModifierInfo {
   tierNew?: number;
   tags: string[];
   rollIncr?: number;
+  hybridWithRef?: Set<string>;
 }
 
 export function parseModInfoLine(

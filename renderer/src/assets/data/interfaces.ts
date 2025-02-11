@@ -66,7 +66,9 @@ export interface Stat {
     corruptionjewel: StatTierMod[];
     uniquejewel: StatTierMod[];
   };
-  // isFakePseudo?: true;
+  hybrids?: {
+    [ref: string]: string[];
+  };
 }
 
 export interface DropEntry {

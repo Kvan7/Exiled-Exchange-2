@@ -180,7 +180,8 @@
     "tag_rune": "符文",
     "tag_sanctum": "Sanctum",
     "fill_rune_iron": "Fill Runes(Iron)",
-    "grade": "等級 {0}"
+    "grade": "等級 {0}",
+    "hybrid_note": "Tier may be incorrect due to the potential for a hybrid mod"
   },
   "online_filter": {
     "offline_toggle": "離線 & 在線",

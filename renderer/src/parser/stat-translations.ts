@@ -2,7 +2,12 @@ import { CLIENT_STRINGS as _$, STAT_BY_MATCH_STR } from "@/assets/data";
 import type { StatMatcher, Stat } from "@/assets/data";
 import { ModifierType } from "./modifiers";
 import { ItemCategory } from "./meta";
-import { getModTier, getTier, getTierNumber } from "./mod-tiers";
+import {
+  getModTier,
+  getTier,
+  getTierNumber,
+  mapItemCategoryToKeys,
+} from "./mod-tiers";
 import { ItemRarity, ParsedItem } from "./ParsedItem";
 
 // This file is a little messy and scary,
@@ -162,7 +167,11 @@ export function tryParseTranslation(
   modType: ModifierType,
   item?: ParsedItem,
 ):
-  | { stat: ParsedStat; tier: { poe1: number; poe2: number } | undefined }
+  | {
+      stat: ParsedStat;
+      tier: { poe1: number; poe2: number } | undefined;
+      hybridWithRef?: Set<string>;
+    }
   | undefined {
   let itemRarity: ItemRarity | undefined;
   let itemCategory: ItemCategory | undefined;
@@ -375,6 +384,18 @@ export function tryParseTranslation(
         },
       ];
     }
+    const hybridWithRef = new Set<string>();
+    if (found.stat.hybrids && itemCategory) {
+      const validCategoryTexts = mapItemCategoryToKeys(itemCategory);
+      for (const hybridRef of Object.keys(found.stat.hybrids)) {
+        const value = new Set(found.stat.hybrids[hybridRef]);
+        for (const validCategoryText of validCategoryTexts) {
+          if (value.has(validCategoryText)) {
+            hybridWithRef.add(hybridRef);
+          }
+        }
+      }
+    }
 
     return {
       stat: {
@@ -400,6 +421,7 @@ export function tryParseTranslation(
           : undefined,
       },
       tier: foundTier,
+      hybridWithRef,
     };
   }
 }

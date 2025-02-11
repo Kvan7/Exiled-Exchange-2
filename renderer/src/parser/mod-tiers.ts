@@ -2,7 +2,7 @@ import { Stat, StatTier, StatTierMod } from "@/assets/data";
 import { ItemCategory } from "./meta";
 import { ModifierType } from "./modifiers";
 
-function mapItemCategoryToKeys(itemCategory: ItemCategory): string[] {
+export function mapItemCategoryToKeys(itemCategory: ItemCategory): string[] {
   const categoryMap: Record<ItemCategory, string[]> = {
     [ItemCategory.OneHandedSword]: ["sword", "one_hand_weapon", "weapon"],
     [ItemCategory.TwoHandedSword]: ["sword", "two_hand_weapon", "weapon"],
