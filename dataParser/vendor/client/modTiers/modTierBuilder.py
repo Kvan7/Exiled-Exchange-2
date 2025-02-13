@@ -5,6 +5,9 @@ import uuid
 from collections import defaultdict
 from pprint import pprint
 
+import numpy as np
+import pandas as pd
+
 logger = logging.getLogger(__name__)
 
 
@@ -95,13 +98,112 @@ def get_tier_number_id(id):
         return id
 
 
-def modTierBuilderB(mod_data, base_item_types, gold_mod_prices, tags):
-    gold_with_readable_tags = {
-        mod_data[gold_row["Mod"]]["Id"]: {
-            get_tier_number_id(tags[tag]["Id"]) for tag in gold_row["Tags"] if tag
-        }
-        for gold_row in gold_mod_prices
+def get_gold_tags(mods_in, gold_mod_prices_in, tags_in):
+    mods = pd.DataFrame(mods_in)
+    gold_mod_prices = pd.DataFrame(gold_mod_prices_in)
+    tags = pd.DataFrame(tags_in)
+
+    replace_tags = {38, 39, 40, 41, 42, 43, 44}
+    replacement_id = 7
+
+    def process_tags(tags_list, weights_list):
+        # Replace tag IDs
+        new_tags = [replacement_id if t in replace_tags else t for t in tags_list]
+
+        # Remove sequential duplicate 7s along with corresponding SpawnWeights
+        filtered_tags, filtered_weights = [], []
+        prev_tag = None
+        for tag, weight in zip(new_tags, weights_list):
+            if tag == 7 and prev_tag == 7:
+                continue  # Skip duplicate sequential 7
+            filtered_tags.append(tag)
+            filtered_weights.append(weight)
+            prev_tag = tag
+
+        return filtered_tags, filtered_weights
+
+    # Apply transformation to each row
+    gold_mod_prices["ProcessedTags"], gold_mod_prices["ProcessedSpawnWeight"] = zip(
+        *gold_mod_prices.apply(
+            lambda row: process_tags(row["Tags"], row["SpawnWeight"]), axis=1
+        )
+    )
+
+    category_expansion = {
+        7: {16, 4, 22, 25, 1, 45},  # ARMOUR -> Armour pieces
+        8: {5, 12, 11, 15, 1010, 14, 13, 1014, 1012, 566},
     }
+
+    # Function to apply logical filtering based on category expansion and removal of 0-weighted tags
+    def filter_tags_and_remove_category(tags_list, weights_list, category_expansion):
+        tag_dict = {tag: bool(weight) for tag, weight in zip(tags_list, weights_list)}
+
+        # Process category expansions
+        expanded_tags = set()
+        for tag in tags_list:
+            if tag in category_expansion:
+                for expanded_tag in category_expansion[tag]:
+                    if expanded_tag not in tag_dict:
+                        tag_dict[expanded_tag] = (
+                            True  # Mark new expanded tags as 1 (true)
+                        )
+                expanded_tags.add(tag)  # Mark category for removal
+
+        # Remove tags with weight 0 and also remove the original category tags
+        filtered_tags = [
+            tag for tag, keep in tag_dict.items() if keep and tag not in expanded_tags
+        ]
+
+        return filtered_tags
+
+    # Apply the filtering to each row
+    gold_mod_prices["FinalTags"] = gold_mod_prices.apply(
+        lambda row: filter_tags_and_remove_category(
+            row["ProcessedTags"], row["ProcessedSpawnWeight"], category_expansion
+        ),
+        axis=1,
+    )
+
+    gold_explode = gold_mod_prices.explode("FinalTags")
+    merged_gold_explode = gold_explode.merge(
+        tags, left_on="FinalTags", right_index=True, how="left"
+    )
+    fixed_gold_mod_prices = (
+        merged_gold_explode.groupby("Mod")
+        .agg(
+            {
+                "Id": list,  # Keep the Tag IDs as lists
+            }
+        )
+        .reset_index()
+        .rename(columns={"Id": "Tags"})
+    )
+    fixed_gold_mod_prices["SpawnWeight"] = gold_mod_prices["ProcessedSpawnWeight"]
+
+    gold_with_readable_tags_df = pd.merge(
+        fixed_gold_mod_prices[
+            fixed_gold_mod_prices["Tags"].apply(
+                lambda x: not (
+                    isinstance(x, list)
+                    and len(x) == 1
+                    and isinstance(x[0], float)
+                    and np.isnan(x[0])
+                )
+            )
+        ],
+        mods,
+        left_on="Mod",
+        right_index=True,
+        how="left",
+    )[["Id", "Tags"]]
+    gold_with_readable_tags = {
+        x["Id"]: x["Tags"] for x in gold_with_readable_tags_df.to_dict(orient="records")
+    }
+    return gold_with_readable_tags
+
+
+def modTierBuilderB(mod_data, base_item_types, gold_mod_prices, tags):
+    gold_with_readable_tags = get_gold_tags(mod_data, gold_mod_prices, tags)
 
     # Flatten mods data for easier processing
     flat_mods = []
