@@ -267,6 +267,24 @@ export function createFilters(
     // item.isCorrupted && -- let the buyer corrupt
     (item.category === ItemCategory.Jewel ||
       item.category === ItemCategory.AbyssJewel);
+  const chanceBases = new Set([
+    "Sapphire Ring",
+    "Stellar Amulet",
+    "Heavy Belt",
+    "Emerald Ring",
+    "Gold Ring",
+    "Ornate Belt",
+    "Azure Amulet",
+    "Solar Amulet",
+    "Moulded Mitts",
+    "Gold Amulet",
+  ]);
+  const forChanceBase =
+    item.rarity === ItemRarity.Normal &&
+    (chanceBases.has(item.info.refName) ||
+      // NOTE: May remove either above(set) or below(categories) depending on how EA works out
+      item.category === ItemCategory.Ring ||
+      item.category === ItemCategory.Amulet);
 
   if (
     !item.isUnmodifiable &&
@@ -285,17 +303,18 @@ export function createFilters(
     filters.rarity = {
       value: "magic",
     };
+  } else if (forChanceBase) {
+    // Sinc chance orbs only work on normal items
+    filters.rarity = {
+      value: "normal",
+    };
   } else if (
+    item.rarity === ItemRarity.Normal ||
     item.rarity === ItemRarity.Magic ||
     item.rarity === ItemRarity.Rare
   ) {
     filters.rarity = {
       value: "nonunique",
-    };
-  } else if (item.rarity === ItemRarity.Normal) {
-    // Sinc chance orbs only work on normal items
-    filters.rarity = {
-      value: "normal",
     };
   }
 
