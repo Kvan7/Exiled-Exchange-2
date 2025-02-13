@@ -52,6 +52,7 @@
 {"name": "Archon-Drachenschild (Bruchstück)", "refName": "Archon Kite Shield Piece", "namespace": "ITEM", "icon": "", "craftable": {"category": "UniqueFragment"}, "w": 1, "h": 2}
 {"name": "Archon-Drachenschild (Bruchstück)", "refName": "Archon Kite Shield Piece", "namespace": "ITEM", "icon": "", "craftable": {"category": "UniqueFragment"}, "w": 1, "h": 1}
 {"name": "Archon-Drachenschild (Bruchstück)", "refName": "Archon Kite Shield Piece", "namespace": "ITEM", "icon": "", "craftable": {"category": "UniqueFragment"}, "w": 1, "h": 1}
+{"name": "Archon-Krone", "refName": "Templar Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [134, 134], "es": [46, 46]}, "w": 2, "h": 2}
 {"name": "Arkane Robe", "refName": "Arcane Robe", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"es": [153, 153]}, "w": 2, "h": 3}
 {"name": "Arkane Woge", "refName": "Arcane Surge", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Arkaner Langdolch", "refName": "Arcane Dirk", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Dagger"}, "w": 1, "h": 3}
@@ -98,6 +99,7 @@
 {"name": "Aufreißen", "refName": "Rupture", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Aufruhr", "refName": "Upheaval", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Aufschlitzender Kampfstab", "refName": "Slicing Quarterstaff", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Warstaff"}, "w": 2, "h": 4}
+{"name": "Aufseher-Wegbereitertafel", "refName": "Overseer Precursor Tablet", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "TowerAugment"}, "w": 1, "h": 1}
 {"name": "Aufspießen", "refName": "Impale", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Auftauende Phiole", "refName": "Thawing Charm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Charm"}, "w": 1, "h": 1}
 {"name": "Auftrag zum Selbstschutz", "refName": "Vigilante Contract", "namespace": "ITEM", "icon": "", "craftable": {"category": "HeistContract"}, "w": 1, "h": 1}
@@ -216,8 +218,6 @@
 {"name": "Blinzeln", "refName": "Blink", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Blitz-Anfälligkeit", "refName": "Lightning Exposure", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Blitzbeherrschung", "refName": "Lightning Mastery", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "Blitzbolzen", "refName": "Lightning Bolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "Blitzbolzen", "refName": "Greater Lightning Bolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Blitzeis", "refName": "Cold Snap", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9Db2xkU25hcCIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/889f6cb1fd/ColdSnap.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Blitzinfusion", "refName": "Lightning Infusion", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Blitzleitung", "refName": "Lightning Conduit", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9FbmVyZ3lSZWxlYXNlU2tpbGxHZW0iLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/5a89cebfb0/EnergyReleaseSkillGem.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -375,7 +375,6 @@
 {"name": "Drohendes Unheil", "refName": "Impending Doom", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Dschinn-Barya", "refName": "Djinn Barya", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MiscMapItem"}, "w": 1, "h": 1}
 {"name": "Duell-Zauberstab", "refName": "Dueling Wand", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Wand"}, "w": 1, "h": 3}
-{"name": "Duellanten-Großhelm", "refName": "Dueling Greathelm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [200, 200]}, "w": 2, "h": 2}
 {"name": "Duftrauchbrenner", "refName": "Essence Burner", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 4}
 {"name": "Dunkle Klinge", "refName": "Dark Blade", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
 {"name": "Dunkler Stab", "refName": "Dark Staff", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Staff"}, "w": 1, "h": 4}
@@ -1152,6 +1151,7 @@
 {"name": "Große übernatürliche Glut", "refName": "Grand Eldritch Ember", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ2xlYW5zaW5nRmlyZU9yYlJhbmszIiwic2NhbGUiOjF9XQ/0486f1ac82/CleansingFireOrbRank3.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "Großer Flegel", "refName": "Great Flail", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Flail"}, "w": 2, "h": 3}
 {"name": "Großer Götze", "refName": "Grand Idol", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 2, "h": 2}
+{"name": "Großer Schleuderblitz", "refName": "Greater Lightning Bolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Großer Schwung", "refName": "Heavy Swing", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Großer Seelenkern", "refName": "Large Soul Core", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 2, "h": 2}
 {"name": "Großer übernatürlicher Ichor", "refName": "Grand Eldritch Ichor", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvVGFuZ2xlT3JiUmFuazMiLCJzY2FsZSI6MX1d/199f3b36f3/TangleOrbRank3.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
@@ -1496,7 +1496,6 @@
 {"name": "Magmakugel", "refName": "Rolling Magma", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9GaXJlTW9ydGFyIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/9339ca9a6b/FireMortar.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Magnetische Salve", "refName": "Magnetic Salvo", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Magustiara", "refName": "Magus Tiara", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"es": [84, 84]}, "w": 2, "h": 2}
-{"name": "Makabertanz", "refName": "Danse Macabre", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Mal des Scharfschützen", "refName": "Sniper's Mark", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9Qcm9qZWN0aWxlV2Vha25lc3MiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/3dd2dfcc61/ProjectileWeakness.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Mana-Fackel", "refName": "Mana Flare", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Mana-Überreste", "refName": "Mana Remnants", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -1752,7 +1751,6 @@
 {"name": "Opfern", "refName": "Sacrifice", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Opferzauberstab", "refName": "Offering Wand", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Wand"}, "w": 1, "h": 3}
 {"name": "Orbalas fünftes Abenteuer", "refName": "Orbala's Fifth Adventure", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 4}
-{"name": "Overseer Precursor Tablet", "refName": "Overseer Precursor Tablet", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRCb3NzIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/4c442297f2/PrecursorTabletBoss.png", "tradeTag": "overseer-precursor-tablet", "craftable": {"category": "TowerAugment"}, "w": 1, "h": 1}
 {"name": "Panzergewand", "refName": "Mail Vestments", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"ar": [67, 67], "es": [28, 28]}, "w": 2, "h": 3}
 {"name": "Panzerkappe", "refName": "Armoured Cap", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ev": [222, 222]}, "w": 2, "h": 2}
 {"name": "Panzerkatalysator", "refName": "Carapace Catalyst", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaENhdGFseXN0RGVmZW5jZXMiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/568ca70b04/BreachCatalystDefences.png", "tradeTag": "carapace-catalyst", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
@@ -1954,6 +1952,7 @@
 {"name": "Schlanker Flegel", "refName": "Slender Flail", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Flail"}, "w": 2, "h": 3}
 {"name": "Schleiermaske", "refName": "Veiled Mask", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ev": [58, 58], "es": [25, 25]}, "w": 2, "h": 2}
 {"name": "Schleifstein", "refName": "Blacksmith's Whetstone", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lXZWFwb25RdWFsaXR5Iiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/18715ea7be/CurrencyWeaponQuality.png", "tradeTag": "whetstone", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
+{"name": "Schleuderblitz", "refName": "Lightning Bolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Schlächter-Rüstung", "refName": "Slayer Armour", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"ar": [294, 294], "ev": [268, 268]}, "w": 2, "h": 3}
 {"name": "Schlüssel zum Schmelztiegel", "refName": "Key to the Crucible", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MapFragment"}, "w": 2, "h": 2}
 {"name": "Schlüssel zum Verfall", "refName": "Key to Decay", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
@@ -2217,7 +2216,6 @@
 {"name": "Tempelhammer", "refName": "Temple Maul", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Two Hand Mace"}, "w": 2, "h": 4}
 {"name": "Tempeltür-Götze", "refName": "Temple Door Idol", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 2, "h": 2}
 {"name": "Templer-Uniformen", "refName": "Templar Uniforms", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
-{"name": "Templerkrone", "refName": "Templar Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [134, 134], "es": [46, 46]}, "w": 2, "h": 2}
 {"name": "Temporaler Riss", "refName": "Temporal Rift", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9DaHJvbm9tYW5jZXIiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/9977b27b7c/Chronomancer.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Thaumaturgische Schutzrune", "refName": "Thaumaturgical Ward", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvVGhhdW1hdHVyZ2ljYWxXYXJkIiwidyI6MiwiaCI6Miwic2NhbGUiOjF9XQ/5c04225225/ThaumaturgicalWard.png", "craftable": {"category": "HeistEquipmentTool"}, "w": 2, "h": 2}
 {"name": "Thaumaturgischer Sinnesverstärker", "refName": "Thaumaturgical Sensing Charm", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvVGhhdW1hdHVyZ2ljYWxTZW5zaW5nQ2hhcm0iLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MX1d/7717c977a0/ThaumaturgicalSensingCharm.png", "craftable": {"category": "HeistEquipmentTool"}, "w": 2, "h": 2}
@@ -2247,6 +2245,7 @@
 {"name": "Tornadoschuss", "refName": "Tornado Shot", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9Ub3JuYWRvU2hvdCIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/7299d3edf8/TornadoShot.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Totem-Beinschienen", "refName": "Totemic Greaves", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Boots"}, "armour": {"ar": [182, 182]}, "w": 2, "h": 2}
 {"name": "Totemgroßkeule", "refName": "Totemic Greatclub", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Two Hand Mace"}, "w": 2, "h": 4}
+{"name": "Totentanz", "refName": "Danse Macabre", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Transformierender Energiekern", "refName": "Transforming Power Core", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "Transzendentes Lebensfläschchen", "refName": "Transcendent Life Flask", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Flask"}, "w": 1, "h": 2}
 {"name": "Transzendentes Manafläschchen", "refName": "Transcendent Mana Flask", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Flask"}, "w": 1, "h": 2}
@@ -2524,10 +2523,10 @@
 {"name": "Voltaxisches Blitzpulver", "refName": "Voltaxic Flashpowder", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvVm9sdGF4aWNGbGFzaHBvd2RlciIsInciOjIsImgiOjIsInNjYWxlIjoxfV0/2df5470ba8/VoltaxicFlashpowder.png", "craftable": {"category": "HeistEquipmentTool"}, "w": 2, "h": 2}
 {"name": "Voodoofokus", "refName": "Voodoo Focus", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Focus"}, "armour": {"es": [32, 32]}, "w": 2, "h": 3}
 {"name": "Vorbedacht", "refName": "Premeditation", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "Vorläufertafel", "refName": "Precursor Tablet", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRHZW5lcmljIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/5658ce7f2d/PrecursorTabletGeneric.png", "tradeTag": "precursor-tablet", "craftable": {"category": "TowerAugment"}, "w": 1, "h": 1}
 {"name": "Vorspulen", "refName": "Fast Forward", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Vulkan", "refName": "Volcano", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Vulkanische Spalte", "refName": "Volcanic Fissure", "namespace": "GEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9Wb2xjYW5pY0Zpc3N1cmVTa2lsbEdlbSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/b12b9ef422/VolcanicFissureSkillGem.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
+{"name": "Wache-Großhelm", "refName": "Dueling Greathelm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [200, 200]}, "w": 2, "h": 2}
 {"name": "Waffen-Rekombinator", "refName": "Weapon Recombinator", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "Wahrsagerstulpen", "refName": "Diviner Cuffs", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Gloves"}, "armour": {"ar": [48, 48], "es": [17, 17]}, "w": 2, "h": 2}
 {"name": "Wanderrock", "refName": "Wayfarer Jacket", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"ev": [88, 88], "es": [39, 39]}, "w": 2, "h": 3}
@@ -2538,6 +2537,7 @@
 {"name": "Wappen von Ezomyr", "refName": "Crest of Ezomyr", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "Wappen von Veritiana", "refName": "Veritania's Crest", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9SZWRlZW1lckZyYWdtZW50Iiwic2NhbGUiOjF9XQ/86d22a34cc/RedeemerFragment.png", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
 {"name": "Weber-Beinlinge", "refName": "Weaver Leggings", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Boots"}, "armour": {"ar": [73, 73], "es": [26, 26]}, "w": 2, "h": 2}
+{"name": "Wegbereitertafel", "refName": "Precursor Tablet", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "TowerAugment"}, "w": 1, "h": 1}
 {"name": "Wegstein (Level 1)", "refName": "Waystone (Tier 1)", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwMSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/bb4c55989d/EndgameMap1.png", "tradeTag": "waystone-1", "craftable": {"category": "Map"}, "w": 1, "h": 1}
 {"name": "Wegstein (Level 10)", "refName": "Waystone (Tier 10)", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwMTAiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/4a1266867a/EndgameMap10.png", "tradeTag": "waystone-10", "craftable": {"category": "Map"}, "w": 1, "h": 1}
 {"name": "Wegstein (Level 11)", "refName": "Waystone (Tier 11)", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwMTEiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/77da168a75/EndgameMap11.png", "tradeTag": "waystone-11", "craftable": {"category": "Map"}, "w": 1, "h": 1}
@@ -2977,7 +2977,7 @@
 {"name": "Das verschlingende Diadem", "refName": "The Devouring Diadem", "namespace": "UNIQUE", "unique": {"base": "Weidentiara", "stats": {"#% increased Energy Shield": [[60, 100]], "# to maximum Life": [[40, 60]], "# to Intelligence": [[10, 20]], "#% to Chaos Resistance": [[13, 19]]}}}
 {"name": "Der Ewige Funke", "refName": "The Eternal Spark", "namespace": "UNIQUE", "unique": {"base": "Kristallfokus", "stats": {"#% increased Energy Shield": [[50, 70]], "#% to Lightning Resistance": [[20, 30]]}}}
 {"name": "Die ausgehöhlte Maske", "refName": "The Hollow Mask", "namespace": "UNIQUE", "unique": {"base": "Behauene Maske", "stats": {"# to maximum Life": [[60, 80]]}}}
-{"name": "Der Immortan", "refName": "The Immortan", "namespace": "UNIQUE", "unique": {"base": "Plündererpanzer", "stats": {"# to all Attributes": [[10, 15]], "#% to Fire Resistance": [[15, 30]], "#% to Lightning Resistance": [[15, 30]], "# Life Regeneration per second": [[10, 15]]}}}
+{"name": "Der Immortan", "refName": "Der Immortan", "namespace": "UNIQUE", "unique": {"base": "Plündererpanzer"}}
 {"name": "Das endlose Streben", "refName": "The Infinite Pursuit", "namespace": "UNIQUE", "unique": {"base": "Bronzebeinschienen", "stats": {"#% increased Armour": [[100, 150]], "# to maximum Life": [[80, 100]], "#% increased Chance to be afflicted by Ailments when Hit": [[80, 100]]}}}
 {"name": "Der fahrende Ritter", "refName": "The Knight-errant", "namespace": "UNIQUE", "unique": {"base": "Kettenpanzer-Eisenschuhe", "stats": {"#% increased Armour and Evasion": [[30, 50]], "# to Stun Threshold": [[30, 50]], "# to Ailment Threshold": [[30, 50]]}}}
 {"name": "Der Rattenkäfig", "refName": "The Rat Cage", "namespace": "UNIQUE", "unique": {"base": "Späherweste", "stats": {"#% increased Evasion Rating": [[100, 150]]}}}

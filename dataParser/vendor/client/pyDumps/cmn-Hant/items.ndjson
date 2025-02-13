@@ -1,6 +1,3 @@
-{"name": "Bidding", "refName": "Bidding", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "Overseer Precursor Tablet", "refName": "Overseer Precursor Tablet", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRCb3NzIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/4c442297f2/PrecursorTabletBoss.png", "tradeTag": "overseer-precursor-tablet", "craftable": {"category": "TowerAugment"}, "w": 1, "h": 1}
-{"name": "Tremors", "refName": "Tremors", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "[DNT] Axe Chop", "refName": "[DNT] Axe Chop", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "[DNT] Axe Execute", "refName": "[DNT] Axe Execute", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "[DNT] Axe Heavy Cleave", "refName": "[DNT] Axe Heavy Cleave", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -241,6 +238,7 @@
 {"name": "凱斯之衣", "refName": "Keth Raiment", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"es": [70, 70]}, "w": 2, "h": 3}
 {"name": "凱斯的香水", "refName": "Incense of Keth", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "凸緣巨刃", "refName": "Flanged Greatblade", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Two Hand Sword"}, "w": 2, "h": 4}
+{"name": "出價", "refName": "Bidding", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "出血匕首", "refName": "Bloodletting Dagger", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Dagger"}, "w": 1, "h": 3}
 {"name": "刀刃陷阱", "refName": "Bladed Trap", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "TrapTool"}, "w": 2, "h": 2}
 {"name": "刃緣輕盾", "refName": "Edged Buckler", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Shield"}, "armour": {"ev": [87, 87]}, "w": 2, "h": 2}
@@ -604,6 +602,7 @@
 {"name": "威能鳶盾碎片", "refName": "Archon Kite Shield Piece", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "UniqueFragment"}, "w": 1, "h": 2}
 {"name": "威能鳶盾碎片", "refName": "Archon Kite Shield Piece", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "UniqueFragment"}, "w": 1, "h": 1}
 {"name": "威能鳶盾碎片", "refName": "Archon Kite Shield Piece", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "UniqueFragment"}, "w": 1, "h": 1}
+{"name": "威震", "refName": "Tremors", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "嫩枝頭環", "refName": "Twig Circlet", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"es": [19, 19]}, "w": 2, "h": 2}
 {"name": "宇宙的巔峰守望", "refName": "Cosmic Apex Sentinel", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "SentinelDrone"}, "w": 2, "h": 2}
 {"name": "宇宙遺鑰", "refName": "Cosmic Reliquary Key", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "VaultKey"}, "w": 1, "h": 1}
@@ -1721,6 +1720,7 @@
 {"name": "縫合手套", "refName": "Stitched Gloves", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Gloves"}, "armour": {"es": [17, 17]}, "w": 2, "h": 2}
 {"name": "縫紉輕鞋", "refName": "Threaded Shoes", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Boots"}, "armour": {"ev": [28, 28], "es": [14, 14]}, "w": 2, "h": 2}
 {"name": "縫製氣囊", "refName": "Stitched Bladder", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 2, "h": 1}
+{"name": "總督的先行者碑牌", "refName": "Overseer Precursor Tablet", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "TowerAugment"}, "w": 1, "h": 1}
 {"name": "總督軍的崇高石", "refName": "Warlord's Exalted Orb", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "繩索腕帶", "refName": "Rope Cuffs", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Gloves"}, "armour": {"ar": [12, 12], "es": [6, 6]}, "w": 2, "h": 2}
 {"name": "纏繞之邀", "refName": "Writhing Invitation", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
@@ -2584,7 +2584,6 @@
 {"name": "雙肢弓", "refName": "Double Limb Bow", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Bow"}, "w": 2, "h": 4}
 {"name": "雜響權杖", "refName": "Rattling Sceptre", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Sceptre"}, "w": 2, "h": 3}
 {"name": "雷彈", "refName": "Lightning Bolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "雷彈", "refName": "Greater Lightning Bolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "雷暴彈藥", "refName": "Stormblast Bolts", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "雷霆之杖", "refName": "Lightning Rod", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "電光領域", "refName": "Galvanic Field", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -2698,6 +2697,7 @@
 {"name": "高階異能靈液", "refName": "Greater Eldritch Ichor", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "高階肉體精髓", "refName": "Greater Essence of the Body", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyTGlmZUVzc2VuY2UiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/8906b401fe/GreaterLifeEssence.png", "tradeTag": "greater-essence-of-the-body", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "高階迅捷精髓", "refName": "Greater Essence of Haste", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyU3BlZWRFc3NlbmNlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/5a72f95c24/GreaterSpeedEssence.png", "tradeTag": "greater-essence-of-haste", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
+{"name": "高階雷彈", "refName": "Greater Lightning Bolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "高階電能精髓", "refName": "Greater Essence of Electricity", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyTGlnaHRuaW5nRXNzZW5jZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/c6df464bb9/GreaterLightningEssence.png", "tradeTag": "greater-essence-of-electricity", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "高階魔力藥劑", "refName": "Colossal Mana Flask", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Flask"}, "w": 1, "h": 2}
 {"name": "高雅法器", "refName": "Elegant Focus", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Focus"}, "armour": {"es": [44, 44]}, "w": 2, "h": 3}
@@ -2977,7 +2977,7 @@
 {"name": "吞噬之冠", "refName": "The Devouring Diadem", "namespace": "UNIQUE", "unique": {"base": "枝條頭冠", "stats": {"#% increased Energy Shield": [[60, 100]], "# to maximum Life": [[40, 60]], "# to Intelligence": [[10, 20]], "#% to Chaos Resistance": [[13, 19]]}}}
 {"name": "永恆火花", "refName": "The Eternal Spark", "namespace": "UNIQUE", "unique": {"base": "水晶法器", "stats": {"#% increased Energy Shield": [[50, 70]], "#% to Lightning Resistance": [[20, 30]]}}}
 {"name": "聖潔面具", "refName": "The Hollow Mask", "namespace": "UNIQUE", "unique": {"base": "粗製之面", "stats": {"# to maximum Life": [[60, 80]]}}}
-{"name": "永生者", "refName": "The Immortan", "namespace": "UNIQUE", "unique": {"base": "俠客鎧甲", "stats": {"# to all Attributes": [[10, 15]], "#% to Fire Resistance": [[15, 30]], "#% to Lightning Resistance": [[15, 30]], "# Life Regeneration per second": [[10, 15]]}}}
+{"name": "永生者", "refName": "永生者", "namespace": "UNIQUE", "unique": {"base": "俠客鎧甲"}}
 {"name": "無盡之距", "refName": "The Infinite Pursuit", "namespace": "UNIQUE", "unique": {"base": "青銅脛甲", "stats": {"#% increased Armour": [[100, 150]], "# to maximum Life": [[80, 100]], "#% increased Chance to be afflicted by Ailments when Hit": [[80, 100]]}}}
 {"name": "漂泊騎士", "refName": "The Knight-errant", "namespace": "UNIQUE", "unique": {"base": "鎖甲鎧靴", "stats": {"#% increased Armour and Evasion": [[30, 50]], "# to Stun Threshold": [[30, 50]], "# to Ailment Threshold": [[30, 50]]}}}
 {"name": "疫鼠囚籠", "refName": "The Rat Cage", "namespace": "UNIQUE", "unique": {"base": "斥侯背心", "stats": {"#% increased Evasion Rating": [[100, 150]]}}}

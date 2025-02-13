@@ -20398,7 +20398,7 @@
         }
     },
     "1984": {
-        "name": "Большой шлем поединщика",
+        "name": "Большой шлем часового",
         "refName": "Dueling Greathelm",
         "namespace": "ITEM",
         "class": 25,
@@ -21002,7 +21002,7 @@
         }
     },
     "2016": {
-        "name": "Gallant Helm",
+        "name": "Шлем героя",
         "refName": "Gallant Helm",
         "namespace": "ITEM",
         "class": 25,
@@ -21502,7 +21502,7 @@
         }
     },
     "2040": {
-        "name": "Grand Mitts",
+        "name": "Величественные рукавицы",
         "refName": "Grand Mitts",
         "namespace": "ITEM",
         "class": 22,
@@ -22160,7 +22160,7 @@
         }
     },
     "2073": {
-        "name": "Furtive Wraps",
+        "name": "Скрытые обмотки",
         "refName": "Furtive Wraps",
         "namespace": "ITEM",
         "class": 22,
@@ -23010,7 +23010,7 @@
         }
     },
     "2116": {
-        "name": "Bladed Shoes",
+        "name": "Клинковые ботинки",
         "refName": "Bladed Shoes",
         "namespace": "ITEM",
         "class": 23,
@@ -25119,7 +25119,7 @@
         "armour": {}
     },
     "2253": {
-        "name": "Grand Regalia",
+        "name": "Великолепное облачение",
         "refName": "Grand Regalia",
         "namespace": "ITEM",
         "class": 24,
@@ -25145,7 +25145,7 @@
         }
     },
     "2254": {
-        "name": "Grand Visage",
+        "name": "Великолепный лик",
         "refName": "Grand Visage",
         "namespace": "ITEM",
         "class": 25,
@@ -25171,7 +25171,7 @@
         }
     },
     "2255": {
-        "name": "Grand Manchettes",
+        "name": "Великолепные манжеты",
         "refName": "Grand Manchettes",
         "namespace": "ITEM",
         "class": 22,
@@ -25197,7 +25197,7 @@
         }
     },
     "2256": {
-        "name": "Grand Cuisses",
+        "name": "Великолепные набедренники",
         "refName": "Grand Cuisses",
         "namespace": "ITEM",
         "class": 23,
@@ -35074,7 +35074,7 @@
         }
     },
     "2888": {
-        "name": "Возбуждение",
+        "name": "Проводник",
         "refName": "Conduction",
         "namespace": "GEM",
         "class": 19,
@@ -38411,7 +38411,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRHZW5lcmljIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/5658ce7f2d/PrecursorTabletGeneric.png"
     },
     "3100": {
-        "name": "Overseer Precursor Tablet",
+        "name": "Плитка Предтеч Смотрителя",
         "refName": "Overseer Precursor Tablet",
         "namespace": "ITEM",
         "class": 105,
@@ -38420,9 +38420,7 @@
         "height": 1,
         "craftable": {
             "category": "TowerAugment"
-        },
-        "tradeTag": "overseer-precursor-tablet",
-        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRCb3NzIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/4c442297f2/PrecursorTabletBoss.png"
+        }
     },
     "3101": {
         "name": "Разложение",
@@ -40019,7 +40017,7 @@
         }
     },
     "3204": {
-        "name": "Tremors",
+        "name": "Дрожь",
         "refName": "Tremors",
         "namespace": "GEM",
         "class": 19,
@@ -40083,7 +40081,7 @@
         }
     },
     "3208": {
-        "name": "Удар грома",
+        "name": "Великий удар грома",
         "refName": "Greater Lightning Bolt",
         "namespace": "GEM",
         "class": 18,

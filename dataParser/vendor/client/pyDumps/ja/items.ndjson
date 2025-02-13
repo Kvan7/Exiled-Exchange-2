@@ -3,7 +3,6 @@
 {"name": "MTX包装", "refName": "MTX Wrapper", "namespace": "ITEM", "icon": "%NOT_FOUND%", "w": 2, "h": 1}
 {"name": "MTX包装", "refName": "MTX Wrapper", "namespace": "ITEM", "icon": "%NOT_FOUND%", "w": 2, "h": 2}
 {"name": "MTX包装", "refName": "MTX Wrapper", "namespace": "ITEM", "icon": "%NOT_FOUND%", "w": 2, "h": 3}
-{"name": "Overseer Precursor Tablet", "refName": "Overseer Precursor Tablet", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRCb3NzIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/4c442297f2/PrecursorTabletBoss.png", "tradeTag": "overseer-precursor-tablet", "craftable": {"category": "TowerAugment"}, "w": 1, "h": 1}
 {"name": "[DNT] Axe Chop", "refName": "[DNT] Axe Chop", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "[DNT] Axe Execute", "refName": "[DNT] Axe Execute", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "[DNT] Axe Heavy Cleave", "refName": "[DNT] Axe Heavy Cleave", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -79,7 +78,6 @@
 {"name": "アイシクルフレイル", "refName": "Icicle Flail", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Flail"}, "w": 2, "h": 3}
 {"name": "アイスシャード", "refName": "Ice Shards", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "アイスショット", "refName": "Ice Shot", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "アイススピアー", "refName": "Ice Spear", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "アイスノヴァ", "refName": "Ice Nova", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "アイナーの記憶", "refName": "Einhar's Memory", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MemoryLine"}, "w": 1, "h": 1}
 {"name": "アイボリーウォッチストーン", "refName": "Ivory Watchstone", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "AtlasUpgradeItem"}, "w": 1, "h": 1}
@@ -105,6 +103,7 @@
 {"name": "アビスのインキュベーター", "refName": "Abyssal Incubator", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Incubator"}, "w": 1, "h": 1}
 {"name": "アメジストの指輪", "refName": "Amethyst Ring", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Ring"}, "w": 1, "h": 1}
 {"name": "アリモルの腕", "refName": "Hand of Arimor", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
+{"name": "アルコンの冠", "refName": "Templar Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [134, 134], "es": [46, 46]}, "w": 2, "h": 2}
 {"name": "アルコンカイトシールドの欠片", "refName": "Archon Kite Shield Piece", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "UniqueFragment"}, "w": 1, "h": 2}
 {"name": "アルコンカイトシールドの欠片", "refName": "Archon Kite Shield Piece", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "UniqueFragment"}, "w": 1, "h": 2}
 {"name": "アルコンカイトシールドの欠片", "refName": "Archon Kite Shield Piece", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "UniqueFragment"}, "w": 1, "h": 1}
@@ -172,6 +171,7 @@
 {"name": "ウィザー", "refName": "Wither", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ウィングドスピアー", "refName": "Winged Spear", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Spear"}, "w": 1, "h": 4}
 {"name": "ウィンドウェーブ", "refName": "Wind Wave", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
+{"name": "ウィンドスピアー", "refName": "Ice Spear", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ウィンドダンサー", "refName": "Wind Dancer", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ウェイストーン（ティア10）", "refName": "Waystone (Tier 10)", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwMTAiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/4a1266867a/EndgameMap10.png", "tradeTag": "waystone-10", "craftable": {"category": "Map"}, "w": 1, "h": 1}
 {"name": "ウェイストーン（ティア11）", "refName": "Waystone (Tier 11)", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwMTEiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/77da168a75/EndgameMap11.png", "tradeTag": "waystone-11", "craftable": {"category": "Map"}, "w": 1, "h": 1}
@@ -230,6 +230,7 @@
 {"name": "エネルギー保持", "refName": "Energy Retention", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "エベルの鍵", "refName": "Eber's Key", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
 {"name": "エベルの鍵", "refName": "Eber's Key", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
+{"name": "エメラルド", "refName": "Emerald", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Jewel"}, "w": 1, "h": 1}
 {"name": "エメラルドの指輪", "refName": "Emerald Ring", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Ring"}, "w": 1, "h": 1}
 {"name": "エルダーオーブ", "refName": "Elder's Orb", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
 {"name": "エルダースレイヤーの紋章", "refName": "Crest of the Elderslayers", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
@@ -418,6 +419,7 @@
 {"name": "サイズミッククライ", "refName": "Seismic Cry", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "サイフォンストライク", "refName": "Siphoning Strike", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "サクリファイス", "refName": "Sacrifice", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
+{"name": "サファイア", "refName": "Sapphire", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Jewel"}, "w": 1, "h": 1}
 {"name": "サファイアの指輪", "refName": "Sapphire Ring", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Ring"}, "w": 1, "h": 1}
 {"name": "サポートジェムの原石", "refName": "Uncut Support Gem", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "UncutSkillGem"}, "w": 1, "h": 1}
 {"name": "サルファーのガスバーナー", "refName": "Sulphur Blowtorch", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistEquipmentTool"}, "w": 2, "h": 2}
@@ -571,6 +573,7 @@
 {"name": "タペストリーのレリック", "refName": "Tapestry Relic", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Relic"}, "w": 3, "h": 1}
 {"name": "タラーサン爆薬", "refName": "Trarthan Flashpowder", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistEquipmentTool"}, "w": 2, "h": 2}
 {"name": "タロンクロー", "refName": "Talon Claw", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Claw"}, "w": 2, "h": 2}
+{"name": "ダイヤモンド", "refName": "Diamond", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Jewel"}, "w": 1, "h": 1}
 {"name": "ダガースタブ", "refName": "Dagger Stab", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ダガースタブ", "refName": "Dagger Stab", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ダブルベルト", "refName": "Double Belt", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Belt"}, "w": 2, "h": 1}
@@ -608,11 +611,9 @@
 {"name": "ティカバのソウルコア", "refName": "Soul Core of Ticaba", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png", "tradeTag": "soul-core-of-ticaba", "craftable": {"category": "SoulCore"}, "w": 1, "h": 1}
 {"name": "ティブスの財宝", "refName": "Tibbs' Wealth", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
 {"name": "テクラティピティの鏡", "refName": "Mirror of Teklatipitzi", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
-{"name": "テンプラーの冠", "refName": "Templar Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [134, 134], "es": [46, 46]}, "w": 2, "h": 2}
 {"name": "テンプラーの制服", "refName": "Templar Uniforms", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
 {"name": "テンプラーの時知らずの破片", "refName": "Timeless Templar Splinter", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "テンペストフラリィ", "refName": "Tempest Flurry", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "テンペストベル", "refName": "Tempest Bell", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "テンポラルチェーン", "refName": "Temporal Chains", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "テンポラルリフト", "refName": "Temporal Rift", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ディシプリン", "refName": "Discipline", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -943,7 +944,7 @@
 {"name": "ライトニングコンジット", "refName": "Lightning Conduit", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ライトニングストーム", "refName": "Lightning Storm", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ライトニングボルト", "refName": "Lightning Bolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "ライトニングボルト", "refName": "Greater Lightning Bolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
+{"name": "ライトニングボルト（大）", "refName": "Greater Lightning Bolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ライトニングロッド", "refName": "Lightning Rod", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ライトニングワープ", "refName": "Lightning Warp", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ライトハルバート", "refName": "Light Halberd", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Two Hand Axe"}, "w": 2, "h": 4}
@@ -1038,6 +1039,7 @@
 {"name": "リープスラム", "refName": "Leap Slam", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ルナリスの印章", "refName": "Seal of Lunaris", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "ルパインセプター", "refName": "Lupine Sceptre", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Sceptre"}, "w": 2, "h": 3}
+{"name": "ルビー", "refName": "Ruby", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Jewel"}, "w": 1, "h": 1}
 {"name": "ルビーの指輪", "refName": "Ruby Ring", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Ring"}, "w": 1, "h": 1}
 {"name": "ルースレス", "refName": "Ruthless", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "ルーニックショートソード", "refName": "Runic Shortsword", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
@@ -1493,10 +1495,10 @@
 {"name": "反抗のタワーシールド", "refName": "Defiant Tower Shield", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Shield"}, "armour": {"ar": [137, 137]}, "w": 2, "h": 4}
 {"name": "叡智の巻物", "refName": "Scroll of Wisdom", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lJZGVudGlmaWNhdGlvbiIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/884f7bc58b/CurrencyIdentification.png", "tradeTag": "wisdom", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "古いカフス", "refName": "Aged Cuffs", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Gloves"}, "armour": {"ar": [22, 22], "es": [9, 9]}, "w": 2, "h": 2}
-{"name": "古の紅玉", "refName": "Time-Lost Ruby", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Jewel"}, "w": 1, "h": 1}
-{"name": "古の翠玉", "refName": "Time-Lost Emerald", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Jewel"}, "w": 1, "h": 1}
-{"name": "古の蒼玉", "refName": "Time-Lost Sapphire", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Jewel"}, "w": 1, "h": 1}
-{"name": "古の金剛石", "refName": "Time-Lost Diamond", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Jewel"}, "w": 1, "h": 1}
+{"name": "古のエメラルド", "refName": "Time-Lost Emerald", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Jewel"}, "w": 1, "h": 1}
+{"name": "古のサファイア", "refName": "Time-Lost Sapphire", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Jewel"}, "w": 1, "h": 1}
+{"name": "古のダイヤモンド", "refName": "Time-Lost Diamond", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Jewel"}, "w": 1, "h": 1}
+{"name": "古のルビー", "refName": "Time-Lost Ruby", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Jewel"}, "w": 1, "h": 1}
 {"name": "古びた聖廟の鍵", "refName": "Timeworn Reliquary Key", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "VaultKey"}, "w": 1, "h": 1}
 {"name": "古代のエイペックスセンチネル", "refName": "Ancient Apex Sentinel", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "SentinelDrone"}, "w": 2, "h": 2}
 {"name": "古代のオーブ", "refName": "Ancient Orb", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
@@ -1657,6 +1659,7 @@
 {"name": "崩壊の聖廟の鍵", "refName": "Decaying Reliquary Key", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "VaultKey"}, "w": 1, "h": 1}
 {"name": "崩壊への鍵", "refName": "Key to Decay", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
 {"name": "嵐のルーン", "refName": "Storm Rune", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlnaHRuaW5nUnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/98319b3998/LightningRune.png", "tradeTag": "storm-rune", "craftable": {"category": "SoulCore"}, "w": 1, "h": 1}
+{"name": "嵐鐘", "refName": "Tempest Bell", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "巡礼者の祭服", "refName": "Pilgrim Vestments", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"ar": [25, 25], "es": [16, 16]}, "w": 2, "h": 3}
 {"name": "工夫", "refName": "Ingenuity", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "左側の戴冠のお告げ", "refName": "Omen of Sinistral Coronation", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMxUmVkIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/b8e2b8ed3f/VoodooOmens1Red.png", "tradeTag": "omen-of-sinistral-coronation", "craftable": {"category": "Omen"}, "w": 1, "h": 1}
@@ -1836,6 +1839,7 @@
 {"name": "正子の生贄", "refName": "Sacrifice at Midnight", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
 {"name": "正子の生贄", "refName": "Sacrifice at Midnight", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
 {"name": "武器リコンビネーター", "refName": "Weapon Recombinator", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
+{"name": "歩哨の大兜", "refName": "Dueling Greathelm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [200, 200]}, "w": 2, "h": 2}
 {"name": "歯擦音のカタリスト", "refName": "Sibilant Catalyst", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaENhdGFseXN0Q2FzdGVyIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/51dc6bc317/BreachCatalystCaster.png", "tradeTag": "sibilant-catalyst", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "死に際", "refName": "Last Gasp", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "死の舞踏", "refName": "Danse Macabre", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -1879,7 +1883,6 @@
 {"name": "汚染された鎧鍛冶の端材", "refName": "Tainted Armourer's Scrap", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "汚染された高貴なオーブ", "refName": "Tainted Exalted Orb", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "決闘のワンド", "refName": "Dueling Wand", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Wand"}, "w": 1, "h": 3}
-{"name": "決闘の大兜", "refName": "Dueling Greathelm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [200, 200]}, "w": 2, "h": 2}
 {"name": "泣き叫ぶ招待状", "refName": "Screaming Invitation", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
 {"name": "泣き叫ぶ招待状", "refName": "Screaming Invitation", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MiscMapItem"}, "w": 1, "h": 1}
 {"name": "注入", "refName": "Infusion", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -2137,6 +2140,7 @@
 {"name": "皮のベスト", "refName": "Leather Vest", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"ev": [30, 30]}, "w": 2, "h": 3}
 {"name": "皮張りのフード", "refName": "Leatherbound Hood", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ev": [177, 177]}, "w": 2, "h": 2}
 {"name": "盗賊のメイス", "refName": "Brigand Mace", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "One Hand Mace"}, "w": 2, "h": 3}
+{"name": "監督者の先人の石板", "refName": "Overseer Precursor Tablet", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "TowerAugment"}, "w": 1, "h": 1}
 {"name": "監視者の弓", "refName": "Warden Bow", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Bow"}, "w": 2, "h": 4}
 {"name": "盲目", "refName": "Blind", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "真珠のバックラー", "refName": "Pearl Buckler", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Shield"}, "armour": {"ev": [105, 105]}, "w": 2, "h": 2}
@@ -2231,7 +2235,6 @@
 {"name": "精神のエッセンス（大）", "refName": "Greater Essence of the Mind", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyTWFuYUVzc2VuY2UiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f9e17e6d47/GreaterManaEssence.png", "tradeTag": "greater-essence-of-the-mind", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "精神のルーン", "refName": "Mind Rune", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTWFuYVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/4be6331480/ManaRune.png", "tradeTag": "mind-rune", "craftable": {"category": "SoulCore"}, "w": 1, "h": 1}
 {"name": "精鋭の大兜", "refName": "Elite Greathelm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [136, 136]}, "w": 2, "h": 2}
-{"name": "紅玉", "refName": "Ruby", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Jewel"}, "w": 1, "h": 1}
 {"name": "紅玉のチャーム", "refName": "Ruby Charm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Charm"}, "w": 1, "h": 1}
 {"name": "紋章のクレストシールド", "refName": "Sigil Crest Shield", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Shield"}, "armour": {"ar": [17, 17], "es": [8, 8]}, "w": 2, "h": 3}
 {"name": "紋章のタワーシールド", "refName": "Heraldric Tower Shield", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Shield"}, "armour": {"ar": [85, 85]}, "w": 2, "h": 4}
@@ -2292,7 +2295,6 @@
 {"name": "羽根付きの矢じり", "refName": "Flanged Arrowhead", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistEquipmentWeapon"}, "w": 2, "h": 2}
 {"name": "羽飾りのついた黄金像", "refName": "Crested Golden Idol", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "羽飾りのフォーカス", "refName": "Plumed Focus", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Focus"}, "armour": {"es": [34, 34]}, "w": 2, "h": 3}
-{"name": "翠玉", "refName": "Emerald", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Jewel"}, "w": 1, "h": 1}
 {"name": "翡翠のアミュレット", "refName": "Jade Amulet", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Amulet"}, "w": 1, "h": 1}
 {"name": "翡翠のティアラ", "refName": "Jade Tiara", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"es": [69, 69]}, "w": 2, "h": 2}
 {"name": "翡翠のフォーカス", "refName": "Jade Focus", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Focus"}, "armour": {"es": [40, 40]}, "w": 2, "h": 3}
@@ -2357,7 +2359,6 @@
 {"name": "蒸留された罪悪感", "refName": "Distilled Guilt", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGlzdGlsbGVkRW1vdGlvbnMvRGlzdGlsbGVkR3VpbHQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/21cd0fd17b/DistilledGuilt.png", "tradeTag": "distilled-guilt", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "蒸留された苦悩", "refName": "Distilled Suffering", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGlzdGlsbGVkRW1vdGlvbnMvRGlzdGlsbGVkU3VmZmVyaW5nIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/801a53662a/DistilledSuffering.png", "tradeTag": "distilled-suffering", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "蒸留された貪欲", "refName": "Distilled Greed", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGlzdGlsbGVkRW1vdGlvbnMvRGlzdGlsbGVkR3JlZWQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5888a4ae61/DistilledGreed.png", "tradeTag": "distilled-greed", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
-{"name": "蒼玉", "refName": "Sapphire", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Jewel"}, "w": 1, "h": 1}
 {"name": "蒼玉のチャーム", "refName": "Sapphire Charm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Charm"}, "w": 1, "h": 1}
 {"name": "蛆虫の皮", "refName": "Maggot Husk", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 3}
 {"name": "蛇皮のコート", "refName": "Serpentscale Coat", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"ev": [198, 198]}, "w": 2, "h": 3}
@@ -2552,7 +2553,6 @@
 {"name": "金の鍵", "refName": "Gold Key", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "金の鍵", "refName": "Gold Key", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "金ピカのレギンス", "refName": "Gilt Leggings", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Boots"}, "armour": {"ar": [82, 82], "es": [29, 29]}, "w": 2, "h": 2}
-{"name": "金剛石", "refName": "Diamond", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Jewel"}, "w": 1, "h": 1}
 {"name": "金属光沢の化石", "refName": "Metallic Fossil", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "金庫のレリック", "refName": "Coffer Relic", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Relic"}, "w": 2, "h": 2}
 {"name": "金庫の鍵", "refName": "Vault Key", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
@@ -2850,15 +2850,15 @@
 {"name": "アルファの遠吠え", "refName": "Alpha's Howl", "namespace": "UNIQUE", "unique": {"base": "アーマードキャップ", "stats": {"#% increased Evasion Rating": [[80, 100]], "#% to Cold Resistance": [[50, 75]]}}}
 {"name": "エミレの前掛け", "refName": "Apron of Emiran", "namespace": "UNIQUE", "unique": {"base": "隠修士の服", "stats": {"#% increased Evasion and Energy Shield": [[30, 50]], "# to Dexterity": [[10, 20]], "#% reduced Bleeding Duration on you": [[40, 60]]}}}
 {"name": "アルヴィルの車輪", "refName": "Arvil's Wheel", "namespace": "UNIQUE", "unique": {"base": "堅木のタージ", "stats": {"#% increased Armour and Evasion": [[60, 100]], "# to maximum Life": [[40, 60]], "# to maximum Mana": [[40, 60]], "#% increased Skill Effect Duration": [[30, 50]]}}}
-{"name": "アシュレンド", "refName": "Ashrend", "namespace": "UNIQUE", "unique": {"base": "開拓者のコート", "stats": {"# to maximum Life": [[40, 60]], "# to Strength": [[10, 20]], "#% to Fire Resistance": [[30, 40]]}}}
+{"name": "アシュレンド", "refName": "アシュレンド", "namespace": "UNIQUE", "unique": {"base": "開拓者のコート"}}
 {"name": "アスフィクシアの憤怒", "refName": "Asphyxia's Wrath", "namespace": "UNIQUE", "unique": {"base": "太矢じりの矢筒", "stats": {"Adds # to # Cold damage to Attacks": [[3, 4], [5, 8]], "#% increased Attack Speed": [[5, 10]], "#% to Cold Resistance": [[5, 10]], "Attacks Gain #% of Damage as Extra Cold Damage": [[5, 10]]}}}
 {"name": "アセイラム", "refName": "Assailum", "namespace": "UNIQUE", "unique": {"base": "クローズドヘルム", "stats": {"#% increased Armour and Evasion": [[50, 100]], "# to Accuracy Rating": [[200, 400]], "#% increased Critical Hit Chance": [[30, 50]], "Skills have a #% longer Perfect Timing window": [[100, 150]]}}}
 {"name": "アツァクの視野", "refName": "Atsak's Sight", "namespace": "UNIQUE", "unique": {"base": "ベール付きの仮面", "stats": {"#% increased Evasion and Energy Shield": [[100, 150]], "#% increased Critical Hit Chance": [[30, 40]], "# to Dexterity": [[10, 20]], "# to Intelligence": [[10, 20]]}}}
-{"name": "アトジリの鋭敏さ", "refName": "Atziri's Acuity", "namespace": "UNIQUE", "unique": {"base": "成形ミット", "stats": {"#% increased Armour": [[80, 100]], "#% increased Critical Hit Chance": [[30, 50]], "# to Intelligence": [[20, 30]]}}}
+{"name": "アトジリの鋭敏さ", "refName": "アトジリの鋭敏さ", "namespace": "UNIQUE", "unique": {"base": "成形ミット"}}
 {"name": "アッツィリの軽蔑", "refName": "Atziri's Disdain", "namespace": "UNIQUE", "unique": {"base": "金のサークレット", "stats": {"# to maximum Mana": [[40, 60]], "#% increased Rarity of Items found": [[10, 20]], "#% of Damage taken bypasses Energy Shield": [[20, 25]], "Gain #% of Maximum Life as Extra Maximum Energy Shield": [[25, 30]]}}}
 {"name": "オアシーズ", "refName": "Aurseize", "namespace": "UNIQUE", "unique": {"base": "レイヤーガントレット", "stats": {"#% increased Armour and Evasion": [[40, 60]], "#% increased Rarity of Items found": [[40, 50]]}}}
 {"name": "ビートルバイト", "refName": "Beetlebite", "namespace": "UNIQUE", "unique": {"base": "ベロアシューズ", "stats": {"#% increased Movement Speed": [[20, 30]], "#% increased Evasion and Energy Shield": [[60, 120]]}}}
-{"name": "魔獣の内部", "refName": "Belly of the Beast", "namespace": "UNIQUE", "unique": {"base": "探検家の鎧", "stats": {"#% increased Armour and Evasion": [[100, 150]], "# to maximum Life": [[100, 150]], "# to Stun Threshold": [[100, 150]], "# to # Physical Thorns damage": [[25, 30], [35, 40]]}}}
+{"name": "魔獣の内部", "refName": "魔獣の内部", "namespace": "UNIQUE", "unique": {"base": "探検家の鎧"}}
 {"name": "手の届かぬ所", "refName": "Beyond Reach", "namespace": "UNIQUE", "unique": {"base": "内臓の矢筒", "stats": {"#% increased Critical Hit Chance for Attacks": [[20, 30]], "#% reduced Attack Speed": [[10, 15]], "Attacks Gain #% of Physical Damage as extra Chaos Damage": [[10, 20]]}}}
 {"name": "怒りの誕生", "refName": "Birth of Fury", "namespace": "UNIQUE", "unique": {"base": "石のグリーヴ", "stats": {"# to maximum Life": [[40, 60]], "#% to Fire Resistance": [[20, 30]]}}}
 {"name": "ビターブルーム", "refName": "Bitterbloom", "namespace": "UNIQUE", "unique": {"base": "羽根付きのローブ", "stats": {"#% increased Energy Shield": [[50, 100]], "# to maximum Mana": [[50, 100]]}}}
@@ -2961,7 +2961,7 @@
 {"name": "砂嵐の容貌", "refName": "Sandstorm Visage", "namespace": "UNIQUE", "unique": {"base": "鎖のティアラ", "stats": {"# to maximum Energy Shield": [[80, 120]], "# to Dexterity": [[20, 30]]}}}
 {"name": "蛇の学習", "refName": "Serpent's Lesson", "namespace": "UNIQUE", "unique": {"base": "調性のフォーカス", "stats": {"# to maximum Life": [[60, 100]], "# to maximum Mana": [[60, 100]]}}}
 {"name": "哀れな者の手枷", "refName": "Shackles of the Wretched", "namespace": "UNIQUE", "unique": {"base": "古いカフス", "stats": {"#% increased Armour and Energy Shield": [[30, 50]]}}}
-{"name": "シエランの遺産", "refName": "Sierran Inheritance", "namespace": "UNIQUE", "unique": {"base": "マラブーの服", "stats": {"#% increased Evasion and Energy Shield": [[50, 80]], "#% to Lightning Resistance": [[30, 40]], "#% faster start of Energy Shield Recharge": [[30, 50]]}}}
+{"name": "シエランの遺産", "refName": "シエランの遺産", "namespace": "UNIQUE", "unique": {"base": "マラブーの服"}}
 {"name": "不平等", "refName": "Sine Aequo", "namespace": "UNIQUE", "unique": {"base": "荘厳なマンシェット", "stats": {"#% increased Skill Speed": [[10, 15]], "#% increased Armour, Evasion and Energy Shield": [[40, 60]]}}}
 {"name": "忠臣の皮膚", "refName": "Skin of the Loyal", "namespace": "UNIQUE", "unique": {"base": "ガーメント", "stats": {"#% to all Elemental Resistances": [[5, 40]]}}}
 {"name": "スネークバイト", "refName": "Snakebite", "namespace": "UNIQUE", "unique": {"base": "トゲ付きの弓籠手", "stats": {"#% increased Evasion Rating": [[40, 60]], "#% to Chaos Resistance": [[7, 17]], "# Life Regeneration per second": [[6, 10]], "#% chance to Poison on Hit": [[20, 30]]}}}
@@ -2977,7 +2977,7 @@
 {"name": "むさぼり食う王冠", "refName": "The Devouring Diadem", "namespace": "UNIQUE", "unique": {"base": "枝編みのティアラ", "stats": {"#% increased Energy Shield": [[60, 100]], "# to maximum Life": [[40, 60]], "# to Intelligence": [[10, 20]], "#% to Chaos Resistance": [[13, 19]]}}}
 {"name": "永遠の火花", "refName": "The Eternal Spark", "namespace": "UNIQUE", "unique": {"base": "結晶のフォーカス", "stats": {"#% increased Energy Shield": [[50, 70]], "#% to Lightning Resistance": [[20, 30]]}}}
 {"name": "虚ろの仮面", "refName": "The Hollow Mask", "namespace": "UNIQUE", "unique": {"base": "粗削りの仮面", "stats": {"# to maximum Life": [[60, 80]]}}}
-{"name": "イモータン", "refName": "The Immortan", "namespace": "UNIQUE", "unique": {"base": "レイダープレート", "stats": {"# to all Attributes": [[10, 15]], "#% to Fire Resistance": [[15, 30]], "#% to Lightning Resistance": [[15, 30]], "# Life Regeneration per second": [[10, 15]]}}}
+{"name": "イモータン", "refName": "イモータン", "namespace": "UNIQUE", "unique": {"base": "レイダープレート"}}
 {"name": "無限の追跡", "refName": "The Infinite Pursuit", "namespace": "UNIQUE", "unique": {"base": "青銅のグリーヴ", "stats": {"#% increased Armour": [[100, 150]], "# to maximum Life": [[80, 100]], "#% increased Chance to be afflicted by Ailments when Hit": [[80, 100]]}}}
 {"name": "放浪騎士", "refName": "The Knight-errant", "namespace": "UNIQUE", "unique": {"base": "メイルサバトン", "stats": {"#% increased Armour and Evasion": [[30, 50]], "# to Stun Threshold": [[30, 50]], "# to Ailment Threshold": [[30, 50]]}}}
 {"name": "鼠の檻", "refName": "The Rat Cage", "namespace": "UNIQUE", "unique": {"base": "偵察者のベスト", "stats": {"#% increased Evasion Rating": [[100, 150]]}}}
@@ -3005,16 +3005,16 @@
 {"name": "ウルフスベイン", "refName": "Wulfsbane", "namespace": "UNIQUE", "unique": {"base": "彩色されたタワーシールド", "stats": {"# to maximum Life": [[40, 60]], "# to Strength": [[10, 15]], "# to Stun Threshold": [[60, 80]]}}}
 {"name": "溶解する大渦", "refName": "Melting Maelstrom", "namespace": "UNIQUE", "unique": {"base": "究極のマナフラスコ", "stats": {"#% increased Duration": [[200, 250]]}}}
 {"name": "オルロスの決意", "refName": "Olroth's Resolve", "namespace": "UNIQUE", "unique": {"base": "究極のライフフラスコ", "stats": {"#% increased Charges per use": [[100, 150]]}}}
-{"name": "闇との対立", "refName": "Against the Darkness", "namespace": "UNIQUE", "unique": {"base": "古の金剛石", "stats": {}}}
-{"name": "制御されし変態", "refName": "Controlled Metamorphosis", "namespace": "UNIQUE", "unique": {"base": "金剛石", "stats": {"#% to all Elemental Resistances": [[-20, -5]], "#% to Chaos Resistance": [[-23, -3]]}}}
-{"name": "虚空より来たる", "refName": "From Nothing", "namespace": "UNIQUE", "unique": {"base": "金剛石", "stats": {}}}
-{"name": "グランド・スペクトラム", "refName": "Grand Spectrum", "namespace": "UNIQUE", "unique": {"base": "紅玉", "stats": {}}}
+{"name": "闇との対立", "refName": "Against the Darkness", "namespace": "UNIQUE", "unique": {"base": "古の金剛石"}}
+{"name": "制御されし変態", "refName": "Controlled Metamorphosis", "namespace": "UNIQUE", "unique": {"base": "金剛石"}}
+{"name": "虚空より来たる", "refName": "From Nothing", "namespace": "UNIQUE", "unique": {"base": "金剛石"}}
+{"name": "グランド・スペクトラム", "refName": "Grand Spectrum", "namespace": "UNIQUE", "unique": {"base": "紅玉"}}
 {"name": "グランド・スペクトラム", "refName": "Grand Spectrum", "namespace": "UNIQUE", "unique": {"base": "翠玉"}}
 {"name": "グランド・スペクトラム", "refName": "Grand Spectrum", "namespace": "UNIQUE", "unique": {"base": "蒼玉"}}
 {"name": "英雄の悲劇", "refName": "Heroic Tragedy", "namespace": "UNIQUE", "unique": {"base": "時知らずのジュエル", "stats": {"Remembrancing # songworthy deeds by the line of Vorana": [[100, 8000]]}}}
-{"name": "メガロマニアック", "refName": "Megalomaniac", "namespace": "UNIQUE", "unique": {"base": "金剛石", "stats": {}}}
-{"name": "信仰のプリズム", "refName": "Prism of Belief", "namespace": "UNIQUE", "unique": {"base": "金剛石", "stats": {"# to Level of all Specific Skill Skills": [[1, 3]]}}}
-{"name": "飾り立てられしもの", "refName": "The Adorned", "namespace": "UNIQUE", "unique": {"base": "金剛石", "stats": {"#% increased Effect of Jewel Socket Passive Skills": [[0, 100]]}}}
+{"name": "メガロマニアック", "refName": "Megalomaniac", "namespace": "UNIQUE", "unique": {"base": "金剛石"}}
+{"name": "信仰のプリズム", "refName": "Prism of Belief", "namespace": "UNIQUE", "unique": {"base": "金剛石"}}
+{"name": "飾り立てられしもの", "refName": "The Adorned", "namespace": "UNIQUE", "unique": {"base": "金剛石"}}
 {"name": "青い舌", "refName": "Bluetongue", "namespace": "UNIQUE", "unique": {"base": "ショートソード", "stats": {"Adds # to # Physical Damage": [[4, 6], [7, 10]]}}}
 {"name": "脳揺らし", "refName": "Brain Rattler", "namespace": "UNIQUE", "unique": {"base": "鋲付きの金棒", "stats": {"Adds # to # Physical Damage": [[18, 22], [24, 28]], "Adds # to # Lightning Damage": [[1, 1], [50, 55]], "#% increased Attack Speed": [[10, 15]]}}}
 {"name": "ブリンハンドの印", "refName": "Brynhand's Mark", "namespace": "UNIQUE", "unique": {"base": "棍棒", "stats": {"Adds # to # Physical Damage": [[10, 14], [16, 20]], "# to Accuracy Rating": [[30, 50]], "# to Strength": [[10, 20]]}}}

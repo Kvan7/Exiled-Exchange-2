@@ -4923,7 +4923,7 @@
         }
     },
     "379": {
-        "name": "アイススピアー",
+        "name": "ウィンドスピアー",
         "refName": "Ice Spear",
         "namespace": "GEM",
         "class": 18,
@@ -6583,7 +6583,7 @@
         }
     },
     "483": {
-        "name": "紅玉",
+        "name": "ルビー",
         "refName": "Ruby",
         "namespace": "ITEM",
         "class": 41,
@@ -6595,7 +6595,7 @@
         }
     },
     "484": {
-        "name": "翠玉",
+        "name": "エメラルド",
         "refName": "Emerald",
         "namespace": "ITEM",
         "class": 41,
@@ -6607,7 +6607,7 @@
         }
     },
     "485": {
-        "name": "蒼玉",
+        "name": "サファイア",
         "refName": "Sapphire",
         "namespace": "ITEM",
         "class": 41,
@@ -6619,7 +6619,7 @@
         }
     },
     "486": {
-        "name": "金剛石",
+        "name": "ダイヤモンド",
         "refName": "Diamond",
         "namespace": "ITEM",
         "class": 41,
@@ -6631,7 +6631,7 @@
         }
     },
     "487": {
-        "name": "古の紅玉",
+        "name": "古のルビー",
         "refName": "Time-Lost Ruby",
         "namespace": "ITEM",
         "class": 41,
@@ -6643,7 +6643,7 @@
         }
     },
     "488": {
-        "name": "古の翠玉",
+        "name": "古のエメラルド",
         "refName": "Time-Lost Emerald",
         "namespace": "ITEM",
         "class": 41,
@@ -6655,7 +6655,7 @@
         }
     },
     "489": {
-        "name": "古の蒼玉",
+        "name": "古のサファイア",
         "refName": "Time-Lost Sapphire",
         "namespace": "ITEM",
         "class": 41,
@@ -6667,7 +6667,7 @@
         }
     },
     "490": {
-        "name": "古の金剛石",
+        "name": "古のダイヤモンド",
         "refName": "Time-Lost Diamond",
         "namespace": "ITEM",
         "class": 41,
@@ -20398,7 +20398,7 @@
         }
     },
     "1984": {
-        "name": "決闘の大兜",
+        "name": "歩哨の大兜",
         "refName": "Dueling Greathelm",
         "namespace": "ITEM",
         "class": 25,
@@ -21178,7 +21178,7 @@
         }
     },
     "2024": {
-        "name": "テンプラーの冠",
+        "name": "アルコンの冠",
         "refName": "Templar Crown",
         "namespace": "ITEM",
         "class": 25,
@@ -33874,7 +33874,7 @@
         }
     },
     "2813": {
-        "name": "テンペストベル",
+        "name": "嵐鐘",
         "refName": "Tempest Bell",
         "namespace": "GEM",
         "class": 18,
@@ -38411,7 +38411,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRHZW5lcmljIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/5658ce7f2d/PrecursorTabletGeneric.png"
     },
     "3100": {
-        "name": "Overseer Precursor Tablet",
+        "name": "監督者の先人の石板",
         "refName": "Overseer Precursor Tablet",
         "namespace": "ITEM",
         "class": 105,
@@ -38420,9 +38420,7 @@
         "height": 1,
         "craftable": {
             "category": "TowerAugment"
-        },
-        "tradeTag": "overseer-precursor-tablet",
-        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRCb3NzIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/4c442297f2/PrecursorTabletBoss.png"
+        }
     },
     "3101": {
         "name": "デコンポーズ",
@@ -40083,7 +40081,7 @@
         }
     },
     "3208": {
-        "name": "ライトニングボルト",
+        "name": "ライトニングボルト（大）",
         "refName": "Greater Lightning Bolt",
         "namespace": "GEM",
         "class": 18,

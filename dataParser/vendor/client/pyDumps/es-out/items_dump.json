@@ -8385,7 +8385,7 @@
         }
     },
     "626": {
-        "name": "Una audiencia ante el rey",
+        "name": "Una audiencia con el rey",
         "refName": "An Audience with the King",
         "namespace": "ITEM",
         "class": 38,
@@ -8394,9 +8394,7 @@
         "height": 1,
         "craftable": {
             "category": "MapFragment"
-        },
-        "tradeTag": "an-audience-with-the-king",
-        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUml0dWFsL1Zvb2Rvb0tpbmdFZmZpZ3kiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/0b02c113cc/VoodooKingEffigy.png"
+        }
     },
     "627": {
         "name": "Llave del Relicario antiguo",
@@ -20398,7 +20396,7 @@
         }
     },
     "1984": {
-        "name": "Gran yelmo de duelo",
+        "name": "Gran yelmo de centinela",
         "refName": "Dueling Greathelm",
         "namespace": "ITEM",
         "class": 25,
@@ -21178,7 +21176,7 @@
         }
     },
     "2024": {
-        "name": "Corona de templario",
+        "name": "Corona de arconte",
         "refName": "Templar Crown",
         "namespace": "ITEM",
         "class": 25,
@@ -38411,7 +38409,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRHZW5lcmljIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/5658ce7f2d/PrecursorTabletGeneric.png"
     },
     "3100": {
-        "name": "Overseer Precursor Tablet",
+        "name": "Tablilla precursora del capataz",
         "refName": "Overseer Precursor Tablet",
         "namespace": "ITEM",
         "class": 105,
@@ -38420,9 +38418,7 @@
         "height": 1,
         "craftable": {
             "category": "TowerAugment"
-        },
-        "tradeTag": "overseer-precursor-tablet",
-        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRCb3NzIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/4c442297f2/PrecursorTabletBoss.png"
+        }
     },
     "3101": {
         "name": "Descomposición",
@@ -40083,7 +40079,7 @@
         }
     },
     "3208": {
-        "name": "Descarga de rayo",
+        "name": "Descarga de rayo superior",
         "refName": "Greater Lightning Bolt",
         "namespace": "GEM",
         "class": 18,

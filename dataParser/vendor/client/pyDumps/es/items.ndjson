@@ -616,6 +616,7 @@
 {"name": "Corona con cuernos", "refName": "Horned Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [33, 33], "es": [15, 15]}, "w": 2, "h": 2}
 {"name": "Corona con cuernos avanzada", "refName": "Advanced Horned Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [102, 102], "es": [37, 37]}, "w": 2, "h": 2}
 {"name": "Corona con cuernos experta", "refName": "Expert Horned Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [134, 134], "es": [46, 46]}, "w": 2, "h": 2}
+{"name": "Corona de arconte", "refName": "Templar Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [134, 134], "es": [46, 46]}, "w": 2, "h": 2}
 {"name": "Corona de cultista", "refName": "Cultist Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [44, 44], "es": [19, 19]}, "w": 2, "h": 2}
 {"name": "Corona de cultista avanzada", "refName": "Advanced Cultist Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [108, 108], "es": [38, 38]}, "w": 2, "h": 2}
 {"name": "Corona de flores dorada", "refName": "Golden Wreath", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "w": 2, "h": 2}
@@ -625,7 +626,6 @@
 {"name": "Corona de mártir", "refName": "Martyr Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [66, 66], "es": [25, 25]}, "w": 2, "h": 2}
 {"name": "Corona de mártir avanzada", "refName": "Advanced Martyr Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [115, 115], "es": [41, 41]}, "w": 2, "h": 2}
 {"name": "Corona de mártir experta", "refName": "Expert Martyr Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [147, 147], "es": [51, 51]}, "w": 2, "h": 2}
-{"name": "Corona de templario", "refName": "Templar Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [134, 134], "es": [46, 46]}, "w": 2, "h": 2}
 {"name": "Corona lujosa", "refName": "Lavish Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [110, 110], "es": [39, 39]}, "w": 2, "h": 2}
 {"name": "Corona pesada", "refName": "Heavy Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [75, 75], "es": [28, 28]}, "w": 2, "h": 2}
 {"name": "Corona pesada avanzada", "refName": "Advanced Heavy Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [123, 123], "es": [43, 43]}, "w": 2, "h": 2}
@@ -703,7 +703,7 @@
 {"name": "Descarga de escarcha", "refName": "Frostbolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Descarga de fuego", "refName": "Firebolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Descarga de rayo", "refName": "Lightning Bolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "Descarga de rayo", "refName": "Greater Lightning Bolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
+{"name": "Descarga de rayo superior", "refName": "Greater Lightning Bolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Descarga elemental", "refName": "Elemental Discharge", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Descenso sagrado", "refName": "Holy Descent", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Descomposición", "refName": "Decompose", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -1281,8 +1281,8 @@
 {"name": "Gran martillo de roble experto", "refName": "Expert Oak Greathammer", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Two Hand Mace"}, "w": 2, "h": 4}
 {"name": "Gran martillo preciso", "refName": "Precise Greathammer", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Two Hand Mace"}, "w": 2, "h": 4}
 {"name": "Gran maza", "refName": "Greatmace", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Two Hand Mace"}, "w": 2, "h": 4}
+{"name": "Gran yelmo de centinela", "refName": "Dueling Greathelm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [200, 200]}, "w": 2, "h": 2}
 {"name": "Gran yelmo de comandante", "refName": "Commander Greathelm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [176, 176]}, "w": 2, "h": 2}
-{"name": "Gran yelmo de duelo", "refName": "Dueling Greathelm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [200, 200]}, "w": 2, "h": 2}
 {"name": "Gran yelmo de goliat", "refName": "Goliath Greathelm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [216, 216]}, "w": 2, "h": 2}
 {"name": "Gran yelmo de guardián", "refName": "Guardian Greathelm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [243, 243]}, "w": 2, "h": 2}
 {"name": "Gran yelmo de guerrero", "refName": "Warrior Greathelm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [146, 146]}, "w": 2, "h": 2}
@@ -2020,7 +2020,6 @@
 {"name": "Orbe vaal", "refName": "Vaal Orb", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lWYWFsIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/72bc84396c/CurrencyVaal.png", "tradeTag": "vaal", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "Orden de la Especialista", "refName": "The Maven's Writ", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
 {"name": "Oro", "refName": "Gold", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
-{"name": "Overseer Precursor Tablet", "refName": "Overseer Precursor Tablet", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRCb3NzIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/4c442297f2/PrecursorTabletBoss.png", "tradeTag": "overseer-precursor-tablet", "craftable": {"category": "TowerAugment"}, "w": 1, "h": 1}
 {"name": "Pacto de esbirros", "refName": "Minion Pact", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Pacto oscuro", "refName": "Dark Pact", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Palma desestabilizadora", "refName": "Staggering Palm", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -2475,6 +2474,7 @@
 {"name": "Tablilla precursora de expedición", "refName": "Expedition Precursor Tablet", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRFeHBlZGl0aW9uIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/4450dac451/PrecursorTabletExpedition.png", "tradeTag": "expedition-precursor-tablet", "craftable": {"category": "TowerAugment"}, "w": 1, "h": 1}
 {"name": "Tablilla precursora de fisura", "refName": "Breach Precursor Tablet", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRCcmVhY2giLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/295c0839d7/PrecursorTabletBreach.png", "tradeTag": "breach-precursor-tablet", "craftable": {"category": "TowerAugment"}, "w": 1, "h": 1}
 {"name": "Tablilla precursora de ritual", "refName": "Ritual Precursor Tablet", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRSaXR1YWwiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/7c49d00f07/PrecursorTabletRitual.png", "tradeTag": "ritual-precursor-tablet", "craftable": {"category": "TowerAugment"}, "w": 1, "h": 1}
+{"name": "Tablilla precursora del capataz", "refName": "Overseer Precursor Tablet", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "TowerAugment"}, "w": 1, "h": 1}
 {"name": "Taladro con reborde", "refName": "Flanged Drill", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistEquipmentTool"}, "w": 2, "h": 2}
 {"name": "Taladro de acero", "refName": "Steel Drill", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistEquipmentTool"}, "w": 2, "h": 2}
 {"name": "Talismán potenciador", "refName": "Aggregator Charm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistEquipmentWeapon"}, "w": 2, "h": 2}
@@ -2605,7 +2605,7 @@
 {"name": "Ultimátum inscrito", "refName": "Inscribed Ultimatum", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MiscMapItem"}, "w": 1, "h": 1}
 {"name": "Ultimátum inscrito quimérico", "refName": "Chimeral Inscribed Ultimatum", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
 {"name": "Ultracongelación", "refName": "Deep Freeze", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "Una audiencia ante el rey", "refName": "An Audience with the King", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUml0dWFsL1Zvb2Rvb0tpbmdFZmZpZ3kiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/0b02c113cc/VoodooKingEffigy.png", "tradeTag": "an-audience-with-the-king", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
+{"name": "Una audiencia con el rey", "refName": "An Audience with the King", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
 {"name": "Uniformes templarios", "refName": "Templar Uniforms", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
 {"name": "Urgencia ancestral", "refName": "Ancestral Urgency", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Urna de Farud", "refName": "Urn of Farud", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
@@ -2851,7 +2851,7 @@
 {"name": "Mandil de Emiran", "refName": "Apron of Emiran", "namespace": "UNIQUE", "unique": {"base": "Traje de ermitaño", "stats": {"#% increased Evasion and Energy Shield": [[30, 50]], "# to Dexterity": [[10, 20]], "#% reduced Bleeding Duration on you": [[40, 60]]}}}
 {"name": "Rueda de Arvil", "refName": "Arvil's Wheel", "namespace": "UNIQUE", "unique": {"base": "Targe de madera dura", "stats": {"#% increased Armour and Evasion": [[60, 100]], "# to maximum Life": [[40, 60]], "# to maximum Mana": [[40, 60]], "#% increased Skill Effect Duration": [[30, 50]]}}}
 {"name": "Desgarro de cenizas", "refName": "Ashrend", "namespace": "UNIQUE", "unique": {"base": "Coselete de rastreadora", "stats": {"# to maximum Life": [[40, 60]], "# to Strength": [[10, 20]], "#% to Fire Resistance": [[30, 40]]}}}
-{"name": "Ira de asphyxia", "refName": "Asphyxia's Wrath", "namespace": "UNIQUE", "unique": {"base": "Carcaj de flechas anchas", "stats": {"Adds # to # Cold damage to Attacks": [[3, 4], [5, 8]], "#% increased Attack Speed": [[5, 10]], "#% to Cold Resistance": [[5, 10]], "Attacks Gain #% of Damage as Extra Cold Damage": [[5, 10]]}}}
+{"name": "Ira de asphyxia", "refName": "Ira de asphyxia", "namespace": "UNIQUE", "unique": {"base": "Carcaj de flechas anchas"}}
 {"name": "Assailum", "refName": "Assailum", "namespace": "UNIQUE", "unique": {"base": "Yelmo cerrado", "stats": {"#% increased Armour and Evasion": [[50, 100]], "# to Accuracy Rating": [[200, 400]], "#% increased Critical Hit Chance": [[30, 50]], "Skills have a #% longer Perfect Timing window": [[100, 150]]}}}
 {"name": "Visión de Atsak", "refName": "Atsak's Sight", "namespace": "UNIQUE", "unique": {"base": "Máscara con velo", "stats": {"#% increased Evasion and Energy Shield": [[100, 150]], "#% increased Critical Hit Chance": [[30, 40]], "# to Dexterity": [[10, 20]], "# to Intelligence": [[10, 20]]}}}
 {"name": "Agudeza de Atziri", "refName": "Atziri's Acuity", "namespace": "UNIQUE", "unique": {"base": "Manoplas moldeadas", "stats": {"#% increased Armour": [[80, 100]], "#% increased Critical Hit Chance": [[30, 50]], "# to Intelligence": [[20, 30]]}}}
@@ -2977,7 +2977,7 @@
 {"name": "Diadema devoradora", "refName": "The Devouring Diadem", "namespace": "UNIQUE", "unique": {"base": "Tiara de mimbre", "stats": {"#% increased Energy Shield": [[60, 100]], "# to maximum Life": [[40, 60]], "# to Intelligence": [[10, 20]], "#% to Chaos Resistance": [[13, 19]]}}}
 {"name": "La chispa eterna", "refName": "The Eternal Spark", "namespace": "UNIQUE", "unique": {"base": "Foco de cristal", "stats": {"#% increased Energy Shield": [[50, 70]], "#% to Lightning Resistance": [[20, 30]]}}}
 {"name": "Máscara hueca", "refName": "The Hollow Mask", "namespace": "UNIQUE", "unique": {"base": "Máscara labrada", "stats": {"# to maximum Life": [[60, 80]]}}}
-{"name": "El inmortan", "refName": "The Immortan", "namespace": "UNIQUE", "unique": {"base": "Peto de incursor", "stats": {"# to all Attributes": [[10, 15]], "#% to Fire Resistance": [[15, 30]], "#% to Lightning Resistance": [[15, 30]], "# Life Regeneration per second": [[10, 15]]}}}
+{"name": "El inmortan", "refName": "El inmortan", "namespace": "UNIQUE", "unique": {"base": "Peto de incursor"}}
 {"name": "La persecución infinita", "refName": "The Infinite Pursuit", "namespace": "UNIQUE", "unique": {"base": "Grebas de bronce", "stats": {"#% increased Armour": [[100, 150]], "# to maximum Life": [[80, 100]], "#% increased Chance to be afflicted by Ailments when Hit": [[80, 100]]}}}
 {"name": "Pisadas del caballero", "refName": "The Knight-errant", "namespace": "UNIQUE", "unique": {"base": "Escarpes de malla", "stats": {"#% increased Armour and Evasion": [[30, 50]], "# to Stun Threshold": [[30, 50]], "# to Ailment Threshold": [[30, 50]]}}}
 {"name": "La jaula de ratas", "refName": "The Rat Cage", "namespace": "UNIQUE", "unique": {"base": "Jubón de exploración", "stats": {"#% increased Evasion Rating": [[100, 150]]}}}
@@ -3084,7 +3084,7 @@
 {"name": "Trephina", "refName": "Trephina", "namespace": "UNIQUE", "unique": {"base": "Mazo de forja", "stats": {"Adds # to # Physical Damage": [[12, 15], [22, 25]], "#% increased Attack Speed": [[10, 15]], "Causes #% increased Stun Buildup": [[30, 50]]}}}
 {"name": "Granizo de viuda", "refName": "Widowhail", "namespace": "UNIQUE", "unique": {"base": "Arco rústico", "stats": {"#% increased bonuses gained from Equipped Quiver": [[150, 250]]}}}
 {"name": "Mordisco de invierno", "refName": "Winter's Bite", "namespace": "UNIQUE", "unique": {"base": "Navaja de vidrio", "stats": {"Adds # to # Cold Damage": [[8, 10], [15, 18]]}}}
-{"name": "Apuesta de Wylund", "refName": "Wylund's Stake", "namespace": "UNIQUE", "unique": {"base": "Martillo de herrería", "stats": {"Adds # to # Physical Damage": [[4, 6], [8, 10]], "Adds # to # Fire Damage": [[4, 6], [8, 10]], "# to Strength": [[10, 20]], "#% to Fire Resistance": [[20, 30]], "Hits Break # Armour": [[30, 50]]}}}
+{"name": "Apuesta de Wylund", "refName": "Apuesta de Wylund", "namespace": "UNIQUE", "unique": {"base": "Martillo de herrería"}}
 {"name": "El peso del liderazgo", "refName": "The Burden of Leadership", "namespace": "UNIQUE", "unique": {"base": "Reliquia de tapiz", "stats": {}}}
 {"name": "El cambio de las estaciones", "refName": "The Changing Seasons", "namespace": "UNIQUE", "unique": {"base": "Reliquia de sello", "stats": {}}}
 {"name": "Alianza desesperada", "refName": "The Desperate Alliance", "namespace": "UNIQUE", "unique": {"base": "Reliquia de vasija", "stats": {}}}

@@ -3,7 +3,6 @@
 {"name": "\"잘 자라는 키스\"", "refName": "\"The Kiss Goodnight\"", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
 {"name": "1차 재보정 렌즈", "refName": "Prime Regrading Lens", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "2차 재보정 렌즈", "refName": "Secondary Regrading Lens", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
-{"name": "Overseer Precursor Tablet", "refName": "Overseer Precursor Tablet", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRCb3NzIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/4c442297f2/PrecursorTabletBoss.png", "tradeTag": "overseer-precursor-tablet", "craftable": {"category": "TowerAugment"}, "w": 1, "h": 1}
 {"name": "[DNT] Axe Chop", "refName": "[DNT] Axe Chop", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "[DNT] Axe Execute", "refName": "[DNT] Axe Execute", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "[DNT] Axe Heavy Cleave", "refName": "[DNT] Axe Heavy Cleave", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -104,6 +103,7 @@
 {"name": "갈라진 클로", "refName": "Forked Claw", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Claw"}, "w": 2, "h": 2}
 {"name": "갈래", "refName": "Fork", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "갈취자", "refName": "Despoiler", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
+{"name": "감독관 선도자 서판", "refName": "Overseer Precursor Tablet", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "TowerAugment"}, "w": 1, "h": 1}
 {"name": "감속", "refName": "Deceleration", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "감전 시 시전", "refName": "Cast on Shock", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MetaSkillGem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "감전 파열 탄환", "refName": "Shockburst Rounds", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -188,7 +188,6 @@
 {"name": "결전 위상", "refName": "Ultimatum Aspect", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "UniqueFragment"}, "w": 1, "h": 2}
 {"name": "결전 위상", "refName": "Ultimatum Aspect", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "UniqueFragment"}, "w": 1, "h": 2}
 {"name": "결정 집중구", "refName": "Crystal Focus", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Focus"}, "armour": {"es": [28, 28]}, "w": 2, "h": 3}
-{"name": "결투 대헬름", "refName": "Dueling Greathelm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [200, 200]}, "w": 2, "h": 2}
 {"name": "결투 마법봉", "refName": "Dueling Wand", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Wand"}, "w": 1, "h": 3}
 {"name": "겹겹의 건틀릿", "refName": "Layered Gauntlets", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Gloves"}, "armour": {"ar": [22, 22], "ev": [18, 18]}, "w": 2, "h": 2}
 {"name": "경건한 레깅스", "refName": "Pious Leggings", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Boots"}, "armour": {"ar": [100, 100], "es": [35, 35]}, "w": 2, "h": 2}
@@ -665,7 +664,6 @@
 {"name": "나쉬타 대면", "refName": "Confront Nashta", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
 {"name": "나쉬타의 전쟁 일지", "refName": "Nashta's War Journal", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
 {"name": "낙뢰", "refName": "Lightning Bolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "낙뢰", "refName": "Greater Lightning Bolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "낚싯대", "refName": "Fishing Rod", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9GaXNoaW5nUm9kcy9GaXNoaW5nUm9kMSIsInciOjEsImgiOjQsInNjYWxlIjoxfV0/d2a4a8b57a/FishingRod1.png", "craftable": {"category": "FishingRod"}, "w": 1, "h": 4}
 {"name": "난무하는 파편", "refName": "Wildshards", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "난사", "refName": "Scattershot", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -789,7 +787,6 @@
 {"name": "더럽혀진 연결의 오브", "refName": "Tainted Orb of Fusing", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVsbHNjYXBlL0hlbGxzY2FwZU9yYk9mRnVzaW5nIiwic2NhbGUiOjF9XQ/845f3c20ed/HellscapeOrbOfFusing.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "더럽혀진 쥬얼러 오브", "refName": "Tainted Jeweller's Orb", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVsbHNjYXBlL0hlbGxzY2FwZUpld2VsbGVyc09yYiIsInNjYWxlIjoxfV0/f146c29db2/HellscapeJewellersOrb.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "더럽혀진 카오스 오브", "refName": "Tainted Chaos Orb", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVsbHNjYXBlL0hlbGxzY2FwZUNoYW9zT3JiIiwic2NhbGUiOjF9XQ/64d1f4db99/HellscapeChaosOrb.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
-{"name": "더럽히는 자", "refName": "Messer", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
 {"name": "더블배럴", "refName": "Double Barrel", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "덜컹대는 셉터", "refName": "Rattling Sceptre", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Sceptre"}, "w": 2, "h": 3}
 {"name": "덩굴 화살", "refName": "Vine Arrow", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -928,6 +925,7 @@
 {"name": "머베일의 웨딩드레스", "refName": "Merveil's Wedding Dress", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
 {"name": "메가이라의 포획한 영혼", "refName": "Captured Soul of Megaera", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "PantheonSoul"}, "w": 1, "h": 1}
 {"name": "메달리온 덫", "refName": "Medallion Trap", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "TrapTool"}, "w": 2, "h": 2}
+{"name": "메서", "refName": "Messer", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
 {"name": "메이븐의 문서", "refName": "The Maven's Writ", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQXRsYXMvTWF2ZW5LZXkiLCJzY2FsZSI6MX1d/40683e487b/MavenKey.png", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
 {"name": "메이븐의 초대: 글렌나크 돌무덤", "refName": "Maven's Invitation: Glennach Cairns", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
 {"name": "메이븐의 초대: 글렌나크 돌무덤", "refName": "Maven's Invitation: Glennach Cairns", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
@@ -1311,6 +1309,7 @@
 {"name": "상위 가속의 에센스", "refName": "Greater Essence of Haste", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyU3BlZWRFc3NlbmNlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/5a72f95c24/GreaterSpeedEssence.png", "tradeTag": "greater-essence-of-haste", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "상위 강화의 에센스", "refName": "Greater Essence of Enhancement", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyRGVmZW5jZXNFc3NlbmNlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/a0ed2df82c/GreaterDefencesEssence.png", "tradeTag": "greater-essence-of-enhancement", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "상위 고뇌의 에센스", "refName": "Greater Essence of Torment", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyUGh5c2ljYWxFc3NlbmNlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/a28c932def/GreaterPhysicalEssence.png", "tradeTag": "greater-essence-of-torment", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
+{"name": "상위 낙뢰", "refName": "Greater Lightning Bolt", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "상위 마술의 에센스", "refName": "Greater Essence of Sorcery", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyQ2FzdGVyRXNzZW5jZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/14b7e4c8ef/GreaterCasterEssence.png", "tradeTag": "greater-essence-of-sorcery", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "상위 무한의 에센스", "refName": "Greater Essence of the Infinite", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXNzZW5jZS9HcmVhdGVyQXR0cmlidXRlRXNzZW5jZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/8a8cb823af/GreaterAttributeEssence.png", "tradeTag": "greater-essence-of-the-infinite", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "상위 소멸의 징조", "refName": "Omen of Greater Annulment", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMxUHVycGxlIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/a6848dff1c/VoodooOmens1Purple.png", "tradeTag": "omen-of-greater-annulment", "craftable": {"category": "Omen"}, "w": 1, "h": 1}
@@ -2216,6 +2215,7 @@
 {"name": "진화의 파편", "refName": "Transmutation Shard", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lVcGdyYWRlVG9NYWdpY1NoYXJkIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/e67bca229b/CurrencyUpgradeToMagicShard.png", "tradeTag": "transmutation-shard", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "질주자 조끼", "refName": "Strider Vest", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"ev": [275, 275]}, "w": 2, "h": 3}
 {"name": "집속 유탄", "refName": "Cluster Grenade", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
+{"name": "집정관 왕관", "refName": "Templar Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [134, 134], "es": [46, 46]}, "w": 2, "h": 2}
 {"name": "집정관의 연모양 방패 조각", "refName": "Archon Kite Shield Piece", "namespace": "ITEM", "icon": "", "craftable": {"category": "UniqueFragment"}, "w": 1, "h": 2}
 {"name": "집정관의 연모양 방패 조각", "refName": "Archon Kite Shield Piece", "namespace": "ITEM", "icon": "", "craftable": {"category": "UniqueFragment"}, "w": 1, "h": 2}
 {"name": "집정관의 연모양 방패 조각", "refName": "Archon Kite Shield Piece", "namespace": "ITEM", "icon": "", "craftable": {"category": "UniqueFragment"}, "w": 1, "h": 1}
@@ -2449,7 +2449,6 @@
 {"name": "테스트용 공격", "refName": "Playtest Attack", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "테스트용 주문", "refName": "Playtest Spell", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "테클라티피치의 거울", "refName": "Mirror of Teklatipitzi", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
-{"name": "템플러 왕관", "refName": "Templar Crown", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [134, 134], "es": [46, 46]}, "w": 2, "h": 2}
 {"name": "템플러 제복", "refName": "Templar Uniforms", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
 {"name": "토너먼트 사슬옷", "refName": "Tournament Mail", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"ar": [245, 245], "ev": [223, 223]}, "w": 2, "h": 3}
 {"name": "토너먼트 사슬옷", "refName": "Tournament Mail", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"ar": [245, 245], "ev": [223, 223]}, "w": 2, "h": 3}
@@ -2507,6 +2506,7 @@
 {"name": "파루드의 단지", "refName": "Urn of Farud", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "파문 대검", "refName": "Rippled Greatsword", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Two Hand Sword"}, "w": 2, "h": 4}
 {"name": "파쇄 주문서", "refName": "Fragmentation Scroll", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGFydmVzdC9IYXJiaW5nZXJUb2tlblF1aXZlciIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/a6017fd37d/HarbingerTokenQuiver.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
+{"name": "파수꾼 대헬름", "refName": "Dueling Greathelm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [200, 200]}, "w": 2, "h": 2}
 {"name": "파수꾼 조작기", "refName": "Sentinel Controller", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 2, "h": 2}
 {"name": "파열", "refName": "Rupture", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "파우아 집중구", "refName": "Paua Focus", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Focus"}, "armour": {"es": [43, 43]}, "w": 2, "h": 3}
@@ -2977,7 +2977,7 @@
 {"name": "걸신들린 왕관", "refName": "The Devouring Diadem", "namespace": "UNIQUE", "unique": {"base": "고리버들 티아라", "stats": {"#% increased Energy Shield": [[60, 100]], "# to maximum Life": [[40, 60]], "# to Intelligence": [[10, 20]], "#% to Chaos Resistance": [[13, 19]]}}}
 {"name": "영원한 불꽃", "refName": "The Eternal Spark", "namespace": "UNIQUE", "unique": {"base": "결정 집중구", "stats": {"#% increased Energy Shield": [[50, 70]], "#% to Lightning Resistance": [[20, 30]]}}}
 {"name": "텅 빈 가면", "refName": "The Hollow Mask", "namespace": "UNIQUE", "unique": {"base": "깎아낸 가면", "stats": {"# to maximum Life": [[60, 80]]}}}
-{"name": "이모탄", "refName": "The Immortan", "namespace": "UNIQUE", "unique": {"base": "레이더 판금 갑옷", "stats": {"# to all Attributes": [[10, 15]], "#% to Fire Resistance": [[15, 30]], "#% to Lightning Resistance": [[15, 30]], "# Life Regeneration per second": [[10, 15]]}}}
+{"name": "이모탄", "refName": "이모탄", "namespace": "UNIQUE", "unique": {"base": "레이더 판금 갑옷"}}
 {"name": "끝없는 추적", "refName": "The Infinite Pursuit", "namespace": "UNIQUE", "unique": {"base": "청동 각반", "stats": {"#% increased Armour": [[100, 150]], "# to maximum Life": [[80, 100]], "#% increased Chance to be afflicted by Ailments when Hit": [[80, 100]]}}}
 {"name": "무사 수행 기사", "refName": "The Knight-errant", "namespace": "UNIQUE", "unique": {"base": "사슬 발 덮개", "stats": {"#% increased Armour and Evasion": [[30, 50]], "# to Stun Threshold": [[30, 50]], "# to Ailment Threshold": [[30, 50]]}}}
 {"name": "쥐덫", "refName": "The Rat Cage", "namespace": "UNIQUE", "unique": {"base": "정찰병의 조끼", "stats": {"#% increased Evasion Rating": [[100, 150]]}}}

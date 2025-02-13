@@ -28,6 +28,7 @@ from clientStrings.clientStringBuilder import (
 )
 from descriptionParser.descriptionFile import DescriptionFile
 from modTiers.modTierBuilder import modTierBuilderB
+from overrideData.buildAnnoints import AnnointBuilder
 from services.logger_setup import set_log_level
 
 logger = logging.getLogger(__name__)
@@ -1067,17 +1068,20 @@ class Parser:
             m.write(json.dumps(mod, ensure_ascii=False) + "\n")
             seen.add(id)
 
+        annoints = AnnointBuilder().get_annoints(self.lang)
+        m.write(json.dumps(annoints, ensure_ascii=False) + "\n")
+
         # Add temp allocates
-        with open(
-            f"{self.get_script_dir()}/overrideData/allocates.json",
-            "r",
-            encoding="utf-8",
-        ) as temp_allocates:
-            allocates = json.load(temp_allocates)
-            if self.lang in allocates:
-                m.write(json.dumps(allocates[self.lang], ensure_ascii=False) + "\n")
-            else:
-                m.write(json.dumps(allocates["en"], ensure_ascii=False) + "\n")
+        # with open(
+        #     f"{self.get_script_dir()}/overrideData/allocates.json",
+        #     "r",
+        #     encoding="utf-8",
+        # ) as temp_allocates:
+        #     allocates = json.load(temp_allocates)
+        #     if self.lang in allocates:
+        #         m.write(json.dumps(allocates[self.lang], ensure_ascii=False) + "\n")
+        #     else:
+        #         m.write(json.dumps(allocates["en"], ensure_ascii=False) + "\n")
         m.close()
 
         with open(

@@ -20398,7 +20398,7 @@
         }
     },
     "1984": {
-        "name": "Duellanten-Großhelm",
+        "name": "Wache-Großhelm",
         "refName": "Dueling Greathelm",
         "namespace": "ITEM",
         "class": 25,
@@ -21178,7 +21178,7 @@
         }
     },
     "2024": {
-        "name": "Templerkrone",
+        "name": "Archon-Krone",
         "refName": "Templar Crown",
         "namespace": "ITEM",
         "class": 25,
@@ -32287,7 +32287,7 @@
         }
     },
     "2700": {
-        "name": "Blitzbolzen",
+        "name": "Schleuderblitz",
         "refName": "Lightning Bolt",
         "namespace": "GEM",
         "class": 18,
@@ -38397,7 +38397,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRSaXR1YWwiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/7c49d00f07/PrecursorTabletRitual.png"
     },
     "3099": {
-        "name": "Vorläufertafel",
+        "name": "Wegbereitertafel",
         "refName": "Precursor Tablet",
         "namespace": "ITEM",
         "class": 105,
@@ -38406,12 +38406,10 @@
         "height": 1,
         "craftable": {
             "category": "TowerAugment"
-        },
-        "tradeTag": "precursor-tablet",
-        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRHZW5lcmljIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/5658ce7f2d/PrecursorTabletGeneric.png"
+        }
     },
     "3100": {
-        "name": "Overseer Precursor Tablet",
+        "name": "Aufseher-Wegbereitertafel",
         "refName": "Overseer Precursor Tablet",
         "namespace": "ITEM",
         "class": 105,
@@ -38420,9 +38418,7 @@
         "height": 1,
         "craftable": {
             "category": "TowerAugment"
-        },
-        "tradeTag": "overseer-precursor-tablet",
-        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRCb3NzIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/4c442297f2/PrecursorTabletBoss.png"
+        }
     },
     "3101": {
         "name": "Zersetzen",
@@ -39955,7 +39951,7 @@
         }
     },
     "3200": {
-        "name": "Makabertanz",
+        "name": "Totentanz",
         "refName": "Danse Macabre",
         "namespace": "GEM",
         "class": 19,
@@ -40083,7 +40079,7 @@
         }
     },
     "3208": {
-        "name": "Blitzbolzen",
+        "name": "Großer Schleuderblitz",
         "refName": "Greater Lightning Bolt",
         "namespace": "GEM",
         "class": 18,
