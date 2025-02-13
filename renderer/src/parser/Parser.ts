@@ -1438,15 +1438,9 @@ function parseStatsFromMod(
       item,
     );
     if (parsedStatAndTier) {
-      const { stat: parsedStat, tier, hybridWithRef } = parsedStatAndTier;
+      const { stat: parsedStat, modifierInfo } = parsedStatAndTier;
       modifier.stats.push(parsedStat);
-      if (tier) {
-        modifier.info.tier = tier.poe1;
-        modifier.info.tierNew = tier.poe2;
-      }
-      if (hybridWithRef) {
-        modifier.info.hybridWithRef = hybridWithRef;
-      }
+      Object.assign(modifier.info, modifierInfo);
 
       stat = statIterator.next(true);
     } else {

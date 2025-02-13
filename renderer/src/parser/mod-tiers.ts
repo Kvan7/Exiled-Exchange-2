@@ -335,3 +335,12 @@ export function getTierNumber(
   // Return the tier number (1-based)
   return { poe1: matchingTiersAfter + 1, poe2: tierIndex + 1 };
 }
+
+export function isCorruptionEnchant(
+  found: Stat["tiers"],
+  modType: ModifierType,
+): boolean {
+  if (modType !== ModifierType.Enchant) return false;
+  if (!found || found.corruption.length === 0) return false;
+  return true;
+}

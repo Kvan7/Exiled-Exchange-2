@@ -6,9 +6,11 @@ import {
   getModTier,
   getTier,
   getTierNumber,
+  isCorruptionEnchant,
   mapItemCategoryToKeys,
 } from "./mod-tiers";
 import { ItemRarity, ParsedItem } from "./ParsedItem";
+import { ModifierInfo } from "./advanced-mod-desc";
 
 // This file is a little messy and scary,
 // but that's how stats translations are parsed :-D
@@ -169,8 +171,7 @@ export function tryParseTranslation(
 ):
   | {
       stat: ParsedStat;
-      tier: { poe1: number; poe2: number } | undefined;
-      hybridWithRef?: Set<string>;
+      modifierInfo: Partial<ModifierInfo>;
     }
   | undefined {
   let itemRarity: ItemRarity | undefined;
@@ -206,7 +207,7 @@ export function tryParseTranslation(
       };
     }
 
-    let foundTier: { poe1: number; poe2: number } | undefined;
+    const modifierInfo: Partial<ModifierInfo> = {};
 
     if (
       modType === ModifierType.Explicit &&
@@ -214,6 +215,7 @@ export function tryParseTranslation(
       itemCategory &&
       itemRarity !== ItemRarity.Unique
     ) {
+      // Try parse explicit mod bounds
       const modTiers = getModTier(
         combination.values,
         found.stat.tiers,
@@ -238,7 +240,8 @@ export function tryParseTranslation(
             modTiers,
           ]);
           if (tierNumber) {
-            foundTier = tierNumber;
+            modifierInfo.tier = tierNumber.poe1;
+            modifierInfo.tierNew = tierNumber.poe2;
           }
         }
       }
@@ -247,6 +250,8 @@ export function tryParseTranslation(
       itemRarity === ItemRarity.Unique &&
       item?.info.unique?.stats
     ) {
+      // Try parse unique mod bounds
+
       // replace +# with # in ref
       const refName = found.stat.ref.replace(/\+#+/g, "#");
       const negatedRefName = refName
@@ -346,8 +351,30 @@ export function tryParseTranslation(
           ];
         }
       }
-    }
+    } else if (
+      found.stat &&
+      item?.isCorrupted &&
+      modType === ModifierType.Enchant &&
+      itemCategory
+    ) {
+      // Try parse corruption enchant (added mod)
 
+      if (isCorruptionEnchant(found.stat.tiers, modType)) {
+        modifierInfo.generation = "corrupted";
+        const foundCorruption = found.stat.tiers!.corruption[0];
+        if (foundCorruption.mods.length > 0) {
+          combination.values.forEach((stat, index) => {
+            const tierBounds = foundCorruption.mods[0].values[index];
+            if (tierBounds) {
+              stat.bounds = {
+                min: tierBounds[0],
+                max: tierBounds[1],
+              };
+            }
+          });
+        }
+      }
+    }
     for (const stat of combination.values) {
       if (!stat.bounds) continue;
 
@@ -396,6 +423,9 @@ export function tryParseTranslation(
         }
       }
     }
+    if (hybridWithRef.size) {
+      modifierInfo.hybridWithRef = hybridWithRef;
+    }
 
     return {
       stat: {
@@ -420,8 +450,7 @@ export function tryParseTranslation(
             }
           : undefined,
       },
-      tier: foundTier,
-      hybridWithRef,
+      modifierInfo,
     };
   }
 }
