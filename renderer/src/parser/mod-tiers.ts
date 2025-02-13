@@ -166,6 +166,21 @@ export function getModTier(
           }
         });
         return categoryMatch;
+      } else {
+        // see if the roll is just above the highest tier
+        const lowestTier = categoryMatch.mods[0];
+        const highestTier = categoryMatch.mods[categoryMatch.mods.length - 1];
+        const lower = values.some((stat, index) => {
+          const tierBounds = lowestTier.values[index];
+          return tierBounds && stat.roll && stat.roll < tierBounds[0];
+        });
+        const higher = values.some((stat, index) => {
+          const tierBounds = highestTier.values[index];
+          return tierBounds && stat.roll && stat.roll > tierBounds[1];
+        });
+        if (lower || higher) {
+          return categoryMatch;
+        }
       }
     }
 
