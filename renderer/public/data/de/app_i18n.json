@@ -18,7 +18,8 @@
     "version": "Version {0}",
     "release_notes": "Release Notes",
     "report_bug": "Einen Fehler auf GitHub melden",
-    "quit": "Beenden"
+    "quit": "Beenden",
+    "deprecated": "This feature is deprecated and will be removed in update {0}"
   },
   "map.mods.heist": "Heist",
   "map.mods.uber": "T17",

@@ -36,7 +36,8 @@
     "version": "Версия {0}",
     "release_notes": "Список изменений",
     "report_bug": "Сообщить о баге на GitHub",
-    "quit": "Выход"
+    "quit": "Выход",
+    "deprecated": "This feature is deprecated and will be removed in update {0}"
   },
   "map.mods.heist": "кража",
   "map.mods.outdated": "устарело",

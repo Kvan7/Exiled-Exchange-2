@@ -16,7 +16,8 @@
     "version": "버전 {0}",
     "release_notes": "릴리즈 노트",
     "report_bug": "버그 발생 시 GitHub에 보고해주세요",
-    "quit": "종료"
+    "quit": "종료",
+    "deprecated": "This feature is deprecated and will be removed in update {0}"
   },
   "map.mods.heist": "강탈",
   "map.mods.outdated": "사용X",

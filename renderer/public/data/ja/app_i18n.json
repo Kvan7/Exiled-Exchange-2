@@ -18,7 +18,8 @@
     "version": "バージョン {0}",
     "release_notes": "リリースノート",
     "report_bug": "GitHubでバグを報告する",
-    "quit": "終了"
+    "quit": "終了",
+    "deprecated": "This feature is deprecated and will be removed in update {0}"
   },
   "map.mods.heist": "ハイスト",
   "map.mods.uber": "ティア17",

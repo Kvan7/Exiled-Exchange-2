@@ -18,7 +18,8 @@
     "version": "版本 {0}",
     "release_notes": "更新記錄",
     "report_bug": "在 GitHub 上報告錯誤",
-    "quit": "退出"
+    "quit": "退出",
+    "deprecated": "This feature is deprecated and will be removed in update {0}"
   },
   "map.mods.heist": "劫盜",
   "map.mods.uber": "T17",
