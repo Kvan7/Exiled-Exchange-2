@@ -65,12 +65,15 @@ export default defineComponent({
         const tierNew = source.modifier.info.tierNew;
         if (!tier || !tierNew) continue;
         const usedTier = tierOption.value === "poe1" ? tier : tierNew;
-        const isMaybeHybrid = checkPossibleHybrid(
-          source.modifier.info.hybridWithRef,
-          props.item.statsByType,
-          props.item,
-          source,
-        );
+        const isMaybeHybrid =
+          source.modifier.info.hybridWithRef !== undefined &&
+          source.modifier.info.hybridWithRef instanceof Set &&
+          checkPossibleHybrid(
+            source.modifier.info.hybridWithRef,
+            props.item.statsByType,
+            props.item,
+            source,
+          );
 
         if (
           (filter.tag === FilterTag.Explicit ||
