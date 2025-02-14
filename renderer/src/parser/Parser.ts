@@ -576,7 +576,7 @@ function parseRuneSockets(section: string[], item: ParsedItem) {
         type: armourOrWeapon,
         empty: 0,
         current,
-        normal: current,
+        normal: categoryMax,
       };
     } else {
       item.runeSockets = {
@@ -663,6 +663,13 @@ function parseArmour(section: string[], item: ParsedItem) {
 
   if (isParsed === "SECTION_PARSED") {
     parseQualityNested(section, item);
+  }
+  if (item.rarity === "Unique") {
+    // undo everything
+    item.armourAR = undefined;
+    item.armourEV = undefined;
+    item.armourES = undefined;
+    item.armourBLOCK = undefined;
   }
 
   return isParsed;
@@ -764,6 +771,17 @@ function parseWeapon(section: string[], item: ParsedItem) {
 
   if (isParsed === "SECTION_PARSED") {
     parseQualityNested(section, item);
+  }
+
+  if (item.rarity === "Unique") {
+    // undo everything
+    item.weaponELEMENTAL = undefined;
+    item.weaponAS = undefined;
+    item.weaponPHYSICAL = undefined;
+    item.weaponCOLD = undefined;
+    item.weaponLIGHTNING = undefined;
+    item.weaponFIRE = undefined;
+    item.weaponCRIT = undefined;
   }
 
   return isParsed;
@@ -1476,7 +1494,7 @@ function transformToLegacyModifiers(item: ParsedItem) {
 }
 
 function applyElementalAdded(item: ParsedItem) {
-  if (item.weaponELEMENTAL) {
+  if (item.weaponELEMENTAL && item.rarity !== "Unique") {
     const knownRefs = new Set<string>([
       "Adds # to # Lightning Damage",
       "Adds # to # Cold Damage",

@@ -246,7 +246,7 @@ export function createFilters(
         disabled: item.runeSockets.current <= item.runeSockets.normal,
       };
     }
-    if (item.runeSockets.empty > 0) {
+    if (item.runeSockets.empty > 0 && item.rarity !== ItemRarity.Unique) {
       if (
         opts.autoFillEmptyRuneSockets &&
         (item.rarity === ItemRarity.Magic || item.rarity === ItemRarity.Rare)
