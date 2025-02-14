@@ -244,6 +244,25 @@ export function tryParseTranslation(
             modifierInfo.tierNew = tierNumber.poe2;
           }
         }
+        if (modTiers.generation) {
+          switch (modTiers.generation) {
+            case "prefix":
+              modifierInfo.generation = "prefix";
+              break;
+            case "suffix":
+              modifierInfo.generation = "suffix";
+              break;
+            case "corrupted":
+              modifierInfo.generation = "corrupted";
+              break;
+            case "searing exarch":
+            case "eater of worlds":
+              modifierInfo.generation = "eldritch";
+              break;
+            default:
+              modifierInfo.generation = undefined;
+          }
+        }
       }
     } else if (
       found.stat &&

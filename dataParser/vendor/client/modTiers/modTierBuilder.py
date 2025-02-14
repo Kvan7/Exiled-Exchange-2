@@ -202,6 +202,45 @@ def get_gold_tags(mods_in, gold_mod_prices_in, tags_in):
     return gold_with_readable_tags
 
 
+GENERATION_TYPE = {
+    1: "prefix",
+    2: "suffix",
+    3: "intrinsic",
+    4: "nemesis",
+    5: "corrupted",
+    6: "bloodlines",
+    7: "torment",
+    8: "tempest",
+    9: "talisman",
+    10: "enchantment",
+    11: "essence",
+    12: "unused",
+    13: "bestiary",
+    14: "delve",
+    15: "synthesis unknown",
+    16: "synthesis globals",
+    17: "synthesis bonus",
+    18: "blight",
+    19: "blight tower",
+    20: "monster affliction",
+    21: "enkindling orb",
+    22: "instilling orb",
+    23: "expedition logbook",
+    24: "scourge benefit",
+    25: "scourge detriment",
+    26: "scourge gimmick",
+    27: "unused",
+    28: "searing exarch",
+    29: "eater of worlds",
+    30: "archnemesis",
+    31: "crucible passive skill tree",
+    32: "crucible passive skill tree mutation",
+    33: "affliction wisps",
+    34: "necropolis downside",
+    35: "necropolis upside",
+}
+
+
 def modTierBuilderB(mod_data, base_item_types, gold_mod_prices, tags):
     gold_with_readable_tags = get_gold_tags(mod_data, gold_mod_prices, tags)
 
@@ -220,6 +259,11 @@ def modTierBuilderB(mod_data, base_item_types, gold_mod_prices, tags):
         mod_domain = mod.get("Domain")
         mod_name = mod.get("Name")
         mod_jewel_radius = mod.get("RadiusJewelType")
+        gen = mod.get("GenerationType")
+        if gen:
+            mod_generation = GENERATION_TYPE.get(gen)
+        else:
+            mod_generation = "unknown"
         mod_stats = []
         mod_stat_ids = []
         mod_allowed_base_types = gold_with_readable_tags.get(mod_unique_id, [])
@@ -270,6 +314,7 @@ def modTierBuilderB(mod_data, base_item_types, gold_mod_prices, tags):
             "mod_stat_values": mod_stats,
             "mod_stat_ids": mod_stat_ids,
             "mod_allowed_base_types": mod_allowed_base_types,
+            "mod_generation": mod_generation,
         }
         flat_mods.append(mod_mod)
 
@@ -287,6 +332,7 @@ def modTierBuilderB(mod_data, base_item_types, gold_mod_prices, tags):
                 "mod_type": mod["mod_type"],
                 "mod_allowed_base_types": set(mod["mod_allowed_base_types"]),
                 "mod_stat_ids": set(mod["mod_stat_ids"]),
+                "mod_generation": mod["mod_generation"],
             }
         by_id[mod_id]["mods"].append(mod)
         by_id[mod_id]["mod_stat_ids"] = by_id[mod_id]["mod_stat_ids"].union(
@@ -376,6 +422,7 @@ def modGroupToOutputTier(mod_group):
     output_data = {
         "id": mod_group["mods_id"],
         "items": base_counts_dict,
+        "generation": mod_group["mod_generation"],
         "mods": mods,
     }
     return output_data

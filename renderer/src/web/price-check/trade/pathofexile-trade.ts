@@ -6,6 +6,7 @@ import {
   InternalTradeId,
   WeightStatGroup,
   ItemIsElementalModifier,
+  ItemHasEmptyModifier,
 } from "../filters/interfaces";
 import { setProperty as propSet } from "dot-prop";
 import { DateTime } from "luxon";
@@ -18,7 +19,11 @@ import {
   RATE_LIMIT_RULES,
   preventQueueCreation,
 } from "./common";
-import { PSEUDO_ID_TO_TRADE_REQUEST, STAT_BY_REF } from "@/assets/data";
+import {
+  ITEM_CATEGORY_TO_EMPTY_PREFIX,
+  PSEUDO_ID_TO_TRADE_REQUEST,
+  STAT_BY_REF,
+} from "@/assets/data";
 import { RateLimiter } from "./RateLimiter";
 import { ModifierType } from "@/parser/modifiers";
 import { Cache } from "./Cache";
@@ -72,19 +77,19 @@ export const CATEGORY_TO_TRADE_ID = new Map([
   [ItemCategory.Focus, "armour.focus"],
 ]);
 
-const TOTAL_MODS_TEXT = {
-  CRAFTED_MODIFIERS: [
-    "# Crafted Modifiers",
-    "# Crafted Prefix Modifiers",
-    "# Crafted Suffix Modifiers",
-  ],
-  EMPTY_MODIFIERS: [
-    "# Empty Modifiers",
-    "# Empty Prefix Modifiers",
-    "# Empty Suffix Modifiers",
-  ],
-  TOTAL_MODIFIERS: ["# Modifiers", "# Prefix Modifiers", "# Suffix Modifiers"],
-};
+// const TOTAL_MODS_TEXT = {
+//   CRAFTED_MODIFIERS: [
+//     "# Crafted Modifiers",
+//     "# Crafted Prefix Modifiers",
+//     "# Crafted Suffix Modifiers",
+//   ],
+//   EMPTY_MODIFIERS: [
+//     "# Empty Modifiers",
+//     "# Empty Prefix Modifiers",
+//     "# Empty Suffix Modifiers",
+//   ],
+//   TOTAL_MODIFIERS: ["# Modifiers", "# Prefix Modifiers", "# Suffix Modifiers"],
+// };
 
 // const INFLUENCE_PSEUDO_TEXT = {
 //   [ItemInfluence.Shaper]: 'Has Shaper Influence',
@@ -477,52 +482,67 @@ export function createTradeRequest(
   // Meta internal stuff, crafting as empty and setting dps/pdps/edps
   for (const stat of stats) {
     if (stat.tradeId[0] === "item.has_empty_modifier") {
-      const TARGET_ID = {
-        CRAFTED_MODIFIERS: STAT_BY_REF(
-          TOTAL_MODS_TEXT.CRAFTED_MODIFIERS[stat.option!.value],
-        )!.trade.ids[ModifierType.Pseudo][0],
-        EMPTY_MODIFIERS: STAT_BY_REF(
-          TOTAL_MODS_TEXT.EMPTY_MODIFIERS[stat.option!.value],
-        )!.trade.ids[ModifierType.Pseudo][0],
-        TOTAL_MODIFIERS: STAT_BY_REF(TOTAL_MODS_TEXT.TOTAL_MODIFIERS[0])!.trade
-          .ids[ModifierType.Pseudo][0],
-      };
+      // NOTE: TEMP WHILE WE DON'T HAVE THESE STATS
+      if (item.rarity === ItemRarity.Magic) {
+        if (
+          stat.option!.value === ItemHasEmptyModifier.Suffix ||
+          stat.option!.value === ItemHasEmptyModifier.Any ||
+          !item.category ||
+          item.isCorrupted
+        )
+          continue;
+        const emptyPrefixSuffix = getEmptyPrefixSuffix(item.category);
+        if (!emptyPrefixSuffix) continue;
+        query.stats.push(emptyPrefixSuffix);
+      }
+      continue;
 
-      query.stats.push({
-        type: "count",
-        value: { min: 1, max: 1 },
-        disabled: stat.disabled,
-        filters: [
-          {
-            id: TARGET_ID.EMPTY_MODIFIERS,
-            value: { min: 1, max: 1 },
-            disabled: stat.disabled,
-          },
-          {
-            id: TARGET_ID.CRAFTED_MODIFIERS,
-            value: { min: 1, max: undefined },
-            disabled: stat.disabled,
-          },
-        ],
-      });
+      // const TARGET_ID = {
+      //   CRAFTED_MODIFIERS: STAT_BY_REF(
+      //     TOTAL_MODS_TEXT.CRAFTED_MODIFIERS[stat.option!.value],
+      //   )!.trade.ids[ModifierType.Pseudo][0],
+      //   EMPTY_MODIFIERS: STAT_BY_REF(
+      //     TOTAL_MODS_TEXT.EMPTY_MODIFIERS[stat.option!.value],
+      //   )!.trade.ids[ModifierType.Pseudo][0],
+      //   TOTAL_MODIFIERS: STAT_BY_REF(TOTAL_MODS_TEXT.TOTAL_MODIFIERS[0])!.trade
+      //     .ids[ModifierType.Pseudo][0],
+      // };
 
-      query.stats.push({
-        type: "count",
-        value: { min: 1, max: 1 },
-        disabled: stat.disabled,
-        filters: [
-          {
-            id: TARGET_ID.EMPTY_MODIFIERS,
-            value: { min: 1, max: 1 },
-            disabled: stat.disabled,
-          },
-          {
-            id: TARGET_ID.TOTAL_MODIFIERS,
-            value: { min: 6, max: undefined },
-            disabled: stat.disabled,
-          },
-        ],
-      });
+      // query.stats.push({
+      //   type: "count",
+      //   value: { min: 1, max: 1 },
+      //   disabled: stat.disabled,
+      //   filters: [
+      //     {
+      //       id: TARGET_ID.EMPTY_MODIFIERS,
+      //       value: { min: 1, max: 1 },
+      //       disabled: stat.disabled,
+      //     },
+      //     {
+      //       id: TARGET_ID.CRAFTED_MODIFIERS,
+      //       value: { min: 1, max: undefined },
+      //       disabled: stat.disabled,
+      //     },
+      //   ],
+      // });
+
+      // query.stats.push({
+      //   type: "count",
+      //   value: { min: 1, max: 1 },
+      //   disabled: stat.disabled,
+      //   filters: [
+      //     {
+      //       id: TARGET_ID.EMPTY_MODIFIERS,
+      //       value: { min: 1, max: 1 },
+      //       disabled: stat.disabled,
+      //     },
+      //     {
+      //       id: TARGET_ID.TOTAL_MODIFIERS,
+      //       value: { min: 6, max: undefined },
+      //       disabled: stat.disabled,
+      //     },
+      //   ],
+      // });
     } else if (
       // https://github.com/SnosMe/awakened-poe-trade/issues/758
       item.category === ItemCategory.Flask &&
@@ -1050,4 +1070,14 @@ function pseudoPseudoToQuery(id: string, stat: StatFilter) {
   filter.value = { ...getMinMax(stat.roll) };
   filter.disabled = stat.disabled;
   return filter;
+}
+
+function getEmptyPrefixSuffix(itemCategory: ItemCategory) {
+  // only if we have that category
+  if (!ITEM_CATEGORY_TO_EMPTY_PREFIX[itemCategory]) return;
+  const emptyPrefixSuffix = ITEM_CATEGORY_TO_EMPTY_PREFIX[itemCategory];
+  if (!emptyPrefixSuffix) return;
+  if (emptyPrefixSuffix.type === "not") {
+    return emptyPrefixSuffix;
+  }
 }

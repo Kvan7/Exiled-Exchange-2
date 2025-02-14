@@ -139,7 +139,7 @@ export function createPresets(
   };
 }
 
-function itemHasPerfectPlusLevels(item: ParsedItem): boolean {
+export function itemHasPerfectPlusLevels(item: ParsedItem): boolean {
   for (const mod of item.newMods) {
     if (
       mod.info.tier === 1 &&

@@ -18,6 +18,7 @@ export interface StatTier {
 
 export interface StatTierMod {
   id: string;
+  generation?: string;
   items: {
     [type: string]: number;
   };
@@ -260,6 +261,14 @@ export interface PseudoIdToTradeRequest {
       min?: number;
       max?: number;
     };
+    disabled?: boolean;
+  };
+}
+
+export interface ItemCategoryToEmptyPrefix {
+  [id: string]: {
+    filters: Filter[];
+    type: "not";
     disabled?: boolean;
   };
 }

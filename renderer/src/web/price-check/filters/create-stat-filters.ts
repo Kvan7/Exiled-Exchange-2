@@ -21,6 +21,7 @@ import { applyRules as applyMirroredTabletRules } from "./pseudo/reflection-rule
 import { filterItemProp, filterBasePercentile } from "./pseudo/item-property";
 import { decodeOils, applyAnointmentRules } from "./pseudo/anointments";
 import { StatBetter, CLIENT_STRINGS, STAT_BY_REF } from "@/assets/data";
+import { itemHasPerfectPlusLevels } from "./create-presets";
 
 export interface FiltersCreationContext {
   readonly item: ParsedItem;
@@ -195,6 +196,21 @@ export function createExactStatFilters(
       filter.roll!.default.min = filter.roll!.value;
       filter.roll!.default.max = filter.roll!.value;
     }
+  }
+
+  const hasEmptyModifier = showHasEmptyModifier(ctx);
+  if (hasEmptyModifier !== false && itemHasPerfectPlusLevels(ctx.item)) {
+    ctx.filters.push({
+      tradeId: ["item.has_empty_modifier"],
+      text: "1 Empty or Crafted Modifier",
+      statRef: "1 Empty or Crafted Modifier",
+      disabled: false,
+      tag: FilterTag.Pseudo,
+      sources: [],
+      option: {
+        value: hasEmptyModifier,
+      },
+    });
   }
 
   if (item.category === ItemCategory.ClusterJewel) {
@@ -607,7 +623,7 @@ function finalFilterTweaks(ctx: FiltersCreationContext) {
   }
 
   const hasEmptyModifier = showHasEmptyModifier(ctx);
-  if (hasEmptyModifier !== false) {
+  if (hasEmptyModifier !== false && itemHasPerfectPlusLevels(ctx.item)) {
     ctx.filters.push({
       tradeId: ["item.has_empty_modifier"],
       text: "1 Empty or Crafted Modifier",
@@ -707,6 +723,29 @@ function showHasEmptyModifier(
   ctx: FiltersCreationContext,
 ): ItemHasEmptyModifier | false {
   const { item } = ctx;
+
+  if (item.rarity === ItemRarity.Magic) {
+    const magicRandomMods = item.newMods.filter(
+      (mod) => mod.info.type === ModifierType.Explicit,
+    );
+    if (magicRandomMods.length) {
+      const magicPrefixes = magicRandomMods.filter(
+        (mod) => mod.info.generation === "prefix",
+      ).length;
+      const magicSuffixes = magicRandomMods.filter(
+        (mod) => mod.info.generation === "suffix",
+      ).length;
+      if (magicPrefixes && magicSuffixes) {
+        return false;
+      }
+      if (magicPrefixes > 0) {
+        return ItemHasEmptyModifier.Suffix;
+      } else if (magicSuffixes > 0) {
+        return ItemHasEmptyModifier.Prefix;
+      }
+      return false;
+    }
+  }
 
   if (item.rarity !== ItemRarity.Rare || item.isCorrupted || item.isMirrored)
     return false;
