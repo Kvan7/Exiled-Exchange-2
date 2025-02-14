@@ -493,6 +493,7 @@ export function createTradeRequest(
           continue;
         const emptyPrefixSuffix = getEmptyPrefixSuffix(item.category);
         if (!emptyPrefixSuffix) continue;
+        emptyPrefixSuffix.disabled = stat.disabled;
         query.stats.push(emptyPrefixSuffix);
       }
       continue;
