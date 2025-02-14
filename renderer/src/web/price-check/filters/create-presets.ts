@@ -101,7 +101,11 @@ export function createPresets(
       item.rarity === ItemRarity.Magic) ||
     (item.category !== ItemCategory.Jewel &&
       item.category !== ItemCategory.AbyssJewel &&
-      item.itemLevel! >= 82);
+      item.itemLevel! >= 82) ||
+    (!item.isCorrupted &&
+      item.rarity === ItemRarity.Magic &&
+      item.itemLevel! >= 81 &&
+      itemHasPerfectPlusLevels(item));
 
   // Apply runes if we should
   if (
@@ -133,4 +137,16 @@ export function createPresets(
     active: pseudoPreset.id,
     presets: [pseudoPreset, baseItemPreset],
   };
+}
+
+function itemHasPerfectPlusLevels(item: ParsedItem): boolean {
+  for (const mod of item.newMods) {
+    if (
+      mod.info.tier === 1 &&
+      mod.stats[0].stat.ref.startsWith("+# to Level of all ")
+    ) {
+      return true;
+    }
+  }
+  return false;
 }

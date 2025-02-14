@@ -308,6 +308,10 @@ export function createFilters(
     filters.rarity = {
       value: "normal",
     };
+  } else if (item.rarity === ItemRarity.Magic && opts.exact) {
+    filters.rarity = {
+      value: "magic",
+    };
   } else if (
     item.rarity === ItemRarity.Normal ||
     item.rarity === ItemRarity.Magic ||
