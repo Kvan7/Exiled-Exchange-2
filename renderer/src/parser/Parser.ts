@@ -571,16 +571,25 @@ function parseRuneSockets(section: string[], item: ParsedItem) {
   if (section[0].startsWith(_$.SOCKETS)) {
     const sockets = section[0].slice(_$.SOCKETS.length).trimEnd();
     const current = sockets.split("S").length - 1;
-    item.runeSockets = {
-      type: armourOrWeapon,
-      empty: 0,
-      current,
-      normal: categoryMax,
-    };
+    if (item.isCorrupted) {
+      item.runeSockets = {
+        type: armourOrWeapon,
+        empty: 0,
+        current,
+        normal: current,
+      };
+    } else {
+      item.runeSockets = {
+        type: armourOrWeapon,
+        empty: 0,
+        current,
+        normal: categoryMax,
+      };
+    }
 
     return "SECTION_PARSED";
   }
-  if (categoryMax) {
+  if (categoryMax && !item.isCorrupted) {
     item.runeSockets = {
       type: armourOrWeapon,
       empty: categoryMax,
