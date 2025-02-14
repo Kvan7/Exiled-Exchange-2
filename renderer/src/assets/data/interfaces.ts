@@ -243,6 +243,7 @@ export interface TranslationDict {
   SANCTUM_HELP: string;
   TIMELESS_RADIUS: string;
   PRECURSOR_TABLET_HELP: string;
+  LOGBOOK_HELP: string;
 }
 
 export interface Filter {

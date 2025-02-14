@@ -1173,6 +1173,15 @@ class Parser:
             "trade": {"ids": {}},
             "tiers": default,
         }
+        with open(
+            f"{self.get_script_dir()}/overrideData/logbook_overrides.json",
+            "r",
+            encoding="utf-8",
+        ) as f:
+            logbook_overrides = json.load(f)
+        factions = logbook_overrides[self.lang]
+        for faction in factions:
+            self.mods[faction["ref"]] = faction
 
     def do_client_strings(self):
         cl = create_client_strings(self.client_strings_file)

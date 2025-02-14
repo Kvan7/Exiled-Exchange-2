@@ -27,22 +27,22 @@
                 {
                     "id": "Strength",
                     "items": {
-                        "crossbow": 8,
-                        "helmet": 8,
-                        "amulet": 8,
-                        "shield": 8,
-                        "body_armour": 8,
-                        "boots": 8,
-                        "gloves": 8,
-                        "sword": 8,
-                        "flail": 8,
-                        "spear": 8,
-                        "ring": 8,
-                        "axe": 8,
                         "belt": 9,
+                        "focus": 8,
                         "sceptre": 8,
+                        "amulet": 8,
+                        "flail": 8,
+                        "shield": 8,
                         "mace": 8,
-                        "focus": 8
+                        "body_armour": 8,
+                        "sword": 8,
+                        "boots": 8,
+                        "spear": 8,
+                        "helmet": 8,
+                        "axe": 8,
+                        "ring": 8,
+                        "gloves": 8,
+                        "crossbow": 8
                     },
                     "generation": "suffix",
                     "mods": [
@@ -431,23 +431,23 @@
                 {
                     "id": "Dexterity",
                     "items": {
-                        "trap": 8,
-                        "quiver": 8,
+                        "focus": 8,
+                        "claw": 8,
                         "dagger": 8,
-                        "crossbow": 8,
-                        "helmet": 8,
-                        "bow": 8,
-                        "warstaff": 8,
                         "amulet": 8,
                         "shield": 8,
+                        "warstaff": 8,
                         "body_armour": 8,
-                        "gloves": 9,
-                        "claw": 8,
-                        "boots": 8,
                         "sword": 8,
+                        "quiver": 8,
                         "spear": 8,
+                        "boots": 8,
+                        "helmet": 8,
+                        "trap": 8,
+                        "gloves": 9,
                         "ring": 8,
-                        "focus": 8
+                        "bow": 8,
+                        "crossbow": 8
                     },
                     "generation": "suffix",
                     "mods": [
@@ -844,21 +844,21 @@
                 {
                     "id": "Intelligence",
                     "items": {
-                        "body_armour": 8,
+                        "helmet": 9,
                         "boots": 8,
+                        "focus": 8,
+                        "sceptre": 8,
+                        "dagger": 8,
                         "trap": 8,
+                        "ring": 8,
                         "gloves": 8,
                         "wand": 8,
-                        "flail": 8,
-                        "ring": 8,
-                        "dagger": 8,
-                        "staff": 8,
-                        "warstaff": 8,
-                        "sceptre": 8,
-                        "helmet": 9,
                         "amulet": 8,
+                        "flail": 8,
                         "shield": 8,
-                        "focus": 8
+                        "warstaff": 8,
+                        "staff": 8,
+                        "body_armour": 8
                     },
                     "generation": "suffix",
                     "mods": [
@@ -1473,15 +1473,15 @@
                 {
                     "id": "FireResist",
                     "items": {
-                        "body_armour": 8,
                         "boots": 8,
-                        "gloves": 8,
-                        "ring": 8,
-                        "belt": 8,
                         "helmet": 8,
+                        "belt": 8,
+                        "focus": 8,
+                        "ring": 8,
+                        "gloves": 8,
                         "amulet": 8,
                         "shield": 8,
-                        "focus": 8
+                        "body_armour": 8
                     },
                     "generation": "suffix",
                     "mods": [
@@ -1826,15 +1826,15 @@
                 {
                     "id": "ColdResist",
                     "items": {
-                        "body_armour": 8,
                         "boots": 8,
-                        "gloves": 8,
-                        "ring": 8,
-                        "belt": 8,
                         "helmet": 8,
+                        "belt": 8,
+                        "focus": 8,
+                        "ring": 8,
+                        "gloves": 8,
                         "amulet": 8,
                         "shield": 8,
-                        "focus": 8
+                        "body_armour": 8
                     },
                     "generation": "suffix",
                     "mods": [
@@ -2181,15 +2181,15 @@
                 {
                     "id": "LightningResist",
                     "items": {
-                        "body_armour": 8,
                         "boots": 8,
-                        "gloves": 8,
-                        "ring": 8,
-                        "belt": 8,
                         "helmet": 8,
+                        "belt": 8,
+                        "focus": 8,
+                        "ring": 8,
+                        "gloves": 8,
                         "amulet": 8,
                         "shield": 8,
-                        "focus": 8
+                        "body_armour": 8
                     },
                     "generation": "suffix",
                     "mods": [
@@ -2900,15 +2900,15 @@
                 {
                     "id": "ChaosResist",
                     "items": {
-                        "body_armour": 6,
                         "boots": 6,
-                        "gloves": 6,
-                        "ring": 6,
-                        "belt": 6,
                         "helmet": 6,
+                        "belt": 6,
+                        "focus": 6,
+                        "ring": 6,
+                        "gloves": 6,
                         "amulet": 6,
                         "shield": 6,
-                        "focus": 6
+                        "body_armour": 6
                     },
                     "generation": "suffix",
                     "mods": [
@@ -3207,14 +3207,14 @@
                 {
                     "id": "IncreasedLife",
                     "items": {
-                        "body_armour": 13,
-                        "gloves": 9,
-                        "boots": 9,
-                        "ring": 8,
-                        "belt": 10,
                         "helmet": 10,
+                        "boots": 9,
+                        "belt": 10,
+                        "gloves": 9,
+                        "ring": 8,
                         "amulet": 9,
-                        "shield": 11
+                        "shield": 11,
+                        "body_armour": 13
                     },
                     "generation": "prefix",
                     "mods": [
@@ -3596,39 +3596,39 @@
         },
         "hybrids": {
             "#% increased Armour": [
-                "body_armour",
                 "helmet",
-                "gloves",
-                "focus"
-            ],
-            "#% increased Evasion Rating": [
+                "focus",
                 "body_armour",
-                "helmet",
-                "gloves",
-                "focus"
-            ],
-            "#% increased Energy Shield": [
-                "body_armour",
-                "helmet",
                 "gloves"
             ],
-            "#% increased Armour and Evasion": [
+            "#% increased Evasion Rating": [
+                "helmet",
+                "focus",
                 "body_armour",
+                "gloves"
+            ],
+            "#% increased Energy Shield": [
                 "helmet",
                 "gloves",
-                "focus"
+                "body_armour"
+            ],
+            "#% increased Armour and Evasion": [
+                "helmet",
+                "focus",
+                "body_armour",
+                "gloves"
             ],
             "#% increased Armour and Energy Shield": [
-                "body_armour",
                 "helmet",
-                "gloves",
-                "focus"
+                "focus",
+                "body_armour",
+                "gloves"
             ],
             "#% increased Evasion and Energy Shield": [
-                "body_armour",
                 "helmet",
-                "gloves",
-                "focus"
+                "focus",
+                "body_armour",
+                "gloves"
             ],
             "+# to maximum Mana": []
         }
@@ -3795,16 +3795,16 @@
                 {
                     "id": "IncreasedMana",
                     "items": {
-                        "gloves": 12,
-                        "trap": 12,
-                        "boots": 12,
-                        "wand": 12,
-                        "ring": 13,
-                        "belt": 12,
-                        "sceptre": 12,
                         "helmet": 12,
-                        "amulet": 13,
-                        "focus": 12
+                        "boots": 12,
+                        "belt": 12,
+                        "focus": 12,
+                        "sceptre": 12,
+                        "trap": 12,
+                        "gloves": 12,
+                        "ring": 13,
+                        "wand": 12,
+                        "amulet": 13
                     },
                     "generation": "prefix",
                     "mods": [
@@ -4669,12 +4669,12 @@
                 {
                     "id": "LocalIncreasedPhysicalDamageReductionRating",
                     "items": {
-                        "body_armour": 11,
                         "boots": 7,
-                        "gloves": 7,
                         "helmet": 8,
+                        "focus": 11,
                         "shield": 10,
-                        "focus": 11
+                        "body_armour": 11,
+                        "gloves": 7
                     },
                     "generation": "prefix",
                     "mods": [
@@ -4907,32 +4907,32 @@
         },
         "hybrids": {
             "+# to Evasion Rating": [
-                "body_armour",
-                "gloves",
                 "boots",
                 "helmet",
+                "focus",
                 "shield",
-                "focus"
+                "body_armour",
+                "gloves"
             ],
             "+# to maximum Energy Shield": [
-                "body_armour",
-                "gloves",
                 "boots",
                 "helmet",
+                "focus",
                 "shield",
-                "focus"
+                "body_armour",
+                "gloves"
             ],
             "#% increased Armour": [
-                "body_armour",
-                "focus"
+                "focus",
+                "body_armour"
             ],
             "#% increased Armour and Evasion": [
-                "body_armour",
-                "focus"
+                "focus",
+                "body_armour"
             ],
             "#% increased Armour and Energy Shield": [
-                "body_armour",
-                "focus"
+                "focus",
+                "body_armour"
             ]
         }
     },
@@ -5094,12 +5094,12 @@
                 {
                     "id": "LocalIncreasedEvasionRating",
                     "items": {
-                        "body_armour": 11,
                         "boots": 7,
-                        "gloves": 7,
                         "helmet": 8,
+                        "focus": 11,
                         "shield": 10,
-                        "focus": 11
+                        "body_armour": 11,
+                        "gloves": 7
                     },
                     "generation": "prefix",
                     "mods": [
@@ -5312,32 +5312,32 @@
         },
         "hybrids": {
             "+# to Armour": [
-                "body_armour",
-                "gloves",
                 "boots",
                 "helmet",
+                "focus",
                 "shield",
-                "focus"
+                "body_armour",
+                "gloves"
             ],
             "+# to maximum Energy Shield": [
-                "body_armour",
-                "gloves",
                 "boots",
                 "helmet",
+                "focus",
                 "shield",
-                "focus"
+                "body_armour",
+                "gloves"
             ],
             "#% increased Evasion Rating": [
-                "body_armour",
-                "focus"
+                "focus",
+                "body_armour"
             ],
             "#% increased Armour and Evasion": [
-                "body_armour",
-                "focus"
+                "focus",
+                "body_armour"
             ],
             "#% increased Evasion and Energy Shield": [
-                "body_armour",
-                "focus"
+                "focus",
+                "body_armour"
             ]
         }
     },
@@ -5516,12 +5516,12 @@
                 {
                     "id": "LocalIncreasedEnergyShield",
                     "items": {
-                        "body_armour": 11,
                         "boots": 7,
-                        "gloves": 7,
                         "helmet": 8,
+                        "focus": 10,
                         "shield": 10,
-                        "focus": 10
+                        "body_armour": 11,
+                        "gloves": 7
                     },
                     "generation": "prefix",
                     "mods": [
@@ -5773,31 +5773,31 @@
         },
         "hybrids": {
             "+# to Armour": [
-                "body_armour",
-                "gloves",
                 "boots",
                 "helmet",
+                "focus",
                 "shield",
-                "focus"
+                "body_armour",
+                "gloves"
             ],
             "+# to Evasion Rating": [
-                "body_armour",
-                "gloves",
                 "boots",
                 "helmet",
+                "focus",
                 "shield",
-                "focus"
+                "body_armour",
+                "gloves"
             ],
             "#% increased Energy Shield": [
                 "body_armour"
             ],
             "#% increased Armour and Energy Shield": [
-                "body_armour",
-                "focus"
+                "focus",
+                "body_armour"
             ],
             "#% increased Evasion and Energy Shield": [
-                "body_armour",
-                "focus"
+                "focus",
+                "body_armour"
             ]
         }
     },
@@ -5818,8 +5818,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_1062208444",
-                    "explicit.stat_2866361420"
+                    "explicit.stat_2866361420",
+                    "explicit.stat_1062208444"
                 ],
                 "enchant": [
                     "enchant.stat_1062208444",
@@ -5942,12 +5942,12 @@
                 {
                     "id": "LocalIncreasedPhysicalDamageReductionRatingPercent",
                     "items": {
-                        "body_armour": 8,
                         "boots": 8,
-                        "gloves": 8,
                         "helmet": 8,
+                        "focus": 8,
+                        "gloves": 8,
                         "shield": 8,
-                        "focus": 8
+                        "body_armour": 8
                     },
                     "generation": "prefix",
                     "mods": [
@@ -6271,23 +6271,23 @@
         },
         "hybrids": {
             "+# to Stun Threshold": [
-                "shield",
                 "boots",
-                "focus"
+                "focus",
+                "shield"
             ],
             "+# to maximum Life": [
-                "body_armour",
                 "helmet",
-                "gloves",
-                "focus"
+                "focus",
+                "body_armour",
+                "gloves"
             ],
             "+# to maximum Mana": [
                 "helmet",
                 "focus"
             ],
             "+# to Armour": [
-                "body_armour",
-                "focus"
+                "focus",
+                "body_armour"
             ],
             "#% increased Evasion Rating": [],
             "#% increased maximum Energy Shield": []
@@ -6310,8 +6310,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_124859000",
-                    "explicit.stat_2106365538"
+                    "explicit.stat_2106365538",
+                    "explicit.stat_124859000"
                 ],
                 "enchant": [
                     "enchant.stat_124859000",
@@ -6434,12 +6434,12 @@
                 {
                     "id": "LocalIncreasedEvasionRatingPercent",
                     "items": {
-                        "body_armour": 8,
                         "boots": 8,
-                        "gloves": 8,
                         "helmet": 8,
+                        "focus": 8,
+                        "gloves": 8,
                         "shield": 8,
-                        "focus": 8
+                        "body_armour": 8
                     },
                     "generation": "prefix",
                     "mods": [
@@ -6763,23 +6763,23 @@
         },
         "hybrids": {
             "+# to Stun Threshold": [
-                "shield",
                 "boots",
-                "focus"
+                "focus",
+                "shield"
             ],
             "+# to maximum Life": [
-                "body_armour",
                 "helmet",
-                "gloves",
-                "focus"
+                "focus",
+                "body_armour",
+                "gloves"
             ],
             "+# to maximum Mana": [
                 "helmet",
                 "focus"
             ],
             "+# to Evasion Rating": [
-                "body_armour",
-                "focus"
+                "focus",
+                "body_armour"
             ],
             "#% increased Armour": [],
             "#% increased maximum Energy Shield": []
@@ -7043,12 +7043,12 @@
                 {
                     "id": "LocalIncreasedEnergyShieldPercent",
                     "items": {
-                        "body_armour": 8,
                         "boots": 8,
-                        "gloves": 8,
                         "helmet": 8,
+                        "focus": 8,
+                        "gloves": 8,
                         "shield": 8,
-                        "focus": 8
+                        "body_armour": 8
                     },
                     "generation": "prefix",
                     "mods": [
@@ -7256,13 +7256,13 @@
         },
         "hybrids": {
             "+# to Stun Threshold": [
-                "shield",
-                "boots"
+                "boots",
+                "shield"
             ],
             "+# to maximum Life": [
-                "body_armour",
                 "helmet",
-                "gloves"
+                "gloves",
+                "body_armour"
             ],
             "+# to maximum Mana": [
                 "helmet",
@@ -7302,12 +7302,12 @@
                 {
                     "id": "LocalIncreasedArmourAndEvasion",
                     "items": {
-                        "body_armour": 8,
                         "boots": 8,
-                        "gloves": 8,
                         "helmet": 8,
+                        "focus": 8,
+                        "gloves": 8,
                         "shield": 8,
-                        "focus": 8
+                        "body_armour": 8
                     },
                     "generation": "prefix",
                     "mods": [
@@ -7515,27 +7515,27 @@
         },
         "hybrids": {
             "+# to Stun Threshold": [
-                "shield",
                 "boots",
-                "focus"
+                "focus",
+                "shield"
             ],
             "+# to maximum Life": [
-                "body_armour",
                 "helmet",
-                "gloves",
-                "focus"
+                "focus",
+                "body_armour",
+                "gloves"
             ],
             "+# to maximum Mana": [
                 "helmet",
                 "focus"
             ],
             "+# to Evasion Rating": [
-                "body_armour",
-                "focus"
+                "focus",
+                "body_armour"
             ],
             "+# to Armour": [
-                "body_armour",
-                "focus"
+                "focus",
+                "body_armour"
             ]
         }
     },
@@ -7568,12 +7568,12 @@
                 {
                     "id": "LocalIncreasedArmourAndEnergyShield",
                     "items": {
-                        "body_armour": 8,
                         "boots": 8,
-                        "gloves": 8,
                         "helmet": 8,
+                        "focus": 8,
+                        "gloves": 8,
                         "shield": 8,
-                        "focus": 8
+                        "body_armour": 8
                     },
                     "generation": "prefix",
                     "mods": [
@@ -7781,27 +7781,27 @@
         },
         "hybrids": {
             "+# to Stun Threshold": [
-                "shield",
                 "boots",
-                "focus"
+                "focus",
+                "shield"
             ],
             "+# to maximum Life": [
-                "body_armour",
                 "helmet",
-                "gloves",
-                "focus"
+                "focus",
+                "body_armour",
+                "gloves"
             ],
             "+# to maximum Mana": [
                 "helmet",
                 "focus"
             ],
             "+# to maximum Energy Shield": [
-                "body_armour",
-                "focus"
+                "focus",
+                "body_armour"
             ],
             "+# to Armour": [
-                "body_armour",
-                "focus"
+                "focus",
+                "body_armour"
             ]
         }
     },
@@ -7834,12 +7834,12 @@
                 {
                     "id": "LocalIncreasedEvasionAndEnergyShield",
                     "items": {
-                        "body_armour": 8,
                         "boots": 8,
-                        "gloves": 8,
                         "helmet": 8,
+                        "focus": 8,
+                        "gloves": 8,
                         "shield": 8,
-                        "focus": 8
+                        "body_armour": 8
                     },
                     "generation": "prefix",
                     "mods": [
@@ -8047,27 +8047,27 @@
         },
         "hybrids": {
             "+# to Stun Threshold": [
-                "shield",
                 "boots",
-                "focus"
+                "focus",
+                "shield"
             ],
             "+# to maximum Life": [
-                "body_armour",
                 "helmet",
-                "gloves",
-                "focus"
+                "focus",
+                "body_armour",
+                "gloves"
             ],
             "+# to maximum Mana": [
                 "helmet",
                 "focus"
             ],
             "+# to maximum Energy Shield": [
-                "body_armour",
-                "focus"
+                "focus",
+                "body_armour"
             ],
             "+# to Evasion Rating": [
-                "body_armour",
-                "focus"
+                "focus",
+                "body_armour"
             ]
         }
     },
@@ -8100,25 +8100,25 @@
                 {
                     "id": "ReducedLocalAttributeRequirements",
                     "items": {
-                        "warstaff": 5,
-                        "flail": 5,
-                        "staff": 5,
-                        "axe": 5,
-                        "mace": 5,
+                        "focus": 5,
+                        "claw": 5,
                         "dagger": 5,
-                        "crossbow": 5,
-                        "helmet": 5,
-                        "bow": 5,
+                        "flail": 5,
                         "shield": 5,
+                        "axe": 5,
+                        "helmet": 5,
                         "body_armour": 5,
                         "gloves": 5,
-                        "boots": 5,
-                        "claw": 5,
                         "wand": 5,
-                        "sword": 5,
-                        "spear": 5,
+                        "bow": 5,
+                        "staff": 5,
+                        "crossbow": 5,
                         "sceptre": 5,
-                        "focus": 5
+                        "warstaff": 5,
+                        "mace": 5,
+                        "boots": 5,
+                        "sword": 5,
+                        "spear": 5
                     },
                     "generation": "suffix",
                     "mods": [
@@ -8339,10 +8339,10 @@
                 {
                     "id": "StunThreshold",
                     "items": {
-                        "body_armour": 10,
                         "boots": 11,
                         "belt": 10,
-                        "shield": 10
+                        "shield": 10,
+                        "body_armour": 10
                     },
                     "generation": "suffix",
                     "mods": [
@@ -8542,33 +8542,33 @@
         },
         "hybrids": {
             "#% increased Armour": [
-                "shield",
                 "boots",
-                "focus"
+                "focus",
+                "shield"
             ],
             "#% increased Evasion Rating": [
-                "shield",
                 "boots",
-                "focus"
+                "focus",
+                "shield"
             ],
             "#% increased Energy Shield": [
-                "shield",
-                "boots"
+                "boots",
+                "shield"
             ],
             "#% increased Armour and Evasion": [
-                "shield",
                 "boots",
-                "focus"
+                "focus",
+                "shield"
             ],
             "#% increased Armour and Energy Shield": [
-                "shield",
                 "boots",
-                "focus"
+                "focus",
+                "shield"
             ],
             "#% increased Evasion and Energy Shield": [
-                "shield",
                 "boots",
-                "focus"
+                "focus",
+                "shield"
             ]
         }
     },
@@ -8947,9 +8947,9 @@
                 {
                     "id": "AttackerTakesDamage",
                     "items": {
-                        "body_armour": 7,
                         "belt": 7,
-                        "shield": 7
+                        "shield": 7,
+                        "body_armour": 7
                     },
                     "generation": "prefix",
                     "mods": [
@@ -9130,9 +9130,9 @@
                 {
                     "id": "AddedPhysicalDamage",
                     "items": {
-                        "gloves": 9,
                         "quiver": 9,
-                        "ring": 9
+                        "ring": 9,
+                        "gloves": 9
                     },
                     "generation": "prefix",
                     "mods": [
@@ -9400,9 +9400,9 @@
                 {
                     "id": "AddedFireDamage",
                     "items": {
-                        "gloves": 9,
                         "quiver": 9,
-                        "ring": 9
+                        "ring": 9,
+                        "gloves": 9
                     },
                     "generation": "prefix",
                     "mods": [
@@ -9644,9 +9644,9 @@
                 {
                     "id": "AddedColdDamage",
                     "items": {
-                        "gloves": 9,
                         "quiver": 9,
-                        "ring": 9
+                        "ring": 9,
+                        "gloves": 9
                     },
                     "generation": "prefix",
                     "mods": [
@@ -9864,9 +9864,9 @@
                 {
                     "id": "AddedLightningDamage",
                     "items": {
-                        "gloves": 9,
                         "quiver": 9,
-                        "ring": 9
+                        "ring": 9,
+                        "gloves": 9
                     },
                     "generation": "prefix",
                     "mods": [
@@ -10084,9 +10084,9 @@
                 {
                     "id": "LocalAddedPhysicalDamage",
                     "items": {
-                        "crossbow": 9,
+                        "one_hand_weapon": 9,
                         "bow": 9,
-                        "one_hand_weapon": 9
+                        "crossbow": 9
                     },
                     "generation": "prefix",
                     "mods": [
@@ -10505,15 +10505,15 @@
                 {
                     "id": "LocalAddedFireDamage",
                     "items": {
-                        "claw": 10,
                         "sword": 10,
-                        "flail": 10,
                         "spear": 10,
+                        "claw": 10,
                         "dagger": 10,
-                        "axe": 10,
-                        "crossbow": 10,
+                        "flail": 10,
+                        "bow": 10,
                         "mace": 10,
-                        "bow": 10
+                        "crossbow": 10,
+                        "axe": 10
                     },
                     "generation": "prefix",
                     "mods": [
@@ -10783,9 +10783,9 @@
                     "id": "LocalAddedFireDamageTwoHand",
                     "items": {
                         "sword": 10,
-                        "axe": 10,
+                        "warstaff": 10,
                         "mace": 10,
-                        "warstaff": 10
+                        "axe": 10
                     },
                     "generation": "prefix",
                     "mods": [
@@ -11086,15 +11086,15 @@
                 {
                     "id": "LocalAddedColdDamage",
                     "items": {
-                        "claw": 10,
                         "sword": 10,
-                        "flail": 10,
                         "spear": 10,
+                        "claw": 10,
                         "dagger": 10,
-                        "axe": 10,
-                        "crossbow": 10,
+                        "flail": 10,
+                        "bow": 10,
                         "mace": 10,
-                        "bow": 10
+                        "crossbow": 10,
+                        "axe": 10
                     },
                     "generation": "prefix",
                     "mods": [
@@ -11364,9 +11364,9 @@
                     "id": "LocalAddedColdDamageTwoHand",
                     "items": {
                         "sword": 10,
-                        "axe": 10,
+                        "warstaff": 10,
                         "mace": 10,
-                        "warstaff": 10
+                        "axe": 10
                     },
                     "generation": "prefix",
                     "mods": [
@@ -11667,15 +11667,15 @@
                 {
                     "id": "LocalAddedLightningDamage",
                     "items": {
-                        "claw": 10,
                         "sword": 10,
-                        "flail": 10,
                         "spear": 10,
+                        "claw": 10,
                         "dagger": 10,
-                        "axe": 10,
-                        "crossbow": 10,
+                        "flail": 10,
+                        "bow": 10,
                         "mace": 10,
-                        "bow": 10
+                        "crossbow": 10,
+                        "axe": 10
                     },
                     "generation": "prefix",
                     "mods": [
@@ -11945,9 +11945,9 @@
                     "id": "LocalAddedLightningDamageTwoHand",
                     "items": {
                         "sword": 10,
-                        "axe": 10,
+                        "warstaff": 10,
                         "mace": 10,
-                        "warstaff": 10
+                        "axe": 10
                     },
                     "generation": "prefix",
                     "mods": [
@@ -13081,16 +13081,16 @@
                 {
                     "id": "LocalIncreasedPhysicalDamagePercent",
                     "items": {
-                        "dagger": 8,
-                        "crossbow": 8,
-                        "bow": 8,
-                        "warstaff": 8,
                         "claw": 8,
-                        "sword": 8,
+                        "dagger": 8,
                         "flail": 8,
-                        "spear": 8,
+                        "warstaff": 8,
+                        "mace": 8,
                         "axe": 8,
-                        "mace": 8
+                        "sword": 8,
+                        "spear": 8,
+                        "bow": 8,
+                        "crossbow": 8
                     },
                     "generation": "prefix",
                     "mods": [
@@ -13310,16 +13310,16 @@
         },
         "hybrids": {
             "+# to Accuracy Rating": [
-                "claw",
                 "sword",
-                "flail",
                 "spear",
+                "claw",
                 "dagger",
+                "flail",
+                "bow",
                 "warstaff",
-                "crossbow",
-                "axe",
                 "mace",
-                "bow"
+                "crossbow",
+                "axe"
             ]
         }
     },
@@ -14102,9 +14102,9 @@
                 {
                     "id": "FireDamagePrefixOnWeapon",
                     "items": {
-                        "trap": 8,
                         "wand": 8,
-                        "focus": 8
+                        "focus": 8,
+                        "trap": 8
                     },
                     "generation": "prefix",
                     "mods": [
@@ -14566,9 +14566,9 @@
                 {
                     "id": "ColdDamagePrefixOnWeapon",
                     "items": {
-                        "trap": 8,
                         "wand": 8,
-                        "focus": 8
+                        "focus": 8,
+                        "trap": 8
                     },
                     "generation": "prefix",
                     "mods": [
@@ -15030,9 +15030,9 @@
                 {
                     "id": "LightningDamagePrefixOnWeapon",
                     "items": {
-                        "trap": 8,
                         "wand": 8,
-                        "focus": 8
+                        "focus": 8,
+                        "trap": 8
                     },
                     "generation": "prefix",
                     "mods": [
@@ -15494,9 +15494,9 @@
                 {
                     "id": "ChaosDamagePrefixOnWeapon",
                     "items": {
-                        "trap": 8,
                         "wand": 8,
-                        "focus": 8
+                        "focus": 8,
+                        "trap": 8
                     },
                     "generation": "prefix",
                     "mods": [
@@ -15960,9 +15960,9 @@
                 {
                     "id": "PhysicalDamagePrefixOnWeapon",
                     "items": {
-                        "trap": 8,
                         "wand": 8,
-                        "focus": 8
+                        "focus": 8,
+                        "trap": 8
                     },
                     "generation": "prefix",
                     "mods": [
@@ -18297,8 +18297,8 @@
                 {
                     "id": "GlobalProjectileSkillGemLevel",
                     "items": {
-                        "amulet": 3,
-                        "quiver": 2
+                        "quiver": 2,
+                        "amulet": 3
                     },
                     "generation": "suffix",
                     "mods": [
@@ -18541,11 +18541,11 @@
                 {
                     "id": "LifeRegeneration",
                     "items": {
-                        "body_armour": 11,
+                        "helmet": 8,
                         "boots": 8,
                         "belt": 9,
-                        "helmet": 8,
                         "amulet": 10,
+                        "body_armour": 11,
                         "ring": 7
                     },
                     "generation": "suffix",
@@ -18991,13 +18991,13 @@
                 {
                     "id": "ManaRegeneration",
                     "items": {
-                        "trap": 6,
-                        "wand": 6,
-                        "ring": 6,
-                        "staff": 6,
+                        "focus": 6,
                         "sceptre": 6,
+                        "trap": 6,
+                        "ring": 6,
+                        "wand": 6,
                         "amulet": 6,
-                        "focus": 6
+                        "staff": 6
                     },
                     "generation": "suffix",
                     "mods": [
@@ -19251,8 +19251,8 @@
         "hybrids": {
             "#% increased Light Radius": [
                 "wand",
-                "staff",
                 "sceptre",
+                "staff",
                 "ring"
             ]
         }
@@ -19286,8 +19286,8 @@
                 {
                     "id": "LifeLeech",
                     "items": {
-                        "gloves": 5,
-                        "ring": 3
+                        "ring": 3,
+                        "gloves": 5
                     },
                     "generation": "suffix",
                     "mods": [
@@ -19445,16 +19445,16 @@
                 {
                     "id": "LifeLeechLocal",
                     "items": {
-                        "dagger": 5,
-                        "crossbow": 5,
-                        "warstaff": 5,
-                        "bow": 5,
                         "claw": 5,
-                        "sword": 5,
+                        "dagger": 5,
                         "flail": 5,
-                        "spear": 5,
+                        "warstaff": 5,
+                        "mace": 5,
                         "axe": 5,
-                        "mace": 5
+                        "sword": 5,
+                        "spear": 5,
+                        "bow": 5,
+                        "crossbow": 5
                     },
                     "generation": "suffix",
                     "mods": [
@@ -19637,8 +19637,8 @@
                 {
                     "id": "ManaLeech",
                     "items": {
-                        "gloves": 5,
-                        "ring": 3
+                        "ring": 3,
+                        "gloves": 5
                     },
                     "generation": "suffix",
                     "mods": [
@@ -19819,16 +19819,16 @@
                 {
                     "id": "ManaLeechLocal",
                     "items": {
-                        "dagger": 5,
-                        "crossbow": 5,
-                        "warstaff": 5,
-                        "bow": 5,
                         "claw": 5,
-                        "sword": 5,
+                        "dagger": 5,
                         "flail": 5,
-                        "spear": 5,
+                        "warstaff": 5,
+                        "mace": 5,
                         "axe": 5,
-                        "mace": 5
+                        "sword": 5,
+                        "spear": 5,
+                        "bow": 5,
+                        "crossbow": 5
                     },
                     "generation": "suffix",
                     "mods": [
@@ -20014,22 +20014,22 @@
                 {
                     "id": "LifeGainedFromEnemyDeath",
                     "items": {
-                        "trap": 8,
-                        "quiver": 6,
-                        "dagger": 8,
-                        "crossbow": 8,
-                        "warstaff": 8,
-                        "bow": 8,
-                        "gloves": 8,
                         "claw": 8,
-                        "wand": 8,
-                        "sword": 8,
-                        "flail": 8,
-                        "spear": 8,
-                        "ring": 6,
+                        "dagger": 8,
                         "staff": 8,
+                        "flail": 8,
+                        "warstaff": 8,
+                        "mace": 8,
                         "axe": 8,
-                        "mace": 8
+                        "sword": 8,
+                        "quiver": 6,
+                        "spear": 8,
+                        "trap": 8,
+                        "gloves": 8,
+                        "ring": 6,
+                        "wand": 8,
+                        "bow": 8,
+                        "crossbow": 8
                     },
                     "generation": "suffix",
                     "mods": [
@@ -20345,22 +20345,22 @@
                 {
                     "id": "ManaGainedFromEnemyDeath",
                     "items": {
-                        "trap": 8,
-                        "quiver": 6,
-                        "dagger": 8,
-                        "crossbow": 8,
-                        "warstaff": 8,
-                        "bow": 8,
-                        "gloves": 8,
                         "claw": 8,
-                        "wand": 8,
-                        "sword": 8,
-                        "flail": 8,
-                        "spear": 8,
-                        "ring": 6,
+                        "dagger": 8,
                         "staff": 8,
+                        "flail": 8,
+                        "warstaff": 8,
+                        "mace": 8,
                         "axe": 8,
-                        "mace": 8
+                        "sword": 8,
+                        "quiver": 6,
+                        "spear": 8,
+                        "trap": 8,
+                        "gloves": 8,
+                        "ring": 6,
+                        "wand": 8,
+                        "bow": 8,
+                        "crossbow": 8
                     },
                     "generation": "suffix",
                     "mods": [
@@ -20811,16 +20811,16 @@
                 {
                     "id": "LifeGainPerTargetLocal",
                     "items": {
-                        "dagger": 4,
-                        "crossbow": 4,
-                        "bow": 4,
-                        "warstaff": 4,
                         "claw": 4,
-                        "sword": 4,
+                        "dagger": 4,
                         "flail": 4,
-                        "spear": 4,
+                        "warstaff": 4,
+                        "mace": 4,
                         "axe": 4,
-                        "mace": 4
+                        "sword": 4,
+                        "spear": 4,
+                        "bow": 4,
+                        "crossbow": 4
                     },
                     "generation": "suffix",
                     "mods": [
@@ -20967,8 +20967,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_210067635",
-                    "explicit.stat_681332047"
+                    "explicit.stat_681332047",
+                    "explicit.stat_210067635"
                 ],
                 "implicit": [
                     "implicit.stat_681332047"
@@ -21057,16 +21057,16 @@
                     "id": "LocalIncreasedAttackSpeed",
                     "items": {
                         "ranged": 2,
-                        "dagger": 8,
-                        "crossbow": 8,
-                        "bow": 8,
-                        "warstaff": 8,
                         "claw": 8,
-                        "sword": 8,
+                        "dagger": 8,
                         "flail": 8,
-                        "spear": 8,
+                        "warstaff": 8,
+                        "mace": 8,
                         "axe": 8,
-                        "mace": 8
+                        "sword": 8,
+                        "spear": 8,
+                        "bow": 8,
+                        "crossbow": 8
                     },
                     "generation": "suffix",
                     "mods": [
@@ -21576,8 +21576,8 @@
                     "items": {
                         "wand": 7,
                         "amulet": 5,
-                        "ring": 4,
-                        "focus": 6
+                        "focus": 6,
+                        "ring": 4
                     },
                     "generation": "suffix",
                     "mods": [
@@ -22307,8 +22307,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_691932474",
-                    "explicit.stat_803737631"
+                    "explicit.stat_803737631",
+                    "explicit.stat_691932474"
                 ],
                 "implicit": [
                     "implicit.stat_803737631"
@@ -22326,10 +22326,10 @@
                 {
                     "id": "IncreasedAccuracy",
                     "items": {
-                        "gloves": 9,
-                        "amulet": 8,
                         "helmet": 9,
                         "quiver": 9,
+                        "amulet": 8,
+                        "gloves": 9,
                         "ring": 8
                     },
                     "generation": "prefix",
@@ -22499,17 +22499,17 @@
                 {
                     "id": "LocalIncreasedAccuracy",
                     "items": {
-                        "ranged": 1,
-                        "claw": 9,
                         "sword": 9,
-                        "flail": 9,
+                        "ranged": 1,
                         "spear": 9,
-                        "bow": 9,
+                        "claw": 9,
                         "dagger": 9,
-                        "axe": 9,
-                        "crossbow": 9,
+                        "flail": 9,
+                        "bow": 9,
+                        "warstaff": 9,
                         "mace": 9,
-                        "warstaff": 9
+                        "crossbow": 9,
+                        "axe": 9
                     },
                     "generation": "prefix",
                     "mods": [
@@ -22806,29 +22806,29 @@
         },
         "hybrids": {
             "#% increased Physical Damage": [
-                "claw",
                 "sword",
-                "flail",
                 "spear",
+                "claw",
                 "dagger",
+                "flail",
+                "bow",
                 "warstaff",
-                "crossbow",
-                "axe",
                 "mace",
-                "bow"
+                "crossbow",
+                "axe"
             ],
             "#% increased Light Radius": [
-                "mace",
-                "claw",
-                "sword",
-                "flail",
-                "spear",
-                "dagger",
-                "axe",
-                "crossbow",
-                "warstaff",
                 "helmet",
-                "bow"
+                "sword",
+                "spear",
+                "claw",
+                "dagger",
+                "flail",
+                "bow",
+                "warstaff",
+                "mace",
+                "crossbow",
+                "axe"
             ]
         }
     },
@@ -23246,16 +23246,16 @@
                 {
                     "id": "LocalCriticalStrikeChance",
                     "items": {
-                        "dagger": 6,
-                        "crossbow": 6,
-                        "bow": 6,
-                        "warstaff": 6,
                         "claw": 6,
-                        "sword": 6,
+                        "dagger": 6,
                         "flail": 6,
-                        "spear": 6,
+                        "warstaff": 6,
+                        "mace": 6,
                         "axe": 6,
-                        "mace": 6
+                        "sword": 6,
+                        "spear": 6,
+                        "bow": 6,
+                        "crossbow": 6
                     },
                     "generation": "suffix",
                     "mods": [
@@ -23438,9 +23438,9 @@
                 {
                     "id": "SpellCriticalStrikeChance",
                     "items": {
-                        "staff": 6,
                         "wand": 6,
-                        "focus": 5
+                        "focus": 5,
+                        "staff": 6
                     },
                     "generation": "suffix",
                     "mods": [
@@ -24353,16 +24353,16 @@
                 {
                     "id": "LocalCriticalMultiplier",
                     "items": {
-                        "dagger": 6,
-                        "crossbow": 6,
-                        "bow": 6,
-                        "warstaff": 6,
                         "claw": 6,
-                        "sword": 6,
+                        "dagger": 6,
                         "flail": 6,
-                        "spear": 6,
+                        "warstaff": 6,
+                        "mace": 6,
                         "axe": 6,
-                        "mace": 6
+                        "sword": 6,
+                        "spear": 6,
+                        "bow": 6,
+                        "crossbow": 6
                     },
                     "generation": "suffix",
                     "mods": [
@@ -24582,9 +24582,9 @@
                 {
                     "id": "SpellCriticalStrikeMultiplier",
                     "items": {
-                        "staff": 6,
                         "wand": 6,
-                        "focus": 5
+                        "focus": 5,
+                        "staff": 6
                     },
                     "generation": "suffix",
                     "mods": [
@@ -25198,9 +25198,9 @@
                     "id": "ItemFoundRarityIncrease",
                     "items": {
                         "boots": 5,
-                        "gloves": 5,
-                        "ring": 5,
                         "helmet": 5,
+                        "ring": 5,
+                        "gloves": 5,
                         "amulet": 5
                     },
                     "generation": "suffix",
@@ -25542,8 +25542,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_4147897060",
-                    "explicit.stat_2481353198"
+                    "explicit.stat_2481353198",
+                    "explicit.stat_4147897060"
                 ],
                 "enchant": [
                     "enchant.stat_2481353198"
@@ -25759,8 +25759,8 @@
                 {
                     "id": "IncreasedSpirit",
                     "items": {
-                        "body_armour": 8,
-                        "amulet": 5
+                        "amulet": 5,
+                        "body_armour": 8
                     },
                     "generation": "prefix",
                     "mods": [
@@ -29524,9 +29524,9 @@
                 {
                     "id": "IgniteChanceIncrease",
                     "items": {
+                        "wand": 5,
                         "staff": 5,
-                        "trap": 5,
-                        "wand": 5
+                        "trap": 5
                     },
                     "generation": "suffix",
                     "mods": [
@@ -29716,9 +29716,9 @@
                 {
                     "id": "FreezeDamageIncrease",
                     "items": {
+                        "wand": 5,
                         "staff": 5,
-                        "trap": 5,
-                        "wand": 5
+                        "trap": 5
                     },
                     "generation": "suffix",
                     "mods": [
@@ -29908,9 +29908,9 @@
                 {
                     "id": "ShockChanceIncrease",
                     "items": {
+                        "wand": 5,
                         "staff": 5,
-                        "trap": 5,
-                        "wand": 5
+                        "trap": 5
                     },
                     "generation": "suffix",
                     "mods": [
@@ -30605,16 +30605,16 @@
                 {
                     "id": "StunDuration",
                     "items": {
-                        "dagger": 6,
-                        "crossbow": 6,
-                        "bow": 6,
-                        "warstaff": 6,
                         "claw": 6,
-                        "sword": 6,
+                        "dagger": 6,
                         "flail": 6,
-                        "spear": 6,
+                        "warstaff": 6,
+                        "mace": 6,
                         "axe": 6,
-                        "mace": 6
+                        "sword": 6,
+                        "spear": 6,
+                        "bow": 6,
+                        "crossbow": 6
                     },
                     "generation": "suffix",
                     "mods": [
@@ -30803,16 +30803,16 @@
                 {
                     "id": "StunDamageIncrease",
                     "items": {
-                        "dagger": 6,
-                        "crossbow": 6,
-                        "bow": 6,
-                        "warstaff": 6,
                         "claw": 6,
-                        "sword": 6,
+                        "dagger": 6,
                         "flail": 6,
-                        "spear": 6,
+                        "warstaff": 6,
+                        "mace": 6,
                         "axe": 6,
-                        "mace": 6
+                        "sword": 6,
+                        "spear": 6,
+                        "bow": 6,
+                        "crossbow": 6
                     },
                     "generation": "suffix",
                     "mods": [
@@ -31038,8 +31038,8 @@
                 {
                     "id": "WeaponElementalDamage",
                     "items": {
-                        "bow": 6,
-                        "one_hand_weapon": 6
+                        "one_hand_weapon": 6,
+                        "bow": 6
                     },
                     "generation": "prefix",
                     "mods": [
@@ -32526,8 +32526,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_1256719186",
-                    "explicit.stat_2541588185"
+                    "explicit.stat_2541588185",
+                    "explicit.stat_1256719186"
                 ]
             }
         },
@@ -35491,8 +35491,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_3885634897",
-                    "explicit.stat_795138349"
+                    "explicit.stat_795138349",
+                    "explicit.stat_3885634897"
                 ],
                 "enchant": [
                     "enchant.stat_3885634897"
@@ -46811,22 +46811,22 @@
         },
         "hybrids": {
             "+# to Accuracy Rating": [
-                "mace",
-                "claw",
-                "sword",
-                "flail",
-                "spear",
-                "dagger",
-                "axe",
-                "crossbow",
-                "warstaff",
                 "helmet",
-                "bow"
+                "sword",
+                "spear",
+                "claw",
+                "dagger",
+                "flail",
+                "bow",
+                "warstaff",
+                "mace",
+                "crossbow",
+                "axe"
             ],
             "#% increased Mana Regeneration Rate": [
                 "wand",
-                "staff",
                 "sceptre",
+                "staff",
                 "ring"
             ]
         }
@@ -55663,9 +55663,9 @@
         "trade": {
             "ids": {
                 "explicit": [
+                    "explicit.stat_2541588185",
                     "explicit.stat_1256719186",
-                    "explicit.stat_3969608626",
-                    "explicit.stat_2541588185"
+                    "explicit.stat_3969608626"
                 ]
             }
         },
@@ -59602,8 +59602,8 @@
             "ids": {
                 "explicit": [
                     "explicit.stat_2390685262",
-                    "explicit.stat_2306002879",
-                    "explicit.stat_349586058"
+                    "explicit.stat_349586058",
+                    "explicit.stat_2306002879"
                 ],
                 "enchant": [
                     "enchant.stat_2306002879"
@@ -65099,8 +65099,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_95249895",
-                    "explicit.stat_2390685262"
+                    "explicit.stat_2390685262",
+                    "explicit.stat_95249895"
                 ]
             }
         },
@@ -77555,10 +77555,10 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_1913583994",
-                    "explicit.stat_2306522833",
                     "explicit.stat_2390685262",
-                    "explicit.stat_2488361432"
+                    "explicit.stat_2488361432",
+                    "explicit.stat_1913583994",
+                    "explicit.stat_2306522833"
                 ]
             }
         },
@@ -86414,8 +86414,8 @@
             "ids": {
                 "explicit": [
                     "explicit.stat_1414945937",
-                    "explicit.stat_398335579",
-                    "explicit.stat_4007938693"
+                    "explicit.stat_4007938693",
+                    "explicit.stat_398335579"
                 ]
             }
         },
@@ -97775,15 +97775,15 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_4219583418",
+                    "explicit.stat_1539368271",
                     "explicit.stat_1640965354",
-                    "explicit.stat_1539368271"
+                    "explicit.stat_4219583418"
                 ],
                 "implicit": [
-                    "implicit.stat_3051490307",
                     "implicit.stat_4219583418",
                     "implicit.stat_1640965354",
-                    "implicit.stat_1539368271"
+                    "implicit.stat_1539368271",
+                    "implicit.stat_3051490307"
                 ]
             }
         },
@@ -119534,10 +119534,10 @@
         "trade": {
             "ids": {
                 "sanctum": [
-                    "sanctum.stat_2821715641",
                     "sanctum.stat_3059754769",
-                    "sanctum.stat_2469854926",
+                    "sanctum.stat_2821715641",
                     "sanctum.stat_3840591093",
+                    "sanctum.stat_2469854926",
                     "sanctum.stat_767926824"
                 ]
             }
@@ -123128,6 +123128,66 @@
             "corruptionjewel": [],
             "uniquejewel": []
         },
+        "hybrids": {}
+    },
+    "merged_2955": {
+        "ref": "Has Logbook Faction: Druids of the Broken Circle",
+        "better": 0,
+        "id": "druids_of_the_broken_circle",
+        "matchers": [
+            {
+                "string": "Druiden des Gebrochenen Zirkels"
+            }
+        ],
+        "trade": {
+            "ids": null
+        },
+        "tiers": null,
+        "hybrids": {}
+    },
+    "merged_2956": {
+        "ref": "Has Logbook Faction: Black Scythe Mercenaries",
+        "better": 0,
+        "id": "black_scythe_mercenaries",
+        "matchers": [
+            {
+                "string": "Söldner der Schwarzen Sense"
+            }
+        ],
+        "trade": {
+            "ids": null
+        },
+        "tiers": null,
+        "hybrids": {}
+    },
+    "merged_2957": {
+        "ref": "Has Logbook Faction: Order of the Chalice",
+        "better": 0,
+        "id": "order_of_the_chalice",
+        "matchers": [
+            {
+                "string": "Orden des Kelches"
+            }
+        ],
+        "trade": {
+            "ids": null
+        },
+        "tiers": null,
+        "hybrids": {}
+    },
+    "merged_2958": {
+        "ref": "Has Logbook Faction: Knights of the Sun",
+        "better": 0,
+        "id": "knights_of_the_sun",
+        "matchers": [
+            {
+                "string": "Ritter der Sonne"
+            }
+        ],
+        "trade": {
+            "ids": null
+        },
+        "tiers": null,
         "hybrids": {}
     }
 }

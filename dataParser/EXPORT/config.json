@@ -226,6 +226,13 @@
         "IsKeystone",
         "IsNotable"
       ]
+    },
+    {
+      "name": "ExpeditionFactions",
+      "columns": [
+        "Id",
+        "Name"
+      ]
     }
   ]
 }

@@ -61,7 +61,6 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   { virtual: normalizeName },
   parseVaalGemName,
   { virtual: findInDatabase },
-  { virtual: tempErrLogbooks },
   // -----------
   parseItemLevel,
   parseRequirements,
@@ -254,12 +253,6 @@ function findInDatabase(item: ParserState) {
   // Override charm since its flask in trade
   if (item.category === ItemCategory.Charm) {
     item.category = ItemCategory.Flask;
-  }
-}
-
-function tempErrLogbooks(item: ParserState) {
-  if (item.info.refName === "Expedition Logbook") {
-    return err("item.parse_error");
   }
 }
 
@@ -825,32 +818,27 @@ function parseLogbookArea(section: string[], item: ParsedItem) {
 
   const { modType, lines } = parseModType(section.slice(2));
   for (const line of lines) {
-    const found = STAT_BY_MATCH_STR(line);
-    if (found && found.stat.ref === "Area contains an Expedition Boss (#)") {
-      const roll = found.matcher.value!;
+    const translation = tryParseTranslation(
+      { string: line, unscalable: false },
+      modType,
+      item,
+    );
+    if (translation) {
+      const { stat: found } = translation;
       areaMods.push({
         info: { tags: [], type: modType },
-        stats: [
-          {
-            stat: found.stat,
-            translation: found.matcher,
-            roll: {
-              value: roll,
-              min: roll,
-              max: roll,
-              dp: false,
-              unscalable: true,
-            },
-          },
-        ],
+        stats: [found],
       });
     }
   }
 
-  if (!item.logbookAreaMods) {
-    item.logbookAreaMods = [areaMods];
-  } else {
-    item.logbookAreaMods.push(areaMods);
+  areaMods.shift();
+  if (areaMods.length) {
+    if (!item.logbookAreaMods) {
+      item.logbookAreaMods = [areaMods];
+    } else {
+      item.logbookAreaMods.push(areaMods);
+    }
   }
 
   return "SECTION_PARSED";
@@ -1188,7 +1176,8 @@ function parseHelpText(section: string[], item: ParsedItem) {
     item.category !== ItemCategory.Jewel &&
     item.category !== ItemCategory.Relic &&
     item.category !== ItemCategory.Tablet &&
-    item.category !== ItemCategory.TowerAugment
+    item.category !== ItemCategory.TowerAugment &&
+    item.info.refName !== "Expedition Logbook"
   )
     return "PARSER_SKIPPED";
 
@@ -1200,7 +1189,8 @@ function parseHelpText(section: string[], item: ParsedItem) {
       line.startsWith(_$.WAYSTONE_HELP) ||
       line.startsWith(_$.JEWEL_HELP) ||
       line.startsWith(_$.SANCTUM_HELP) ||
-      line.startsWith(_$.PRECURSOR_TABLET_HELP)
+      line.startsWith(_$.PRECURSOR_TABLET_HELP) ||
+      line.startsWith(_$.LOGBOOK_HELP)
     ) {
       return "SECTION_PARSED";
     }

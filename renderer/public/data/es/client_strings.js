@@ -116,5 +116,6 @@ export default {
   JEWEL_HELP: 'Colócala en un engarce',
   SANCTUM_HELP: 'Coloca este objeto en el Altar de reliquias',
   TIMELESS_RADIUS: 'Radio: ',
-  PRECURSOR_TABLET_HELP: 'Se puede utilizar en una torre completada de tu Atlas para influenciar los'
+  PRECURSOR_TABLET_HELP: 'Se puede utilizar en una torre completada de tu Atlas para influenciar los',
+  LOGBOOK_HELP: 'Llévale este objeto a Dannig en'
 }
