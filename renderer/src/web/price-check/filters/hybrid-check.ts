@@ -1,18 +1,20 @@
-import { ParsedItem } from "@/parser";
 import { ModifierInfo } from "@/parser/advanced-mod-desc";
-import { StatCalculated, StatSource } from "@/parser/modifiers";
+import { StatCalculated } from "@/parser/modifiers";
+import { ParsedStat } from "@/parser/stat-translations";
 
 export function checkPossibleHybrid(
   hybrids: ModifierInfo["hybridWithRef"],
   stats: StatCalculated[],
-  item: ParsedItem,
-  source: StatSource,
 ) {
   if (!hybrids) return false;
+  const foundHybrids = new Set<ParsedStat>();
   for (const stat of stats) {
     if (hybrids.has(stat.stat.ref)) {
-      return true;
+      foundHybrids.add(stat.sources[0].stat);
     }
+  }
+  if (foundHybrids.size) {
+    return foundHybrids;
   }
   return false;
 }

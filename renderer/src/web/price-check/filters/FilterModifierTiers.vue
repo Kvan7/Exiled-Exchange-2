@@ -17,7 +17,27 @@
             ])
           }}</span>
         </template>
-        <template #content> {{ t("filters.hybrid_note") }} </template>
+        <template #content>
+          <div class="flex flex-col gap-x-8 px-2 bg-gray-800 text-gray-400">
+            <div class="border-b">{{ t("filters.hybrid_note") }}</div>
+
+            <span class="truncate border-b border-dashed"
+              ><item-modifier-text
+                :text="tag.source.stat.translation.string"
+                :roll="tag.source.stat.roll?.value"
+            /></span>
+            <div
+              v-if="tag.isMaybeHybrid instanceof Set"
+              v-for="hybrid of tag.isMaybeHybrid"
+              :key="hybrid.translation.string"
+            >
+              <item-modifier-text
+                :text="hybrid.translation.string"
+                :roll="hybrid.roll?.value"
+              />
+            </div>
+          </div>
+        </template>
       </ui-popover>
       <span v-else :class="$style[tag.type]">{{
         t(tierOption == "poe2" ? "filters.tier" : "filters.grade", [tag.tier])
@@ -32,12 +52,15 @@ import { useI18n } from "vue-i18n";
 import { ItemCategory, ParsedItem } from "@/parser";
 import UiPopover from "@/web/ui/Popover.vue";
 import { FilterTag, StatFilter } from "./interfaces";
+import ItemModifierText from "../../ui/ItemModifierText.vue";
 import { AppConfig } from "@/web/Config";
 import { PriceCheckWidget } from "@/web/overlay/widgets";
 import { checkPossibleHybrid } from "./hybrid-check";
+import { ParsedStat } from "@/parser/stat-translations";
+import { StatSource } from "@/parser/modifiers";
 
 export default defineComponent({
-  components: { UiPopover },
+  components: { ItemModifierText, UiPopover },
   props: {
     filter: {
       type: Object as PropType<StatFilter>,
@@ -58,22 +81,28 @@ export default defineComponent({
 
     const tags = computed(() => {
       const { filter, item } = props;
-      const out: Array<{ type: string; tier: number; isMaybeHybrid: boolean }> =
-        [];
+      const out: Array<{
+        type: string;
+        tier: number;
+        isMaybeHybrid: boolean | Set<ParsedStat>;
+        source: StatSource;
+      }> = [];
       for (const source of filter.sources) {
         const tier = source.modifier.info.tier;
         const tierNew = source.modifier.info.tierNew;
         if (!tier || !tierNew) continue;
         const usedTier = tierOption.value === "poe1" ? tier : tierNew;
-        const isMaybeHybrid =
+
+        let isMaybeHybrid: boolean | Set<ParsedStat> = false;
+        if (
           source.modifier.info.hybridWithRef !== undefined &&
-          source.modifier.info.hybridWithRef instanceof Set &&
-          checkPossibleHybrid(
+          source.modifier.info.hybridWithRef instanceof Set
+        ) {
+          isMaybeHybrid = checkPossibleHybrid(
             source.modifier.info.hybridWithRef,
             props.item.statsByType,
-            props.item,
-            source,
           );
+        }
 
         if (
           (filter.tag === FilterTag.Explicit ||
@@ -84,14 +113,24 @@ export default defineComponent({
           item.category !== ItemCategory.MemoryLine
         ) {
           if (tier === 1)
-            out.push({ type: "tier-1", tier: usedTier, isMaybeHybrid });
+            out.push({ type: "tier-1", tier: usedTier, isMaybeHybrid, source });
           else if (tier === 2)
-            out.push({ type: "tier-2", tier: usedTier, isMaybeHybrid });
+            out.push({ type: "tier-2", tier: usedTier, isMaybeHybrid, source });
           else if (alwaysShowTier.value)
-            out.push({ type: "not-tier-1", tier: usedTier, isMaybeHybrid });
+            out.push({
+              type: "not-tier-1",
+              tier: usedTier,
+              isMaybeHybrid,
+              source,
+            });
         } else if (tier >= 2) {
           // fractured, explicit-* filters
-          out.push({ type: "tier-other", tier: usedTier, isMaybeHybrid });
+          out.push({
+            type: "tier-other",
+            tier: usedTier,
+            isMaybeHybrid,
+            source,
+          });
         }
       }
       out.sort((a, b) => a.tier - b.tier);
@@ -99,7 +138,7 @@ export default defineComponent({
     });
 
     const { t } = useI18n();
-    return { t, tags, tierOption };
+    return { t, tags, tierOption, filter: props.filter };
   },
 });
 </script>
