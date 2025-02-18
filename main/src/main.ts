@@ -28,13 +28,15 @@ app.enableSandbox();
 
 let tray: AppTray;
 (async () => {
-  const hasPermission = await ensureAccessibilityPermission();
-  if (!hasPermission) {
-    console.warn("Accessibility permission not granted, exiting");
-    app.quit();
-    return;
-  } else {
-    console.log("Accessibility permission granted");
+  if (process.platform === "darwin") {
+    const hasPermission = await ensureAccessibilityPermission();
+    if (!hasPermission) {
+      console.warn("Accessibility permission not granted, exiting");
+      app.quit();
+      return;
+    } else {
+      console.log("Accessibility permission granted");
+    }
   }
 
   app.on("ready", async () => {
@@ -72,20 +74,23 @@ let tray: AppTray;
           gameConfig,
           eventPipe
         );
-        eventPipe.onEventAnyClient("CLIENT->MAIN::update-host-config", (cfg) => {
-          overlay.updateOpts(cfg.overlayKey, cfg.windowTitle);
-          shortcuts.updateActions(
-            cfg.shortcuts,
-            cfg.stashScroll,
-            cfg.logKeys,
-            cfg.restoreClipboard,
-            cfg.language
-          );
-          gameLogWatcher.restart(cfg.clientLog ?? "");
-          gameConfig.readConfig(cfg.gameConfig ?? "");
-          appUpdater.checkAtStartup();
-          tray.overlayKey = cfg.overlayKey;
-        });
+        eventPipe.onEventAnyClient(
+          "CLIENT->MAIN::update-host-config",
+          (cfg) => {
+            overlay.updateOpts(cfg.overlayKey, cfg.windowTitle);
+            shortcuts.updateActions(
+              cfg.shortcuts,
+              cfg.stashScroll,
+              cfg.logKeys,
+              cfg.restoreClipboard,
+              cfg.language
+            );
+            gameLogWatcher.restart(cfg.clientLog ?? "");
+            gameConfig.readConfig(cfg.gameConfig ?? "");
+            appUpdater.checkAtStartup();
+            tray.overlayKey = cfg.overlayKey;
+          }
+        );
         uIOhook.start();
         console.log("uIOhook started");
         const port = await startServer(appUpdater, logger);
@@ -123,5 +128,4 @@ let tray: AppTray;
       }, 1000);
     });
   }
-
 })();
