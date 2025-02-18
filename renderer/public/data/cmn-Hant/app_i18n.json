@@ -382,7 +382,8 @@
     "tier_numbering_poe1": "POE1（數值越小越好）",
     "tier_numbering_poe2": "POE2（數值越大越好）",
     "tier_numbering_help": "為了減少因遊戲內命名衝突而導致的混淆，POE1的層級將使用\"Grade\"而非\"Tier\"來命名。",
-    "always_show_tier": "Always show tier"
+    "always_show_tier": "Always show tier",
+    "remember_ratio": "Remember currency ratio"
   },
   "poe2_new": {
     "beta_warning": "這是 POE2 的測試版，某些功能可能無法正常運作。",

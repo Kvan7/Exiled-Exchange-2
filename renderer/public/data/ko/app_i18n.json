@@ -375,7 +375,8 @@
     "tier_numbering_poe1": "PoE1 (낮을수록 좋음)",
     "tier_numbering_poe2": "PoE2 (높을수록 좋음)",
     "tier_numbering_help": "혼란을 방지하기 위해서 POE 1의 아이템 티어는 \"티어\"가아닌\"등급\"으로 표시됩니다.",
-    "always_show_tier": "Always show tier"
+    "always_show_tier": "Always show tier",
+    "remember_ratio": "Remember currency ratio"
   },
   "poe2_new": {
     "beta_warning": "이 버전은 베타버전입니다. 예기치 못한 버그가 있을 수 있습니다.",

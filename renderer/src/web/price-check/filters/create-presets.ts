@@ -25,6 +25,7 @@ export function createPresets(
     usePseudo: boolean;
     defaultAllSelected: boolean;
     autoFillEmptyRuneSockets: PriceCheckWidget["autoFillEmptyRuneSockets"];
+    currencyRatio: number | undefined;
   },
 ): { presets: FilterPreset[]; active: string } {
   if (item.info.refName === "Expedition Logbook") {

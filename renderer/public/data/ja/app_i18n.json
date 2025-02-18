@@ -382,7 +382,8 @@
     "tier_numbering_poe1": "PoE1（数値が低いほど良い）",
     "tier_numbering_poe2": "PoE2（数値が高いほど良い）",
     "tier_numbering_help": "ゲーム内の命名規則との衝突による混乱を減らすため、PoE1のティアは\"Tier\"ではなく\"Grade\"という名称を使用します。",
-    "always_show_tier": "Always show tier"
+    "always_show_tier": "Always show tier",
+    "remember_ratio": "Remember currency ratio"
   },
   "poe2_new": {
     "beta_warning": "これはPOE2のベータ版です、期待通りに動作しないことがあります。",
