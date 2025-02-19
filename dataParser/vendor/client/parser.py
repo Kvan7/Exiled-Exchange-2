@@ -146,6 +146,8 @@ HARDCODE_MAP_MODS = {
     "mapplayercooldownrecovery",
 }
 
+BETTER_NOT_1 = {"local_attribute_requirements_+%": -1}
+
 
 def find_first_matching_item(items, field: str, value: str) -> dict | None:
     return next((item for item in items if item.get(field) == value), None)
@@ -590,6 +592,9 @@ class Parser:
 
         stats_from_tiers = set()
 
+        def better(x):
+            return 1 if x not in BETTER_NOT_1 else BETTER_NOT_1[x]
+
         for in_ids, tiers, base_id in modTierBuilderB(
             self.mods_file, self.base_items, self.gold_mod_prices, self.tags
         ):
@@ -690,7 +695,7 @@ class Parser:
                 ):
                     self.mods[f"{base_id}_{index}"] = {
                         "ref": allowed_hybrid_translation.get("ref"),
-                        "better": 1,
+                        "better": better(stats_id),
                         "id": f"{base_id}_{index}",
                         "matchers": allowed_hybrid_translation.get("matchers"),
                         "trade": {"ids": ids_list[index]},
@@ -700,7 +705,7 @@ class Parser:
             else:
                 self.mods[base_id] = {
                     "ref": main_translation.get("ref"),
-                    "better": 1,
+                    "better": better(stats_id),
                     "id": stat_id,
                     "matchers": main_translation.get("matchers"),
                     "trade": trade,
@@ -758,7 +763,7 @@ class Parser:
                         continue
                     self.mods[id] = {
                         "ref": translation.get("ref"),
-                        "better": 1,
+                        "better": better(stats_id),
                         "id": stats_id,
                         "matchers": translation.get("matchers"),
                         "trade": trade,

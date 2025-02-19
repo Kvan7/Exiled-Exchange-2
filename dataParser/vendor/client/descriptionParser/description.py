@@ -7,6 +7,12 @@ from services.statNameBuilder import convert_stat_name
 
 logger = logging.getLogger(__name__)
 
+FLIP_NEGATE_IDS = {
+    # "local_attribute_requirements_+%",
+    "flask_charges_used_+%",
+    "charm_charges_used_+%",
+}
+
 
 class Description:
     english_ref = None
@@ -211,7 +217,7 @@ class Description:
             if value is None and not negate and is_en and self.english_ref is None:
                 self.english_ref = data["stat_name"].pop()
 
-            if "flask_charges_used_+%" in self.id or "charm_charges_used_+%" in self.id:
+            if self.id in FLIP_NEGATE_IDS:
                 negate = not negate
 
             matcher_data = {
