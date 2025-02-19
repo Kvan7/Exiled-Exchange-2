@@ -237,6 +237,7 @@ interface FetchResult {
     note?: string;
     implicitMods?: string[];
     explicitMods?: string[];
+    enchantMods?: string[];
     runeMods?: string[];
     extended?: {
       dps?: number;
@@ -263,6 +264,7 @@ export interface DisplayItem {
   runeMods?: string[];
   implicitMods?: string[];
   explicitMods?: string[];
+  enchantMods?: string[];
   pseudoMods?: string[];
   extended?: Array<{ text: string; value: number }>;
 }
@@ -932,6 +934,9 @@ export async function requestResults(
     const explicitMods = result.item.explicitMods?.map((s) =>
       parseAffixStrings(s),
     );
+    const enchantMods = result.item.enchantMods?.map((s) =>
+      parseAffixStrings(s),
+    );
     const pseudoMods = result.item.pseudoMods?.map((s) => {
       if (s.startsWith("Sum: ")) {
         const pseudoRes = +s.slice(5);
@@ -968,6 +973,7 @@ export async function requestResults(
       runeMods,
       implicitMods,
       explicitMods,
+      enchantMods,
       pseudoMods,
       extended,
     };
