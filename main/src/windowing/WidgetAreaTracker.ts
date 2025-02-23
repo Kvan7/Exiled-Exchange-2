@@ -27,8 +27,22 @@ export class WidgetAreaTracker {
         })
       } else {
         this.closeThreshold = opts.closeThreshold
-        this.from = opts.from
-        this.area = opts.area
+        
+        // get primary window attributes (hopefuly the one displaying the game...)
+        let display = screen.getPrimaryDisplay();
+        
+        // scale coordinates using the display scale factor.
+        this.from = {
+          x: opts.from.x * display.scaleFactor,
+          y: opts.from.y * display.scaleFactor
+        }
+
+        this.area = {
+          x: opts.area.x * display.scaleFactor,
+          y: opts.area.y * display.scaleFactor,
+          width: opts.area.width * display.scaleFactor,
+          height: opts.area.height * display.scaleFactor
+        }
       }
 
       this.removeListeners()
