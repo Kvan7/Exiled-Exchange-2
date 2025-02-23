@@ -15,34 +15,44 @@ export class WidgetAreaTracker {
   ) {
     this.server.onEventAnyClient('OVERLAY->MAIN::track-area', (opts) => {
       this.holdKey = opts.holdKey
-      if (process.platform === 'win32') {
-        this.closeThreshold = opts.closeThreshold * opts.dpr
-        this.from = screen.dipToScreenPoint(opts.from)
-        // NOTE: bug in electron accepting only integers
-        this.area = screen.dipToScreenRect(null, {
-          x: Math.round(opts.area.x),
-          y: Math.round(opts.area.y),
-          width: Math.round(opts.area.width),
-          height: Math.round(opts.area.height)
-        })
-      } else {
-        this.closeThreshold = opts.closeThreshold
-        
-        // get primary window attributes (hopefuly the one displaying the game...)
-        let display = screen.getPrimaryDisplay();
-        
-        // scale coordinates using the display scale factor.
-        this.from = {
-          x: opts.from.x * display.scaleFactor,
-          y: opts.from.y * display.scaleFactor
-        }
 
-        this.area = {
-          x: opts.area.x * display.scaleFactor,
-          y: opts.area.y * display.scaleFactor,
-          width: opts.area.width * display.scaleFactor,
-          height: opts.area.height * display.scaleFactor
-        }
+      switch (process.platform) {
+        case 'win32':
+          this.closeThreshold = opts.closeThreshold * opts.dpr
+          this.from = screen.dipToScreenPoint(opts.from)
+          // NOTE: bug in electron accepting only integers
+          this.area = screen.dipToScreenRect(null, {
+            x: Math.round(opts.area.x),
+            y: Math.round(opts.area.y),
+            width: Math.round(opts.area.width),
+            height: Math.round(opts.area.height)
+          })
+          break;
+
+        case 'linux':
+          this.closeThreshold = opts.closeThreshold
+
+          // get primary window attributes (hopefuly the one displaying the game...)
+          let display = screen.getPrimaryDisplay();
+          
+          // scale coordinates using the display scale factor.
+          this.from = {
+            x: opts.from.x * display.scaleFactor,
+            y: opts.from.y * display.scaleFactor
+          }
+  
+          this.area = {
+            x: opts.area.x * display.scaleFactor,
+            y: opts.area.y * display.scaleFactor,
+            width: opts.area.width * display.scaleFactor,
+            height: opts.area.height * display.scaleFactor
+          }
+          break
+
+        default:
+          this.from = opts.from;
+          this.area = opts.area;
+          break;
       }
 
       this.removeListeners()
