@@ -47,7 +47,7 @@ export class WidgetAreaTracker {
             width: opts.area.width * display.scaleFactor,
             height: opts.area.height * display.scaleFactor
           }
-          break
+          break;
 
         default:
           this.closeThreshold = opts.closeThreshold
