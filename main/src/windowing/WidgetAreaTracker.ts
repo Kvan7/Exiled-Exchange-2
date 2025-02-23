@@ -50,6 +50,7 @@ export class WidgetAreaTracker {
           break
 
         default:
+          this.closeThreshold = opts.closeThreshold
           this.from = opts.from;
           this.area = opts.area;
           break;
