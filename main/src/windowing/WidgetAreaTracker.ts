@@ -112,9 +112,9 @@ function roundRect(rect: Rectangle) {
 }
 function scaleNumberByDisplay(
   value: number,
-  boundX: number,
-  nativeX: number,
+  boundValue: number,
+  nativeValue: number,
   scaleFactor: number
 ) {
-  return (value - boundX + nativeX) * scaleFactor;
+  return (value - boundValue + nativeValue) * scaleFactor;
 }
