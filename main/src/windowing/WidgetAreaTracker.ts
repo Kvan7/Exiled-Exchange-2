@@ -8,7 +8,6 @@ export class WidgetAreaTracker {
   private from!: Point;
   private area!: Rectangle;
   private closeThreshold!: number;
-
   constructor(private server: ServerEvents, private overlay: OverlayWindow) {
     this.server.onEventAnyClient("OVERLAY->MAIN::track-area", (opts) => {
       this.holdKey = opts.holdKey;
