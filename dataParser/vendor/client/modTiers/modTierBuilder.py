@@ -103,18 +103,30 @@ def get_gold_tags(mods_in, gold_mod_prices_in, tags_in):
     gold_mod_prices = pd.DataFrame(gold_mod_prices_in)
     tags = pd.DataFrame(tags_in)
 
-    replace_tags = {38, 39, 40, 41, 42, 43, 44}
-    replacement_id = 7
+    replace = {
+        38: 7,
+        39: 7,
+        40: 7,
+        41: 7,
+        42: 7,
+        43: 7,
+        44: 7,
+        226: 1,
+        227: 1,
+        228: 1,
+        229: 1,
+        230: 1,
+    }
 
     def process_tags(tags_list, weights_list):
         # Replace tag IDs
-        new_tags = [replacement_id if t in replace_tags else t for t in tags_list]
+        new_tags = [replace[t] if t in replace else t for t in tags_list]
 
         # Remove sequential duplicate 7s along with corresponding SpawnWeights
         filtered_tags, filtered_weights = [], []
         prev_tag = None
         for tag, weight in zip(new_tags, weights_list):
-            if tag == 7 and prev_tag == 7:
+            if (tag == 7 and prev_tag == 7) or (tag == 1 and prev_tag == 1):
                 continue  # Skip duplicate sequential 7
             filtered_tags.append(tag)
             filtered_weights.append(weight)
@@ -352,16 +364,8 @@ def modTierBuilderB(mod_data, base_item_types, gold_mod_prices, tags):
 
     for mod_type, mod_groups in grouped_by_mod_type.items():
         one_id = None
-        sorted_row = {
-            "explicit": [],
-            "implicit": {},
-            "corruption": [],
-            "crafted": [],
-            "jewel": [],
-            "corruptionjewel": [],
-            "uniquejewel": [],
-        }
         all_stats = set()
+        output_tier = None
         for mod_group in mod_groups:
             # HACK: overwrite for things that are not hybrid that should be included
             if mod_group["mods_id"] not in ("ShockEffectUnique__"):
@@ -369,35 +373,13 @@ def modTierBuilderB(mod_data, base_item_types, gold_mod_prices, tags):
             mod_id = mod_group["mods_id"].lower()
             if one_id is None:
                 one_id = mod_id
-            if "implicit" in mod_id:
-                implicit_index = mod_id.index("implicit")
-                base_type = mod_id[:implicit_index].lower()
-                sorted_row["implicit"][base_type] = modGroupToOutputTier(mod_group)
-            elif "unique" in mod_id:
-                if "jewel" in mod_id:
-                    # sorted_row["uniquejewel"].append(modGroupToOutputTier(mod_group))
-                    continue
-                else:
-                    # sorted_row["unique"].append(modGroupToOutputTier(mod_group))
-                    continue
-            elif "crafted" in mod_id:
-                sorted_row["crafted"].append(modGroupToOutputTier(mod_group))
-            elif "jewel" in mod_id:
-                sorted_row["jewel"].append(modGroupToOutputTier(mod_group))
-            elif "corruption" in mod_id:
-                if "jewel" in mod_id:
-                    sorted_row["corruptionjewel"].append(
-                        modGroupToOutputTier(mod_group)
-                    )
-                else:
-                    sorted_row["corruption"].append(modGroupToOutputTier(mod_group))
-            else:
-                if len(mod_group["mod_allowed_base_types"]) > 0:
-                    sorted_row["explicit"].append(modGroupToOutputTier(mod_group))
-                else:
-                    # sorted_row["unique"].append(modGroupToOutputTier(mod_group))
-                    logger.debug(f"No base type for {mod_group['mods_id']}")
-        output_data.append((tuple(all_stats), sorted_row, one_id))
+            if (
+                mod_group["mod_generation"] == "suffix"
+                or mod_group["mod_generation"] == "prefix"
+            ) and len(mod_group["mod_allowed_base_types"]) > 0:
+                output_tier = modGroupToOutputTier(mod_group)
+        # NOTE: just based on the dict with most items in it
+        output_data.append((tuple(all_stats), output_tier, one_id))
     logger.info(f"Created {len(output_data)} mod groups.")
     return output_data
 
@@ -409,23 +391,7 @@ def modGroupToOutputTier(mod_group):
         )
         for base in mod_group["mod_allowed_base_types"]
     }
-    mods = [
-        {
-            "ilvl": mod["mod_level"],
-            "id": mod["mod_unique_id"],
-            "name": mod["mod_name"],
-            "values": mod["mod_stat_values"],
-            "items": list(mod["mod_allowed_base_types"]),
-        }
-        for mod in mod_group["mods"]
-    ]
-    output_data = {
-        "id": mod_group["mods_id"],
-        "items": base_counts_dict,
-        "generation": mod_group["mod_generation"],
-        "mods": mods,
-    }
-    return output_data
+    return base_counts_dict
 
 
 if __name__ == "__main__":

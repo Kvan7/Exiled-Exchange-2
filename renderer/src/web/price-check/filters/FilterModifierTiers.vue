@@ -3,46 +3,9 @@
     v-if="tags.length"
     class="flex items-center text-xs leading-none gap-x-1"
   >
-    <template v-for="tag of tags">
-      <ui-popover
-        v-if="tag.isMaybeHybrid"
-        :delay="[250, null]"
-        placement="bottom-start"
-        boundary="#price-window"
-      >
-        <template #target>
-          <span :class="[$style[tag.type], $style['is-maybe-hybrid']]">{{
-            t(tierOption == "poe2" ? "filters.tier" : "filters.grade", [
-              tag.tier,
-            ])
-          }}</span>
-        </template>
-        <template #content>
-          <div class="flex flex-col gap-x-8 px-2 bg-gray-800 text-gray-400">
-            <div class="border-b">{{ t("filters.hybrid_note") }}</div>
-
-            <span class="truncate border-b border-dashed"
-              ><item-modifier-text
-                :text="tag.source.stat.translation.string"
-                :roll="tag.source.stat.roll?.value"
-            /></span>
-            <div
-              v-if="tag.isMaybeHybrid instanceof Set"
-              v-for="hybrid of tag.isMaybeHybrid"
-              :key="hybrid.translation.string"
-            >
-              <item-modifier-text
-                :text="hybrid.translation.string"
-                :roll="hybrid.roll?.value"
-              />
-            </div>
-          </div>
-        </template>
-      </ui-popover>
-      <span v-else :class="$style[tag.type]">{{
-        t(tierOption == "poe2" ? "filters.tier" : "filters.grade", [tag.tier])
-      }}</span>
-    </template>
+    <span v-for="tag of tags" :class="$style[tag.type]">{{
+      t(tierOption == "poe2" ? "filters.tier" : "filters.grade", [tag.tier])
+    }}</span>
   </div>
 </template>
 
@@ -55,8 +18,6 @@ import { FilterTag, StatFilter } from "./interfaces";
 import ItemModifierText from "../../ui/ItemModifierText.vue";
 import { AppConfig } from "@/web/Config";
 import { PriceCheckWidget } from "@/web/overlay/widgets";
-import { checkPossibleHybrid } from "./hybrid-check";
-import { ParsedStat } from "@/parser/stat-translations";
 import { StatSource } from "@/parser/modifiers";
 
 export default defineComponent({
@@ -84,7 +45,6 @@ export default defineComponent({
       const out: Array<{
         type: string;
         tier: number;
-        isMaybeHybrid: boolean | Set<ParsedStat>;
         source: StatSource;
       }> = [];
       for (const source of filter.sources) {
@@ -92,17 +52,6 @@ export default defineComponent({
         const tierNew = source.modifier.info.tierNew;
         if (!tier || !tierNew) continue;
         const usedTier = tierOption.value === "poe1" ? tier : tierNew;
-
-        let isMaybeHybrid: boolean | Set<ParsedStat> = false;
-        if (
-          source.modifier.info.hybridWithRef !== undefined &&
-          source.modifier.info.hybridWithRef instanceof Set
-        ) {
-          isMaybeHybrid = checkPossibleHybrid(
-            source.modifier.info.hybridWithRef,
-            props.item.statsByType,
-          );
-        }
 
         if (
           (filter.tag === FilterTag.Explicit ||
@@ -112,15 +61,14 @@ export default defineComponent({
           item.category !== ItemCategory.ClusterJewel &&
           item.category !== ItemCategory.MemoryLine
         ) {
-          if (tier === 1)
-            out.push({ type: "tier-1", tier: usedTier, isMaybeHybrid, source });
+          if (tier === 1) out.push({ type: "tier-1", tier: usedTier, source });
           else if (tier === 2)
-            out.push({ type: "tier-2", tier: usedTier, isMaybeHybrid, source });
+            out.push({ type: "tier-2", tier: usedTier, source });
           else if (alwaysShowTier.value)
             out.push({
               type: "not-tier-1",
               tier: usedTier,
-              isMaybeHybrid,
+
               source,
             });
         } else if (tier >= 2) {
@@ -128,7 +76,6 @@ export default defineComponent({
           out.push({
             type: "tier-other",
             tier: usedTier,
-            isMaybeHybrid,
             source,
           });
         }

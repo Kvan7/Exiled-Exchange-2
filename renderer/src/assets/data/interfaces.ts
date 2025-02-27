@@ -47,28 +47,11 @@ export interface Stat {
       [type: string]: string[];
     };
   };
-  tiers?: {
-    [key: string]:
-      | StatTierMod[]
-      | { [type: string]: StatTierMod }
-      | {
-          [type: string]: number[][];
-        };
-    explicit: StatTierMod[];
-    implicit: {
-      [type: string]: StatTierMod;
-    };
-    // unique: {
-    //   [type: string]: number[][];
-    // };
-    corruption: StatTierMod[];
-    crafted: StatTierMod[];
-    jewel: StatTierMod[];
-    corruptionjewel: StatTierMod[];
-    uniquejewel: StatTierMod[];
-  };
-  hybrids?: {
-    [ref: string]: string[];
+}
+
+export interface TierLookup {
+  [ref: string]: {
+    [itemClass: string]: number;
   };
 }
 

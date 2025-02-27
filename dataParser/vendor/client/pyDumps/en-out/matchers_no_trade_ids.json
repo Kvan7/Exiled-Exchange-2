@@ -113,6 +113,7 @@
     "On Hitting an enemy, gains maximum added Lightning damage equal to\\nthe enemy's Power for 6 seconds, up to a total of #",
     "#% of Fire Damage Converted to Lightning Damage",
     "Gain #% of Elemental Damage as Extra Fire Damage",
+    "Virtuous",
     "Poison on Hit",
     "Inflict Bleeding on Hit",
     "Cannot be Stunned",

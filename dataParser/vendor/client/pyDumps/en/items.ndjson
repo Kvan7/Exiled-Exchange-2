@@ -215,7 +215,7 @@
 {"name": "Ancestral Warrior Totem", "refName": "Ancestral Warrior Totem", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MetaSkillGem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Anchorite Garb", "refName": "Anchorite Garb", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"ev": [101, 101], "es": [43, 43]}, "w": 2, "h": 3}
 {"name": "Ancient Apex Sentinel", "refName": "Ancient Apex Sentinel", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "SentinelDrone"}, "w": 2, "h": 2}
-{"name": "Ancient Crisis Fragment", "refName": "Ancient Crisis Fragment", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVlc3RJdGVtcy9QaW5uYWNsZUtleTEiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ef329c74d1/PinnacleKey1.png", "tradeTag": "ancient-crisis-fragment", "w": 1, "h": 1}
+{"name": "Ancient Crisis Fragment", "refName": "Ancient Crisis Fragment", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVlc3RJdGVtcy9QaW5uYWNsZUtleTEiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ef329c74d1/PinnacleKey1.png", "tradeTag": "ancient-crisis-fragment", "craftable": {"category": "PinnacleKey"}, "w": 1, "h": 1}
 {"name": "Ancient Greatblade", "refName": "Ancient Greatblade", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Two Hand Sword"}, "w": 2, "h": 4}
 {"name": "Ancient Orb", "refName": "Ancient Orb", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "Ancient Pandemonium Sentinel", "refName": "Ancient Pandemonium Sentinel", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "SentinelDrone"}, "w": 2, "h": 2}
@@ -1109,7 +1109,7 @@
 {"name": "Face Mask", "refName": "Face Mask", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ev": [26, 26], "es": [15, 15]}, "w": 2, "h": 2}
 {"name": "Faceted Fossil", "refName": "Faceted Fossil", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "Facetor's Lens", "refName": "Facetor's Lens", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
-{"name": "Faded Crisis Fragment", "refName": "Faded Crisis Fragment", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVlc3RJdGVtcy9QaW5uYWNsZUtleTIiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5709c39ee7/PinnacleKey2.png", "tradeTag": "faded-crisis-fragment", "w": 1, "h": 1}
+{"name": "Faded Crisis Fragment", "refName": "Faded Crisis Fragment", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVlc3RJdGVtcy9QaW5uYWNsZUtleTIiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5709c39ee7/PinnacleKey2.png", "tradeTag": "faded-crisis-fragment", "craftable": {"category": "PinnacleKey"}, "w": 1, "h": 1}
 {"name": "Falchion", "refName": "Falchion", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
 {"name": "Falling Thunder", "refName": "Falling Thunder", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Familial Contract", "refName": "Familial Contract", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistContract"}, "w": 1, "h": 1}
@@ -1298,12 +1298,15 @@
 {"name": "Gold Ring", "refName": "Gold Ring", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Ring"}, "w": 1, "h": 1}
 {"name": "Goldcast Cuffs", "refName": "Goldcast Cuffs", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Gloves"}, "armour": {"ar": [37, 37], "es": [14, 14]}, "w": 2, "h": 2}
 {"name": "Golden Blade", "refName": "Golden Blade", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
+{"name": "Golden Blade", "refName": "Golden Blade", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
+{"name": "Golden Bracers", "refName": "Golden Bracers", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Gloves"}, "w": 2, "h": 2}
 {"name": "Golden Bracers", "refName": "Golden Bracers", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Gloves"}, "w": 2, "h": 2}
 {"name": "Golden Brooch", "refName": "Golden Brooch", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistEquipmentReward"}, "w": 1, "h": 1}
 {"name": "Golden Caligae", "refName": "Golden Caligae", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Boots"}, "w": 2, "h": 2}
 {"name": "Golden Ceremonial Mask", "refName": "Golden Ceremonial Mask", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "Golden Charm", "refName": "Golden Charm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Charm"}, "w": 1, "h": 1}
 {"name": "Golden Flame", "refName": "Golden Flame", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Shield"}, "w": 2, "h": 3}
+{"name": "Golden Greaves", "refName": "Golden Greaves", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Boots"}, "w": 2, "h": 2}
 {"name": "Golden Grotesque", "refName": "Golden Grotesque", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "Golden Hetzapal Idol", "refName": "Golden Hetzapal Idol", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "Golden Hoop", "refName": "Golden Hoop", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Ring"}, "w": 1, "h": 1}
@@ -1312,9 +1315,12 @@
 {"name": "Golden Matatl Idol", "refName": "Golden Matatl Idol", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "Golden Napuatzi Idol", "refName": "Golden Napuatzi Idol", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "Golden Obi", "refName": "Golden Obi", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Belt"}, "w": 2, "h": 1}
+{"name": "Golden Plate", "refName": "Golden Plate", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "w": 2, "h": 3}
 {"name": "Golden Prayer Idol", "refName": "Golden Prayer Idol", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "Golden Sacrificial Glyph", "refName": "Golden Sacrificial Glyph", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
+{"name": "Golden Shield", "refName": "Golden Shield", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Shield"}, "w": 2, "h": 4}
 {"name": "Golden Slave Idol", "refName": "Golden Slave Idol", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
+{"name": "Golden Visage", "refName": "Golden Visage", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "w": 2, "h": 2}
 {"name": "Golden Visage", "refName": "Golden Visage", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "w": 2, "h": 2}
 {"name": "Golden Watchstone", "refName": "Golden Watchstone", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "AtlasUpgradeItem"}, "w": 1, "h": 1}
 {"name": "Golden Watchstone", "refName": "Golden Watchstone", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "AtlasUpgradeItem"}, "w": 1, "h": 1}
@@ -2661,7 +2667,7 @@
 {"name": "Waystone (Tier 9)", "refName": "Waystone (Tier 9)", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwOSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/420f1c6412/EndgameMap9.png", "tradeTag": "waystone-9", "craftable": {"category": "Map"}, "w": 1, "h": 1}
 {"name": "Wayward Crest Shield", "refName": "Wayward Crest Shield", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Shield"}, "armour": {"ar": [61, 61], "es": [22, 22]}, "w": 2, "h": 3}
 {"name": "Weapon Recombinator", "refName": "Weapon Recombinator", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
-{"name": "Weathered Crisis Fragment", "refName": "Weathered Crisis Fragment", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVlc3RJdGVtcy9QaW5uYWNsZUtleTMiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/32e6544250/PinnacleKey3.png", "tradeTag": "weathered-crisis-fragment", "w": 1, "h": 1}
+{"name": "Weathered Crisis Fragment", "refName": "Weathered Crisis Fragment", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVlc3RJdGVtcy9QaW5uYWNsZUtleTMiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/32e6544250/PinnacleKey3.png", "tradeTag": "weathered-crisis-fragment", "craftable": {"category": "PinnacleKey"}, "w": 1, "h": 1}
 {"name": "Weaver Leggings", "refName": "Weaver Leggings", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Boots"}, "armour": {"ar": [73, 73], "es": [26, 26]}, "w": 2, "h": 2}
 {"name": "Whirling Assault", "refName": "Whirling Assault", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "Whirling Slash", "refName": "Whirling Slash", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}

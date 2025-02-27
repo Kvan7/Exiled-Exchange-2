@@ -38,6 +38,7 @@ import {
   parseModInfoLine,
 } from "./advanced-mod-desc";
 import { calcPropPercentile, QUALITY_STATS } from "./calc-q20";
+import { getMaxTier } from "./mod-tiers";
 
 type SectionParseResult =
   | "SECTION_PARSED"
@@ -445,6 +446,7 @@ function parseInfluence(section: string[], item: ParsedItem) {
   return "SECTION_SKIPPED";
 }
 
+// #region Small Sections
 function parseCorrupted(section: string[], item: ParsedItem) {
   if (section[0].trim() === _$.CORRUPTED) {
     item.isCorrupted = true;
@@ -540,6 +542,7 @@ function parseGem(section: string[], item: ParsedItem) {
   }
   return "SECTION_SKIPPED";
 }
+// #endregion
 
 function parseStackSize(section: string[], item: ParsedItem) {
   if (
@@ -928,10 +931,16 @@ function parseModifiers(section: string[], item: ParsedItem) {
     for (const { modLine, statLines } of groupLinesByMod(section)) {
       const { modType, lines } = parseModType(statLines);
       const modInfo = parseModInfoLine(modLine, modType);
-      if (modInfo.tierNew) {
-        parseRealTierFromMod(lines, modInfo);
+      const modifier: ParsedModifier = { info: modInfo, stats: [] };
+      parseStatsFromMod(lines, item, modifier);
+
+      if (modInfo.tierNew && item.category) {
+        const refLines = [];
+        for (const stat of modifier.stats) {
+          refLines.push(stat.stat.ref);
+        }
+        parseRealTierFromMod(refLines, modInfo, item.category);
       }
-      parseStatsFromMod(lines, item, { info: modInfo, stats: [] });
 
       if (modType === ModifierType.Veiled) {
         item.isVeiled = true;
@@ -1327,7 +1336,18 @@ function markupConditionParser(text: string) {
   return text;
 }
 
-function parseRealTierFromMod(lines: string[], modInfo: ModifierInfo): void {}
+function parseRealTierFromMod(
+  lines: string[],
+  modInfo: ModifierInfo,
+  category: ItemCategory,
+): void {
+  if (!modInfo.tierNew) return;
+  const joinedLines = lines.join("\n");
+  const maxPossibleTier = getMaxTier(joinedLines, category);
+  if (maxPossibleTier) {
+    modInfo.tier = maxPossibleTier - modInfo.tierNew + 1;
+  }
+}
 
 function parseStatsFromMod(
   lines: string[],
