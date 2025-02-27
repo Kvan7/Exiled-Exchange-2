@@ -1,16 +1,6 @@
 import { CLIENT_STRINGS as _$, STAT_BY_MATCH_STR } from "@/assets/data";
 import type { StatMatcher, Stat } from "@/assets/data";
 import { ModifierType } from "./modifiers";
-import { ItemCategory } from "./meta";
-import {
-  getModTier,
-  getTier,
-  getTierNumber,
-  isCorruptionEnchant,
-  mapItemCategoryToKeys,
-} from "./mod-tiers";
-import { ItemRarity, ParsedItem } from "./ParsedItem";
-import { ModifierInfo } from "./advanced-mod-desc";
 
 // This file is a little messy and scary,
 // but that's how stats translations are parsed :-D
@@ -167,19 +157,7 @@ function* _statPlaceholderGenerator(stat: string) {
 export function tryParseTranslation(
   stat: StatString,
   modType: ModifierType,
-  item?: ParsedItem,
-):
-  | {
-      stat: ParsedStat;
-      modifierInfo: Partial<ModifierInfo>;
-    }
-  | undefined {
-  let itemRarity: ItemRarity | undefined;
-  let itemCategory: ItemCategory | undefined;
-  if (item) {
-    itemRarity = item.rarity;
-    itemCategory = item.category;
-  }
+): ParsedStat | undefined {
   for (const combination of _statPlaceholderGenerator(stat.string)) {
     const found = STAT_BY_MATCH_STR(combination.stat);
     if (!found || !found.stat.trade.ids || !found.stat.trade.ids[modType]) {
@@ -207,193 +185,6 @@ export function tryParseTranslation(
       };
     }
 
-    const modifierInfo: Partial<ModifierInfo> = {};
-
-    if (
-      modType === ModifierType.Explicit &&
-      found.stat.tiers &&
-      itemCategory &&
-      itemRarity !== ItemRarity.Unique
-    ) {
-      // Try parse explicit mod bounds
-      const modTiers = getModTier(
-        combination.values,
-        found.stat.tiers,
-        itemCategory,
-        modType,
-      );
-
-      if (modTiers) {
-        const tierMatch = getTier(combination.values, modTiers);
-        if (tierMatch) {
-          // Set bounds for each stat from the tier
-          combination.values.forEach((stat, index) => {
-            const tierBounds = tierMatch.values[index];
-            if (tierBounds) {
-              stat.bounds = {
-                min: tierBounds[0],
-                max: tierBounds[1],
-              };
-            }
-          });
-          const tierNumber = getTierNumber(tierMatch, modTiers, itemCategory, [
-            modTiers,
-          ]);
-          if (tierNumber) {
-            modifierInfo.tier = tierNumber.poe1;
-            modifierInfo.tierNew = tierNumber.poe2;
-          }
-        }
-        if (modTiers.generation) {
-          switch (modTiers.generation) {
-            case "prefix":
-              modifierInfo.generation = "prefix";
-              break;
-            case "suffix":
-              modifierInfo.generation = "suffix";
-              break;
-            case "corrupted":
-              modifierInfo.generation = "corrupted";
-              break;
-            case "searing exarch":
-            case "eater of worlds":
-              modifierInfo.generation = "eldritch";
-              break;
-            default:
-              modifierInfo.generation = undefined;
-          }
-        }
-      }
-    } else if (
-      found.stat &&
-      itemRarity === ItemRarity.Unique &&
-      item?.info.unique?.stats
-    ) {
-      // Try parse unique mod bounds
-
-      // replace +# with # in ref
-      const refName = found.stat.ref.replace(/\+#+/g, "#");
-      const negatedRefName = refName
-        .replace(/increased/g, "reduced") // Replace "increased" with "reduced"
-        .replace(/faster/g, "slower") // Replace "faster" with "slower"
-        .replace(/more/g, "less"); // Replace "more" with "less"
-      const implicitTestString = `(implicit) ${refName}`;
-      const negatedImplicitTestString = `(implicit) ${negatedRefName}`;
-      if (
-        modType === ModifierType.Implicit &&
-        (implicitTestString in item.info.unique.stats ||
-          negatedImplicitTestString in item.info.unique.stats)
-      ) {
-        if (
-          negatedImplicitTestString !== implicitTestString &&
-          negatedImplicitTestString in item.info.unique.stats
-        ) {
-          const thisModValues =
-            item.info.unique.stats[negatedImplicitTestString];
-          combination.values.forEach((stat, index) => {
-            const tierBounds = thisModValues[index];
-            if (tierBounds) {
-              if (tierBounds[0] > 0 && tierBounds[1] > 0) {
-                stat.bounds = {
-                  min: -1 * tierBounds[0],
-                  max: -1 * tierBounds[1],
-                };
-              } else {
-                stat.bounds = {
-                  min: tierBounds[0],
-                  max: tierBounds[1],
-                };
-              }
-            }
-          });
-        } else {
-          const thisModValues = item.info.unique.stats[implicitTestString];
-          combination.values.forEach((stat, index) => {
-            const tierBounds = thisModValues[index];
-            if (tierBounds) {
-              stat.bounds = {
-                min: tierBounds[0],
-                max: tierBounds[1],
-              };
-            }
-          });
-        }
-      } else if (
-        refName in item.info.unique.stats ||
-        negatedRefName in item.info.unique.stats
-      ) {
-        if (
-          negatedRefName !== refName &&
-          negatedRefName in item.info.unique.stats
-        ) {
-          const thisModValues = item.info.unique.stats[negatedRefName];
-          combination.values.forEach((stat, index) => {
-            const tierBounds = thisModValues[index];
-            if (tierBounds) {
-              if (tierBounds[0] > 0 && tierBounds[1] > 0) {
-                stat.bounds = {
-                  min: -1 * tierBounds[0],
-                  max: -1 * tierBounds[1],
-                };
-              } else {
-                stat.bounds = {
-                  min: tierBounds[0],
-                  max: tierBounds[1],
-                };
-              }
-            }
-          });
-        } else {
-          const thisModValues = item.info.unique.stats[refName];
-          combination.values.forEach((stat, index) => {
-            const tierBounds = thisModValues[index];
-            if (tierBounds) {
-              stat.bounds = {
-                min: tierBounds[0],
-                max: tierBounds[1],
-              };
-            }
-          });
-        }
-      } else {
-        if (item.info.refName === "Controlled Metamorphosis") {
-          const matchers = found.stat.matchers.map((matcher) => matcher.string);
-          combination.values = [
-            {
-              roll: found.matcher.value!,
-              decimal: false,
-              bounds: {
-                min: 1,
-                max: matchers.length,
-              },
-            },
-          ];
-        }
-      }
-    } else if (
-      found.stat &&
-      item?.isCorrupted &&
-      modType === ModifierType.Enchant &&
-      itemCategory
-    ) {
-      // Try parse corruption enchant (added mod)
-
-      if (isCorruptionEnchant(found.stat.tiers, modType)) {
-        modifierInfo.generation = "corrupted";
-        const foundCorruption = found.stat.tiers!.corruption[0];
-        if (foundCorruption.mods.length > 0) {
-          combination.values.forEach((stat, index) => {
-            const tierBounds = foundCorruption.mods[0].values[index];
-            if (tierBounds) {
-              stat.bounds = {
-                min: tierBounds[0],
-                max: tierBounds[1],
-              };
-            }
-          });
-        }
-      }
-    }
     for (const stat of combination.values) {
       if (!stat.bounds) continue;
 
@@ -430,46 +221,27 @@ export function tryParseTranslation(
         },
       ];
     }
-    const hybridWithRef = new Set<string>();
-    if (found.stat.hybrids && itemCategory) {
-      const validCategoryTexts = mapItemCategoryToKeys(itemCategory);
-      for (const hybridRef of Object.keys(found.stat.hybrids)) {
-        const value = new Set(found.stat.hybrids[hybridRef]);
-        for (const validCategoryText of validCategoryTexts) {
-          if (value.has(validCategoryText)) {
-            hybridWithRef.add(hybridRef);
-          }
-        }
-      }
-    }
-    if (hybridWithRef.size) {
-      modifierInfo.hybridWithRef = hybridWithRef;
-    }
 
     return {
-      stat: {
-        stat: found.stat,
-        translation: found.matcher,
-        roll: combination.values.length
-          ? {
-              unscalable: stat.unscalable,
-              legacy: legacyStatRolls || undefined,
-              dp:
-                found.stat.dp ||
-                combination.values.some((stat) => stat.decimal),
-              value: getRollOrMinmaxAvg(
-                combination.values.map((stat) => stat.roll),
-              ),
-              min: getRollOrMinmaxAvg(
-                combination.values.map((stat) => stat.bounds?.min ?? stat.roll),
-              ),
-              max: getRollOrMinmaxAvg(
-                combination.values.map((stat) => stat.bounds?.max ?? stat.roll),
-              ),
-            }
-          : undefined,
-      },
-      modifierInfo,
+      stat: found.stat,
+      translation: found.matcher,
+      roll: combination.values.length
+        ? {
+            unscalable: stat.unscalable,
+            legacy: legacyStatRolls || undefined,
+            dp:
+              found.stat.dp || combination.values.some((stat) => stat.decimal),
+            value: getRollOrMinmaxAvg(
+              combination.values.map((stat) => stat.roll),
+            ),
+            min: getRollOrMinmaxAvg(
+              combination.values.map((stat) => stat.bounds?.min ?? stat.roll),
+            ),
+            max: getRollOrMinmaxAvg(
+              combination.values.map((stat) => stat.bounds?.max ?? stat.roll),
+            ),
+          }
+        : undefined,
     };
   }
 }
