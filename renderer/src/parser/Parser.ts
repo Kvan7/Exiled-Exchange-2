@@ -492,7 +492,10 @@ function parseItemLevel(section: string[], item: ParsedItem) {
 }
 
 function parseRequirements(section: string[], item: ParsedItem) {
-  if (section[0].startsWith(_$.REQUIREMENTS)) {
+  if (
+    section[0].startsWith(_$.REQUIREMENTS) ||
+    section[0].startsWith(_$.REQUIRES)
+  ) {
     return "SECTION_PARSED";
   }
   return "SECTION_SKIPPED";

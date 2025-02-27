@@ -118,6 +118,7 @@ export default {
   SANCTUM_HELP: 'Platziere diesen Gegenstand beim',
   TIMELESS_RADIUS: 'Radius: ',
   PRECURSOR_TABLET_HELP: 'Kann in einem abgeschlossenen Turm auf Eurem Atlas verwendet werden,',
-  LOGBOOK_HELP: 'Bringt diesen Gegenstand zu Dannig'
+  LOGBOOK_HELP: 'Bringt diesen Gegenstand zu Dannig',
+  REQUIRES: 'Erfordert'
 }
 

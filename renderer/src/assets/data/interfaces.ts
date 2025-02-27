@@ -218,6 +218,7 @@ export interface TranslationDict {
   FOIL_UNIQUE: string;
   UNMODIFIABLE: string;
   REQUIREMENTS: string;
+  REQUIRES: string;
   CHARM_SLOTS: string;
   BASE_SPIRIT: string;
   QUIVER_HELP_TEXT: string;

@@ -213,5 +213,7 @@ export default {
   // ItemDescriptionPrecursorTablet
   PRECURSOR_TABLET_HELP: 'Can be used in a completed Tower on your Atlas to influence surrounding Maps',
   // ItemDescriptionExpeditionLogbook
-  LOGBOOK_HELP: 'Take this item to Dannig '
+  LOGBOOK_HELP: 'Take this item to Dannig ',
+  // HeistRequiresText?
+  REQUIRES: 'Requires'
 }
