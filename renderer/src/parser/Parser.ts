@@ -1,8 +1,7 @@
 import { Result, ok, err } from "neverthrow";
 import {
   CLIENT_STRINGS as _$,
-  // CLIENT_STRINGS_REF as _$REF,
-  ITEM_BY_TRANSLATED,
+  CLIENT_STRINGS_REF as _$REF,
   ITEM_BY_REF,
   STAT_BY_MATCH_STR,
   BaseType,
@@ -188,15 +187,15 @@ function normalizeName(item: ParserState) {
   if (item.rarity === ItemRarity.Normal || item.rarity === ItemRarity.Rare) {
     if (item.baseType) {
       if (_$.MAP_BLIGHTED.test(item.baseType)) {
-        item.baseType = _$.MAP_BLIGHTED.exec(item.baseType)![1];
+        item.baseType = _$REF.MAP_BLIGHTED.exec(item.baseType)![1];
       } else if (_$.MAP_BLIGHT_RAVAGED.test(item.baseType)) {
-        item.baseType = _$.MAP_BLIGHT_RAVAGED.exec(item.baseType)![1];
+        item.baseType = _$REF.MAP_BLIGHT_RAVAGED.exec(item.baseType)![1];
       }
     } else {
       if (_$.MAP_BLIGHTED.test(item.name)) {
-        item.name = _$.MAP_BLIGHTED.exec(item.name)![1];
+        item.name = _$REF.MAP_BLIGHTED.exec(item.name)![1];
       } else if (_$.MAP_BLIGHT_RAVAGED.test(item.name)) {
-        item.name = _$.MAP_BLIGHT_RAVAGED.exec(item.name)![1];
+        item.name = _$REF.MAP_BLIGHT_RAVAGED.exec(item.name)![1];
       }
     }
   }
@@ -219,19 +218,19 @@ function normalizeName(item: ParserState) {
 function findInDatabase(item: ParserState) {
   let info: BaseType[] | undefined;
   if (item.category === ItemCategory.DivinationCard) {
-    info = ITEM_BY_TRANSLATED("DIVINATION_CARD", item.name);
+    info = ITEM_BY_REF("DIVINATION_CARD", item.name);
   } else if (item.category === ItemCategory.CapturedBeast) {
-    info = ITEM_BY_TRANSLATED("CAPTURED_BEAST", item.baseType ?? item.name);
+    info = ITEM_BY_REF("CAPTURED_BEAST", item.baseType ?? item.name);
   } else if (item.category === ItemCategory.Gem) {
-    info = ITEM_BY_TRANSLATED("GEM", item.name);
+    info = ITEM_BY_REF("GEM", item.name);
   } else if (item.category === ItemCategory.MetamorphSample) {
-    info = ITEM_BY_TRANSLATED("ITEM", item.name);
+    info = ITEM_BY_REF("ITEM", item.name);
   } else if (item.category === ItemCategory.Voidstone) {
-    info = ITEM_BY_TRANSLATED("ITEM", "Charged Compass");
+    info = ITEM_BY_REF("ITEM", "Charged Compass");
   } else if (item.rarity === ItemRarity.Unique && !item.isUnidentified) {
-    info = ITEM_BY_TRANSLATED("UNIQUE", item.name);
+    info = ITEM_BY_REF("UNIQUE", item.name);
   } else {
-    info = ITEM_BY_TRANSLATED("ITEM", item.baseType ?? item.name);
+    info = ITEM_BY_REF("ITEM", item.baseType ?? item.name);
   }
   if (!info?.length) {
     return err("item.unknown");
@@ -247,7 +246,7 @@ function findInDatabase(item: ParserState) {
     if (item.info.craftable) {
       item.category = item.info.craftable.category;
     } else if (item.info.unique) {
-      item.category = ITEM_BY_TRANSLATED(
+      item.category = ITEM_BY_REF(
         "ITEM",
         item.info.unique.base,
       )![0].craftable!.category;
@@ -517,11 +516,11 @@ function parseVaalGemName(section: string[], item: ParserState) {
   // TODO blocked by https://www.pathofexile.com/forum/view-thread/3231236
   if (section.length === 1) {
     let gemName: string | undefined;
-    if (ITEM_BY_TRANSLATED("GEM", section[0])) {
+    if (ITEM_BY_REF("GEM", section[0])) {
       gemName = section[0];
     }
     if (gemName) {
-      item.name = ITEM_BY_TRANSLATED("GEM", gemName)![0].refName;
+      item.name = ITEM_BY_REF("GEM", gemName)![0].refName;
       return "SECTION_PARSED";
     }
   }
@@ -1135,9 +1134,9 @@ function parseSynthesised(section: string[], item: ParserState) {
     if (section[0] === _$.SECTION_SYNTHESISED) {
       item.isSynthesised = true;
       if (item.baseType) {
-        item.baseType = _$.ITEM_SYNTHESISED.exec(item.baseType)![1];
+        item.baseType = _$REF.ITEM_SYNTHESISED.exec(item.baseType)![1];
       } else {
-        item.name = _$.ITEM_SYNTHESISED.exec(item.name)![1];
+        item.name = _$REF.ITEM_SYNTHESISED.exec(item.name)![1];
       }
       return "SECTION_PARSED";
     }
@@ -1154,7 +1153,7 @@ function parseSuperior(item: ParserState) {
     (item.rarity === ItemRarity.Unique && item.isUnidentified)
   ) {
     if (_$.ITEM_SUPERIOR.test(item.name)) {
-      item.name = _$.ITEM_SUPERIOR.exec(item.name)![1];
+      item.name = _$REF.ITEM_SUPERIOR.exec(item.name)![1];
     }
   }
 }
@@ -1215,8 +1214,8 @@ function parseHeistBlueprint(section: string[], item: ParsedItem) {
 function parseAreaLevelNested(section: string[], item: ParsedItem) {
   for (const line of section) {
     if (line.startsWith(_$.AREA_LEVEL)) {
-      item.areaLevel = Number(line.slice(_$.AREA_LEVEL.length));
-      break;
+    item.areaLevel = Number(line.slice(_$.AREA_LEVEL.length));
+    break;
     }
   }
 }
@@ -1445,7 +1444,7 @@ function applyElementalAdded(item: ParsedItem) {
 
 function calcBasePercentile(item: ParsedItem) {
   const info = item.info.unique
-    ? ITEM_BY_TRANSLATED("ITEM", item.info.unique.base)![0].armour
+    ? ITEM_BY_REF("ITEM", item.info.unique.base)![0].armour
     : item.info.armour;
   if (!info) return;
 
