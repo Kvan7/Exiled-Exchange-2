@@ -377,7 +377,10 @@ def modTierBuilderB(mod_data, base_item_types, gold_mod_prices, tags):
                 mod_group["mod_generation"] == "suffix"
                 or mod_group["mod_generation"] == "prefix"
             ) and len(mod_group["mod_allowed_base_types"]) > 0:
-                output_tier = modGroupToOutputTier(mod_group)
+                if output_tier is None:
+                    output_tier = modGroupToOutputTier(mod_group)
+                else:
+                    output_tier.update(modGroupToOutputTier(mod_group))
         # NOTE: just based on the dict with most items in it
         output_data.append((tuple(all_stats), output_tier, one_id))
     logger.info(f"Created {len(output_data)} mod groups.")

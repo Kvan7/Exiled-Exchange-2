@@ -1216,4 +1216,4 @@ class Parser:
 if __name__ == "__main__":
     logger.info("Starting parser")
     set_log_level(logging.WARNING)
-    Parser("ru").run()
+    Parser("en").run()
