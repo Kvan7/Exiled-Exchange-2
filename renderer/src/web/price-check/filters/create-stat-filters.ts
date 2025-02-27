@@ -452,7 +452,13 @@ export function calculatedStatToFilter(
       filter.tag = FilterTag.Incursion;
     }
   } else if (type === ModifierType.Enchant) {
-    if (sources.some((s) => s.modifier.info.generation === "corrupted")) {
+    if (
+      (item.isCorrupted &&
+        sources.filter((s) => !s.stat.stat.ref.includes("Allocates")).length &&
+        item.category !== ItemCategory.Map &&
+        item.category !== ItemCategory.Waystone) ||
+      sources.some((s) => s.modifier.info.generation === "corrupted")
+    ) {
       filter.tag = FilterTag.Corrupted;
     }
   }

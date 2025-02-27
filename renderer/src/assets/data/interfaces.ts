@@ -86,6 +86,7 @@ export interface BaseType {
   };
   unique?: {
     base: BaseType["refName"];
+    fixedStats?: string[];
   };
   map?: {
     screenshot?: string;
