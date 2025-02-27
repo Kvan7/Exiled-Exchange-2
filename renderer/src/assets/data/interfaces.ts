@@ -86,10 +86,6 @@ export interface BaseType {
   };
   unique?: {
     base: BaseType["refName"];
-    fixedStats?: Array<Stat["ref"]>;
-    stats?: {
-      [key: string]: number[][];
-    };
   };
   map?: {
     screenshot?: string;

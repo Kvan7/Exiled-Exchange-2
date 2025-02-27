@@ -329,12 +329,6 @@ class Parser:
                 f"{self.cwd}/../json-api/{self.lang}/static.json", encoding="utf-8"
             ).read()
         )  # content of https://www.pathofexile.com/api/trade2/data/static
-        self.unique_item_stats_lookup = json.loads(
-            open(
-                f"{self.cwd}/overrideData/unique_override_data_by_item.json",
-                encoding="utf-8",
-            ).read()
-        )
 
         self.items = {}
         self.unique_items = []
@@ -662,12 +656,12 @@ class Parser:
                 )
                 continue
 
-            ids_list = [x for x in ids_list if x is not None]
+            ids_list_noneless = [x for x in ids_list if x is not None]
 
-            if len(ids_list) == 0:
+            if len(ids_list_noneless) == 0:
                 flatten_stats = None
             else:
-                flatten_stats = flatten_stats_ids(ids_list)
+                flatten_stats = flatten_stats_ids(ids_list_noneless)
             trade = {"ids": flatten_stats}
             if base_id in self.mods:
                 logger.warn(f"Duplicate mod {base_id}")
@@ -853,10 +847,8 @@ class Parser:
                 name = item.get("name")
                 if name is None:
                     continue
-                text = item.get("text")
                 type = item.get("type")
                 # unique item
-                flags = item.get("flags")
                 refName = name
 
                 # id = item.get("_index")
@@ -880,14 +872,10 @@ class Parser:
                     "name": name,
                     "refName": refName,
                     "namespace": "UNIQUE",
-                    "unique": {"base": type},
+                    "unique": {"base": refType},
+                    "icon": "%NOT_FOUND%",
                 }
 
-                if refName is not None and refType is not None:
-                    full_name = f"{refName} {refType}"
-                    item_stats = self.unique_item_stats_lookup.get(full_name)
-                    if item_stats is not None:
-                        unique_item["unique"]["stats"] = item_stats
                 self.unique_items.append(unique_item)
 
         # parse base items
@@ -1140,15 +1128,6 @@ class Parser:
             )
 
     def add_missing_mods(self):
-        default = {
-            "explicit": [],
-            "implicit": {},
-            "corruption": [],
-            "crafted": [],
-            "jewel": [],
-            "corruptionjewel": [],
-            "uniquejewel": [],
-        }
         with open(
             f"{self.get_script_dir()}/overrideData/matchersOverwride.json",
             "r",
@@ -1177,7 +1156,6 @@ class Parser:
         #             "rune": ["rune.stat_419810844"],
         #         }
         #     },
-        #     "tiers": {"unique": {}},
         # }
 
         # Controlled Metamorphosis
@@ -1194,7 +1172,6 @@ class Parser:
                     "explicit": ["explicit.stat_3642528642"],
                 }
             },
-            "tiers": default,
         }
         charm_slots = override_matchers["Charm Slots"][self.lang]
         self.mods["charm_slots"] = {
@@ -1203,7 +1180,6 @@ class Parser:
             "id": "local_charm_slots",
             "matchers": charm_slots,
             "trade": {"ids": {}},
-            "tiers": default,
         }
         with open(
             f"{self.get_script_dir()}/overrideData/logbook_overrides.json",
@@ -1240,4 +1216,4 @@ class Parser:
 if __name__ == "__main__":
     logger.info("Starting parser")
     set_log_level(logging.WARNING)
-    Parser("en").run()
+    Parser("ru").run()
