@@ -44,14 +44,16 @@ export default defineComponent({
       const { filter, item } = props;
       const out: Array<{
         type: string;
-        tier: number;
+        tier: number | string;
+        realTier: number;
         source: StatSource;
       }> = [];
       for (const source of filter.sources) {
         const tier = source.modifier.info.tier;
         const tierNew = source.modifier.info.tierNew;
         if (!tier || !tierNew) continue;
-        const usedTier = tierOption.value === "poe1" ? tier : tierNew;
+        const usedTier: number | string =
+          tierOption.value === "poe1" ? tier : tierNew;
 
         if (
           (filter.tag === FilterTag.Explicit ||
@@ -61,14 +63,28 @@ export default defineComponent({
           item.category !== ItemCategory.ClusterJewel &&
           item.category !== ItemCategory.MemoryLine
         ) {
-          if (tier === 1) out.push({ type: "tier-1", tier: usedTier, source });
+          if (tier === 1)
+            out.push({
+              type: "tier-1",
+              tier: usedTier,
+              realTier: tier,
+              source,
+            });
           else if (tier === 2)
-            out.push({ type: "tier-2", tier: usedTier, source });
+            out.push({
+              type: "tier-2",
+              tier: usedTier,
+              realTier: tier,
+              source,
+            });
           else if (alwaysShowTier.value)
             out.push({
               type: "not-tier-1",
-              tier: usedTier,
-
+              tier:
+                tierOption.value === "poe1"
+                  ? tier
+                  : tierNew.toString() + ` [${tierNew + tier - 1}]`,
+              realTier: tier,
               source,
             });
         } else if (tier >= 2) {
@@ -76,11 +92,12 @@ export default defineComponent({
           out.push({
             type: "tier-other",
             tier: usedTier,
+            realTier: tier,
             source,
           });
         }
       }
-      out.sort((a, b) => a.tier - b.tier);
+      out.sort((a, b) => a.realTier - b.realTier);
       return out;
     });
 
