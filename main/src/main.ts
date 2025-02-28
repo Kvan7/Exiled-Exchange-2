@@ -25,20 +25,9 @@ if (process.platform !== "darwin") {
   app.disableHardwareAcceleration();
 }
 app.enableSandbox();
-
 let tray: AppTray;
-(async () => {
-  if (process.platform === "darwin") {
-    const hasPermission = await ensureAccessibilityPermission();
-    if (!hasPermission) {
-      console.warn("Accessibility permission not granted, exiting");
-      app.quit();
-      return;
-    } else {
-      console.log("Accessibility permission granted");
-    }
-  }
 
+function processAppStartup() {
   app.on("ready", async () => {
     tray = new AppTray(eventPipe);
     const logger = new Logger(eventPipe);
@@ -103,29 +92,44 @@ let tray: AppTray;
       process.platform === "linux" ? 1000 : 0
     );
   });
+}
+if (process.platform === "darwin") {
+  (async () => {
+    async function ensureAccessibilityPermission(): Promise<boolean> {
+      if (systemPreferences.isTrustedAccessibilityClient(false)) return true;
 
-  async function ensureAccessibilityPermission(): Promise<boolean> {
-    if (systemPreferences.isTrustedAccessibilityClient(false)) return true;
+      // Trigger the system prompt
+      systemPreferences.isTrustedAccessibilityClient(true);
 
-    // Trigger the system prompt
-    systemPreferences.isTrustedAccessibilityClient(true);
+      const maxWaitTime = 15000; // 15 seconds
+      const startTime = Date.now();
 
-    const maxWaitTime = 15000; // 15 seconds
-    const startTime = Date.now();
+      return new Promise((resolve) => {
+        const interval = setInterval(() => {
+          if (systemPreferences.isTrustedAccessibilityClient(false)) {
+            clearInterval(interval);
+            resolve(true);
+          }
 
-    return new Promise((resolve) => {
-      const interval = setInterval(() => {
-        if (systemPreferences.isTrustedAccessibilityClient(false)) {
-          clearInterval(interval);
-          resolve(true);
-        }
+          // Stop waiting if time runs out
+          if (Date.now() - startTime > maxWaitTime) {
+            clearInterval(interval);
+            resolve(false);
+          }
+        }, 1000);
+      });
+    }
+    const hasPermission = await ensureAccessibilityPermission();
+    if (!hasPermission) {
+      console.warn("Accessibility permission not granted, exiting");
+      app.quit();
+      return;
+    } else {
+      console.log("Accessibility permission granted");
+    }
 
-        // Stop waiting if time runs out
-        if (Date.now() - startTime > maxWaitTime) {
-          clearInterval(interval);
-          resolve(false);
-        }
-      }, 1000);
-    });
-  }
-})();
+    processAppStartup();
+  })();
+} else {
+  processAppStartup();
+}
