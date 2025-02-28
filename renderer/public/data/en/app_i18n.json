@@ -159,7 +159,7 @@
     "hide_phys_dps": "Physical damage is not the main source of DPS",
     "hide_ele_res": "Filtering by exact Elemental Resistance unreasonably increases the price",
     "hide_crafted_chaos": "Crafted Chaos Resistance without Explicit mod has no value",
-    "hide_anointment": "Buyer will likely change instillment",
+    "hide_anointment": "Buyer will likely change instilment",
     "hide_for_crafting": "Select only if price-checking as base item for crafting",
     "hide_empty_mod": "Select only if item has 6 modifiers (1 of which is crafted) or if it has 5 modifiers",
     "tag_implicit": "implicit",
