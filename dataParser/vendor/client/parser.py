@@ -146,7 +146,10 @@ HARDCODE_MAP_MODS = {
     "mapplayercooldownrecovery",
 }
 
-BETTER_NOT_1 = {"local_attribute_requirements_+%": -1}
+BETTER_NOT_1 = {
+    "local_attribute_requirements_+%": -1,
+    "sanctum_merchant_gold_cost_+%": -1,
+}
 
 
 def find_first_matching_item(items, field: str, value: str) -> dict | None:
