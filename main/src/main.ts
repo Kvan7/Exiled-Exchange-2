@@ -35,7 +35,8 @@ async function processAppStartup() {
   const gameConfig = new GameConfig(eventPipe, logger);
   const poeWindow = new GameWindow();
   const appUpdater = new AppUpdater(eventPipe);
-  new HttpProxy(server, logger);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const _httpProxy = new HttpProxy(server, logger);
 
   if (process.env.VITE_DEV_SERVER_URL) {
     try {
@@ -50,36 +51,35 @@ async function processAppStartup() {
   setTimeout(
     async () => {
       const overlay = new OverlayWindow(eventPipe, logger, poeWindow);
+      // eslint-disable-next-line no-new
       new OverlayVisibility(eventPipe, overlay, gameConfig);
       const shortcuts = await Shortcuts.create(
         logger,
         overlay,
         poeWindow,
         gameConfig,
-        eventPipe
+        eventPipe,
       );
-      new FilterGenerator(
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const filterGenerator = new FilterGenerator(
         logger,
         gameConfig,
-        eventPipe
+        eventPipe,
       );
-      eventPipe.onEventAnyClient(
-        "CLIENT->MAIN::update-host-config",
-        (cfg) => {
-          overlay.updateOpts(cfg.overlayKey, cfg.windowTitle);
-          shortcuts.updateActions(
-            cfg.shortcuts,
-            cfg.stashScroll,
-            cfg.logKeys,
-            cfg.restoreClipboard,
-            cfg.language
-          );
-          gameLogWatcher.restart(cfg.clientLog ?? "");
-          gameConfig.readConfig(cfg.gameConfig ?? "");
-          appUpdater.checkAtStartup();
-          tray.overlayKey = cfg.overlayKey;
-        }
-      );
+      eventPipe.onEventAnyClient("CLIENT->MAIN::update-host-config", (cfg) => {
+        overlay.updateOpts(cfg.overlayKey, cfg.windowTitle);
+        shortcuts.updateActions(
+          cfg.shortcuts,
+          cfg.stashScroll,
+          cfg.logKeys,
+          cfg.restoreClipboard,
+          cfg.language,
+        );
+        gameLogWatcher.restart(cfg.clientLog ?? "");
+        gameConfig.readConfig(cfg.gameConfig ?? "");
+        appUpdater.checkAtStartup();
+        tray.overlayKey = cfg.overlayKey;
+      });
       uIOhook.start();
       console.log("uIOhook started");
       const port = await startServer(appUpdater, logger);
@@ -89,7 +89,7 @@ async function processAppStartup() {
       tray.serverPort = port;
     },
     // fixes(linux): window is black instead of transparent
-    process.platform === "linux" ? 1000 : 0
+    process.platform === "linux" ? 1000 : 0,
   );
 }
 
@@ -105,7 +105,7 @@ if (process.platform === "darwin") {
       const maxWaitTime = 15000; // 15 seconds
       const startTime = Date.now();
 
-      return new Promise((resolve) => {
+      return await new Promise((resolve) => {
         const interval = setInterval(() => {
           if (systemPreferences.isTrustedAccessibilityClient(false)) {
             clearInterval(interval);
