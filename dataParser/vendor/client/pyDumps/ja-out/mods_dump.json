@@ -365,8 +365,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_3484657501",
-                    "explicit.stat_809229260"
+                    "explicit.stat_809229260",
+                    "explicit.stat_3484657501"
                 ],
                 "implicit": [
                     "implicit.stat_809229260"
@@ -387,8 +387,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_53045048",
-                    "explicit.stat_2144192055"
+                    "explicit.stat_2144192055",
+                    "explicit.stat_53045048"
                 ]
             }
         }
@@ -432,12 +432,12 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2866361420",
-                    "explicit.stat_1062208444"
+                    "explicit.stat_1062208444",
+                    "explicit.stat_2866361420"
                 ],
                 "enchant": [
-                    "enchant.stat_2866361420",
-                    "enchant.stat_1062208444"
+                    "enchant.stat_1062208444",
+                    "enchant.stat_2866361420"
                 ],
                 "sanctum": [
                     "sanctum.stat_1737465970"
@@ -462,8 +462,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2106365538",
-                    "explicit.stat_124859000"
+                    "explicit.stat_124859000",
+                    "explicit.stat_2106365538"
                 ],
                 "enchant": [
                     "enchant.stat_2106365538",
@@ -1626,8 +1626,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_681332047",
-                    "explicit.stat_210067635"
+                    "explicit.stat_210067635",
+                    "explicit.stat_681332047"
                 ],
                 "implicit": [
                     "implicit.stat_681332047"
@@ -2092,8 +2092,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2481353198",
-                    "explicit.stat_4147897060"
+                    "explicit.stat_4147897060",
+                    "explicit.stat_2481353198"
                 ],
                 "enchant": [
                     "enchant.stat_2481353198"
@@ -2745,8 +2745,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_554899692",
-                    "explicit.stat_1416292992"
+                    "explicit.stat_1416292992",
+                    "explicit.stat_554899692"
                 ]
             }
         }
@@ -3040,16 +3040,20 @@
         "id": "damage_+%_with_bow_skills",
         "matchers": [
             {
-                "string": "弓スキルのダメージが{}%増加する",
+                "string": "弓スキルのダメージが#%増加する",
                 "negate": false
             },
             {
-                "string": "弓スキルのダメージが{}%減少する",
+                "string": "弓スキルのダメージが#%減少する",
                 "negate": true
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1241625305"
+                ]
+            }
         }
     },
     "merged_131": {
@@ -3363,14 +3367,6 @@
             },
             {
                 "string": "持続時間が#%減少する。使用するとこの値が-1%される",
-                "negate": true
-            },
-            {
-                "string": "持続時間が{}%増加する",
-                "negate": false
-            },
-            {
-                "string": "持続時間が{}%減少する",
                 "negate": true
             }
         ],
@@ -4203,7 +4199,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "implicit": [
+                    "implicit.stat_3675300253"
+                ]
+            }
         }
     },
     "merged_185": {
@@ -4345,8 +4345,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_3885634897",
-                    "explicit.stat_795138349"
+                    "explicit.stat_795138349",
+                    "explicit.stat_3885634897"
                 ],
                 "enchant": [
                     "enchant.stat_3885634897"
@@ -4737,7 +4737,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_315791320"
+                ]
+            }
         }
     },
     "merged_211": {
@@ -6028,8 +6032,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_1030153674",
-                    "explicit.stat_1604736568"
+                    "explicit.stat_1604736568",
+                    "explicit.stat_1030153674"
                 ],
                 "rune": [
                     "rune.stat_1030153674"
@@ -9365,7 +9369,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3389184522"
+                ]
+            }
         }
     },
     "merged_437": {
@@ -10180,7 +10188,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_4287671144"
+                ]
+            }
         }
     },
     "merged_480": {
@@ -10266,7 +10278,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_65135897"
+                ]
+            }
         }
     },
     "merged_485": {
@@ -10428,7 +10444,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_824024007"
+                ]
+            }
         }
     },
     "merged_494": {
@@ -10547,7 +10567,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_796381300"
+                ]
+            }
         }
     },
     "merged_501": {
@@ -10561,7 +10585,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3464380325"
+                ]
+            }
         }
     },
     "merged_502": {
@@ -11279,7 +11307,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1195849808"
+                ]
+            }
         }
     },
     "merged_545": {
@@ -11311,7 +11343,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2214228141"
+                ]
+            }
         }
     },
     "merged_547": {
@@ -14005,7 +14041,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1135194732"
+                ]
+            }
         }
     },
     "merged_692": {
@@ -14019,7 +14059,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_701564564"
+                ]
+            }
         }
     },
     "merged_693": {
@@ -14987,8 +15031,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_1913583994",
-                    "explicit.stat_2306522833"
+                    "explicit.stat_2306522833",
+                    "explicit.stat_1913583994"
                 ]
             }
         },
@@ -15025,7 +15069,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_57326096"
+                ]
+            }
         },
         "fromAreaMods": true
     },
@@ -15502,9 +15550,9 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2306002879",
                     "explicit.stat_2390685262",
-                    "explicit.stat_349586058"
+                    "explicit.stat_349586058",
+                    "explicit.stat_2306002879"
                 ],
                 "enchant": [
                     "enchant.stat_2306002879"
@@ -16433,7 +16481,14 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1640965354"
+                ],
+                "implicit": [
+                    "implicit.stat_1640965354"
+                ]
+            }
         }
     },
     "merged_799": {
@@ -18534,8 +18589,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2390685262",
-                    "explicit.stat_95249895"
+                    "explicit.stat_95249895",
+                    "explicit.stat_2390685262"
                 ]
             }
         }
@@ -25207,10 +25262,10 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2306522833",
                     "explicit.stat_1913583994",
-                    "explicit.stat_2488361432",
-                    "explicit.stat_2390685262"
+                    "explicit.stat_2306522833",
+                    "explicit.stat_2390685262",
+                    "explicit.stat_2488361432"
                 ]
             }
         }
@@ -29454,9 +29509,9 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_398335579",
+                    "explicit.stat_1414945937",
                     "explicit.stat_4007938693",
-                    "explicit.stat_1414945937"
+                    "explicit.stat_398335579"
                 ]
             }
         }
@@ -36165,12 +36220,14 @@
             "ids": {
                 "explicit": [
                     "explicit.stat_4219583418",
+                    "explicit.stat_1640965354",
                     "explicit.stat_1539368271"
                 ],
                 "implicit": [
+                    "implicit.stat_1539368271",
                     "implicit.stat_3051490307",
                     "implicit.stat_4219583418",
-                    "implicit.stat_1539368271"
+                    "implicit.stat_1640965354"
                 ]
             }
         }
@@ -36479,9 +36536,9 @@
         "trade": {
             "ids": {
                 "explicit": [
+                    "explicit.stat_2017682521",
                     "explicit.stat_57434274",
-                    "explicit.stat_3666934677",
-                    "explicit.stat_2017682521"
+                    "explicit.stat_3666934677"
                 ],
                 "enchant": [
                     "enchant.stat_2017682521"
@@ -39449,13 +39506,13 @@
         "trade": {
             "ids": {
                 "explicit": [
+                    "explicit.stat_2017682521",
                     "explicit.stat_2306002879",
-                    "explicit.stat_2390685262",
-                    "explicit.stat_2017682521"
+                    "explicit.stat_2390685262"
                 ],
                 "enchant": [
-                    "enchant.stat_2017682521",
-                    "enchant.stat_2306002879"
+                    "enchant.stat_2306002879",
+                    "enchant.stat_2017682521"
                 ]
             }
         }
@@ -39473,13 +39530,13 @@
         "trade": {
             "ids": {
                 "explicit": [
+                    "explicit.stat_2017682521",
                     "explicit.stat_2306002879",
-                    "explicit.stat_2390685262",
-                    "explicit.stat_2017682521"
+                    "explicit.stat_2390685262"
                 ],
                 "enchant": [
-                    "enchant.stat_2017682521",
-                    "enchant.stat_2306002879"
+                    "enchant.stat_2306002879",
+                    "enchant.stat_2017682521"
                 ]
             }
         }
@@ -39497,13 +39554,13 @@
         "trade": {
             "ids": {
                 "explicit": [
+                    "explicit.stat_2017682521",
                     "explicit.stat_2306002879",
-                    "explicit.stat_2390685262",
-                    "explicit.stat_2017682521"
+                    "explicit.stat_2390685262"
                 ],
                 "enchant": [
-                    "enchant.stat_2017682521",
-                    "enchant.stat_2306002879"
+                    "enchant.stat_2306002879",
+                    "enchant.stat_2017682521"
                 ]
             }
         }
@@ -39521,13 +39578,13 @@
         "trade": {
             "ids": {
                 "explicit": [
+                    "explicit.stat_2017682521",
                     "explicit.stat_2306002879",
-                    "explicit.stat_2390685262",
-                    "explicit.stat_2017682521"
+                    "explicit.stat_2390685262"
                 ],
                 "enchant": [
-                    "enchant.stat_2017682521",
-                    "enchant.stat_2306002879"
+                    "enchant.stat_2306002879",
+                    "enchant.stat_2017682521"
                 ]
             }
         }
@@ -46203,7 +46260,7 @@
         }
     },
     "merged_2651": {
-        "ref": "Area contains {} additional Smuggler's Caches",
+        "ref": "Area contains # additional Smuggler's Caches",
         "better": 1,
         "id": "map_spawn_x_additional_heist_smugglers_caches",
         "matchers": [
@@ -46213,7 +46270,7 @@
                 "value": 1
             },
             {
-                "string": "エリアには密輸人の貯蔵箱が追加で{}個出現する",
+                "string": "エリアには密輸人の貯蔵箱が追加で#個出現する",
                 "negate": false
             }
         ],
@@ -46560,11 +46617,11 @@
         "id": "local_sentinel_tag_limit_+%",
         "matchers": [
             {
-                "string": "強化できる敵の数が{}%増加する",
+                "string": "強化できる敵の数が#%増加する",
                 "negate": false
             },
             {
-                "string": "強化できる敵の数が{}%減少する",
+                "string": "強化できる敵の数が#%減少する",
                 "negate": true
             }
         ],
@@ -46578,11 +46635,11 @@
         "id": "local_sentinel_drone_difficulty_+%",
         "matchers": [
             {
-                "string": "強化値が{}%増加する",
+                "string": "強化値が#%増加する",
                 "negate": false
             },
             {
-                "string": "強化値が{}%減少する",
+                "string": "強化値が#%減少する",
                 "negate": true
             }
         ],
@@ -46591,7 +46648,7 @@
         }
     },
     "merged_2675": {
-        "ref": "Character Gains Unholy Might for {} seconds on deployment",
+        "ref": "Character Gains Unholy Might for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_unholy_might_on_summon_ms",
         "matchers": [
@@ -46601,7 +46658,7 @@
                 "value": 1000
             },
             {
-                "string": "起動した時にキャラクターは不浄な力を{}秒間獲得する",
+                "string": "起動した時にキャラクターは不浄な力を#秒間獲得する",
                 "negate": false
             }
         ],
@@ -46610,7 +46667,7 @@
         }
     },
     "merged_2676": {
-        "ref": "Character Gains Tailwind for {} seconds on deployment",
+        "ref": "Character Gains Tailwind for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_tailwind_on_summon_ms",
         "matchers": [
@@ -46620,7 +46677,7 @@
                 "value": 1000
             },
             {
-                "string": "起動した時にキャラクターは追い風を{}秒間獲得する",
+                "string": "起動した時にキャラクターは追い風を#秒間獲得する",
                 "negate": false
             }
         ],
@@ -46629,7 +46686,7 @@
         }
     },
     "merged_2677": {
-        "ref": "Character Gains Acceleration Shrine for {} seconds on deployment",
+        "ref": "Character Gains Acceleration Shrine for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_accelerating_shrine_on_summon_ms",
         "matchers": [
@@ -46639,7 +46696,7 @@
                 "value": 1000
             },
             {
-                "string": "起動した時にキャラクターは加速のシュラインの効果を{}秒間獲得する",
+                "string": "起動した時にキャラクターは加速のシュラインの効果を#秒間獲得する",
                 "negate": false
             }
         ],
@@ -46648,7 +46705,7 @@
         }
     },
     "merged_2678": {
-        "ref": "Character Gains Charged Shrine for {} seconds on deployment",
+        "ref": "Character Gains Charged Shrine for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_resonating_shrine_on_summon_ms",
         "matchers": [
@@ -46658,7 +46715,7 @@
                 "value": 1000
             },
             {
-                "string": "起動した時に充填のシュラインの効果を{}秒間獲得する",
+                "string": "起動した時に充填のシュラインの効果を#秒間獲得する",
                 "negate": false
             }
         ],
@@ -46667,7 +46724,7 @@
         }
     },
     "merged_2679": {
-        "ref": "Character Gains Diamond Shrine for {} seconds on deployment",
+        "ref": "Character Gains Diamond Shrine for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_diamond_shrine_on_summon_ms",
         "matchers": [
@@ -46677,7 +46734,7 @@
                 "value": 1000
             },
             {
-                "string": "起動した時に金剛石のシュラインの効果を{}秒間獲得する",
+                "string": "起動した時に金剛石のシュラインの効果を#秒間獲得する",
                 "negate": false
             }
         ],
@@ -46686,7 +46743,7 @@
         }
     },
     "merged_2680": {
-        "ref": "Character Gains Gloom Shrine for {} seconds on deployment",
+        "ref": "Character Gains Gloom Shrine for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_gloom_shrine_on_summon_ms",
         "matchers": [
@@ -46696,7 +46753,7 @@
                 "value": 1000
             },
             {
-                "string": "起動した時に暗闇のシュラインの効果を{}秒間獲得する",
+                "string": "起動した時に暗闇のシュラインの効果を#秒間獲得する",
                 "negate": false
             }
         ],
@@ -46705,7 +46762,7 @@
         }
     },
     "merged_2681": {
-        "ref": "Character Gains Resistance Shrine for {} seconds on deployment",
+        "ref": "Character Gains Resistance Shrine for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_resistance_shrine_on_summon_ms",
         "matchers": [
@@ -46715,7 +46772,7 @@
                 "value": 1000
             },
             {
-                "string": "起動した時に耐性のシュラインの効果を{}秒間獲得する",
+                "string": "起動した時に耐性のシュラインの効果を#秒間獲得する",
                 "negate": false
             }
         ],
@@ -46724,7 +46781,7 @@
         }
     },
     "merged_2682": {
-        "ref": "Character Gains Massive Shrine for {} seconds on deployment",
+        "ref": "Character Gains Massive Shrine for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_massive_shrine_on_summon_ms",
         "matchers": [
@@ -46734,7 +46791,7 @@
                 "value": 1000
             },
             {
-                "string": "起動した時に壮大なシュラインの効果を{}秒間獲得する",
+                "string": "起動した時に壮大なシュラインの効果を#秒間獲得する",
                 "negate": false
             }
         ],
@@ -46743,7 +46800,7 @@
         }
     },
     "merged_2683": {
-        "ref": "Character Gains Echoing Shrine for {} seconds on deployment",
+        "ref": "Character Gains Echoing Shrine for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_echoing_shrine_on_summon_ms",
         "matchers": [
@@ -46753,7 +46810,7 @@
                 "value": 1000
             },
             {
-                "string": "起動した時に反響のシュラインの効果を{}秒間獲得する",
+                "string": "起動した時に反響のシュラインの効果を#秒間獲得する",
                 "negate": false
             }
         ],
@@ -46762,7 +46819,7 @@
         }
     },
     "merged_2684": {
-        "ref": "Character Gains Impenetrable Shrine for {} seconds on deployment",
+        "ref": "Character Gains Impenetrable Shrine for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_impenetrable_shrine_on_summon_ms",
         "matchers": [
@@ -46772,7 +46829,7 @@
                 "value": 1000
             },
             {
-                "string": "起動した時に強固なシュラインの効果を{}秒間獲得する",
+                "string": "起動した時に強固なシュラインの効果を#秒間獲得する",
                 "negate": false
             }
         ],
@@ -46781,7 +46838,7 @@
         }
     },
     "merged_2685": {
-        "ref": "Character Gains Adrenaline for {} seconds on deployment",
+        "ref": "Character Gains Adrenaline for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_adrenaline_on_summon_ms",
         "matchers": [
@@ -46791,7 +46848,7 @@
                 "value": 1000
             },
             {
-                "string": "起動した時にキャラクターはアドレナリンを{}秒間獲得する",
+                "string": "起動した時にキャラクターはアドレナリンを#秒間獲得する",
                 "negate": false
             }
         ],
@@ -46800,7 +46857,7 @@
         }
     },
     "merged_2686": {
-        "ref": "Character Gains Endurance Charges for {} seconds on deployment",
+        "ref": "Character Gains Endurance Charges for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_endurance_charge_on_summon_ms",
         "matchers": [
@@ -46810,7 +46867,7 @@
                 "value": 1000
             },
             {
-                "string": "起動した時にキャラクターはエンデュランスチャージを{}秒間獲得する",
+                "string": "起動した時にキャラクターはエンデュランスチャージを#秒間獲得する",
                 "negate": false
             }
         ],
@@ -46819,7 +46876,7 @@
         }
     },
     "merged_2687": {
-        "ref": "Character Gains Power Charges for {} seconds on deployment",
+        "ref": "Character Gains Power Charges for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_power_charge_on_summon_ms",
         "matchers": [
@@ -46829,7 +46886,7 @@
                 "value": 1000
             },
             {
-                "string": "起動した時にキャラクターはパワーチャージを{}秒間獲得する",
+                "string": "起動した時にキャラクターはパワーチャージを#秒間獲得する",
                 "negate": false
             }
         ],
@@ -46838,7 +46895,7 @@
         }
     },
     "merged_2688": {
-        "ref": "Character Gains Frenzy Charges for {} seconds on deployment",
+        "ref": "Character Gains Frenzy Charges for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_frenzy_charge_on_summon_ms",
         "matchers": [
@@ -46848,7 +46905,7 @@
                 "value": 1000
             },
             {
-                "string": "起動した時にキャラクターはフレンジーチャージを{}秒間獲得する",
+                "string": "起動した時にキャラクターはフレンジーチャージを#秒間獲得する",
                 "negate": false
             }
         ],
@@ -47527,7 +47584,7 @@
         }
     },
     "merged_2734": {
-        "ref": "Passives in Radius of {} can be Allocated\\nwithout being connected to your tree",
+        "ref": "Passives in Radius of # can be Allocated\\nwithout being connected to your tree",
         "better": 1,
         "id": "local_unique_jewel_disconnected_passives_can_be_allocated_around_keystone_hash",
         "matchers": [
@@ -47569,12 +47626,12 @@
         }
     },
     "merged_2737": {
-        "ref": "Empowered Monsters drop {} Currency Rewards",
+        "ref": "Empowered Monsters drop # Currency Rewards",
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_currency_rewards",
         "matchers": [
             {
-                "string": "強化した敵は{}個のカレンシー報酬をドロップする",
+                "string": "強化した敵は#個のカレンシー報酬をドロップする",
                 "negate": false
             }
         ],
@@ -47583,12 +47640,12 @@
         }
     },
     "merged_2738": {
-        "ref": "Empowered Monsters drop {} Sentinel Rewards",
+        "ref": "Empowered Monsters drop # Sentinel Rewards",
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_sentinel_rewards",
         "matchers": [
             {
-                "string": "強化した敵は{}個のセンチネル報酬をドロップする",
+                "string": "強化した敵は#個のセンチネル報酬をドロップする",
                 "negate": false
             }
         ],
@@ -47597,12 +47654,12 @@
         }
     },
     "merged_2739": {
-        "ref": "Empowered Monsters drop {} Divination Card Rewards",
+        "ref": "Empowered Monsters drop # Divination Card Rewards",
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_divination_card_rewards",
         "matchers": [
             {
-                "string": "強化した敵は{}個の占いカード報酬をドロップする",
+                "string": "強化した敵は#個の占いカード報酬をドロップする",
                 "negate": false
             }
         ],
@@ -47611,12 +47668,12 @@
         }
     },
     "merged_2740": {
-        "ref": "Empowered Monsters drop {} Scarab Rewards",
+        "ref": "Empowered Monsters drop # Scarab Rewards",
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_scarab_rewards",
         "matchers": [
             {
-                "string": "強化した敵は{}個のスカラベ報酬をドロップする",
+                "string": "強化した敵は#個のスカラベ報酬をドロップする",
                 "negate": false
             }
         ],
@@ -47625,12 +47682,12 @@
         }
     },
     "merged_2741": {
-        "ref": "Empowered Monsters drop {} Unique Rewards",
+        "ref": "Empowered Monsters drop # Unique Rewards",
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_unique_rewards",
         "matchers": [
             {
-                "string": "強化した敵は{}個のユニーク報酬をドロップする",
+                "string": "強化した敵は#個のユニーク報酬をドロップする",
                 "negate": false
             }
         ],
@@ -47639,12 +47696,12 @@
         }
     },
     "merged_2742": {
-        "ref": "Empowered Monsters drop {} Map Rewards",
+        "ref": "Empowered Monsters drop # Map Rewards",
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_map_rewards",
         "matchers": [
             {
-                "string": "強化した敵は{}個のマップ報酬をドロップする",
+                "string": "強化した敵は#個のマップ報酬をドロップする",
                 "negate": false
             }
         ],
@@ -47653,12 +47710,12 @@
         }
     },
     "merged_2743": {
-        "ref": "Empowered Monsters drop {} Fragment Rewards",
+        "ref": "Empowered Monsters drop # Fragment Rewards",
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_fragment_rewards",
         "matchers": [
             {
-                "string": "強化した敵は{}個の断片報酬をドロップする",
+                "string": "強化した敵は#個の断片報酬をドロップする",
                 "negate": false
             }
         ],
@@ -47700,11 +47757,11 @@
         "id": "sentinel_tag_difficulty_+permillage_final_per_previous_tag",
         "matchers": [
             {
-                "string": "強化した敵1体ごとに強化値が{}%上昇する",
+                "string": "強化した敵1体ごとに強化値が#%上昇する",
                 "negate": false
             },
             {
-                "string": "強化した敵1体ごとに強化値が{}%低下する",
+                "string": "強化した敵1体ごとに強化値が#%低下する",
                 "negate": true
             }
         ],
@@ -47736,7 +47793,7 @@
         "id": "sentinel_tag_upgrade_target_to_rare_%",
         "matchers": [
             {
-                "string": "敵を強化した時に{}%の確率でノーマルレアリティの敵をレアにアップグレードする",
+                "string": "敵を強化した時に#%の確率でノーマルレアリティの敵をレアにアップグレードする",
                 "negate": false
             }
         ],
@@ -47801,7 +47858,7 @@
         }
     },
     "merged_2753": {
-        "ref": "Petrifies Empowered Enemies for {} seconds",
+        "ref": "Petrifies Empowered Enemies for # seconds",
         "better": 1,
         "id": "sentinel_petrify_tagged_monsters_ms",
         "matchers": [
@@ -47811,7 +47868,7 @@
                 "value": 1000
             },
             {
-                "string": "強化した敵を{}秒間石化させる",
+                "string": "強化した敵を#秒間石化させる",
                 "negate": false
             }
         ],
@@ -48250,12 +48307,12 @@
         }
     },
     "merged_2781": {
-        "ref": "Sacrifice up to {} to receive double on Trial completion",
+        "ref": "Sacrifice up to # to receive double on Trial completion",
         "better": 1,
         "id": "ultimatum_wager_type_hash",
         "matchers": [
             {
-                "string": "試練の完了時に最大{}個捧げ二倍の報酬を受け取る",
+                "string": "試練の完了時に最大#個捧げ二倍の報酬を受け取る",
                 "negate": false
             }
         ],
@@ -49072,16 +49129,16 @@
         }
     },
     "merged_2826": {
-        "ref": "Monsters take {}% more Damage",
+        "ref": "Monsters take #% more Damage",
         "better": 1,
         "id": "map_custom_league_damage_taken_+%_final",
         "matchers": [
             {
-                "string": "モンスターが受けるダメージが{}%上昇する",
+                "string": "モンスターが受けるダメージが#%上昇する",
                 "negate": false
             },
             {
-                "string": "モンスターが受けるダメージが{}%低下する",
+                "string": "モンスターが受けるダメージが#%低下する",
                 "negate": true
             }
         ],
@@ -50914,7 +50971,7 @@
         }
     },
     "merged_2931": {
-        "ref": "Duplicates up to {} random Offer Rewards upon defeating the Herald of the Scourge",
+        "ref": "Duplicates up to # random Offer Rewards upon defeating the Herald of the Scourge",
         "better": 1,
         "id": "map_lycia2_duplicate_up_to_x_deferred_rewards",
         "matchers": [
@@ -51234,17 +51291,21 @@
         }
     },
     "merged_2948": {
-        "ref": "Cannot be used with Trials below level {}",
+        "ref": "Cannot be used with Trials below level #",
         "better": 1,
         "id": "local_unique_relic_sanctum_level_restriction",
         "matchers": [
             {
-                "string": "レベルが{}より低い試練で使用できない",
+                "string": "レベルが#より低い試練で使用できない",
                 "negate": false
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_1512067281"
+                ]
+            }
         }
     },
     "merged_2949": {

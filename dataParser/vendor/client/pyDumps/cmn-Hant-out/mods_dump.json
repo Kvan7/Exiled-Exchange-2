@@ -365,8 +365,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_3484657501",
-                    "explicit.stat_809229260"
+                    "explicit.stat_809229260",
+                    "explicit.stat_3484657501"
                 ],
                 "implicit": [
                     "implicit.stat_809229260"
@@ -387,8 +387,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_53045048",
-                    "explicit.stat_2144192055"
+                    "explicit.stat_2144192055",
+                    "explicit.stat_53045048"
                 ]
             }
         }
@@ -432,12 +432,12 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2866361420",
-                    "explicit.stat_1062208444"
+                    "explicit.stat_1062208444",
+                    "explicit.stat_2866361420"
                 ],
                 "enchant": [
-                    "enchant.stat_2866361420",
-                    "enchant.stat_1062208444"
+                    "enchant.stat_1062208444",
+                    "enchant.stat_2866361420"
                 ],
                 "sanctum": [
                     "sanctum.stat_1737465970"
@@ -462,8 +462,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2106365538",
-                    "explicit.stat_124859000"
+                    "explicit.stat_124859000",
+                    "explicit.stat_2106365538"
                 ],
                 "enchant": [
                     "enchant.stat_2106365538",
@@ -1479,8 +1479,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_669069897",
-                    "explicit.stat_707457662"
+                    "explicit.stat_707457662",
+                    "explicit.stat_669069897"
                 ],
                 "enchant": [
                     "enchant.stat_707457662"
@@ -1504,8 +1504,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_669069897",
-                    "explicit.stat_707457662"
+                    "explicit.stat_707457662",
+                    "explicit.stat_669069897"
                 ],
                 "enchant": [
                     "enchant.stat_707457662"
@@ -1636,8 +1636,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_681332047",
-                    "explicit.stat_210067635"
+                    "explicit.stat_210067635",
+                    "explicit.stat_681332047"
                 ],
                 "implicit": [
                     "implicit.stat_681332047"
@@ -2122,8 +2122,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2481353198",
-                    "explicit.stat_4147897060"
+                    "explicit.stat_4147897060",
+                    "explicit.stat_2481353198"
                 ],
                 "enchant": [
                     "enchant.stat_2481353198"
@@ -2775,8 +2775,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_554899692",
-                    "explicit.stat_1416292992"
+                    "explicit.stat_1416292992",
+                    "explicit.stat_554899692"
                 ]
             }
         }
@@ -3070,16 +3070,20 @@
         "id": "damage_+%_with_bow_skills",
         "matchers": [
             {
-                "string": "增加 {}% 弓技能的傷害",
+                "string": "增加 #% 弓技能的傷害",
                 "negate": false
             },
             {
-                "string": "減少 {}% 弓技能的傷害",
+                "string": "減少 #% 弓技能的傷害",
                 "negate": true
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1241625305"
+                ]
+            }
         }
     },
     "merged_131": {
@@ -3393,14 +3397,6 @@
             },
             {
                 "string": "減少 #% 持續時間。使用時 -1% 此數值",
-                "negate": true
-            },
-            {
-                "string": "增加 {}% 持續時間",
-                "negate": false
-            },
-            {
-                "string": "減少 {}% 持續時間",
                 "negate": true
             }
         ],
@@ -4747,7 +4743,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_315791320"
+                ]
+            }
         }
     },
     "merged_211": {
@@ -4804,8 +4804,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_3423694372",
-                    "explicit.stat_2174054121"
+                    "explicit.stat_2174054121",
+                    "explicit.stat_3423694372"
                 ]
             }
         }
@@ -6033,8 +6033,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_1030153674",
-                    "explicit.stat_1604736568"
+                    "explicit.stat_1604736568",
+                    "explicit.stat_1030153674"
                 ],
                 "rune": [
                     "rune.stat_1030153674"
@@ -8583,8 +8583,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_3423694372",
-                    "explicit.stat_2174054121"
+                    "explicit.stat_2174054121",
+                    "explicit.stat_3423694372"
                 ]
             }
         }
@@ -12085,7 +12085,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_704919631"
+                ]
+            }
         }
     },
     "merged_589": {
@@ -13663,7 +13667,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1488650448"
+                ]
+            }
         }
     },
     "merged_672": {
@@ -14042,7 +14050,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_701564564"
+                ]
+            }
         }
     },
     "merged_693": {
@@ -14056,7 +14068,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1158842087"
+                ]
+            }
         }
     },
     "merged_694": {
@@ -14070,7 +14086,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3550887155"
+                ]
+            }
         }
     },
     "merged_695": {
@@ -15030,8 +15050,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_1913583994",
-                    "explicit.stat_2306522833"
+                    "explicit.stat_2306522833",
+                    "explicit.stat_1913583994"
                 ]
             }
         },
@@ -15549,9 +15569,9 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2306002879",
                     "explicit.stat_2390685262",
-                    "explicit.stat_349586058"
+                    "explicit.stat_349586058",
+                    "explicit.stat_2306002879"
                 ],
                 "enchant": [
                     "enchant.stat_2306002879"
@@ -15861,7 +15881,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "implicit": [
+                    "implicit.stat_3376302538"
+                ]
+            }
         }
     },
     "merged_779": {
@@ -15976,7 +16000,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2571125745"
+                ]
+            }
         }
     },
     "merged_782": {
@@ -15994,7 +16022,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2388936716"
+                ]
+            }
         }
     },
     "merged_783": {
@@ -16012,7 +16044,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_4098286334"
+                ]
+            }
         }
     },
     "merged_784": {
@@ -16062,7 +16098,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1090596078"
+                ]
+            }
         }
     },
     "merged_786": {
@@ -16090,7 +16130,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1653625239"
+                ]
+            }
         }
     },
     "merged_787": {
@@ -16166,7 +16210,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_624534143"
+                ]
+            }
         }
     },
     "merged_790": {
@@ -16194,7 +16242,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2440265466"
+                ]
+            }
         }
     },
     "merged_791": {
@@ -16222,7 +16274,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3049505189"
+                ]
+            }
         }
     },
     "merged_792": {
@@ -16384,7 +16440,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2694800111"
+                ]
+            }
         }
     },
     "merged_798": {
@@ -16410,7 +16470,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3078574625"
+                ]
+            }
         }
     },
     "merged_799": {
@@ -16494,7 +16558,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3428124128"
+                ]
+            }
         }
     },
     "merged_802": {
@@ -16512,7 +16580,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1174954559"
+                ]
+            }
         }
     },
     "merged_803": {
@@ -16538,7 +16610,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3350944114"
+                ]
+            }
         }
     },
     "merged_804": {
@@ -16564,7 +16640,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1769611692"
+                ]
+            }
         }
     },
     "merged_805": {
@@ -16590,7 +16670,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3465791711"
+                ]
+            }
         }
     },
     "merged_806": {
@@ -16616,7 +16700,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_551040294"
+                ]
+            }
         }
     },
     "merged_807": {
@@ -16644,7 +16732,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2323782229"
+                ]
+            }
         }
     },
     "merged_808": {
@@ -16670,7 +16762,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3962960008"
+                ]
+            }
         }
     },
     "merged_809": {
@@ -16688,7 +16784,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1770833858"
+                ]
+            }
         }
     },
     "merged_810": {
@@ -16744,7 +16844,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2282052746"
+                ]
+            }
         }
     },
     "merged_812": {
@@ -16770,7 +16874,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1345835998"
+                ]
+            }
         }
     },
     "merged_813": {
@@ -16788,7 +16896,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_28208665"
+                ]
+            }
         }
     },
     "merged_814": {
@@ -16838,7 +16950,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_937291386"
+                ]
+            }
         }
     },
     "merged_816": {
@@ -16864,7 +16980,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1031644647"
+                ]
+            }
         }
     },
     "merged_817": {
@@ -16890,7 +17010,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3979184174"
+                ]
+            }
         }
     },
     "merged_818": {
@@ -16916,7 +17040,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_4219853180"
+                ]
+            }
         }
     },
     "merged_819": {
@@ -16999,7 +17127,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1314787770"
+                ]
+            }
         }
     },
     "merged_823": {
@@ -17039,7 +17171,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_4255069232"
+                ]
+            }
         }
     },
     "merged_825": {
@@ -17057,7 +17193,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3119172063"
+                ]
+            }
         }
     },
     "merged_826": {
@@ -18464,8 +18604,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2390685262",
-                    "explicit.stat_95249895"
+                    "explicit.stat_95249895",
+                    "explicit.stat_2390685262"
                 ]
             }
         }
@@ -25098,10 +25238,10 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2306522833",
                     "explicit.stat_1913583994",
-                    "explicit.stat_2488361432",
-                    "explicit.stat_2390685262"
+                    "explicit.stat_2306522833",
+                    "explicit.stat_2390685262",
+                    "explicit.stat_2488361432"
                 ]
             }
         }
@@ -29339,9 +29479,9 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_398335579",
+                    "explicit.stat_1414945937",
                     "explicit.stat_4007938693",
-                    "explicit.stat_1414945937"
+                    "explicit.stat_398335579"
                 ]
             }
         }
@@ -36125,15 +36265,15 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_1640965354",
                     "explicit.stat_4219583418",
+                    "explicit.stat_1640965354",
                     "explicit.stat_1539368271"
                 ],
                 "implicit": [
-                    "implicit.stat_1640965354",
+                    "implicit.stat_1539368271",
                     "implicit.stat_3051490307",
                     "implicit.stat_4219583418",
-                    "implicit.stat_1539368271"
+                    "implicit.stat_1640965354"
                 ]
             }
         }
@@ -36442,8 +36582,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_57434274",
-                    "explicit.stat_2017682521"
+                    "explicit.stat_2017682521",
+                    "explicit.stat_57434274"
                 ],
                 "enchant": [
                     "enchant.stat_2017682521"
@@ -39399,13 +39539,13 @@
         "trade": {
             "ids": {
                 "explicit": [
+                    "explicit.stat_2017682521",
                     "explicit.stat_2306002879",
-                    "explicit.stat_2390685262",
-                    "explicit.stat_2017682521"
+                    "explicit.stat_2390685262"
                 ],
                 "enchant": [
-                    "enchant.stat_2017682521",
-                    "enchant.stat_2306002879"
+                    "enchant.stat_2306002879",
+                    "enchant.stat_2017682521"
                 ]
             }
         }
@@ -39423,13 +39563,13 @@
         "trade": {
             "ids": {
                 "explicit": [
+                    "explicit.stat_2017682521",
                     "explicit.stat_2306002879",
-                    "explicit.stat_2390685262",
-                    "explicit.stat_2017682521"
+                    "explicit.stat_2390685262"
                 ],
                 "enchant": [
-                    "enchant.stat_2017682521",
-                    "enchant.stat_2306002879"
+                    "enchant.stat_2306002879",
+                    "enchant.stat_2017682521"
                 ]
             }
         }
@@ -39447,13 +39587,13 @@
         "trade": {
             "ids": {
                 "explicit": [
+                    "explicit.stat_2017682521",
                     "explicit.stat_2306002879",
-                    "explicit.stat_2390685262",
-                    "explicit.stat_2017682521"
+                    "explicit.stat_2390685262"
                 ],
                 "enchant": [
-                    "enchant.stat_2017682521",
-                    "enchant.stat_2306002879"
+                    "enchant.stat_2306002879",
+                    "enchant.stat_2017682521"
                 ]
             }
         }
@@ -39471,13 +39611,13 @@
         "trade": {
             "ids": {
                 "explicit": [
+                    "explicit.stat_2017682521",
                     "explicit.stat_2306002879",
-                    "explicit.stat_2390685262",
-                    "explicit.stat_2017682521"
+                    "explicit.stat_2390685262"
                 ],
                 "enchant": [
-                    "enchant.stat_2017682521",
-                    "enchant.stat_2306002879"
+                    "enchant.stat_2306002879",
+                    "enchant.stat_2017682521"
                 ]
             }
         }
@@ -46131,7 +46271,7 @@
         }
     },
     "merged_2652": {
-        "ref": "Area contains {} additional Smuggler's Caches",
+        "ref": "Area contains # additional Smuggler's Caches",
         "better": 1,
         "id": "map_spawn_x_additional_heist_smugglers_caches",
         "matchers": [
@@ -46141,7 +46281,7 @@
                 "value": 1
             },
             {
-                "string": "區域含有 {} 個額外走私者的祕寶",
+                "string": "區域含有 # 個額外走私者的祕寶",
                 "negate": false
             }
         ],
@@ -46488,11 +46628,11 @@
         "id": "local_sentinel_tag_limit_+%",
         "matchers": [
             {
-                "string": "增加 {}% 賦予敵人的數量",
+                "string": "增加 #% 賦予敵人的數量",
                 "negate": false
             },
             {
-                "string": "減少 {}% 賦予敵人的數量",
+                "string": "減少 #% 賦予敵人的數量",
                 "negate": true
             }
         ],
@@ -46506,11 +46646,11 @@
         "id": "local_sentinel_drone_difficulty_+%",
         "matchers": [
             {
-                "string": "增加 {}% 賦予",
+                "string": "增加 #% 賦予",
                 "negate": false
             },
             {
-                "string": "減少 {}% 賦予",
+                "string": "減少 #% 賦予",
                 "negate": true
             }
         ],
@@ -46519,7 +46659,7 @@
         }
     },
     "merged_2676": {
-        "ref": "Character Gains Unholy Might for {} seconds on deployment",
+        "ref": "Character Gains Unholy Might for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_unholy_might_on_summon_ms",
         "matchers": [
@@ -46529,7 +46669,7 @@
                 "value": 1000
             },
             {
-                "string": "佈署時，角色獲得不潔之力 {} 秒",
+                "string": "佈署時，角色獲得不潔之力 # 秒",
                 "negate": false
             }
         ],
@@ -46538,7 +46678,7 @@
         }
     },
     "merged_2677": {
-        "ref": "Character Gains Tailwind for {} seconds on deployment",
+        "ref": "Character Gains Tailwind for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_tailwind_on_summon_ms",
         "matchers": [
@@ -46548,7 +46688,7 @@
                 "value": 1000
             },
             {
-                "string": "佈署時，角色獲得流順之風 {} 秒",
+                "string": "佈署時，角色獲得流順之風 # 秒",
                 "negate": false
             }
         ],
@@ -46557,7 +46697,7 @@
         }
     },
     "merged_2678": {
-        "ref": "Character Gains Acceleration Shrine for {} seconds on deployment",
+        "ref": "Character Gains Acceleration Shrine for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_accelerating_shrine_on_summon_ms",
         "matchers": [
@@ -46567,7 +46707,7 @@
                 "value": 1000
             },
             {
-                "string": "佈署時，角色獲得迅速神殿 {} 秒",
+                "string": "佈署時，角色獲得迅速神殿 # 秒",
                 "negate": false
             }
         ],
@@ -46576,7 +46716,7 @@
         }
     },
     "merged_2679": {
-        "ref": "Character Gains Charged Shrine for {} seconds on deployment",
+        "ref": "Character Gains Charged Shrine for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_resonating_shrine_on_summon_ms",
         "matchers": [
@@ -46586,7 +46726,7 @@
                 "value": 1000
             },
             {
-                "string": "佈署時，角色獲得充能神殿 {} 秒",
+                "string": "佈署時，角色獲得充能神殿 # 秒",
                 "negate": false
             }
         ],
@@ -46595,7 +46735,7 @@
         }
     },
     "merged_2680": {
-        "ref": "Character Gains Diamond Shrine for {} seconds on deployment",
+        "ref": "Character Gains Diamond Shrine for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_diamond_shrine_on_summon_ms",
         "matchers": [
@@ -46605,7 +46745,7 @@
                 "value": 1000
             },
             {
-                "string": "佈署時，角色獲得鑽石神殿 {} 秒",
+                "string": "佈署時，角色獲得鑽石神殿 # 秒",
                 "negate": false
             }
         ],
@@ -46614,7 +46754,7 @@
         }
     },
     "merged_2681": {
-        "ref": "Character Gains Gloom Shrine for {} seconds on deployment",
+        "ref": "Character Gains Gloom Shrine for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_gloom_shrine_on_summon_ms",
         "matchers": [
@@ -46624,7 +46764,7 @@
                 "value": 1000
             },
             {
-                "string": "佈署時，角色獲得漆黑神殿 {} 秒",
+                "string": "佈署時，角色獲得漆黑神殿 # 秒",
                 "negate": false
             }
         ],
@@ -46633,7 +46773,7 @@
         }
     },
     "merged_2682": {
-        "ref": "Character Gains Resistance Shrine for {} seconds on deployment",
+        "ref": "Character Gains Resistance Shrine for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_resistance_shrine_on_summon_ms",
         "matchers": [
@@ -46643,7 +46783,7 @@
                 "value": 1000
             },
             {
-                "string": "佈署時，角色獲得抗性神殿 {} 秒",
+                "string": "佈署時，角色獲得抗性神殿 # 秒",
                 "negate": false
             }
         ],
@@ -46652,7 +46792,7 @@
         }
     },
     "merged_2683": {
-        "ref": "Character Gains Massive Shrine for {} seconds on deployment",
+        "ref": "Character Gains Massive Shrine for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_massive_shrine_on_summon_ms",
         "matchers": [
@@ -46662,7 +46802,7 @@
                 "value": 1000
             },
             {
-                "string": "佈署時，角色獲得威猛神殿 {} 秒",
+                "string": "佈署時，角色獲得威猛神殿 # 秒",
                 "negate": false
             }
         ],
@@ -46671,7 +46811,7 @@
         }
     },
     "merged_2684": {
-        "ref": "Character Gains Echoing Shrine for {} seconds on deployment",
+        "ref": "Character Gains Echoing Shrine for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_echoing_shrine_on_summon_ms",
         "matchers": [
@@ -46681,7 +46821,7 @@
                 "value": 1000
             },
             {
-                "string": "佈署時，角色獲得回響神殿 {} 秒",
+                "string": "佈署時，角色獲得回響神殿 # 秒",
                 "negate": false
             }
         ],
@@ -46690,7 +46830,7 @@
         }
     },
     "merged_2685": {
-        "ref": "Character Gains Impenetrable Shrine for {} seconds on deployment",
+        "ref": "Character Gains Impenetrable Shrine for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_impenetrable_shrine_on_summon_ms",
         "matchers": [
@@ -46700,7 +46840,7 @@
                 "value": 1000
             },
             {
-                "string": "佈署時，角色獲得無畏神殿 {} 秒",
+                "string": "佈署時，角色獲得無畏神殿 # 秒",
                 "negate": false
             }
         ],
@@ -46709,7 +46849,7 @@
         }
     },
     "merged_2686": {
-        "ref": "Character Gains Adrenaline for {} seconds on deployment",
+        "ref": "Character Gains Adrenaline for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_adrenaline_on_summon_ms",
         "matchers": [
@@ -46719,7 +46859,7 @@
                 "value": 1000
             },
             {
-                "string": "佈署時，角色獲得腎上腺素 {} 秒",
+                "string": "佈署時，角色獲得腎上腺素 # 秒",
                 "negate": false
             }
         ],
@@ -46728,7 +46868,7 @@
         }
     },
     "merged_2687": {
-        "ref": "Character Gains Endurance Charges for {} seconds on deployment",
+        "ref": "Character Gains Endurance Charges for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_endurance_charge_on_summon_ms",
         "matchers": [
@@ -46738,7 +46878,7 @@
                 "value": 1000
             },
             {
-                "string": "佈署時，角色獲得耐力球 {} 秒",
+                "string": "佈署時，角色獲得耐力球 # 秒",
                 "negate": false
             }
         ],
@@ -46747,7 +46887,7 @@
         }
     },
     "merged_2688": {
-        "ref": "Character Gains Power Charges for {} seconds on deployment",
+        "ref": "Character Gains Power Charges for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_power_charge_on_summon_ms",
         "matchers": [
@@ -46757,7 +46897,7 @@
                 "value": 1000
             },
             {
-                "string": "佈署時，角色獲得暴擊球 {} 秒",
+                "string": "佈署時，角色獲得暴擊球 # 秒",
                 "negate": false
             }
         ],
@@ -46766,7 +46906,7 @@
         }
     },
     "merged_2689": {
-        "ref": "Character Gains Frenzy Charges for {} seconds on deployment",
+        "ref": "Character Gains Frenzy Charges for # seconds on deployment",
         "better": 1,
         "id": "sentinel_drone_player_gains_frenzy_charge_on_summon_ms",
         "matchers": [
@@ -46776,7 +46916,7 @@
                 "value": 1000
             },
             {
-                "string": "佈署時，角色獲得狂怒球 {} 秒",
+                "string": "佈署時，角色獲得狂怒球 # 秒",
                 "negate": false
             }
         ],
@@ -47455,7 +47595,7 @@
         }
     },
     "merged_2735": {
-        "ref": "Passives in Radius of {} can be Allocated\\nwithout being connected to your tree",
+        "ref": "Passives in Radius of # can be Allocated\\nwithout being connected to your tree",
         "better": 1,
         "id": "local_unique_jewel_disconnected_passives_can_be_allocated_around_keystone_hash",
         "matchers": [
@@ -47497,12 +47637,12 @@
         }
     },
     "merged_2738": {
-        "ref": "Empowered Monsters drop {} Currency Rewards",
+        "ref": "Empowered Monsters drop # Currency Rewards",
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_currency_rewards",
         "matchers": [
             {
-                "string": "賦予怪物掉落 {} 個通貨獎勵",
+                "string": "賦予怪物掉落 # 個通貨獎勵",
                 "negate": false
             }
         ],
@@ -47511,12 +47651,12 @@
         }
     },
     "merged_2739": {
-        "ref": "Empowered Monsters drop {} Sentinel Rewards",
+        "ref": "Empowered Monsters drop # Sentinel Rewards",
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_sentinel_rewards",
         "matchers": [
             {
-                "string": "賦予怪物掉落 {} 個守望獎勵",
+                "string": "賦予怪物掉落 # 個守望獎勵",
                 "negate": false
             }
         ],
@@ -47525,12 +47665,12 @@
         }
     },
     "merged_2740": {
-        "ref": "Empowered Monsters drop {} Divination Card Rewards",
+        "ref": "Empowered Monsters drop # Divination Card Rewards",
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_divination_card_rewards",
         "matchers": [
             {
-                "string": "賦予怪物掉落 {} 張命運卡獎勵",
+                "string": "賦予怪物掉落 # 張命運卡獎勵",
                 "negate": false
             }
         ],
@@ -47539,12 +47679,12 @@
         }
     },
     "merged_2741": {
-        "ref": "Empowered Monsters drop {} Scarab Rewards",
+        "ref": "Empowered Monsters drop # Scarab Rewards",
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_scarab_rewards",
         "matchers": [
             {
-                "string": "賦予怪物掉落 {} 個聖甲蟲獎勵",
+                "string": "賦予怪物掉落 # 個聖甲蟲獎勵",
                 "negate": false
             }
         ],
@@ -47553,12 +47693,12 @@
         }
     },
     "merged_2742": {
-        "ref": "Empowered Monsters drop {} Unique Rewards",
+        "ref": "Empowered Monsters drop # Unique Rewards",
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_unique_rewards",
         "matchers": [
             {
-                "string": "賦予怪物掉落 {} 個傳奇獎勵",
+                "string": "賦予怪物掉落 # 個傳奇獎勵",
                 "negate": false
             }
         ],
@@ -47567,12 +47707,12 @@
         }
     },
     "merged_2743": {
-        "ref": "Empowered Monsters drop {} Map Rewards",
+        "ref": "Empowered Monsters drop # Map Rewards",
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_map_rewards",
         "matchers": [
             {
-                "string": "賦予怪物掉落 {} 張地圖獎勵",
+                "string": "賦予怪物掉落 # 張地圖獎勵",
                 "negate": false
             }
         ],
@@ -47581,12 +47721,12 @@
         }
     },
     "merged_2744": {
-        "ref": "Empowered Monsters drop {} Fragment Rewards",
+        "ref": "Empowered Monsters drop # Fragment Rewards",
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_fragment_rewards",
         "matchers": [
             {
-                "string": "賦予怪物掉落 {} 個碎片獎勵",
+                "string": "賦予怪物掉落 # 個碎片獎勵",
                 "negate": false
             }
         ],
@@ -47628,11 +47768,11 @@
         "id": "sentinel_tag_difficulty_+permillage_final_per_previous_tag",
         "matchers": [
             {
-                "string": "每個賦予的敵人有 {}% 更多賦予",
+                "string": "每個賦予的敵人有 #% 更多賦予",
                 "negate": false
             },
             {
-                "string": "每個賦予的敵人有 {}% 更少賦予",
+                "string": "每個賦予的敵人有 #% 更少賦予",
                 "negate": true
             }
         ],
@@ -47646,11 +47786,11 @@
         "id": "sentinel_tag_reward_chance_+permillage_per_previous_tag",
         "matchers": [
             {
-                "string": "每個賦予敵人，增加 {}% 機率附加 1 個獎勵",
+                "string": "每個賦予敵人，增加 #% 機率附加 1 個獎勵",
                 "negate": false
             },
             {
-                "string": "每個賦予敵人，減少 {}% 機率附加 1 個獎勵",
+                "string": "每個賦予敵人，減少 #% 機率附加 1 個獎勵",
                 "negate": true
             }
         ],
@@ -47664,7 +47804,7 @@
         "id": "sentinel_tag_upgrade_target_to_rare_%",
         "matchers": [
             {
-                "string": "當普通敵人被賦予時，有 {}% 機率升級至稀有",
+                "string": "當普通敵人被賦予時，有 #% 機率升級至稀有",
                 "negate": false
             }
         ],
@@ -47729,7 +47869,7 @@
         }
     },
     "merged_2754": {
-        "ref": "Petrifies Empowered Enemies for {} seconds",
+        "ref": "Petrifies Empowered Enemies for # seconds",
         "better": 1,
         "id": "sentinel_petrify_tagged_monsters_ms",
         "matchers": [
@@ -47739,7 +47879,7 @@
                 "value": 1000
             },
             {
-                "string": "石化賦予敵人 {} 秒",
+                "string": "石化賦予敵人 # 秒",
                 "negate": false
             }
         ],
@@ -48182,12 +48322,12 @@
         }
     },
     "merged_2782": {
-        "ref": "Sacrifice up to {} to receive double on Trial completion",
+        "ref": "Sacrifice up to # to receive double on Trial completion",
         "better": 1,
         "id": "ultimatum_wager_type_hash",
         "matchers": [
             {
-                "string": "獻祭最多 {}，以在完成試煉時獲得兩倍獎勵",
+                "string": "獻祭最多 #，以在完成試煉時獲得兩倍獎勵",
                 "negate": false
             }
         ],
@@ -48999,16 +49139,16 @@
         }
     },
     "merged_2827": {
-        "ref": "Monsters take {}% more Damage",
+        "ref": "Monsters take #% more Damage",
         "better": 1,
         "id": "map_custom_league_damage_taken_+%_final",
         "matchers": [
             {
-                "string": "怪物承受 {}% 更多傷害",
+                "string": "怪物承受 #% 更多傷害",
                 "negate": false
             },
             {
-                "string": "怪物承受 {}% 更少傷害",
+                "string": "怪物承受 #% 更少傷害",
                 "negate": true
             }
         ],
@@ -50734,7 +50874,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_2287831219"
+                ]
+            }
         }
     },
     "merged_2927": {
@@ -50748,7 +50892,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_3096543632"
+                ]
+            }
         }
     },
     "merged_2928": {
@@ -50833,18 +50981,22 @@
         }
     },
     "merged_2932": {
-        "ref": "Duplicates up to {} random Offer Rewards upon defeating the Herald of the Scourge",
+        "ref": "Duplicates up to # random Offer Rewards upon defeating the Herald of the Scourge",
         "better": 1,
         "id": "map_lycia2_duplicate_up_to_x_deferred_rewards",
         "matchers": [
             {
-                "string": "擊敗災魘先鋒時，複製最多 {} 隨機獎勵",
+                "string": "擊敗災魘先鋒時，複製最多 # 隨機獎勵",
                 "negate": false,
                 "value": 1
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_502549687"
+                ]
+            }
         }
     },
     "merged_2933": {
@@ -51149,17 +51301,21 @@
         }
     },
     "merged_2949": {
-        "ref": "Cannot be used with Trials below level {}",
+        "ref": "Cannot be used with Trials below level #",
         "better": 1,
         "id": "local_unique_relic_sanctum_level_restriction",
         "matchers": [
             {
-                "string": "不能和等級低於 {} 的試煉一起使用",
+                "string": "不能和等級低於 # 的試煉一起使用",
                 "negate": false
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_1512067281"
+                ]
+            }
         }
     },
     "merged_2950": {
