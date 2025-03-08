@@ -1,10 +1,23 @@
 import { ITEM_BY_REF } from "@/assets/data";
 import { AppConfig } from "@/web/Config";
 
+function cmtHantBaseType(name: string) {
+  for (const sp of ["之", "的"]) {
+    const elems = name.split(sp);
+    if (elems.length > 1) {
+      return elems.pop();
+    }
+  }
+
+  return name;
+}
+
 export function magicBasetype(name: string) {
-  let separator = " ";
+  const separator = " ";
   if (AppConfig().language === "cmn-Hant") {
-    separator = /[\u4e00-\u9fa5]/.test(name) ? "" : " ";
+    if (/[\u4e00-\u9fa5]/.test(name)) {
+      return cmtHantBaseType(name);
+    }
   }
   const words = name.split(separator);
 
