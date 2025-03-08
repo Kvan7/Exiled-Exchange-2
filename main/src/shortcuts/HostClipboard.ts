@@ -140,6 +140,11 @@ const LANGUAGE_DETECTOR = [
     firstLine: "物品種類: ",
   },
   {
+    lang: "cmn-Hant",
+    // when it is uncut gem
+    firstLine: "稀有度: 通貨",
+  },
+  {
     lang: "cmn-Hans",
     firstLine: "物品类别: ",
   },
