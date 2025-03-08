@@ -1,23 +1,10 @@
-import { ITEM_BY_REF } from "@/assets/data";
+import { ITEM_BY_REF, ITEM_BY_TRANSLATED } from "@/assets/data";
 import { AppConfig } from "@/web/Config";
 
-function cmtHantBaseType(name: string) {
-  for (const sp of ["之", "的"]) {
-    const elems = name.split(sp);
-    if (elems.length > 1) {
-      return elems.pop();
-    }
-  }
-
-  return name;
-}
-
 export function magicBasetype(name: string) {
-  const separator = " ";
+  let separator = " ";
   if (AppConfig().language === "cmn-Hant") {
-    if (/[\u4e00-\u9fa5]/.test(name)) {
-      return cmtHantBaseType(name);
-    }
+    separator = /[\u4e00-\u9fa5]/.test(name) ? "" : " ";
   }
   const words = name.split(separator);
 
@@ -29,7 +16,9 @@ export function magicBasetype(name: string) {
 
   const result = perm
     .map((name) => {
-      const result = ITEM_BY_REF("ITEM", name);
+      // HACK: Remember to remove "by translated" when controller copy is fixed
+      const result =
+        ITEM_BY_REF("ITEM", name) ?? ITEM_BY_TRANSLATED("ITEM", name);
       return { name, found: result && result[0].craftable };
     })
     .filter((res) => res.found)
