@@ -108,6 +108,11 @@ const LANGUAGE_DETECTOR = [
     firstLine: "Item Class: ",
   },
   {
+    // when it is uncut gem
+    lang: "en",
+    firstLine: "Rarity: Currency",
+  },
+  {
     lang: "ru",
     firstLine: "Класс предмета: ",
   },
