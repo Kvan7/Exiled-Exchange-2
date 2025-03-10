@@ -42,11 +42,11 @@ export class HostClipboard {
     this.pollPromise = new Promise((resolve, reject) => {
       const poll = () => {
         let textAfter = clipboard.readText();
-
-        if (isUncutSkillGem(textAfter)) {
-          // Insert item class line at start
-          textAfter = "Item Class: UncutSkillGem\n" + textAfter;
-        }
+        // move this check to renderer to support manual ctrl-c ctrl-v price check
+        // if (isUncutSkillGem(textAfter)) {
+        //   // Insert item class line at start
+        //   textAfter = "Item Class: UncutSkillGem\n" + textAfter;
+        // }
 
         if (isPoeItem(textAfter)) {
           if (this.shouldRestore) {
@@ -102,41 +102,15 @@ function isPoeItem(text: string) {
   return LANGUAGE_DETECTOR.find(({ firstLine }) => text.startsWith(firstLine));
 }
 
-function isUncutSkillGem(text: string) {
-  const lines = text.split("\n");
-  if (lines.length < 2) return false;
-
-  if (
-    lines[0].startsWith("Rarity: Currency") &&
-    UNCUT_SKILL_GEM_DETECTOR.find(({ firstLine }) =>
-      lines[1].startsWith(firstLine),
-    )
-  ) {
-    return true;
-  }
-
-  return false;
-}
-
-const UNCUT_SKILL_GEM_DETECTOR = [
-  {
-    lang: "en",
-    firstLine: "Uncut Skill Gem",
-  },
-  {
-    lang: "en",
-    firstLine: "Uncut Spirit Gem",
-  },
-  {
-    lang: "en",
-    firstLine: "Uncut Support Gem",
-  },
-];
-
 const LANGUAGE_DETECTOR = [
   {
     lang: "en",
     firstLine: "Item Class: ",
+  },
+  {
+    // when it is uncut gem
+    lang: "en",
+    firstLine: "Rarity: Currency",
   },
   {
     lang: "ru",
@@ -169,6 +143,11 @@ const LANGUAGE_DETECTOR = [
   {
     lang: "cmn-Hant",
     firstLine: "物品種類: ",
+  },
+  {
+    lang: "cmn-Hant",
+    // when it is uncut gem
+    firstLine: "稀有度: 通貨",
   },
   {
     lang: "cmn-Hans",

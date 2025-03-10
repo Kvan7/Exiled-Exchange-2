@@ -376,9 +376,43 @@ function pickCorrectVariant(item: ParserState) {
   // i.e. corrupted implicit on Two-Stone Ring
 }
 
+function isUncutSkillGem(line: string) {
+  return UNCUT_SKILL_GEM_DETECTOR.find(({ firstLine }) =>
+    line.startsWith(firstLine),
+  );
+}
+
+const UNCUT_SKILL_GEM_DETECTOR = [
+  {
+    lang: "en",
+    firstLine: "Uncut Skill Gem",
+  },
+  {
+    lang: "en",
+    firstLine: "Uncut Spirit Gem",
+  },
+  {
+    lang: "en",
+    firstLine: "Uncut Support Gem",
+  },
+  {
+    lang: "cmn-Hant",
+    firstLine: "技能寶石",
+  },
+  {
+    lang: "cmn-Hant",
+    firstLine: "輔助寶石",
+  },
+  {
+    lang: "cmn-Hant",
+    firstLine: "精魂寶石",
+  },
+];
+
 function parseNamePlate(section: string[]) {
   let line = section.shift();
-  if (!line?.startsWith(_$.ITEM_CLASS)) {
+  // move the uncut gem check here to support manual ctrl-c ctrl-v
+  if (!line?.startsWith(_$.ITEM_CLASS) && !isUncutSkillGem(section[0])) {
     return err("item.parse_error");
   }
 
@@ -907,8 +941,8 @@ export function parseModifiersPoe2(section: string[], item: ParsedItem) {
       type: enchantOrScourgeOrRune.endsWith(ENCHANT_LINE)
         ? ModifierType.Enchant
         : enchantOrScourgeOrRune.endsWith(SCOURGE_LINE)
-          ? ModifierType.Scourge
-          : ModifierType.Rune,
+        ? ModifierType.Scourge
+        : ModifierType.Rune,
       tags: [],
     };
     foundAnyMods = parseStatsFromMod(lines, item, { info: modInfo, stats: [] });
