@@ -379,6 +379,7 @@ class Parser:
             stat = stat.replace(match, "#")
 
         stat = stat.replace("{0:+d}", "+#")
+        stat = stat.replace("{}", "#")
 
         if len(stat) == 0:
             return None

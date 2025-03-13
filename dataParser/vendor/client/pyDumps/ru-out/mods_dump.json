@@ -365,8 +365,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_3484657501",
-                    "explicit.stat_809229260"
+                    "explicit.stat_809229260",
+                    "explicit.stat_3484657501"
                 ],
                 "implicit": [
                     "implicit.stat_809229260"
@@ -432,8 +432,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2866361420",
-                    "explicit.stat_1062208444"
+                    "explicit.stat_1062208444",
+                    "explicit.stat_2866361420"
                 ],
                 "enchant": [
                     "enchant.stat_2866361420",
@@ -1596,7 +1596,14 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2797971005"
+                ],
+                "implicit": [
+                    "implicit.stat_2797971005"
+                ]
+            }
         }
     },
     "merged_69": {
@@ -1638,8 +1645,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_681332047",
-                    "explicit.stat_210067635"
+                    "explicit.stat_210067635",
+                    "explicit.stat_681332047"
                 ],
                 "implicit": [
                     "implicit.stat_681332047"
@@ -2018,7 +2025,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3714003708"
+                ]
+            }
         }
     },
     "merged_87": {
@@ -4207,7 +4218,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "implicit": [
+                    "implicit.stat_3675300253"
+                ]
+            }
         }
     },
     "merged_185": {
@@ -4340,8 +4355,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_3885634897",
-                    "explicit.stat_795138349"
+                    "explicit.stat_795138349",
+                    "explicit.stat_3885634897"
                 ],
                 "enchant": [
                     "enchant.stat_3885634897"
@@ -4736,7 +4751,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_315791320"
+                ]
+            }
         }
     },
     "merged_211": {
@@ -5155,7 +5174,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3192728503"
+                ]
+            }
         }
     },
     "merged_230": {
@@ -5933,7 +5956,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1181419800"
+                ]
+            }
         }
     },
     "merged_266": {
@@ -6019,8 +6046,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_1030153674",
-                    "explicit.stat_1604736568"
+                    "explicit.stat_1604736568",
+                    "explicit.stat_1030153674"
                 ],
                 "rune": [
                     "rune.stat_1030153674"
@@ -6065,7 +6092,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2594634307"
+                ]
+            }
         }
     },
     "merged_272": {
@@ -6349,7 +6380,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2957407601"
+                ]
+            }
         }
     },
     "merged_286": {
@@ -8441,7 +8476,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1466716929"
+                ]
+            }
         }
     },
     "merged_390": {
@@ -8477,7 +8516,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2714810050"
+                ]
+            }
         }
     },
     "merged_392": {
@@ -8909,7 +8952,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_947072590"
+                ]
+            }
         }
     },
     "merged_414": {
@@ -9236,7 +9283,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3414243317"
+                ]
+            }
         }
     },
     "merged_431": {
@@ -9897,7 +9948,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_892489594"
+                ]
+            }
         }
     },
     "merged_465": {
@@ -10037,7 +10092,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2995914769"
+                ]
+            }
         }
     },
     "merged_473": {
@@ -10083,7 +10142,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1361645249"
+                ]
+            }
         }
     },
     "merged_476": {
@@ -10205,7 +10268,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3679696791"
+                ]
+            }
         }
     },
     "merged_483": {
@@ -12048,7 +12115,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_704919631"
+                ]
+            }
         }
     },
     "merged_589": {
@@ -13556,7 +13627,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2022332470"
+                ]
+            }
         }
     },
     "merged_668": {
@@ -13636,7 +13711,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1488650448"
+                ]
+            }
         }
     },
     "merged_672": {
@@ -14015,7 +14094,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_701564564"
+                ]
+            }
         }
     },
     "merged_693": {
@@ -14029,7 +14112,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1158842087"
+                ]
+            }
         }
     },
     "merged_694": {
@@ -14043,7 +14130,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3550887155"
+                ]
+            }
         }
     },
     "merged_695": {
@@ -15041,7 +15132,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_57326096"
+                ]
+            }
         },
         "fromAreaMods": true
     },
@@ -15518,9 +15613,15 @@
         "trade": {
             "ids": {
                 "explicit": [
+<<<<<<< HEAD
                     "explicit.stat_2306002879",
                     "explicit.stat_2390685262",
                     "explicit.stat_349586058"
+=======
+                    "explicit.stat_2390685262",
+                    "explicit.stat_349586058",
+                    "explicit.stat_2306002879"
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
                 ],
                 "enchant": [
                     "enchant.stat_2306002879"
@@ -15740,7 +15841,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "implicit": [
+                    "implicit.stat_4041853756"
+                ]
+            }
         }
     },
     "merged_774": {
@@ -15826,7 +15931,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "implicit": [
+                    "implicit.stat_3376302538"
+                ]
+            }
         }
     },
     "merged_779": {
@@ -15941,7 +16050,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2571125745"
+                ]
+            }
         }
     },
     "merged_782": {
@@ -15959,7 +16072,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2388936716"
+                ]
+            }
         }
     },
     "merged_783": {
@@ -15977,7 +16094,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_4098286334"
+                ]
+            }
         }
     },
     "merged_784": {
@@ -16031,7 +16152,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1090596078"
+                ]
+            }
         }
     },
     "merged_786": {
@@ -16059,7 +16184,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1653625239"
+                ]
+            }
         }
     },
     "merged_787": {
@@ -16135,7 +16264,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_624534143"
+                ]
+            }
         }
     },
     "merged_790": {
@@ -16163,7 +16296,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2440265466"
+                ]
+            }
         }
     },
     "merged_791": {
@@ -16191,7 +16328,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3049505189"
+                ]
+            }
         }
     },
     "merged_792": {
@@ -16345,7 +16486,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2694800111"
+                ]
+            }
         }
     },
     "merged_798": {
@@ -16371,7 +16516,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3078574625"
+                ]
+            }
         }
     },
     "merged_799": {
@@ -16455,7 +16604,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3428124128"
+                ]
+            }
         }
     },
     "merged_802": {
@@ -16473,7 +16626,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1174954559"
+                ]
+            }
         }
     },
     "merged_803": {
@@ -16499,7 +16656,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3350944114"
+                ]
+            }
         }
     },
     "merged_804": {
@@ -16525,7 +16686,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1769611692"
+                ]
+            }
         }
     },
     "merged_805": {
@@ -16551,7 +16716,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3465791711"
+                ]
+            }
         }
     },
     "merged_806": {
@@ -16577,7 +16746,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_551040294"
+                ]
+            }
         }
     },
     "merged_807": {
@@ -16605,7 +16778,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2323782229"
+                ]
+            }
         }
     },
     "merged_808": {
@@ -16631,7 +16808,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3962960008"
+                ]
+            }
         }
     },
     "merged_809": {
@@ -16649,7 +16830,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1770833858"
+                ]
+            }
         }
     },
     "merged_810": {
@@ -16705,7 +16890,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2282052746"
+                ]
+            }
         }
     },
     "merged_812": {
@@ -16731,7 +16920,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1345835998"
+                ]
+            }
         }
     },
     "merged_813": {
@@ -16749,7 +16942,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_28208665"
+                ]
+            }
         }
     },
     "merged_814": {
@@ -16799,7 +16996,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_937291386"
+                ]
+            }
         }
     },
     "merged_816": {
@@ -16825,7 +17026,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1031644647"
+                ]
+            }
         }
     },
     "merged_817": {
@@ -16851,7 +17056,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3979184174"
+                ]
+            }
         }
     },
     "merged_818": {
@@ -16877,7 +17086,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_4219853180"
+                ]
+            }
         }
     },
     "merged_819": {
@@ -16960,7 +17173,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1314787770"
+                ]
+            }
         }
     },
     "merged_823": {
@@ -17008,7 +17225,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_4255069232"
+                ]
+            }
         }
     },
     "merged_825": {
@@ -17026,7 +17247,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3119172063"
+                ]
+            }
         }
     },
     "merged_826": {
@@ -25130,10 +25355,16 @@
         "trade": {
             "ids": {
                 "explicit": [
+                    "explicit.stat_1913583994",
                     "explicit.stat_2306522833",
+<<<<<<< HEAD
                     "explicit.stat_1913583994",
                     "explicit.stat_2488361432",
                     "explicit.stat_2390685262"
+=======
+                    "explicit.stat_2390685262",
+                    "explicit.stat_2488361432"
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
                 ]
             }
         }
@@ -29377,9 +29608,15 @@
         "trade": {
             "ids": {
                 "explicit": [
+<<<<<<< HEAD
                     "explicit.stat_398335579",
                     "explicit.stat_4007938693",
                     "explicit.stat_1414945937"
+=======
+                    "explicit.stat_1414945937",
+                    "explicit.stat_4007938693",
+                    "explicit.stat_398335579"
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
                 ]
             }
         }
@@ -36167,7 +36404,9 @@
         "trade": {
             "ids": {
                 "explicit": [
+                    "explicit.stat_4219583418",
                     "explicit.stat_1640965354",
+<<<<<<< HEAD
                     "explicit.stat_4219583418",
                     "explicit.stat_1539368271"
                 ],
@@ -36176,6 +36415,15 @@
                     "implicit.stat_3051490307",
                     "implicit.stat_4219583418",
                     "implicit.stat_1539368271"
+=======
+                    "explicit.stat_1539368271"
+                ],
+                "implicit": [
+                    "implicit.stat_1539368271",
+                    "implicit.stat_3051490307",
+                    "implicit.stat_4219583418",
+                    "implicit.stat_1640965354"
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
                 ]
             }
         }
@@ -39437,13 +39685,19 @@
         "trade": {
             "ids": {
                 "explicit": [
+<<<<<<< HEAD
                     "explicit.stat_2306002879",
                     "explicit.stat_2390685262",
                     "explicit.stat_2017682521"
+=======
+                    "explicit.stat_2017682521",
+                    "explicit.stat_2306002879",
+                    "explicit.stat_2390685262"
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
                 ],
                 "enchant": [
-                    "enchant.stat_2017682521",
-                    "enchant.stat_2306002879"
+                    "enchant.stat_2306002879",
+                    "enchant.stat_2017682521"
                 ]
             }
         }
@@ -39461,13 +39715,19 @@
         "trade": {
             "ids": {
                 "explicit": [
+<<<<<<< HEAD
                     "explicit.stat_2306002879",
                     "explicit.stat_2390685262",
                     "explicit.stat_2017682521"
+=======
+                    "explicit.stat_2017682521",
+                    "explicit.stat_2306002879",
+                    "explicit.stat_2390685262"
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
                 ],
                 "enchant": [
-                    "enchant.stat_2017682521",
-                    "enchant.stat_2306002879"
+                    "enchant.stat_2306002879",
+                    "enchant.stat_2017682521"
                 ]
             }
         }
@@ -39485,13 +39745,19 @@
         "trade": {
             "ids": {
                 "explicit": [
+<<<<<<< HEAD
                     "explicit.stat_2306002879",
                     "explicit.stat_2390685262",
                     "explicit.stat_2017682521"
+=======
+                    "explicit.stat_2017682521",
+                    "explicit.stat_2306002879",
+                    "explicit.stat_2390685262"
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
                 ],
                 "enchant": [
-                    "enchant.stat_2017682521",
-                    "enchant.stat_2306002879"
+                    "enchant.stat_2306002879",
+                    "enchant.stat_2017682521"
                 ]
             }
         }
@@ -39509,13 +39775,19 @@
         "trade": {
             "ids": {
                 "explicit": [
+<<<<<<< HEAD
                     "explicit.stat_2306002879",
                     "explicit.stat_2390685262",
                     "explicit.stat_2017682521"
+=======
+                    "explicit.stat_2017682521",
+                    "explicit.stat_2306002879",
+                    "explicit.stat_2390685262"
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
                 ],
                 "enchant": [
-                    "enchant.stat_2017682521",
-                    "enchant.stat_2306002879"
+                    "enchant.stat_2306002879",
+                    "enchant.stat_2017682521"
                 ]
             }
         }
@@ -46181,7 +46453,11 @@
         }
     },
     "merged_2652": {
+<<<<<<< HEAD
         "ref": "Area contains {} additional Smuggler's Caches",
+=======
+        "ref": "Area contains # additional Smuggler's Caches",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "map_spawn_x_additional_heist_smugglers_caches",
         "matchers": [
@@ -46191,7 +46467,7 @@
                 "value": 1
             },
             {
-                "string": "В области можно встретить дополнительных тайников контрабандиста: {}",
+                "string": "В области можно встретить дополнительных тайников контрабандиста: #",
                 "negate": false
             }
         ],
@@ -46573,7 +46849,11 @@
         }
     },
     "merged_2676": {
+<<<<<<< HEAD
         "ref": "Character Gains Unholy Might for {} seconds on deployment",
+=======
+        "ref": "Character Gains Unholy Might for # seconds on deployment",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_drone_player_gains_unholy_might_on_summon_ms",
         "matchers": [
@@ -46583,7 +46863,7 @@
                 "value": 1000
             },
             {
-                "string": "Персонаж получает Нечестивое могущества на {} секунд(-ы) при вызове",
+                "string": "Персонаж получает Нечестивое могущества на # секунд(-ы) при вызове",
                 "negate": false
             }
         ],
@@ -46592,7 +46872,11 @@
         }
     },
     "merged_2677": {
+<<<<<<< HEAD
         "ref": "Character Gains Tailwind for {} seconds on deployment",
+=======
+        "ref": "Character Gains Tailwind for # seconds on deployment",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_drone_player_gains_tailwind_on_summon_ms",
         "matchers": [
@@ -46602,7 +46886,7 @@
                 "value": 1000
             },
             {
-                "string": "Персонаж получает Попутный ветер на {} секунд(-ы) при вызове",
+                "string": "Персонаж получает Попутный ветер на # секунд(-ы) при вызове",
                 "negate": false
             }
         ],
@@ -46611,7 +46895,11 @@
         }
     },
     "merged_2678": {
+<<<<<<< HEAD
         "ref": "Character Gains Acceleration Shrine for {} seconds on deployment",
+=======
+        "ref": "Character Gains Acceleration Shrine for # seconds on deployment",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_drone_player_gains_accelerating_shrine_on_summon_ms",
         "matchers": [
@@ -46621,7 +46909,7 @@
                 "value": 1000
             },
             {
-                "string": "Персонаж получает эффект алтаря скорости на {} секунд(-ы) при вызове",
+                "string": "Персонаж получает эффект алтаря скорости на # секунд(-ы) при вызове",
                 "negate": false
             }
         ],
@@ -46630,7 +46918,11 @@
         }
     },
     "merged_2679": {
+<<<<<<< HEAD
         "ref": "Character Gains Charged Shrine for {} seconds on deployment",
+=======
+        "ref": "Character Gains Charged Shrine for # seconds on deployment",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_drone_player_gains_resonating_shrine_on_summon_ms",
         "matchers": [
@@ -46640,7 +46932,7 @@
                 "value": 1000
             },
             {
-                "string": "Персонаж получает эффект заряженного алтаря на {} секунд(-ы) при вызове",
+                "string": "Персонаж получает эффект заряженного алтаря на # секунд(-ы) при вызове",
                 "negate": false
             }
         ],
@@ -46649,7 +46941,11 @@
         }
     },
     "merged_2680": {
+<<<<<<< HEAD
         "ref": "Character Gains Diamond Shrine for {} seconds on deployment",
+=======
+        "ref": "Character Gains Diamond Shrine for # seconds on deployment",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_drone_player_gains_diamond_shrine_on_summon_ms",
         "matchers": [
@@ -46659,7 +46955,7 @@
                 "value": 1000
             },
             {
-                "string": "Персонаж получает эффект алтаря алтаря алмазов на {} секунд(-ы) при вызове",
+                "string": "Персонаж получает эффект алтаря алтаря алмазов на # секунд(-ы) при вызове",
                 "negate": false
             }
         ],
@@ -46668,7 +46964,11 @@
         }
     },
     "merged_2681": {
+<<<<<<< HEAD
         "ref": "Character Gains Gloom Shrine for {} seconds on deployment",
+=======
+        "ref": "Character Gains Gloom Shrine for # seconds on deployment",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_drone_player_gains_gloom_shrine_on_summon_ms",
         "matchers": [
@@ -46678,7 +46978,7 @@
                 "value": 1000
             },
             {
-                "string": "Персонаж получает эффект алтаря мрака на {} секунд(-ы) при вызове",
+                "string": "Персонаж получает эффект алтаря мрака на # секунд(-ы) при вызове",
                 "negate": false
             }
         ],
@@ -46687,7 +46987,11 @@
         }
     },
     "merged_2682": {
+<<<<<<< HEAD
         "ref": "Character Gains Resistance Shrine for {} seconds on deployment",
+=======
+        "ref": "Character Gains Resistance Shrine for # seconds on deployment",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_drone_player_gains_resistance_shrine_on_summon_ms",
         "matchers": [
@@ -46697,7 +47001,7 @@
                 "value": 1000
             },
             {
-                "string": "Персонаж получает эффект алтаря выдержки на {} секунд(-ы) при вызове",
+                "string": "Персонаж получает эффект алтаря выдержки на # секунд(-ы) при вызове",
                 "negate": false
             }
         ],
@@ -46706,7 +47010,11 @@
         }
     },
     "merged_2683": {
+<<<<<<< HEAD
         "ref": "Character Gains Massive Shrine for {} seconds on deployment",
+=======
+        "ref": "Character Gains Massive Shrine for # seconds on deployment",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_drone_player_gains_massive_shrine_on_summon_ms",
         "matchers": [
@@ -46716,7 +47024,7 @@
                 "value": 1000
             },
             {
-                "string": "Персонаж получает эффект алтаря величия на {} секунд(-ы) при вызове",
+                "string": "Персонаж получает эффект алтаря величия на # секунд(-ы) при вызове",
                 "negate": false
             }
         ],
@@ -46725,7 +47033,11 @@
         }
     },
     "merged_2684": {
+<<<<<<< HEAD
         "ref": "Character Gains Echoing Shrine for {} seconds on deployment",
+=======
+        "ref": "Character Gains Echoing Shrine for # seconds on deployment",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_drone_player_gains_echoing_shrine_on_summon_ms",
         "matchers": [
@@ -46735,7 +47047,7 @@
                 "value": 1000
             },
             {
-                "string": "Персонаж получает эффект алтаря отражений на {} секунд(-ы) при вызове",
+                "string": "Персонаж получает эффект алтаря отражений на # секунд(-ы) при вызове",
                 "negate": false
             }
         ],
@@ -46744,7 +47056,11 @@
         }
     },
     "merged_2685": {
+<<<<<<< HEAD
         "ref": "Character Gains Impenetrable Shrine for {} seconds on deployment",
+=======
+        "ref": "Character Gains Impenetrable Shrine for # seconds on deployment",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_drone_player_gains_impenetrable_shrine_on_summon_ms",
         "matchers": [
@@ -46754,7 +47070,7 @@
                 "value": 1000
             },
             {
-                "string": "Персонаж получает эффект алтаря неуязвимости на {} секунд(-ы) при вызове",
+                "string": "Персонаж получает эффект алтаря неуязвимости на # секунд(-ы) при вызове",
                 "negate": false
             }
         ],
@@ -46763,7 +47079,11 @@
         }
     },
     "merged_2686": {
+<<<<<<< HEAD
         "ref": "Character Gains Adrenaline for {} seconds on deployment",
+=======
+        "ref": "Character Gains Adrenaline for # seconds on deployment",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_drone_player_gains_adrenaline_on_summon_ms",
         "matchers": [
@@ -46773,7 +47093,7 @@
                 "value": 1000
             },
             {
-                "string": "Персонаж получает адреналин на {} секунд(-ы) при вызове",
+                "string": "Персонаж получает адреналин на # секунд(-ы) при вызове",
                 "negate": false
             }
         ],
@@ -46782,7 +47102,11 @@
         }
     },
     "merged_2687": {
+<<<<<<< HEAD
         "ref": "Character Gains Endurance Charges for {} seconds on deployment",
+=======
+        "ref": "Character Gains Endurance Charges for # seconds on deployment",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_drone_player_gains_endurance_charge_on_summon_ms",
         "matchers": [
@@ -46792,7 +47116,7 @@
                 "value": 1000
             },
             {
-                "string": "Персонаж получает заряды выносливости на {} секунд(-ы) при вызове",
+                "string": "Персонаж получает заряды выносливости на # секунд(-ы) при вызове",
                 "negate": false
             }
         ],
@@ -46801,7 +47125,11 @@
         }
     },
     "merged_2688": {
+<<<<<<< HEAD
         "ref": "Character Gains Power Charges for {} seconds on deployment",
+=======
+        "ref": "Character Gains Power Charges for # seconds on deployment",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_drone_player_gains_power_charge_on_summon_ms",
         "matchers": [
@@ -46811,7 +47139,7 @@
                 "value": 1000
             },
             {
-                "string": "Персонаж получает заряды энергии на {} секунд(-ы) при вызове",
+                "string": "Персонаж получает заряды энергии на # секунд(-ы) при вызове",
                 "negate": false
             }
         ],
@@ -46820,7 +47148,11 @@
         }
     },
     "merged_2689": {
+<<<<<<< HEAD
         "ref": "Character Gains Frenzy Charges for {} seconds on deployment",
+=======
+        "ref": "Character Gains Frenzy Charges for # seconds on deployment",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_drone_player_gains_frenzy_charge_on_summon_ms",
         "matchers": [
@@ -46830,7 +47162,7 @@
                 "value": 1000
             },
             {
-                "string": "Персонаж получает заряды ярости на {} секунд(-ы) при вызове",
+                "string": "Персонаж получает заряды ярости на # секунд(-ы) при вызове",
                 "negate": false
             }
         ],
@@ -47509,12 +47841,16 @@
         }
     },
     "merged_2735": {
+<<<<<<< HEAD
         "ref": "Passives in Radius of {} can be Allocated\\nwithout being connected to your tree",
+=======
+        "ref": "Passives in Radius of # can be Allocated\\nwithout being connected to your tree",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "local_unique_jewel_disconnected_passives_can_be_allocated_around_keystone_hash",
         "matchers": [
             {
-                "string": "Пассивные умения в радиусе {} могут быть выбраны без связи с остальным деревом",
+                "string": "Пассивные умения в радиусе # могут быть выбраны без связи с остальным деревом",
                 "negate": false
             }
         ],
@@ -47551,12 +47887,16 @@
         }
     },
     "merged_2738": {
+<<<<<<< HEAD
         "ref": "Empowered Monsters drop {} Currency Rewards",
+=======
+        "ref": "Empowered Monsters drop # Currency Rewards",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_currency_rewards",
         "matchers": [
             {
-                "string": "Из усиленных монстров выпадает валюты: {}",
+                "string": "Из усиленных монстров выпадает валюты: #",
                 "negate": false
             }
         ],
@@ -47565,12 +47905,12 @@
         }
     },
     "merged_2739": {
-        "ref": "Empowered Monsters drop {} Sentinel Rewards",
+        "ref": "Empowered Monsters drop # Sentinel Rewards",
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_sentinel_rewards",
         "matchers": [
             {
-                "string": "Из усиленных монстров выпадает наград Дозора: {}",
+                "string": "Из усиленных монстров выпадает наград Дозора: #",
                 "negate": false
             }
         ],
@@ -47578,13 +47918,18 @@
             "ids": null
         }
     },
+<<<<<<< HEAD
+    "merged_2739": {
+        "ref": "Empowered Monsters drop {} Sentinel Rewards",
+=======
     "merged_2740": {
-        "ref": "Empowered Monsters drop {} Divination Card Rewards",
+        "ref": "Empowered Monsters drop # Divination Card Rewards",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_divination_card_rewards",
         "matchers": [
             {
-                "string": "Из усиленных монстров выпадает гадальных карт: {}",
+                "string": "Из усиленных монстров выпадает гадальных карт: #",
                 "negate": false
             }
         ],
@@ -47592,13 +47937,18 @@
             "ids": null
         }
     },
+<<<<<<< HEAD
+    "merged_2740": {
+        "ref": "Empowered Monsters drop {} Divination Card Rewards",
+=======
     "merged_2741": {
-        "ref": "Empowered Monsters drop {} Scarab Rewards",
+        "ref": "Empowered Monsters drop # Scarab Rewards",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_scarab_rewards",
         "matchers": [
             {
-                "string": "Из усиленных монстров выпадает скарабеев: {}",
+                "string": "Из усиленных монстров выпадает скарабеев: #",
                 "negate": false
             }
         ],
@@ -47606,13 +47956,18 @@
             "ids": null
         }
     },
+<<<<<<< HEAD
+    "merged_2741": {
+        "ref": "Empowered Monsters drop {} Scarab Rewards",
+=======
     "merged_2742": {
-        "ref": "Empowered Monsters drop {} Unique Rewards",
+        "ref": "Empowered Monsters drop # Unique Rewards",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_unique_rewards",
         "matchers": [
             {
-                "string": "Из усиленных монстров выпадает уникальных предметов: {}",
+                "string": "Из усиленных монстров выпадает уникальных предметов: #",
                 "negate": false
             }
         ],
@@ -47620,13 +47975,18 @@
             "ids": null
         }
     },
+<<<<<<< HEAD
+    "merged_2742": {
+        "ref": "Empowered Monsters drop {} Unique Rewards",
+=======
     "merged_2743": {
-        "ref": "Empowered Monsters drop {} Map Rewards",
+        "ref": "Empowered Monsters drop # Map Rewards",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_tagged_monsters_drop_x_map_rewards",
         "matchers": [
             {
-                "string": "Из усиленных монстров выпадает карт: {}",
+                "string": "Из усиленных монстров выпадает карт: #",
                 "negate": false
             }
         ],
@@ -47634,6 +47994,26 @@
             "ids": null
         }
     },
+<<<<<<< HEAD
+    "merged_2743": {
+        "ref": "Empowered Monsters drop {} Map Rewards",
+=======
+    "merged_2744": {
+        "ref": "Empowered Monsters drop # Fragment Rewards",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
+        "better": 1,
+        "id": "sentinel_tagged_monsters_drop_x_fragment_rewards",
+        "matchers": [
+            {
+                "string": "Из усиленных монстров выпадает фрагментов: #",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": null
+        }
+    },
+<<<<<<< HEAD
     "merged_2744": {
         "ref": "Empowered Monsters drop {} Fragment Rewards",
         "better": 1,
@@ -47648,6 +48028,8 @@
             "ids": null
         }
     },
+=======
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
     "merged_2745": {
         "ref": "Cannot Empower Enemies",
         "better": 1,
@@ -47682,11 +48064,11 @@
         "id": "sentinel_tag_difficulty_+permillage_final_per_previous_tag",
         "matchers": [
             {
-                "string": "На {}% более эффективное усиление за каждого усиленного врага",
+                "string": "На #% более эффективное усиление за каждого усиленного врага",
                 "negate": false
             },
             {
-                "string": "На {}% менее эффективное усиление за каждого усиленного врага",
+                "string": "На #% менее эффективное усиление за каждого усиленного врага",
                 "negate": true
             }
         ],
@@ -47700,11 +48082,11 @@
         "id": "sentinel_tag_reward_chance_+permillage_per_previous_tag",
         "matchers": [
             {
-                "string": "Шанс добавить награду увеличен на {}% за каждого усиленного врага",
+                "string": "Шанс добавить награду увеличен на #% за каждого усиленного врага",
                 "negate": false
             },
             {
-                "string": "Шанс добавить награду уменьшен на {}% за каждого усиленного врага",
+                "string": "Шанс добавить награду уменьшен на #% за каждого усиленного врага",
                 "negate": true
             }
         ],
@@ -47712,6 +48094,26 @@
             "ids": null
         }
     },
+<<<<<<< HEAD
+    "merged_2748": {
+        "ref": "#% increased chance to add a Reward for each Enemy Empowered",
+=======
+    "merged_2749": {
+        "ref": "#% chance to upgrade Normal Rarity Enemies to be Rare when they are Empowered",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
+        "better": 1,
+        "id": "sentinel_tag_upgrade_target_to_rare_%",
+        "matchers": [
+            {
+                "string": "Обычные враги с #% шансом могут стать редкими в момент их усиления",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": null
+        }
+    },
+<<<<<<< HEAD
     "merged_2749": {
         "ref": "#% chance to upgrade Normal Rarity Enemies to be Rare when they are Empowered",
         "better": 1,
@@ -47726,6 +48128,8 @@
             "ids": null
         }
     },
+=======
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
     "merged_2750": {
         "ref": "Spawns Worms",
         "better": 1,
@@ -47783,7 +48187,11 @@
         }
     },
     "merged_2754": {
+<<<<<<< HEAD
         "ref": "Petrifies Empowered Enemies for {} seconds",
+=======
+        "ref": "Petrifies Empowered Enemies for # seconds",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "sentinel_petrify_tagged_monsters_ms",
         "matchers": [
@@ -47793,7 +48201,7 @@
                 "value": 1000
             },
             {
-                "string": "Превращает в камень усиленных врагов на {} секунды",
+                "string": "Превращает в камень усиленных врагов на # секунды",
                 "negate": false
             }
         ],
@@ -48236,12 +48644,16 @@
         }
     },
     "merged_2782": {
+<<<<<<< HEAD
         "ref": "Sacrifice up to {} to receive double on Trial completion",
+=======
+        "ref": "Sacrifice up to # to receive double on Trial completion",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "ultimatum_wager_type_hash",
         "matchers": [
             {
-                "string": "Принести в жертву {}, чтобы получить в два раза больше по окончанию испытания",
+                "string": "Принести в жертву #, чтобы получить в два раза больше по окончанию испытания",
                 "negate": false
             }
         ],
@@ -49054,16 +49466,20 @@
         }
     },
     "merged_2827": {
+<<<<<<< HEAD
         "ref": "Monsters take {}% more Damage",
+=======
+        "ref": "Monsters take #% more Damage",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "map_custom_league_damage_taken_+%_final",
         "matchers": [
             {
-                "string": "Монстры получают на {}% больше урона",
+                "string": "Монстры получают на #% больше урона",
                 "negate": false
             },
             {
-                "string": "Монстры получают на {}% меньше урона",
+                "string": "Монстры получают на #% меньше урона",
                 "negate": true
             }
         ],
@@ -50281,6 +50697,7 @@
         "matchers": [
             {
                 "string": "#% увеличение максимума чести",
+<<<<<<< HEAD
                 "negate": false
             },
             {
@@ -50903,13 +51320,648 @@
             },
             {
                 "string": "Дублируть вплоть до {} случайных наград после победы над Вестником Роя",
+=======
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
                 "negate": false
+            },
+            {
+                "string": "#% уменьшение максимума чести",
+                "negate": true
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_3970123360"
+                ]
+            }
+        }
+    },
+    "merged_2903": {
+        "ref": "#% increased Honour restored",
+        "better": 1,
+        "id": "sanctum_honour_restored_+%",
+        "matchers": [
+            {
+                "string": "#% увеличение восстановления чести",
+                "negate": false
+            },
+            {
+                "string": "#% уменьшение восстановления чести",
+                "negate": true
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_1583320325"
+                ]
+            }
+        }
+    },
+    "merged_2904": {
+        "ref": "Monsters have #% chance to drop double Sacred Water",
+        "better": 1,
+        "id": "sanctum_monster_double_gold_%",
+        "matchers": [
+            {
+                "string": "Из монстров с #% шансом может выпасть двойное количество святой воды",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_231205265"
+                ]
+            }
+        }
+    },
+    "merged_2905": {
+        "ref": "Fountains have #% chance to grant double Sacred Water",
+        "better": 1,
+        "id": "sanctum_fountain_double_gold_%",
+        "matchers": [
+            {
+                "string": "Фонтаны с #% шансом могут даровать двойное количество святой воды",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_2363402715"
+                ]
+            }
+        }
+    },
+    "merged_2906": {
+        "ref": "#% increased Merchant Prices",
+        "better": -1,
+        "id": "sanctum_merchant_gold_cost_+%",
+        "matchers": [
+            {
+                "string": "#% повышение цен у торговца",
+                "negate": false
+            },
+            {
+                "string": "#% снижение цен у торговца",
+                "negate": true
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_3096446459"
+                ]
+            }
+        }
+    },
+    "merged_2907": {
+        "ref": "Restore # Honour on killing a Boss",
+        "better": 1,
+        "id": "sanctum_restore_honour_on_boss_kill",
+        "matchers": [
+            {
+                "string": "Восстанавливает # чести при убийстве босса",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_3865020351"
+                ]
+            }
+        }
+    },
+    "merged_2908": {
+        "ref": "Restore # Honour on venerating a Maraketh Shrine",
+        "better": 1,
+        "id": "sanctum_restore_honour_on_fountain_use",
+        "matchers": [
+            {
+                "string": "Восстанавливает # чести при оказании почестей у маракетского алтаря",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_2492340460"
+                ]
+            }
+        }
+    },
+    "merged_2909": {
+        "ref": "Gain # Sacred Water at the start of the Trial",
+        "better": 1,
+        "id": "sanctum_starting_gold",
+        "matchers": [
+            {
+                "string": "Дарует святой воды в начале испытания: #",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_2393318075"
+                ]
+            }
+        }
+    },
+    "merged_2910": {
+        "ref": "Gain # Sacred Water when you complete a Room",
+        "better": 1,
+        "id": "gain_x_sanctum_gold_on_room_completion",
+        "matchers": [
+            {
+                "string": "Дарует святой воды по завершению вами комнаты: #",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_4057192895"
+                ]
+            }
+        }
+    },
+    "merged_2911": {
+        "ref": "Restore # Honour on room completion",
+        "better": 1,
+        "id": "sanctum_restore_honour_on_room_completion",
+        "matchers": [
+            {
+                "string": "Восстанавливает # чести при завершении комнаты",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_2114314842"
+                ]
+            }
+        }
+    },
+    "merged_2912": {
+        "ref": "# additional Rooms are revealed on the Trial Map",
+        "better": 1,
+        "id": "sanctum_map_reveal_extra_room_each_floor",
+        "matchers": [
+            {
+                "string": "На карте испытаний раскрывается дополнительная комната",
+                "negate": false,
+                "value": 1
+            },
+            {
+                "string": "На карте испытаний раскрывается дополнительных комнат: #",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_386901949"
+                ]
+            }
+        }
+    },
+    "merged_2913": {
+        "ref": "#% chance to Avoid gaining an Affliction",
+        "better": 1,
+        "id": "sanctum_avoid_affliction_chance_%",
+        "matchers": [
+            {
+                "string": "#% шанс избежать получения проклятия",
+                "negate": false
+            },
+            {
+                "string": "Не может получить проклятие",
+                "negate": false,
+                "value": 100
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_1960517795"
+                ]
+            }
+        }
+    },
+    "merged_2914": {
+        "ref": "Monsters take #% increased Damage",
+        "better": 1,
+        "id": "map_monster_damage_taken_+%",
+        "matchers": [
+            {
+                "string": "Монстры получают увеличенный на #% урон",
+                "negate": false
+            },
+            {
+                "string": "Монстры получают уменьшенный на #% урон",
+                "negate": true
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_3114474137"
+                ]
+            }
+        }
+    },
+    "merged_2915": {
+        "ref": "Rare Monsters take #% increased Damage",
+        "better": 1,
+        "id": "map_sanctum_guard_damage_taken_+%",
+        "matchers": [
+            {
+                "string": "Редкие монстры получают увеличенный на #% урон",
+                "negate": false
+            },
+            {
+                "string": "Редкие монстры получают уменьшенный на #% урон",
+                "negate": true
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_408585189"
+                ]
+            }
+        }
+    },
+    "merged_2916": {
+        "ref": "Bosses take #% increased Damage",
+        "better": 1,
+        "id": "map_sanctum_boss_damage_taken_+%",
+        "matchers": [
+            {
+                "string": "Боссы получают увеличенный на #% урон",
+                "negate": false
+            },
+            {
+                "string": "Боссы получают уменьшенный на #% урон",
+                "negate": true
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_3226329527"
+                ]
+            }
+        }
+    },
+    "merged_2917": {
+        "ref": "The Merchant has # additional Choices",
+        "better": 1,
+        "id": "sanctum_merchant_additional_options",
+        "matchers": [
+            {
+                "string": "Торговец предлагает дополнительный товар на выбор",
+                "negate": false,
+                "value": 1
+            },
+            {
+                "string": "Торговец предлагает дополнительных товаров на выбор: #",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_290775436"
+                ]
+            }
+        }
+    },
+    "merged_2918": {
+        "ref": "Rare Monsters deal #% increased Damage",
+        "better": 1,
+        "id": "map_sanctum_guard_sanctum_damage_+%",
+        "matchers": [
+            {
+                "string": "Редкие монстры наносят увеличенный на #% урон",
+                "negate": false
+            },
+            {
+                "string": "Редкие монстры наносят уменьшенный на #% урон",
+                "negate": true
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_199414195"
+                ]
+            }
+        }
+    },
+    "merged_2919": {
+        "ref": "Bosses deal #% increased Damage",
+        "better": 1,
+        "id": "map_sanctum_boss_sanctum_damage_+%",
+        "matchers": [
+            {
+                "string": "Боссы наносят увеличенный на #% урон",
+                "negate": false
+            },
+            {
+                "string": "Боссы наносят уменьшенный на #% урон",
+                "negate": true
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_2207905451"
+                ]
+            }
+        }
+    },
+    "merged_2920": {
+        "ref": "#% increased quantity of Relics dropped by Monsters",
+        "better": 1,
+        "id": "map_sanctum_relic_drop_chance_+%",
+        "matchers": [
+            {
+                "string": "#% увеличение количества реликвий, выпадающих из монстров",
+                "negate": false
+            },
+            {
+                "string": "#% уменьшение количества реликвий, выпадающих из монстров",
+                "negate": true
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_1680962389"
+                ]
+            }
+        }
+    },
+    "merged_2921": {
+        "ref": "#% increased Defences",
+        "better": 1,
+        "id": "map_player_defences_+%",
+        "matchers": [
+            {
+                "string": "#% увеличение защиты",
+                "negate": false
+            },
+            {
+                "string": "#% evtymitybt защиты",
+                "negate": true
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_3439681381"
+                ]
+            }
+        }
+    },
+    "merged_2922": {
+        "ref": "Traps deal #% increased Damage",
+        "better": 1,
+        "id": "map_sanctum_traps_damage_+%",
+        "matchers": [
+            {
+                "string": "Ловушки наносят увеличенный на #% урон",
+                "negate": false
+            },
+            {
+                "string": "Ловушки наносят уменьшенный на #% урон",
+                "negate": true
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_3554921410"
+                ]
+            }
+        }
+    },
+    "merged_2923": {
+        "ref": "Players have #% increased Movement Speed",
+        "better": 1,
+        "id": "map_players_movement_speed_+%",
+        "matchers": [
+            {
+                "string": "Скорость передвижения игроков повышена на #%",
+                "negate": false
+            },
+            {
+                "string": "Скорость передвижения игроков снижена на #%",
+                "negate": true
+            },
+            {
+                "string": "В следующей области скорость передвижения игроков повышена на #%",
+                "negate": false
+            },
+            {
+                "string": "В следующей области скорость передвижения игроков снижена на #%",
+                "negate": true
             }
         ],
         "trade": {
             "ids": null
         }
     },
+<<<<<<< HEAD
+=======
+    "merged_2924": {
+        "ref": "When you gain a Key #% chance to gain another",
+        "better": 1,
+        "id": "sanctum_additional_key_chance_%",
+        "matchers": [
+            {
+                "string": "Когда вы получаете ключ, вы с #% шансом получаете еще один",
+                "negate": false
+            },
+            {
+                "string": "Когда вы получаете ключ, вы получаете еще один",
+                "negate": false,
+                "value": 100
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_3170238729"
+                ]
+            }
+        }
+    },
+    "merged_2925": {
+        "ref": "Restore # Honour on picking up a Key",
+        "better": 1,
+        "id": "sanctum_restore_honour_on_gain_key",
+        "matchers": [
+            {
+                "string": "Восстанавливает # чести при поднятии ключа",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_521869848"
+                ]
+            }
+        }
+    },
+    "merged_2926": {
+        "ref": "+#% to Honour Resistance",
+        "better": 1,
+        "id": "sanctum_honour_resistance_%",
+        "matchers": [
+            {
+                "string": "#% к сопротивлению чести",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_2287831219"
+                ]
+            }
+        }
+    },
+    "merged_2927": {
+        "ref": "+#% to Maximum Honour Resistance",
+        "better": 1,
+        "id": "sanctum_additional_max_honour_resistance_%",
+        "matchers": [
+            {
+                "string": "#% к максимальному сопротивлению чести",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_3096543632"
+                ]
+            }
+        }
+    },
+    "merged_2928": {
+        "ref": "#% increased quantity of Keys dropped by Monsters",
+        "better": 1,
+        "id": "map_sanctum_key_drop_chance_+%",
+        "matchers": [
+            {
+                "string": "#% увеличение количества выпадающих из монстров ключей",
+                "negate": false
+            },
+            {
+                "string": "#% уменьшение количества выпадающих из монстров ключей",
+                "negate": true
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_729354668"
+                ]
+            }
+        }
+    },
+    "merged_2929": {
+        "ref": "#% chance if you were to lose all your Honour to have 1 Honour instead",
+        "better": 1,
+        "id": "sanctum_chance_to_prevent_zero_honour_%",
+        "matchers": [
+            {
+                "string": "#% шанс при вотере всей вашей чести вместо этого остаться с 1 честью",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_3870327403"
+                ]
+            }
+        }
+    },
+    "merged_2930": {
+        "ref": "#% chance for each of your Keys to upgrade on completing a Floor",
+        "better": 1,
+        "id": "sanctum_chance_to_upgrade_key_on_floor_completed_%",
+        "matchers": [
+            {
+                "string": "#% шанс для каждого из ваших ключей улучшиться при завершении этажа",
+                "negate": false
+            },
+            {
+                "string": "Ваши ключи улучшаются при завершении этажа",
+                "negate": false,
+                "value": 100
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_2155917449"
+                ]
+            }
+        }
+    },
+    "merged_2931": {
+        "ref": "This item is destroyed when applied to a Trial",
+        "better": 1,
+        "id": "local_unique_relic_destroyed_on_sanctum_start",
+        "matchers": [
+            {
+                "string": "Этот предмет будет уничтожен при использовании в испытании",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_3182333322"
+                ]
+            }
+        }
+    },
+    "merged_2932": {
+        "ref": "Duplicates up to # random Offer Rewards upon defeating the Herald of the Scourge",
+        "better": 1,
+        "id": "map_lycia2_duplicate_up_to_x_deferred_rewards",
+        "matchers": [
+            {
+                "string": "Дублируть вплоть до # случайной награды после победы над Вестником Роя",
+                "negate": false,
+                "value": 1
+            },
+            {
+                "string": "Дублируть вплоть до # случайных наград после победы над Вестником Роя",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_502549687"
+                ]
+            }
+        }
+    },
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
     "merged_2933": {
         "ref": "Zarokh, the Temporal drops # additional Baryas",
         "better": 1,
@@ -51212,17 +52264,33 @@
         }
     },
     "merged_2949": {
+<<<<<<< HEAD
         "ref": "Cannot be used with Trials below level {}",
+=======
+        "ref": "Cannot be used with Trials below level #",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         "better": 1,
         "id": "local_unique_relic_sanctum_level_restriction",
         "matchers": [
             {
+<<<<<<< HEAD
                 "string": "Нельзя использовать в испытаниях ниже {} уровня",
+=======
+                "string": "Нельзя использовать в испытаниях ниже # уровня",
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
                 "negate": false
             }
         ],
         "trade": {
+<<<<<<< HEAD
             "ids": null
+=======
+            "ids": {
+                "sanctum": [
+                    "sanctum.stat_1512067281"
+                ]
+            }
+>>>>>>> ab1c8bfa3a31b06da9cf18db0273f6a92e407bc5
         }
     },
     "merged_2950": {
