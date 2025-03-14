@@ -97,7 +97,7 @@ ensureAccessibilityPermission().then(() => {
       process.platform === "linux" ? 1000 : 0,
     );
   });
-})
+});
 
 async function ensureAccessibilityPermission() {
   // windows & linux does not require special permissions
@@ -109,7 +109,7 @@ async function ensureAccessibilityPermission() {
   if (!hasPermission) {
     console.warn("Accessibility permission not granted, exiting");
     app.quit();
-    return;
+    throw new Error("Accessibility permission not granted, exiting");
   }
   console.log("Accessibility permission granted, starting app");
 }
