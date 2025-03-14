@@ -87,9 +87,7 @@ ensureAccessibilityPermission().then(() => {
         console.log("uIOhook started");
         const port = await startServer(appUpdater, logger);
         // TODO: move up (currently crashes)
-        logger.write(
-          `info ${os.type()} ${os.release} / v${app.getVersion()}`,
-        );
+        logger.write(`info ${os.type()} ${os.release} / v${app.getVersion()}`);
         overlay.loadAppPage(port);
         tray.serverPort = port;
       },
