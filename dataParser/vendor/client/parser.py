@@ -1024,7 +1024,10 @@ class Parser:
 
     def write_to_file(self):
         f = open(f"{self.out_dir}/items.ndjson", "w", encoding="utf-8")
-        items_name = sorted(self.items.values(), key=lambda x: x.get("name"))
+        items_name = sorted(
+            self.items.values(),
+            key=lambda x: (x.get("namespace", "ITEM"), x.get("name")),
+        )
         for item in items_name:
             name = item.get("name")
             refName = item.get("refName")
