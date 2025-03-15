@@ -1026,7 +1026,7 @@ class Parser:
         f = open(f"{self.out_dir}/items.ndjson", "w", encoding="utf-8")
         items_name = sorted(
             self.items.values(),
-            key=lambda x: (x.get("namespace", "ITEM"), x.get("name")),
+            key=lambda x: (x.get("namespace", "ITEM"), x.get("refName")),
         )
         for item in items_name:
             name = item.get("name")
