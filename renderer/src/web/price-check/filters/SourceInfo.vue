@@ -99,9 +99,12 @@ const stats = computed(() => {
     }
 
     const rollValue = parsed.roll.value * (parsed.translation.negate ? -1 : 1);
+    const min: number = parsed.roll.min;
+    const max: number = parsed.roll.max;
+    const range = min === max ? `` : ` (${min}-${max})`;
     return {
       text: parsed.translation.string,
-      roll: roundRoll(rollValue, parsed.roll.dp),
+      roll: roundRoll(rollValue, parsed.roll.dp) + range,
       contribution: contribution!,
       contributes: true,
     };

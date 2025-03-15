@@ -17,7 +17,7 @@ import { computed } from "vue";
 
 const props = defineProps<{
   text: string;
-  roll?: number;
+  roll?: number | string;
 }>();
 
 const parts = computed(() => {
