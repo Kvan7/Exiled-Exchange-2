@@ -54,9 +54,9 @@ class RateLimit:
 
 
 class RateLimiter:
-    def __init__(self):
+    def __init__(self, debug=False):
         self.limits = defaultdict()
-        self.session = cloudscraper.create_scraper()
+        self.session = cloudscraper.create_scraper(interpreter="nodejs", debug=debug)
 
     def wait(self, duration: int | float):
         """Wait for a specified duration.
@@ -179,10 +179,10 @@ class RateLimiter:
         last_update = self.limits.get(policy, {}).get("last_update")
         assert isinstance(last_update, datetime)
         time_since_last_update = (datetime.now() - last_update).total_seconds()
-        if time_since_last_update <= average_request_rate * 1.3:
+        if time_since_last_update <= average_request_rate * 1.5:
             # Should almost always happen for limit with the longest average request rate
-            logger.debug(f"Waiting for {average_request_rate * 1.2} | {limit}, {state}")
-            self.wait(average_request_rate * 1.2)
+            logger.debug(f"Waiting for {average_request_rate * 1.4} | {limit}, {state}")
+            self.wait(average_request_rate * 1.4)
 
         # If we are close to exceeding this limit, wait 3x the average rate
         if state.max >= math.floor(limit.max * 0.9):
