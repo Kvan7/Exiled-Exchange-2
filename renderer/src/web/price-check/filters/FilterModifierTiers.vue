@@ -3,12 +3,9 @@
     v-if="tags.length"
     class="flex items-center text-xs leading-none gap-x-1"
   >
-    <span v-for="tag of tags" :class="$style[tag.type]"
-      >{{
-        t(tierOption == "poe2" ? "filters.tier" : "filters.grade", [tag.tier])
-      }}
-      {{ tag.range }}
-    </span>
+    <span v-for="tag of tags" :class="$style[tag.type]">{{
+      t(tierOption == "poe2" ? "filters.tier" : "filters.grade", [tag.tier])
+    }}</span>
   </div>
 </template>
 
@@ -50,7 +47,6 @@ export default defineComponent({
         tier: number | string;
         realTier: number;
         source: StatSource;
-        range: string;
       }> = [];
       for (const source of filter.sources) {
         const tier = source.modifier.info.tier;
@@ -58,18 +54,6 @@ export default defineComponent({
         if (!tier || !tierNew) continue;
         const usedTier: number | string =
           tierOption.value === "poe1" ? tier : tierNew;
-        const tryPercent = (val: number | undefined) =>
-          val === undefined
-            ? ""
-            : `${val}${filter.statRef.includes("#%") ? "%" : ""}`;
-        const min: string = tryPercent(source.contributes?.min);
-        const max: string = tryPercent(source.contributes?.max);
-        const range =
-          min === "" && max === ""
-            ? ""
-            : min === max
-              ? `(${min})`
-              : `(${min}-${max})`;
 
         if (
           (filter.tag === FilterTag.Explicit ||
@@ -85,7 +69,6 @@ export default defineComponent({
               tier: usedTier,
               realTier: tier,
               source,
-              range,
             });
           else if (tier === 2)
             out.push({
@@ -93,7 +76,6 @@ export default defineComponent({
               tier: usedTier,
               realTier: tier,
               source,
-              range,
             });
           else if (alwaysShowTier.value)
             out.push({
@@ -104,7 +86,6 @@ export default defineComponent({
                   : tierNew.toString() + ` [${tierNew + tier - 1}]`,
               realTier: tier,
               source,
-              range,
             });
         } else if (tier >= 2) {
           // fractured, explicit-* filters
@@ -113,7 +94,6 @@ export default defineComponent({
             tier: usedTier,
             realTier: tier,
             source,
-            range,
           });
         }
       }
