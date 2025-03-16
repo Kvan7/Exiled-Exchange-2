@@ -194,27 +194,20 @@ def main(try_missing=False, debug=False):
         )
     ]
 
-    try:
-        for index, item in tqdm(enumerate(filtered_items)):
-            # if item.save_name() in cache:
-            #     logger.info(f"{item.save_name()}\t{cache[item.save_name()]}")
-            #     saved_url = cache[item.save_name()]
-            #     if not try_missing or saved_url != NOT_FOUND:
-            #         continue
-            image_url = get_image_url(item, net)
-            if image_url is not None:
-                logger.info(f"{item.save_name()}\t{image_url}")
-                cache[item.save_name()] = image_url
-            else:
-                logger.info(f"{item.save_name()}\t{NOT_FOUND}")
-                cache[item.save_name()] = NOT_FOUND
+    for index, item in tqdm(enumerate(filtered_items)):
+        # if item.save_name() in cache:
+        #     logger.info(f"{item.save_name()}\t{cache[item.save_name()]}")
+        #     saved_url = cache[item.save_name()]
+        #     if not try_missing or saved_url != NOT_FOUND:
+        #         continue
+        image_url = get_image_url(item, net)
+        if image_url is not None:
+            logger.info(f"{item.save_name()}\t{image_url}")
+            cache[item.save_name()] = image_url
+        else:
+            logger.info(f"{item.save_name()}\t{NOT_FOUND}")
+            cache[item.save_name()] = NOT_FOUND
 
-            if index % 100 == 0:
-                logger.info(f"Saving cache to {index // 100}")
-                save_cache(
-                    cache, output_file=f"itemImageCache(part {index // 100}).json"
-                )
-    finally:
         save_cache(cache)
 
 
