@@ -175,7 +175,7 @@ class RateLimiter:
         assert isinstance(policy, str)
 
         # If we are less than 1.2x the average rate since last update, wait for 1.1x the average rate
-        average_request_rate = limit.window / limit.max
+        average_request_rate = limit.window / limit.max * 2
         last_update = self.limits.get(policy, {}).get("last_update")
         assert isinstance(last_update, datetime)
         time_since_last_update = (datetime.now() - last_update).total_seconds()
