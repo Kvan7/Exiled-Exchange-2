@@ -21,9 +21,10 @@ BASE_PAYLOAD = {
     },
     "sort": {"price": "asc"},
 }
-SEARCH_URL = "http://www.pathofexile.com/api/trade2/search/Standard/"
+SEARCH_URL = "https://www.pathofexile.com/api/trade2/search/Standard"
 SEARCH_HEADERS = {"content-type": "application/json"}
 FETCH_URL = "https://www.pathofexile.com/api/trade2/fetch/"
+NOT_FOUND = "%NOT_FOUND%"
 
 
 class Item:
@@ -77,6 +78,25 @@ def get_script_dir() -> str:
     return os.path.dirname(os.path.realpath(__file__))
 
 
+def get_cache() -> dict[str, str]:
+    cache_path = f"{get_script_dir()}/itemImageCache.json"
+
+    # Check if the file exists and create it if it doesn't
+    if not os.path.exists(cache_path):
+        with open(cache_path, "w", encoding="utf-8") as f:
+            json.dump({}, f)
+
+    # Read and return the contents of the file
+    with open(cache_path, "r", encoding="utf-8") as f:
+        return json.loads(f.read())
+
+
+def save_cache(cache: dict[str, str], output_file: str = "itemImageCache.json"):
+    cache_path = f"{get_script_dir()}/{output_file}"
+    with open(cache_path, "w", encoding="utf-8") as f:
+        json.dump(cache, f)
+
+
 def get_items() -> list[dict[str, str]]:
     with open(f"{get_script_dir()}/en/items.ndjson", "r", encoding="utf-8") as f:
         return [json.loads(line) for line in f.readlines()]
@@ -96,11 +116,11 @@ def get_fetch_id(item: Item, net: RateLimiter) -> str | None:
         result = net.post(SEARCH_URL, payload=payload, headers=SEARCH_HEADERS)
         if result.status_code == 200:
             data = result.json()
-            if data.get("result"):
-                if len(data.get("result")):
-                    return data.get("result")[0]
-                else:
-                    return None
+            if data.get("result") and len(data.get("result")) > 0:
+                return data.get("result")[0]
+            else:
+                logger.debug(f"No results for {item.refName}")
+                return None
         elif result.status_code != 429:
             logger.error(f"Unexpected status code: {result.status_code}")
             raise Exception(
@@ -109,21 +129,95 @@ def get_fetch_id(item: Item, net: RateLimiter) -> str | None:
     raise Exception(f"Retry limit exceeded for {item.refName}")
 
 
+def fetch_listing(fetch_id: str, net: RateLimiter) -> dict | None:
+    for attempt in range(3):
+        result = net.get(FETCH_URL + fetch_id)
+        if result.status_code == 200:
+            data = result.json()
+            if data.get("result") and len(data.get("result")) > 0:
+                return data.get("result")[0]
+            else:
+                return None
+        elif result.status_code != 429:
+            logger.error(f"Unexpected status code: {result.status_code}")
+            raise Exception(
+                f"Unexpected status code: {result.status_code}\n {result.text}"
+            )
+    raise Exception(f"Retry limit exceeded for {fetch_id}")
+
+
+def parse_listing_for_url(listing: dict) -> str | None:
+    item = listing.get("item")
+    if item is None:
+        return None
+    icon_url = item.get("icon")
+    if icon_url is None:
+        return None
+    if not icon_url.startswith(
+        "https://web.poecdn.com/gen/image"
+    ) or not icon_url.endswith(".png"):
+        raise Exception(f"Unexpected icon url: {icon_url}")
+    return icon_url
+
+
 def get_image_url(item: Item, net: RateLimiter) -> str | None:
     fetch_id = get_fetch_id(item, net)
     if fetch_id is None:
+        logger.warning(f"No items found for {item.refName}")
         return None
+    listing = fetch_listing(fetch_id, net)
+    if listing is None:
+        logger.warning(f"Listing missing for {item.refName} | {fetch_id}")
+        return None
+    icon_url = parse_listing_for_url(listing)
+    if icon_url is None:
+        logger.warning(f"Icon missing for {item.refName} | {fetch_id}")
+        return None
+    return icon_url
 
 
-def main():
-    net = RateLimiter()
+def main(try_missing=False, debug=False):
+    net = RateLimiter(debug=debug)
     raw_items = get_items()
     items = convert_items(raw_items)
 
-    for item in tqdm(items):
-        image_url = get_image_url(item, net)
+    cache = get_cache()
+    # backup old cache
+    save_cache(cache, output_file="itemImageCache.old.json")
+
+    filtered_items = [
+        item
+        for item in items
+        if not (
+            item.save_name() in cache
+            and (not try_missing or cache[item.save_name()] != NOT_FOUND)
+        )
+    ]
+
+    try:
+        for index, item in tqdm(enumerate(filtered_items)):
+            # if item.save_name() in cache:
+            #     logger.info(f"{item.save_name()}\t{cache[item.save_name()]}")
+            #     saved_url = cache[item.save_name()]
+            #     if not try_missing or saved_url != NOT_FOUND:
+            #         continue
+            image_url = get_image_url(item, net)
+            if image_url is not None:
+                logger.info(f"{item.save_name()}\t{image_url}")
+                cache[item.save_name()] = image_url
+            else:
+                logger.info(f"{item.save_name()}\t{NOT_FOUND}")
+                cache[item.save_name()] = NOT_FOUND
+
+            if index % 100 == 0:
+                logger.info(f"Saving cache to {index // 100}")
+                save_cache(
+                    cache, output_file=f"itemImageCache(part {index // 100}).json"
+                )
+    finally:
+        save_cache(cache)
 
 
 if __name__ == "__main__":
     set_log_level(logging.WARNING)
-    main()
+    main(try_missing=False, debug=False)
