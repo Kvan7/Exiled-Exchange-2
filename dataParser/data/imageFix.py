@@ -29,7 +29,7 @@ def write_ndjson(file_path, data):
 
 
 def get_save_name(item: dict[str, str]) -> str:
-    return item["namespace"] + "=" + item["refName"]
+    return item["namespace"] + "=" + item["name"]
 
 
 def update_icons(new_items, old_items, api_cache={}):

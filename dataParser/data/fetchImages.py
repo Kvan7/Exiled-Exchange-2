@@ -1,3 +1,4 @@
+import argparse
 import copy
 import json
 import logging
@@ -27,35 +28,50 @@ FETCH_URL = "https://www.pathofexile.com/api/trade2/fetch/"
 NOT_FOUND = "%NOT_FOUND%"
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="Fetch images for items")
+    parser.add_argument(
+        "-m",
+        "--mode",
+        choices=["all", "missing", "new"],
+        default="new",
+        help="Mode to determine which items to process: 'all', 'missing', or 'new'",
+    )
+    parser.add_argument(
+        "-d", "--debug", action="store_true", help="Enable debugging mode"
+    )
+    return parser.parse_args()
+
+
 class Item:
     def __init__(
         self,
-        refName: str,
+        name: str,
         namespace: Literal["UNIQUE", "ITEM", "GEM"],
         unique: Optional[dict[str, str]] = None,
     ):
-        self.refName = refName
+        self.name = name
         self.namespace = namespace
         if namespace == "UNIQUE":
             assert unique is not None
             assert unique.get("base") is not None
             self.base = unique.get("base")
         else:
-            self.base = refName
+            self.base = name
 
     def __str__(self):
-        return f"{self.refName} ({self.namespace})"
+        return f"{self.name} ({self.namespace})"
 
     def __repr__(self):
-        return f"{self.refName} ({self.namespace})"
+        return f"{self.name} ({self.namespace})"
 
     def __eq__(self, other):
         if not isinstance(other, Item):
             return False
-        return self.refName == other.refName and self.namespace == other.namespace
+        return self.name == other.name and self.namespace == other.namespace
 
     def __hash__(self):
-        return hash((self.refName, self.namespace))
+        return hash((self.name, self.namespace))
 
     def search_payload(self) -> dict:
         assert self.base is not None
@@ -63,14 +79,14 @@ class Item:
         if self.namespace == "UNIQUE":
             payload["query"]["filters"] = UNIQUE_FILTER
             payload["query"]["type"] = self.base
-            payload["query"]["name"] = self.refName
+            payload["query"]["name"] = self.name
         else:
             payload["query"]["filters"] = NONUNIQUE_FILTER
-            payload["query"]["type"] = self.refName
+            payload["query"]["type"] = self.name
         return payload
 
     def save_name(self) -> str:
-        return f"{self.namespace}={self.refName}"
+        return f"{self.namespace}={self.name}"
 
 
 def get_script_dir() -> str:
@@ -103,7 +119,7 @@ def get_items() -> list[dict[str, str]]:
 
 
 def convert_item(item: dict[str, str]) -> Item:
-    return Item(item.get("refName"), item.get("namespace"), item.get("unique"))
+    return Item(item.get("name"), item.get("namespace"), item.get("unique"))
 
 
 def convert_items(items: list[dict[str, str]]) -> list[Item]:
@@ -119,14 +135,14 @@ def get_fetch_id(item: Item, net: RateLimiter) -> str | None:
             if data.get("result") and len(data.get("result")) > 0:
                 return data.get("result")[0]
             else:
-                logger.debug(f"No results for {item.refName}")
+                logger.debug(f"No results for {item.name}")
                 return None
         elif result.status_code != 429:
             logger.error(f"Unexpected status code: {result.status_code}")
             raise Exception(
                 f"Unexpected status code: {result.status_code}\n {result.text}"
             )
-    raise Exception(f"Retry limit exceeded for {item.refName}")
+    raise Exception(f"Retry limit exceeded for {item.name}")
 
 
 def fetch_listing(fetch_id: str, net: RateLimiter) -> dict | None:
@@ -163,20 +179,20 @@ def parse_listing_for_url(listing: dict) -> str | None:
 def get_image_url(item: Item, net: RateLimiter) -> str | None:
     fetch_id = get_fetch_id(item, net)
     if fetch_id is None:
-        logger.warning(f"No items found for {item.refName}")
+        logger.warning(f"No items found for {item.name}")
         return None
     listing = fetch_listing(fetch_id, net)
     if listing is None:
-        logger.warning(f"Listing missing for {item.refName} | {fetch_id}")
+        logger.warning(f"Listing missing for {item.name} | {fetch_id}")
         return None
     icon_url = parse_listing_for_url(listing)
     if icon_url is None:
-        logger.warning(f"Icon missing for {item.refName} | {fetch_id}")
+        logger.warning(f"Icon missing for {item.name} | {fetch_id}")
         return None
     return icon_url
 
 
-def main(try_missing=False, debug=False):
+def main(mode: Literal["all", "missing", "new"] = "new", debug=False):
     net = RateLimiter(debug=debug)
     raw_items = get_items()
     items = convert_items(raw_items)
@@ -185,21 +201,18 @@ def main(try_missing=False, debug=False):
     # backup old cache
     save_cache(cache, output_file="itemImageCache.old.json")
 
-    filtered_items = [
-        item
-        for item in items
-        if not (
-            item.save_name() in cache
-            and (not try_missing or cache[item.save_name()] != NOT_FOUND)
-        )
-    ]
+    if mode == "all":
+        filtered_items = items
+    elif mode == "missing":
+        filtered_items = [
+            item
+            for item in items
+            if item.save_name() in cache and cache[item.save_name()] == NOT_FOUND
+        ]
+    else:  # mode == "new"
+        filtered_items = [item for item in items if item.save_name() not in cache]
 
-    for index, item in tqdm(enumerate(filtered_items)):
-        # if item.save_name() in cache:
-        #     logger.info(f"{item.save_name()}\t{cache[item.save_name()]}")
-        #     saved_url = cache[item.save_name()]
-        #     if not try_missing or saved_url != NOT_FOUND:
-        #         continue
+    for item in tqdm(filtered_items):
         image_url = get_image_url(item, net)
         if image_url is not None:
             logger.info(f"{item.save_name()}\t{image_url}")
@@ -212,5 +225,6 @@ def main(try_missing=False, debug=False):
 
 
 if __name__ == "__main__":
-    set_log_level(logging.WARNING)
-    main(try_missing=False, debug=False)
+    set_log_level(logging.ERROR)
+    args = parse_args()
+    main(mode=args.mode, debug=args.debug)

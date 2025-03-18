@@ -27,7 +27,7 @@
 {"name": "彈幕", "refName": "Barrage", "namespace": "GEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9CYXJyYWdlIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/0669bef74e/Barrage.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "屏障祈願", "refName": "Barrier Invocation", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MetaSkillGem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "斬首", "refName": "Behead", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "狂戰士", "refName": "Berserk", "namespace": "GEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9CZXNlcmtHZW0iLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/fb31554c78/BeserkGem.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
+{"name": "狂戰士", "refName": "Berserk", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "出價", "refName": "Bidding", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "束縛幽魂", "refName": "Bind Spectre", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "刺骨冰霜", "refName": "Biting Frost", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -74,7 +74,7 @@
 {"name": "混沌冰凍", "refName": "Chaotic Freeze", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "充能灌注", "refName": "Charge Infusion", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "充能長杖", "refName": "Charged Staff", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "清晰輔助", "refName": "Clarity", "namespace": "GEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9DbGFyaXR5IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/30046e480b/Clarity.png", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
+{"name": "清晰輔助", "refName": "Clarity", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "利爪刺擊", "refName": "Claw Stab", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "利爪刺擊", "refName": "Claw Stab", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "近身戰", "refName": "Close Combat", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -394,7 +394,7 @@
 {"name": "潛力", "refName": "Potential", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "力量抽取", "refName": "Power Siphon", "namespace": "GEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9Qb3dlclNpcGhvbiIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/8c00738194/PowerSiphon.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "熟練連擊", "refName": "Practiced Combo", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "精準輔助", "refName": "Precision", "namespace": "GEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9BY2N1cmFjeWFuZENyaXRpY2FsQ2hhbmNlQXVyYSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/3996a0a9cf/AccuracyandCriticalChanceAura.png", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
+{"name": "精準輔助", "refName": "Precision", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "預謀", "refName": "Premeditation", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "原始武裝", "refName": "Primal Armament", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "粗陋祭祀", "refName": "Profane Ritual", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -461,7 +461,7 @@
 {"name": "狙擊者印記", "refName": "Sniper's Mark", "namespace": "GEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9Qcm9qZWN0aWxlV2Vha25lc3MiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/3dd2dfcc61/ProjectileWeakness.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "日耀球", "refName": "Solar Orb", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "巫術護盾", "refName": "Sorcery Ward", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "靈魂吸取", "refName": "Soul Drain", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
+{"name": "靈魂吸取", "refName": "Soul Drain", "namespace": "GEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9TaXBob25HZW0iLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/97ff6075bf/SiphonGem.png", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "靈魂獻祭", "refName": "Soul Offering", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "靈魂盜竊", "refName": "Soul Thief", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "破魂者", "refName": "Soulbreaker", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -475,7 +475,7 @@
 {"name": "法術迴響", "refName": "Spell Echo", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "旋轉獄火", "refName": "Spinning Inferno", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "螺旋之弦", "refName": "Spiral Volley", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "碎骨", "refName": "Splinter", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
+{"name": "碎骨", "refName": "Splinter", "namespace": "GEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9Cb25lc2hhdHRlclNraWxsR2VtIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/9c37514f07/BoneshatterSkillGem.png", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "擴散寒冰", "refName": "Spreading Frost", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "撼敵之掌", "refName": "Staggering Palm", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "踐踏", "refName": "Stampede", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -485,7 +485,7 @@
 {"name": "風暴浪湧", "refName": "Storm Wave", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "雷暴彈藥", "refName": "Stormblast Bolts", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "風暴呼喚箭矢", "refName": "Stormcaller Arrow", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "烈風暴", "refName": "Stormfire", "namespace": "GEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvU3Rvcm1GaXJlIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/6b3db4e8df/StormFire.png", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
+{"name": "烈風暴", "refName": "Stormfire", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "剝奪", "refName": "Strip Away", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "召喚盟友", "refName": "Summon Companion", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MetaSkillGem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "召喚獄炎獵犬", "refName": "Summon Infernal Hound", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -517,14 +517,14 @@
 {"name": "動亂", "refName": "Upheaval", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "跳躍衝擊", "refName": "Vaulting Impact", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "藤蔓箭矢", "refName": "Vine Arrow", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "活力輔助", "refName": "Vitality", "namespace": "GEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9WaXRhbGl0eSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/125dbe04db/Vitality.png", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
+{"name": "活力輔助", "refName": "Vitality", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Support Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "致命之息", "refName": "Volatile Dead", "namespace": "GEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9Wb2xhdGlsZURlYWQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/75c543dab5/VolatileDead.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "炎火脈動", "refName": "Volcanic Fissure", "namespace": "GEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9Wb2xjYW5pY0Zpc3N1cmVTa2lsbEdlbSIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/b12b9ef422/VolcanicFissureSkillGem.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "火山", "refName": "Volcano", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "電流擲彈", "refName": "Voltaic Grenade", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "電流印記", "refName": "Voltaic Mark", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "脆弱", "refName": "Vulnerability", "namespace": "GEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9WdWxuZXJhYmlsaXR5IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/1235ccd6b3/Vulnerability.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
-{"name": "征戰之旗", "refName": "War Banner", "namespace": "GEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9XYXJiYW5uZXIiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/bad44cab15/Warbanner.png", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
+{"name": "征戰之旗", "refName": "War Banner", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "寒冰波", "refName": "Wave of Frost", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "迴旋擊", "refName": "Whirling Assault", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
 {"name": "迴旋斬", "refName": "Whirling Slash", "namespace": "GEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Active Skill Gem"}, "w": 1, "h": 1, "gem": {"awakened": false, "transfigured": false}}
@@ -952,7 +952,7 @@
 {"name": "闊刃巨劍", "refName": "Broad Greatsword", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Two Hand Sword"}, "w": 2, "h": 4}
 {"name": "闊刃長鋒", "refName": "Broad Spear", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Spear"}, "w": 1, "h": 4}
 {"name": "寬頭箭袋", "refName": "Broadhead Quiver", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Quiver"}, "w": 2, "h": 3}
-{"name": "闊劍", "refName": "Broadsword", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
+{"name": "闊劍", "refName": "Broadsword", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9PbmVIYW5kU3dvcmRzL09uZUhhbmRTd29yZDQiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MX1d/936e00e3e6/OneHandSword4.png", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
 {"name": "破碎之環文物", "refName": "Broken Circle Artifact", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRXhwZWRpdGlvbi9SdW5lMTYiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/46b487f53f/Rune16.png", "tradeTag": "broken-circle-artifact", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "青銅的巔峰守望", "refName": "Bronze Apex Sentinel", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "SentinelDrone"}, "w": 2, "h": 2}
 {"name": "青銅脛甲", "refName": "Bronze Greaves", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Boots"}, "armour": {"ar": [60, 60]}, "w": 2, "h": 2}
@@ -1295,8 +1295,8 @@
 {"name": "琺瑯胸針", "refName": "Enamel Brooch", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvRW5hbWVsQnJvb2NoIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/0d1e9c956e/EnamelBrooch.png", "craftable": {"category": "HeistEquipmentReward"}, "w": 1, "h": 1}
 {"name": "附魔的培育器", "refName": "Enchanted Incubator", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uTGFieXJpbnRoIiwic2NhbGUiOjF9XQ/755a289f04/IncubationLabyrinth.png", "craftable": {"category": "Incubator"}, "w": 1, "h": 1}
 {"name": "附魔的培育器", "refName": "Enchanted Incubator", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uTGFieXJpbnRoIiwic2NhbGUiOjF9XQ/755a289f04/IncubationLabyrinth.png", "craftable": {"category": "Incubator"}, "w": 1, "h": 1}
-{"name": "能量之刃", "refName": "Energy Blade", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9TdG9ybUJsYWRlR2VtIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/387697170b/StormBladeGem.png", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
-{"name": "能量之刃", "refName": "Energy Blade", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9TdG9ybUJsYWRlR2VtIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/387697170b/StormBladeGem.png", "craftable": {"category": "Two Hand Sword"}, "w": 2, "h": 4}
+{"name": "能量之刃", "refName": "Energy Blade", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
+{"name": "能量之刃", "refName": "Energy Blade", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Two Hand Sword"}, "w": 2, "h": 4}
 {"name": "工程石", "refName": "Engineer's Orb", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRW5naW5lZXJzT3JiIiwic2NhbGUiOjF9XQ/114b671d41/EngineersOrb.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "工程石碎片", "refName": "Engineer's Shard", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRW5naW5lZXJzU2hhcmQiLCJzY2FsZSI6MX1d/9fe1384ff9/EngineersShard.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "紋刻護腕", "refName": "Engraved Bracers", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Gloves"}, "armour": {"ev": [111, 111]}, "w": 2, "h": 2}
@@ -1573,7 +1573,7 @@
 {"name": "占卜師的培育器", "refName": "Geomancer's Incubator", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQXJtb3VyIiwic2NhbGUiOjF9XQ/8cd6cd0531/IncubationArmour.png", "craftable": {"category": "Incubator"}, "w": 1, "h": 1}
 {"name": "巨型生命藥劑", "refName": "Giant Life Flask", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzksMTQseyJmIjoiMkRJdGVtcy9GbGFza3MvbGlmZWZsYXNrNiIsInciOjEsImgiOjIsInNjYWxlIjoxLCJsZXZlbCI6MX1d/13cd1c8a08/lifeflask6.png", "craftable": {"category": "Flask"}, "w": 1, "h": 2}
 {"name": "巨型魔力藥劑", "refName": "Giant Mana Flask", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzksMTQseyJmIjoiMkRJdGVtcy9GbGFza3MvbWFuYWZsYXNrNiIsInciOjEsImgiOjIsInNjYWxlIjoxLCJsZXZlbCI6MX1d/61993fdd4b/manaflask6.png", "craftable": {"category": "Flask"}, "w": 1, "h": 2}
-{"name": "巨型重錘", "refName": "Giant Maul", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Two Hand Mace"}, "w": 2, "h": 4}
+{"name": "巨型重錘", "refName": "Giant Maul", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9Ud29IYW5kTWFjZXMvVHdvSGFuZE1hY2UzIiwidyI6MiwiaCI6NCwic2NhbGUiOjF9XQ/5e536c19aa/TwoHandMace3.png", "craftable": {"category": "Two Hand Mace"}, "w": 2, "h": 4}
 {"name": "女神之贈", "refName": "Gift to the Goddess", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9MYWJ5cmludGhIYXJ2ZXN0SW5mdXNlZDEiLCJzY2FsZSI6MX1d/a5254d7933/LabyrinthHarvestInfused1.png", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
 {"name": "聖甲蟲：鍍金深淵", "refName": "Gilded Abyss Scarab", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
 {"name": "聖甲蟲：鍍金伏擊", "refName": "Gilded Ambush Scarab", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
@@ -1609,9 +1609,9 @@
 {"name": "金光戒指", "refName": "Gold Ring", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmluZ3MvUmluZzQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/2164e44179/Ring4.png", "craftable": {"category": "Ring"}, "w": 1, "h": 1}
 {"name": "金鑄腕帶", "refName": "Goldcast Cuffs", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Gloves"}, "armour": {"ar": [37, 37], "es": [14, 14]}, "w": 2, "h": 2}
 {"name": "黃金之刃", "refName": "Golden Blade", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9PbmVIYW5kU3dvcmRzL0RlbWlnb2RzQXV0aG9yaXR5IiwidyI6MiwiaCI6Mywic2NhbGUiOjF9XQ/be10fa5951/DemigodsAuthority.png", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
-{"name": "Golden Blade", "refName": "Golden Blade", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9PbmVIYW5kU3dvcmRzL0RlbWlnb2RzQXV0aG9yaXR5IiwidyI6MiwiaCI6Mywic2NhbGUiOjF9XQ/be10fa5951/DemigodsAuthority.png", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
+{"name": "Golden Blade", "refName": "Golden Blade", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
 {"name": "黃金臂甲", "refName": "Golden Bracers", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvRGVtaWdvZHNUb3VjaCIsInciOjIsImgiOjIsInNjYWxlIjoxfV0/f0cc5eee0b/DemigodsTouch.png", "craftable": {"category": "Gloves"}, "w": 2, "h": 2}
-{"name": "Golden Bracers", "refName": "Golden Bracers", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvRGVtaWdvZHNUb3VjaCIsInciOjIsImgiOjIsInNjYWxlIjoxfV0/f0cc5eee0b/DemigodsTouch.png", "craftable": {"category": "Gloves"}, "w": 2, "h": 2}
+{"name": "Golden Bracers", "refName": "Golden Bracers", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Gloves"}, "w": 2, "h": 2}
 {"name": "黃金胸針", "refName": "Golden Brooch", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvR29sZGVuQnJvb2NoIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/ef48504f78/GoldenBrooch.png", "craftable": {"category": "HeistEquipmentReward"}, "w": 1, "h": 1}
 {"name": "黃金纏鞋", "refName": "Golden Caligae", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9EZW1pZ29kc1N0cmlkZSIsInciOjIsImgiOjIsInNjYWxlIjoxfV0/b58f10a704/DemigodsStride.png", "craftable": {"category": "Boots"}, "w": 2, "h": 2}
 {"name": "黃金儀式面紗", "refName": "Golden Ceremonial Mask", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
@@ -1626,13 +1626,13 @@
 {"name": "黃金麥塔爾神像", "refName": "Golden Matatl Idol", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "黃金納普阿茲神像", "refName": "Golden Napuatzi Idol", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "金羽腰帶", "refName": "Golden Obi", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQmVsdHMvRGVtaWJlbHQxIiwidyI6MiwiaCI6MSwic2NhbGUiOjF9XQ/aff71be0d1/Demibelt1.png", "craftable": {"category": "Belt"}, "w": 2, "h": 1}
-{"name": "Golden Plate", "refName": "Golden Plate", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9Cb2R5U3RyMUIiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MX1d/ca9e30f668/BodyStr1B.png", "craftable": {"category": "Body Armour"}, "w": 2, "h": 3}
+{"name": "Golden Plate", "refName": "Golden Plate", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "w": 2, "h": 3}
 {"name": "黃金獵物神像", "refName": "Golden Prayer Idol", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "黃金祭品雕像", "refName": "Golden Sacrificial Glyph", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "Golden Shield", "refName": "Golden Shield", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Shield"}, "w": 2, "h": 4}
 {"name": "黃金奴隸神像", "refName": "Golden Slave Idol", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "黃金頭飾", "refName": "Golden Visage", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL0RlbWlnb2RzSW1tb3J0YWxpdHkiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MX1d/49ce309a2f/DemigodsImmortality.png", "craftable": {"category": "Helmet"}, "w": 2, "h": 2}
-{"name": "Golden Visage", "refName": "Golden Visage", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL0RlbWlnb2RzSW1tb3J0YWxpdHkiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MX1d/49ce309a2f/DemigodsImmortality.png", "craftable": {"category": "Helmet"}, "w": 2, "h": 2}
+{"name": "Golden Visage", "refName": "Golden Visage", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "w": 2, "h": 2}
 {"name": "黃金守望石", "refName": "Golden Watchstone", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "AtlasUpgradeItem"}, "w": 1, "h": 1}
 {"name": "黃金守望石", "refName": "Golden Watchstone", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "AtlasUpgradeItem"}, "w": 1, "h": 1}
 {"name": "黃金守望石", "refName": "Golden Watchstone", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "AtlasUpgradeItem"}, "w": 1, "h": 1}
@@ -1754,7 +1754,7 @@
 {"name": "拓印獸魂玉", "refName": "Imprinted Bestiary Orb", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "熾熱之邀", "refName": "Incandescent Invitation", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVlc3RJdGVtcy9DbGVhbnNpbmdGaXJlT3JiUXVlc3Q1Iiwic2NhbGUiOjF9XQ/d5ac505898/CleansingFireOrbQuest5.png", "craftable": {"category": "QuestItem"}, "w": 1, "h": 1}
 {"name": "熾熱之邀", "refName": "Incandescent Invitation", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVlc3RJdGVtcy9DbGVhbnNpbmdGaXJlT3JiUXVlc3Q1Iiwic2NhbGUiOjF9XQ/d5ac505898/CleansingFireOrbQuest5.png", "craftable": {"category": "MiscMapItem"}, "w": 1, "h": 1}
-{"name": "香爐聖物", "refName": "Incense Relic", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Relic"}, "w": 4, "h": 1}
+{"name": "香爐聖物", "refName": "Incense Relic", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmVsaWNzL1JlbGljQmFzZTF4MiIsInciOjEsImgiOjIsInNjYWxlIjoxfV0/95a2dfd60b/RelicBase1x2.png", "craftable": {"category": "Relic"}, "w": 4, "h": 1}
 {"name": "香爐陷阱", "refName": "Incense Trap", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "TrapTool"}, "w": 1, "h": 3}
 {"name": "凱斯的香水", "refName": "Incense of Keth", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "勢力偵查報告", "refName": "Influenced Scouting Report", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NvdXRpbmdSZXBvcnQiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/584635f3c8/ScoutingReport.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
@@ -2069,7 +2069,7 @@
 {"name": "鎧甲護手", "refName": "Plate Gauntlets", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Gloves"}, "armour": {"ar": [48, 48], "ev": [44, 44]}, "w": 2, "h": 2}
 {"name": "鋼板輕盾", "refName": "Plated Buckler", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Shield"}, "armour": {"ev": [32, 32]}, "w": 2, "h": 2}
 {"name": "華麗爪", "refName": "Plated Claw", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Claw"}, "w": 2, "h": 2}
-{"name": "華麗之錘", "refName": "Plated Mace", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "One Hand Mace"}, "w": 2, "h": 3}
+{"name": "華麗之錘", "refName": "Plated Mace", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9PbmVIYW5kTWFjZXMvT25lSGFuZE1hY2U3IiwidyI6MiwiaCI6Mywic2NhbGUiOjF9XQ/84402507d1/OneHandMace7.png", "craftable": {"category": "One Hand Mace"}, "w": 2, "h": 3}
 {"name": "鎧甲之衣", "refName": "Plated Raiment", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"es": [117, 117]}, "w": 2, "h": 3}
 {"name": "鉑金格倫納許．凱恩斯守望石", "refName": "Platinum Glennach Cairns Watchstone", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "AtlasUpgradeItem"}, "w": 1, "h": 1}
 {"name": "鉑金海沃克．哈姆雷特守望石", "refName": "Platinum Haewark Hamlet Watchstone", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "AtlasUpgradeItem"}, "w": 1, "h": 1}
@@ -2194,7 +2194,7 @@
 {"name": "隨機法杖", "refName": "Random Wand", "namespace": "ITEM", "icon": "%NOT_FOUND%", "w": 1, "h": 3}
 {"name": "雜響權杖", "refName": "Rattling Sceptre", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Sceptre"}, "w": 2, "h": 3}
 {"name": "生皮腰帶", "refName": "Rawhide Belt", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Belt"}, "w": 2, "h": 1}
-{"name": "生皮長靴", "refName": "Rawhide Boots", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb290cy9Cb290c0RleDEiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MX1d/d9494fc647/BootsDex1.png", "craftable": {"category": "Boots"}, "armour": {"ev": [15, 15]}, "w": 2, "h": 2}
+{"name": "生皮長靴", "refName": "Rawhide Boots", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Boots"}, "armour": {"ev": [15, 15]}, "w": 2, "h": 2}
 {"name": "剃刀玻璃爪", "refName": "Razorglass Claw", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Claw"}, "w": 2, "h": 2}
 {"name": "死神長杖", "refName": "Reaping Staff", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Staff"}, "w": 1, "h": 4}
 {"name": "研磨的催化劑", "refName": "Reaver Catalyst", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQnJlYWNoL0JyZWFjaENhdGFseXN0QXR0YWNrIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/ccc363f502/BreachCatalystAttack.png", "tradeTag": "reaver-catalyst", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
@@ -2285,7 +2285,7 @@
 {"name": "正午的奉獻", "refName": "Sacrifice at Noon", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9WYWFsMDMiLCJzY2FsZSI6MX1d/55524425f4/Vaal03.png", "craftable": {"category": "MapFragment"}, "w": 1, "h": 1}
 {"name": "獻祭斧", "refName": "Sacrificial Axe", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "One Hand Axe"}, "w": 2, "h": 3}
 {"name": "獻祭匕首", "refName": "Sacrificial Dagger", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 1, "h": 3}
-{"name": "犧牲之心", "refName": "Sacrificial Heart", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9TYWNyaWZpY2lhbF9IZWFydCIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/e3daa4cd32/Sacrificial_Heart.png", "craftable": {"category": "QuestItem"}, "w": 2, "h": 2}
+{"name": "犧牲之心", "refName": "Sacrificial Heart", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 2, "h": 2}
 {"name": "獻祭披肩", "refName": "Sacrificial Mantle", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"ar": [123, 123], "es": [46, 46]}, "w": 2, "h": 3}
 {"name": "神聖化石", "refName": "Sanctified Fossil", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVsdmUvR2lsZGVkRm9zc2lsIiwic2NhbGUiOjF9XQ/fc2d3fdf51/GildedFossil.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "神化聖物", "refName": "Sanctified Relic", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Relic"}, "w": 1, "h": 2}
@@ -2307,7 +2307,7 @@
 {"name": "卷軸碎片", "refName": "Scroll Fragment", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "知識卷軸", "refName": "Scroll of Wisdom", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lJZGVudGlmaWNhdGlvbiIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/884f7bc58b/CurrencyIdentification.png", "tradeTag": "wisdom", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
 {"name": "海玻璃長鋒", "refName": "Seaglass Spear", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Spear"}, "w": 1, "h": 4}
-{"name": "草紙聖物", "refName": "Seal Relic", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Relic"}, "w": 2, "h": 1}
+{"name": "草紙聖物", "refName": "Seal Relic", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmVsaWNzL1JlbGljQmFzZTR4MSIsInciOjQsImgiOjEsInNjYWxlIjoxfV0/978c0b6ab9/RelicBase4x1.png", "craftable": {"category": "Relic"}, "w": 2, "h": 1}
 {"name": "月影神封印", "refName": "Seal of Lunaris", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "日耀神封印", "refName": "Seal of Solaris", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "HeistObjective"}, "w": 2, "h": 2}
 {"name": "次階篩分之鏡", "refName": "Secondary Regrading Lens", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
@@ -2318,7 +2318,7 @@
 {"name": "守望控制器", "refName": "Sentinel Controller", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "QuestItem"}, "w": 2, "h": 2}
 {"name": "蛇鱗外套", "refName": "Serpentscale Coat", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"ev": [198, 198]}, "w": 2, "h": 3}
 {"name": "利齒化石", "refName": "Serrated Fossil", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVsdmUvU2VycmF0ZWRGb3NzaWwiLCJzY2FsZSI6MX1d/227ff121c8/SerratedFossil.png", "craftable": {"category": "Currency"}, "w": 1, "h": 1}
-{"name": "鋸齒箭袋", "refName": "Serrated Quiver", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Quiver"}, "w": 2, "h": 3}
+{"name": "鋸齒箭袋", "refName": "Serrated Quiver", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVpdmVycy9RdWl2ZXJTZXJyYXRlZCIsInciOjIsImgiOjMsInNjYWxlIjoxfV0/3660315ba6/QuiverSerrated.png", "craftable": {"category": "Quiver"}, "w": 2, "h": 3}
 {"name": "破舊兜帽", "refName": "Shabby Hood", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ev": [19, 19]}, "w": 2, "h": 2}
 {"name": "陰影之面", "refName": "Shaded Mask", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ev": [99, 99], "es": [39, 39]}, "w": 2, "h": 2}
 {"name": "薩滿披肩", "refName": "Shaman Mantle", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Body Armour"}, "armour": {"ar": [100, 100], "es": [39, 39]}, "w": 2, "h": 3}
@@ -2341,7 +2341,7 @@
 {"name": "庇護之盔", "refName": "Shielded Helm", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Helmet"}, "armour": {"ar": [75, 75], "ev": [66, 66]}, "w": 2, "h": 2}
 {"name": "閃耀法杖", "refName": "Shining Ward", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVpc3QvU2hpbmluZ1dhcmQiLCJ3IjoyLCJoIjoyLCJzY2FsZSI6MX1d/275019d027/ShiningWard.png", "craftable": {"category": "HeistEquipmentTool"}, "w": 2, "h": 2}
 {"name": "閃耀遺鑰", "refName": "Shiny Reliquary Key", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9NYXZlbkZvaWwiLCJzY2FsZSI6MX1d/09cccd8ddb/MavenFoil.png", "craftable": {"category": "VaultKey"}, "w": 1, "h": 1}
-{"name": "短弓", "refName": "Shortbow", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Bow"}, "w": 2, "h": 4}
+{"name": "短弓", "refName": "Shortbow", "namespace": "ITEM", "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9Cb3dzL0JvdzIiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MX1d/0fcc51afcd/Bow2.png", "craftable": {"category": "Bow"}, "w": 2, "h": 4}
 {"name": "短劍", "refName": "Shortsword", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "One Hand Sword"}, "w": 2, "h": 3}
 {"name": "彈片陷阱", "refName": "Shrapnel Trap", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "TrapTool"}, "w": 1, "h": 3}
 {"name": "神殿權杖", "refName": "Shrine Sceptre", "namespace": "ITEM", "icon": "%NOT_FOUND%", "craftable": {"category": "Sceptre"}, "w": 2, "h": 3}
@@ -2957,7 +2957,7 @@
 {"name": "背信忘義", "refName": "Perfidy", "namespace": "UNIQUE", "unique": {"base": "Knight Armour"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9UYW5nbWF6dWFybW91cmJvZHlhcm1vdXIiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MX1d/2170370e8f/Tangmazuarmourbodyarmour.png"}
 {"name": "瘟疫之指", "refName": "Plaguefinger", "namespace": "UNIQUE", "unique": {"base": "Gauze Wraps"}, "icon": "%NOT_FOUND%"}
 {"name": "動力圖樣", "refName": "Powertread", "namespace": "UNIQUE", "unique": {"base": "Hunting Shoes"}, "icon": "%NOT_FOUND%"}
-{"name": "務實主義", "refName": "Pragmatism", "namespace": "UNIQUE", "unique": {"base": "Explorer Armour"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9HcmVlbmV5ZXNBcm1vdXIiLCJ3IjoyLCJoIjozLCJzY2FsZSI6MX1d/bef792208d/GreeneyesArmour.png"}
+{"name": "務實主義", "refName": "Pragmatism", "namespace": "UNIQUE", "unique": {"base": "Explorer Armour"}, "icon": "%NOT_FOUND%"}
 {"name": "祈雨禱言", "refName": "Prayers for Rain", "namespace": "UNIQUE", "unique": {"base": "Keth Raiment"}, "icon": "%NOT_FOUND%"}
 {"name": "夸特之帶", "refName": "Quatl's Molt", "namespace": "UNIQUE", "unique": {"base": "Serpentscale Coat"}, "icon": "%NOT_FOUND%"}
 {"name": "森林之后", "refName": "Queen of the Forest", "namespace": "UNIQUE", "unique": {"base": "Smuggler Coat"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9RdWVlbm9mdGhlRm9yZXN0IiwidyI6MiwiaCI6Mywic2NhbGUiOjF9XQ/bd3ec993e7/QueenoftheForest.png"}
@@ -2973,7 +2973,7 @@
 {"name": "忠誠之膚", "refName": "Skin of the Loyal", "namespace": "UNIQUE", "unique": {"base": "Garment"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9Cb2R5QXJtb3Vycy9NeXJpYWRHcmFzcCIsInciOjIsImgiOjMsInNjYWxlIjoxfV0/03d7746f71/MyriadGrasp.png"}
 {"name": "蝮吻", "refName": "Snakebite", "namespace": "UNIQUE", "unique": {"base": "Spined Bracers"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvZnJlbnp5Z2xvdmVzIiwidyI6MiwiaCI6Miwic2NhbGUiOjF9XQ/2d25853f41/frenzygloves.png"}
 {"name": "唯我論", "refName": "Solus Ipse", "namespace": "UNIQUE", "unique": {"base": "Grand Visage"}, "icon": "%NOT_FOUND%"}
-{"name": "斯佛林", "refName": "Svalinn", "namespace": "UNIQUE", "unique": {"base": "Crucible Tower Shield"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9TaGllbGRzL0xheWVyZWRCYXJyaWVyU2hpZWxkIiwidyI6MiwiaCI6NCwic2NhbGUiOjF9XQ/54079c2263/LayeredBarrierShield.png"}
+{"name": "斯佛林", "refName": "Svalinn", "namespace": "UNIQUE", "unique": {"base": "Crucible Tower Shield"}, "icon": "%NOT_FOUND%"}
 {"name": "時空之物", "refName": "Temporalis", "namespace": "UNIQUE", "unique": {"base": "Silk Robe"}, "icon": "%NOT_FOUND%"}
 {"name": "特沙波卡爾之慾", "refName": "Tetzlapokal's Desire", "namespace": "UNIQUE", "unique": {"base": "Votive Raiment"}, "icon": "%NOT_FOUND%"}
 {"name": "遺塚居民", "refName": "The Barrow Dweller", "namespace": "UNIQUE", "unique": {"base": "Rogue Armour"}, "icon": "%NOT_FOUND%"}
@@ -3021,7 +3021,7 @@
 {"name": "英雄悲劇", "refName": "Heroic Tragedy", "namespace": "UNIQUE", "unique": {"base": "Timeless Jewel"}, "icon": "%NOT_FOUND%"}
 {"name": "妄想症", "refName": "Megalomaniac", "namespace": "UNIQUE", "unique": {"base": "Diamond"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvSmV3ZWxzL1VuaXF1ZUpld2VsQmFzZTIiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/659b3e6b90/UniqueJewelBase2.png"}
 {"name": "信仰棱鏡", "refName": "Prism of Belief", "namespace": "UNIQUE", "unique": {"base": "Diamond"}, "icon": "%NOT_FOUND%"}
-{"name": "朝氣之靈", "refName": "The Adorned", "namespace": "UNIQUE", "unique": {"base": "Diamond"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvSmV3ZWxzL1RyaWFsbWFzdGVySmV3IiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/f04386d454/TrialmasterJew.png"}
+{"name": "朝氣之靈", "refName": "The Adorned", "namespace": "UNIQUE", "unique": {"base": "Diamond"}, "icon": "%NOT_FOUND%"}
 {"name": "腦亂者", "refName": "Brain Rattler", "namespace": "UNIQUE", "unique": {"base": "Studded Greatclub"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9Ud29IYW5kTWFjZXMvQnJhaW5TY3JhbWJsZXIiLCJ3IjoyLCJoIjo0LCJzY2FsZSI6MX1d/0749c07fa6/BrainScrambler.png"}
 {"name": "布林漢的印記", "refName": "Brynhand's Mark", "namespace": "UNIQUE", "unique": {"base": "Wooden Club"}, "icon": "%NOT_FOUND%"}
 {"name": "忠誠之錘", "refName": "Chober Chaber", "namespace": "UNIQUE", "unique": {"base": "Leaden Greathammer"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9Ud29IYW5kTWFjZXMvQ2hvYmVyQ2hhYmVyIiwidyI6MiwiaCI6NCwic2NhbGUiOjF9XQ/77d9d3e30a/ChoberChaber.png"}
@@ -3061,7 +3061,7 @@
 {"name": "裂心", "refName": "Splinterheart", "namespace": "UNIQUE", "unique": {"base": "Recurve Bow"}, "icon": "%NOT_FOUND%"}
 {"name": "塔林的顫慄之語", "refName": "Taryn's Shiver", "namespace": "UNIQUE", "unique": {"base": "Gelid Staff"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9TdGF2ZXMvVGFyeW5zc2hpdmVyIiwidyI6MiwiaCI6NCwic2NhbGUiOjF9XQ/b11b3dffb7/Tarynsshiver.png"}
 {"name": "血棘", "refName": "The Blood Thorn", "namespace": "UNIQUE", "unique": {"base": "Wrapped Quarterstaff"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9TdGF2ZXMvVGhlQmxvb2RUaG9ybiIsInciOjEsImgiOjQsInNjYWxlIjoxfV0/3dac5ee34b/TheBloodThorn.png"}
-{"name": "暗影重擔", "refName": "The Burden of Shadows", "namespace": "UNIQUE", "unique": {"base": "Chiming Staff"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9TdGF2ZXMvVm9vZG9vS2luZ1N0YWZmIiwidyI6MiwiaCI6NCwic2NhbGUiOjF9XQ/295f49d20f/VoodooKingStaff.png"}
+{"name": "暗影重擔", "refName": "The Burden of Shadows", "namespace": "UNIQUE", "unique": {"base": "Chiming Staff"}, "icon": "%NOT_FOUND%"}
 {"name": "狂舞德爾維希", "refName": "The Dancing Dervish", "namespace": "UNIQUE", "unique": {"base": "Scimitar"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9Ud29IYW5kU3dvcmRzL1JoeXNibGFkZSIsInciOjIsImgiOjQsInNjYWxlIjoxfV0/3ed974e708/Rhysblade.png"}
 {"name": "黑暗玷汙者", "refName": "The Dark Defiler", "namespace": "UNIQUE", "unique": {"base": "Rattling Sceptre"}, "icon": "%NOT_FOUND%"}
 {"name": "熾炎之使", "refName": "The Searing Touch", "namespace": "UNIQUE", "unique": {"base": "Pyrophyte Staff"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9TdGF2ZXMvU3RhZmY0dW5pcXVlIiwidyI6MiwiaCI6NCwic2NhbGUiOjF9XQ/5c7ddd5550/Staff4unique.png"}
