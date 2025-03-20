@@ -76,6 +76,7 @@ export const CATEGORY_TO_TRADE_ID = new Map([
   [ItemCategory.MetaGem, "gem.metagem"],
   [ItemCategory.Focus, "armour.focus"],
   [ItemCategory.Spear, "weapon.spear"],
+  [ItemCategory.Flail, "weapon.flail"],
 ]);
 
 // const TOTAL_MODS_TEXT = {
