@@ -60,6 +60,7 @@ export function mapItemCategoryToKeys(itemCategory: ItemCategory): string[] {
     [ItemCategory.Relic]: [""],
     [ItemCategory.Tablet]: [""],
     [ItemCategory.TowerAugment]: [""],
+    [ItemCategory.Spear]: ["spear", "one_hand_weapon", "weapon"],
   };
 
   return categoryMap[itemCategory] || [itemCategory.toLowerCase()];

@@ -56,6 +56,7 @@ export enum ItemCategory {
   Relic = "Relic",
   Tablet = "Tablet",
   TowerAugment = "TowerAugment",
+  Spear = "Spear",
 }
 
 export const WEAPON_ONE_HANDED_MELEE = new Set([
@@ -65,6 +66,7 @@ export const WEAPON_ONE_HANDED_MELEE = new Set([
   ItemCategory.Claw,
   ItemCategory.Dagger,
   ItemCategory.RuneDagger,
+  ItemCategory.Spear,
 ]);
 
 export const WEAPON_ONE_HANDED = new Set([

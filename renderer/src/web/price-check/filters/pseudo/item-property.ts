@@ -391,6 +391,7 @@ function isPdpsImportant(item: ParsedItem) {
     case ItemCategory.Bow:
     case ItemCategory.Warstaff:
     case ItemCategory.Crossbow:
+    case ItemCategory.Spear:
       return true;
     default:
       return false;

@@ -52,6 +52,7 @@ export enum ItemCategory {
   SupportGem = "Support Gem",
   MetaGem = "Meta Gem",
   Focus = "Focus",
+  Spear = "Spear",
 }
 
 export interface StatMatcher {

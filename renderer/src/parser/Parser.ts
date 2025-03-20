@@ -1548,6 +1548,7 @@ function getMaxSockets(category: ItemCategory | undefined) {
     case ItemCategory.Claw:
     case ItemCategory.Dagger:
     case ItemCategory.Focus:
+    case ItemCategory.Spear:
       return 1;
     default:
       return 0;
@@ -1580,6 +1581,7 @@ export function isArmourOrWeapon(
     case ItemCategory.Bow:
     case ItemCategory.Warstaff:
     case ItemCategory.Staff:
+    case ItemCategory.Spear:
       return "weapon";
     default:
       return undefined;
