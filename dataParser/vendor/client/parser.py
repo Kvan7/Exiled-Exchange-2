@@ -20,6 +20,7 @@ import re
 import urllib.parse
 from collections import defaultdict
 from copy import deepcopy
+from itertools import permutations
 from pprint import pprint
 
 from clientStrings.clientStringBuilder import (
@@ -723,11 +724,12 @@ class Parser:
 
             if tiers is not None:
                 tier_refs = [t.get("ref") for t in translations]
-                tier_ref_strings = "\n".join(dict.fromkeys(tier_refs))
-                if tier_ref_strings in self.tiers:
-                    self.tiers[tier_ref_strings].update(tiers)
-                else:
-                    self.tiers[tier_ref_strings] = tiers
+                for perm in permutations(tier_refs):
+                    tier_ref_strings = "\n".join(perm)
+                    if tier_ref_strings in self.tiers:
+                        self.tiers[tier_ref_strings].update(tiers)
+                    else:
+                        self.tiers[tier_ref_strings] = tiers
 
         for mod in self.mods_file:
             id = mod.get("Id").lower()
