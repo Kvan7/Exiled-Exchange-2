@@ -34,9 +34,9 @@ https://kvan7.github.io/Exiled-Exchange-2/faq
 
 ## Tool showcase
 
-| Gem                                  | Rare                                 | Unique                               | Currency                             |
-| ------------------------------------ | ------------------------------------ | ------------------------------------ | ------------------------------------ |
-| ![](https://i.imgur.com/LTsH2DZ.png) | ![](https://i.imgur.com/2XL5Wl8.png) | ![](https://i.imgur.com/UTV6prE.png) | ![](https://i.imgur.com/dQ9Sns6.png) |
+| Gem                                                | Rare                                                 | Unique                                                   | Currency                                                     |
+| -------------------------------------------------- | ---------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------ |
+| ![Gem Check](./docs/reference-images/GemCheck.png) | ![Rare Check](./docs/reference-images/RareCheck.png) | ![Unique Check](./docs/reference-images/UniqueCheck.png) | ![Currency Check](./docs/reference-images/CurrencyCheck.png) |
 
 ### Development
 
