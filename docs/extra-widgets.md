@@ -6,7 +6,7 @@ title: Extra Widgets
 
 *See also: [Widgets](/widgets)*{:.text-sm}
 
-The Image Strip widget can be used to display an image in PoE2 very quickly. This is most useful for quickly referencing a cheat sheet or other image. For best results, the image should be large and have a high resolution.
+The Image Strip widget can be used to display an image in PoE2. This is most useful for quickly referencing a cheat sheet or other image. For best results, the image should be large and have a high resolution.
 
 To enable the widget, open the overlay (`shift + space`), then hover over the 3 dots and click `Image Strip`.
 

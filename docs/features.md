@@ -56,9 +56,9 @@ Save Regex's or specific strings to use to search in the stash. Also keybindable
 
 ![Stash Search Settings 2](/reference-images/StashSearchSettings2.png)
 
-### Chat Macros{:.!mb-1}
+### Chat Commands{:.!mb-1}
 
-*Full Page: [Chat Macros](/chat-macros)*{:.text-sm}
+*Full Page: [Chat Commands](/chat-commands)*{:.text-sm}
 
 ![Chat Macros](/reference-images/ChatMacros.png)
 
