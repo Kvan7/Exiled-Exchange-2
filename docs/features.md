@@ -22,6 +22,12 @@ title: Features
 
 ![Gem Item](/reference-images/GemCheck.png)
 
+### Chat Commands{:.!mb-1}
+
+*Full Page: [Chat Commands](/chat-commands)*{:.text-sm}
+
+![Chat Macros](/reference-images/ChatMacros.png)
+
 ### Map check{:.!mb-1}
 
 *Full Page: [Map Check](/map-check)*{:.text-sm}
@@ -46,21 +52,17 @@ Save Regex's or specific strings to use to search in the stash. Also keybindable
 
 #### Dump sorting
 
-![Stash Search](/reference-images/StashSearch1.png)
+![Stash Search](/reference-images/DumpSortWidget.png)
 
-![Stash Search Settings](/reference-images/StashSearchSettings1.png)
+![Stash Search Currency](/reference-images/DumpSortCurrency.png)
+
+![Stash Search Settings](/reference-images/DumpSortSettings.png)
 
 #### Map rolling
 
-![Stash Search 3](/reference-images/StashSearch3.png)
+![Stash Search 3](/reference-images/MapRollingBurning.png)
 
-![Stash Search Settings 2](/reference-images/StashSearchSettings2.png)
-
-### Chat Commands{:.!mb-1}
-
-*Full Page: [Chat Commands](/chat-commands)*{:.text-sm}
-
-![Chat Macros](/reference-images/ChatMacros.png)
+![Stash Search Settings 2](/reference-images/StashSearchRollingSettings.png)
 
 ### Extra Widgets{:.!mb-1}
 
