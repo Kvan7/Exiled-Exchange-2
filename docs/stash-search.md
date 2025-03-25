@@ -14,7 +14,7 @@ Map(waystone) rolling is a preset widget that helps to match maps with certain m
 
 ![Map rolling](/reference-images/StashSearchMapRolling.png)
 
-Clicking any of these buttons will paste the text into the search bar in the stash or vendor window. For example, clicking "Burning Ground" will paste the text `"Burning Ground"` in the stash search bar. This will then highlight any map(waystone) that has that mod on it. In this case, those could be highlighted and then vendored if you don't want to deal with burning ground.
+Clicking any of these buttons will paste the text into the search bar in the stash or vendor window. For example, clicking "Burning Ground" will paste the text `"Burning Ground"` in the stash search bar. This will then highlight any map(waystone) that has that mod on it.
 
 ![Stash Search burning ground](/reference-images/MapRollingBurning.png)
 
@@ -32,27 +32,15 @@ Clicking any of these buttons will paste the text into the search bar in the sta
 
 ![Dump search currency](/reference-images/DumpSortCurrency.png)
 
-And it's settings.
+## Aliases and Hotkeys
 
-![Dump search settings](/reference-images/DumpSortSettings.png)
-
-## More Complex Example
-
-Here is a bit more of a complex example of how the stash search can be setup and used.
-
-This is using a complex regex to search for maps that do not have certain mods, "Burning Ground" and "Monsters penetrate #% Elemental Resistances". Along with that it also ensures the map is Tier 15+ and has more than 250% waystone drop chance.
-
-![Stash search example](/reference-images/DefaultMapRollSearch.png)
-
-In these settings, the actual regex is shown. It is quite unreadable and thus all of these use "Friendly Names", basically flavor text that is displayed in place of the actual used regex. Using this can make it easier to remember what each button does.
-
-The bottom one is most commonly used so it has been assigned a hotkey for convenience, `F2`. When in the stash, just pressing `F2` will automatically perform that search without even opening the overlay. This is especially useful for searching vendors for items after leveling up.
-
-![Stash search example settings](/reference-images/StashSearchSettings2.png)
-
-The hotkey is also visible in the overlay when it is opened, and can toggle all the hotkeys for the widget on and off with the switch in the top right of the widget.
+The bottom one ("Default") has been assigned a hotkey for convenience, `F2`. When in the stash, just pressing `F2` will automatically perform that search without even opening the overlay. The hotkey is also visible in the overlay when it is opened, and can toggle all the hotkeys for the widget on and off with the switch in the top right of the widget.
 
 ![Stash search example hotkey](/reference-images/RollingMain.png)
+
+In these settings, the actual regex is shown. It is quite unreadable and thus all of these use "Friendly Names", basically flavor text that is displayed in place of the actual used text.
+
+![Stash search example settings](/reference-images/StashSearchSettings2.png)
 
 ## Settings
 

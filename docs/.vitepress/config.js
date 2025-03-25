@@ -39,10 +39,6 @@ export default defineConfig({
         }, {
           text: 'Quick Start',
           link: '/quick-start'
-        },
-        {
-          text: 'Features',
-          link: '/features'
         }
         ]
       },
