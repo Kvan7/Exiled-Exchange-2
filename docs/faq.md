@@ -61,6 +61,10 @@ title: FAQ
 
   This is possible by using the [command line flag](/cmd-flags).
 
+- **Why does a sound play when I price check an item?**
+
+  Discord :( Change the default key for saving clips. By default it is `Alt + c` which is pressed by EE2 every time a price check happens.
+
 - **Is exiledexchange2.com an official website?**
 
   No, the only official website is <https://kvan7.github.io/Exiled-Exchange-2/> and the official github repo is <https://github.com/Kvan7/Exiled-Exchange-2>. Any other mirrors are not known to the developer, downloading from them may be unsafe or malicious.
