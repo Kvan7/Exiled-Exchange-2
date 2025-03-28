@@ -199,5 +199,5 @@ export enum FilterTag {
   Unveiled = "explicit-veiled",
   Incursion = "explicit-incursion",
   Rune = "rune",
-  FakeRune = "fake-rune",
+  AddedRune = "added-rune",
 }

@@ -351,7 +351,7 @@ export function calculatedStatToFilter(
     filter = {
       tradeId:
         stat.trade.ids[
-          type === ModifierType.FakeRune ? ModifierType.Rune : type
+          type === ModifierType.AddedRune ? ModifierType.Rune : type
         ],
       statRef: stat.ref,
       text: sources[0].stat.translation.string,
@@ -374,7 +374,9 @@ export function calculatedStatToFilter(
 
   filter ??= {
     tradeId:
-      stat.trade.ids[type === ModifierType.FakeRune ? ModifierType.Rune : type],
+      stat.trade.ids[
+        type === ModifierType.AddedRune ? ModifierType.Rune : type
+      ],
     statRef: stat.ref,
     text: translation.string,
     tag: type as unknown as FilterTag,

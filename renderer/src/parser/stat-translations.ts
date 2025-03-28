@@ -1,5 +1,9 @@
-import { CLIENT_STRINGS as _$, STAT_BY_MATCH_STR } from "@/assets/data";
-import type { StatMatcher, Stat } from "@/assets/data";
+import {
+  CLIENT_STRINGS as _$,
+  ITEM_BY_REF,
+  STAT_BY_MATCH_STR,
+} from "@/assets/data";
+import type { StatMatcher, Stat, BaseType } from "@/assets/data";
 import { ModifierType } from "./modifiers";
 
 // This file is a little messy and scary,
@@ -19,6 +23,7 @@ export interface ParsedStat {
     min: number;
     max: number;
   };
+  fromAddedRune?: BaseType;
 }
 
 interface StatString {
@@ -160,7 +165,9 @@ export function tryParseTranslation(
 ): ParsedStat | undefined {
   for (const combination of _statPlaceholderGenerator(stat.string)) {
     const found = STAT_BY_MATCH_STR(combination.stat);
-    if (!found || !found.stat.trade.ids || !found.stat.trade.ids[modType]) {
+    const realType =
+      modType === ModifierType.AddedRune ? ModifierType.Rune : modType;
+    if (!found || !found.stat.trade.ids || !found.stat.trade.ids[realType]) {
       continue;
     }
 
@@ -242,6 +249,10 @@ export function tryParseTranslation(
             ),
           }
         : undefined,
+      fromAddedRune:
+        modType === ModifierType.AddedRune
+          ? ITEM_BY_REF("ITEM", "Iron Rune")![0]
+          : undefined,
     };
   }
 }

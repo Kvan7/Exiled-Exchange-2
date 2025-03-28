@@ -36,6 +36,7 @@ import {
   isModInfoLine,
   groupLinesByMod,
   parseModInfoLine,
+  ADDED_RUNE_LINE,
 } from "./advanced-mod-desc";
 import { calcPropPercentile, QUALITY_STATS } from "./calc-q20";
 import { getMaxTier } from "./mod-tiers";
@@ -898,7 +899,8 @@ export function parseModifiersPoe2(section: string[], item: ParsedItem) {
     (line) =>
       line.endsWith(ENCHANT_LINE) ||
       line.endsWith(SCOURGE_LINE) ||
-      line.endsWith(RUNE_LINE),
+      line.endsWith(RUNE_LINE) ||
+      line.endsWith(ADDED_RUNE_LINE),
   );
 
   if (enchantOrScourgeOrRune) {
@@ -908,7 +910,9 @@ export function parseModifiersPoe2(section: string[], item: ParsedItem) {
         ? ModifierType.Enchant
         : enchantOrScourgeOrRune.endsWith(SCOURGE_LINE)
           ? ModifierType.Scourge
-          : ModifierType.Rune,
+          : enchantOrScourgeOrRune.endsWith(ADDED_RUNE_LINE)
+            ? ModifierType.AddedRune
+            : ModifierType.Rune,
       tags: [],
     };
     foundAnyMods = parseStatsFromMod(lines, item, { info: modInfo, stats: [] });
@@ -951,6 +955,7 @@ function parseModifiers(section: string[], item: ParsedItem) {
     (line) =>
       line.endsWith(ENCHANT_LINE) ||
       line.endsWith(SCOURGE_LINE) ||
+      line.endsWith(RUNE_LINE) ||
       isModInfoLine(line),
   );
 
@@ -989,7 +994,9 @@ function parseModifiers(section: string[], item: ParsedItem) {
     const modInfo: ModifierInfo = {
       type: recognizedLine.endsWith(ENCHANT_LINE)
         ? ModifierType.Enchant
-        : ModifierType.Scourge,
+        : recognizedLine.endsWith(SCOURGE_LINE)
+          ? ModifierType.Scourge
+          : ModifierType.Rune,
       tags: [],
     };
     parseStatsFromMod(lines, item, { info: modInfo, stats: [] });

@@ -32,6 +32,13 @@
           </div>
         </button>
         <div class="flex items-baseline gap-x-1">
+          <div
+            v-if="showRuneNotice"
+            :class="$style['qualityLabel']"
+            class="self-center"
+          >
+            <img :src="showRuneNotice" class="w-5 h-5" />
+          </div>
           <div v-if="showQ20Notice" :class="$style['qualityLabel']">
             {{ t("item.prop_quality", [calcQuality]) }}
           </div>
@@ -172,6 +179,13 @@ export default defineComponent({
         ),
     );
 
+    const showRuneNotice = computed(() => {
+      if (props.filter.sources.some((source) => source.stat.fromAddedRune))
+        return props.filter.sources.find((source) => source.stat.fromAddedRune)
+          ?.stat.fromAddedRune?.icon;
+      return false;
+    });
+
     const showQ20Notice = computed(() => {
       return (
         [
@@ -240,6 +254,7 @@ export default defineComponent({
     return {
       t,
       showTag,
+      showRuneNotice,
       showQ20Notice,
       calcQuality,
       inputMinEl,
@@ -342,7 +357,7 @@ export default defineComponent({
   @apply border border-gray-700;
   @apply rounded;
   @apply px-2;
-  text-align: center;
+  @apply text-center;
 }
 
 .mods {

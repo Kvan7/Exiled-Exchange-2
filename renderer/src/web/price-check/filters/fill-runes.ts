@@ -12,6 +12,7 @@ import { FiltersCreationContext } from "./create-stat-filters";
 import { AppConfig } from "@/web/Config";
 import { PriceCheckWidget } from "@/web/overlay/widgets";
 import { filterItemProp } from "./pseudo/item-property";
+import { ADDED_RUNE_LINE } from "@/parser/advanced-mod-desc";
 
 export function handleFillRuneSockets(
   filters: StatFilter[],
@@ -67,7 +68,7 @@ function createNewStatFilter(
   if (!runeData) return;
   const emptyRuneCount = item.runeSockets!.empty;
   const statString = replaceHashWithValues(
-    runeData.baseStat,
+    runeData.baseStat + ADDED_RUNE_LINE,
     runeData.values.map((v) => v * emptyRuneCount),
   );
   parseModifiersPoe2([statString], newItem);
