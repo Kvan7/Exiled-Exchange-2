@@ -102,6 +102,10 @@ export interface BaseType {
     ev?: [min: number, max: number];
     es?: [min: number, max: number];
   };
+  rune?: {
+    weapon: string;
+    armour: string;
+  };
 }
 
 export interface TranslationDict {
