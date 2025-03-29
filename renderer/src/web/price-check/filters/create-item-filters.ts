@@ -247,10 +247,18 @@ export function createFilters(
       ) {
         filters.fillEmptyRuneSockets = {
           disabled: false,
+          editing: false,
+          value: opts.autoFillEmptyRuneSockets
+            ? opts.autoFillEmptyRuneSockets
+            : "None",
         };
       } else {
         filters.fillEmptyRuneSockets = {
           disabled: true,
+          editing: false,
+          value: opts.autoFillEmptyRuneSockets
+            ? opts.autoFillEmptyRuneSockets
+            : "None",
         };
       }
     }

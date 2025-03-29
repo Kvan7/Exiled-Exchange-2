@@ -131,8 +131,14 @@
       <filter-btn-logical
         v-if="hasEmptyRuneSockets && filters.fillEmptyRuneSockets"
         :filter="filters.fillEmptyRuneSockets"
-        :text="t('filters.fill_rune_iron')"
+        :text="filters.fillEmptyRuneSockets.value"
       />
+      <ui-toggle
+        v-if="hasEmptyRuneSockets && filters.fillEmptyRuneSockets"
+        v-model="filters.fillEmptyRuneSockets.editing"
+        class="ml-auto text-gray-400 pt-2"
+        >show</ui-toggle
+      >
     </div>
     <!-- Handled parse error -->
     <div
@@ -286,11 +292,17 @@ export default defineComponent({
         // const initAsFilled = selected && props.filters.tempRuneStorage;
         if (normalCase) {
           const shouldFill = !selected;
+          let rune = "None";
+          if (props.filters.fillEmptyRuneSockets) {
+            rune = props.filters.fillEmptyRuneSockets.value;
+          }
+
           handleFillRuneSockets(
             props.stats,
             props.item,
             shouldFill,
             props.filters.tempRuneStorage!,
+            rune,
           );
         }
       },
