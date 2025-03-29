@@ -103,8 +103,11 @@ export interface BaseType {
     es?: [min: number, max: number];
   };
   rune?: {
-    weapon: string;
-    armour: string;
+    [category: string]: {
+      string: string;
+      values: number[];
+      tradeId: string[];
+    };
   };
 }
 
@@ -269,14 +272,14 @@ export interface RuneSingleValue {
   };
 }
 
+export interface RuneData {
+  rune: string;
+  baseStat: string;
+  values: number[];
+  id: string;
+  type: string;
+}
+
 export interface RuneDataByRune {
-  [rune: string]: [
-    {
-      rune: string;
-      baseStat: string;
-      values: number[];
-      id: string;
-      type: "armour" | "weapon";
-    },
-  ];
+  [rune: string]: RuneData[];
 }

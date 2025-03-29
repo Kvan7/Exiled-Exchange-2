@@ -173,7 +173,9 @@ async function loadItems(language: string, isTest = false) {
     ITEMS_ITERATOR('refName":"Replica'),
   );
 
-  RUNE_LIST = Array.from(ITEMS_ITERATOR('Rune", "namespace": "ITEM",'));
+  RUNE_LIST = Array.from(
+    ITEMS_ITERATOR('"craftable": {"category": "SoulCore"}'),
+  );
 }
 
 async function loadStats(language: string, isTest = false) {
@@ -258,17 +260,13 @@ export async function init(lang: string, isTest = false) {
     await fetch(`${import.meta.env.BASE_URL}data/pseudo-empty-prefix.json`)
   ).json();
 
-  RUNE_SINGLE_VALUE = await (
-    await fetch(`${import.meta.env.BASE_URL}data/rune-single-value.json`)
-  ).json();
-
-  RUNE_DATA_BY_RUNE = convertRuneSingleValueToRuneDataByRune(RUNE_SINGLE_VALUE);
-
   MAX_TIER_LOOKUP = await (
     await fetch(`${import.meta.env.BASE_URL}data/tiers.json`)
   ).json();
 
   await loadForLang(lang, isTest);
+
+  RUNE_DATA_BY_RUNE = runesToLookup(RUNE_LIST);
 
   let failed = false;
   const missing = [];
@@ -297,26 +295,31 @@ export async function loadForLang(lang: string, isTest = false) {
   await loadStats(lang);
 }
 
-function convertRuneSingleValueToRuneDataByRune(
-  runeSingleValue: RuneSingleValue,
-): RuneDataByRune {
+function runesToLookup(runeList: BaseType[]): RuneDataByRune {
   const runeDataByRune: RuneDataByRune = {};
 
-  for (const id in runeSingleValue) {
-    const { rune, baseStat, values, id: runeId, type } = runeSingleValue[id];
-
-    if (!runeDataByRune[rune]) {
-      runeDataByRune[rune] = [{ rune, baseStat, values, id: runeId, type }];
-    } else {
-      runeDataByRune[rune].push({
-        rune,
-        baseStat,
+  for (const rune of runeList) {
+    if (!rune.rune) continue;
+    for (const runeStat in rune.rune) {
+      const { string: text, values, tradeId } = rune.rune[runeStat];
+      if (!runeDataByRune[rune.name]) {
+        runeDataByRune[rune.name] = [];
+      }
+      runeDataByRune[rune.name].push({
+        rune: rune.name,
+        baseStat: text,
         values,
-        id: runeId,
-        type,
+        id: tradeId[0],
+        type: runeStat,
       });
     }
   }
 
   return runeDataByRune;
 }
+
+// Disable since this is export for tests
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export const __testExports = {
+  runesToLookup,
+};

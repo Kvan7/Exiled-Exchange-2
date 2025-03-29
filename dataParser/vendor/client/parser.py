@@ -1115,17 +1115,19 @@ class Parser:
             id = rune.get("BaseItemType")
 
             armour_stat = rune.get("StatsArmour")[0]
-            armour_translated = first_non_negated(
-                self.get_mod_by_id(armour_stat).get("matchers")
-            ).get("string")
+            armour_mod = self.get_mod_by_id(armour_stat)
+            armour_translated = first_non_negated(armour_mod.get("matchers")).get(
+                "string"
+            )
             armour_filled = replace_hash_with_values(
                 armour_translated, rune.get("StatsValuesArmour")
             )
 
             weapon_stat = rune.get("StatsWeapon")[0]
-            weapon_translated = first_non_negated(
-                self.get_mod_by_id(weapon_stat).get("matchers")
-            ).get("string")
+            weapon_mod = self.get_mod_by_id(weapon_stat)
+            weapon_translated = first_non_negated(weapon_mod.get("matchers")).get(
+                "string"
+            )
             weapon_filled = replace_hash_with_values(
                 weapon_translated, rune.get("StatsValuesWeapon")
             )
@@ -1134,8 +1136,20 @@ class Parser:
                 self.items[id].update(
                     {
                         "rune": {
-                            "armour": armour_filled,
-                            "weapon": weapon_filled,
+                            "armour": {
+                                "string": armour_filled,
+                                "values": rune.get("StatsValuesArmour"),
+                                "tradeId": armour_mod.get("trade")
+                                .get("ids")
+                                .get("rune"),
+                            },
+                            "weapon": {
+                                "string": weapon_filled,
+                                "values": rune.get("StatsValuesWeapon"),
+                                "tradeId": weapon_mod.get("trade")
+                                .get("ids")
+                                .get("rune"),
+                            },
                         }
                     }
                 )

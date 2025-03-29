@@ -6696,8 +6696,25 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "12% 火焰抗性",
-            "weapon": "附加 7 至 11 火焰傷害"
+            "armour": {
+                "string": "12% 火焰抗性",
+                "values": [
+                    12
+                ],
+                "tradeId": [
+                    "rune.stat_3372524247"
+                ]
+            },
+            "weapon": {
+                "string": "附加 7 至 11 火焰傷害",
+                "values": [
+                    7,
+                    11
+                ],
+                "tradeId": [
+                    "rune.stat_709508406"
+                ]
+            }
         },
         "tradeTag": "desert-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvRmlyZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/eeabf0e7a0/FireRune.png"
@@ -6714,8 +6731,26 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "12% 冰冷抗性",
-            "weapon": "附加 6 至 10 冰冷傷害"
+            "armour": {
+                "string": "12% 冰冷抗性",
+                "values": [
+                    12
+                ],
+                "tradeId": [
+                    "rune.stat_4220027924"
+                ]
+            },
+            "weapon": {
+                "string": "附加 6 至 10 冰冷傷害",
+                "values": [
+                    6,
+                    10
+                ],
+                "tradeId": [
+                    "rune.stat_1037193709",
+                    "rune.stat_1037193709"
+                ]
+            }
         },
         "tradeTag": "glacial-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvQ29sZFJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/499bfe179a/ColdRune.png"
@@ -6732,8 +6767,26 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "12% 閃電抗性",
-            "weapon": "附加 1 至 20 閃電傷害"
+            "armour": {
+                "string": "12% 閃電抗性",
+                "values": [
+                    12
+                ],
+                "tradeId": [
+                    "rune.stat_1671376347"
+                ]
+            },
+            "weapon": {
+                "string": "附加 1 至 20 閃電傷害",
+                "values": [
+                    1,
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_3336890334",
+                    "rune.stat_3336890334"
+                ]
+            }
         },
         "tradeTag": "storm-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlnaHRuaW5nUnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/98319b3998/LightningRune.png"
@@ -6750,8 +6803,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "增加 20% 護甲、閃避與能量護盾",
-            "weapon": "增加 20% 物理傷害"
+            "armour": {
+                "string": "增加 20% 護甲、閃避與能量護盾",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_3523867985"
+                ]
+            },
+            "weapon": {
+                "string": "增加 20% 物理傷害",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_1509134228"
+                ]
+            }
         },
         "tradeTag": "iron-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvRW5oYW5jZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/cfeb426ee0/EnhanceRune.png"
@@ -6768,8 +6837,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "25 最大生命",
-            "weapon": "300% 的物理攻擊傷害偷取生命"
+            "armour": {
+                "string": "25 最大生命",
+                "values": [
+                    25
+                ],
+                "tradeId": [
+                    "rune.stat_3299347043"
+                ]
+            },
+            "weapon": {
+                "string": "300% 的物理攻擊傷害偷取生命",
+                "values": [
+                    300
+                ],
+                "tradeId": [
+                    "rune.stat_55876295"
+                ]
+            }
         },
         "tradeTag": "body-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlmZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/a09dcb651b/LifeRune.png"
@@ -6786,8 +6871,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "20 最大魔力",
-            "weapon": "200% 物理攻擊傷害偷取魔力"
+            "armour": {
+                "string": "20 最大魔力",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_1050105434"
+                ]
+            },
+            "weapon": {
+                "string": "200% 物理攻擊傷害偷取魔力",
+                "values": [
+                    200
+                ],
+                "tradeId": [
+                    "rune.stat_669069897"
+                ]
+            }
         },
         "tradeTag": "mind-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTWFuYVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/4be6331480/ManaRune.png"
@@ -6804,8 +6905,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "每秒回復 18% 生命",
-            "weapon": "每個被擊殺的敵人，獲得 20 生命"
+            "armour": {
+                "string": "每秒回復 18% 生命",
+                "values": [
+                    18
+                ],
+                "tradeId": [
+                    "rune.stat_836936635"
+                ]
+            },
+            "weapon": {
+                "string": "每個被擊殺的敵人，獲得 20 生命",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_3695891184"
+                ]
+            }
         },
         "tradeTag": "rebirth-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlmZVJlY292ZXJ5UnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/bbbb060773/LifeRecoveryRune.png"
@@ -6822,8 +6939,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "增加 15% 魔力回復率",
-            "weapon": "每個被擊殺的敵人，獲得 10 魔力"
+            "armour": {
+                "string": "增加 15% 魔力回復率",
+                "values": [
+                    15
+                ],
+                "tradeId": [
+                    "rune.stat_789117908"
+                ]
+            },
+            "weapon": {
+                "string": "每個被擊殺的敵人，獲得 10 魔力",
+                "values": [
+                    10
+                ],
+                "tradeId": [
+                    "rune.stat_1368271171"
+                ]
+            }
         },
         "tradeTag": "inspiration-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTWFuYVJlY292ZXJ5UnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/5154db8cf8/ManaRecoveryRune.png"
@@ -6840,8 +6973,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "暈眩門檻 40",
-            "weapon": "使暈眩累積增加 25%"
+            "armour": {
+                "string": "暈眩門檻 40",
+                "values": [
+                    40
+                ],
+                "tradeId": [
+                    "rune.stat_915769802"
+                ]
+            },
+            "weapon": {
+                "string": "使暈眩累積增加 25%",
+                "values": [
+                    25
+                ],
+                "tradeId": [
+                    "rune.stat_791928121"
+                ]
+            }
         },
         "tradeTag": "stone-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvU3R1blJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f7830fb594/StunRune.png"
@@ -6858,8 +7007,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "增加 10% 來自藥劑恢復的生命和魔力",
-            "weapon": "100 命中值"
+            "armour": {
+                "string": "增加 10% 來自藥劑恢復的生命和魔力",
+                "values": [
+                    10
+                ],
+                "tradeId": [
+                    "rune.stat_2310741722"
+                ]
+            },
+            "weapon": {
+                "string": "100 命中值",
+                "values": [
+                    100
+                ],
+                "tradeId": [
+                    "rune.stat_691932474"
+                ]
+            }
         },
         "tradeTag": "vision-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvQWNjdXJhY3lSdW5lIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/8e7841f0ef/AccuracyRune.png"
@@ -6876,8 +7041,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "7% 混沌抗性",
-            "weapon": "擊中時有 15% 機率使敵人中毒"
+            "armour": {
+                "string": "7% 混沌抗性",
+                "values": [
+                    7
+                ],
+                "tradeId": [
+                    "rune.stat_2923486259"
+                ]
+            },
+            "weapon": {
+                "string": "擊中時有 15% 機率使敵人中毒",
+                "values": [
+                    15
+                ],
+                "tradeId": [
+                    "rune.stat_3885634897"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-tacati",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNoYW9zIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/cd9c4fb0a7/GreaterSoulCoreChaos.png"
@@ -6894,8 +7075,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "增加 10% 護符充能獲取",
-            "weapon": "擊中時 15% 機率造成流血"
+            "armour": {
+                "string": "增加 10% 護符充能獲取",
+                "values": [
+                    10
+                ],
+                "tradeId": [
+                    "rune.stat_3585532255"
+                ]
+            },
+            "weapon": {
+                "string": "擊中時 15% 機率造成流血",
+                "values": [
+                    15
+                ],
+                "tradeId": [
+                    "rune.stat_1519615863"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-opiloti",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVBoeXNpY2FsIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/366f87b8f2/GreaterSoulCorePhysical.png"
@@ -6912,8 +7109,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "增加 2% 最大生命",
-            "weapon": "擊殺時恢復 2% 生命"
+            "armour": {
+                "string": "增加 2% 最大生命",
+                "values": [
+                    2
+                ],
+                "tradeId": [
+                    "rune.stat_983749596"
+                ]
+            },
+            "weapon": {
+                "string": "擊殺時恢復 2% 生命",
+                "values": [
+                    2
+                ],
+                "tradeId": [
+                    "rune.stat_2023107756"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-jiquani",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUxpZmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/bb83a9f337/GreaterSoulCoreLife.png"
@@ -6930,8 +7143,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "增加 2% 最大魔力",
-            "weapon": "擊殺時恢復 2% 魔力"
+            "armour": {
+                "string": "增加 2% 最大魔力",
+                "values": [
+                    2
+                ],
+                "tradeId": [
+                    "rune.stat_2748665614"
+                ]
+            },
+            "weapon": {
+                "string": "擊殺時恢復 2% 魔力",
+                "values": [
+                    2
+                ],
+                "tradeId": [
+                    "rune.stat_1030153674"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-zalatl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZU1hbmEiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/1437190de2/GreaterSoulCoreMana.png"
@@ -6948,8 +7177,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "5% 全部元素抗性",
-            "weapon": "攻擊技能增加 30% 元素傷害"
+            "armour": {
+                "string": "5% 全部元素抗性",
+                "values": [
+                    5
+                ],
+                "tradeId": [
+                    "rune.stat_2901986750"
+                ]
+            },
+            "weapon": {
+                "string": "攻擊技能增加 30% 元素傷害",
+                "values": [
+                    30
+                ],
+                "tradeId": [
+                    "rune.stat_387439868"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-citaqualotl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL1NvdWxDb3JlUGh5c2ljYWwiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f48f9f0c62/SoulCorePhysical.png"
@@ -6966,8 +7211,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "1% 最大火焰抗性",
-            "weapon": "增加 30% 點燃機率"
+            "armour": {
+                "string": "1% 最大火焰抗性",
+                "values": [
+                    1
+                ],
+                "tradeId": [
+                    "rune.stat_4095671657"
+                ]
+            },
+            "weapon": {
+                "string": "增加 30% 點燃機率",
+                "values": [
+                    30
+                ],
+                "tradeId": [
+                    "rune.stat_2968503605"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-puhuarte",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUZpcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/6390ebeaa6/GreaterSoulCoreFire.png"
@@ -6984,8 +7245,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "1% 最大冰冷抗性",
-            "weapon": "增加 20% 冰凍累積"
+            "armour": {
+                "string": "1% 最大冰冷抗性",
+                "values": [
+                    1
+                ],
+                "tradeId": [
+                    "rune.stat_3676141501"
+                ]
+            },
+            "weapon": {
+                "string": "增加 20% 冰凍累積",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_473429811"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-tzamoto",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNvbGQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/d437c04d5e/GreaterSoulCoreCold.png"
@@ -7002,8 +7279,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "1% 最大閃電抗性",
-            "weapon": "增加 30% 感電機率"
+            "armour": {
+                "string": "1% 最大閃電抗性",
+                "values": [
+                    1
+                ],
+                "tradeId": [
+                    "rune.stat_1011760251"
+                ]
+            },
+            "weapon": {
+                "string": "增加 30% 感電機率",
+                "values": [
+                    30
+                ],
+                "tradeId": [
+                    "rune.stat_293638271"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-xopec",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUxpZ2h0bmluZyIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/3dffadfa9a/GreaterSoulCoreLightning.png"
@@ -7020,8 +7313,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "增加 10% 物品稀有度",
-            "weapon": "15 精魂"
+            "armour": {
+                "string": "增加 10% 物品稀有度",
+                "values": [
+                    10
+                ],
+                "tradeId": [
+                    "rune.stat_3917489142"
+                ]
+            },
+            "weapon": {
+                "string": "15 精魂",
+                "values": [
+                    15
+                ],
+                "tradeId": [
+                    "rune.stat_3981240776"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-azcapa",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVdlYWx0aFJhcml0eSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/6a69033a04/GreaterSoulCoreWealthRarity.png"
@@ -7038,8 +7347,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "元素異常狀態門檻增加 15%",
-            "weapon": "此武器進行的攻擊穿透 15% 元素抗性"
+            "armour": {
+                "string": "元素異常狀態門檻增加 15%",
+                "values": [
+                    15
+                ],
+                "tradeId": [
+                    "rune.stat_3544800472"
+                ]
+            },
+            "weapon": {
+                "string": "此武器進行的攻擊穿透 15% 元素抗性",
+                "values": [
+                    15
+                ],
+                "tradeId": [
+                    "rune.stat_4064396395"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-topotante",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVRyaUVsZW1lbnQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ae7a949b3a/GreaterSoulCoreTriElement.png"
@@ -7056,8 +7381,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "減益效果對你的緩速程度增加 -10%",
-            "weapon": "增加 5% 攻擊速度"
+            "armour": {
+                "string": "減益效果對你的緩速程度增加 -10%",
+                "values": [
+                    -10
+                ],
+                "tradeId": [
+                    "rune.stat_924253255"
+                ]
+            },
+            "weapon": {
+                "string": "增加 5% 攻擊速度",
+                "values": [
+                    5
+                ],
+                "tradeId": [
+                    "rune.stat_210067635"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-quipolatl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVNwZWVkIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/d4967ad0f1/GreaterSoulCoreSpeed.png"
@@ -7074,8 +7415,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "對你的擊中減少 10% 暴擊傷害加成",
-            "weapon": "12% 的暴擊傷害加成"
+            "armour": {
+                "string": "對你的擊中減少 10% 暴擊傷害加成",
+                "values": [
+                    10
+                ],
+                "tradeId": [
+                    "rune.stat_3855016469"
+                ]
+            },
+            "weapon": {
+                "string": "12% 的暴擊傷害加成",
+                "values": [
+                    12
+                ],
+                "tradeId": [
+                    "rune.stat_2694482655"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-ticaba",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
@@ -7092,8 +7449,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "20% 需求轉換為力量",
-            "weapon": "20% 需求轉換為力量"
+            "armour": {
+                "string": "20% 需求轉換為力量",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_1556124492"
+                ]
+            },
+            "weapon": {
+                "string": "20% 需求轉換為力量",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_1556124492"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-atmohua",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
@@ -7110,8 +7483,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "20% 需求轉換為敏捷",
-            "weapon": "20% 需求轉換為敏捷"
+            "armour": {
+                "string": "20% 需求轉換為敏捷",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_1496740334"
+                ]
+            },
+            "weapon": {
+                "string": "20% 需求轉換為敏捷",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_1496740334"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-cholotl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
@@ -7128,8 +7517,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "20% 需求轉換為智慧",
-            "weapon": "20% 需求轉換為智慧"
+            "armour": {
+                "string": "20% 需求轉換為智慧",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_2913012734"
+                ]
+            },
+            "weapon": {
+                "string": "20% 需求轉換為智慧",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_2913012734"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-zantipi",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
