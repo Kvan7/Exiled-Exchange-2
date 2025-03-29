@@ -6695,6 +6695,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "12% к сопротивлению огню",
+            "weapon": "Добавляет от 7 до 11 урона от огня"
+        },
         "tradeTag": "desert-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvRmlyZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/eeabf0e7a0/FireRune.png"
     },
@@ -6708,6 +6712,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "12% к сопротивлению холоду",
+            "weapon": "Добавляет от 6 до 10 урона от холода"
         },
         "tradeTag": "glacial-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvQ29sZFJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/499bfe179a/ColdRune.png"
@@ -6723,6 +6731,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "12% к сопротивлению молнии",
+            "weapon": "Добавляет от 1 до 20 урона от молнии"
+        },
         "tradeTag": "storm-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlnaHRuaW5nUnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/98319b3998/LightningRune.png"
     },
@@ -6736,6 +6748,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "20% повышение брони, уклонения и энергетического щита",
+            "weapon": "20% увеличение физического урона"
         },
         "tradeTag": "iron-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvRW5oYW5jZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/cfeb426ee0/EnhanceRune.png"
@@ -6751,6 +6767,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "25 к максимуму здоровья",
+            "weapon": "300% физического урона от атак похищается в виде здоровья"
+        },
         "tradeTag": "body-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlmZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/a09dcb651b/LifeRune.png"
     },
@@ -6764,6 +6784,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "20 к максимуму маны",
+            "weapon": "200% физического урона от атак похищается в виде маны"
         },
         "tradeTag": "mind-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTWFuYVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/4be6331480/ManaRune.png"
@@ -6779,6 +6803,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "Регенерация 18% здоровья в секунду",
+            "weapon": "Дарует 20 здоровья за каждого убитого врага"
+        },
         "tradeTag": "rebirth-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlmZVJlY292ZXJ5UnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/bbbb060773/LifeRecoveryRune.png"
     },
@@ -6792,6 +6820,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "15% повышение скорости регенерации маны",
+            "weapon": "Дарует 10 маны за каждого убитого врага"
         },
         "tradeTag": "inspiration-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTWFuYVJlY292ZXJ5UnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/5154db8cf8/ManaRecoveryRune.png"
@@ -6807,6 +6839,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "40 к порогу оглушения",
+            "weapon": "Вызывает увеличенное на 25% накопление оглушения"
+        },
         "tradeTag": "stone-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvU3R1blJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f7830fb594/StunRune.png"
     },
@@ -6820,6 +6856,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "10% увеличение восстановления здоровья и маны от флаконов",
+            "weapon": "100 к меткости"
         },
         "tradeTag": "vision-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvQWNjdXJhY3lSdW5lIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/8e7841f0ef/AccuracyRune.png"
@@ -6835,6 +6875,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "7% к сопротивлению хаосу",
+            "weapon": "15% шанс отравить при нанесении удара"
+        },
         "tradeTag": "soul-core-of-tacati",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNoYW9zIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/cd9c4fb0a7/GreaterSoulCoreChaos.png"
     },
@@ -6848,6 +6892,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "10% увеличение количества получаемых зарядов оберегов",
+            "weapon": "15% шанс наложить кровотечение при нанесении удара"
         },
         "tradeTag": "soul-core-of-opiloti",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVBoeXNpY2FsIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/366f87b8f2/GreaterSoulCorePhysical.png"
@@ -6863,6 +6911,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "2% увеличение максимума здоровья",
+            "weapon": "Восстанавливает 2% здоровья при убийстве"
+        },
         "tradeTag": "soul-core-of-jiquani",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUxpZmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/bb83a9f337/GreaterSoulCoreLife.png"
     },
@@ -6876,6 +6928,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "2% увеличение максимума маны",
+            "weapon": "Восстанавливает 2% маны при убийстве"
         },
         "tradeTag": "soul-core-of-zalatl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZU1hbmEiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/1437190de2/GreaterSoulCoreMana.png"
@@ -6891,6 +6947,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "5% к сопротивлению всем стихиям",
+            "weapon": "30% увеличение урона от стихий от умений атак"
+        },
         "tradeTag": "soul-core-of-citaqualotl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL1NvdWxDb3JlUGh5c2ljYWwiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f48f9f0c62/SoulCorePhysical.png"
     },
@@ -6904,6 +6964,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "1% к максимальному сопротивлению огню",
+            "weapon": "30% увеличение шанса наложить поджог"
         },
         "tradeTag": "soul-core-of-puhuarte",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUZpcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/6390ebeaa6/GreaterSoulCoreFire.png"
@@ -6919,6 +6983,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "1% к максимальному сопротивлению холоду",
+            "weapon": "20% повышение скорости накопления шкалы заморозки"
+        },
         "tradeTag": "soul-core-of-tzamoto",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNvbGQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/d437c04d5e/GreaterSoulCoreCold.png"
     },
@@ -6932,6 +7000,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "1% к максимальному сопротивлению молнии",
+            "weapon": "30% увеличение шанса наложения шока"
         },
         "tradeTag": "soul-core-of-xopec",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUxpZ2h0bmluZyIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/3dffadfa9a/GreaterSoulCoreLightning.png"
@@ -6947,6 +7019,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "10% повышение редкости найденных предметов",
+            "weapon": "15 к духу"
+        },
         "tradeTag": "soul-core-of-azcapa",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVdlYWx0aFJhcml0eSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/6a69033a04/GreaterSoulCoreWealthRarity.png"
     },
@@ -6960,6 +7036,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "15% увеличение порога стихийных состояний",
+            "weapon": "Атаки этим оружием пробивают 15% вражеского сопротивления стихиям"
         },
         "tradeTag": "soul-core-of-topotante",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVRyaUVsZW1lbnQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ae7a949b3a/GreaterSoulCoreTriElement.png"
@@ -6975,6 +7055,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "-10% усиление влияния замедления от отрицательных эффектов на вас",
+            "weapon": "5% повышение скорости атаки"
+        },
         "tradeTag": "soul-core-of-quipolatl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVNwZWVkIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/d4967ad0f1/GreaterSoulCoreSpeed.png"
     },
@@ -6988,6 +7072,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "10% уменьшение дополнительного критического урона от ударов по вам",
+            "weapon": "12% к бонусу критического урона"
         },
         "tradeTag": "soul-core-of-ticaba",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
@@ -7003,6 +7091,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "Преобразует 20% требований в силу",
+            "weapon": "Преобразует 20% требований в силу"
+        },
         "tradeTag": "soul-core-of-atmohua",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
     },
@@ -7017,6 +7109,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "Преобразует 20% требований в ловкость",
+            "weapon": "Преобразует 20% требований в ловкость"
+        },
         "tradeTag": "soul-core-of-cholotl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
     },
@@ -7030,6 +7126,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "Преобразует 20% требований в интеллект",
+            "weapon": "Преобразует 20% требований в интеллект"
         },
         "tradeTag": "soul-core-of-zantipi",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
@@ -39967,7 +40067,7 @@
         }
     },
     "3200": {
-        "name": "Распространение",
+        "name": "Широкий охват",
         "refName": "Expanse",
         "namespace": "GEM",
         "class": 19,

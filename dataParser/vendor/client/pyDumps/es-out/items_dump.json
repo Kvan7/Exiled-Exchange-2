@@ -6695,6 +6695,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "12% a la resistencia al fuego",
+            "weapon": "Agrega de 7 a 11 de daño de fuego"
+        },
         "tradeTag": "desert-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvRmlyZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/eeabf0e7a0/FireRune.png"
     },
@@ -6708,6 +6712,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "12% a la resistencia al hielo",
+            "weapon": "Agrega de 6 a 10 de daño de hielo"
         },
         "tradeTag": "glacial-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvQ29sZFJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/499bfe179a/ColdRune.png"
@@ -6723,6 +6731,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "12% a la resistencia al rayo",
+            "weapon": "Agrega de 1 a 20 de daño de rayo"
+        },
         "tradeTag": "storm-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlnaHRuaW5nUnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/98319b3998/LightningRune.png"
     },
@@ -6736,6 +6748,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "Armadura, evasión y escudo de energía aumentados un 20%",
+            "weapon": "Daño físico aumentado un 20%"
         },
         "tradeTag": "iron-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvRW5oYW5jZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/cfeb426ee0/EnhanceRune.png"
@@ -6751,6 +6767,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "25 a la vida máxima",
+            "weapon": "El 300% del daño físico se absorbe como vida"
+        },
         "tradeTag": "body-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlmZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/a09dcb651b/LifeRune.png"
     },
@@ -6764,6 +6784,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "20 al maná máximo",
+            "weapon": "El 200% del daño físico se absorbe como maná"
         },
         "tradeTag": "mind-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTWFuYVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/4be6331480/ManaRune.png"
@@ -6779,6 +6803,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "Regeneras un 18% de vida por segundo",
+            "weapon": "Ganas 20 de vida por cada enemigo asesinado"
+        },
         "tradeTag": "rebirth-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlmZVJlY292ZXJ5UnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/bbbb060773/LifeRecoveryRune.png"
     },
@@ -6792,6 +6820,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "Velocidad de regeneración de maná aumentada un 15%",
+            "weapon": "Ganas 10 de maná por cada enemigo asesinado"
         },
         "tradeTag": "inspiration-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTWFuYVJlY292ZXJ5UnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/5154db8cf8/ManaRecoveryRune.png"
@@ -6807,6 +6839,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "40 al umbral de aturdimiento",
+            "weapon": "Acumulación de aturdimiento aumentada un 25%"
+        },
         "tradeTag": "stone-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvU3R1blJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f7830fb594/StunRune.png"
     },
@@ -6820,6 +6856,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "Recuperación de vida y maná de los frascos aumentada un 10%",
+            "weapon": "100 a la precisión"
         },
         "tradeTag": "vision-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvQWNjdXJhY3lSdW5lIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/8e7841f0ef/AccuracyRune.png"
@@ -6835,6 +6875,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "7% a la resistencia al caos",
+            "weapon": "15% de probabilidad de envenenar al impactar"
+        },
         "tradeTag": "soul-core-of-tacati",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNoYW9zIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/cd9c4fb0a7/GreaterSoulCoreChaos.png"
     },
@@ -6848,6 +6892,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "Cargas de viales ganadas aumentadas un 10%",
+            "weapon": "15% de probabilidad de aplicar sangrado al impactar"
         },
         "tradeTag": "soul-core-of-opiloti",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVBoeXNpY2FsIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/366f87b8f2/GreaterSoulCorePhysical.png"
@@ -6863,6 +6911,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "Vida máxima aumentada un 2%",
+            "weapon": "Recuperas un 2% de vida al matar"
+        },
         "tradeTag": "soul-core-of-jiquani",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUxpZmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/bb83a9f337/GreaterSoulCoreLife.png"
     },
@@ -6876,6 +6928,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "Maná máximo aumentado un 2%",
+            "weapon": "Recuperas un 2% de maná al matar"
         },
         "tradeTag": "soul-core-of-zalatl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZU1hbmEiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/1437190de2/GreaterSoulCoreMana.png"
@@ -6891,6 +6947,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "5% a todas las resistencias elementales",
+            "weapon": "Daño elemental aumentado un 30% con habilidades de ataque"
+        },
         "tradeTag": "soul-core-of-citaqualotl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL1NvdWxDb3JlUGh5c2ljYWwiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f48f9f0c62/SoulCorePhysical.png"
     },
@@ -6904,6 +6964,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "1% a la resistencia al fuego máxima",
+            "weapon": "Probabilidad de quemar aumentada un 30%"
         },
         "tradeTag": "soul-core-of-puhuarte",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUZpcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/6390ebeaa6/GreaterSoulCoreFire.png"
@@ -6919,6 +6983,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "1% a la resistencia al hielo máxima",
+            "weapon": "Acumulación de congelamiento aumentada un 20%"
+        },
         "tradeTag": "soul-core-of-tzamoto",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNvbGQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/d437c04d5e/GreaterSoulCoreCold.png"
     },
@@ -6932,6 +7000,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "1% a la resistencia al rayo máxima",
+            "weapon": "Probabilidad de electrocutar aumentada un 30%"
         },
         "tradeTag": "soul-core-of-xopec",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUxpZ2h0bmluZyIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/3dffadfa9a/GreaterSoulCoreLightning.png"
@@ -6947,6 +7019,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "Rareza de los objetos encontrados aumentada un 10%",
+            "weapon": "15 al espíritu"
+        },
         "tradeTag": "soul-core-of-azcapa",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVdlYWx0aFJhcml0eSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/6a69033a04/GreaterSoulCoreWealthRarity.png"
     },
@@ -6960,6 +7036,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "Umbral de los estados alterados elementales aumentado un 15%",
+            "weapon": "Los ataques con esta arma penetran el 15% de las resistencias elementales"
         },
         "tradeTag": "soul-core-of-topotante",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVRyaUVsZW1lbnQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ae7a949b3a/GreaterSoulCoreTriElement.png"
@@ -6975,6 +7055,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "La potencia ralentizadora de los efectos nocivos está aumentada un -10% sobre ti",
+            "weapon": "Velocidad de ataque aumentada un 5%"
+        },
         "tradeTag": "soul-core-of-quipolatl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVNwZWVkIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/d4967ad0f1/GreaterSoulCoreSpeed.png"
     },
@@ -6988,6 +7072,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "Los impactos contra ti tienen la bonificación de daño crítico reducida un 10%",
+            "weapon": "12% a la bonificación de daño crítico"
         },
         "tradeTag": "soul-core-of-ticaba",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
@@ -7003,6 +7091,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "El 20% de los requisitos se convierte en fuerza",
+            "weapon": "El 20% de los requisitos se convierte en fuerza"
+        },
         "tradeTag": "soul-core-of-atmohua",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
     },
@@ -7017,6 +7109,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "El 20% de los requisitos se convierte en destreza",
+            "weapon": "El 20% de los requisitos se convierte en destreza"
+        },
         "tradeTag": "soul-core-of-cholotl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
     },
@@ -7030,6 +7126,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "El 20% de los requisitos se convierte en inteligencia",
+            "weapon": "El 20% de los requisitos se convierte en inteligencia"
         },
         "tradeTag": "soul-core-of-zantipi",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"

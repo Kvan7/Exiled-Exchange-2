@@ -6695,6 +6695,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "화염 저항 12%",
+            "weapon": "화염 피해 7~11 추가"
+        },
         "tradeTag": "desert-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvRmlyZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/eeabf0e7a0/FireRune.png"
     },
@@ -6708,6 +6712,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "냉기 저항 12%",
+            "weapon": "냉기 피해 6~10 추가"
         },
         "tradeTag": "glacial-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvQ29sZFJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/499bfe179a/ColdRune.png"
@@ -6723,6 +6731,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "번개 저항 12%",
+            "weapon": "번개 피해 1~20 추가"
+        },
         "tradeTag": "storm-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlnaHRuaW5nUnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/98319b3998/LightningRune.png"
     },
@@ -6736,6 +6748,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "방어도, 회피, 에너지 보호막 20% 증가",
+            "weapon": "물리 피해 20% 증가"
         },
         "tradeTag": "iron-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvRW5oYW5jZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/cfeb426ee0/EnhanceRune.png"
@@ -6751,6 +6767,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "생명력 최대치 25",
+            "weapon": "물리 공격 피해의 300%를 생명력으로 흡수"
+        },
         "tradeTag": "body-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlmZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/a09dcb651b/LifeRune.png"
     },
@@ -6764,6 +6784,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "마나 최대치 20",
+            "weapon": "물리 공격 피해의 200%를 마나로 흡수"
         },
         "tradeTag": "mind-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTWFuYVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/4be6331480/ManaRune.png"
@@ -6779,6 +6803,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "1초마다 생명력의 18% 재생",
+            "weapon": "처치한 적 하나당 생명력 20 획득"
+        },
         "tradeTag": "rebirth-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlmZVJlY292ZXJ5UnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/bbbb060773/LifeRecoveryRune.png"
     },
@@ -6792,6 +6820,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "마나 재생 속도 15% 증가",
+            "weapon": "처치한 적 하나당 마나 10 획득"
         },
         "tradeTag": "inspiration-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTWFuYVJlY292ZXJ5UnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/5154db8cf8/ManaRecoveryRune.png"
@@ -6807,6 +6839,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "기절 한계치 40",
+            "weapon": "유발하는 기절 축적 25% 증가"
+        },
         "tradeTag": "stone-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvU3R1blJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f7830fb594/StunRune.png"
     },
@@ -6820,6 +6856,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "플라스크로 얻는 생명력과 마나 회복 10% 증가",
+            "weapon": "정확도 100"
         },
         "tradeTag": "vision-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvQWNjdXJhY3lSdW5lIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/8e7841f0ef/AccuracyRune.png"
@@ -6835,6 +6875,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "카오스 저항 7%",
+            "weapon": "명중 시 15%의 확률로 중독 유발"
+        },
         "tradeTag": "soul-core-of-tacati",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNoYW9zIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/cd9c4fb0a7/GreaterSoulCoreChaos.png"
     },
@@ -6848,6 +6892,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "호신부 충전량 10% 증가",
+            "weapon": "명중 시 15%의 확률로 출혈 유발"
         },
         "tradeTag": "soul-core-of-opiloti",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVBoeXNpY2FsIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/366f87b8f2/GreaterSoulCorePhysical.png"
@@ -6863,6 +6911,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "최대 생명력 2% 증가",
+            "weapon": "처치 시 생명력의 2% 회복"
+        },
         "tradeTag": "soul-core-of-jiquani",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUxpZmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/bb83a9f337/GreaterSoulCoreLife.png"
     },
@@ -6876,6 +6928,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "최대 마나 2% 증가",
+            "weapon": "처치 시 마나의 2% 회복"
         },
         "tradeTag": "soul-core-of-zalatl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZU1hbmEiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/1437190de2/GreaterSoulCoreMana.png"
@@ -6891,6 +6947,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "모든 원소 저항 5%",
+            "weapon": "공격 스킬의 원소 피해 30% 증가"
+        },
         "tradeTag": "soul-core-of-citaqualotl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL1NvdWxDb3JlUGh5c2ljYWwiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f48f9f0c62/SoulCorePhysical.png"
     },
@@ -6904,6 +6964,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "최대 화염 저항 1%",
+            "weapon": "점화 확률 30% 증가"
         },
         "tradeTag": "soul-core-of-puhuarte",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUZpcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/6390ebeaa6/GreaterSoulCoreFire.png"
@@ -6919,6 +6983,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "최대 냉기 저항 1%",
+            "weapon": "동결 축적 20% 증가"
+        },
         "tradeTag": "soul-core-of-tzamoto",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNvbGQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/d437c04d5e/GreaterSoulCoreCold.png"
     },
@@ -6932,6 +7000,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "최대 번개 저항 1%",
+            "weapon": "감전 확률 30% 증가"
         },
         "tradeTag": "soul-core-of-xopec",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUxpZ2h0bmluZyIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/3dffadfa9a/GreaterSoulCoreLightning.png"
@@ -6947,6 +7019,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "발견하는 아이템 희귀도 10% 증가",
+            "weapon": "정신력 15"
+        },
         "tradeTag": "soul-core-of-azcapa",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVdlYWx0aFJhcml0eSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/6a69033a04/GreaterSoulCoreWealthRarity.png"
     },
@@ -6960,6 +7036,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "원소 상태 이상 한계치 15% 증가",
+            "weapon": "이 무기로 공격 시 15%의 원소 저항 관통"
         },
         "tradeTag": "soul-core-of-topotante",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVRyaUVsZW1lbnQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ae7a949b3a/GreaterSoulCoreTriElement.png"
@@ -6975,6 +7055,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "디버프의 감속 효력 -10% 증가",
+            "weapon": "공격 속도 5% 증가"
+        },
         "tradeTag": "soul-core-of-quipolatl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVNwZWVkIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/d4967ad0f1/GreaterSoulCoreSpeed.png"
     },
@@ -6988,6 +7072,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "플레이어에 대한 명중의 치명타 피해 보너스 10% 감소",
+            "weapon": "치명타 피해 보너스 12%"
         },
         "tradeTag": "soul-core-of-ticaba",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
@@ -7003,6 +7091,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "요구사항의 20%를 힘으로 전환",
+            "weapon": "요구사항의 20%를 힘으로 전환"
+        },
         "tradeTag": "soul-core-of-atmohua",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
     },
@@ -7017,6 +7109,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "요구사항의 20%를 민첩으로 전환",
+            "weapon": "요구사항의 20%를 민첩으로 전환"
+        },
         "tradeTag": "soul-core-of-cholotl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
     },
@@ -7030,6 +7126,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "요구사항의 20%를 지능으로 전환",
+            "weapon": "요구사항의 20%를 지능으로 전환"
         },
         "tradeTag": "soul-core-of-zantipi",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"

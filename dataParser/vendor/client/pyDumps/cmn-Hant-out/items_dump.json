@@ -6695,6 +6695,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "12% 火焰抗性",
+            "weapon": "附加 7 至 11 火焰傷害"
+        },
         "tradeTag": "desert-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvRmlyZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/eeabf0e7a0/FireRune.png"
     },
@@ -6708,6 +6712,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "12% 冰冷抗性",
+            "weapon": "附加 6 至 10 冰冷傷害"
         },
         "tradeTag": "glacial-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvQ29sZFJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/499bfe179a/ColdRune.png"
@@ -6723,6 +6731,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "12% 閃電抗性",
+            "weapon": "附加 1 至 20 閃電傷害"
+        },
         "tradeTag": "storm-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlnaHRuaW5nUnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/98319b3998/LightningRune.png"
     },
@@ -6736,6 +6748,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "增加 20% 護甲、閃避與能量護盾",
+            "weapon": "增加 20% 物理傷害"
         },
         "tradeTag": "iron-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvRW5oYW5jZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/cfeb426ee0/EnhanceRune.png"
@@ -6751,6 +6767,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "25 最大生命",
+            "weapon": "300% 的物理攻擊傷害偷取生命"
+        },
         "tradeTag": "body-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlmZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/a09dcb651b/LifeRune.png"
     },
@@ -6764,6 +6784,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "20 最大魔力",
+            "weapon": "200% 物理攻擊傷害偷取魔力"
         },
         "tradeTag": "mind-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTWFuYVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/4be6331480/ManaRune.png"
@@ -6779,6 +6803,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "每秒回復 18% 生命",
+            "weapon": "每個被擊殺的敵人，獲得 20 生命"
+        },
         "tradeTag": "rebirth-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlmZVJlY292ZXJ5UnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/bbbb060773/LifeRecoveryRune.png"
     },
@@ -6792,6 +6820,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "增加 15% 魔力回復率",
+            "weapon": "每個被擊殺的敵人，獲得 10 魔力"
         },
         "tradeTag": "inspiration-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTWFuYVJlY292ZXJ5UnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/5154db8cf8/ManaRecoveryRune.png"
@@ -6807,6 +6839,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "暈眩門檻 40",
+            "weapon": "使暈眩累積增加 25%"
+        },
         "tradeTag": "stone-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvU3R1blJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f7830fb594/StunRune.png"
     },
@@ -6820,6 +6856,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "增加 10% 來自藥劑恢復的生命和魔力",
+            "weapon": "100 命中值"
         },
         "tradeTag": "vision-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvQWNjdXJhY3lSdW5lIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/8e7841f0ef/AccuracyRune.png"
@@ -6835,6 +6875,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "7% 混沌抗性",
+            "weapon": "擊中時有 15% 機率使敵人中毒"
+        },
         "tradeTag": "soul-core-of-tacati",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNoYW9zIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/cd9c4fb0a7/GreaterSoulCoreChaos.png"
     },
@@ -6848,6 +6892,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "增加 10% 護符充能獲取",
+            "weapon": "擊中時 15% 機率造成流血"
         },
         "tradeTag": "soul-core-of-opiloti",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVBoeXNpY2FsIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/366f87b8f2/GreaterSoulCorePhysical.png"
@@ -6863,6 +6911,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "增加 2% 最大生命",
+            "weapon": "擊殺時恢復 2% 生命"
+        },
         "tradeTag": "soul-core-of-jiquani",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUxpZmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/bb83a9f337/GreaterSoulCoreLife.png"
     },
@@ -6876,6 +6928,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "增加 2% 最大魔力",
+            "weapon": "擊殺時恢復 2% 魔力"
         },
         "tradeTag": "soul-core-of-zalatl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZU1hbmEiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/1437190de2/GreaterSoulCoreMana.png"
@@ -6891,6 +6947,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "5% 全部元素抗性",
+            "weapon": "攻擊技能增加 30% 元素傷害"
+        },
         "tradeTag": "soul-core-of-citaqualotl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL1NvdWxDb3JlUGh5c2ljYWwiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f48f9f0c62/SoulCorePhysical.png"
     },
@@ -6904,6 +6964,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "1% 最大火焰抗性",
+            "weapon": "增加 30% 點燃機率"
         },
         "tradeTag": "soul-core-of-puhuarte",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUZpcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/6390ebeaa6/GreaterSoulCoreFire.png"
@@ -6919,6 +6983,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "1% 最大冰冷抗性",
+            "weapon": "增加 20% 冰凍累積"
+        },
         "tradeTag": "soul-core-of-tzamoto",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNvbGQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/d437c04d5e/GreaterSoulCoreCold.png"
     },
@@ -6932,6 +7000,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "1% 最大閃電抗性",
+            "weapon": "增加 30% 感電機率"
         },
         "tradeTag": "soul-core-of-xopec",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUxpZ2h0bmluZyIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/3dffadfa9a/GreaterSoulCoreLightning.png"
@@ -6947,6 +7019,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "增加 10% 物品稀有度",
+            "weapon": "15 精魂"
+        },
         "tradeTag": "soul-core-of-azcapa",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVdlYWx0aFJhcml0eSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/6a69033a04/GreaterSoulCoreWealthRarity.png"
     },
@@ -6960,6 +7036,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "元素異常狀態門檻增加 15%",
+            "weapon": "此武器進行的攻擊穿透 15% 元素抗性"
         },
         "tradeTag": "soul-core-of-topotante",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVRyaUVsZW1lbnQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ae7a949b3a/GreaterSoulCoreTriElement.png"
@@ -6975,6 +7055,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "減益效果對你的緩速程度增加 -10%",
+            "weapon": "增加 5% 攻擊速度"
+        },
         "tradeTag": "soul-core-of-quipolatl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVNwZWVkIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/d4967ad0f1/GreaterSoulCoreSpeed.png"
     },
@@ -6988,6 +7072,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "對你的擊中減少 10% 暴擊傷害加成",
+            "weapon": "12% 的暴擊傷害加成"
         },
         "tradeTag": "soul-core-of-ticaba",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
@@ -7003,6 +7091,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "20% 需求轉換為力量",
+            "weapon": "20% 需求轉換為力量"
+        },
         "tradeTag": "soul-core-of-atmohua",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
     },
@@ -7017,6 +7109,10 @@
         "craftable": {
             "category": "SoulCore"
         },
+        "rune": {
+            "armour": "20% 需求轉換為敏捷",
+            "weapon": "20% 需求轉換為敏捷"
+        },
         "tradeTag": "soul-core-of-cholotl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
     },
@@ -7030,6 +7126,10 @@
         "height": 1,
         "craftable": {
             "category": "SoulCore"
+        },
+        "rune": {
+            "armour": "20% 需求轉換為智慧",
+            "weapon": "20% 需求轉換為智慧"
         },
         "tradeTag": "soul-core-of-zantipi",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
@@ -25229,7 +25329,7 @@
         }
     },
     "2257": {
-        "name": "Golden Visage",
+        "name": "黃金面紗",
         "refName": "Golden Visage",
         "namespace": "ITEM",
         "class": 25,
@@ -25242,7 +25342,7 @@
         "armour": {}
     },
     "2258": {
-        "name": "Golden Bracers",
+        "name": "黃金臂甲",
         "refName": "Golden Bracers",
         "namespace": "ITEM",
         "class": 22,
@@ -25255,7 +25355,7 @@
         "armour": {}
     },
     "2259": {
-        "name": "Golden Greaves",
+        "name": "黃金脛甲",
         "refName": "Golden Greaves",
         "namespace": "ITEM",
         "class": 23,
@@ -25268,7 +25368,7 @@
         "armour": {}
     },
     "2260": {
-        "name": "Golden Plate",
+        "name": "黃金鎧甲",
         "refName": "Golden Plate",
         "namespace": "ITEM",
         "class": 24,
@@ -25281,7 +25381,7 @@
         "armour": {}
     },
     "2261": {
-        "name": "Golden Shield",
+        "name": "黃金盾牌",
         "refName": "Golden Shield",
         "namespace": "ITEM",
         "class": 26,
@@ -25294,7 +25394,7 @@
         "armour": {}
     },
     "2262": {
-        "name": "Golden Blade",
+        "name": "黃金之刃",
         "refName": "Golden Blade",
         "namespace": "ITEM",
         "class": 9,
