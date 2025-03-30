@@ -33,6 +33,13 @@
       class="layout-column shrink-0 text-gray-200 pointer-events-auto"
       style="width: 28.75rem"
     >
+      <rune-selector
+        v-if="isBrowserShown && item?.isOk()"
+        class="pointer-events-auto"
+        :item="item.value"
+        :click-position="clickPosition"
+        :show-rune-selector="showRuneSelector"
+      />
       <ConversionWarningBanner />
       <AppTitleBar
         @close="closePriceCheck"
