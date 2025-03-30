@@ -1119,32 +1119,32 @@ class Parser:
             armour_translated = first_non_negated(armour_mod.get("matchers")).get(
                 "string"
             )
-            armour_filled = replace_hash_with_values(
-                armour_translated, rune.get("StatsValuesArmour")
-            )
+            # armour_filled = replace_hash_with_values(
+            #     armour_translated, rune.get("StatsValuesArmour")
+            # )
 
             weapon_stat = rune.get("StatsWeapon")[0]
             weapon_mod = self.get_mod_by_id(weapon_stat)
             weapon_translated = first_non_negated(weapon_mod.get("matchers")).get(
                 "string"
             )
-            weapon_filled = replace_hash_with_values(
-                weapon_translated, rune.get("StatsValuesWeapon")
-            )
+            # weapon_filled = replace_hash_with_values(
+            #     weapon_translated, rune.get("StatsValuesWeapon")
+            # )
 
             if id in self.items:
                 self.items[id].update(
                     {
                         "rune": {
                             "armour": {
-                                "string": armour_filled,
+                                "string": armour_translated,
                                 "values": rune.get("StatsValuesArmour"),
                                 "tradeId": armour_mod.get("trade")
                                 .get("ids")
                                 .get("rune"),
                             },
                             "weapon": {
-                                "string": weapon_filled,
+                                "string": weapon_translated,
                                 "values": rune.get("StatsValuesWeapon"),
                                 "tradeId": weapon_mod.get("trade")
                                 .get("ids")

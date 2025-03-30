@@ -175,6 +175,10 @@ async function loadItems(language: string, isTest = false) {
     ITEMS_ITERATOR('refName":"Replica'),
   );
 
+  RUNE_SINGLE_VALUE = await (
+    await fetch(`${import.meta.env.BASE_URL}data/rune-single-value.json`)
+  ).json();
+
   RUNE_LIST = Array.from(
     ITEMS_ITERATOR('"craftable": {"category": "SoulCore"}'),
   );
@@ -268,10 +272,6 @@ export async function init(lang: string, isTest = false) {
 
   await loadForLang(lang, isTest);
 
-  RUNE_DATA_BY_RUNE = runesToLookup(RUNE_LIST);
-
-  RUNE_DATA_BY_TRADE_ID = runesToLookupTradeId(RUNE_LIST);
-
   let failed = false;
   const missing = [];
 
@@ -291,12 +291,28 @@ export async function init(lang: string, isTest = false) {
     );
   }
   DELAYED_STAT_VALIDATION.clear();
+
+  RUNE_DATA_BY_RUNE = runesToLookup(RUNE_LIST);
+
+  RUNE_DATA_BY_TRADE_ID = runesToLookupTradeId(RUNE_LIST);
 }
 
 export async function loadForLang(lang: string, isTest = false) {
   CLIENT_STRINGS = await loadClientStrings(lang);
   await loadItems(lang);
   await loadStats(lang);
+}
+
+export function loadRunes(
+  f: (value: BaseType, index: number, array: BaseType[]) => unknown,
+) {
+  RUNE_LIST = Array.from(
+    ITEMS_ITERATOR('"craftable": {"category": "SoulCore"}'),
+  ).filter(f);
+
+  RUNE_DATA_BY_RUNE = runesToLookup(RUNE_LIST);
+
+  RUNE_DATA_BY_TRADE_ID = runesToLookupTradeId(RUNE_LIST);
 }
 
 function runesToLookup(runeList: BaseType[]): RuneDataByRune {

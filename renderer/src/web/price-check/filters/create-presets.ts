@@ -118,7 +118,7 @@ export function createPresets(
       pseudoPreset.stats,
       item,
       true,
-      pseudoPreset.filters.tempRuneStorage!,
+      pseudoPreset.filters.tempRuneStorage ?? [],
       opts.autoFillEmptyRuneSockets,
     );
   }

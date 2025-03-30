@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="result && showRuneSelector.editing"
+    v-if="result && !showRuneSelector.disabled && showRuneSelector.editing"
     :class="[$style['wrapper'], $style[clickPosition]]"
     @mouseleave="onMouseLeave"
   >
@@ -40,6 +40,7 @@ import { RUNE_LIST } from "@/assets/data";
 import RuneSelectorButton from "./RuneSelectorButton.vue";
 import { useI18n } from "vue-i18n";
 import { selectRuneEffectByItemCategory } from "./fill-runes";
+import { replaceHashWithValues } from "@/parser/Parser";
 
 export default defineComponent({
   components: { RuneSelectorButton },
@@ -53,13 +54,17 @@ export default defineComponent({
       required: true,
     },
     showRuneSelector: {
-      type: Object as PropType<{ editing: boolean; value: string }>,
+      type: Object as PropType<{
+        editing: boolean;
+        value: string;
+        disabled: boolean;
+      }>,
       required: true,
     },
   },
   setup(props) {
     function onMouseLeave() {
-      if (props.showRuneSelector.editing) {
+      if (!props.showRuneSelector.disabled && props.showRuneSelector.editing) {
         props.showRuneSelector.editing = false;
       }
     }
@@ -82,7 +87,7 @@ export default defineComponent({
             rune.rune,
           );
           if (runeEffect) {
-            stat = runeEffect.string;
+            stat = replaceHashWithValues(runeEffect.string, runeEffect.values);
           }
         }
         runes.push({
@@ -92,6 +97,14 @@ export default defineComponent({
           stat,
         });
       }
+
+      runes.sort((a, b) => {
+        const rank = (s: string) =>
+          s.includes(" Rune") ? 0 : s.includes("Soul Core of") ? 1 : 2;
+        const rA = rank(a.refName);
+        const rB = rank(b.refName);
+        return rA - rB || a.refName.localeCompare(b.refName);
+      });
 
       return {
         runes,
@@ -103,7 +116,9 @@ export default defineComponent({
       t,
       result,
       selectRune(id: string) {
-        props.showRuneSelector.value = id;
+        if (!props.showRuneSelector.disabled) {
+          props.showRuneSelector.value = id;
+        }
       },
       onMouseLeave,
     };

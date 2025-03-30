@@ -256,9 +256,7 @@ export function createFilters(
         filters.fillEmptyRuneSockets = {
           disabled: true,
           editing: false,
-          value: opts.autoFillEmptyRuneSockets
-            ? opts.autoFillEmptyRuneSockets
-            : "None",
+          value: "None",
         };
       }
     }

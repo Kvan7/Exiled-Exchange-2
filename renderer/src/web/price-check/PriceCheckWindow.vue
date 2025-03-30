@@ -178,6 +178,8 @@ import {
 } from "../overlay/interfaces";
 import ConversionWarningBanner from "../conversion-warn-banner/ConversionWarningBanner.vue";
 import RuneSelector from "./filters/RuneSelector.vue";
+import { loadRunes } from "@/assets/data";
+import { refEffectsPseudos } from "./filters/pseudo";
 
 type ParseError = {
   name: string;
@@ -245,6 +247,20 @@ export default defineComponent({
     },
   },
   setup(props) {
+    const HIGH_VALUE_RUNES_HARDCODED = new Set<string>(["Soul Core of Azcapa"]);
+    watch(
+      () => props.config.usePseudo,
+      () => {
+        loadRunes(
+          (item) =>
+            Object.values(item.rune!).some((runeStat) =>
+              refEffectsPseudos(runeStat.string),
+            ) || HIGH_VALUE_RUNES_HARDCODED.has(item.refName),
+        );
+      },
+      { immediate: true },
+    );
+
     const wm = inject<WidgetManager>("wm")!;
     const {
       xchgRate,
@@ -261,7 +277,11 @@ export default defineComponent({
     const rebuildKey = shallowRef(2);
     const advancedCheck = shallowRef(false);
     const checkPosition = shallowRef({ x: 1, y: 1 });
-    const showRuneSelector = ref({ editing: false, value: "None" });
+    const showRuneSelector = ref({
+      editing: false,
+      value: "None",
+      disabled: true,
+    });
 
     MainProcess.onEvent("MAIN->CLIENT::item-text", (e) => {
       if (e.target !== "price-check") return;
@@ -442,8 +462,11 @@ export default defineComponent({
       openLeagueSelection,
       changeItem,
       rebuildKey,
-      handleRuneSelector: (val: { editing: boolean; value: string }) =>
-        (showRuneSelector.value = val),
+      handleRuneSelector: (val: {
+        editing: boolean;
+        value: string;
+        disabled: boolean;
+      }) => (showRuneSelector.value = val),
       showRuneSelector,
       openRunesAbove: computed(() => props.config.openRunesAbove),
     };
