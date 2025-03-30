@@ -9,40 +9,26 @@
     </div>
     <div
       v-if="'runes' in result && result.runes.length"
-      class="flex-1 p-2 w-1/2 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4"
+      class="flex-1 p-2 w-1/2"
     >
-      <div
-        class="hover:bg-gray-700 rounded"
-        :class="[showRuneSelector.value === 'None' ? 'border bg-gray-900' : '']"
-        @click="selectRune('None')"
+      <rune-selector-button
+        ref-name="None"
+        :name="t('price_check.use_tooltip_off')"
+        :show-rune-selector="showRuneSelector"
       >
         <div
           class="flex items-center justify-center shrink-0 w-8 h-8 border-2 border-dashed border-gray-400 rounded-full"
         />
-        <div
-          class="text-left text-gray-600 mb-1 whitespace-nowrap overflow-hidden"
-        >
-          None
-        </div>
-      </div>
-      <div
+      </rune-selector-button>
+      <rune-selector-button
         v-for="rune in result.runes"
         :key="rune.name"
-        class="hover:bg-gray-700 rounded"
-        :class="[
-          showRuneSelector.value === rune.refName ? 'border bg-gray-900' : '',
-        ]"
-        @click="selectRune(rune.refName)"
-      >
-        <div class="flex items-center justify-center shrink-0 w-8 h-8">
-          <img :src="rune.icon" class="max-w-full max-h-full overflow-hidden" />
-        </div>
-        <div
-          class="text-left text-gray-600 mb-1 whitespace-nowrap overflow-hidden"
-        >
-          {{ rune.name }}
-        </div>
-      </div>
+        :ref-name="rune.refName"
+        :name="rune.name"
+        :icon="rune.icon"
+        :stat="rune.stat"
+        :show-rune-selector="showRuneSelector"
+      />
     </div>
   </div>
 </template>
@@ -50,11 +36,13 @@
 <script lang="ts">
 import { computed, defineComponent, PropType } from "vue";
 import { ParsedItem } from "@/parser";
-import ItemQuickPrice from "@/web/ui/ItemQuickPrice.vue";
 import { RUNE_LIST } from "@/assets/data";
+import RuneSelectorButton from "./RuneSelectorButton.vue";
+import { useI18n } from "vue-i18n";
+import { selectRuneEffectByItemCategory } from "./fill-runes";
 
 export default defineComponent({
-  components: { ItemQuickPrice },
+  components: { RuneSelectorButton },
   props: {
     item: {
       type: Object as PropType<ParsedItem | null>,
@@ -79,12 +67,40 @@ export default defineComponent({
     const result = computed(() => {
       if (!props.item) return;
 
+      const runes: Array<{
+        name: string;
+        refName: string;
+        icon: string;
+        stat: string;
+      }> = [];
+
+      for (const rune of RUNE_LIST) {
+        let stat = "";
+        if (props.item.category) {
+          const runeEffect = selectRuneEffectByItemCategory(
+            props.item.category,
+            rune.rune,
+          );
+          if (runeEffect) {
+            stat = runeEffect.string;
+          }
+        }
+        runes.push({
+          name: rune.name,
+          refName: rune.refName,
+          icon: rune.icon,
+          stat,
+        });
+      }
+
       return {
-        runes: RUNE_LIST,
+        runes,
       };
     });
+    const { t } = useI18n();
 
     return {
+      t,
       result,
       selectRune(id: string) {
         props.showRuneSelector.value = id;

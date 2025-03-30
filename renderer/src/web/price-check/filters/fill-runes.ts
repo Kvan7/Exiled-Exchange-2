@@ -1,7 +1,7 @@
-import { ItemRarity, ParsedItem } from "@/parser";
+import { ItemCategory, ItemRarity, ParsedItem } from "@/parser";
 import { StatFilter } from "./interfaces";
 import { applyIronRune } from "@/parser/calc-base";
-import { RUNE_DATA_BY_RUNE } from "@/assets/data";
+import { BaseType, RUNE_DATA_BY_RUNE } from "@/assets/data";
 import {
   isArmourOrWeapon,
   parseModifiersPoe2,
@@ -127,4 +127,20 @@ function createNewStatFilter(
   );
 
   return ctx.filters;
+}
+
+export function selectRuneEffectByItemCategory(
+  category: ItemCategory,
+  rune: BaseType["rune"],
+) {
+  const a = isArmourOrWeapon(category);
+  if (!a || !rune) return;
+
+  // try to get by most general first
+  if (a in rune) {
+    return rune[a];
+  }
+  if (category.toLowerCase() in rune) {
+    return rune[category.toLowerCase()];
+  }
 }
