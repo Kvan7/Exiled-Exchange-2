@@ -8,12 +8,29 @@
     </div>
     <div
       v-if="'runes' in result && result.runes.length"
-      class="flex-1 p-2 w-1/2"
+      class="flex-1 p-2 w-1/2 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4"
     >
+      <div
+        class="hover:bg-gray-700 rounded"
+        :class="[showRuneSelector.value === 'None' ? 'border bg-gray-900' : '']"
+        @click="selectRune('None')"
+      >
+        <div
+          class="flex items-center justify-center shrink-0 w-8 h-8 border-2 border-dashed border-gray-400 rounded-full"
+        />
+        <div
+          class="text-left text-gray-600 mb-1 whitespace-nowrap overflow-hidden"
+        >
+          None
+        </div>
+      </div>
       <div
         v-for="rune in result.runes"
         :key="rune.name"
         class="hover:bg-gray-700 rounded"
+        :class="[
+          showRuneSelector.value === rune.refName ? 'border bg-gray-900' : '',
+        ]"
         @click="selectRune(rune.refName)"
       >
         <div class="flex items-center justify-center shrink-0 w-8 h-8">

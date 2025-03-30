@@ -286,24 +286,31 @@ export default defineComponent({
     );
     // For handling filling runes
     watch(
-      () => props.filters.fillEmptyRuneSockets?.disabled,
+      () => props.filters.fillEmptyRuneSockets?.value,
       (selected, prev) => {
         const normalCase = selected !== prev && props.filters.tempRuneStorage;
-        // const initAsFilled = selected && props.filters.tempRuneStorage;
-        if (normalCase) {
-          const shouldFill = !selected;
-          let rune = "None";
-          if (props.filters.fillEmptyRuneSockets) {
-            rune = props.filters.fillEmptyRuneSockets.value;
+        if (normalCase && selected !== undefined) {
+          // If last wasn't empty
+          if (prev !== "None") {
+            // Remove current rune
+            handleFillRuneSockets(
+              props.stats,
+              props.item,
+              false,
+              props.filters.tempRuneStorage!,
+            );
           }
-
-          handleFillRuneSockets(
-            props.stats,
-            props.item,
-            shouldFill,
-            props.filters.tempRuneStorage!,
-            rune,
-          );
+          // If we didn't choose empty
+          if (selected !== "None") {
+            // add new rune
+            handleFillRuneSockets(
+              props.stats,
+              props.item,
+              true,
+              props.filters.tempRuneStorage!,
+              selected,
+            );
+          }
         }
       },
     );

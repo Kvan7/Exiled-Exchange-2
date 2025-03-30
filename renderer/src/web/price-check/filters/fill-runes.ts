@@ -8,11 +8,15 @@ import {
   replaceHashWithValues,
 } from "@/parser/Parser";
 import { ModifierType, sumStatsByModType } from "@/parser/modifiers";
-import { FiltersCreationContext } from "./create-stat-filters";
+import {
+  calculatedStatToFilter,
+  FiltersCreationContext,
+} from "./create-stat-filters";
 import { AppConfig } from "@/web/Config";
 import { PriceCheckWidget } from "@/web/overlay/widgets";
 import { filterItemProp } from "./pseudo/item-property";
 import { ADDED_RUNE_LINE } from "@/parser/advanced-mod-desc";
+import { filterPseudo } from "./pseudo";
 
 export function handleFillRuneSockets(
   filters: StatFilter[],
@@ -26,34 +30,29 @@ export function handleFillRuneSockets(
     // Testing with just one stat
     const newFilters = createNewStatFilter(item, rune ?? "Iron Rune");
     if (!newFilters) return;
-    const newFiltersByRef = newFilters.reduce<Record<string, StatFilter>>(
-      (dict, filter) => {
-        if (filter.statRef) {
-          dict[filter.statRef] = filter; // Use `statRef` as the key
-        }
-        return dict;
-      },
-      {},
-    );
-    // change it
-    for (let i = 0; i < filters.length; i++) {
-      const newFilter = newFiltersByRef[filters[i].statRef];
-      if (newFilter) {
-        filterStorage.push(filters[i]);
-        filters[i] = newFilter;
+
+    for (const filter of newFilters) {
+      // get on/off state of old filter
+      const oldFilter = filters.find(
+        (stat) => stat.statRef === filter.statRef && stat.tag === filter.tag,
+      );
+      if (oldFilter) {
+        filter.disabled = oldFilter.disabled;
       }
     }
+    // Store a copy of the current filters, then replace contents
+    filterStorage.splice(
+      0,
+      filterStorage.length,
+      ...JSON.parse(JSON.stringify(filters)),
+    );
+
+    // Clear and add new filters into the `filters` array
+    filters.splice(0, filters.length, ...newFilters);
   } else {
     // reset back to normal
-    while (filterStorage.length > 0) {
-      const filterToInsert = filterStorage.pop()!;
-      const filterToReplace = filters.find(
-        (stat) => stat.statRef === filterToInsert.statRef,
-      );
-      if (filterToReplace) {
-        filters[filters.indexOf(filterToReplace)] = filterToInsert;
-      }
-    }
+    filters.splice(0, filters.length, ...filterStorage);
+    filterStorage.length = 0;
   }
 }
 
@@ -77,8 +76,8 @@ function createNewStatFilter(
   const ctx: FiltersCreationContext = {
     item: newItem,
     filters: [],
-    searchInRange: item.rarity === ItemRarity.Normal ? 100 : range,
-    statsByType: item.statsByType.map((calc) => {
+    searchInRange: newItem.rarity === ItemRarity.Normal ? 100 : range,
+    statsByType: newItem.statsByType.map((calc) => {
       if (
         calc.type === ModifierType.Fractured &&
         calc.stat.trade.ids[ModifierType.Explicit]
@@ -95,7 +94,19 @@ function createNewStatFilter(
     // const total = calcTotalDamage(newItem, base);
     // newItem.weaponPHYSICAL = total;
     applyIronRune(newItem, item);
-    filterItemProp(ctx);
-    return ctx.filters;
   }
+  filterItemProp(ctx);
+  filterPseudo(
+    ctx,
+    AppConfig<PriceCheckWidget>("price-check")!.usePseudo &&
+      ["en", "ru", "ko", "cmn-Hant"].includes(AppConfig().language),
+  );
+
+  ctx.filters.push(
+    ...ctx.statsByType.map((mod) =>
+      calculatedStatToFilter(mod, ctx.searchInRange, newItem),
+    ),
+  );
+
+  return ctx.filters;
 }

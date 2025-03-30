@@ -1,6 +1,7 @@
 import {
   CLIENT_STRINGS as _$,
   ITEM_BY_REF,
+  RUNE_DATA_BY_TRADE_ID,
   STAT_BY_MATCH_STR,
 } from "@/assets/data";
 import type { StatMatcher, Stat, BaseType } from "@/assets/data";
@@ -251,7 +252,10 @@ export function tryParseTranslation(
         : undefined,
       fromAddedRune:
         modType === ModifierType.AddedRune
-          ? ITEM_BY_REF("ITEM", "Iron Rune")![0]
+          ? ITEM_BY_REF(
+              "ITEM",
+              RUNE_DATA_BY_TRADE_ID[found.stat.trade.ids.rune[0]].rune,
+            )![0]
           : undefined,
     };
   }

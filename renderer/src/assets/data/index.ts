@@ -5,6 +5,7 @@ import type {
   ItemCategoryToEmptyPrefix,
   PseudoIdToTradeRequest,
   RuneDataByRune,
+  RuneDataByTradeId,
   RuneSingleValue,
   Stat,
   StatMatcher,
@@ -22,6 +23,7 @@ export let APP_PATRONS: Array<{ from: string; months: number; style: number }>;
 export let PSEUDO_ID_TO_TRADE_REQUEST: PseudoIdToTradeRequest;
 export let RUNE_SINGLE_VALUE: RuneSingleValue;
 export let RUNE_DATA_BY_RUNE: RuneDataByRune;
+export let RUNE_DATA_BY_TRADE_ID: RuneDataByTradeId;
 export let ITEM_CATEGORY_TO_EMPTY_PREFIX: ItemCategoryToEmptyPrefix;
 export let MAX_TIER_LOOKUP: TierLookup;
 
@@ -268,6 +270,8 @@ export async function init(lang: string, isTest = false) {
 
   RUNE_DATA_BY_RUNE = runesToLookup(RUNE_LIST);
 
+  RUNE_DATA_BY_TRADE_ID = runesToLookupTradeId(RUNE_LIST);
+
   let failed = false;
   const missing = [];
 
@@ -312,6 +316,27 @@ function runesToLookup(runeList: BaseType[]): RuneDataByRune {
         id: tradeId[0],
         type: runeStat,
       });
+    }
+  }
+
+  return runeDataByRune;
+}
+
+function runesToLookupTradeId(runeList: BaseType[]): RuneDataByTradeId {
+  const runeDataByRune: RuneDataByTradeId = {};
+
+  for (const rune of runeList) {
+    if (!rune.rune) continue;
+    for (const runeStat in rune.rune) {
+      const { string: text, values, tradeId } = rune.rune[runeStat];
+      runeDataByRune[tradeId[0]] = {
+        rune: rune.name,
+        baseStat: text,
+        values,
+        id: tradeId[0],
+        type: runeStat,
+        icon: rune.icon,
+      };
     }
   }
 

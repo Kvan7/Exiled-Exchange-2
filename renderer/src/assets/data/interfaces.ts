@@ -283,3 +283,13 @@ export interface RuneData {
 export interface RuneDataByRune {
   [rune: string]: RuneData[];
 }
+export interface RuneDataByTradeId {
+  [tradeId: string]: {
+    rune: string;
+    baseStat: string;
+    values: number[];
+    id: string;
+    type: string;
+    icon: string;
+  };
+}

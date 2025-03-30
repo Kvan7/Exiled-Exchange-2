@@ -37,7 +37,7 @@
             :class="$style['qualityLabel']"
             class="self-center"
           >
-            <img :src="showRuneNotice" class="w-5 h-5" />
+            <img :src="showRuneNotice" class="min-w-5 min-h-5 w-5 h-5" />
           </div>
           <div v-if="showQ20Notice" :class="$style['qualityLabel']">
             {{ t("item.prop_quality", [calcQuality]) }}
@@ -470,6 +470,17 @@ export default defineComponent({
 }
 .tag-rune {
   @apply bg-blue-600 text-blue-100;
+}
+.tag-added-rune {
+  @apply text-blue-100 relative overflow-hidden;
+
+  background: repeating-linear-gradient(
+    45deg,
+    #3182ce,
+    #3182ce 8px,
+    #1a4773 8px,
+    #1a4773 16px
+  );
 }
 .tag-sanctum {
   @apply border;
