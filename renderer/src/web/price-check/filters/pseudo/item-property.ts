@@ -189,6 +189,8 @@ function weaponProps(ctx: FiltersCreationContext) {
     item,
   );
 
+  console.log(eleDmg.sources);
+
   const fireDmg = calcPropBounds(
     item.weaponFIRE ?? 0,
     {
@@ -266,7 +268,7 @@ function weaponProps(ctx: FiltersCreationContext) {
           ref: "Total DPS: #",
           tradeId: "item.total_dps",
           roll: dps,
-          sources: [],
+          sources: [eleDmg.sources, physQ20.sources].flat(),
           disabled: false,
         },
         ctx,
@@ -278,7 +280,7 @@ function weaponProps(ctx: FiltersCreationContext) {
         ref: "Elemental DPS: #",
         tradeId: "item.elemental_dps",
         roll: edps,
-        sources: [],
+        sources: eleDmg.sources,
         disabled: edps.value / dps.value < 0.15,
         hidden:
           edps.value / dps.value < 0.15 ? "filters.hide_ele_dps" : undefined,
@@ -304,7 +306,7 @@ function weaponProps(ctx: FiltersCreationContext) {
           ref: "Physical DPS: #",
           tradeId: "item.physical_dps",
           roll: pdpsQ20,
-          sources: [],
+          sources: physQ20.sources,
           disabled: !isPdpsImportant(item) || pdpsQ20.value / dps.value < 0.67,
           hidden:
             pdpsQ20.value / dps.value < 0.67

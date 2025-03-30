@@ -12,6 +12,8 @@ import {
 } from "../create-stat-filters";
 import type { StatFilter } from "../interfaces";
 import { ARMOUR_STATS, WEAPON_STATS } from "./item-property";
+import { AppConfig } from "@/web/Config";
+import { PriceCheckWidget } from "@/web/overlay/widgets";
 
 const RESISTANCES_INFO = [
   // {
@@ -483,7 +485,8 @@ const PSEUDO_REF_SET = new Set([
 export function refEffectsPseudos(ref: string): boolean {
   // If it is in these pseudos
   return (
-    PSEUDO_REF_SET.has(ref) ||
+    (AppConfig<PriceCheckWidget>("price-check")!.usePseudo &&
+      PSEUDO_REF_SET.has(ref)) ||
     ARMOUR_STATS.has(ref) ||
     WEAPON_STATS.has(ref) ||
     ref === "Adds # to # Chaos Damage"

@@ -775,7 +775,7 @@ class Parser:
                         self.mods[base_id]["fromAreaMods"] = True
 
             if tiers is not None:
-                tier_refs = [t.get("ref") for t in translations]
+                tier_refs = list({t.get("ref") for t in translations})
                 for perm in permutations(tier_refs):
                     tier_ref_strings = "\n".join(perm)
                     if tier_ref_strings in self.tiers:
