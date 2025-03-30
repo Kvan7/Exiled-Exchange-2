@@ -94,17 +94,21 @@
             </template>
           </ui-popover>
         </div>
-        <div class="flex-1 flex items-start gap-x-2">
-          <span v-if="showTag" :class="[$style['tag'], $style[`tag-${tag}`]]"
-            >{{ t(`filters.tag_${tag.replace("-", "_")}`)
-            }}{{
-              filter.sources.length > 1 ? ` x ${filter.sources.length}` : null
-            }}</span
-          >
-          <filter-modifier-tiers :filter="filter" :item="item" />
-          <filter-modifier-item-has-empty :filter="filter" />
+
+        <div class="flex-1 flex flex-col gap-1">
+          <div class="flex-1 flex items-start gap-x-2">
+            <span v-if="showTag" :class="[$style['tag'], $style[`tag-${tag}`]]"
+              >{{ t(`filters.tag_${tag.replace("-", "_")}`)
+              }}{{
+                filter.sources.length > 1 ? ` x ${filter.sources.length}` : null
+              }}</span
+            >
+            <filter-modifier-tiers :filter="filter" :item="item" />
+            <filter-modifier-item-has-empty :filter="filter" />
+          </div>
           <filter-modifier-item-is-elemental :filter="filter" />
         </div>
+
         <stat-roll-slider
           v-if="roll && roll.bounds"
           class="mr-4"
@@ -302,7 +306,10 @@ export default defineComponent({
         () =>
           props.showSources &&
           props.filter.sources.length &&
-          props.filter.option == null &&
+          (props.filter.option == null ||
+            (props.filter.tradeId &&
+              props.filter.tradeId.length > 0 &&
+              props.filter.tradeId[0] === "item.elemental_dps")) &&
           (props.filter.tag === FilterTag.Pseudo ||
             props.filter.sources.length >= 2 ||
             props.filter.sources[0].modifier.info.name != null ||
