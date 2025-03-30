@@ -1,6 +1,11 @@
 <template>
   <div
-    v-if="result && !showRuneSelector.disabled && showRuneSelector.editing"
+    v-if="
+      result &&
+      showRuneSelector &&
+      !showRuneSelector.disabled &&
+      showRuneSelector.editing
+    "
     :class="[$style['wrapper'], $style[clickPosition]]"
     @mouseleave="onMouseLeave"
   >
@@ -54,17 +59,24 @@ export default defineComponent({
       required: true,
     },
     showRuneSelector: {
-      type: Object as PropType<{
-        editing: boolean;
-        value: string;
-        disabled: boolean;
-      }>,
+      type: Object as PropType<
+        | {
+            editing: boolean;
+            value: string;
+            disabled: boolean;
+          }
+        | undefined
+      >,
       required: true,
     },
   },
   setup(props) {
     function onMouseLeave() {
-      if (!props.showRuneSelector.disabled && props.showRuneSelector.editing) {
+      if (
+        props.showRuneSelector &&
+        !props.showRuneSelector.disabled &&
+        props.showRuneSelector.editing
+      ) {
         props.showRuneSelector.editing = false;
       }
     }
@@ -116,7 +128,7 @@ export default defineComponent({
       t,
       result,
       selectRune(id: string) {
-        if (!props.showRuneSelector.disabled) {
+        if (props.showRuneSelector && !props.showRuneSelector.disabled) {
           props.showRuneSelector.value = id;
         }
       },

@@ -277,7 +277,9 @@ export default defineComponent({
     const rebuildKey = shallowRef(2);
     const advancedCheck = shallowRef(false);
     const checkPosition = shallowRef({ x: 1, y: 1 });
-    const showRuneSelector = ref({
+    const showRuneSelector = ref<
+      { editing: boolean; value: string; disabled: boolean } | undefined
+    >({
       editing: false,
       value: "None",
       disabled: true,
@@ -462,11 +464,15 @@ export default defineComponent({
       openLeagueSelection,
       changeItem,
       rebuildKey,
-      handleRuneSelector: (val: {
-        editing: boolean;
-        value: string;
-        disabled: boolean;
-      }) => (showRuneSelector.value = val),
+      handleRuneSelector: (
+        val:
+          | {
+              editing: boolean;
+              value: string;
+              disabled: boolean;
+            }
+          | undefined,
+      ) => (showRuneSelector.value = val),
       showRuneSelector,
       openRunesAbove: computed(() => props.config.openRunesAbove),
     };

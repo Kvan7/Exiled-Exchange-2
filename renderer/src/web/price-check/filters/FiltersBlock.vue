@@ -131,7 +131,11 @@
         />
       </div>
       <button
-        v-if="hasEmptyRuneSockets && filters.fillEmptyRuneSockets"
+        v-if="
+          hasEmptyRuneSockets &&
+          filters.fillEmptyRuneSockets &&
+          !filters.fillEmptyRuneSockets.disabled
+        "
         @click="
           filters.fillEmptyRuneSockets.editing =
             !filters.fillEmptyRuneSockets.editing
