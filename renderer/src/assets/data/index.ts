@@ -28,6 +28,9 @@ export let ITEM_CATEGORY_TO_EMPTY_PREFIX: ItemCategoryToEmptyPrefix;
 export let MAX_TIER_LOOKUP: TierLookup;
 
 export let RUNE_LIST: BaseType[];
+export const HIGH_VALUE_RUNES_HARDCODED = new Set<string>([
+  "Soul Core of Azcapa",
+]);
 
 export let ITEM_BY_TRANSLATED = (
   ns: BaseType["namespace"],

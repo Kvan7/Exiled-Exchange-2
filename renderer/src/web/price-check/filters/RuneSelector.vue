@@ -41,11 +41,12 @@
 <script lang="ts">
 import { computed, defineComponent, PropType } from "vue";
 import { ParsedItem } from "@/parser";
-import { RUNE_LIST } from "@/assets/data";
+import { HIGH_VALUE_RUNES_HARDCODED, RUNE_LIST } from "@/assets/data";
 import RuneSelectorButton from "./RuneSelectorButton.vue";
 import { useI18n } from "vue-i18n";
 import { selectRuneEffectByItemCategory } from "./fill-runes";
 import { replaceHashWithValues } from "@/parser/Parser";
+import { refEffectsPseudos } from "./pseudo";
 
 export default defineComponent({
   components: { RuneSelectorButton },
@@ -99,6 +100,13 @@ export default defineComponent({
             rune.rune,
           );
           if (runeEffect) {
+            if (
+              !(
+                refEffectsPseudos(runeEffect.string) ||
+                HIGH_VALUE_RUNES_HARDCODED.has(rune.refName)
+              )
+            )
+              continue;
             stat = replaceHashWithValues(runeEffect.string, runeEffect.values);
           }
         }

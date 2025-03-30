@@ -178,7 +178,7 @@ import {
 } from "../overlay/interfaces";
 import ConversionWarningBanner from "../conversion-warn-banner/ConversionWarningBanner.vue";
 import RuneSelector from "./filters/RuneSelector.vue";
-import { loadRunes } from "@/assets/data";
+import { HIGH_VALUE_RUNES_HARDCODED, loadRunes } from "@/assets/data";
 import { refEffectsPseudos } from "./filters/pseudo";
 
 type ParseError = {
@@ -247,7 +247,6 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const HIGH_VALUE_RUNES_HARDCODED = new Set<string>(["Soul Core of Azcapa"]);
     watch(
       () => props.config.usePseudo,
       () => {
