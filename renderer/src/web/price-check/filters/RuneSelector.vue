@@ -2,6 +2,7 @@
   <div
     v-if="result && showRuneSelector.editing"
     :class="[$style['wrapper'], $style[clickPosition]]"
+    @mouseleave="onMouseLeave"
   >
     <div v-if="'error' in result" class="p-2">
       {{ result.error }}
@@ -69,6 +70,12 @@ export default defineComponent({
     },
   },
   setup(props) {
+    function onMouseLeave() {
+      if (props.showRuneSelector.editing) {
+        props.showRuneSelector.editing = false;
+      }
+    }
+
     const result = computed(() => {
       if (!props.item) return;
 
@@ -82,6 +89,7 @@ export default defineComponent({
       selectRune(id: string) {
         props.showRuneSelector.value = id;
       },
+      onMouseLeave,
     };
   },
 });
