@@ -312,7 +312,11 @@ export default defineComponent({
         const normalCase = selected !== prev && props.filters.tempRuneStorage;
         if (normalCase && selected !== undefined) {
           // If last wasn't empty
-          if (prev !== "None") {
+          if (
+            prev !== "None" &&
+            props.filters.tempRuneStorage &&
+            props.filters.tempRuneStorage.length > 0
+          ) {
             // Remove current rune
             handleFillRuneSockets(
               props.stats,
