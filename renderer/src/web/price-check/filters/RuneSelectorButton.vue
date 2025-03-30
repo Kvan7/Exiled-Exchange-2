@@ -1,19 +1,19 @@
 <template>
   <div
-    class="hover:bg-gray-700 rounded flex"
+    class="hover:bg-gray-700 rounded flex items-center overflow-hidden"
     :class="[showRuneSelector.value === refName ? 'border bg-gray-900' : '']"
     @click="selectRune()"
   >
     <div class="flex items-center justify-center shrink-0 w-8 h-8">
       <slot>
-        <img :src="icon" class="max-w-full max-h-full overflow-hidden" />
+        <img :src="icon" class="max-w-full max-h-full" />
       </slot>
     </div>
     <div class="mb-1 cursor-pointer">
-      <div class="text-left text-gray-600 whitespace-nowrap overflow-hidden">
+      <div class="text-left text-gray-600 whitespace-nowrap">
         {{ name }}
       </div>
-      <div class="text-left whitespace-nowrap overflow-hidden">
+      <div class="text-left whitespace-nowrap">
         {{ stat }}
       </div>
     </div>
