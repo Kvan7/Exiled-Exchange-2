@@ -1,6 +1,6 @@
 import { ItemCategory, ItemRarity, ParsedItem } from "@/parser";
 import { StatFilter } from "./interfaces";
-import { applyIronRune } from "@/parser/calc-base";
+import { applyEleRune, applyIronRune } from "@/parser/calc-base";
 import { BaseType, RUNE_DATA_BY_RUNE } from "@/assets/data";
 import {
   isArmourOrWeapon,
@@ -102,12 +102,15 @@ function createNewStatFilter(
     }),
   };
 
-  if (newRune === "Iron Rune") {
-    // const base = calcBaseDamage(item);
-    // const total = calcTotalDamage(newItem, base);
-    // newItem.weaponPHYSICAL = total;
-    applyIronRune(newItem, item);
+  if (
+    newRune === "Glacial Rune" ||
+    newRune === "Storm Rune" ||
+    newRune === "Desert Rune"
+  ) {
+    applyEleRune(newItem, newRune, runeData.values);
   }
+
+  applyIronRune(newItem, item);
   filterItemProp(ctx);
   filterPseudo(
     ctx,
