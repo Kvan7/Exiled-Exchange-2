@@ -51,6 +51,19 @@ export function handleFillRuneSockets(
     filters.splice(0, filters.length, ...newFilters);
   } else {
     // reset back to normal
+
+    for (const filterToApply of filterStorage) {
+      // get on/off state of old filter
+      const oldFilter = filters.find(
+        (stat) =>
+          stat.statRef === filterToApply.statRef &&
+          stat.tag === filterToApply.tag,
+      );
+      if (oldFilter) {
+        filterToApply.disabled = oldFilter.disabled;
+      }
+    }
+
     filters.splice(0, filters.length, ...filterStorage);
     filterStorage.length = 0;
   }
@@ -104,7 +117,12 @@ function createNewStatFilter(
 
   ctx.filters.push(
     ...ctx.statsByType.map((mod) =>
-      calculatedStatToFilter(mod, ctx.searchInRange, newItem),
+      calculatedStatToFilter(
+        mod,
+        ctx.searchInRange,
+        newItem,
+        mod.type !== "added-rune",
+      ),
     ),
   );
 

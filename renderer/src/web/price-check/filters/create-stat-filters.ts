@@ -344,6 +344,7 @@ export function calculatedStatToFilter(
   calc: StatCalculated,
   percent: number,
   item: ParsedItem,
+  disabled: boolean = true,
 ): StatFilter {
   const { stat, sources, type } = calc;
   let filter: StatFilter;
@@ -383,7 +384,7 @@ export function calculatedStatToFilter(
     oils: decodeOils(calc),
     sources,
     roll: undefined,
-    disabled: true,
+    disabled,
   };
 
   if (type === ModifierType.Implicit) {
