@@ -58,6 +58,7 @@ export interface PriceCheckWidget extends Widget {
   tierNumbering: "poe1" | "poe2";
   alwaysShowTier: boolean;
   rememberRatio: boolean;
+  openRunesAbove: boolean;
 }
 
 export interface StopwatchWidget extends Widget {

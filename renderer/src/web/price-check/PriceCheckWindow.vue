@@ -20,7 +20,7 @@
         }"
       >
         <rune-selector
-          v-if="item?.isOk()"
+          v-if="!openRunesAbove && item?.isOk()"
           class="pointer-events-auto"
           :item="item.value"
           :click-position="clickPosition"
@@ -34,7 +34,7 @@
       style="width: 28.75rem"
     >
       <rune-selector
-        v-if="isBrowserShown && item?.isOk()"
+        v-if="(isBrowserShown || openRunesAbove) && item?.isOk()"
         class="pointer-events-auto"
         :item="item.value"
         :click-position="clickPosition"
@@ -220,6 +220,7 @@ export default defineComponent({
         tierNumbering: "poe2",
         alwaysShowTier: false,
         rememberRatio: false,
+        openRunesAbove: false,
       };
     },
   } satisfies WidgetSpec,
@@ -444,6 +445,7 @@ export default defineComponent({
       handleRuneSelector: (val: { editing: boolean; value: string }) =>
         (showRuneSelector.value = val),
       showRuneSelector,
+      openRunesAbove: computed(() => props.config.openRunesAbove),
     };
   },
 });
