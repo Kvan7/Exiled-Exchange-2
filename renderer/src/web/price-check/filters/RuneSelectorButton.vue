@@ -9,7 +9,7 @@
         <img :src="icon" class="max-w-full max-h-full" />
       </slot>
     </div>
-    <div class="mb-1 cursor-pointer">
+    <div class="mb-1 cursor-pointer pl-1">
       <div class="text-left text-gray-600 whitespace-nowrap">
         {{ name }}
       </div>
