@@ -315,6 +315,7 @@ function runesToLookup(runeList: BaseType[]): RuneDataByRune {
         values,
         id: tradeId[0],
         type: runeStat,
+        icon: rune.icon,
       });
     }
   }

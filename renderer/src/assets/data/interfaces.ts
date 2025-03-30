@@ -278,6 +278,7 @@ export interface RuneData {
   values: number[];
   id: string;
   type: string;
+  icon: string;
 }
 
 export interface RuneDataByRune {
