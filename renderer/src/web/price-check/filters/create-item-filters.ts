@@ -247,13 +247,26 @@ export function createFilters(
       ) {
         filters.fillEmptyRuneSockets = {
           disabled: false,
+          editing: false,
+          value: opts.autoFillEmptyRuneSockets
+            ? opts.autoFillEmptyRuneSockets
+            : "None",
         };
       } else {
         filters.fillEmptyRuneSockets = {
-          disabled: true,
+          disabled: false,
+          editing: false,
+          value: "None",
         };
       }
     }
+  }
+  if (!filters.fillEmptyRuneSockets) {
+    filters.fillEmptyRuneSockets = {
+      disabled: true,
+      editing: false,
+      value: "None",
+    };
   }
 
   const forAdornedJewel =

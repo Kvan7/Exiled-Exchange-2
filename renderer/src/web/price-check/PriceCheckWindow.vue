@@ -11,12 +11,35 @@
       v-if="!isBrowserShown"
       class="layout-column shrink-0"
       style="width: var(--game-panel)"
-    ></div>
+    >
+      <div
+        class="flex"
+        :class="{
+          'flex-row': clickPosition === 'inventory',
+          'flex-row-reverse': clickPosition === 'stash',
+        }"
+      >
+        <rune-selector
+          v-if="!openRunesAbove && item?.isOk()"
+          class="pointer-events-auto"
+          :item="item.value"
+          :click-position="clickPosition"
+          :show-rune-selector="showRuneSelector"
+        />
+      </div>
+    </div>
     <div
       id="price-window"
       class="layout-column shrink-0 text-gray-200 pointer-events-auto"
       style="width: 28.75rem"
     >
+      <rune-selector
+        v-if="(isBrowserShown || openRunesAbove) && item?.isOk()"
+        class="pointer-events-auto"
+        :item="item.value"
+        :click-position="clickPosition"
+        :show-rune-selector="showRuneSelector"
+      />
       <ConversionWarningBanner />
       <AppTitleBar
         @close="closePriceCheck"
@@ -80,6 +103,7 @@
             :advanced-check="advancedCheck"
             :change-item="changeItem"
             :rebuild-key="rebuildKey"
+            @rune-selector="handleRuneSelector"
           />
         </template>
         <div v-if="isBrowserShown" class="bg-gray-900 px-6 py-2 truncate">
@@ -128,6 +152,7 @@ import {
   computed,
   nextTick,
   provide,
+  ref,
 } from "vue";
 import { Result, ok, err } from "neverthrow";
 import { useI18n } from "vue-i18n";
@@ -152,6 +177,9 @@ import {
   WidgetSpec,
 } from "../overlay/interfaces";
 import ConversionWarningBanner from "../conversion-warn-banner/ConversionWarningBanner.vue";
+import RuneSelector from "./filters/RuneSelector.vue";
+import { HIGH_VALUE_RUNES_HARDCODED, loadRunes } from "@/assets/data";
+import { refEffectsPseudos } from "./filters/pseudo";
 
 type ParseError = {
   name: string;
@@ -194,6 +222,7 @@ export default defineComponent({
         tierNumbering: "poe2",
         alwaysShowTier: false,
         rememberRatio: false,
+        openRunesAbove: false,
       };
     },
   } satisfies WidgetSpec,
@@ -203,6 +232,7 @@ export default defineComponent({
     UnidentifiedResolver,
     BackgroundInfo,
     RelatedItems,
+    RuneSelector,
     RateLimiterState,
     CheckPositionCircle,
     ItemQuickPrice,
@@ -217,6 +247,19 @@ export default defineComponent({
     },
   },
   setup(props) {
+    watch(
+      () => props.config.usePseudo,
+      () => {
+        loadRunes(
+          (item) =>
+            Object.values(item.rune!).some((runeStat) =>
+              refEffectsPseudos(runeStat.string),
+            ) || HIGH_VALUE_RUNES_HARDCODED.has(item.refName),
+        );
+      },
+      { immediate: true },
+    );
+
     const wm = inject<WidgetManager>("wm")!;
     const {
       xchgRate,
@@ -233,6 +276,13 @@ export default defineComponent({
     const rebuildKey = shallowRef(2);
     const advancedCheck = shallowRef(false);
     const checkPosition = shallowRef({ x: 1, y: 1 });
+    const showRuneSelector = ref<
+      { editing: boolean; value: string; disabled: boolean } | undefined
+    >({
+      editing: false,
+      value: "None",
+      disabled: true,
+    });
 
     MainProcess.onEvent("MAIN->CLIENT::item-text", (e) => {
       if (e.target !== "price-check") return;
@@ -413,6 +463,17 @@ export default defineComponent({
       openLeagueSelection,
       changeItem,
       rebuildKey,
+      handleRuneSelector: (
+        val:
+          | {
+              editing: boolean;
+              value: string;
+              disabled: boolean;
+            }
+          | undefined,
+      ) => (showRuneSelector.value = val),
+      showRuneSelector,
+      openRunesAbove: computed(() => props.config.openRunesAbove),
     };
   },
 });

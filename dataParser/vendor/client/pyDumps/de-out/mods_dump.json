@@ -365,8 +365,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_3484657501",
-                    "explicit.stat_809229260"
+                    "explicit.stat_809229260",
+                    "explicit.stat_3484657501"
                 ],
                 "implicit": [
                     "implicit.stat_809229260"
@@ -387,8 +387,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_53045048",
-                    "explicit.stat_2144192055"
+                    "explicit.stat_2144192055",
+                    "explicit.stat_53045048"
                 ]
             }
         }
@@ -406,8 +406,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_4052037485",
-                    "explicit.stat_3489782002"
+                    "explicit.stat_3489782002",
+                    "explicit.stat_4052037485"
                 ],
                 "implicit": [
                     "implicit.stat_3489782002"
@@ -432,12 +432,12 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_1062208444",
-                    "explicit.stat_2866361420"
+                    "explicit.stat_2866361420",
+                    "explicit.stat_1062208444"
                 ],
                 "enchant": [
-                    "enchant.stat_1062208444",
-                    "enchant.stat_2866361420"
+                    "enchant.stat_2866361420",
+                    "enchant.stat_1062208444"
                 ],
                 "sanctum": [
                     "sanctum.stat_1737465970"
@@ -1479,8 +1479,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_669069897",
-                    "explicit.stat_707457662"
+                    "explicit.stat_707457662",
+                    "explicit.stat_669069897"
                 ],
                 "implicit": [
                     "implicit.stat_669069897"
@@ -1507,8 +1507,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_669069897",
-                    "explicit.stat_707457662"
+                    "explicit.stat_707457662",
+                    "explicit.stat_669069897"
                 ],
                 "implicit": [
                     "implicit.stat_669069897"
@@ -2712,26 +2712,16 @@
         "id": "charm_charges_gained_+%",
         "matchers": [
             {
-                "string": "#% erhöhte erhaltene Phiolen-Füllungen",
+                "string": "#% erhöhte erhaltene Phiolenfüllungen",
                 "negate": false
             },
             {
-                "string": "#% verringerte erhaltene Phiolen-Füllungen",
+                "string": "#% verringerte erhaltene Phiolenfüllungen",
                 "negate": true
             }
         ],
         "trade": {
-            "ids": {
-                "explicit": [
-                    "explicit.stat_3585532255"
-                ],
-                "implicit": [
-                    "implicit.stat_3585532255"
-                ],
-                "rune": [
-                    "rune.stat_3585532255"
-                ]
-            }
+            "ids": null
         }
     },
     "merged_116": {
@@ -2740,23 +2730,16 @@
         "id": "charm_charges_used_+%",
         "matchers": [
             {
-                "string": "#% erhöhte verbrauchte Phiolen-Füllungen",
+                "string": "#% erhöhte verbrauchte Phiolenfüllungen",
                 "negate": true
             },
             {
-                "string": "#% verringerte verbrauchte Phiolen-Füllungen",
+                "string": "#% verringerte verbrauchte Phiolenfüllungen",
                 "negate": false
             }
         ],
         "trade": {
-            "ids": {
-                "explicit": [
-                    "explicit.stat_1570770415"
-                ],
-                "implicit": [
-                    "implicit.stat_1570770415"
-                ]
-            }
+            "ids": null
         }
     },
     "merged_117": {
@@ -3405,8 +3388,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2541588185",
-                    "explicit.stat_1256719186"
+                    "explicit.stat_1256719186",
+                    "explicit.stat_2541588185"
                 ]
             }
         }
@@ -4019,32 +4002,16 @@
         "id": "base_slow_potency_+%",
         "matchers": [
             {
-                "string": "#% erhöhte verlangsamende Wirkung von Schwächungen",
+                "string": "#% erhöhte verlangsamende Wirkung von Schwächungen auf Euch",
                 "negate": false
             },
             {
-                "string": "#% verringerte verlangsamende Wirkung von Schwächungen",
+                "string": "#% verringerte verlangsamende Wirkung von Schwächungen auf Euch",
                 "negate": true
             }
         ],
         "trade": {
-            "ids": {
-                "explicit": [
-                    "explicit.stat_924253255"
-                ],
-                "implicit": [
-                    "implicit.stat_924253255"
-                ],
-                "enchant": [
-                    "enchant.stat_924253255"
-                ],
-                "rune": [
-                    "rune.stat_924253255"
-                ],
-                "sanctum": [
-                    "sanctum.stat_978111083"
-                ]
-            }
+            "ids": null
         }
     },
     "merged_176": {
@@ -4360,8 +4327,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_795138349",
-                    "explicit.stat_3885634897"
+                    "explicit.stat_3885634897",
+                    "explicit.stat_795138349"
                 ],
                 "enchant": [
                     "enchant.stat_3885634897"
@@ -9863,8 +9830,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_57434274",
-                    "explicit.stat_3666934677"
+                    "explicit.stat_3666934677",
+                    "explicit.stat_57434274"
                 ]
             }
         },
@@ -10364,7 +10331,7 @@
         "id": "unique_cold_damage_ignites",
         "matchers": [
             {
-                "string": "Cold Damage from Hits Contributes to Ignite Chance and Magnitude instead of Chill Magnitude or Freeze Buildup",
+                "string": "Kälteschaden von Treffern wird auf die Magnitude und Chance auf Entzünden statt auf die Magnitude von Unterkühlen oder Einfrierungsaufbau angerechnet",
                 "negate": false
             }
         ],
@@ -11273,16 +11240,12 @@
         "id": "enemies_chilled_by_hits_take_damage_increased_by_chill_effect",
         "matchers": [
             {
-                "string": "Durch Eure Treffer unterkühlte Gegner erleiden erhöhten Kälteschaden durch die Unterkühlungswirkung",
+                "string": "Durch Eure Treffer unterkühlte Gegner erleiden erhöhten Schaden durch die Magnitude von Unterkühlen",
                 "negate": false
             }
         ],
         "trade": {
-            "ids": {
-                "explicit": [
-                    "explicit.stat_1816894864"
-                ]
-            }
+            "ids": null
         }
     },
     "merged_543": {
@@ -13323,9 +13286,9 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2541588185",
+                    "explicit.stat_3969608626",
                     "explicit.stat_1256719186",
-                    "explicit.stat_3969608626"
+                    "explicit.stat_2541588185"
                 ]
             }
         }
@@ -14065,16 +14028,12 @@
         "id": "non_skill_base_elemental_damage_%_to_gain_as_fire",
         "matchers": [
             {
-                "string": "Gain #% of Elemental Damage as Extra Fire Damage",
+                "string": "Verursacht #% des Elementarschadens als extra Feuerschaden",
                 "negate": false
             }
         ],
         "trade": {
-            "ids": {
-                "explicit": [
-                    "explicit.stat_701564564"
-                ]
-            }
+            "ids": null
         }
     },
     "merged_693": {
@@ -14155,7 +14114,7 @@
         "id": "demigods_virtue",
         "matchers": [
             {
-                "string": "Virtuous",
+                "string": "Tugendhaft",
                 "negate": false
             }
         ],
@@ -14257,7 +14216,7 @@
         "id": "all_damage_can_shock",
         "matchers": [
             {
-                "string": "Sämtlicher Schaden mit Treffern kann schocken",
+                "string": "Sämtlicher Schaden von Treffern wird auf die Chance auf Schocken angerechnet",
                 "negate": false
             }
         ],
@@ -15510,8 +15469,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_4103440490",
                     "explicit.stat_2326202293",
+                    "explicit.stat_4103440490",
                     "explicit.stat_558910024"
                 ]
             }
@@ -15588,9 +15547,9 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_349586058",
+                    "explicit.stat_2390685262",
                     "explicit.stat_2306002879",
-                    "explicit.stat_2390685262"
+                    "explicit.stat_349586058"
                 ],
                 "enchant": [
                     "enchant.stat_2306002879"
@@ -16900,11 +16859,11 @@
                 "negate": true
             },
             {
-                "string": "Das Aufbewahren von Gaben in Ritual-Altäre in Euren Karten kostet #% erhöhten Tribut",
+                "string": "Das Aufbewahren von Gaben in Ritual-Altären in Euren Karten kostet #% erhöhten Tribut",
                 "negate": false
             },
             {
-                "string": "Das Aufbewahren von Gaben in Ritual-Altäre in Euren Karten kostet #% verringerten Tribut",
+                "string": "Das Aufbewahren von Gaben in Ritual-Altären in Euren Karten kostet #% verringerten Tribut",
                 "negate": true
             }
         ],
@@ -18639,8 +18598,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_95249895",
-                    "explicit.stat_2390685262"
+                    "explicit.stat_2390685262",
+                    "explicit.stat_95249895"
                 ]
             }
         }
@@ -19215,8 +19174,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2306002879",
-                    "explicit.stat_2390685262"
+                    "explicit.stat_2390685262",
+                    "explicit.stat_2306002879"
                 ],
                 "enchant": [
                     "enchant.stat_2306002879"
@@ -25332,9 +25291,9 @@
         "trade": {
             "ids": {
                 "explicit": [
+                    "explicit.stat_2390685262",
                     "explicit.stat_1913583994",
                     "explicit.stat_2306522833",
-                    "explicit.stat_2390685262",
                     "explicit.stat_2488361432"
                 ]
             }
@@ -29596,8 +29555,8 @@
             "ids": {
                 "explicit": [
                     "explicit.stat_398335579",
-                    "explicit.stat_1414945937",
-                    "explicit.stat_4007938693"
+                    "explicit.stat_4007938693",
+                    "explicit.stat_1414945937"
                 ]
             }
         }
@@ -36384,15 +36343,15 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_1539368271",
                     "explicit.stat_1640965354",
-                    "explicit.stat_4219583418"
+                    "explicit.stat_4219583418",
+                    "explicit.stat_1539368271"
                 ],
                 "implicit": [
                     "implicit.stat_1539368271",
-                    "implicit.stat_4219583418",
+                    "implicit.stat_3051490307",
                     "implicit.stat_1640965354",
-                    "implicit.stat_3051490307"
+                    "implicit.stat_4219583418"
                 ]
             }
         }
@@ -36705,9 +36664,9 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_57434274",
+                    "explicit.stat_2017682521",
                     "explicit.stat_3666934677",
-                    "explicit.stat_2017682521"
+                    "explicit.stat_57434274"
                 ],
                 "enchant": [
                     "enchant.stat_2017682521"
@@ -39663,8 +39622,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2306002879",
                     "explicit.stat_2390685262",
+                    "explicit.stat_2306002879",
                     "explicit.stat_2017682521"
                 ],
                 "enchant": [
@@ -39687,8 +39646,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2306002879",
                     "explicit.stat_2390685262",
+                    "explicit.stat_2306002879",
                     "explicit.stat_2017682521"
                 ],
                 "enchant": [
@@ -39711,8 +39670,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2306002879",
                     "explicit.stat_2390685262",
+                    "explicit.stat_2306002879",
                     "explicit.stat_2017682521"
                 ],
                 "enchant": [
@@ -39735,8 +39694,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2306002879",
                     "explicit.stat_2390685262",
+                    "explicit.stat_2306002879",
                     "explicit.stat_2017682521"
                 ],
                 "enchant": [
@@ -51531,6 +51490,60 @@
         }
     },
     "merged_2950": {
+        "ref": "Convert #% of Requirements to Strength",
+        "better": 1,
+        "id": "local_requirements_%_to_convert_to_strength",
+        "matchers": [
+            {
+                "string": "Wandelt #% der Anforderungen in Stärke um",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "rune": [
+                    "rune.stat_1556124492"
+                ]
+            }
+        }
+    },
+    "merged_2951": {
+        "ref": "Convert #% of Requirements to Dexterity",
+        "better": 1,
+        "id": "local_requirements_%_to_convert_to_dexterity",
+        "matchers": [
+            {
+                "string": "Wandelt #% der Anforderungen in Geschick um",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "rune": [
+                    "rune.stat_1496740334"
+                ]
+            }
+        }
+    },
+    "merged_2952": {
+        "ref": "Convert #% of Requirements to Intelligence",
+        "better": 1,
+        "id": "local_requirements_%_to_convert_to_intelligence",
+        "matchers": [
+            {
+                "string": "Wandelt #% der Anforderungen in Intelligenz um",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "rune": [
+                    "rune.stat_2913012734"
+                ]
+            }
+        }
+    },
+    "merged_2953": {
         "ref": "Only affects Passives in # Ring",
         "better": 1,
         "id": "local_jewel_variable_ring_radius_value",
@@ -51576,7 +51589,7 @@
             }
         }
     },
-    "merged_2951": {
+    "merged_2954": {
         "ref": "+# Charm Slot",
         "better": 1,
         "id": "local_charm_slots",
@@ -51589,7 +51602,7 @@
             "ids": {}
         }
     },
-    "merged_2952": {
+    "merged_2955": {
         "ref": "Has Logbook Faction: Druids of the Broken Circle",
         "better": 0,
         "id": "druids_of_the_broken_circle",
@@ -51602,7 +51615,7 @@
             "ids": null
         }
     },
-    "merged_2953": {
+    "merged_2956": {
         "ref": "Has Logbook Faction: Black Scythe Mercenaries",
         "better": 0,
         "id": "black_scythe_mercenaries",
@@ -51615,7 +51628,7 @@
             "ids": null
         }
     },
-    "merged_2954": {
+    "merged_2957": {
         "ref": "Has Logbook Faction: Order of the Chalice",
         "better": 0,
         "id": "order_of_the_chalice",
@@ -51628,7 +51641,7 @@
             "ids": null
         }
     },
-    "merged_2955": {
+    "merged_2958": {
         "ref": "Has Logbook Faction: Knights of the Sun",
         "better": 0,
         "id": "knights_of_the_sun",

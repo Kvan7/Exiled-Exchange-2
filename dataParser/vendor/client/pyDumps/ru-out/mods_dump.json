@@ -365,8 +365,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_3484657501",
-                    "explicit.stat_809229260"
+                    "explicit.stat_809229260",
+                    "explicit.stat_3484657501"
                 ],
                 "implicit": [
                     "implicit.stat_809229260"
@@ -387,8 +387,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_53045048",
-                    "explicit.stat_2144192055"
+                    "explicit.stat_2144192055",
+                    "explicit.stat_53045048"
                 ]
             }
         }
@@ -462,12 +462,12 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2106365538",
-                    "explicit.stat_124859000"
+                    "explicit.stat_124859000",
+                    "explicit.stat_2106365538"
                 ],
                 "enchant": [
-                    "enchant.stat_2106365538",
-                    "enchant.stat_124859000"
+                    "enchant.stat_124859000",
+                    "enchant.stat_2106365538"
                 ],
                 "sanctum": [
                     "sanctum.stat_3882471944"
@@ -1645,8 +1645,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_681332047",
-                    "explicit.stat_210067635"
+                    "explicit.stat_210067635",
+                    "explicit.stat_681332047"
                 ],
                 "implicit": [
                     "implicit.stat_681332047"
@@ -2776,8 +2776,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_554899692",
-                    "explicit.stat_1416292992"
+                    "explicit.stat_1416292992",
+                    "explicit.stat_554899692"
                 ]
             }
         }
@@ -3400,8 +3400,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2541588185",
-                    "explicit.stat_1256719186"
+                    "explicit.stat_1256719186",
+                    "explicit.stat_2541588185"
                 ]
             }
         }
@@ -4355,8 +4355,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_795138349",
-                    "explicit.stat_3885634897"
+                    "explicit.stat_3885634897",
+                    "explicit.stat_795138349"
                 ],
                 "enchant": [
                     "enchant.stat_3885634897"
@@ -6046,8 +6046,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_1030153674",
-                    "explicit.stat_1604736568"
+                    "explicit.stat_1604736568",
+                    "explicit.stat_1030153674"
                 ],
                 "rune": [
                     "rune.stat_1030153674"
@@ -13339,8 +13339,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_2541588185",
                     "explicit.stat_1256719186",
+                    "explicit.stat_2541588185",
                     "explicit.stat_3969608626"
                 ]
             }
@@ -15086,8 +15086,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_1913583994",
-                    "explicit.stat_2306522833"
+                    "explicit.stat_2306522833",
+                    "explicit.stat_1913583994"
                 ]
             }
         },
@@ -15527,9 +15527,9 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_4103440490",
+                    "explicit.stat_558910024",
                     "explicit.stat_2326202293",
-                    "explicit.stat_558910024"
+                    "explicit.stat_4103440490"
                 ]
             }
         },
@@ -15605,8 +15605,8 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_349586058",
                     "explicit.stat_2306002879",
+                    "explicit.stat_349586058",
                     "explicit.stat_2390685262"
                 ],
                 "enchant": [
@@ -25341,10 +25341,10 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_1913583994",
                     "explicit.stat_2306522833",
-                    "explicit.stat_2390685262",
-                    "explicit.stat_2488361432"
+                    "explicit.stat_2488361432",
+                    "explicit.stat_1913583994",
+                    "explicit.stat_2390685262"
                 ]
             }
         }
@@ -29588,9 +29588,9 @@
         "trade": {
             "ids": {
                 "explicit": [
-                    "explicit.stat_398335579",
                     "explicit.stat_1414945937",
-                    "explicit.stat_4007938693"
+                    "explicit.stat_4007938693",
+                    "explicit.stat_398335579"
                 ]
             }
         }
@@ -36379,14 +36379,14 @@
             "ids": {
                 "explicit": [
                     "explicit.stat_1539368271",
-                    "explicit.stat_1640965354",
-                    "explicit.stat_4219583418"
+                    "explicit.stat_4219583418",
+                    "explicit.stat_1640965354"
                 ],
                 "implicit": [
-                    "implicit.stat_1539368271",
+                    "implicit.stat_3051490307",
                     "implicit.stat_4219583418",
                     "implicit.stat_1640965354",
-                    "implicit.stat_3051490307"
+                    "implicit.stat_1539368271"
                 ]
             }
         }
@@ -39648,13 +39648,13 @@
         "trade": {
             "ids": {
                 "explicit": [
+                    "explicit.stat_2017682521",
                     "explicit.stat_2306002879",
-                    "explicit.stat_2390685262",
-                    "explicit.stat_2017682521"
+                    "explicit.stat_2390685262"
                 ],
                 "enchant": [
-                    "enchant.stat_2017682521",
-                    "enchant.stat_2306002879"
+                    "enchant.stat_2306002879",
+                    "enchant.stat_2017682521"
                 ]
             }
         }
@@ -39672,13 +39672,13 @@
         "trade": {
             "ids": {
                 "explicit": [
+                    "explicit.stat_2017682521",
                     "explicit.stat_2306002879",
-                    "explicit.stat_2390685262",
-                    "explicit.stat_2017682521"
+                    "explicit.stat_2390685262"
                 ],
                 "enchant": [
-                    "enchant.stat_2017682521",
-                    "enchant.stat_2306002879"
+                    "enchant.stat_2306002879",
+                    "enchant.stat_2017682521"
                 ]
             }
         }
@@ -39696,13 +39696,13 @@
         "trade": {
             "ids": {
                 "explicit": [
+                    "explicit.stat_2017682521",
                     "explicit.stat_2306002879",
-                    "explicit.stat_2390685262",
-                    "explicit.stat_2017682521"
+                    "explicit.stat_2390685262"
                 ],
                 "enchant": [
-                    "enchant.stat_2017682521",
-                    "enchant.stat_2306002879"
+                    "enchant.stat_2306002879",
+                    "enchant.stat_2017682521"
                 ]
             }
         }
@@ -39720,13 +39720,13 @@
         "trade": {
             "ids": {
                 "explicit": [
+                    "explicit.stat_2017682521",
                     "explicit.stat_2306002879",
-                    "explicit.stat_2390685262",
-                    "explicit.stat_2017682521"
+                    "explicit.stat_2390685262"
                 ],
                 "enchant": [
-                    "enchant.stat_2017682521",
-                    "enchant.stat_2306002879"
+                    "enchant.stat_2306002879",
+                    "enchant.stat_2017682521"
                 ]
             }
         }
@@ -51449,6 +51449,60 @@
         }
     },
     "merged_2950": {
+        "ref": "Convert #% of Requirements to Strength",
+        "better": 1,
+        "id": "local_requirements_%_to_convert_to_strength",
+        "matchers": [
+            {
+                "string": "Преобразует #% требований в силу",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "rune": [
+                    "rune.stat_1556124492"
+                ]
+            }
+        }
+    },
+    "merged_2951": {
+        "ref": "Convert #% of Requirements to Dexterity",
+        "better": 1,
+        "id": "local_requirements_%_to_convert_to_dexterity",
+        "matchers": [
+            {
+                "string": "Преобразует #% требований в ловкость",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "rune": [
+                    "rune.stat_1496740334"
+                ]
+            }
+        }
+    },
+    "merged_2952": {
+        "ref": "Convert #% of Requirements to Intelligence",
+        "better": 1,
+        "id": "local_requirements_%_to_convert_to_intelligence",
+        "matchers": [
+            {
+                "string": "Преобразует #% требований в интеллект",
+                "negate": false
+            }
+        ],
+        "trade": {
+            "ids": {
+                "rune": [
+                    "rune.stat_2913012734"
+                ]
+            }
+        }
+    },
+    "merged_2953": {
         "ref": "Only affects Passives in # Ring",
         "better": 1,
         "id": "local_jewel_variable_ring_radius_value",
@@ -51494,7 +51548,7 @@
             }
         }
     },
-    "merged_2951": {
+    "merged_2954": {
         "ref": "+# Charm Slot",
         "better": 1,
         "id": "local_charm_slots",
@@ -51507,7 +51561,7 @@
             "ids": {}
         }
     },
-    "merged_2952": {
+    "merged_2955": {
         "ref": "Has Logbook Faction: Druids of the Broken Circle",
         "better": 0,
         "id": "druids_of_the_broken_circle",
@@ -51520,7 +51574,7 @@
             "ids": null
         }
     },
-    "merged_2953": {
+    "merged_2956": {
         "ref": "Has Logbook Faction: Black Scythe Mercenaries",
         "better": 0,
         "id": "black_scythe_mercenaries",
@@ -51533,7 +51587,7 @@
             "ids": null
         }
     },
-    "merged_2954": {
+    "merged_2957": {
         "ref": "Has Logbook Faction: Order of the Chalice",
         "better": 0,
         "id": "order_of_the_chalice",
@@ -51546,7 +51600,7 @@
             "ids": null
         }
     },
-    "merged_2955": {
+    "merged_2958": {
         "ref": "Has Logbook Faction: Knights of the Sun",
         "better": 0,
         "id": "knights_of_the_sun",

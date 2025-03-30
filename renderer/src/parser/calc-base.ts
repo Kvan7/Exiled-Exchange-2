@@ -41,6 +41,48 @@ export function applyIronRune(newItem: ParsedItem, oldItem: ParsedItem) {
   }
 }
 
+export function applyEleRune(
+  item: ParsedItem,
+  type: "Glacial Rune" | "Storm Rune" | "Desert Rune",
+  values: number[],
+) {
+  const { category } = item;
+  const weaponOrArmour = isArmourOrWeapon(category);
+  if (weaponOrArmour === undefined || weaponOrArmour === "armour") return;
+  if (values.length !== 2) return;
+  const adding = values.reduce((a, b) => a + b) / 2;
+  if (item.weaponELEMENTAL) {
+    item.weaponELEMENTAL += adding;
+  } else {
+    item.weaponELEMENTAL = adding;
+  }
+  switch (type) {
+    case "Glacial Rune":
+      if (item.weaponCOLD) {
+        item.weaponCOLD += adding;
+      } else {
+        item.weaponCOLD = adding;
+      }
+      break;
+    case "Storm Rune":
+      if (item.weaponLIGHTNING) {
+        item.weaponLIGHTNING += adding;
+      } else {
+        item.weaponLIGHTNING = adding;
+      }
+      break;
+    case "Desert Rune":
+      if (item.weaponFIRE) {
+        item.weaponFIRE += adding;
+      } else {
+        item.weaponFIRE = adding;
+      }
+      break;
+    default:
+      break;
+  }
+}
+
 export function calcBase(
   item: ParsedItem,
   inStat: number | undefined,

@@ -11,6 +11,7 @@ import {
   FiltersCreationContext,
 } from "../create-stat-filters";
 import type { StatFilter } from "../interfaces";
+import { ARMOUR_STATS, WEAPON_STATS } from "./item-property";
 
 const RESISTANCES_INFO = [
   // {
@@ -469,4 +470,22 @@ function filterPseudoSources(
     }
   }
   return out;
+}
+const PSEUDO_REF_SET = new Set([
+  ...PSEUDO_RULES.flatMap((rule) => rule.stats.map((stat) => stat.ref)),
+  ...PSEUDO_RULES.flatMap((rule) => rule.stats.map((stat) => stat.ref)).map(
+    (i) => i.replaceAll("+#", "#"),
+  ),
+  ...PSEUDO_RULES.flatMap((rule) => rule.stats.map((stat) => stat.ref)).map(
+    (i) => i.replaceAll("-#", "#"),
+  ),
+]);
+export function refEffectsPseudos(ref: string): boolean {
+  // If it is in these pseudos
+  return (
+    PSEUDO_REF_SET.has(ref) ||
+    ARMOUR_STATS.has(ref) ||
+    WEAPON_STATS.has(ref) ||
+    ref === "Adds # to # Chaos Damage"
+  );
 }

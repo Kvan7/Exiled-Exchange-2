@@ -112,13 +112,14 @@ export function createPresets(
   if (
     (item.rarity === ItemRarity.Magic || item.rarity === ItemRarity.Rare) &&
     pseudoPreset.filters.fillEmptyRuneSockets &&
+    !pseudoPreset.filters.fillEmptyRuneSockets.disabled &&
     opts.autoFillEmptyRuneSockets
   ) {
     handleFillRuneSockets(
       pseudoPreset.stats,
       item,
       true,
-      pseudoPreset.filters.tempRuneStorage!,
+      pseudoPreset.filters.tempRuneStorage ?? [],
       opts.autoFillEmptyRuneSockets,
     );
   }

@@ -113,6 +113,7 @@ let _showTipCounter = 15;
 
 export default defineComponent({
   name: "CheckedItem",
+  emits: ["rune-selector"],
   components: {
     PricePrediction,
     TradeListing,
@@ -142,7 +143,7 @@ export default defineComponent({
       required: true,
     },
   },
-  setup(props) {
+  setup(props, ctx) {
     const widget = computed(() => AppConfig<PriceCheckWidget>("price-check")!);
     const leagues = useLeagues();
     const lang = computed(() => AppConfig().language);
@@ -373,6 +374,14 @@ export default defineComponent({
           }
         }
       },
+    );
+
+    watch(
+      () => itemFilters.value.fillEmptyRuneSockets,
+      (val) => {
+        ctx.emit("rune-selector", val);
+      },
+      { deep: true },
     );
 
     const { t } = useI18n();
