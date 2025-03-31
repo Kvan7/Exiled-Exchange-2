@@ -23,7 +23,8 @@
             class="search-text flex-1 mr-1 relative flex min-w-0"
             style="line-height: 1rem"
           >
-            <span class="truncate"
+            <span
+              :class="trimStart ? 'text-ellipsis truncate-start' : 'truncate'"
               ><item-modifier-text :text="text" :roll="roll?.value"
             /></span>
             <span class="search-text-full whitespace-pre-wrap"
@@ -137,7 +138,7 @@ import ModifierAnointment from "./FilterModifierAnointment.vue";
 import FilterModifierItemHasEmpty from "./FilterModifierItemHasEmpty.vue";
 import FilterModifierTiers from "./FilterModifierTiers.vue";
 import { AppConfig } from "@/web/Config";
-import { ItemRarity, ParsedItem } from "@/parser";
+import { ItemCategory, ItemRarity, ParsedItem } from "@/parser";
 import { FilterTag, StatFilter, INTERNAL_TRADE_IDS } from "./interfaces";
 import SourceInfo from "./SourceInfo.vue";
 import FilterModifierItemIsElemental from "./FilterModifierItemIsElemental.vue";
@@ -318,6 +319,11 @@ export default defineComponent({
       ),
       inputFocus,
       toggleFilter,
+      trimStart: computed(
+        () =>
+          props.item.category === ItemCategory.Jewel &&
+          props.item.info.refName.startsWith("Time-Lost"),
+      ),
     };
   },
 });
@@ -510,5 +516,17 @@ export default defineComponent({
   .search-text:hover & {
     @apply bg-gray-700;
   }
+}
+
+.truncate-start {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  direction: rtl;
+}
+.truncate-start:after {
+  position: absolute;
+  left: 0px;
+  content: "...";
 }
 </style>

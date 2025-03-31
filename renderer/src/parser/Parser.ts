@@ -77,6 +77,7 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseSpirit,
   parsePriceNote,
   parseHelpText,
+  parseTimelostRadius,
   parseStackSize,
   parseCorrupted,
   parseFoil,
@@ -1154,6 +1155,15 @@ function parseHelpText(section: string[], item: ParsedItem) {
       line.startsWith(_$.PRECURSOR_TABLET_HELP) ||
       line.startsWith(_$.LOGBOOK_HELP)
     ) {
+      return "SECTION_PARSED";
+    }
+  }
+  return "SECTION_SKIPPED";
+}
+function parseTimelostRadius(section: string[], item: ParsedItem) {
+  if (item.category !== ItemCategory.Jewel) return "PARSER_SKIPPED";
+  for (const line of section) {
+    if (line.startsWith(_$.TIMELESS_RADIUS)) {
       return "SECTION_PARSED";
     }
   }
