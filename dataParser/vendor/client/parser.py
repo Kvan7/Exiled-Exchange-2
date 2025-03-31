@@ -32,6 +32,7 @@ from modTiers.modTierBuilder import modTierBuilderB
 from overrideData.buildAnnoints import AnnointBuilder
 from services.logger_setup import set_log_level
 from services.runes import build_runes_df, get_df
+from services.statNameBuilder import convert_stat_name
 
 logger = logging.getLogger(__name__)
 
@@ -361,6 +362,7 @@ class Parser:
         self.runes = self.load_file("SoulCores")
         self.tags = self.load_file("Tags")
         self.client_strings_file = self.load_file("ClientStrings")
+        self.client_strings_file_en = self.load_file("ClientStrings", is_en=True)
         # NOTE: could need to add local here?
         self.trade_stats = json.loads(
             open(
@@ -388,6 +390,12 @@ class Parser:
         self.mods = {}
         self.matchers_no_trade_ids = []
         self.tiers = {}
+        self.client_strings_by_id = {
+            s.get("Id"): s.get("Text") for s in self.client_strings_file
+        }
+        self.client_strings_by_id_en = {
+            s.get("Id"): s.get("Text") for s in self.client_strings_file_en
+        }
 
         base_en = self.load_file("BaseItemTypes", is_en=True)
         self.base_en_items_lookup = dict()
@@ -664,7 +672,7 @@ class Parser:
 
                 if stats_key is not None:
                     stats_id = self.stats.get(stats_key)
-                    translation = self.mod_translations.get(stats_id)
+                    translation = deepcopy(self.mod_translations.get(stats_id))
 
                     if translation:
                         ref = translation.get("ref")
@@ -675,6 +683,28 @@ class Parser:
                                 f"No matchers found for stats ID: {stats_id}."
                             )
                             continue
+
+                        if tiers is not None and "radius_jewel" in tiers:
+                            jewel_type = tiers["radius_jewel"]
+                            if jewel_type == 1 or jewel_type == 2:
+                                jewel_text_id = (
+                                    "ModStatJewelAddToSmall"
+                                    if jewel_type == 1
+                                    else "ModStatJewelAddToNotable"
+                                )
+                                jewel_text_to_add = convert_stat_name(
+                                    self.client_strings_by_id.get(jewel_text_id)
+                                )
+                                jewel_text_to_add_ref = convert_stat_name(
+                                    self.client_strings_by_id_en.get(jewel_text_id)
+                                )
+                                translation["ref"] = jewel_text_to_add_ref.replace(
+                                    "#", ref
+                                )
+                                for matcher in matchers:
+                                    matcher["string"] = jewel_text_to_add.replace(
+                                        "#", matcher["string"]
+                                    )
 
                         ids = self.stats_trade_ids.get(matchers[0].get("string"))
                         if stat_id is None:
@@ -764,10 +794,13 @@ class Parser:
                 else:
                     for matcher in main_translation.get("matchers"):
                         existing_matchers.add(matcher.get("string"))
+                    time_lost_prepend = (
+                        "" if tiers is None or "radius_jewel" not in tiers else "TLJ_"
+                    )
                     self.mods[base_id] = {
                         "ref": main_translation.get("ref"),
                         "better": better(stats_id),
-                        "id": stat_id,
+                        "id": time_lost_prepend + stat_id,
                         "matchers": main_translation.get("matchers"),
                         "trade": trade,
                     }
@@ -1139,16 +1172,16 @@ class Parser:
                             "armour": {
                                 "string": armour_translated,
                                 "values": rune.get("StatsValuesArmour"),
-                                "tradeId": armour_mod.get("trade")
-                                .get("ids")
-                                .get("rune"),
+                                "tradeId": (
+                                    (armour_mod.get("trade") or {}).get("ids") or {}
+                                ).get("rune"),
                             },
                             "weapon": {
                                 "string": weapon_translated,
                                 "values": rune.get("StatsValuesWeapon"),
-                                "tradeId": weapon_mod.get("trade")
-                                .get("ids")
-                                .get("rune"),
+                                "tradeId": (
+                                    (weapon_mod.get("trade") or {}).get("ids") or {}
+                                ).get("rune"),
                             },
                         }
                     }
@@ -1414,4 +1447,4 @@ class Parser:
 if __name__ == "__main__":
     logger.info("Starting parser")
     set_log_level(logging.WARNING)
-    Parser("en").run()
+    Parser("de").run()

@@ -6696,8 +6696,25 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "12% zu Feuerwiderstand",
-            "weapon": "Fügt 7 bis 11 Feuerschaden hinzu"
+            "armour": {
+                "string": "#% zu Feuerwiderstand",
+                "values": [
+                    12
+                ],
+                "tradeId": [
+                    "rune.stat_3372524247"
+                ]
+            },
+            "weapon": {
+                "string": "Fügt # bis # Feuerschaden hinzu",
+                "values": [
+                    7,
+                    11
+                ],
+                "tradeId": [
+                    "rune.stat_709508406"
+                ]
+            }
         },
         "tradeTag": "desert-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvRmlyZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/eeabf0e7a0/FireRune.png"
@@ -6714,8 +6731,26 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "12% zu Kältewiderstand",
-            "weapon": "Fügt 6 bis 10 Kälteschaden hinzu"
+            "armour": {
+                "string": "#% zu Kältewiderstand",
+                "values": [
+                    12
+                ],
+                "tradeId": [
+                    "rune.stat_4220027924"
+                ]
+            },
+            "weapon": {
+                "string": "Fügt # bis # Kälteschaden hinzu",
+                "values": [
+                    6,
+                    10
+                ],
+                "tradeId": [
+                    "rune.stat_1037193709",
+                    "rune.stat_1037193709"
+                ]
+            }
         },
         "tradeTag": "glacial-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvQ29sZFJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/499bfe179a/ColdRune.png"
@@ -6732,8 +6767,26 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "12% zu Blitzwiderstand",
-            "weapon": "Fügt 1 bis 20 Blitzschaden hinzu"
+            "armour": {
+                "string": "#% zu Blitzwiderstand",
+                "values": [
+                    12
+                ],
+                "tradeId": [
+                    "rune.stat_1671376347"
+                ]
+            },
+            "weapon": {
+                "string": "Fügt # bis # Blitzschaden hinzu",
+                "values": [
+                    1,
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_3336890334",
+                    "rune.stat_3336890334"
+                ]
+            }
         },
         "tradeTag": "storm-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlnaHRuaW5nUnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/98319b3998/LightningRune.png"
@@ -6750,8 +6803,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "20% erhöhte Rüstung, Ausweichen und Energieschild",
-            "weapon": "20% erhöhter physischer Schaden"
+            "armour": {
+                "string": "#% erhöhte Rüstung, Ausweichen und Energieschild",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_3523867985"
+                ]
+            },
+            "weapon": {
+                "string": "#% erhöhter physischer Schaden",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_1509134228"
+                ]
+            }
         },
         "tradeTag": "iron-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvRW5oYW5jZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/cfeb426ee0/EnhanceRune.png"
@@ -6768,8 +6837,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "25 zu maximalem Leben",
-            "weapon": "300% des physischen Angriffsschadens werden als Leben geraubt"
+            "armour": {
+                "string": "# zu maximalem Leben",
+                "values": [
+                    25
+                ],
+                "tradeId": [
+                    "rune.stat_3299347043"
+                ]
+            },
+            "weapon": {
+                "string": "#% des physischen Angriffsschadens werden als Leben geraubt",
+                "values": [
+                    300
+                ],
+                "tradeId": [
+                    "rune.stat_55876295"
+                ]
+            }
         },
         "tradeTag": "body-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlmZVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/a09dcb651b/LifeRune.png"
@@ -6786,8 +6871,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "20 zu maximalem Mana",
-            "weapon": "200% des physischen Angriffsschadens werden als Mana geraubt"
+            "armour": {
+                "string": "# zu maximalem Mana",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_1050105434"
+                ]
+            },
+            "weapon": {
+                "string": "#% des physischen Angriffsschadens werden als Mana geraubt",
+                "values": [
+                    200
+                ],
+                "tradeId": [
+                    "rune.stat_669069897"
+                ]
+            }
         },
         "tradeTag": "mind-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTWFuYVJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/4be6331480/ManaRune.png"
@@ -6804,8 +6905,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "Regeneriert 18% des Lebens pro Sekunde",
-            "weapon": "Erhaltet 20 Leben pro getötetem Gegner"
+            "armour": {
+                "string": "Regeneriert #% des Lebens pro Sekunde",
+                "values": [
+                    18
+                ],
+                "tradeId": [
+                    "rune.stat_836936635"
+                ]
+            },
+            "weapon": {
+                "string": "Erhaltet # Leben pro getötetem Gegner",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_3695891184"
+                ]
+            }
         },
         "tradeTag": "rebirth-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTGlmZVJlY292ZXJ5UnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/bbbb060773/LifeRecoveryRune.png"
@@ -6822,8 +6939,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "15% erhöhte Manaregenerations-Rate",
-            "weapon": "Erhaltet 10 Mana pro getötetem Gegner"
+            "armour": {
+                "string": "#% erhöhte Manaregenerations-Rate",
+                "values": [
+                    15
+                ],
+                "tradeId": [
+                    "rune.stat_789117908"
+                ]
+            },
+            "weapon": {
+                "string": "Erhaltet # Mana pro getötetem Gegner",
+                "values": [
+                    10
+                ],
+                "tradeId": [
+                    "rune.stat_1368271171"
+                ]
+            }
         },
         "tradeTag": "inspiration-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvTWFuYVJlY292ZXJ5UnVuZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/5154db8cf8/ManaRecoveryRune.png"
@@ -6840,8 +6973,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "40 zur Betäubungsschwelle",
-            "weapon": "Bewirkt 25% erhöhten Betäubungsaufbau"
+            "armour": {
+                "string": "# zur Betäubungsschwelle",
+                "values": [
+                    40
+                ],
+                "tradeId": [
+                    "rune.stat_915769802"
+                ]
+            },
+            "weapon": {
+                "string": "Bewirkt #% erhöhten Betäubungsaufbau",
+                "values": [
+                    25
+                ],
+                "tradeId": [
+                    "rune.stat_791928121"
+                ]
+            }
         },
         "tradeTag": "stone-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvU3R1blJ1bmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f7830fb594/StunRune.png"
@@ -6858,8 +7007,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "10% erhöhte Lebens- und Manawiederherstellung von Fläschchen",
-            "weapon": "100 zu Treffgenauigkeit"
+            "armour": {
+                "string": "#% erhöhte Lebens- und Manawiederherstellung von Fläschchen",
+                "values": [
+                    10
+                ],
+                "tradeId": [
+                    "rune.stat_2310741722"
+                ]
+            },
+            "weapon": {
+                "string": "# zu Treffgenauigkeit",
+                "values": [
+                    100
+                ],
+                "tradeId": [
+                    "rune.stat_691932474"
+                ]
+            }
         },
         "tradeTag": "vision-rune",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvQWNjdXJhY3lSdW5lIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/8e7841f0ef/AccuracyRune.png"
@@ -6876,8 +7041,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "7% zu Chaoswiderstand",
-            "weapon": "15% Chance, bei Treffer zu vergiften"
+            "armour": {
+                "string": "#% zu Chaoswiderstand",
+                "values": [
+                    7
+                ],
+                "tradeId": [
+                    "rune.stat_2923486259"
+                ]
+            },
+            "weapon": {
+                "string": "#% Chance, bei Treffer zu vergiften",
+                "values": [
+                    15
+                ],
+                "tradeId": [
+                    "rune.stat_3885634897"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-tacati",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNoYW9zIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/cd9c4fb0a7/GreaterSoulCoreChaos.png"
@@ -6894,8 +7075,22 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "10% erhöhte erhaltene Phiolenfüllungen",
-            "weapon": "15% Chance, bei Treffer Bluten zu verursachen"
+            "armour": {
+                "string": "#% erhöhte erhaltene Phiolenfüllungen",
+                "values": [
+                    10
+                ],
+                "tradeId": null
+            },
+            "weapon": {
+                "string": "#% Chance, bei Treffer Bluten zu verursachen",
+                "values": [
+                    15
+                ],
+                "tradeId": [
+                    "rune.stat_1519615863"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-opiloti",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVBoeXNpY2FsIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/366f87b8f2/GreaterSoulCorePhysical.png"
@@ -6912,8 +7107,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "2% erhöhtes maximales Leben",
-            "weapon": "Stellt bei Tötung 2% des Lebens wieder her"
+            "armour": {
+                "string": "#% erhöhtes maximales Leben",
+                "values": [
+                    2
+                ],
+                "tradeId": [
+                    "rune.stat_983749596"
+                ]
+            },
+            "weapon": {
+                "string": "Stellt bei Tötung #% des Lebens wieder her",
+                "values": [
+                    2
+                ],
+                "tradeId": [
+                    "rune.stat_2023107756"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-jiquani",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUxpZmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/bb83a9f337/GreaterSoulCoreLife.png"
@@ -6930,8 +7141,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "2% erhöhtes maximales Mana",
-            "weapon": "Stellt bei Tötung 2% des Manas wieder her"
+            "armour": {
+                "string": "#% erhöhtes maximales Mana",
+                "values": [
+                    2
+                ],
+                "tradeId": [
+                    "rune.stat_2748665614"
+                ]
+            },
+            "weapon": {
+                "string": "Stellt bei Tötung #% des Manas wieder her",
+                "values": [
+                    2
+                ],
+                "tradeId": [
+                    "rune.stat_1030153674"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-zalatl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZU1hbmEiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/1437190de2/GreaterSoulCoreMana.png"
@@ -6948,8 +7175,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "5% zu allen Elementarwiderständen",
-            "weapon": "30% erhöhter Elementarschaden mit Angriffsfertigkeiten"
+            "armour": {
+                "string": "#% zu allen Elementarwiderständen",
+                "values": [
+                    5
+                ],
+                "tradeId": [
+                    "rune.stat_2901986750"
+                ]
+            },
+            "weapon": {
+                "string": "#% erhöhter Elementarschaden mit Angriffsfertigkeiten",
+                "values": [
+                    30
+                ],
+                "tradeId": [
+                    "rune.stat_387439868"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-citaqualotl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL1NvdWxDb3JlUGh5c2ljYWwiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/f48f9f0c62/SoulCorePhysical.png"
@@ -6966,8 +7209,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "1% zu maximalem Feuerwiderstand",
-            "weapon": "30% erhöhte Chance auf Entzünden"
+            "armour": {
+                "string": "#% zu maximalem Feuerwiderstand",
+                "values": [
+                    1
+                ],
+                "tradeId": [
+                    "rune.stat_4095671657"
+                ]
+            },
+            "weapon": {
+                "string": "#% erhöhte Chance auf Entzünden",
+                "values": [
+                    30
+                ],
+                "tradeId": [
+                    "rune.stat_2968503605"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-puhuarte",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUZpcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/6390ebeaa6/GreaterSoulCoreFire.png"
@@ -6984,8 +7243,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "1% zu maximalem Kältewiderstand",
-            "weapon": "20% erhöhter Einfrierungsaufbau"
+            "armour": {
+                "string": "#% zu maximalem Kältewiderstand",
+                "values": [
+                    1
+                ],
+                "tradeId": [
+                    "rune.stat_3676141501"
+                ]
+            },
+            "weapon": {
+                "string": "#% erhöhter Einfrierungsaufbau",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_473429811"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-tzamoto",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNvbGQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/d437c04d5e/GreaterSoulCoreCold.png"
@@ -7002,8 +7277,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "1% zu maximalem Blitzwiderstand",
-            "weapon": "30% erhöhte Chance auf Schocken"
+            "armour": {
+                "string": "#% zu maximalem Blitzwiderstand",
+                "values": [
+                    1
+                ],
+                "tradeId": [
+                    "rune.stat_1011760251"
+                ]
+            },
+            "weapon": {
+                "string": "#% erhöhte Chance auf Schocken",
+                "values": [
+                    30
+                ],
+                "tradeId": [
+                    "rune.stat_293638271"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-xopec",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUxpZ2h0bmluZyIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/3dffadfa9a/GreaterSoulCoreLightning.png"
@@ -7020,8 +7311,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "10% erhöhte Seltenheit gefundener Gegenstände",
-            "weapon": "15 zu Wille"
+            "armour": {
+                "string": "#% erhöhte Seltenheit gefundener Gegenstände",
+                "values": [
+                    10
+                ],
+                "tradeId": [
+                    "rune.stat_3917489142"
+                ]
+            },
+            "weapon": {
+                "string": "# zu Wille",
+                "values": [
+                    15
+                ],
+                "tradeId": [
+                    "rune.stat_3981240776"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-azcapa",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVdlYWx0aFJhcml0eSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/6a69033a04/GreaterSoulCoreWealthRarity.png"
@@ -7038,8 +7345,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "15% erhöhte Schwelle für elementare Beeinträchtigungen",
-            "weapon": "Angriffe mit dieser Waffe durchdringen 15% Elementarwiderstände"
+            "armour": {
+                "string": "#% erhöhte Schwelle für elementare Beeinträchtigungen",
+                "values": [
+                    15
+                ],
+                "tradeId": [
+                    "rune.stat_3544800472"
+                ]
+            },
+            "weapon": {
+                "string": "Angriffe mit dieser Waffe durchdringen #% Elementarwiderstände",
+                "values": [
+                    15
+                ],
+                "tradeId": [
+                    "rune.stat_4064396395"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-topotante",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVRyaUVsZW1lbnQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ae7a949b3a/GreaterSoulCoreTriElement.png"
@@ -7056,8 +7379,22 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "-10% erhöhte verlangsamende Wirkung von Schwächungen auf Euch",
-            "weapon": "5% erhöhte Angriffsgeschwindigkeit"
+            "armour": {
+                "string": "#% erhöhte verlangsamende Wirkung von Schwächungen auf Euch",
+                "values": [
+                    -10
+                ],
+                "tradeId": null
+            },
+            "weapon": {
+                "string": "#% erhöhte Angriffsgeschwindigkeit",
+                "values": [
+                    5
+                ],
+                "tradeId": [
+                    "rune.stat_210067635"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-quipolatl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZVNwZWVkIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/d4967ad0f1/GreaterSoulCoreSpeed.png"
@@ -7074,8 +7411,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "Treffer gegen Euch haben 10% verringerten Bonus für kritische Treffer",
-            "weapon": "12% zu Bonus für kritische Treffer"
+            "armour": {
+                "string": "Treffer gegen Euch haben #% verringerten Bonus für kritische Treffer",
+                "values": [
+                    10
+                ],
+                "tradeId": [
+                    "rune.stat_3855016469"
+                ]
+            },
+            "weapon": {
+                "string": "#% zu Bonus für kritische Treffer",
+                "values": [
+                    12
+                ],
+                "tradeId": [
+                    "rune.stat_2694482655"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-ticaba",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
@@ -7092,8 +7445,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "Wandelt 20% der Anforderungen in Stärke um",
-            "weapon": "Wandelt 20% der Anforderungen in Stärke um"
+            "armour": {
+                "string": "Wandelt #% der Anforderungen in Stärke um",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_1556124492"
+                ]
+            },
+            "weapon": {
+                "string": "Wandelt #% der Anforderungen in Stärke um",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_1556124492"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-atmohua",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
@@ -7110,8 +7479,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "Wandelt 20% der Anforderungen in Geschick um",
-            "weapon": "Wandelt 20% der Anforderungen in Geschick um"
+            "armour": {
+                "string": "Wandelt #% der Anforderungen in Geschick um",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_1496740334"
+                ]
+            },
+            "weapon": {
+                "string": "Wandelt #% der Anforderungen in Geschick um",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_1496740334"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-cholotl",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"
@@ -7128,8 +7513,24 @@
             "category": "SoulCore"
         },
         "rune": {
-            "armour": "Wandelt 20% der Anforderungen in Intelligenz um",
-            "weapon": "Wandelt 20% der Anforderungen in Intelligenz um"
+            "armour": {
+                "string": "Wandelt #% der Anforderungen in Intelligenz um",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_2913012734"
+                ]
+            },
+            "weapon": {
+                "string": "Wandelt #% der Anforderungen in Intelligenz um",
+                "values": [
+                    20
+                ],
+                "tradeId": [
+                    "rune.stat_2913012734"
+                ]
+            }
         },
         "tradeTag": "soul-core-of-zantipi",
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU291bENvcmVzL0dyZWF0ZXJTb3VsQ29yZUNyaXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b453416064/GreaterSoulCoreCrit.png"

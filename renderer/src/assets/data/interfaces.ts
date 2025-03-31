@@ -232,6 +232,8 @@ export interface TranslationDict {
   TIMELESS_RADIUS: string;
   PRECURSOR_TABLET_HELP: string;
   LOGBOOK_HELP: string;
+  TIMELESS_SMALL_PASSIVES: string;
+  TIMELESS_NOTABLE_PASSIVES: string;
 }
 
 export interface Filter {
