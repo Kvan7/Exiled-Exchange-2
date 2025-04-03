@@ -1417,7 +1417,6 @@ function parseStatsFromMod(
   item.newMods.push(modifier);
 
   if (modifier.info.type === ModifierType.Veiled) {
-    console.log("mod name:", modifier.info.name);
     const found = STAT_BY_MATCH_STR(modifier.info.name!);
     if (found) {
       modifier.stats.push({

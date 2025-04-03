@@ -120,7 +120,13 @@ export default defineComponent({
 
       runes.sort((a, b) => {
         const rank = (s: string) =>
-          s.includes(" Rune") ? 0 : s.includes("Soul Core of") ? 1 : 2;
+          s.includes(" Rune")
+            ? 0
+            : s.includes("Soul Core of")
+              ? 1
+              : s.includes("Talisman")
+                ? 2
+                : 3;
         const rA = rank(a.refName);
         const rB = rank(b.refName);
         return rA - rB || a.refName.localeCompare(b.refName);

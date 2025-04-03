@@ -189,8 +189,6 @@ function weaponProps(ctx: FiltersCreationContext) {
     item,
   );
 
-  console.log(eleDmg.sources);
-
   const fireDmg = calcPropBounds(
     item.weaponFIRE ?? 0,
     {

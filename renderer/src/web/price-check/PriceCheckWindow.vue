@@ -20,7 +20,7 @@
         }"
       >
         <rune-selector
-          v-if="!openRunesAbove && item?.isOk()"
+          v-if="runeSelectorPossible && !openRunesAbove && item?.isOk()"
           class="pointer-events-auto"
           :item="item.value"
           :click-position="clickPosition"
@@ -34,7 +34,11 @@
       style="width: 28.75rem"
     >
       <rune-selector
-        v-if="(isBrowserShown || openRunesAbove) && item?.isOk()"
+        v-if="
+          runeSelectorPossible &&
+          (isBrowserShown || openRunesAbove) &&
+          item?.isOk()
+        "
         class="pointer-events-auto"
         :item="item.value"
         :click-position="clickPosition"
@@ -180,6 +184,7 @@ import ConversionWarningBanner from "../conversion-warn-banner/ConversionWarning
 import RuneSelector from "./filters/RuneSelector.vue";
 import { HIGH_VALUE_RUNES_HARDCODED, loadRunes } from "@/assets/data";
 import { refEffectsPseudos } from "./filters/pseudo";
+import { ARMOUR, WEAPON } from "@/parser/meta";
 
 type ParseError = {
   name: string;
@@ -463,6 +468,14 @@ export default defineComponent({
       openLeagueSelection,
       changeItem,
       rebuildKey,
+      runeSelectorPossible: computed(() => {
+        const cat = item.value?.unwrapOr(undefined)?.category;
+        const rarity = item.value?.unwrapOr(undefined)?.rarity;
+        if (cat === undefined || rarity === undefined) return false;
+        return (
+          (WEAPON.has(cat) || ARMOUR.has(cat)) && rarity !== ItemRarity.Unique
+        );
+      }),
       handleRuneSelector: (
         val:
           | {

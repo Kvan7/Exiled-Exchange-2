@@ -1,6 +1,6 @@
 <template>
   <div
-    class="hover:bg-gray-700 rounded flex items-center overflow-hidden"
+    class="hover:bg-gray-700 rounded flex items-center overflow-hidden px-1"
     :class="[showRuneSelector.value === refName ? 'border bg-gray-900' : '']"
     @click="selectRune()"
   >
