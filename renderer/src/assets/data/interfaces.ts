@@ -235,6 +235,7 @@ export interface TranslationDict {
   LOGBOOK_HELP: string;
   TIMELESS_SMALL_PASSIVES: string;
   TIMELESS_NOTABLE_PASSIVES: string;
+  GRANTS_SKILL: string;
 }
 
 export interface Filter {

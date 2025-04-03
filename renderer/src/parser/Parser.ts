@@ -76,7 +76,7 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseCharmSlots,
   parseSpirit,
   parsePriceNote,
-  parseHelpText,
+  parseUnneededText,
   parseTimelostRadius,
   parseStackSize,
   parseCorrupted,
@@ -1129,7 +1129,7 @@ function parsePriceNote(section: string[], item: ParsedItem) {
   return isParsed;
 }
 
-function parseHelpText(section: string[], item: ParsedItem) {
+function parseUnneededText(section: string[], item: ParsedItem) {
   if (
     item.category !== ItemCategory.Quiver &&
     item.category !== ItemCategory.Flask &&
@@ -1140,7 +1140,11 @@ function parseHelpText(section: string[], item: ParsedItem) {
     item.category !== ItemCategory.Relic &&
     item.category !== ItemCategory.Tablet &&
     item.category !== ItemCategory.TowerAugment &&
-    item.info.refName !== "Expedition Logbook"
+    item.info.refName !== "Expedition Logbook" &&
+    item.category !== ItemCategory.Sceptre &&
+    item.category !== ItemCategory.Wand &&
+    item.category !== ItemCategory.Staff &&
+    item.category !== ItemCategory.Shield
   )
     return "PARSER_SKIPPED";
 
@@ -1153,7 +1157,8 @@ function parseHelpText(section: string[], item: ParsedItem) {
       line.startsWith(_$.JEWEL_HELP) ||
       line.startsWith(_$.SANCTUM_HELP) ||
       line.startsWith(_$.PRECURSOR_TABLET_HELP) ||
-      line.startsWith(_$.LOGBOOK_HELP)
+      line.startsWith(_$.LOGBOOK_HELP) ||
+      line.startsWith(_$.GRANTS_SKILL)
     ) {
       return "SECTION_PARSED";
     }

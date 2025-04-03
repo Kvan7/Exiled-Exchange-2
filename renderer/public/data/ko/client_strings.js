@@ -121,5 +121,6 @@ export default {
   LOGBOOK_HELP: '이 아이템을 은신처의 ',
   REQUIRES: '요구 사항',
   TIMELESS_SMALL_PASSIVES: '반경 내 소형 패시브 스킬이 {0}도 부여',
-  TIMELESS_NOTABLE_PASSIVES: '반경 내 주요 패시브 스킬이 {0}도 부여'
+  TIMELESS_NOTABLE_PASSIVES: '반경 내 주요 패시브 스킬이 {0}도 부여',
+  GRANTS_SKILL: '스킬 부여'
 }

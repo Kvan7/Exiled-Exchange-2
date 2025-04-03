@@ -120,5 +120,6 @@ export default {
   LOGBOOK_HELP: 'Llévale este objeto a Dannig en',
   REQUIRES: 'Requiere',
   TIMELESS_SMALL_PASSIVES: 'Las habilidades pasivas pequeñas dentro del radio también otorgan {0}',
-  TIMELESS_NOTABLE_PASSIVES: 'Las habilidades pasivas notables dentro del radio también otorgan {0}'
+  TIMELESS_NOTABLE_PASSIVES: 'Las habilidades pasivas notables dentro del radio también otorgan {0}',
+  GRANTS_SKILL: 'Otorga la habilidad'
 }

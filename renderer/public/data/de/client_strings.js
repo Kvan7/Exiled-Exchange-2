@@ -121,6 +121,7 @@ export default {
   LOGBOOK_HELP: 'Bringt diesen Gegenstand zu Dannig',
   REQUIRES: 'Erfordert',
   TIMELESS_SMALL_PASSIVES: 'Kleine Passive Fertigkeiten im Radius gewähren auch {0}',
-  TIMELESS_NOTABLE_PASSIVES: 'Bedeutende Passive Fertigkeiten im Radius gewähren auch {0}'
+  TIMELESS_NOTABLE_PASSIVES: 'Bedeutende Passive Fertigkeiten im Radius gewähren auch {0}',
+  GRANTS_SKILL: 'Gewährt Fertigkeit'
 }
 

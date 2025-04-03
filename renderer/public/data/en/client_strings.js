@@ -219,5 +219,7 @@ export default {
   // ModStatJewelAddToSmall
   TIMELESS_SMALL_PASSIVES: 'Small Passive Skills in Radius also grant {0}',
   // ModStatJewelAddToNotable
-  TIMELESS_NOTABLE_PASSIVES: 'Notable Passive Skills in Radius also grant {0}'
+  TIMELESS_NOTABLE_PASSIVES: 'Notable Passive Skills in Radius also grant {0}',
+  // ItemDisplayGrantsSkill
+  GRANTS_SKILL: 'Grants Skill'
 }
