@@ -1068,6 +1068,10 @@ class Parser:
             refName = name
             if id in self.base_en_items_lookup:
                 refName = self.base_en_items_lookup[id]
+            item_tags = []
+            if isinstance(item.get("Tags"), list):
+                for t in item.get("Tags"):
+                    item_tags.append(self.tags[t].get("Id"))
 
             # update name to localized keep ref name as english
             self.items[id] = {
@@ -1078,6 +1082,7 @@ class Parser:
                 "dropLevel": item.get("DropLevel"),
                 "width": item.get("Width"),
                 "height": item.get("Height"),
+                "tags": item_tags,
             }
 
             if class_key is not None:
@@ -1241,12 +1246,14 @@ class Parser:
             tradeTag = item.get("tradeTag", None)
             icon = item.get("icon", "%NOT_FOUND%")
             rune = item.get("rune", None)
+            tags = item.get("tags", [])
 
             out = {
                 "name": name,
                 "refName": refName,
                 "namespace": namespace,
                 "icon": icon,
+                "tags": tags,
             }
 
             if tradeTag:
@@ -1447,4 +1454,5 @@ class Parser:
 if __name__ == "__main__":
     logger.info("Starting parser")
     set_log_level(logging.WARNING)
-    Parser("de").run()
+    Parser("en").run()
+

@@ -109,6 +109,7 @@ export interface BaseType {
       tradeId: string[];
     };
   };
+  tags: string[];
 }
 
 export interface TranslationDict {
