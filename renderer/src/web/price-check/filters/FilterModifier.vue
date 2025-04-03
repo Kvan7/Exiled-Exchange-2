@@ -23,9 +23,10 @@
             class="search-text flex-1 mr-1 relative flex min-w-0"
             style="line-height: 1rem"
           >
-            <span
-              :class="trimStart ? 'text-ellipsis truncate-start' : 'truncate'"
-              ><item-modifier-text :text="text" :roll="roll?.value"
+            <span class="truncate"
+              ><item-modifier-text
+                :text="timeLost ? timeLostText : text"
+                :roll="roll?.value"
             /></span>
             <span class="search-text-full whitespace-pre-wrap"
               ><item-modifier-text :text="text" :roll="roll?.value"
@@ -142,6 +143,7 @@ import { ItemCategory, ItemRarity, ParsedItem } from "@/parser";
 import { FilterTag, StatFilter, INTERNAL_TRADE_IDS } from "./interfaces";
 import SourceInfo from "./SourceInfo.vue";
 import FilterModifierItemIsElemental from "./FilterModifierItemIsElemental.vue";
+import { CLIENT_STRINGS as _$ } from "@/assets/data";
 
 export default defineComponent({
   components: {
@@ -254,6 +256,18 @@ export default defineComponent({
       }
     }
 
+    const text = computed(() => {
+      if (
+        !(INTERNAL_TRADE_IDS as readonly string[]).includes(
+          props.filter.tradeId[0],
+        )
+      ) {
+        return props.filter.text;
+      } else {
+        return t(props.filter.tradeId[0], ["#", "#"]);
+      }
+    });
+
     const { t } = useI18n();
 
     return {
@@ -289,17 +303,26 @@ export default defineComponent({
       ),
       fontSize: computed(() => AppConfig().fontSize),
       isDisabled: computed(() => props.filter.disabled),
-      text: computed(() => {
+      timeLostText: computed(() => {
         if (
-          !(INTERNAL_TRADE_IDS as readonly string[]).includes(
-            props.filter.tradeId[0],
-          )
+          props.item.category === ItemCategory.Jewel &&
+          props.item.info.refName.startsWith("Time-Lost")
         ) {
-          return props.filter.text;
-        } else {
-          return t(props.filter.tradeId[0], ["#", "#"]);
+          const raw = text.value;
+          const templates = [
+            _$.TIMELESS_SMALL_PASSIVES,
+            _$.TIMELESS_NOTABLE_PASSIVES,
+          ];
+          for (const template of templates) {
+            const escaped = template.replace("{0}", "(.*)");
+            const regex = new RegExp("^" + escaped + "$");
+            const match = raw.match(regex);
+            if (match) return match[1];
+          }
         }
+        return text.value;
       }),
+      text,
       roll: computed(() => props.filter.roll),
       isHidden: computed(() => props.filter.hidden != null),
       hiddenReason: computed(() => t(props.filter.hidden!)),
@@ -319,7 +342,7 @@ export default defineComponent({
       ),
       inputFocus,
       toggleFilter,
-      trimStart: computed(
+      timeLost: computed(
         () =>
           props.item.category === ItemCategory.Jewel &&
           props.item.info.refName.startsWith("Time-Lost"),
