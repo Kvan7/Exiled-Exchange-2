@@ -245,7 +245,7 @@ export function createFilters(
         opts.autoFillEmptyRuneSockets &&
         (item.rarity === ItemRarity.Magic || item.rarity === ItemRarity.Rare)
       ) {
-        filters.fillEmptyRuneSockets = {
+        filters.itemEditorSelection = {
           disabled: false,
           editing: false,
           value: opts.autoFillEmptyRuneSockets
@@ -253,7 +253,7 @@ export function createFilters(
             : "None",
         };
       } else {
-        filters.fillEmptyRuneSockets = {
+        filters.itemEditorSelection = {
           disabled: false,
           editing: false,
           value: "None",
@@ -261,8 +261,8 @@ export function createFilters(
       }
     }
   }
-  if (!filters.fillEmptyRuneSockets) {
-    filters.fillEmptyRuneSockets = {
+  if (!filters.itemEditorSelection) {
+    filters.itemEditorSelection = {
       disabled: true,
       editing: false,
       value: "None",

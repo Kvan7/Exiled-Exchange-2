@@ -38,7 +38,7 @@ export interface ItemFilters {
   linkedSockets?: FilterNumeric;
   whiteSockets?: FilterNumeric;
   runeSockets?: FilterNumeric;
-  fillEmptyRuneSockets?: { disabled: boolean; editing: boolean; value: string };
+  itemEditorSelection?: { disabled: boolean; editing: boolean; value: string };
   corrupted?: {
     value: boolean;
     exact?: boolean;

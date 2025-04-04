@@ -1,6 +1,6 @@
 import { ItemCategory, ItemRarity, ParsedItem } from "@/parser";
 import { StatFilter } from "./interfaces";
-import { applyEleRune, applyIronRune } from "@/parser/calc-base";
+import { applyEleRune, recalculateItemProperties } from "@/parser/calc-base";
 import { BaseType, RUNE_DATA_BY_RUNE } from "@/assets/data";
 import {
   isArmourOrWeapon,
@@ -17,56 +17,60 @@ import { PriceCheckWidget } from "@/web/overlay/widgets";
 import { filterItemProp } from "./pseudo/item-property";
 import { ADDED_RUNE_LINE } from "@/parser/advanced-mod-desc";
 import { filterPseudo } from "./pseudo";
+import { ItemEditorType } from "@/parser/meta";
 
-export function handleFillRuneSockets(
+export function handleApplyItemEdits(
   filters: StatFilter[],
   item: ParsedItem,
-  shouldFill: boolean,
   filterStorage: StatFilter[],
-  rune?: string,
+  currencyItem: string,
+  editType?: ItemEditorType,
 ) {
-  if (shouldFill) {
-    if (filterStorage.length !== 0) return;
-    // Testing with just one stat
-    const newFilters = createNewStatFilter(item, rune ?? "Iron Rune");
-    if (!newFilters) return;
+  if (filterStorage.length !== 0) return;
+  // Testing with just one stat
+  const newFilters = createNewStatFilter(item, currencyItem ?? "Iron Rune");
+  if (!newFilters) return;
 
-    for (const filter of newFilters) {
-      // get on/off state of old filter
-      const oldFilter = filters.find(
-        (stat) => stat.statRef === filter.statRef && stat.tag === filter.tag,
-      );
-      if (oldFilter) {
-        filter.disabled = oldFilter.disabled;
-      }
-    }
-    // Store a copy of the current filters, then replace contents
-    filterStorage.splice(
-      0,
-      filterStorage.length,
-      ...JSON.parse(JSON.stringify(filters)),
+  for (const filter of newFilters) {
+    // get on/off state of old filter
+    const oldFilter = filters.find(
+      (stat) => stat.statRef === filter.statRef && stat.tag === filter.tag,
     );
-
-    // Clear and add new filters into the `filters` array
-    filters.splice(0, filters.length, ...newFilters);
-  } else {
-    // reset back to normal
-
-    for (const filterToApply of filterStorage) {
-      // get on/off state of old filter
-      const oldFilter = filters.find(
-        (stat) =>
-          stat.statRef === filterToApply.statRef &&
-          stat.tag === filterToApply.tag,
-      );
-      if (oldFilter) {
-        filterToApply.disabled = oldFilter.disabled;
-      }
+    if (oldFilter) {
+      filter.disabled = oldFilter.disabled;
     }
-
-    filters.splice(0, filters.length, ...filterStorage);
-    filterStorage.length = 0;
   }
+  // Store a copy of the current filters, then replace contents
+  filterStorage.splice(
+    0,
+    filterStorage.length,
+    ...JSON.parse(JSON.stringify(filters)),
+  );
+
+  // Clear and add new filters into the `filters` array
+  filters.splice(0, filters.length, ...newFilters);
+}
+
+export function handleRemoveItemEdits(
+  filters: StatFilter[],
+  item: ParsedItem,
+  filterStorage: StatFilter[],
+) {
+  // reset back to normal
+  for (const filterToApply of filterStorage) {
+    // get on/off state of old filter
+    const oldFilter = filters.find(
+      (stat) =>
+        stat.statRef === filterToApply.statRef &&
+        stat.tag === filterToApply.tag,
+    );
+    if (oldFilter) {
+      filterToApply.disabled = oldFilter.disabled;
+    }
+  }
+
+  filters.splice(0, filters.length, ...filterStorage);
+  filterStorage.length = 0;
 }
 
 function createNewStatFilter(
@@ -110,7 +114,7 @@ function createNewStatFilter(
     applyEleRune(newItem, newRune, runeData.values);
   }
 
-  applyIronRune(newItem, item);
+  recalculateItemProperties(newItem, item);
   filterItemProp(ctx);
   filterPseudo(
     ctx,

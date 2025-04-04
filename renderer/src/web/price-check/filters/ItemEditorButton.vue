@@ -1,8 +1,8 @@
 <template>
   <div
     class="hover:bg-gray-700 rounded flex items-center overflow-hidden px-1"
-    :class="[showRuneSelector.value === refName ? 'border bg-gray-900' : '']"
-    @click="selectRune()"
+    :class="[itemEditorOptions.value === refName ? 'border bg-gray-900' : '']"
+    @click="select()"
   >
     <div class="flex items-center justify-center shrink-0 w-8 h-8">
       <slot>
@@ -14,7 +14,7 @@
         {{ name }}
       </div>
       <div class="text-left whitespace-nowrap">
-        {{ stat }}
+        {{ displayString }}
       </div>
     </div>
   </div>
@@ -38,19 +38,19 @@ export default defineComponent({
       type: String,
       required: true,
     },
-    stat: {
+    displayString: {
       type: String,
       default: "",
     },
-    showRuneSelector: {
+    itemEditorOptions: {
       type: Object as PropType<{ editing: boolean; value: string }>,
       required: true,
     },
   },
   setup(props) {
     return {
-      selectRune() {
-        props.showRuneSelector.value = props.refName;
+      select() {
+        props.itemEditorOptions.value = props.refName;
       },
     };
   },

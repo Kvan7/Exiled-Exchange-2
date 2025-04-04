@@ -128,7 +128,7 @@
       Automatically fill empty rune sockets
     </div>
     <ui-checkbox class="mb-4" v-model="openRunesAbove">{{
-      t(":open_runes_above")
+      t(":open_editor_above")
     }}</ui-checkbox>
 
     <ui-checkbox class="mb-4" v-model="usePseudo">{{

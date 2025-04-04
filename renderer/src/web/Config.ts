@@ -572,8 +572,9 @@ function upgradeConfig(_config: Config): Config {
   }
   if (config.configVersion < 25) {
     // NOTE: v0.9.0 || poe0.2.0
-    config.widgets.find((w) => w.wmType === "price-check")!.openRunesAbove =
-      false;
+    config.widgets.find(
+      (w) => w.wmType === "price-check",
+    )!.openItemEditorAbove = false;
 
     config.configVersion = 25;
   }

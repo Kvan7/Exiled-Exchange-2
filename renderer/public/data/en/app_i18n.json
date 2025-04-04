@@ -401,7 +401,7 @@
     "tier_numbering_help": "To try to reduce confusion due to conflicting naming conventions with the game, PoE1 tiers will use the name \"Grade\" instead of \"Tier\". ",
     "always_show_tier": "Always show tier",
     "remember_ratio": "Remember currency ratio",
-    "open_runes_above": "Open rune socket selector upwards"
+    "open_editor_above": "Open rune socket selector upwards"
   },
   "poe2_new": {
     "beta_warning": "This is in BETA for POE2, things will not work always as expected.",

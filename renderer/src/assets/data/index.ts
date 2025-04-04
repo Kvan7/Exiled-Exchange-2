@@ -304,12 +304,12 @@ export async function loadForLang(lang: string, isTest = false) {
   await loadStats(lang);
 }
 
-export function loadRunes(
-  f: (value: BaseType, index: number, array: BaseType[]) => unknown,
+export function loadUltraLateItems(
+  runeFilter: (value: BaseType, index: number, array: BaseType[]) => unknown,
 ) {
   RUNE_LIST = Array.from(
     ITEMS_ITERATOR('"craftable": {"category": "SoulCore"}'),
-  ).filter(f);
+  ).filter(runeFilter);
 
   RUNE_DATA_BY_RUNE = runesToLookup(RUNE_LIST);
 

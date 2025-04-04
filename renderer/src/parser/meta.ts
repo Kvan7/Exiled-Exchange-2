@@ -110,3 +110,9 @@ export const ACCESSORY = new Set([
   ItemCategory.Trinket,
   // ItemCategory.Quiver
 ]);
+
+export enum ItemEditorType {
+  Rune = "rune",
+  Catalyst = "catalyst",
+  None = "none",
+}

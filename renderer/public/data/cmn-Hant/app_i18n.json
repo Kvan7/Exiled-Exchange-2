@@ -385,7 +385,7 @@
     "tier_numbering_help": "為了減少因遊戲內命名衝突而導致的混淆，POE1的層級將使用\"Grade\"而非\"Tier\"來命名。",
     "always_show_tier": "始終顯示階級",
     "remember_ratio": "記住通貨比例",
-    "open_runes_above": "Open rune socket selector upwards"
+    "open_editor_above": "Open rune socket selector upwards"
   },
   "poe2_new": {
     "beta_warning": "這是 POE2 的測試版，某些功能可能無法正常運作。",

@@ -7,7 +7,10 @@ import {
   QUALITY_STATS,
 } from "./calc-q20";
 
-export function applyIronRune(newItem: ParsedItem, oldItem: ParsedItem) {
+export function recalculateItemProperties(
+  newItem: ParsedItem,
+  oldItem: ParsedItem,
+) {
   const { category } = newItem;
   const weaponOrArmour = isArmourOrWeapon(category);
   if (weaponOrArmour === undefined) return;

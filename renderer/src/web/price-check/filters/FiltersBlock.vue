@@ -133,28 +133,28 @@
       <button
         v-if="
           hasEmptyRuneSockets &&
-          filters.fillEmptyRuneSockets &&
-          !filters.fillEmptyRuneSockets.disabled
+          filters.itemEditorSelection &&
+          !filters.itemEditorSelection.disabled
         "
         @click="
-          filters.fillEmptyRuneSockets.editing =
-            !filters.fillEmptyRuneSockets.editing
+          filters.itemEditorSelection.editing =
+            !filters.itemEditorSelection.editing
         "
         class="flex items-center bg-gray-900 rounded border"
         :class="[
-          filters.fillEmptyRuneSockets.value !== 'None'
+          filters.itemEditorSelection.value !== 'None'
             ? 'border-gray-500'
             : 'border-transparent',
         ]"
       >
         <div class="flex items-center justify-center shrink-0 w-8 h-8">
           <div
-            v-if="filters.fillEmptyRuneSockets.value === 'None'"
+            v-if="filters.itemEditorSelection.value === 'None'"
             class="flex items-center justify-center shrink-0 w-8 h-8 border-2 border-dashed border-gray-400 rounded-full"
           />
           <img
             v-else
-            :src="getRuneImage(filters.fillEmptyRuneSockets.value)"
+            :src="getRuneImage(filters.itemEditorSelection.value)"
             class="max-w-full max-h-full overflow-hidden"
           />
         </div>
@@ -247,7 +247,7 @@ import UnknownModifier from "./UnknownModifier.vue";
 import { ItemFilters, StatFilter } from "./interfaces";
 import { ParsedItem, ItemRarity, ItemCategory } from "@/parser";
 import FilterBtnDropdown from "./FilterBtnDropdown.vue";
-import { handleFillRuneSockets } from "./fill-runes";
+import { handleApplyItemEdits, handleRemoveItemEdits } from "./fill-runes";
 import { RUNE_DATA_BY_RUNE } from "@/assets/data";
 
 export default defineComponent({
@@ -278,10 +278,6 @@ export default defineComponent({
       type: Object as PropType<ParsedItem>,
       required: true,
     },
-    changeItem: {
-      type: Function as PropType<(newItem: ParsedItem) => void>,
-      required: true,
-    },
   },
   setup(props, ctx) {
     const statsVisibility = shallowReactive({ disabled: false });
@@ -307,7 +303,7 @@ export default defineComponent({
     );
     // For handling filling runes
     watch(
-      () => props.filters.fillEmptyRuneSockets?.value,
+      () => props.filters.itemEditorSelection?.value,
       (selected, prev) => {
         const normalCase = selected !== prev && props.filters.tempRuneStorage;
         if (normalCase && selected !== undefined) {
@@ -318,20 +314,18 @@ export default defineComponent({
             props.filters.tempRuneStorage.length > 0
           ) {
             // Remove current rune
-            handleFillRuneSockets(
+            handleRemoveItemEdits(
               props.stats,
               props.item,
-              false,
               props.filters.tempRuneStorage!,
             );
           }
           // If we didn't choose empty
           if (selected !== "None") {
             // add new rune
-            handleFillRuneSockets(
+            handleApplyItemEdits(
               props.stats,
               props.item,
-              true,
               props.filters.tempRuneStorage!,
               selected,
             );

@@ -11,7 +11,6 @@
       :item="item"
       :presets="presets"
       :weightFilters="weightFilters"
-      :change-item="changeItem"
       @preset="selectPreset"
       @submit="doSearch = true"
       :rebuild-key="rebuildKey"
@@ -113,7 +112,7 @@ let _showTipCounter = 15;
 
 export default defineComponent({
   name: "CheckedItem",
-  emits: ["rune-selector"],
+  emits: ["item-editor-selection"],
   components: {
     PricePrediction,
     TradeListing,
@@ -132,10 +131,6 @@ export default defineComponent({
     },
     advancedCheck: {
       type: Boolean,
-      required: true,
-    },
-    changeItem: {
-      type: Function as PropType<(newItem: ParsedItem) => void>,
       required: true,
     },
     rebuildKey: {
@@ -377,9 +372,9 @@ export default defineComponent({
     );
 
     watch(
-      () => itemFilters.value.fillEmptyRuneSockets,
+      () => itemFilters.value.itemEditorSelection,
       (val) => {
-        ctx.emit("rune-selector", val);
+        ctx.emit("item-editor-selection", val);
       },
       { deep: true },
     );
