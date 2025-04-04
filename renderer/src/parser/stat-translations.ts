@@ -251,14 +251,25 @@ export function tryParseTranslation(
           }
         : undefined,
       fromAddedRune:
-        modType === ModifierType.AddedRune
-          ? ITEM_BY_REF(
-              "ITEM",
-              RUNE_DATA_BY_TRADE_ID[found.stat.trade.ids.rune[0]].rune,
-            )![0]
-          : undefined,
+        modType === ModifierType.AddedRune ? getRune(found.stat) : undefined,
     };
   }
+}
+
+function getRune(stat: Stat): BaseType | undefined {
+  if (
+    !stat.trade.ids ||
+    !stat.trade.ids.rune ||
+    stat.trade.ids.rune.length === 0
+  )
+    return;
+
+  const tradeId = stat.trade.ids.rune[0];
+  // HACK: temp fix for icons
+  const runes = RUNE_DATA_BY_TRADE_ID[tradeId];
+  const rune = runes.find((r) => r.icon !== "%NOT_FOUND%") ?? runes[0];
+  const runesWithSameTradeId = ITEM_BY_REF("ITEM", rune.rune)!;
+  return runesWithSameTradeId[0];
 }
 
 export function getRollOrMinmaxAvg(values: number[]): number {

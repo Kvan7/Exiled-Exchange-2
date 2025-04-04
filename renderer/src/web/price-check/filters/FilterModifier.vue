@@ -39,7 +39,14 @@
             :class="$style['qualityLabel']"
             class="self-center"
           >
-            <img :src="showRuneNotice" class="min-w-5 min-h-5 w-5 h-5" />
+            <img
+              :src="
+                showRuneNotice === '%NOT_FOUND%'
+                  ? '/images/404.png'
+                  : showRuneNotice
+              "
+              class="min-w-5 min-h-5 w-5 h-5"
+            />
           </div>
           <div v-if="showQ20Notice" :class="$style['qualityLabel']">
             {{ t("item.prop_quality", [calcQuality]) }}
@@ -187,9 +194,12 @@ export default defineComponent({
     );
 
     const showRuneNotice = computed(() => {
-      if (props.filter.sources.some((source) => source.stat.fromAddedRune))
-        return props.filter.sources.find((source) => source.stat.fromAddedRune)
-          ?.stat.fromAddedRune?.icon;
+      if (props.filter.sources.some((source) => source.stat.fromAddedRune)) {
+        const i = props.filter.sources.find(
+          (source) => source.stat.fromAddedRune,
+        )?.stat.fromAddedRune?.icon;
+        return i;
+      }
       return false;
     });
 

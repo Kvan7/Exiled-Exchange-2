@@ -6,7 +6,10 @@
   >
     <div class="flex items-center justify-center shrink-0 w-8 h-8">
       <slot>
-        <img :src="icon" class="max-w-full max-h-full" />
+        <img
+          :src="icon == '%NOT_FOUND%' ? '/images/404.png' : icon"
+          class="max-w-full max-h-full"
+        />
       </slot>
     </div>
     <div class="mb-1 cursor-pointer pl-1">

@@ -33,9 +33,9 @@ export const useLeagues = createGlobalState(() => {
         },
       ],
     },
-    { id: "Hunt", rules: [] },
+    { id: "Dawn of the Hunt", rules: [] },
     {
-      id: "Hunt Hardcore",
+      id: "HC Dawn of the Hunt",
       rules: [
         {
           id: "Hardcore",

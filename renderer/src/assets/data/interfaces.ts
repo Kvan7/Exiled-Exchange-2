@@ -289,12 +289,12 @@ export interface RuneDataByRune {
   [rune: string]: RuneData[];
 }
 export interface RuneDataByTradeId {
-  [tradeId: string]: {
+  [tradeId: string]: Array<{
     rune: string;
     baseStat: string;
     values: number[];
     id: string;
     type: string;
     icon: string;
-  };
+  }>;
 }

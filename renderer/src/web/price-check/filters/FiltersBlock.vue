@@ -368,7 +368,8 @@ export default defineComponent({
         return props.item.runeSockets && props.item.runeSockets.empty > 0;
       }),
       getRuneImage(rune: string) {
-        return RUNE_DATA_BY_RUNE[rune][0].icon;
+        const icon = RUNE_DATA_BY_RUNE[rune][0].icon;
+        return icon === "%NOT_FOUND%" ? "/images/404.png" : icon;
       },
     };
   },

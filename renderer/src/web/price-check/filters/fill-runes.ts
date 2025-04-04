@@ -27,6 +27,7 @@ export function handleApplyItemEdits(
   editType?: ItemEditorType,
 ) {
   if (filterStorage.length !== 0) return;
+  console.log("FILLLLLLLLLLLLLLLLLLLL");
   // Testing with just one stat
   const newFilters = createNewStatFilter(item, currencyItem ?? "Iron Rune");
   if (!newFilters) return;
@@ -57,6 +58,7 @@ export function handleRemoveItemEdits(
   filterStorage: StatFilter[],
 ) {
   // reset back to normal
+  console.log("REMOVE");
   for (const filterToApply of filterStorage) {
     // get on/off state of old filter
     const oldFilter = filters.find(

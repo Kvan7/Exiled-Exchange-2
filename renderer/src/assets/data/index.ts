@@ -182,7 +182,7 @@ async function loadItems(language: string, isTest = false) {
 
   RUNE_LIST = Array.from(
     ITEMS_ITERATOR('"craftable": {"category": "SoulCore"}'),
-  );
+  ).filter((r) => r.rune && r.rune.armour?.tradeId && r.rune.weapon?.tradeId);
 }
 
 async function loadStats(language: string, isTest = false) {
@@ -309,7 +309,9 @@ export function loadUltraLateItems(
 ) {
   RUNE_LIST = Array.from(
     ITEMS_ITERATOR('"craftable": {"category": "SoulCore"}'),
-  ).filter(runeFilter);
+  )
+    .filter((r) => r.rune && r.rune.armour?.tradeId && r.rune.weapon?.tradeId)
+    .filter(runeFilter);
 
   RUNE_DATA_BY_RUNE = runesToLookup(RUNE_LIST);
 
@@ -347,14 +349,17 @@ function runesToLookupTradeId(runeList: BaseType[]): RuneDataByTradeId {
     if (!rune.rune) continue;
     for (const runeStat in rune.rune) {
       const { string: text, values, tradeId } = rune.rune[runeStat];
-      runeDataByRune[tradeId[0]] = {
+      if (!runeDataByRune[tradeId[0]]) {
+        runeDataByRune[tradeId[0]] = [];
+      }
+      runeDataByRune[tradeId[0]].push({
         rune: rune.name,
         baseStat: text,
         values,
         id: tradeId[0],
         type: runeStat,
         icon: rune.icon,
-      };
+      });
     }
   }
 

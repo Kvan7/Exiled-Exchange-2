@@ -5,7 +5,6 @@ import {
   ITEM_BY_REF,
   STAT_BY_MATCH_STR,
   BaseType,
-  RUNE_SINGLE_VALUE,
   ITEM_BY_TRANSLATED,
 } from "@/assets/data";
 import { ModifierType, StatCalculated, sumStatsByModType } from "./modifiers";
@@ -1010,6 +1009,7 @@ function applyRuneSockets(item: ParsedItem) {
   // If we have any rune sockets
   if (item.runeSockets) {
     // Count current mods that are of type Rune
+
     const runeMods = item.newMods.filter(
       (mod) => mod.info.type === ModifierType.Rune,
     );
@@ -1026,10 +1026,11 @@ function applyRuneSockets(item: ParsedItem) {
       })
       .flat();
 
-    const potentialEmptySockets =
-      Math.max(item.runeSockets.normal, item.runeSockets.current) -
-      runes.reduce((x, y) => x + y, 0);
-
+    // HACK: fix since I can't detect how many exist due to rune tiers
+    const tempFix = runes.reduce((x, y) => x + y, 0) > 0;
+    const potentialEmptySockets = tempFix
+      ? 0
+      : Math.max(item.runeSockets.normal, item.runeSockets.current);
     item.runeSockets.empty = potentialEmptySockets;
   }
 }
@@ -1613,15 +1614,16 @@ export function isArmourOrWeapon(
 
 function runeCount(mod: ParsedModifier, statCalc: StatCalculated): number {
   if (mod.info.type !== ModifierType.Rune) return 0;
-  const runeTradeId = statCalc.stat.trade.ids[ModifierType.Rune][0];
-  const runeSingle = RUNE_SINGLE_VALUE[runeTradeId];
+  // HACK: fix since I can't detect how many exist due to rune tiers
+  // const runeTradeId = statCalc.stat.trade.ids[ModifierType.Rune][0];
+  // const runeSingle = RUNE_SINGLE_VALUE[runeTradeId];
 
-  // Calculate how many of this rune are in the item
-  const runeAppliedValue = statCalc.sources[0].contributes!.value;
-  const runeSingleValue = runeSingle.values[0];
-  const totalRunes = Math.floor(runeAppliedValue / runeSingleValue);
+  // // Calculate how many of this rune are in the item
+  // const runeAppliedValue = statCalc.sources[0].contributes!.value;
+  // const runeSingleValue = runeSingle.values[0];
+  // const totalRunes = Math.floor(runeAppliedValue / runeSingleValue);
 
-  return totalRunes;
+  return 1;
 }
 
 export function replaceHashWithValues(template: string, values: number[]) {
