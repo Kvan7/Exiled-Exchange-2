@@ -2897,6 +2897,7 @@
 {"name": "致命一擊", "refName": "Deathblow", "namespace": "UNIQUE", "unique": {"base": "Doubled Gauntlets"}, "icon": "%NOT_FOUND%"}
 {"name": "死亡之聲", "refName": "Deathrattle", "namespace": "UNIQUE", "unique": {"base": "Twig Focus"}, "icon": "%NOT_FOUND%"}
 {"name": "喪鐘", "refName": "Deidbell", "namespace": "UNIQUE", "unique": {"base": "Elite Greathelm"}, "icon": "%NOT_FOUND%"}
+{"name": "半神的美德", "refName": "Demigod's Virtue", "namespace": "UNIQUE", "unique": {"base": "Golden Visage"}, "icon": "%NOT_FOUND%"}
 {"name": "縫魔", "refName": "Demon Stitcher", "namespace": "UNIQUE", "unique": {"base": "Intricate Gloves"}, "icon": "%NOT_FOUND%"}
 {"name": "捍衛者", "refName": "Dionadair", "namespace": "UNIQUE", "unique": {"base": "Splintered Tower Shield"}, "icon": "%NOT_FOUND%"}
 {"name": "德瑞的精神手套", "refName": "Doedre's Tenure", "namespace": "UNIQUE", "unique": {"base": "Stitched Gloves"}, "icon": "%NOT_FOUND%"}

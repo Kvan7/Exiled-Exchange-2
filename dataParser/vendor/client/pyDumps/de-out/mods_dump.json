@@ -1596,7 +1596,14 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2797971005"
+                ],
+                "implicit": [
+                    "implicit.stat_2797971005"
+                ]
+            }
         }
     },
     "merged_69": {
@@ -2721,7 +2728,17 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3585532255"
+                ],
+                "implicit": [
+                    "implicit.stat_3585532255"
+                ],
+                "rune": [
+                    "rune.stat_3585532255"
+                ]
+            }
         }
     },
     "merged_116": {
@@ -2739,7 +2756,14 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1570770415"
+                ],
+                "implicit": [
+                    "implicit.stat_1570770415"
+                ]
+            }
         }
     },
     "merged_117": {
@@ -4011,7 +4035,23 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_924253255"
+                ],
+                "implicit": [
+                    "implicit.stat_924253255"
+                ],
+                "enchant": [
+                    "enchant.stat_924253255"
+                ],
+                "rune": [
+                    "rune.stat_924253255"
+                ],
+                "sanctum": [
+                    "sanctum.stat_978111083"
+                ]
+            }
         }
     },
     "merged_176": {
@@ -4877,7 +4917,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1852872083"
+                ]
+            }
         }
     },
     "merged_218": {
@@ -5924,7 +5968,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1181419800"
+                ]
+            }
         }
     },
     "merged_266": {
@@ -7606,7 +7654,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_147764878"
+                ]
+            }
         }
     },
     "merged_345": {
@@ -7752,7 +7804,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2320654813"
+                ]
+            }
         }
     },
     "merged_352": {
@@ -9011,7 +9067,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1852184471"
+                ]
+            }
         }
     },
     "merged_411": {
@@ -9936,7 +9996,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2580617872"
+                ]
+            }
         }
     },
     "merged_455": {
@@ -12435,7 +12499,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3612407781"
+                ]
+            }
         }
     },
     "merged_581": {
@@ -13360,7 +13428,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3686997387"
+                ]
+            }
         }
     },
     "merged_629": {
@@ -13564,7 +13636,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3679696791"
+                ]
+            }
         }
     },
     "merged_641": {
@@ -13578,7 +13654,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3902042119"
+                ]
+            }
         }
     },
     "merged_642": {
@@ -13668,7 +13748,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1261612903"
+                ]
+            }
         }
     },
     "merged_647": {
@@ -14121,7 +14205,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_2412053423"
+                ]
+            }
         }
     },
     "merged_673": {
@@ -14577,7 +14665,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1816894864"
+                ]
+            }
         }
     },
     "merged_701": {
@@ -16722,7 +16814,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_3450276548"
+                ]
+            }
         }
     },
     "merged_816": {
@@ -17365,7 +17461,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_701564564"
+                ]
+            }
         }
     },
     "merged_851": {
@@ -17451,7 +17551,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1132041585"
+                ]
+            }
         }
     },
     "merged_856": {
@@ -19740,7 +19844,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1083387327"
+                ]
+            }
         }
     },
     "merged_955": {

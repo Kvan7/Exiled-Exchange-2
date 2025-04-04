@@ -8331,7 +8331,9 @@
                 "values": [
                     -10
                 ],
-                "tradeId": null
+                "tradeId": [
+                    "rune.stat_924253255"
+                ]
             },
             "weapon": {
                 "string": "アタックスピードが#%増加する",

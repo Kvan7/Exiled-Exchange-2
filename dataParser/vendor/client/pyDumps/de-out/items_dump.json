@@ -7989,7 +7989,9 @@
                 "values": [
                     10
                 ],
-                "tradeId": null
+                "tradeId": [
+                    "rune.stat_3585532255"
+                ]
             },
             "weapon": {
                 "string": "#% Chance, bei Treffer Bluten zu verursachen",
@@ -8329,7 +8331,9 @@
                 "values": [
                     -10
                 ],
-                "tradeId": null
+                "tradeId": [
+                    "rune.stat_924253255"
+                ]
             },
             "weapon": {
                 "string": "#% erhöhte Angriffsgeschwindigkeit",

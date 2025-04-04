@@ -2897,6 +2897,7 @@
 {"name": "致命一擊", "refName": "Deathblow", "namespace": "UNIQUE", "unique": {"base": "Doubled Gauntlets"}, "icon": "%NOT_FOUND%"}
 {"name": "死亡之聲", "refName": "Deathrattle", "namespace": "UNIQUE", "unique": {"base": "Twig Focus"}, "icon": "%NOT_FOUND%"}
 {"name": "喪鐘", "refName": "Deidbell", "namespace": "UNIQUE", "unique": {"base": "Elite Greathelm"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL0RlaWRiZWxsIiwidyI6MiwiaCI6Miwic2NhbGUiOjF9XQ/fd66b0b28f/Deidbell.png"}
+{"name": "半神的美德", "refName": "Demigod's Virtue", "namespace": "UNIQUE", "unique": {"base": "Golden Visage"}, "icon": "%NOT_FOUND%"}
 {"name": "縫魔", "refName": "Demon Stitcher", "namespace": "UNIQUE", "unique": {"base": "Intricate Gloves"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvRGVtb25TdGljaGVyIiwidyI6MiwiaCI6Miwic2NhbGUiOjF9XQ/0269893a5c/DemonSticher.png"}
 {"name": "捍衛者", "refName": "Dionadair", "namespace": "UNIQUE", "unique": {"base": "Splintered Tower Shield"}, "icon": "%NOT_FOUND%"}
 {"name": "德瑞的精神手套", "refName": "Doedre's Tenure", "namespace": "UNIQUE", "unique": {"base": "Stitched Gloves"}, "icon": "https://webtw.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvRG9lZHJlc1RlbnVyZSIsInciOjIsImgiOjIsInNjYWxlIjoxfV0/052a57aabd/DoedresTenure.png"}

@@ -13737,7 +13737,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1261612903"
+                ]
+            }
         }
     },
     "merged_647": {
@@ -17549,7 +17553,11 @@
             }
         ],
         "trade": {
-            "ids": null
+            "ids": {
+                "explicit": [
+                    "explicit.stat_1132041585"
+                ]
+            }
         }
     },
     "merged_856": {
