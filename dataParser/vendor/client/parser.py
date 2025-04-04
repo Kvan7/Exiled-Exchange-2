@@ -975,19 +975,23 @@ class Parser:
 
         for rune in self.runes:
             # Handle any missing armour stats
-            armour_stat = rune.get("StatsArmour")[0]
-            if self.get_mod_by_id(self.stats[armour_stat]) is None:
-                # This stat wasn't added by the above 2 loops
-                # (Should run for "convert req to" runes only, PoE2 0.1.x)
-                add_missing_rune_stat(armour_stat)
+            armour_stat_list = rune.get("StatsArmour")
+            if isinstance(armour_stat_list, list) and len(armour_stat_list) > 0:
+                armour_stat = armour_stat_list[0]
+                if self.get_mod_by_id(self.stats[armour_stat]) is None:
+                    # This stat wasn't added by the above 2 loops
+                    # (Should run for "convert req to" runes only, PoE2 0.1.x)
+                    add_missing_rune_stat(armour_stat)
 
             # Handle any missing weapon stats
-            weapon_stat = rune.get("StatsWeapon")[0]
-            if self.get_mod_by_id(self.stats[weapon_stat]) is None:
-                # This stat wasn't added by the above 2 loops
-                # (Should never run, PoE2 0.1.x)
-                # (technically condition is met, but stat is already added from the above if)
-                add_missing_rune_stat(weapon_stat)
+            weapon_stat_list = rune.get("StatsWeapon")
+            if isinstance(weapon_stat_list, list) and len(weapon_stat_list) > 0:
+                weapon_stat = weapon_stat_list[0]
+                if self.get_mod_by_id(self.stats[weapon_stat]) is None:
+                    # This stat wasn't added by the above 2 loops
+                    # (Should never run, PoE2 0.1.x)
+                    # (technically condition is met, but stat is already added from the above if)
+                    add_missing_rune_stat(weapon_stat)
 
         logger.debug("Completed parsing mods.")
         logger.info(f"Mods: {len(self.mods)}")
@@ -1151,26 +1155,35 @@ class Parser:
 
         for rune in full_runes_df.to_dict("records"):
             id = rune.get("BaseItemType")
+            # Handle any missing armour stats
+            has_armour = False
+            has_weapon = False
 
-            armour_stat = rune.get("StatsArmour")[0]
-            armour_mod = self.get_mod_by_id(armour_stat)
-            armour_translated = first_non_negated(armour_mod.get("matchers")).get(
-                "string"
-            )
+            armour_stat_list = rune.get("StatsArmour")
+            if isinstance(armour_stat_list, list) and len(armour_stat_list) > 0:
+                armour_stat = armour_stat_list[0]
+                armour_mod = self.get_mod_by_id(armour_stat)
+                armour_translated = first_non_negated(armour_mod.get("matchers")).get(
+                    "string"
+                )
+                has_armour = True
             # armour_filled = replace_hash_with_values(
             #     armour_translated, rune.get("StatsValuesArmour")
             # )
 
-            weapon_stat = rune.get("StatsWeapon")[0]
-            weapon_mod = self.get_mod_by_id(weapon_stat)
-            weapon_translated = first_non_negated(weapon_mod.get("matchers")).get(
-                "string"
-            )
+            weapon_stat_list = rune.get("StatsWeapon")
+            if isinstance(weapon_stat_list, list) and len(weapon_stat_list) > 0:
+                weapon_stat = weapon_stat_list[0]
+                weapon_mod = self.get_mod_by_id(weapon_stat)
+                weapon_translated = first_non_negated(weapon_mod.get("matchers")).get(
+                    "string"
+                )
+                has_weapon = True
             # weapon_filled = replace_hash_with_values(
             #     weapon_translated, rune.get("StatsValuesWeapon")
             # )
 
-            if id in self.items:
+            if id in self.items and has_armour and has_weapon:
                 self.items[id].update(
                     {
                         "rune": {
