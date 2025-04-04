@@ -33,6 +33,15 @@ export const useLeagues = createGlobalState(() => {
         },
       ],
     },
+    { id: "Hunt", rules: [] },
+    {
+      id: "Hunt Hardcore",
+      rules: [
+        {
+          id: "Hardcore",
+        },
+      ],
+    },
   ];
 
   const selectedId = computed<string | undefined>({

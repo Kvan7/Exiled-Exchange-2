@@ -133,12 +133,12 @@
           'flex-row-reverse': clickPosition === 'inventory',
         }"
       >
-        <related-items
+        <!-- <related-items
           v-if="item?.isOk()"
           class="pointer-events-auto"
           :item="item.value"
           :click-position="clickPosition"
-        />
+        /> -->
         <rate-limiter-state class="pointer-events-auto" />
       </div>
     </div>
