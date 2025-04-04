@@ -4,6 +4,7 @@ import {
   calcFlat,
   calcIncreased,
   calcPropBase,
+  OTHER_PSEUDO_STATS,
   QUALITY_STATS,
 } from "./calc-q20";
 
@@ -22,6 +23,21 @@ export function recalculateItemProperties(
     );
     const total = calcTotal(base, newItem, QUALITY_STATS.PHYSICAL_DAMAGE);
     newItem.weaponPHYSICAL = total;
+  }
+  if (newItem.weaponAS) {
+    const base = calcBase(
+      oldItem,
+      oldItem.weaponAS,
+      OTHER_PSEUDO_STATS.ATTACK_SPEED,
+      false,
+    );
+    const total = calcTotal(
+      base,
+      newItem,
+      OTHER_PSEUDO_STATS.ATTACK_SPEED,
+      false,
+    );
+    newItem.weaponAS = total;
   }
   if (newItem.armourAR) {
     const base = calcBase(oldItem, oldItem.armourAR, QUALITY_STATS.ARMOUR);
@@ -90,9 +106,12 @@ export function calcBase(
   item: ParsedItem,
   inStat: number | undefined,
   statRefs: { flat: string[]; incr: string[] },
+  useQuality = true,
 ) {
   const { incr, flat } = calcPropBase(statRefs, item);
-  const base = calcFlat(inStat ?? 0, incr.value, item.quality) - flat.value;
+  const base =
+    calcFlat(inStat ?? 0, incr.value, useQuality ? (item.quality ?? 0) : 0) -
+    flat.value;
 
   return base;
 }
@@ -101,13 +120,14 @@ export function calcTotal(
   base: number,
   item: ParsedItem,
   statRefs: { flat: string[]; incr: string[] },
+  useQuality = true,
 ) {
   const { incr, flat } = calcPropBase(statRefs, item);
 
   const damage = calcIncreased(
     base + flat.value,
     incr.value,
-    item.quality ?? 0,
+    useQuality ? (item.quality ?? 0) : 0,
   );
 
   return damage;
