@@ -263,7 +263,7 @@ def flatten_mods(mods):
         # Deduplicate trade IDs if they are not None
         if group["trade"]["ids"] is not None:
             group["trade"]["ids"] = {
-                k: list(set(v)) for k, v in group["trade"]["ids"].items()
+                k: sorted(list(set(v))) for k, v in group["trade"]["ids"].items()
             }
         flattened_mods[f"merged_{i}"] = group  # Use a new unique key for merged mods
 
@@ -1455,4 +1455,3 @@ if __name__ == "__main__":
     logger.info("Starting parser")
     set_log_level(logging.WARNING)
     Parser("en").run()
-
