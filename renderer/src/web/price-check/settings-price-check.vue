@@ -127,7 +127,7 @@
       </select>
       Automatically fill empty rune sockets
     </div>
-    <ui-checkbox class="mb-4" v-model="openRunesAbove">{{
+    <ui-checkbox class="mb-4" v-model="openItemEditorAbove">{{
       t(":open_editor_above")
     }}</ui-checkbox>
 
@@ -332,9 +332,9 @@ export default defineComponent({
         () => configWidget.value,
         "alwaysShowTier",
       ),
-      openRunesAbove: configModelValue(
+      openItemEditorAbove: configModelValue(
         () => configWidget.value,
-        "openRunesAbove",
+        "openItemEditorAbove",
       ),
     };
   },

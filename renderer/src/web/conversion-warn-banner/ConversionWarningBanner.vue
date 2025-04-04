@@ -1,6 +1,5 @@
 <template>
-  <div v-if="devMode" :class="$style['dev']">DEBUG MODE</div>
-  <div v-else class="bg-orange-400 text-gray-900 text-center text-sm font-bold">
+  <div class="bg-orange-400 text-gray-900 text-center text-sm font-bold">
     {{ t("poe2_new.beta_warning") }}
     <br />
     {{ t("poe2_new.beta_warning2") }}
