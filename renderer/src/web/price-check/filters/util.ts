@@ -1,5 +1,10 @@
 import { ItemRarity, ParsedItem } from "@/parser";
-import { ARMOUR, ItemCategory, ItemEditorType, WEAPON } from "@/parser/meta";
+import {
+  ARMOUR,
+  ItemCategory,
+  ItemEditorType,
+  MARTIAL_WEAPON,
+} from "@/parser/meta";
 
 function decimalPlaces(value: number, dp: number | boolean): number {
   if (typeof dp === "number") {
@@ -47,7 +52,7 @@ export function getItemEditorType(item: ParsedItem): ItemEditorType {
   ) {
     return ItemEditorType.Catalyst;
   } else if (
-    (WEAPON.has(item.category) || ARMOUR.has(item.category)) &&
+    (MARTIAL_WEAPON.has(item.category) || ARMOUR.has(item.category)) &&
     item.rarity &&
     item.rarity !== ItemRarity.Unique
   ) {
