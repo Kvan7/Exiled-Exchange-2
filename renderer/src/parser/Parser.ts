@@ -39,6 +39,7 @@ import {
 } from "./advanced-mod-desc";
 import { calcPropPercentile, QUALITY_STATS } from "./calc-q20";
 import { getMaxTier } from "./mod-tiers";
+import { createAdapter } from "@/adapters/factory";
 
 type SectionParseResult =
   | "SECTION_PARSED"
@@ -167,10 +168,18 @@ function itemTextToSections(text: string) {
     lines.pop();
   }
 
+  // by keeping it as 'en' this will not affect the functionality of the parser until the adapters are implemented correctly.
+  const adapter = createAdapter("en");
+
   const sections: string[][] = [[]];
   lines.reduce((section, line) => {
+
+
     if (line !== "--------") {
-      section.push(line);
+      const transformedLine = adapter.transform(line);
+
+      section.push(transformedLine);
+
       return section;
     } else {
       const section: string[] = [];
@@ -178,6 +187,7 @@ function itemTextToSections(text: string) {
       return section;
     }
   }, sections[0]);
+
   return sections.filter((section) => section.length);
 }
 
