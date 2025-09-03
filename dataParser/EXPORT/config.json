@@ -44,9 +44,7 @@
         "DropLevel",
         "Implicit_Mods",
         "ItemClass",
-        "SiteVisibility",
-        "Tags",
-        "TradeMarketCategory"
+        "Tags"
       ]
     },
     {
@@ -65,8 +63,7 @@
       "columns": [
         "Id",
         "Name",
-        "ItemClassCategory",
-        "TradeMarketCategory"
+        "ItemClassCategory"
       ]
     },
     {
@@ -202,11 +199,12 @@
     {
       "name": "BlightCraftingItems",
       "columns": [
-        "Oil",
+        "BaseItemType",
         "Tier",
         "Achievements",
         "UseType",
-        "NameShort"
+        "NameShort",
+        "EnchantedMod"
       ]
     },
     {
@@ -242,7 +240,7 @@
         "StatsValuesMartialWeapon",
         "StatsArmour",
         "StatsValuesArmour",
-        "Rank",
+        "RequiredLevel",
         "StatsCasterWeapon",
         "StatsValuesCasterWeapon"
       ]

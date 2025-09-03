@@ -307,10 +307,11 @@ export function loadUltraLateItems(
   runeFilter: (value: BaseType, index: number, array: BaseType[]) => unknown,
 ) {
   const a = Array.from(ITEMS_ITERATOR('"craftable": {"category": "SoulCore"}'));
-  const b = a.filter((r) => r.rune && r.rune.some((s) => s.tradeId));
+  
+  const b = a.filter((r) => r.rune && Object.values(r.rune).some(e => e.tradeId !== null));
   const c = b.map((r) => ({
     ...r,
-    rune: r.rune!.filter((s) => s.tradeId),
+    rune: Object.fromEntries(Object.entries(r.rune!).filter(([, v]) => v.tradeId !== null)),
   }));
   const d = c.filter(runeFilter);
 
@@ -326,8 +327,8 @@ function runesToLookup(runeList: BaseType[]): RuneDataByRune {
 
   for (const rune of runeList) {
     if (!rune.rune) continue;
-    for (const runeStat of rune.rune) {
-      const { categories, string: text, values, tradeId } = runeStat;
+    for (const runeStat of Object.values(rune.rune)) {
+      const { string: text, values, tradeId } = runeStat;
       if (!tradeId) continue;
       if (!runeDataByRune[rune.refName]) {
         runeDataByRune[rune.refName] = [];
@@ -338,7 +339,7 @@ function runesToLookup(runeList: BaseType[]): RuneDataByRune {
         baseStat: text,
         values,
         id: tradeId[0],
-        categories,
+        categories: [], // categories don't seem to be in the data anymore
         icon: rune.icon,
       });
     }
@@ -352,8 +353,8 @@ function runesToLookupTradeId(runeList: BaseType[]): RuneDataByTradeId {
 
   for (const rune of runeList) {
     if (!rune.rune) continue;
-    for (const runeStat of rune.rune) {
-      const { categories, string: text, values, tradeId } = runeStat;
+    for (const runeStat of Object.values(rune.rune)) {
+      const { string: text, values, tradeId } = runeStat;
       if (!tradeId) continue;
       if (!runeDataByRune[tradeId[0]]) {
         runeDataByRune[tradeId[0]] = [];
@@ -363,7 +364,7 @@ function runesToLookupTradeId(runeList: BaseType[]): RuneDataByTradeId {
         baseStat: text,
         values,
         id: tradeId[0],
-        categories,
+        categories: [], // categories don't seem to be in the data anymore
         icon: rune.icon,
       });
     }

@@ -96,13 +96,19 @@ export interface BaseType {
     ev?: [min: number, max: number];
     es?: [min: number, max: number];
   };
-  rune?: Array<{
-    categories: ItemCategory[];
-    string: string;
-    values: number[];
-    tradeId?: string[];
-  }>;
+  rune?: {
+    armour?: RuneDetails;
+    weapon?: RuneDetails;
+    caster?: RuneDetails;
+  };
   tags: string[];
+}
+
+export interface RuneDetails {
+  string: string;
+  tradeId: [string] | null;
+  values: number[];
+  categories?: any[]; // this doesn't exist anymore? :/
 }
 
 export interface TranslationDict {

@@ -149,8 +149,8 @@ export function selectRuneEffectByItemCategory(
   rune: BaseType["rune"],
 ) {
   if (!rune) return;
-
-  return rune.find((rune) => rune.categories.includes(category));
+  // This will always return an empty array as rune categories don't seem to exist anymore in data
+  return Object.values(rune).find((rune) => rune.categories?.includes(category));
 }
 
 export function getRuneNameByRef(ref: string) {
