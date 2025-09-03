@@ -86,6 +86,9 @@
     <ui-checkbox class="mb-4" v-model="rememberCurrency">{{
       t(":remember_currency")
     }}</ui-checkbox>
+    <ui-checkbox class="mb-4" v-model="rememberListingType">{{
+      t(":remember_listing_type")
+    }}</ui-checkbox>
     <ui-checkbox class="mb-4" v-model="activateStockFilter">{{
       t(":select_stock")
     }}</ui-checkbox>
@@ -265,6 +268,10 @@ export default defineComponent({
       rememberCurrency: configModelValue(
         () => configWidget.value,
         "rememberCurrency",
+      ),
+      rememberListingType: configModelValue(
+        () => configWidget.value,
+        "rememberListingType",
       ),
       searchStatRange: computed<number>({
         get() {

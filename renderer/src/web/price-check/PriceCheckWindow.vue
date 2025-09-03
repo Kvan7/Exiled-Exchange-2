@@ -224,6 +224,7 @@ export default defineComponent({
         showCursor: true,
         requestPricePrediction: false,
         rememberCurrency: false,
+        rememberListingType: false,
         // New Settings EE2
         usePseudo: false,
         defaultAllSelected: false,

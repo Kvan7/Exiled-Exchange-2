@@ -52,6 +52,7 @@ export interface PriceCheckWidget extends Widget {
   builtinBrowser: boolean;
   usePseudo: boolean;
   rememberCurrency: boolean;
+  rememberListingType: boolean;
   defaultAllSelected: boolean;
   itemHoverTooltip: "off" | "keybind" | "always";
   autoFillEmptyRuneSockets: "Iron Rune" | false;

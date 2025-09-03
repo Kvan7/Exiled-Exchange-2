@@ -175,6 +175,8 @@ export default defineComponent({
       (item, prevItem) => {
         const prevCurrency =
           presets.value != null ? itemFilters.value.trade.currency : undefined;
+        const prevListingType =
+          presets.value != null ? itemFilters.value.trade.listingType : undefined;
 
         presets.value = createPresets(item, {
           league: leagues.selectedId.value!,
@@ -191,6 +193,13 @@ export default defineComponent({
               item.info.namespace === prevItem.info.namespace &&
               item.info.refName === prevItem.info.refName)
               ? prevCurrency
+              : undefined,
+          listingType:
+            widget.value.rememberListingType ||
+            (prevItem &&
+              item.info.namespace === prevItem.info.namespace &&
+              item.info.refName === prevItem.info.refName)
+              ? prevListingType
               : undefined,
           usePseudo:
             widget.value.usePseudo &&

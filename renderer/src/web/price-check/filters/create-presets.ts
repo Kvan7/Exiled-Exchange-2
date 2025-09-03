@@ -18,6 +18,7 @@ export function createPresets(
   opts: {
     league: string;
     currency: string | undefined;
+    listingType: "any" | "online" | "securable" | "available" | undefined;
     collapseListings: "app" | "api";
     activateStockFilter: boolean;
     searchStatRange: number;

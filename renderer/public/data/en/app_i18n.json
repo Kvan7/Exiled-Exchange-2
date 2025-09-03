@@ -391,6 +391,7 @@
     "select_stock": "Always select \"Stock\" filter",
     "show_prediction": "Show price prediction",
     "remember_currency": "Remember the Buyout Currency filter",
+    "remember_listing_type": "Remember the Listing Type filter",
     "show_suggest_warning": "Price check wrong warning",
     "show_suggest_warning_none": "Disable",
     "show_suggest_warning_warn": "Show alert",
