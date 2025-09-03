@@ -188,17 +188,14 @@ export default defineComponent({
               AppConfig().realm === "pc-ggg") ||
             AppConfig().preferredTradeSite === "www",
           currency:
-            widget.value.rememberCurrency ||
+            widget.value.rememberCurrency &&
             (prevItem &&
               item.info.namespace === prevItem.info.namespace &&
               item.info.refName === prevItem.info.refName)
               ? prevCurrency
               : undefined,
           listingType:
-            widget.value.rememberListingType ||
-            (prevItem &&
-              item.info.namespace === prevItem.info.namespace &&
-              item.info.refName === prevItem.info.refName)
+            widget.value.rememberListingType && prevItem
               ? prevListingType
               : undefined,
           usePseudo:
