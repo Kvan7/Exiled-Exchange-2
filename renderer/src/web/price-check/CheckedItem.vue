@@ -174,9 +174,9 @@ export default defineComponent({
       () => props.item,
       (item, prevItem) => {
         const prevCurrency =
-          presets.value != null ? itemFilters.value.trade.currency : undefined;
+          presets.value != null && itemFilters.value != null ? itemFilters.value.trade.currency : undefined;
         const prevListingType =
-          presets.value != null ? itemFilters.value.trade.listingType : undefined;
+          presets.value != null && itemFilters.value != null ? itemFilters.value.trade.listingType : undefined;
 
         presets.value = createPresets(item, {
           league: leagues.selectedId.value!,
