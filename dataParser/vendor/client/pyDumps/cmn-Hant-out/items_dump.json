@@ -7936,7 +7936,7 @@
         }
     },
     "514": {
-        "name": "近身戰",
+        "name": "近身戰 I",
         "refName": "Close Combat I",
         "namespace": "GEM",
         "class": 19,
@@ -25417,7 +25417,7 @@
         }
     },
     "2023": {
-        "name": "牧師長杖",
+        "name": "神化長杖",
         "refName": "Sanctified Staff",
         "namespace": "ITEM",
         "class": 14,
@@ -38702,7 +38702,7 @@
         }
     },
     "2695": {
-        "name": "Warlord Cuirass",
+        "name": "總督胸甲",
         "refName": "Warlord Cuirass",
         "namespace": "ITEM",
         "class": 24,
@@ -38787,7 +38787,7 @@
         }
     },
     "2699": {
-        "name": "Corsair Coat",
+        "name": "海盜外套",
         "refName": "Corsair Coat",
         "namespace": "ITEM",
         "class": 24,
@@ -38872,7 +38872,7 @@
         }
     },
     "2703": {
-        "name": "Feathered Raiment",
+        "name": "羽絨之衣",
         "refName": "Feathered Raiment",
         "namespace": "ITEM",
         "class": 24,
@@ -39019,7 +39019,7 @@
         }
     },
     "2709": {
-        "name": "Thane Mail",
+        "name": "領主鎖甲",
         "refName": "Thane Mail",
         "namespace": "ITEM",
         "class": 24,
@@ -39120,7 +39120,7 @@
         }
     },
     "2713": {
-        "name": "Seastorm Mantle",
+        "name": "海洋風暴披肩",
         "refName": "Seastorm Mantle",
         "namespace": "ITEM",
         "class": 24,
@@ -39221,7 +39221,7 @@
         }
     },
     "2717": {
-        "name": "Austere Garb",
+        "name": "樸素裝束",
         "refName": "Austere Garb",
         "namespace": "ITEM",
         "class": 24,
@@ -39310,7 +39310,7 @@
         }
     },
     "2721": {
-        "name": "Imperial Greathelm",
+        "name": "帝國巨盔",
         "refName": "Imperial Greathelm",
         "namespace": "ITEM",
         "class": 25,
@@ -39395,7 +39395,7 @@
         }
     },
     "2725": {
-        "name": "Freebooter Cap",
+        "name": "劫掠者便帽",
         "refName": "Freebooter Cap",
         "namespace": "ITEM",
         "class": 25,
@@ -39480,7 +39480,7 @@
         }
     },
     "2729": {
-        "name": "Ancestral Tiara",
+        "name": "先祖頭冠",
         "refName": "Ancestral Tiara",
         "namespace": "ITEM",
         "class": 25,
@@ -39577,7 +39577,7 @@
         }
     },
     "2733": {
-        "name": "Gladiatorial Helm",
+        "name": "衛士之盔",
         "refName": "Gladiatorial Helm",
         "namespace": "ITEM",
         "class": 25,
@@ -39678,7 +39678,7 @@
         }
     },
     "2737": {
-        "name": "Cryptic Crown",
+        "name": "隱祕之冠",
         "refName": "Cryptic Crown",
         "namespace": "ITEM",
         "class": 25,
@@ -39779,7 +39779,7 @@
         }
     },
     "2741": {
-        "name": "Grinning Mask",
+        "name": "獰笑之面",
         "refName": "Grinning Mask",
         "namespace": "ITEM",
         "class": 25,
@@ -39868,7 +39868,7 @@
         }
     },
     "2745": {
-        "name": "Massive Mitts",
+        "name": "巨型長手套",
         "refName": "Massive Mitts",
         "namespace": "ITEM",
         "class": 22,
@@ -39953,7 +39953,7 @@
         }
     },
     "2749": {
-        "name": "Polished Bracers",
+        "name": "亮澤護腕",
         "refName": "Polished Bracers",
         "namespace": "ITEM",
         "class": 22,
@@ -40038,7 +40038,7 @@
         }
     },
     "2753": {
-        "name": "Sirenscale Gloves",
+        "name": "海妖鱗手套",
         "refName": "Sirenscale Gloves",
         "namespace": "ITEM",
         "class": 22,
@@ -40135,7 +40135,7 @@
         }
     },
     "2757": {
-        "name": "Blacksteel Gauntlets",
+        "name": "烏鐵護手",
         "refName": "Blacksteel Gauntlets",
         "namespace": "ITEM",
         "class": 22,
@@ -40236,7 +40236,7 @@
         }
     },
     "2761": {
-        "name": "Adherent Cuffs",
+        "name": "追隨者腕帶",
         "refName": "Adherent Cuffs",
         "namespace": "ITEM",
         "class": 22,
@@ -40337,7 +40337,7 @@
         }
     },
     "2765": {
-        "name": "Secured Wraps",
+        "name": "牢固裹手",
         "refName": "Secured Wraps",
         "namespace": "ITEM",
         "class": 22,
@@ -40426,7 +40426,7 @@
         }
     },
     "2769": {
-        "name": "Tasalian Greaves",
+        "name": "塔薩里安脛甲",
         "refName": "Tasalian Greaves",
         "namespace": "ITEM",
         "class": 23,
@@ -40511,7 +40511,7 @@
         }
     },
     "2773": {
-        "name": "Drakeskin Boots",
+        "name": "龍膚長靴",
         "refName": "Drakeskin Boots",
         "namespace": "ITEM",
         "class": 23,
@@ -40596,7 +40596,7 @@
         }
     },
     "2777": {
-        "name": "Sekhema Sandals",
+        "name": "絲克瑪便鞋",
         "refName": "Sekhema Sandals",
         "namespace": "ITEM",
         "class": 23,
@@ -40693,7 +40693,7 @@
         }
     },
     "2781": {
-        "name": "Blacksteel Sabatons",
+        "name": "烏鋼鎧靴",
         "refName": "Blacksteel Sabatons",
         "namespace": "ITEM",
         "class": 23,
@@ -40794,7 +40794,7 @@
         }
     },
     "2785": {
-        "name": "Cryptic Leggings",
+        "name": "隱祕護腿",
         "refName": "Cryptic Leggings",
         "namespace": "ITEM",
         "class": 23,
@@ -40895,7 +40895,7 @@
         }
     },
     "2789": {
-        "name": "Daggerfoot Shoes",
+        "name": "捷足輕鞋",
         "refName": "Daggerfoot Shoes",
         "namespace": "ITEM",
         "class": 23,
@@ -40987,7 +40987,7 @@
         }
     },
     "2793": {
-        "name": "Tawhoan Tower Shield",
+        "name": "塔赫亞塔盾",
         "refName": "Tawhoan Tower Shield",
         "namespace": "ITEM",
         "class": 26,
@@ -41088,7 +41088,7 @@
         }
     },
     "2797": {
-        "name": "Golden Targe",
+        "name": "耀金圓盾",
         "refName": "Golden Targe",
         "namespace": "ITEM",
         "class": 26,
@@ -41193,7 +41193,7 @@
         }
     },
     "2801": {
-        "name": "Blacksteel Crest Shield",
+        "name": "烏鋼紋章盾",
         "refName": "Blacksteel Crest Shield",
         "namespace": "ITEM",
         "class": 26,
@@ -41286,7 +41286,7 @@
         }
     },
     "2805": {
-        "name": "Desert Buckler",
+        "name": "沙漠輕盾",
         "refName": "Desert Buckler",
         "namespace": "ITEM",
         "class": 92,
@@ -41372,7 +41372,7 @@
         }
     },
     "2809": {
-        "name": "Tasalian Focus",
+        "name": "塔薩里安法器",
         "refName": "Tasalian Focus",
         "namespace": "ITEM",
         "class": 79,
@@ -41472,7 +41472,7 @@
         }
     },
     "2816": {
-        "name": "Akoyan Club",
+        "name": "艾古亞棍棒",
         "refName": "Akoyan Club",
         "namespace": "ITEM",
         "class": 12,
@@ -41565,7 +41565,7 @@
         }
     },
     "2823": {
-        "name": "Tawhoan Greatclub",
+        "name": "塔赫亞巨棍棒",
         "refName": "Tawhoan Greatclub",
         "namespace": "ITEM",
         "class": 17,
@@ -41658,7 +41658,7 @@
         }
     },
     "2830": {
-        "name": "Dreaming Quarterstaff",
+        "name": "夢境細杖",
         "refName": "Dreaming Quarterstaff",
         "namespace": "ITEM",
         "class": 57,
@@ -41751,7 +41751,7 @@
         }
     },
     "2837": {
-        "name": "Obliterator Bow",
+        "name": "毀滅者之弓",
         "refName": "Obliterator Bow",
         "namespace": "ITEM",
         "class": 13,
@@ -41844,7 +41844,7 @@
         }
     },
     "2844": {
-        "name": "Elegant Crossbow",
+        "name": "優雅十字弓",
         "refName": "Elegant Crossbow",
         "namespace": "ITEM",
         "class": 78,
@@ -41937,7 +41937,7 @@
         }
     },
     "2851": {
-        "name": "Akoyan Spear",
+        "name": "艾古亞長鋒",
         "refName": "Akoyan Spear",
         "namespace": "ITEM",
         "class": 77,
@@ -43537,7 +43537,7 @@
         }
     },
     "2959": {
-        "name": "瓦拉庫的空白刺青",
+        "name": "塔赫亞的空白刺青",
         "refName": "Blank Tattoo of Tawhoa",
         "namespace": "ITEM",
         "class": 31,
@@ -43582,7 +43582,7 @@
         }
     },
     "2962": {
-        "name": "亞瑪的空白刺青",
+        "name": "銀幣",
         "refName": "Silver Coin",
         "namespace": "ITEM",
         "class": 31,
@@ -43597,7 +43597,7 @@
         }
     },
     "2963": {
-        "name": "瓦拉庫的刺青",
+        "name": "塔赫亞的敏捷刺青",
         "refName": "Dexterity Tattoo of Tawhoa",
         "namespace": "ITEM",
         "class": 31,
@@ -43612,7 +43612,7 @@
         }
     },
     "2964": {
-        "name": "塔薩里奧的刺青",
+        "name": "塔薩里奧的智慧刺青",
         "refName": "Intelligence Tattoo of Tasalio",
         "namespace": "ITEM",
         "class": 31,
@@ -43627,7 +43627,7 @@
         }
     },
     "2965": {
-        "name": "努葛瑪呼的刺青",
+        "name": "努葛瑪呼的力量刺青",
         "refName": "Strength Tattoo of Ngamahu",
         "namespace": "ITEM",
         "class": 31,
@@ -43687,7 +43687,7 @@
         }
     },
     "2969": {
-        "name": "亞瑪的刺青",
+        "name": "悉妮蔻拉的刺青",
         "refName": "Tattoo of Hinekora",
         "namespace": "ITEM",
         "class": 31,
@@ -43947,7 +43947,7 @@
         }
     },
     "2987": {
-        "name": "骷髏馬克的誘惑",
+        "name": "骷髏馬克的邀請",
         "refName": "Kulemak's Invitation",
         "namespace": "ITEM",
         "class": 38,
@@ -46413,7 +46413,7 @@
         }
     },
     "3146": {
-        "name": "Phantasmal Arrow",
+        "name": "幻影箭矢",
         "refName": "Phantasmal Arrow",
         "namespace": "GEM",
         "class": 18,
@@ -46532,7 +46532,7 @@
         }
     },
     "3153": {
-        "name": "霜暴",
+        "name": "迸裂",
         "refName": "Snap",
         "namespace": "GEM",
         "class": 18,
@@ -46702,7 +46702,7 @@
         }
     },
     "3163": {
-        "name": "點燃",
+        "name": "點燃 I",
         "refName": "Ignite I",
         "namespace": "GEM",
         "class": 19,
@@ -46787,7 +46787,7 @@
         }
     },
     "3168": {
-        "name": "流血",
+        "name": "流血 I",
         "refName": "Bleed I",
         "namespace": "GEM",
         "class": 19,
@@ -47146,7 +47146,7 @@
         }
     },
     "3189": {
-        "name": "燒灼烈焰",
+        "name": "燒灼烈焰 I",
         "refName": "Searing Flame I",
         "namespace": "GEM",
         "class": 19,
@@ -47214,7 +47214,7 @@
         }
     },
     "3193": {
-        "name": "Einhar's Beastrite",
+        "name": "埃哈的野獸儀式",
         "refName": "Einhar's Beastrite",
         "namespace": "GEM",
         "class": 19,
@@ -47352,7 +47352,7 @@
         }
     },
     "3201": {
-        "name": "激怒戰吼",
+        "name": "激怒戰吼 I",
         "refName": "Enraged Warcry I",
         "namespace": "GEM",
         "class": 19,
@@ -47522,7 +47522,7 @@
         }
     },
     "3211": {
-        "name": "野性殘暴",
+        "name": "野性殘暴 I",
         "refName": "Brutality I",
         "namespace": "GEM",
         "class": 19,
@@ -47762,7 +47762,7 @@
         }
     },
     "3225": {
-        "name": "火焰灌注",
+        "name": "火焰同調",
         "refName": "Fire Attunement",
         "namespace": "GEM",
         "class": 19,
@@ -47779,7 +47779,7 @@
         }
     },
     "3226": {
-        "name": "效率",
+        "name": "效率 I",
         "refName": "Efficiency I",
         "namespace": "GEM",
         "class": 19,
@@ -47917,7 +47917,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvTmV3U3VwcG9ydC9MaW5lYWdlL0xpbmVhZ2VBcm1vdXJCcmVhayIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/821e3c1334/LineageArmourBreak.png"
     },
     "3234": {
-        "name": "盛怒鍛造",
+        "name": "盛怒鍛造 I",
         "refName": "Rageforged I",
         "namespace": "GEM",
         "class": 19,
@@ -48038,7 +48038,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvTmV3U3VwcG9ydC9MaW5lYWdlL1BhcXVhdGUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/48c3b0fca2/Paquate.png"
     },
     "3241": {
-        "name": "深度切割",
+        "name": "深度切割 I",
         "refName": "Deep Cuts I",
         "namespace": "GEM",
         "class": 19,
@@ -48072,7 +48072,7 @@
         }
     },
     "3243": {
-        "name": "護甲破壞",
+        "name": "護甲破壞 I",
         "refName": "Armour Break I",
         "namespace": "GEM",
         "class": 19,
@@ -48157,7 +48157,7 @@
         }
     },
     "3248": {
-        "name": "元素武裝",
+        "name": "元素武裝 I",
         "refName": "Elemental Armament I",
         "namespace": "GEM",
         "class": 19,
@@ -48276,7 +48276,7 @@
         }
     },
     "3255": {
-        "name": "食人",
+        "name": "食人 I",
         "refName": "Cannibalism I",
         "namespace": "GEM",
         "class": 19,
@@ -48514,7 +48514,7 @@
         }
     },
     "3269": {
-        "name": "中毒",
+        "name": "中毒 I",
         "refName": "Poison I",
         "namespace": "GEM",
         "class": 19,
@@ -48582,7 +48582,7 @@
         }
     },
     "3273": {
-        "name": "致盲",
+        "name": "致盲 I",
         "refName": "Blind I",
         "namespace": "GEM",
         "class": 19,
@@ -48737,7 +48737,7 @@
         }
     },
     "3282": {
-        "name": "過剩",
+        "name": "過剩 I",
         "refName": "Overabundance I",
         "namespace": "GEM",
         "class": 19,
@@ -48839,7 +48839,7 @@
         }
     },
     "3288": {
-        "name": "標記",
+        "name": "釘身 I",
         "refName": "Pin I",
         "namespace": "GEM",
         "class": 19,
@@ -48890,7 +48890,7 @@
         }
     },
     "3291": {
-        "name": "連鎖",
+        "name": "連鎖 I",
         "refName": "Chain I",
         "namespace": "GEM",
         "class": 19,
@@ -49230,7 +49230,7 @@
         }
     },
     "3311": {
-        "name": "閃電灌注",
+        "name": "閃電同調",
         "refName": "Lightning Attunement",
         "namespace": "GEM",
         "class": 19,
@@ -49281,7 +49281,7 @@
         }
     },
     "3314": {
-        "name": "疾速攻擊",
+        "name": "疾速攻擊 I",
         "refName": "Rapid Attacks I",
         "namespace": "GEM",
         "class": 19,
@@ -49383,7 +49383,7 @@
         }
     },
     "3320": {
-        "name": "充能滿盈",
+        "name": "充能滿盈 I",
         "refName": "Charge Profusion I",
         "namespace": "GEM",
         "class": 19,
@@ -49468,7 +49468,7 @@
         }
     },
     "3325": {
-        "name": "逐漸增強",
+        "name": "逐漸增強 I",
         "refName": "Crescendo I",
         "namespace": "GEM",
         "class": 19,
@@ -49519,7 +49519,7 @@
         }
     },
     "3328": {
-        "name": "致命毒藥",
+        "name": "致命毒藥 I",
         "refName": "Deadly Poison I",
         "namespace": "GEM",
         "class": 19,
@@ -49725,7 +49725,7 @@
         }
     },
     "3340": {
-        "name": "遠程射擊",
+        "name": "遠程射擊 I",
         "refName": "Longshot I",
         "namespace": "GEM",
         "class": 19,
@@ -49861,7 +49861,7 @@
         }
     },
     "3348": {
-        "name": "精準",
+        "name": "精準 I",
         "refName": "Precision I",
         "namespace": "GEM",
         "class": 19,
@@ -50150,7 +50150,7 @@
         }
     },
     "3365": {
-        "name": "堡壘",
+        "name": "堡壘 I",
         "refName": "Fortress I",
         "namespace": "GEM",
         "class": 19,
@@ -50184,7 +50184,7 @@
         }
     },
     "3367": {
-        "name": "Ahn's Citadel",
+        "name": "安的城塞",
         "refName": "Ahn's Citadel",
         "namespace": "GEM",
         "class": 19,
@@ -50475,7 +50475,7 @@
         }
     },
     "3384": {
-        "name": "豢養狂熱",
+        "name": "豢養狂熱 I",
         "refName": "Feeding Frenzy I",
         "namespace": "GEM",
         "class": 19,
@@ -50560,7 +50560,7 @@
         }
     },
     "3389": {
-        "name": "冰冷灌注",
+        "name": "冰冷同調",
         "refName": "Cold Attunement",
         "namespace": "GEM",
         "class": 19,
@@ -50577,7 +50577,7 @@
         }
     },
     "3390": {
-        "name": "疾速施法",
+        "name": "疾速施法 I",
         "refName": "Rapid Casting I",
         "namespace": "GEM",
         "class": 19,
@@ -50679,7 +50679,7 @@
         }
     },
     "3396": {
-        "name": "召喚物契約",
+        "name": "召喚物契約 I",
         "refName": "Minion Pact I",
         "namespace": "GEM",
         "class": 19,
@@ -50817,7 +50817,7 @@
         }
     },
     "3404": {
-        "name": "混沌灌注",
+        "name": "混沌同調",
         "refName": "Chaos Attunement",
         "namespace": "GEM",
         "class": 19,
@@ -51055,7 +51055,7 @@
         }
     },
     "3418": {
-        "name": "Doedre's Undoing",
+        "name": "德瑞的毀滅",
         "refName": "Doedre's Undoing",
         "namespace": "GEM",
         "class": 19,
@@ -51209,7 +51209,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVlc3RJdGVtcy9QaW5uYWNsZUtleTMiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/32e6544250/PinnacleKey3.png"
     },
     "3428": {
-        "name": "汙穢危機碎片",
+        "name": "第一血禍碎片",
         "refName": "Primary Calamity Fragment",
         "namespace": "ITEM",
         "class": 107,
@@ -51224,7 +51224,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVlc3RJdGVtcy9VYmVyUGlubmFjbGVLZXkxIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/fc0875d40b/UberPinnacleKey1.png"
     },
     "3429": {
-        "name": "褻瀆危機碎片",
+        "name": "第二血禍碎片",
         "refName": "Secondary Calamity Fragment",
         "namespace": "ITEM",
         "class": 107,
@@ -51239,7 +51239,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVlc3RJdGVtcy9VYmVyUGlubmFjbGVLZXkyIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/0fec2b1925/UberPinnacleKey2.png"
     },
     "3430": {
-        "name": "汙染危機碎片",
+        "name": "第三血禍碎片",
         "refName": "Tertiary Calamity Fragment",
         "namespace": "ITEM",
         "class": 107,
@@ -52672,7 +52672,7 @@
         }
     },
     "3515": {
-        "name": "毒藥",
+        "name": "酸性靈藥",
         "refName": "Acidic Concoction",
         "namespace": "GEM",
         "class": 18,
@@ -54289,7 +54289,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvT21lbk9uQ2hhb3NNYXBJdGVtUmFyaXR5Iiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/e7d9f8657d/OmenOnChaosMapItemRarity.png"
     },
     "3614": {
-        "name": "混沌怪物之兆",
+        "name": "混沌數量之兆",
         "refName": "Omen of Chaotic Quantity",
         "namespace": "ITEM",
         "class": 106,
@@ -54304,7 +54304,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvT21lbk9uQ2hhb3NNYXBQYWNrU2l6ZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/9ea6c86009/OmenOnChaosMapPackSize.png"
     },
     "3615": {
-        "name": "混沌數量之兆",
+        "name": "混沌怪物之兆",
         "refName": "Omen of Chaotic Monsters",
         "namespace": "ITEM",
         "class": 106,
@@ -54546,7 +54546,7 @@
         }
     },
     "3631": {
-        "name": "充能灌注",
+        "name": "充能調節",
         "refName": "Charge Regulation",
         "namespace": "GEM",
         "class": 18,
@@ -54822,7 +54822,7 @@
         }
     },
     "3647": {
-        "name": "獻祭羔羊",
+        "name": "獻祭羔羊 I",
         "refName": "Sacrificial Lamb I",
         "namespace": "GEM",
         "class": 19,
@@ -55175,7 +55175,7 @@
         }
     },
     "3668": {
-        "name": "格擋時施放詛咒",
+        "name": "格擋時詛咒",
         "refName": "Curse on Block",
         "namespace": "GEM",
         "class": 76,
@@ -55311,7 +55311,7 @@
         }
     },
     "3676": {
-        "name": "Kaom's Madness",
+        "name": "岡姆的癲狂",
         "refName": "Kaom's Madness",
         "namespace": "GEM",
         "class": 19,
@@ -55347,7 +55347,7 @@
         }
     },
     "3678": {
-        "name": "彈射",
+        "name": "彈射 I",
         "refName": "Ricochet I",
         "namespace": "GEM",
         "class": 19,
@@ -55757,7 +55757,7 @@
         }
     },
     "3702": {
-        "name": "頂點",
+        "name": "頂點 I",
         "refName": "Culmination I",
         "namespace": "GEM",
         "class": 19,
@@ -55944,7 +55944,7 @@
         }
     },
     "3713": {
-        "name": "無盡能量",
+        "name": "無盡能量 I",
         "refName": "Boundless Energy I",
         "namespace": "GEM",
         "class": 19,
@@ -56048,7 +56048,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvTmV3U3VwcG9ydC9MaW5lYWdlL1RyaWFsbWFzdGVyIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/231195f1b3/Trialmaster.png"
     },
     "3719": {
-        "name": "極盛之尊",
+        "name": "極盛 I",
         "refName": "Zenith I",
         "namespace": "GEM",
         "class": 19,
@@ -56082,7 +56082,7 @@
         }
     },
     "3721": {
-        "name": "出價",
+        "name": "出價 I",
         "refName": "Bidding I",
         "namespace": "GEM",
         "class": 19,
@@ -56150,7 +56150,7 @@
         }
     },
     "3725": {
-        "name": "黏性擲彈",
+        "name": "黏性擲彈 I",
         "refName": "Adhesive Grenades I",
         "namespace": "GEM",
         "class": 19,
@@ -56218,7 +56218,7 @@
         }
     },
     "3729": {
-        "name": "報復",
+        "name": "報復 I",
         "refName": "Retaliate I",
         "namespace": "GEM",
         "class": 19,
@@ -56337,7 +56337,7 @@
         }
     },
     "3736": {
-        "name": "聯合",
+        "name": "聯合 I",
         "refName": "Alignment I",
         "namespace": "GEM",
         "class": 19,
@@ -56422,7 +56422,7 @@
         }
     },
     "3741": {
-        "name": "充能射擊",
+        "name": "充能射擊 I",
         "refName": "Charged Shots I",
         "namespace": "GEM",
         "class": 19,
@@ -56490,7 +56490,7 @@
         }
     },
     "3745": {
-        "name": "萌芽",
+        "name": "萌發 I",
         "refName": "Burgeon I",
         "namespace": "GEM",
         "class": 19,
@@ -56949,7 +56949,7 @@
         }
     },
     "3772": {
-        "name": "間歇",
+        "name": "痕跡強度 I",
         "refName": "Remnant Potency I",
         "namespace": "GEM",
         "class": 19,
@@ -57340,7 +57340,7 @@
         }
     },
     "3795": {
-        "name": "違抗",
+        "name": "違抗 I",
         "refName": "Defy I",
         "namespace": "GEM",
         "class": 19,
@@ -57799,7 +57799,7 @@
         }
     },
     "3822": {
-        "name": "荊棘之皮",
+        "name": "荊棘之皮 I",
         "refName": "Thornskin I",
         "namespace": "GEM",
         "class": 19,
@@ -57833,7 +57833,7 @@
         }
     },
     "3824": {
-        "name": "秘術",
+        "name": "秘術 I",
         "refName": "Mysticism I",
         "namespace": "GEM",
         "class": 19,
@@ -58037,7 +58037,7 @@
         }
     },
     "3836": {
-        "name": "大森林",
+        "name": "大森林 I",
         "refName": "Greatwood I",
         "namespace": "GEM",
         "class": 19,
@@ -58394,7 +58394,7 @@
         }
     },
     "3857": {
-        "name": "Romira's Requital",
+        "name": "羅米拉的報復",
         "refName": "Romira's Requital",
         "namespace": "GEM",
         "class": 19,
@@ -58464,7 +58464,7 @@
         }
     },
     "3861": {
-        "name": "重新佈署",
+        "name": "重新佈署 I",
         "refName": "Rearm I",
         "namespace": "GEM",
         "class": 19,
@@ -58770,7 +58770,7 @@
         }
     },
     "3879": {
-        "name": "堅忍",
+        "name": "堅忍 I",
         "refName": "Stoicism I",
         "namespace": "GEM",
         "class": 19,
@@ -58821,7 +58821,7 @@
         }
     },
     "3882": {
-        "name": "Brambleslam",
+        "name": "荊棘猛擊",
         "refName": "Brambleslam",
         "namespace": "GEM",
         "class": 19,
@@ -58838,7 +58838,7 @@
         }
     },
     "3883": {
-        "name": "充能抑制",
+        "name": "抑制劑",
         "refName": "Inhibitor",
         "namespace": "GEM",
         "class": 19,
@@ -59366,7 +59366,7 @@
         }
     },
     "3914": {
-        "name": "灌注武器",
+        "name": "元素波動",
         "refName": "Elemental Surge",
         "namespace": "GEM",
         "class": 18,
@@ -59383,7 +59383,7 @@
         }
     },
     "3915": {
-        "name": "混沌灌注",
+        "name": "混沌波動",
         "refName": "Chaotic Surge",
         "namespace": "GEM",
         "class": 18,
@@ -59553,7 +59553,7 @@
         }
     },
     "3925": {
-        "name": "雙生灌注",
+        "name": "雙靈波動",
         "refName": "Gemini Surge",
         "namespace": "GEM",
         "class": 18,
@@ -60050,7 +60050,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvTmV3U3VwcG9ydC9MaW5lYWdlL0RpYWxsYSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/1b959c86b4/Dialla.png"
     },
     "3954": {
-        "name": "Kalisa's Crescendo",
+        "name": "卡莉莎的漸強",
         "refName": "Kalisa's Crescendo",
         "namespace": "GEM",
         "class": 19,
@@ -60124,7 +60124,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvTmV3U3VwcG9ydC9MaW5lYWdlL0xpbmVhZ2VFc2giLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/2bdbf8be07/LineageEsh.png"
     },
     "3958": {
-        "name": "托沃的崩裂",
+        "name": "托沃的寧靜",
         "refName": "Tul's Stillness",
         "namespace": "GEM",
         "class": 19,
@@ -60200,7 +60200,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvTmV3U3VwcG9ydC9MaW5lYWdlL1JpZ3dhbGQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/a053a2b077/Rigwald.png"
     },
     "3962": {
-        "name": "Uhtred's Exodus",
+        "name": "烏特雷的出走",
         "refName": "Uhtred's Exodus",
         "namespace": "GEM",
         "class": 19,
@@ -60219,7 +60219,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvTmV3U3VwcG9ydC9MaW5lYWdlL0xpbmVhZ2VVaHRyZWRMZXNzZXIiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/b286006915/LineageUhtredLesser.png"
     },
     "3963": {
-        "name": "Uhtred's Omen",
+        "name": "烏特雷的徵兆",
         "refName": "Uhtred's Omen",
         "namespace": "GEM",
         "class": 19,
@@ -60238,7 +60238,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvTmV3U3VwcG9ydC9MaW5lYWdlL0xpbmVhZ2VVaHRyZWRTdGFuZGFyZCIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/2e603483a5/LineageUhtredStandard.png"
     },
     "3964": {
-        "name": "Uhtred's Augury",
+        "name": "烏特雷的占卜術",
         "refName": "Uhtred's Augury",
         "namespace": "GEM",
         "class": 19,
@@ -60257,7 +60257,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvTmV3U3VwcG9ydC9MaW5lYWdlL0xpbmVhZ2VVaHRyZWRHcmVhdGVyIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/207f49bf94/LineageUhtredGreater.png"
     },
     "3965": {
-        "name": "Daresso's Passion",
+        "name": "德瑞索的熱情",
         "refName": "Daresso's Passion",
         "namespace": "GEM",
         "class": 19,
@@ -60295,7 +60295,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvTmV3U3VwcG9ydC9MaW5lYWdlL0xpbmVhZ2VBdHppcmkiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/422053dc32/LineageAtziri.png"
     },
     "3967": {
-        "name": "Tacati's Ire",
+        "name": "特卡蒂的憤怒",
         "refName": "Tacati's Ire",
         "namespace": "GEM",
         "class": 19,
@@ -60846,7 +60846,7 @@
         }
     },
     "4000": {
-        "name": "冰鏃弩箭",
+        "name": "冰鏃箭矢",
         "refName": "Ice-Tipped Arrows",
         "namespace": "GEM",
         "class": 18,
@@ -60897,7 +60897,7 @@
         }
     },
     "4003": {
-        "name": "未來視",
+        "name": "未來昔日",
         "refName": "Future-Past",
         "namespace": "GEM",
         "class": 18,
@@ -60914,7 +60914,7 @@
         }
     },
     "4004": {
-        "name": "Runic Tempering",
+        "name": "符文冶鍊",
         "refName": "Runic Tempering",
         "namespace": "GEM",
         "class": 18,
@@ -61742,7 +61742,7 @@
         }
     },
     "4058": {
-        "name": "Molten One's Gift",
+        "name": "熔岩者的禮物",
         "refName": "Molten One's Gift",
         "namespace": "ITEM",
         "class": 31,

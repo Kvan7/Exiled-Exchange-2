@@ -2503,8 +2503,8 @@
 {"name": "Предзнаменование бартера", "refName": "Omen of Bartering", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvT21lblNlbGxWZW5kb3JSYW5kb21pc2UiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/12ef99da8b/OmenSellVendorRandomise.png", "tags": [], "tradeTag": "omen-of-bartering", "craftable": {"category": "Omen"}, "w": 1, "h": 1}
 {"name": "Предзнаменование катализованного возвышения", "refName": "Omen of Catalysing Exaltation", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvT21lbk9uRXhhbHRDb25zdW1lUXVhbGl0eSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/ca4d0db767/OmenOnExaltConsumeQuality.png", "tags": [], "tradeTag": "omen-of-catalysing-exaltation", "craftable": {"category": "Omen"}, "w": 1, "h": 1}
 {"name": "Предзнаменование удачи", "refName": "Omen of Chance", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvT21lbk9uQ2hhbmNlTm90RGVzdHJveSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/461b794959/OmenOnChanceNotDestroy.png", "tags": [], "tradeTag": "omen-of-chance", "craftable": {"category": "Omen"}, "w": 1, "h": 1}
-{"name": "Предзнаменование хаотичного количества", "refName": "Omen of Chaotic Monsters", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvT21lbk9uQ2hhb3NNYXBJdGVtUXVhbnRpdHkiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/dcd21d0252/OmenOnChaosMapItemQuantity.png", "tags": [], "tradeTag": "omen-of-chaotic-monsters", "craftable": {"category": "Omen"}, "w": 1, "h": 1}
-{"name": "Предзнаменование хаотичных монстров", "refName": "Omen of Chaotic Quantity", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvT21lbk9uQ2hhb3NNYXBQYWNrU2l6ZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/9ea6c86009/OmenOnChaosMapPackSize.png", "tags": [], "tradeTag": "omen-of-chaotic-quantity", "craftable": {"category": "Omen"}, "w": 1, "h": 1}
+{"name": "Предзнаменование хаотичных монстров", "refName": "Omen of Chaotic Monsters", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvT21lbk9uQ2hhb3NNYXBJdGVtUXVhbnRpdHkiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/dcd21d0252/OmenOnChaosMapItemQuantity.png", "tags": [], "tradeTag": "omen-of-chaotic-monsters", "craftable": {"category": "Omen"}, "w": 1, "h": 1}
+{"name": "Предзнаменование хаотичного количества", "refName": "Omen of Chaotic Quantity", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvT21lbk9uQ2hhb3NNYXBQYWNrU2l6ZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/9ea6c86009/OmenOnChaosMapPackSize.png", "tags": [], "tradeTag": "omen-of-chaotic-quantity", "craftable": {"category": "Omen"}, "w": 1, "h": 1}
 {"name": "Предзнаменование хаотичной редкости", "refName": "Omen of Chaotic Rarity", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvT21lbk9uQ2hhb3NNYXBJdGVtUmFyaXR5Iiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/e7d9f8657d/OmenOnChaosMapItemRarity.png", "tags": [], "tradeTag": "omen-of-chaotic-rarity", "craftable": {"category": "Omen"}, "w": 1, "h": 1}
 {"name": "Предзнаменование осквернения", "refName": "Omen of Corruption", "namespace": "ITEM", "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvVm9vZG9vT21lbnMzUmVkIiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/9cfdcc9e1a/VoodooOmens3Red.png", "tags": [], "tradeTag": "omen-of-corruption", "craftable": {"category": "Omen"}, "w": 1, "h": 1}
 {"name": "Предзнаменование алхимии правши", "refName": "Omen of Dextral Alchemy", "namespace": "ITEM", "icon": "%NOT_FOUND%", "tags": [], "craftable": {"category": "Omen"}, "w": 1, "h": 1}
@@ -3665,7 +3665,7 @@
 {"name": "Дары небес", "refName": "Gifts from Above", "namespace": "UNIQUE", "unique": {"base": "Prismatic Ring"}, "icon": "%NOT_FOUND%"}
 {"name": "Светлячок", "refName": "Glowswarm", "namespace": "UNIQUE", "unique": {"base": "Lazuli Ring"}, "icon": "%NOT_FOUND%"}
 {"name": "Кровавый кушак", "refName": "Goregirdle", "namespace": "UNIQUE", "unique": {"base": "Plate Belt"}, "icon": "%NOT_FOUND%"}
-{"name": "Grip of Kulemak", "refName": "Grip of Kulemak", "namespace": "UNIQUE", "unique": {"base": "Abyssal Signet"}, "icon": "%NOT_FOUND%"}
+{"name": "Хватка Кулемака", "refName": "Grip of Kulemak", "namespace": "UNIQUE", "unique": {"base": "Abyssal Signet"}, "icon": "%NOT_FOUND%"}
 {"name": "Охотник за головами", "refName": "Headhunter", "namespace": "UNIQUE", "unique": {"base": "Heavy Belt"}, "icon": "%NOT_FOUND%"}
 {"name": "Сердечная связь", "refName": "Heartbound Loop", "namespace": "UNIQUE", "unique": {"base": "Pearl Ring"}, "icon": "%NOT_FOUND%"}
 {"name": "Взгляд Хинекоры", "refName": "Hinekora's Sight", "namespace": "UNIQUE", "unique": {"base": "Stellar Amulet"}, "icon": "%NOT_FOUND%"}
@@ -3953,12 +3953,12 @@
 {"name": "Великий образ", "refName": "Grand Spectrum", "namespace": "UNIQUE", "unique": {"base": "Ruby"}, "icon": "%NOT_FOUND%"}
 {"name": "Великий образ", "refName": "Grand Spectrum", "namespace": "UNIQUE", "unique": {"base": "Emerald"}, "icon": "%NOT_FOUND%"}
 {"name": "Великий образ", "refName": "Grand Spectrum", "namespace": "UNIQUE", "unique": {"base": "Sapphire"}, "icon": "%NOT_FOUND%"}
-{"name": "Heart of the Well", "refName": "Heart of the Well", "namespace": "UNIQUE", "unique": {"base": "Diamond"}, "icon": "%NOT_FOUND%"}
+{"name": "Сердце Колодца", "refName": "Heart of the Well", "namespace": "UNIQUE", "unique": {"base": "Diamond"}, "icon": "%NOT_FOUND%"}
 {"name": "Трагедия героев", "refName": "Heroic Tragedy", "namespace": "UNIQUE", "unique": {"base": "Timeless Jewel"}, "icon": "%NOT_FOUND%"}
 {"name": "Мания величия", "refName": "Megalomaniac", "namespace": "UNIQUE", "unique": {"base": "Diamond"}, "icon": "%NOT_FOUND%"}
 {"name": "Призма убеждений", "refName": "Prism of Belief", "namespace": "UNIQUE", "unique": {"base": "Diamond"}, "icon": "%NOT_FOUND%"}
 {"name": "Былой блеск", "refName": "The Adorned", "namespace": "UNIQUE", "unique": {"base": "Diamond"}, "icon": "%NOT_FOUND%"}
-{"name": "Undying Hate", "refName": "Undying Hate", "namespace": "UNIQUE", "unique": {"base": "Timeless Jewel"}, "icon": "%NOT_FOUND%"}
+{"name": "Вечная ненависть", "refName": "Undying Hate", "namespace": "UNIQUE", "unique": {"base": "Timeless Jewel"}, "icon": "%NOT_FOUND%"}
 {"name": "Ясное небо", "refName": "Clear Skies", "namespace": "UNIQUE", "unique": {"base": "Delirium Precursor Tablet"}, "icon": "%NOT_FOUND%"}
 {"name": "Жестокая гегемония", "refName": "Cruel Hegemony", "namespace": "UNIQUE", "unique": {"base": "Overseer Precursor Tablet"}, "icon": "%NOT_FOUND%"}
 {"name": "Забытые временем", "refName": "Forgotten By Time", "namespace": "UNIQUE", "unique": {"base": "Expedition Precursor Tablet"}, "icon": "%NOT_FOUND%"}
@@ -3982,7 +3982,7 @@
 {"name": "Сумеречный дозор", "refName": "Dusk Vigil", "namespace": "UNIQUE", "unique": {"base": "Ashen Staff"}, "icon": "%NOT_FOUND%"}
 {"name": "Грозоотвод", "refName": "Earthbound", "namespace": "UNIQUE", "unique": {"base": "Voltaic Staff"}, "icon": "%NOT_FOUND%"}
 {"name": "Марш Инедзуна", "refName": "Enezun's Charge", "namespace": "UNIQUE", "unique": {"base": "Volatile Wand"}, "icon": "%NOT_FOUND%"}
-{"name": "Рука раздающего", "refName": "Fairgraves' Curse", "namespace": "UNIQUE", "unique": {"base": "Artillery Bow"}, "icon": "%NOT_FOUND%"}
+{"name": "Проклятие Фейргрейвса", "refName": "Fairgraves' Curse", "namespace": "UNIQUE", "unique": {"base": "Artillery Bow"}, "icon": "%NOT_FOUND%"}
 {"name": "Купель силы", "refName": "Font of Power", "namespace": "UNIQUE", "unique": {"base": "Omen Sceptre"}, "icon": "%NOT_FOUND%"}
 {"name": "Ледяное дыхание", "refName": "Frostbreath", "namespace": "UNIQUE", "unique": {"base": "Slim Mace"}, "icon": "%NOT_FOUND%"}
 {"name": "Направляющая длань", "refName": "Guiding Palm", "namespace": "UNIQUE", "unique": {"base": "Shrine Sceptre"}, "icon": "%NOT_FOUND%"}
@@ -4056,7 +4056,7 @@
 {"name": "Последняя песнь", "refName": "The Last Lament", "namespace": "UNIQUE", "unique": {"base": "Desolate Crossbow"}, "icon": "%NOT_FOUND%"}
 {"name": "Опаляющее касание", "refName": "The Searing Touch", "namespace": "UNIQUE", "unique": {"base": "Pyrophyte Staff"}, "icon": "%NOT_FOUND%"}
 {"name": "Часовой", "refName": "The Sentry", "namespace": "UNIQUE", "unique": {"base": "Gothic Quarterstaff"}, "icon": "%NOT_FOUND%"}
-{"name": "Трость Кулемака", "refName": "The Unborn Lich", "namespace": "UNIQUE", "unique": {"base": "Ravenous Staff"}, "icon": "%NOT_FOUND%"}
+{"name": "Нерождённый лич", "refName": "The Unborn Lich", "namespace": "UNIQUE", "unique": {"base": "Ravenous Staff"}, "icon": "%NOT_FOUND%"}
 {"name": "Шепчущий лёд", "refName": "The Whispering Ice", "namespace": "UNIQUE", "unique": {"base": "Permafrost Staff"}, "icon": "%NOT_FOUND%"}
 {"name": "Жестокое перо", "refName": "The Wicked Quill", "namespace": "UNIQUE", "unique": {"base": "Withered Wand"}, "icon": "%NOT_FOUND%"}
 {"name": "Волнолом", "refName": "Tidebreaker", "namespace": "UNIQUE", "unique": {"base": "Pointed Maul"}, "icon": "%NOT_FOUND%"}

@@ -1,7 +1,7 @@
 import json
 import os
 
-SUPPORTED_LANG = ("en", "ru", "ko", "cmn-Hant", "ja", "de", "es")
+SUPPORTED_LANG = ("en", "ru", "ko", "cmn-Hant", "ja", "de", "es", "pt")
 
 
 def get_script_dir(lang="en"):
@@ -10,9 +10,14 @@ def get_script_dir(lang="en"):
 
 
 def read_ndjson(file_path, encoding="utf-8"):
-    """Reads a newline-delimited JSON file and returns a list of parsed JSON objects."""
-    with open(file_path, "r", encoding=encoding) as file:
-        return [json.loads(line) for line in file]
+    """Reads a newline-delimited JSON file and returns a list of parsed JSON objects.
+    If the file does not exist, returns an empty list.
+    """
+    try:
+        with open(file_path, "r", encoding=encoding) as file:
+            return [json.loads(line) for line in file if line.strip()]
+    except FileNotFoundError:
+        return []
 
 
 def read_cache(file_path):

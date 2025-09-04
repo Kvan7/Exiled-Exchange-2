@@ -44,6 +44,7 @@ LANG_CODES_TO_NAMES = {
     "ja": "Japanese",
     "de": "German",
     "es": "Spanish",
+    "pt": "Portuguese",
 }
 
 HARDCODE_MAP_HYBRID_MODS = {
@@ -1422,6 +1423,7 @@ class Parser:
             "ja": {"string": "物理ダメージが#%増加する"},
             "de": {"string": "#% erhöhte physischen Schaden"},
             "es": {"string": "#% de daño físico aumentado"},
+            "pt": {"string": "#% de dano físico aumentado"},
         }
         # somehow not a thing? - possibly missing some data
         # self.mods["physical_local_damage_+%"] = {

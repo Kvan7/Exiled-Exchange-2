@@ -46422,7 +46422,7 @@
         }
     },
     "3146": {
-        "name": "Phantasmal Arrow",
+        "name": "Geisterhafter Pfeil",
         "refName": "Phantasmal Arrow",
         "namespace": "GEM",
         "class": 18,
@@ -54298,7 +54298,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvT21lbk9uQ2hhb3NNYXBJdGVtUmFyaXR5Iiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/e7d9f8657d/OmenOnChaosMapItemRarity.png"
     },
     "3614": {
-        "name": "Omen der chaotischen Monster",
+        "name": "Omen der chaotischen Menge",
         "refName": "Omen of Chaotic Quantity",
         "namespace": "ITEM",
         "class": 106,
@@ -54313,7 +54313,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvT21lbk9uQ2hhb3NNYXBQYWNrU2l6ZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/9ea6c86009/OmenOnChaosMapPackSize.png"
     },
     "3615": {
-        "name": "Omen der chaotischen Menge",
+        "name": "Omen der chaotischen Monster",
         "refName": "Omen of Chaotic Monsters",
         "namespace": "ITEM",
         "class": 106,
@@ -55184,7 +55184,7 @@
         }
     },
     "3668": {
-        "name": "Fluch zaubern bei Blocken",
+        "name": "Verfluchen bei Blocken",
         "refName": "Curse on Block",
         "namespace": "GEM",
         "class": 76,
@@ -60923,7 +60923,7 @@
         }
     },
     "4004": {
-        "name": "Runic Tempering",
+        "name": "Runenhärtung",
         "refName": "Runic Tempering",
         "namespace": "GEM",
         "class": 18,

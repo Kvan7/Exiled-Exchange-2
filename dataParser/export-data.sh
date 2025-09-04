@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Copy files from vendor to parser
+sh copy-tables.sh
+
 # Build data
 echo "Building data"
 python ./vendor/client/parserRunner.py

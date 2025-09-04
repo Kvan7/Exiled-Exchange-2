@@ -13,6 +13,7 @@ LANG_CODES_TO_NAMES = {
     "ja": "Japanese",
     "de": "German",
     "es": "Spanish",
+    "pt": "Portuguese",
 }
 logger = logging.getLogger(__name__)
 

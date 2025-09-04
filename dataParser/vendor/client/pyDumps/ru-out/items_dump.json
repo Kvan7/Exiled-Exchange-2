@@ -54300,7 +54300,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvT21lbk9uQ2hhb3NNYXBJdGVtUmFyaXR5Iiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/e7d9f8657d/OmenOnChaosMapItemRarity.png"
     },
     "3614": {
-        "name": "Предзнаменование хаотичных монстров",
+        "name": "Предзнаменование хаотичного количества",
         "refName": "Omen of Chaotic Quantity",
         "namespace": "ITEM",
         "class": 106,
@@ -54315,7 +54315,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvT21lbk9uQ2hhb3NNYXBQYWNrU2l6ZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/9ea6c86009/OmenOnChaosMapPackSize.png"
     },
     "3615": {
-        "name": "Предзнаменование хаотичного количества",
+        "name": "Предзнаменование хаотичных монстров",
         "refName": "Omen of Chaotic Monsters",
         "namespace": "ITEM",
         "class": 106,

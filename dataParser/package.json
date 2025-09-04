@@ -33,7 +33,8 @@
     "copy-py-ndjson": "bash ./copy-py-ndjson.sh",
     "fetch-json": "bash ./pull-json.sh",
     "get-game-data": "cd ./EXPORT && pathofexile-dat",
-    "run-all": "sh export-data.sh"
+    "run-all": "sh export-data.sh",
+    "update-data": "sh update-script.sh"
   },
   "keywords": [],
   "author": "",

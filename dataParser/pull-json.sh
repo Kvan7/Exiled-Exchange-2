@@ -9,6 +9,7 @@ declare -A lang_urls=(
     ["ja"]="https://jp.pathofexile.com"
     ["de"]="https://de.pathofexile.com"
     ["es"]="https://es.pathofexile.com"
+    ["pt"]="https://br.pathofexile.com"
 )
 
 # URLs to fetch JSON from (relative paths)

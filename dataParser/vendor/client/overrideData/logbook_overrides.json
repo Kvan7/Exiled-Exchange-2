@@ -376,5 +376,59 @@
             },
             "id": "knights_of_the_sun"
         }
+    ],
+    "pt": [
+        {
+            "ref": "Has Logbook Faction: Druids of the Broken Circle",
+            "better": 0,
+            "matchers": [
+                {
+                    "string": "Druidas del Círculo roto"
+                }
+            ],
+            "trade": {
+                "ids": null
+            },
+            "id": "druids_of_the_broken_circle"
+        },
+        {
+            "ref": "Has Logbook Faction: Black Scythe Mercenaries",
+            "better": 0,
+            "matchers": [
+                {
+                    "string": "Mercenarios de la Guadaña negra"
+                }
+            ],
+            "trade": {
+                "ids": null
+            },
+            "id": "black_scythe_mercenaries"
+        },
+        {
+            "ref": "Has Logbook Faction: Order of the Chalice",
+            "better": 0,
+            "matchers": [
+                {
+                    "string": "Orden del Cáliz"
+                }
+            ],
+            "trade": {
+                "ids": null
+            },
+            "id": "order_of_the_chalice"
+        },
+        {
+            "ref": "Has Logbook Faction: Knights of the Sun",
+            "better": 0,
+            "matchers": [
+                {
+                    "string": "Caballeros del Sol"
+                }
+            ],
+            "trade": {
+                "ids": null
+            },
+            "id": "knights_of_the_sun"
+        }
     ]
 }

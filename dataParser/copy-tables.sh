@@ -27,6 +27,10 @@ echo "Copying files from EXPORT/tables/Spanish to data/es"
 mkdir -p vendor/client/tables/es
 cp -R EXPORT/tables/Spanish/* vendor/client/tables/es/
 
+echo "Copying files from EXPORT/tables/Portuguese to data/pt"
+mkdir -p vendor/client/tables/pt
+cp -R EXPORT/tables/Portuguese/* vendor/client/tables/pt/
+
 echo "Copying not generated files from english to other languages"
 
 # Copy without overwriting English -> data/ru
@@ -36,6 +40,7 @@ cp -n vendor/client/tables/en/* vendor/client/tables/cmn-Hant/
 cp -n vendor/client/tables/en/* vendor/client/tables/ja/
 cp -n vendor/client/tables/en/* vendor/client/tables/de/
 cp -n vendor/client/tables/en/* vendor/client/tables/es/
+cp -n vendor/client/tables/en/* vendor/client/tables/pt/
 
 # Copy description files from EXPORT/files to client/descriptions
 echo "Copying description files from EXPORT/files to client/descriptions"

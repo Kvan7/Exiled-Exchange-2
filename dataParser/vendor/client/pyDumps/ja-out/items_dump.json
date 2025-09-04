@@ -338,7 +338,7 @@
         }
     },
     "18": {
-        "name": "高貴なオーブ",
+        "name": "エグザルテッドオーブ",
         "refName": "Exalted Orb",
         "namespace": "ITEM",
         "class": "スキルジェム",
@@ -357,7 +357,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRNb2RUb1JhcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ad7c366789/CurrencyAddModToRare.png"
     },
     "19": {
-        "name": "高貴のグレーターオーブ",
+        "name": "グレーターエグザルテッドオーブ",
         "refName": "Greater Exalted Orb",
         "namespace": "ITEM",
         "class": "サポートジェム",
@@ -376,7 +376,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRNb2RUb1JhcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ad7c366789/CurrencyAddModToRare.png"
     },
     "20": {
-        "name": "高貴のパーフェクトオーブ",
+        "name": "パーフェクトエグザルテッドオーブ",
         "refName": "Perfect Exalted Orb",
         "namespace": "ITEM",
         "class": "矢筒",
@@ -395,7 +395,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRNb2RUb1JhcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ad7c366789/CurrencyAddModToRare.png"
     },
     "21": {
-        "name": "王者のオーブ",
+        "name": "リーガルオーブ",
         "refName": "Regal Orb",
         "namespace": "ITEM",
         "class": "ベルト",
@@ -414,7 +414,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lVcGdyYWRlTWFnaWNUb1JhcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/e8fb148e80/CurrencyUpgradeMagicToRare.png"
     },
     "22": {
-        "name": "王者のグレーターオーブ",
+        "name": "グレーターリーガルオーブ",
         "refName": "Greater Regal Orb",
         "namespace": "ITEM",
         "class": "手袋",
@@ -433,7 +433,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lVcGdyYWRlTWFnaWNUb1JhcmUiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/e8fb148e80/CurrencyUpgradeMagicToRare.png"
     },
     "23": {
-        "name": "王者のパーフェクトオーブ",
+        "name": "パーフェクトリーガルオーブ",
         "refName": "Perfect Regal Orb",
         "namespace": "ITEM",
         "class": "靴",
@@ -675,7 +675,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBZGRFcXVpcG1lbnRTb2NrZXQiLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/5131fd4774/CurrencyAddEquipmentSocket.png"
     },
     "36": {
-        "name": "神のオーブ",
+        "name": "ディヴァインオーブ",
         "refName": "Divine Orb",
         "namespace": "ITEM",
         "class": "",
@@ -747,7 +747,7 @@
         "name": "巻物の断片",
         "refName": "Scroll Fragment",
         "namespace": "ITEM",
-        "class": "有料アイテム",
+        "class": "マイクロトランザクション",
         "dropLevel": 1,
         "width": 1,
         "height": 1,
@@ -3347,7 +3347,7 @@
         }
     },
     "191": {
-        "name": "高貴なシャード",
+        "name": "エグザルテッドシャード",
         "refName": "Exalted Shard",
         "namespace": "ITEM",
         "class": 30,
@@ -3362,7 +3362,7 @@
         }
     },
     "192": {
-        "name": "王者のシャード",
+        "name": "リーガルシャード",
         "refName": "Regal Shard",
         "namespace": "ITEM",
         "class": 30,
@@ -3379,7 +3379,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lVcGdyYWRlTWFnaWNUb1JhcmVTaGFyZCIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/e4128abe92/CurrencyUpgradeMagicToRareShard.png"
     },
     "193": {
-        "name": "フラクチャーのシャード",
+        "name": "フラクチャーシャード",
         "refName": "Fracturing Shard",
         "namespace": "ITEM",
         "class": 30,
@@ -6644,7 +6644,7 @@
         }
     },
     "437": {
-        "name": "裁定者の知識の書 I",
+        "name": "アービターの知識の書 I",
         "refName": "Arbiter's Book of Knowledge I",
         "namespace": "ITEM",
         "class": 31,
@@ -6657,7 +6657,7 @@
         }
     },
     "438": {
-        "name": "裁定者の知識の書 II",
+        "name": "アービターの知識の書 II",
         "refName": "Arbiter's Book of Knowledge II",
         "namespace": "ITEM",
         "class": 31,
@@ -6670,7 +6670,7 @@
         }
     },
     "439": {
-        "name": "裁定者の知識の書 III",
+        "name": "アービターの知識の書 III",
         "refName": "Arbiter's Book of Knowledge III",
         "namespace": "ITEM",
         "class": 31,
@@ -6683,7 +6683,7 @@
         }
     },
     "440": {
-        "name": "裁定者の知識の書 IV",
+        "name": "アービターの知識の書 IV",
         "refName": "Arbiter's Book of Knowledge IV",
         "namespace": "ITEM",
         "class": 31,
@@ -14276,7 +14276,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9Ud2lsaWdodE9yZGVyUmVsaXF1YXJ5S2V5RXhwZWRpdGlvbiIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/0433c7beb8/TwilightOrderReliquaryKeyExpedition.png"
     },
     "820": {
-        "name": "裁定者の聖廟の鍵",
+        "name": "アービターの聖廟の鍵",
         "refName": "The Arbiter's Reliquary Key",
         "namespace": "ITEM",
         "class": 88,
@@ -17410,7 +17410,7 @@
         }
     },
     "1046": {
-        "name": "クルセイダーの高貴なオーブ",
+        "name": "クルセイダーのエグザルテッドオーブ",
         "refName": "Crusader's Exalted Orb",
         "namespace": "ITEM",
         "class": 30,
@@ -17423,7 +17423,7 @@
         }
     },
     "1047": {
-        "name": "リディーマーの高貴なオーブ",
+        "name": "リディーマーのエグザルテッドオーブ",
         "refName": "Redeemer's Exalted Orb",
         "namespace": "ITEM",
         "class": 30,
@@ -17436,7 +17436,7 @@
         }
     },
     "1048": {
-        "name": "ハンターの高貴なオーブ",
+        "name": "ハンターのエグザルテッドオーブ",
         "refName": "Hunter's Exalted Orb",
         "namespace": "ITEM",
         "class": 30,
@@ -17449,7 +17449,7 @@
         }
     },
     "1049": {
-        "name": "ウォーロードの高貴なオーブ",
+        "name": "ウォーロードのエグザルテッドオーブ",
         "refName": "Warlord's Exalted Orb",
         "namespace": "ITEM",
         "class": 30,
@@ -21588,7 +21588,7 @@
         }
     },
     "1342": {
-        "name": "汚染された高貴なオーブ",
+        "name": "汚染されたエグザルテッドオーブ",
         "refName": "Tainted Exalted Orb",
         "namespace": "ITEM",
         "class": 30,
@@ -21698,7 +21698,7 @@
         }
     },
     "1770": {
-        "name": "エルドリッチの高貴なオーブ",
+        "name": "エルドリッチのエグザルテッドオーブ",
         "refName": "Eldritch Exalted Orb",
         "namespace": "ITEM",
         "class": 30,
@@ -34581,7 +34581,7 @@
         ]
     },
     "2485": {
-        "name": "ランダムな鎧",
+        "name": "ランダムなアーマー鎧",
         "refName": "Random Body Armour",
         "namespace": "ITEM",
         "class": 61,
@@ -34594,7 +34594,7 @@
         ]
     },
     "2486": {
-        "name": "ランダムな鎧",
+        "name": "ランダムな回避力鎧",
         "refName": "Random Body Armour",
         "namespace": "ITEM",
         "class": 61,
@@ -34607,7 +34607,7 @@
         ]
     },
     "2487": {
-        "name": "ランダムな鎧",
+        "name": "ランダムなエナジーシールド鎧",
         "refName": "Random Body Armour",
         "namespace": "ITEM",
         "class": 61,
@@ -34620,7 +34620,7 @@
         ]
     },
     "2488": {
-        "name": "ランダムな鎧",
+        "name": "ランダムなアーマー・回避力鎧",
         "refName": "Random Body Armour",
         "namespace": "ITEM",
         "class": 61,
@@ -34633,7 +34633,7 @@
         ]
     },
     "2489": {
-        "name": "ランダムな鎧",
+        "name": "ランダムなアーマー・エナジーシールド鎧",
         "refName": "Random Body Armour",
         "namespace": "ITEM",
         "class": 61,
@@ -34646,7 +34646,7 @@
         ]
     },
     "2490": {
-        "name": "ランダムな鎧",
+        "name": "ランダムな回避力・エナジーシールド鎧",
         "refName": "Random Body Armour",
         "namespace": "ITEM",
         "class": 61,
@@ -34659,7 +34659,7 @@
         ]
     },
     "2491": {
-        "name": "ランダムな兜",
+        "name": "ランダムなアーマー兜",
         "refName": "Random Helmet",
         "namespace": "ITEM",
         "class": 61,
@@ -34672,7 +34672,7 @@
         ]
     },
     "2492": {
-        "name": "ランダムな兜",
+        "name": "ランダムな回避力兜",
         "refName": "Random Helmet",
         "namespace": "ITEM",
         "class": 61,
@@ -34685,7 +34685,7 @@
         ]
     },
     "2493": {
-        "name": "ランダムな兜",
+        "name": "ランダムなエナジーシールド兜",
         "refName": "Random Helmet",
         "namespace": "ITEM",
         "class": 61,
@@ -34698,7 +34698,7 @@
         ]
     },
     "2494": {
-        "name": "ランダムな兜",
+        "name": "ランダムなアーマー・回避力兜",
         "refName": "Random Helmet",
         "namespace": "ITEM",
         "class": 61,
@@ -34711,7 +34711,7 @@
         ]
     },
     "2495": {
-        "name": "ランダムな兜",
+        "name": "ランダムなアーマー・エナジーシールド兜",
         "refName": "Random Helmet",
         "namespace": "ITEM",
         "class": 61,
@@ -34724,7 +34724,7 @@
         ]
     },
     "2496": {
-        "name": "ランダムな兜",
+        "name": "ランダムな回避力・エナジーシールド兜",
         "refName": "Random Helmet",
         "namespace": "ITEM",
         "class": 61,
@@ -34737,7 +34737,7 @@
         ]
     },
     "2497": {
-        "name": "ランダムな手袋",
+        "name": "ランダムなアーマー手袋",
         "refName": "Random Gloves",
         "namespace": "ITEM",
         "class": 61,
@@ -34750,7 +34750,7 @@
         ]
     },
     "2498": {
-        "name": "ランダムな手袋",
+        "name": "ランダムな回避力手袋",
         "refName": "Random Gloves",
         "namespace": "ITEM",
         "class": 61,
@@ -34763,7 +34763,7 @@
         ]
     },
     "2499": {
-        "name": "ランダムな手袋",
+        "name": "ランダムなエナジーシールド手袋",
         "refName": "Random Gloves",
         "namespace": "ITEM",
         "class": 61,
@@ -34776,7 +34776,7 @@
         ]
     },
     "2500": {
-        "name": "ランダムな手袋",
+        "name": "ランダムなアーマー・回避力手袋",
         "refName": "Random Gloves",
         "namespace": "ITEM",
         "class": 61,
@@ -34789,7 +34789,7 @@
         ]
     },
     "2501": {
-        "name": "ランダムな手袋",
+        "name": "ランダムなアーマー・エナジーシールド手袋",
         "refName": "Random Gloves",
         "namespace": "ITEM",
         "class": 61,
@@ -34802,7 +34802,7 @@
         ]
     },
     "2502": {
-        "name": "ランダムな手袋",
+        "name": "ランダムな回避力・エナジーシールド手袋",
         "refName": "Random Gloves",
         "namespace": "ITEM",
         "class": 61,
@@ -34815,7 +34815,7 @@
         ]
     },
     "2503": {
-        "name": "ランダムな靴",
+        "name": "ランダムなアーマー靴",
         "refName": "Random Boots",
         "namespace": "ITEM",
         "class": 61,
@@ -34828,7 +34828,7 @@
         ]
     },
     "2504": {
-        "name": "ランダムな靴",
+        "name": "ランダムな回避力靴",
         "refName": "Random Boots",
         "namespace": "ITEM",
         "class": 61,
@@ -34841,7 +34841,7 @@
         ]
     },
     "2505": {
-        "name": "ランダムな靴",
+        "name": "ランダムなエナジーシールド靴",
         "refName": "Random Boots",
         "namespace": "ITEM",
         "class": 61,
@@ -34854,7 +34854,7 @@
         ]
     },
     "2506": {
-        "name": "ランダムな靴",
+        "name": "ランダムなアーマー・回避力靴",
         "refName": "Random Boots",
         "namespace": "ITEM",
         "class": 61,
@@ -34867,7 +34867,7 @@
         ]
     },
     "2507": {
-        "name": "ランダムな靴",
+        "name": "ランダムなアーマー・エナジーシールド靴",
         "refName": "Random Boots",
         "namespace": "ITEM",
         "class": 61,
@@ -34880,7 +34880,7 @@
         ]
     },
     "2508": {
-        "name": "ランダムな靴",
+        "name": "ランダムな回避力・エナジーシールド靴",
         "refName": "Random Boots",
         "namespace": "ITEM",
         "class": 61,
@@ -34893,7 +34893,7 @@
         ]
     },
     "2509": {
-        "name": "ランダムなシールド",
+        "name": "ランダムなアーマーシールド",
         "refName": "Random Shield",
         "namespace": "ITEM",
         "class": 61,
@@ -34906,7 +34906,7 @@
         ]
     },
     "2510": {
-        "name": "ランダムなシールド",
+        "name": "ランダムなアーマー・回避力シールド",
         "refName": "Random Shield",
         "namespace": "ITEM",
         "class": 61,
@@ -34919,7 +34919,7 @@
         ]
     },
     "2511": {
-        "name": "ランダムなシールド",
+        "name": "ランダムなアーマー・エナジーシールドシールド",
         "refName": "Random Shield",
         "namespace": "ITEM",
         "class": 61,
@@ -54298,7 +54298,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvT21lbk9uQ2hhb3NNYXBJdGVtUmFyaXR5Iiwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/e7d9f8657d/OmenOnChaosMapItemRarity.png"
     },
     "3614": {
-        "name": "カオスのモンスターのお告げ",
+        "name": "カオスの数量のお告げ",
         "refName": "Omen of Chaotic Quantity",
         "namespace": "ITEM",
         "class": 106,
@@ -54313,7 +54313,7 @@
         "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvT21lbnMvT21lbk9uQ2hhb3NNYXBQYWNrU2l6ZSIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/9ea6c86009/OmenOnChaosMapPackSize.png"
     },
     "3615": {
-        "name": "カオスの数量のお告げ",
+        "name": "カオスのモンスターのお告げ",
         "refName": "Omen of Chaotic Monsters",
         "namespace": "ITEM",
         "class": 106,
