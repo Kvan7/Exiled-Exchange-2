@@ -133,15 +133,6 @@ __pycache__
 
 __pycache__
 
-vendor/json-api/*.json
-vendor/json-api/en/*.json
-vendor/json-api/ru/*.json
-vendor/json-api/ko/*.json
-vendor/json-api/cmn-Hant/*.json
-vendor/json-api/ja/*.json
-vendor/json-api/de/*.json
-vendor/json-api/es/*.json
-vendor/client/tables/*.json
 vendor/client/descriptions/*
 !vendor/client/descriptions/.gitkeep
 
@@ -176,6 +167,7 @@ vendor/client/tables/*
 !vendor/json-api/ja/.gitkeep
 !vendor/json-api/de/.gitkeep
 !vendor/json-api/es/.gitkeep
+!vendor/json-api/pt/.gitkeep
 
 
 EXPORT/tables/**/*.json
@@ -190,6 +182,7 @@ vendor/json-api/ja/*.json
 vendor/json-api/de/*.json
 vendor/json-api/de/*.json
 vendor/json-api/es/*.json
+vendor/json-api/pt/*.json
 
 EXPORT/files/**/*.csd
 
