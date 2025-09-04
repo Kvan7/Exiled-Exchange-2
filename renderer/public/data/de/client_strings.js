@@ -13,6 +13,7 @@ export default {
   RARITY: 'Seltenheit: ',
   ITEM_CLASS: 'Gegenstandsklasse: ',
   ITEM_LEVEL: 'Gegenstandsstufe: ',
+  EXCEPTIONAL_ITEM: /^Außergewöhnlich (.*)$/,
   CORPSE_LEVEL: 'Corpse Level: ',
   TALISMAN_TIER: 'Talisman-Level: ',
   GEM_LEVEL: 'Stufe: ',

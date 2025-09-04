@@ -124,6 +124,7 @@ export interface TranslationDict {
   RARITY: string;
   ITEM_CLASS: string;
   ITEM_LEVEL: string;
+  EXCEPTIONAL_ITEM: RegExp;
   CORPSE_LEVEL: string;
   TALISMAN_TIER: string;
   GEM_LEVEL: string;

@@ -13,6 +13,7 @@ export default {
   RARITY: '稀有度: ',
   ITEM_CLASS: '物品種類: ',
   ITEM_LEVEL: '物品等級: ',
+  EXCEPTIONAL_ITEM: /^卓越 (.+)$/,
   CORPSE_LEVEL: '屍體等級: ',
   TALISMAN_TIER: '魔符階級: ',
   GEM_LEVEL: '等級: ',

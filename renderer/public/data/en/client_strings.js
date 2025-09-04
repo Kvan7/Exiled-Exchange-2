@@ -25,6 +25,8 @@ export default {
   ITEM_CLASS: 'Item Class: ',
   // ItemDisplayStringItemLevel
   ITEM_LEVEL: 'Item Level: ',
+  // ExceptionalItem
+  EXCEPTIONAL_ITEM: /^Exceptional (.*)$/,
   // CorpseSuffix + Level
   CORPSE_LEVEL: 'Corpse Level: ',
   // ItemDisplayStringTalismanTier

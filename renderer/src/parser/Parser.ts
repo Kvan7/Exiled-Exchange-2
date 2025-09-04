@@ -219,6 +219,19 @@ function normalizeName(item: ParserState) {
   }
 }
 
+// Some Normal Items may have "Exceptional" fake prefixes noted in data
+// exports as "ExceptionalItem" (seen in ClientStrings Id ExceptionalItem)
+// These are not actual prefixes for items, nor a tag, but are directly
+// added to the item name. We need to remove those to find the base item
+// correctly from the database. The trade search also does not discern between
+// these items and their non-Exceptional counterparts.
+function removeExceptionalItemFakePrefix(item: ParserState) {
+  if (item.rarity !== ItemRarity.Normal) return; // only Normal items can be Exceptional
+  if (!item.name.match(_$.EXCEPTIONAL_ITEM)) return; // not Exceptional item
+  // Example: "Exceptional Helix Spear" -> "Helix Spear"
+  item.name = item.name.replace(_$.EXCEPTIONAL_ITEM, "$1");
+}
+
 function findInDatabase(item: ParserState) {
   let info: BaseType[] | undefined;
   if (item.category === ItemCategory.DivinationCard) {
@@ -234,6 +247,7 @@ function findInDatabase(item: ParserState) {
   } else if (item.rarity === ItemRarity.Unique && !item.isUnidentified) {
     info = ITEM_BY_REF("UNIQUE", item.name);
   } else {
+    removeExceptionalItemFakePrefix(item); // modified item.name on normal exceptional items
     info = ITEM_BY_REF("ITEM", item.baseType ?? item.name);
   }
   if (!info?.length) {

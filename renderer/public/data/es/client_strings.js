@@ -13,6 +13,7 @@ export default {
   RARITY: 'Rareza: ',
   ITEM_CLASS: 'Clase de objeto: ',
   ITEM_LEVEL: 'Nivel de objeto: ',
+  EXCEPTIONAL_ITEM: /^Excepcional (.*)$/,
   CORPSE_LEVEL: 'Cadáver Nivel: ',
   TALISMAN_TIER: 'Grado de talismán: ',
   GEM_LEVEL: 'Nivel: ',

@@ -13,6 +13,7 @@ export default {
   RARITY: 'レアリティ: ',
   ITEM_CLASS: 'アイテムクラス: ',
   ITEM_LEVEL: 'アイテムレベル: ',
+  EXCEPTIONAL_ITEM: /^例外 (.*)$/,
   CORPSE_LEVEL: '死体レベル: ',
   TALISMAN_TIER: 'タリスマンティア: ',
   GEM_LEVEL: 'レベル: ',

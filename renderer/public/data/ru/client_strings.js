@@ -13,6 +13,7 @@ export default {
   RARITY: 'Редкость: ',
   ITEM_CLASS: 'Класс предмета: ',
   ITEM_LEVEL: 'Уровень предмета: ',
+  EXCEPTIONAL_ITEM: /^Образцовый предмет: (.*)$/,
   CORPSE_LEVEL: 'Уровень трупа: ',
   TALISMAN_TIER: 'Уровень талисмана: ',
   GEM_LEVEL: 'Уровень: ',
