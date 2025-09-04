@@ -182,6 +182,7 @@ export enum ItemIsElementalModifier {
 export enum FilterTag {
   Pseudo = "pseudo",
   Explicit = "explicit",
+  Desecrated = "desecrated",
   Implicit = "implicit",
   Crafted = "crafted",
   Enchant = "enchant",

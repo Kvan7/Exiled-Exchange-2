@@ -497,6 +497,10 @@ export default defineComponent({
 .tag-synthesised {
   @apply bg-blue-600 text-blue-100;
 }
+.tag-desecrated {
+  @apply -mx-1 text-desecrated;
+  text-shadow: 0 0 4px theme("colors.gray.900");
+}
 .tag-implicit,
 .tag-explicit {
   @apply -mx-1 text-gray-600;

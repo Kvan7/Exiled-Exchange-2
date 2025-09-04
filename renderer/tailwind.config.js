@@ -16,6 +16,7 @@ module.exports = {
       cold: "#5aadff",
       // cold: "#234465",
       lightning: "#ffff00",
+      desecrated: '#7EAC3A',
 
       gray: {
         100: "#f7fafc",
