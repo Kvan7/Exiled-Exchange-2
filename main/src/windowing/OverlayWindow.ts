@@ -1,5 +1,5 @@
 import path from "path";
-import { BrowserWindow, dialog, shell, Menu } from "electron";
+import { BrowserWindow, dialog, shell, Menu, screen } from "electron";
 import {
   OverlayController,
   OVERLAY_WINDOW_OPTS,
@@ -38,12 +38,27 @@ export class OverlayWindow {
       ...OVERLAY_WINDOW_OPTS,
       width: 800,
       height: 600,
+      useContentSize: true,
       webPreferences: {
         allowRunningInsecureContent: false,
         webviewTag: true,
         spellcheck: false,
       },
     });
+
+    // Place window on OS primary display (centered)
+    try {
+      const primary = screen.getPrimaryDisplay()?.workArea;
+      if (primary) {
+        const targetWidth = 800;
+        const targetHeight = 600;
+        const x = primary.x + Math.max(0, Math.floor((primary.width - targetWidth) / 2));
+        const y = primary.y + Math.max(0, Math.floor((primary.height - targetHeight) / 2));
+        this.window.setBounds({ x, y, width: targetWidth, height: targetHeight });
+      }
+    } catch {
+      // ignore if screen API not available yet
+    }
 
     this.window.setMenu(
       Menu.buildFromTemplate([
@@ -64,6 +79,24 @@ export class OverlayWindow {
     this.window.webContents.setWindowOpenHandler((details) => {
       shell.openExternal(details.url);
       return { action: "deny" };
+    });
+
+    // Keep window on-screen if displays change
+    screen.on("display-metrics-changed", () => {
+      if (!this.window) return;
+      const primary = screen.getPrimaryDisplay()?.workArea;
+      if (!primary) return;
+      const bounds = this.window.getBounds();
+      const isOffPrimary =
+        bounds.x + bounds.width < primary.x ||
+        bounds.x > primary.x + primary.width ||
+        bounds.y + bounds.height < primary.y ||
+        bounds.y > primary.y + primary.height;
+      if (isOffPrimary) {
+        const newX = primary.x + Math.max(0, Math.floor((primary.width - bounds.width) / 2));
+        const newY = primary.y + Math.max(0, Math.floor((primary.height - bounds.height) / 2));
+        this.window.setBounds({ x: newX, y: newY, width: bounds.width, height: bounds.height });
+      }
     });
   }
 

@@ -20,6 +20,19 @@ if (!app.requestSingleInstanceLock()) {
   app.exit();
 }
 
+// Hint Electron to use Wayland on Linux/GNOME if available (ignored on X11)
+// Must be set before app is ready and window creation.
+try {
+  app.commandLine.appendSwitch("ozone-platform-hint", "wayland");
+  app.commandLine.appendSwitch("enable-features", "WaylandWindowDecorations");
+  // Environment hint used by some Electron builds
+  if (!process.env.ELECTRON_OZONE_PLATFORM_HINT) {
+    process.env.ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+  }
+} catch {
+  // no-op if not supported
+}
+
 if (process.platform !== "darwin") {
   app.disableHardwareAcceleration();
 }
