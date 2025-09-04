@@ -1082,6 +1082,12 @@ function tradeIdToQuery(
   // NOTE: if there will be too many overrides in the future,
   //       consider moving them to stats.ndjson
 
+  if (id === "explicit.stat_2106365538") { // "#% increased Evasion Rating"
+    // As of 5th Sept 2025 this stat is bugged on POE Trade and uses a different ID
+    // See https://www.pathofexile.com/trade2/search/poe2/Rise%20of%20the%20Abyssal/7JRoKalu5
+    id = "explicit.stat_124859000";
+  }
+
   const roll = stat.roll;
   let tradeId = id;
   if (stat.option != null) {
