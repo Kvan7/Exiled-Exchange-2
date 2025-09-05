@@ -174,7 +174,9 @@ export default defineComponent({
       () => props.item,
       (item, prevItem) => {
         const prevCurrency =
-          presets.value != null ? itemFilters.value.trade.currency : undefined;
+          presets.value != null && itemFilters.value != null ? itemFilters.value.trade.currency : undefined;
+        const prevListingType =
+          presets.value != null && itemFilters.value != null ? itemFilters.value.trade.listingType : undefined;
 
         presets.value = createPresets(item, {
           league: leagues.selectedId.value!,
@@ -186,11 +188,15 @@ export default defineComponent({
               AppConfig().realm === "pc-ggg") ||
             AppConfig().preferredTradeSite === "www",
           currency:
-            widget.value.rememberCurrency ||
+            widget.value.rememberCurrency &&
             (prevItem &&
               item.info.namespace === prevItem.info.namespace &&
               item.info.refName === prevItem.info.refName)
               ? prevCurrency
+              : undefined,
+          listingType:
+            widget.value.rememberListingType && prevItem
+              ? prevListingType
               : undefined,
           usePseudo:
             widget.value.usePseudo &&

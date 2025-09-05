@@ -71,6 +71,7 @@ describe("Create Filter for uncut gems", () => {
     const opts = {
       league: "Standard",
       currency: "exalt",
+      listingType: "available" as const,
       collapseListings: "app" as const,
       activateStockFilter: true,
       exact: true,
