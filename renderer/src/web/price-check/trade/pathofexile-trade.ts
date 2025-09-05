@@ -1086,6 +1086,18 @@ function tradeIdToQuery(
     tradeId += `|${stat.option.value}`;
   }
 
+  // Handle non-explicit stats that share the same id pattern as explicit stats
+  // e.g. "desecrated.stat_xxx" or "fractured.stat_xxx" -> "explicit.stat_xxx"
+  const nonExplicitModifiers: ModifierType[] = [ModifierType.Desecrated, ModifierType.Fractured];
+  const isNonExplicitModifier = nonExplicitModifiers.some(prefix => tradeId.startsWith(`${prefix}.`));
+  if (isNonExplicitModifier) {
+    // By searching explicit stats, we also get non-explicit stats included
+    // This would give better results for the majority of players by not hiding
+    // many trade listings when a non-explicit stat is rolled on an item.
+    // See https://github.com/Kvan7/Exiled-Exchange-2/pull/593#issuecomment-3254698924
+    tradeId = tradeId.replace(/^[^.]+(?=\.)/, ModifierType.Explicit); // replace anything before the first dot
+  }
+
   // NOTE: poe1 overrides, leaving until any for poe2 are added
   // fixes Corrupted Implicit "Bleeding cannot be inflicted on you"
   // if (id === "implicit.stat_1901158930") {
