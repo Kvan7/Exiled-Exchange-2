@@ -8,6 +8,7 @@ export const RUNE_LINE = " (rune)";
 export const ADDED_RUNE_LINE = " (added rune)";
 export const ENCHANT_LINE = " (enchant)";
 export const IMPLICIT_LINE = " (implicit)";
+export const DESECRATED_LINE = " (desecrated)";
 const CRAFTED_LINE = " (crafted)";
 const FRACTURED_LINE = " (fractured)";
 
@@ -159,9 +160,7 @@ export function parseModType(lines: string[]): {
     modType = ModifierType.Implicit;
     lines = removeLinesEnding(lines, IMPLICIT_LINE);
   } else if (lines.some((line) => line.endsWith(FRACTURED_LINE))) {
-    // HACK: Trade site doesn't have fractured modifier
-    modType = ModifierType.Explicit;
-    // modType = ModifierType.Fractured;
+    modType = ModifierType.Fractured;
     lines = removeLinesEnding(lines, FRACTURED_LINE);
   } else if (lines.some((line) => line.endsWith(CRAFTED_LINE))) {
     modType = ModifierType.Crafted;
@@ -172,6 +171,9 @@ export function parseModType(lines: string[]): {
   } else if (lines.some((line) => line.endsWith(ADDED_RUNE_LINE))) {
     modType = ModifierType.AddedRune;
     lines = removeLinesEnding(lines, ADDED_RUNE_LINE);
+  } else if (lines.some((line) => line.endsWith(DESECRATED_LINE))) {
+    modType = ModifierType.Desecrated;
+    lines = removeLinesEnding(lines, DESECRATED_LINE);
   } else {
     modType = ModifierType.Explicit;
   }

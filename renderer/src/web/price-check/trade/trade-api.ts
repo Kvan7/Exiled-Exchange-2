@@ -80,7 +80,7 @@ export function useTradeApi() {
                 _searchResult.result.slice(0, 10),
                 { accountName: AppConfig().accountName },
               ).then((results) => {
-                _fetchResults.push(...results);
+                _fetchResults.push(...results.filter((res) => !res.gone));
               })
             : Promise.resolve();
         const r2 =
@@ -91,7 +91,7 @@ export function useTradeApi() {
                 { accountName: AppConfig().accountName },
               ).then(async (results) => {
                 await r1.then(() => {
-                  _fetchResults.push(...results);
+                  _fetchResults.push(...results.filter((res) => !res.gone));
                 });
               })
             : Promise.resolve();
@@ -116,7 +116,7 @@ export function useTradeApi() {
             _searchResult.result.slice(fetched, fetched + 10),
             { accountName: AppConfig().accountName },
           ).then((results) => {
-            _fetchResults.push(...results);
+            _fetchResults.push(...results.filter((res) => !res.gone));
           });
           fetched += 10;
           await fetchMore();

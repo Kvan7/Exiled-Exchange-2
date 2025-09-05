@@ -65,6 +65,8 @@ export default {
   UNIDENTIFIED: 'Não Identificado',
   // QualityItem
   ITEM_SUPERIOR: /^(.*)$ Superior/,
+  // ExceptionalItem
+  ITEM_EXCEPTIONAL: /^(.*) Excepcional$/,
   // InfectedMap
   MAP_BLIGHTED: /^(.*)$ Infestado/,
   // UberInfectedMap
@@ -86,9 +88,9 @@ export default {
   // SynthesisedItem
   ITEM_SYNTHESISED: /^(.*)$ Sintetizado/,
   // ItemDisplayVeiledPrefix
-  VEILED_PREFIX: 'Prefixo Oculto',
+  VEILED_PREFIX: 'Prefixo Profanado',
   // ItemDisplayVeiledSuffix
-  VEILED_SUFFIX: 'Sufixo Oculto',
+  VEILED_SUFFIX: 'Sufixo Profanado',
   // ItemDisplayChargesNCharges
   FLASK_CHARGES: /^Atualmente tem \d+ Cargas$/,
   // MetamorphosisItemisedMapBoss

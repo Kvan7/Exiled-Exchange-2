@@ -181,7 +181,8 @@
     "tag_explicit_incursion": "기습",
     "tag_rune": "룬",
     "tag_added_rune": "룬",
-    "tag_sanctum": "Sanctum",
+    "tag_sanctum": "성역",
+    "tag_desecrated": "훼손된",
     "fill_rune_iron": "Fill Runes(Iron)",
     "grade": "등급 {0}",
     "hybrid_note": "ハイブリッドモッドであるためティアが誤っている可能性があります"

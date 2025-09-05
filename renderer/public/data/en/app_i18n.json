@@ -189,6 +189,7 @@
     "tag_rune": "Rune",
     "tag_added_rune": "Rune",
     "tag_sanctum": "Sanctum",
+    "tag_desecrated": "Desecrated",
     "fill_rune_iron": "Fill Runes(Iron)",
     "grade": "Grade {0}",
     "hybrid_note": "Tier may be incorrect due to the potential for a hybrid mod"

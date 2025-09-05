@@ -143,15 +143,3 @@ export function createPresets(
     presets: [pseudoPreset, baseItemPreset],
   };
 }
-
-export function itemHasPerfectPlusLevels(item: ParsedItem): boolean {
-  for (const mod of item.newMods) {
-    if (
-      mod.info.tier === 1 &&
-      mod.stats[0].stat.ref.startsWith("+# to Level of all ")
-    ) {
-      return true;
-    }
-  }
-  return false;
-}

@@ -180,7 +180,8 @@
     "tag_explicit_delve": "Exploração",
     "tag_explicit_veiled": "Velado",
     "tag_explicit_incursion": "Incursão",
-    "tag_rune": "Runa"
+    "tag_rune": "Runa",
+    "tag_desecrated": "Profanado"
   },
   "online_filter": {
     "offline_toggle": "Desconectado & Online",

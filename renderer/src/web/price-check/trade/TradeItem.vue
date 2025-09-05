@@ -74,6 +74,11 @@
         class="rounded px-1 text-gray-800 bg-gray-400 ml-1"
         >{{ t("You") }}</span
       >
+      <span
+        v-if="!showSeller && result.inDemand"
+        class="rounded px-1 bg-yellow-500 text-black ml-1"
+        >{{ t("in demand") }}</span
+      >
     </td>
     <td v-if="showSeller" class="px-2 whitespace-nowrap">
       <span
@@ -84,6 +89,11 @@
       <span v-else class="font-sans text-xs">{{
         showSeller === "ign" ? result.ign : result.accountName
       }}</span>
+      <span
+        v-if="result.inDemand"
+        class="rounded px-1 bg-yellow-500 text-black ml-1"
+        >{{ t("in demand") }}</span
+      >
     </td>
   </tr>
 </template>

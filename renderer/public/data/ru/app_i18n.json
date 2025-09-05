@@ -200,7 +200,8 @@
     "tag_explicit_incursion": "Вмешательство",
     "tag_rune": "Руна",
     "tag_added_rune": "Руна",
-    "tag_sanctum": "Sanctum",
+    "tag_sanctum": "Святилище",
+    "tag_desecrated": "Очернённый",
     "fill_rune_iron": "Fill Runes(Iron)",
     "grade": "Грейд {0}",
     "hybrid_note": "Tier may be incorrect due to the potential for a hybrid mod"

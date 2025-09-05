@@ -41,6 +41,7 @@ export default defineComponent({
 
         if (
           (filter.tag === FilterTag.Explicit ||
+            filter.tag === FilterTag.Desecrated ||
             filter.tag === FilterTag.Pseudo ||
             filter.tag === FilterTag.Property) &&
           item.category !== ItemCategory.Jewel &&

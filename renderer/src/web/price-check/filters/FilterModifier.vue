@@ -494,7 +494,8 @@ export default defineComponent({
   @apply bg-yellow-400 text-black;
 }
 .tag-crafted,
-.tag-synthesised {
+.tag-synthesised,
+.tag-rune {
   @apply bg-blue-600 text-blue-100;
 }
 .tag-implicit,
@@ -511,9 +512,7 @@ export default defineComponent({
 .tag-pseudo {
   @apply bg-gray-700 text-black;
 }
-.tag-rune {
-  @apply bg-blue-600 text-blue-100;
-}
+
 .tag-added-rune {
   @apply text-blue-100 relative overflow-hidden;
 
@@ -527,6 +526,9 @@ export default defineComponent({
 }
 .tag-sanctum {
   @apply border;
+}
+.tag-desecrated {
+  @apply bg-green-900 text-green-100;
 }
 </style>
 

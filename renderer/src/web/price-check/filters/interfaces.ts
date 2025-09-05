@@ -203,4 +203,5 @@ export enum FilterTag {
   Incursion = "explicit-incursion",
   Rune = "rune",
   AddedRune = "added-rune",
+  Desecrated = "desecrated",
 }

@@ -21,7 +21,6 @@ import { applyRules as applyMirroredTabletRules } from "./pseudo/reflection-rule
 import { filterItemProp, filterBasePercentile } from "./pseudo/item-property";
 import { decodeOils, applyAnointmentRules } from "./pseudo/anointments";
 import { StatBetter, CLIENT_STRINGS, STAT_BY_REF } from "@/assets/data";
-import { itemHasPerfectPlusLevels } from "./create-presets";
 
 export interface FiltersCreationContext {
   readonly item: ParsedItem;
@@ -199,7 +198,7 @@ export function createExactStatFilters(
   }
 
   const hasEmptyModifier = showHasEmptyModifier(ctx);
-  if (hasEmptyModifier !== false && itemHasPerfectPlusLevels(ctx.item)) {
+  if (hasEmptyModifier !== false) {
     ctx.filters.push({
       tradeId: ["item.has_empty_modifier"],
       text: "1 Empty or Crafted Modifier",
@@ -619,7 +618,7 @@ function finalFilterTweaks(ctx: FiltersCreationContext) {
   }
 
   const hasEmptyModifier = showHasEmptyModifier(ctx);
-  if (hasEmptyModifier !== false && itemHasPerfectPlusLevels(ctx.item)) {
+  if (hasEmptyModifier !== false) {
     ctx.filters.push({
       tradeId: ["item.has_empty_modifier"],
       text: "1 Empty or Crafted Modifier",

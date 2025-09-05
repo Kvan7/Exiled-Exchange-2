@@ -184,7 +184,8 @@
     "tag_explicit_incursion": "穿越",
     "tag_rune": "符文",
     "tag_added_rune": "符文",
-    "tag_sanctum": "Sanctum",
+    "tag_sanctum": "聖域聯盟",
+    "tag_desecrated": "褻瀆",
     "fill_rune_iron": "Fill Runes(Iron)",
     "grade": "等級 {0}",
     "hybrid_note": "階級可能因複合詞綴的存在而顯示不正確"

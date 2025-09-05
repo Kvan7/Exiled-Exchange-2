@@ -1,6 +1,6 @@
 {
   "name": "exiled-exchange-2",
-  "version": "0.11.3",
+  "version": "0.11.5",
   "private": true,
   "scripts": {
     "dev": "node build/script.mjs",
