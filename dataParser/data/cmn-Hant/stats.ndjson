@@ -28,6 +28,27 @@
 {"ref": "+#% total to Cold Resistance", "better": 1, "matchers": [{"string": "+#% 冰冷抗性 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_cold_resistance"]}}}
 {"ref": "+#% total to Fire Resistance", "better": 1, "matchers": [{"string": "+#% 火焰抗性 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_fire_resistance"]}}}
 {"ref": "+#% total to Lightning Resistance", "better": 1, "matchers": [{"string": "+#% 閃電抗性 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_lightning_resistance"]}}}
+{"ref": "# Life Regenerated per Second", "better": 1, "matchers": [{"string": "# 每秒生命回復 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_life_regen"]}}}
+{"ref": "#% increased Cold Spell Damage", "better": 1, "matchers": [{"string": "增加 #% 冰冷法術傷害 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_increased_cold_spell_damage"]}}}
+{"ref": "#% increased Fire Spell Damage", "better": 1, "matchers": [{"string": "增加 #% 火焰法術傷害 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_increased_fire_spell_damage"]}}}
+{"ref": "#% increased Lightning Spell Damage", "better": 1, "matchers": [{"string": "增加 #% 閃電法術傷害 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_increased_lightning_spell_damage"]}}}
+{"ref": "#% total increased Physical Damage", "better": 1, "matchers": [{"string": "增加 #% 物裡傷害 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_increased_physical_damage"]}}}
+{"ref": "+# total maximum Energy Shield", "better": 1, "matchers": [{"string": "+# 最大能量護盾 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_energy_shield"]}}}
+{"ref": "+# total maximum Life", "better": 1, "matchers": [{"string": "+# 最大生命 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_life"]}}}
+{"ref": "+# total maximum Mana", "better": 1, "matchers": [{"string": "+# 最大魔力 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_mana"]}}}
+{"ref": "+# total to all Attributes", "better": 1, "matchers": [{"string": "+# 全能力 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_all_attributes"]}}}
+{"ref": "+# total to Dexterity", "better": 1, "matchers": [{"string": "+# 敏捷 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_dexterity"]}}}
+{"ref": "+# total to Intelligence", "better": 1, "matchers": [{"string": "+# 智慧 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_intelligence"]}}}
+{"ref": "+# total to Strength", "better": 1, "matchers": [{"string": "+# 力量 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_strength"]}}}
+{"ref": "+#% Global Critical Strike Chance", "better": 1, "matchers": [{"string": "+#% 全域暴擊機率 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_global_critical_strike_chance"]}}}
+{"ref": "+#% Global Critical Strike Multiplier", "better": 1, "matchers": [{"string": "+#% 全域暴擊加成 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_global_critical_strike_multiplier"]}}}
+{"ref": "+#% total Attack Speed", "better": 1, "matchers": [{"string": "+#% 攻擊速度 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_attack_speed"]}}}
+{"ref": "+#% total Cast Speed", "better": 1, "matchers": [{"string": "+#% 施放速度 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_cast_speed"]}}}
+{"ref": "+#% total Elemental Resistance", "better": 1, "matchers": [{"string": "+#% 元素抗性 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_elemental_resistance"]}}}
+{"ref": "+#% total to Chaos Resistance", "better": 1, "matchers": [{"string": "+#% 總混沌抗性 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_chaos_resistance"]}}}
+{"ref": "+#% total to Cold Resistance", "better": 1, "matchers": [{"string": "+#% 冰冷抗性 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_cold_resistance"]}}}
+{"ref": "+#% total to Fire Resistance", "better": 1, "matchers": [{"string": "+#% 火焰抗性 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_fire_resistance"]}}}
+{"ref": "+#% total to Lightning Resistance", "better": 1, "matchers": [{"string": "+#% 閃電抗性 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_lightning_resistance"]}}}
 {"ref": "+# to Strength", "better": 1, "id": "additional_strength", "matchers": [{"string": "# 力量", "negate": false}], "trade": {"ids": {"explicit": ["explicit.stat_4080418644"], "implicit": ["implicit.stat_4080418644"], "enchant": ["enchant.stat_4080418644"], "rune": ["rune.stat_4080418644"]}}}
 {"ref": "+# to Dexterity", "better": 1, "id": "additional_dexterity", "matchers": [{"string": "# 敏捷", "negate": false}], "trade": {"ids": {"explicit": ["explicit.stat_3261801346"], "implicit": ["implicit.stat_3261801346"], "enchant": ["enchant.stat_3261801346"], "rune": ["rune.stat_3261801346"]}}}
 {"ref": "+# to Intelligence", "better": 1, "id": "additional_intelligence", "matchers": [{"string": "# 智慧", "negate": false}], "trade": {"ids": {"explicit": ["explicit.stat_328541901"], "implicit": ["implicit.stat_328541901"], "enchant": ["enchant.stat_328541901"], "rune": ["rune.stat_328541901"]}}}

@@ -27,6 +27,27 @@
 {"ref": "+#% total to Cold Resistance", "better": 1, "matchers": [{"string": "냉기 저항 총 +#% "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_cold_resistance"]}}}
 {"ref": "+#% total to Fire Resistance", "better": 1, "matchers": [{"string": "화염 저항 총 +#% "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_fire_resistance"]}}}
 {"ref": "+#% total to Lightning Resistance", "better": 1, "matchers": [{"string": "번개 저항 총 +#% "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_lightning_resistance"]}}}
+{"ref": "# Life Regenerated per Second", "better": 1, "matchers": [{"string": "초당 생명력 재생 #% "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_life_regen"]}}}
+{"ref": "#% increased Cold Spell Damage", "better": 1, "matchers": [{"string": "냉기 주문 피해 #% 증가 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_increased_cold_spell_damage"]}}}
+{"ref": "#% increased Fire Spell Damage", "better": 1, "matchers": [{"string": "화염 주문 피해 #% 증가 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_increased_fire_spell_damage"]}}}
+{"ref": "#% increased Lightning Spell Damage", "better": 1, "matchers": [{"string": "번개 주문 피해 #% 증가 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_increased_lightning_spell_damage"]}}}
+{"ref": "#% total increased Physical Damage", "better": 1, "matchers": [{"string": "물리 피해 총 #% 증가 "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_increased_physical_damage"]}}}
+{"ref": "+# total maximum Energy Shield", "better": 1, "matchers": [{"string": "에너지 보호막 최대치 총 +# "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_energy_shield"]}}}
+{"ref": "+# total maximum Life", "better": 1, "matchers": [{"string": "총 최대 생명력 +# "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_life"]}}}
+{"ref": "+# total maximum Mana", "better": 1, "matchers": [{"string": "총 최대 마나 +# "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_mana"]}}}
+{"ref": "+# total to all Attributes", "better": 1, "matchers": [{"string": "모든 능력치 총 +# "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_all_attributes"]}}}
+{"ref": "+# total to Dexterity", "better": 1, "matchers": [{"string": "민첩 총 +# "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_dexterity"]}}}
+{"ref": "+# total to Intelligence", "better": 1, "matchers": [{"string": "지능 총 +# "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_intelligence"]}}}
+{"ref": "+# total to Strength", "better": 1, "matchers": [{"string": "힘 총 +# "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_strength"]}}}
+{"ref": "+#% Global Critical Strike Chance", "better": 1, "matchers": [{"string": "일반 치명타 확률 +#% "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_global_critical_strike_chance"]}}}
+{"ref": "+#% Global Critical Strike Multiplier", "better": 1, "matchers": [{"string": "일반 치명타 피해 배율 +#% "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_global_critical_strike_multiplier"]}}}
+{"ref": "+#% total Attack Speed", "better": 1, "matchers": [{"string": "총 공격 속도 +#% "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_attack_speed"]}}}
+{"ref": "+#% total Cast Speed", "better": 1, "matchers": [{"string": "총 시전 속도 +#% "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_cast_speed"]}}}
+{"ref": "+#% total Elemental Resistance", "better": 1, "matchers": [{"string": "원소 저항력 총 +#% "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_elemental_resistance"]}}}
+{"ref": "+#% total to Chaos Resistance", "better": 1, "matchers": [{"string": "카오스 저항 총 +#% "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_chaos_resistance"]}}}
+{"ref": "+#% total to Cold Resistance", "better": 1, "matchers": [{"string": "냉기 저항 총 +#% "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_cold_resistance"]}}}
+{"ref": "+#% total to Fire Resistance", "better": 1, "matchers": [{"string": "화염 저항 총 +#% "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_fire_resistance"]}}}
+{"ref": "+#% total to Lightning Resistance", "better": 1, "matchers": [{"string": "번개 저항 총 +#% "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_lightning_resistance"]}}}
 {"ref": "+# to Strength", "better": 1, "id": "additional_strength", "matchers": [{"string": "힘 #", "negate": false}], "trade": {"ids": {"explicit": ["explicit.stat_4080418644"], "implicit": ["implicit.stat_4080418644"], "enchant": ["enchant.stat_4080418644"], "rune": ["rune.stat_4080418644"]}}}
 {"ref": "+# to Dexterity", "better": 1, "id": "additional_dexterity", "matchers": [{"string": "민첩 #", "negate": false}], "trade": {"ids": {"explicit": ["explicit.stat_3261801346"], "implicit": ["implicit.stat_3261801346"], "enchant": ["enchant.stat_3261801346"], "rune": ["rune.stat_3261801346"]}}}
 {"ref": "+# to Intelligence", "better": 1, "id": "additional_intelligence", "matchers": [{"string": "지능 #", "negate": false}], "trade": {"ids": {"explicit": ["explicit.stat_328541901"], "implicit": ["implicit.stat_328541901"], "enchant": ["enchant.stat_328541901"], "rune": ["rune.stat_328541901"]}}}

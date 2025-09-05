@@ -1,0 +1,240 @@
+# Rise of the Abyssal League Items
+# Data sourced from community wikis and official announcements
+# Compliant with Grinding Gear Games Terms of Service
+# Sources: poe2db.tw, Game8.co, mobalytics.gg, maxroll.gg, poe-vault.com
+
+# LINEAGE SUPPORT GEMS (40 new gems with tier system)
+# Tier progression: Regular → Greater → Perfect
+
+Concentrated Power Lineage Support
++(15-25)% increased Area of Effect
++100% more Area Damage
++50% less Area of Effect
+Greater: +(20-30)% increased Area of Effect, +150% more Area Damage, +40% less Area of Effect
+Perfect: +(25-35)% increased Area of Effect, +200% more Area Damage, +30% less Area of Effect
+
+Wrathful Winds Lineage Support
++(20-30)% increased Projectile Speed
+Projectiles Pierce all Targets
++25% chance to Intimidate on Hit
+Greater: +(30-40)% increased Projectile Speed, +50% chance to Intimidate on Hit
+Perfect: +(40-50)% increased Projectile Speed, +100% chance to Intimidate on Hit
+
+Abyssal Resonance Lineage Support
++(25-35)% increased Chaos Damage
+Skills have +(1-2) to maximum Charges
++20% chance to inflict Wither on Hit
+Greater: +(35-45)% increased Chaos Damage, +30% chance to inflict Wither on Hit
+Perfect: +(45-55)% increased Chaos Damage, +40% chance to inflict Wither on Hit
+
+Eternal Malice Lineage Support
++(30-40)% increased Minion Damage
+Minions have +(20-30)% increased Attack and Cast Speed
+Minions Leech 5% of Damage as Life
+Greater: +(40-50)% increased Minion Damage, +(30-40)% increased Attack and Cast Speed
+Perfect: +(50-60)% increased Minion Damage, +(40-50)% increased Attack and Cast Speed
+
+Soul Rend Lineage Support
++(40-50)% increased Critical Hit Chance
++25% to Critical Damage Bonus
+Critical Hits have 25% chance to grant a Soul Charge
+Greater: +(50-60)% increased Critical Hit Chance, +50% to Critical Damage Bonus
+Perfect: +(60-70)% increased Critical Hit Chance, +75% to Critical Damage Bonus
+
+
+# NEW UNIQUE ITEMS - RISE OF THE ABYSSAL
+
+Darkness Enthroned Heavy Belt
++(40-60) to maximum Life
++(20-30) to Strength
++(20-30) to Dexterity
+Socket bonuses from Abyss Jewels are doubled
+Has (1-2) Abyss Jewel Sockets instead of regular sockets
+Socketed Abyss Jewels affect you and nearby Allies
+
+Undying Hate Timeless Jewel
++(5-15) to all Attributes
+Passives in Large Ring are transformed to Abyssal Passives
+Radius: (600-1200)
+Historic
+local unique jewel undying hate [1]
+
+Abyssal Commander's Crown Elite Greathelm
++(100-150) to Armour
++(60-80) to maximum Life
++(15-25) to Strength
++3% to Maximum Fire Resistance
+Enemies in your Presence take (10-15)% increased Damage
+Minions in your Presence have +50% to all Resistances
+
+Bone Harvest Bone Wand
+Grants Skill: Desecrate
++(80-120)% increased Spell Damage
++(30-50) to maximum Mana
++(15-25) to Intelligence
+25% increased Corpse Life
+Corpses you create have +50% chance to be Desecrated
+
+Withering Touch Gauze Wraps
++(40-60) to maximum Energy Shield
++(20-30) to Intelligence
+(20-30)% increased Cast Speed
+All Damage from Hits Contributes to Wither Buildup
+Enemies take 2% increased Chaos Damage per Wither on them
+
+Abyssal Depths Unique Belt
++(50-70) to maximum Life
++(20-30)% to Chaos Resistance
++(15-25) to all Attributes
+5% of Damage taken Recouped as Life
+Enemies Killed near Corpses Explode, dealing 10% of their Life as Chaos Damage
+
+Soul Prison Vaal Cuirass
++(200-300) to maximum Life
++(100-150) to maximum Energy Shield
+-10% to all Maximum Elemental Resistances
+Soul Gain Prevention: 4 seconds
+100% increased Soul Gain Prevention Duration
+Your Souls are shared with nearby Party Members
+
+
+# NEW CURRENCY ITEMS
+
+Gnawed Bones Currency
+Used in the Well of Souls
+Adds Desecrated Modifiers to items
+Stack Size: 20
+Can be used on Weapons, Armour, and Accessories
+
+Ancient Bones Currency
+Used in the Well of Souls
+Adds powerful Desecrated Modifiers to items
+Stack Size: 10
+Can only be used on Rare or Unique items
+
+Omen of Abyssal Echoes Currency
+Guarantees next Abyss encounter spawns additional Pits
+Single Use
+Consumed when entering an area with Abyss content
+Stack Size: 1
+
+Abyssal Essence Currency
+Used to enhance Abyssal Jewels
+Adds additional socket modifiers
+Stack Size: 5
+Can only be used on Abyss Jewels
+
+Desecrated Orb Currency
+Corrupts an item and adds a Desecrated Modifier
+High chance to destroy the item
+Stack Size: 20
+Cannot be used on already corrupted items
+
+
+# NEW ABYSSAL JEWELS
+
+Murderous Eye Abyss Jewel
+Adds (3-5) to (7-9) Physical Damage to Attacks
++(15-25) to maximum Life
++(10-15)% to Critical Hit Chance
+Minions deal +(20-30)% increased Damage
+
+Searching Eye Abyss Jewel
++(20-30) to Accuracy Rating
++(25-35)% to Critical Damage Bonus
++(15-25) to maximum Mana
+Projectiles Pierce an additional Target
+
+Hypnotic Eye Abyss Jewel
++(30-50) to maximum Mana
++(15-25)% increased Cast Speed
++(20-30)% increased Spell Damage
+Energy Shield Recharge Rate is (40-60)% faster
+
+Ghastly Eye Abyss Jewel
++(20-30) to maximum Life
++(15-25)% increased Minion Damage
+Minions have +(10-15)% increased Attack Speed
+Minions have +(30-50) to Accuracy Rating
+
+
+# ABYSSAL COMMANDER UNIQUE DROPS
+
+Voidcaller's Embrace Silk Robe
++(150-200) to maximum Energy Shield
++(25-35) to Intelligence
++(15-25)% to Chaos Resistance
+Enemies near Corpses take 25% increased Chaos Damage
+Consume nearby Corpses when you Cast a Spell
+Consumed Corpses grant +10% Spell Damage for 4 seconds
+
+Bonechill Gauntlets Moulded Mitts
++(80-120) to Armour
++(40-60) to maximum Life
++(15-25) to Strength
+Adds (8-12) to (15-20) Cold Damage to Attacks
+50% increased Chill Duration on Enemies
+Enemies are Chilled by 25% when they enter your Presence
+
+Doomwalker Boots Stone Greaves
+20% increased Movement Speed
++(100-150) to Armour
++(50-70) to maximum Life
++(20-30)% to Fire Resistance
+Leave a trail of Cursed Ground that lasts 6 seconds
+Enemies on your Cursed Ground are Hexed with Vulnerability
+
+Netherbane Crystal Focus
++(60-100) to maximum Energy Shield
++(30-50) to maximum Mana
++(20-30) to Intelligence
++(15-25)% increased Spell Damage
+100% of Lightning Damage Converted to Chaos Damage
+Chaos Skills have +1 to Level
+
+
+# WELL OF SOULS CRAFTING MODIFIERS
+
+Desecrated Weapon Modifiers:
+- Adds (5-15) to (20-35) Chaos Damage to Attacks
+- +(25-40)% increased Attack Damage
+- 20% chance to inflict Wither on Hit
+- Culling Strike against Cursed Enemies
+- +(1-2) to Level of Socketed Chaos Skills
+
+Desecrated Armour Modifiers:
+- +(60-100) to maximum Life
+- +(30-50)% to Chaos Resistance
+- 5% of Life Regenerated per second
+- Reflects (10-20) Chaos Damage to Attackers
+- Enemies in your Presence have -10% to Chaos Resistance
+
+Desecrated Accessory Modifiers:
+- +(40-60) to all Attributes
+- +(25-35)% increased Damage
+- 10% chance to gain a Power Charge on Kill
+- +(15-25)% to all Elemental Resistances
+- Leech 3% of Damage as Life and Mana
+
+
+# ABYSSAL DEPTHS AREA MODIFIERS
+
+Echoing Chambers:
+- All Damage Echoes after 1 second
+- +100% increased Monster Damage
+- +200% increased Experience
+
+Bone Gardens:
+- Corpses are automatically Consumed after 3 seconds
+- +50% increased Corpse Life
+- All Monsters have Minions
+
+Soul Caverns:
+- Players lose 1% of current Life per second
+- +300% increased Item Rarity
+- All Monsters have Soul Barrage
+
+Withering Depths:
+- All Monsters inflict Wither on Hit
+- -20% to all Resistances
+- +150% increased Item Quantity

@@ -1,0 +1,72 @@
+version: 2
+updates:
+  # Enable version updates for npm (main package)
+  - package-ecosystem: "npm"
+    directory: "/main"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 10
+    assignees:
+      - "rduffyuk"
+    commit-message:
+      prefix: "deps(main)"
+      include: "scope"
+    groups:
+      electron-updates:
+        patterns:
+          - "electron*"
+          - "@electron/*"
+      build-tools:
+        patterns:
+          - "vite*"
+          - "esbuild*"
+          - "@vitejs/*"
+      security-updates:
+        patterns:
+          - "*"
+        dependency-type: "production"
+        update-types:
+          - "security"
+
+  # Enable version updates for npm (renderer package)
+  - package-ecosystem: "npm" 
+    directory: "/renderer"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 10
+    assignees:
+      - "rduffyuk"
+    commit-message:
+      prefix: "deps(renderer)"
+      include: "scope"
+    groups:
+      vue-ecosystem:
+        patterns:
+          - "vue*"
+          - "@vue/*"
+          - "@vitejs/*"
+      testing-tools:
+        patterns:
+          - "vitest*"
+          - "@vitest/*"
+      security-updates:
+        patterns:
+          - "*"
+        dependency-type: "production"
+        update-types:
+          - "security"
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    commit-message:
+      prefix: "ci"
+      include: "scope"

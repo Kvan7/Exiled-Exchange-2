@@ -27,6 +27,27 @@
 {"ref": "+#% total to Cold Resistance", "better": 1, "matchers": [{"string": "+#% total to Cold Resistance "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_cold_resistance"]}}}
 {"ref": "+#% total to Fire Resistance", "better": 1, "matchers": [{"string": "+#% total to Fire Resistance "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_fire_resistance"]}}}
 {"ref": "+#% total to Lightning Resistance", "better": 1, "matchers": [{"string": "+#% total to Lightning Resistance "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_lightning_resistance"]}}}
+{"ref": "# Life Regenerated per Second", "better": 1, "matchers": [{"string": "# Life Regenerated per Second "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_life_regen"]}}}
+{"ref": "#% increased Cold Spell Damage", "better": 1, "matchers": [{"string": "#% increased Cold Spell Damage "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_increased_cold_spell_damage"]}}}
+{"ref": "#% increased Fire Spell Damage", "better": 1, "matchers": [{"string": "#% increased Fire Spell Damage "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_increased_fire_spell_damage"]}}}
+{"ref": "#% increased Lightning Spell Damage", "better": 1, "matchers": [{"string": "#% increased Lightning Spell Damage "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_increased_lightning_spell_damage"]}}}
+{"ref": "#% total increased Physical Damage", "better": 1, "matchers": [{"string": "#% total increased Physical Damage "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_increased_physical_damage"]}}}
+{"ref": "+# total maximum Energy Shield", "better": 1, "matchers": [{"string": "+# total maximum Energy Shield "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_energy_shield"]}}}
+{"ref": "+# total maximum Life", "better": 1, "matchers": [{"string": "+# total maximum Life "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_life"]}}}
+{"ref": "+# total maximum Mana", "better": 1, "matchers": [{"string": "+# total maximum Mana "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_mana"]}}}
+{"ref": "+# total to all Attributes", "better": 1, "matchers": [{"string": "+# total to all Attributes "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_all_attributes"]}}}
+{"ref": "+# total to Dexterity", "better": 1, "matchers": [{"string": "+# total to Dexterity "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_dexterity"]}}}
+{"ref": "+# total to Intelligence", "better": 1, "matchers": [{"string": "+# total to Intelligence "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_intelligence"]}}}
+{"ref": "+# total to Strength", "better": 1, "matchers": [{"string": "+# total to Strength "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_strength"]}}}
+{"ref": "+#% Global Critical Strike Chance", "better": 1, "matchers": [{"string": "+#% Global Critical Strike Chance "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_global_critical_strike_chance"]}}}
+{"ref": "+#% Global Critical Strike Multiplier", "better": 1, "matchers": [{"string": "+#% Global Critical Strike Multiplier "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_global_critical_strike_multiplier"]}}}
+{"ref": "+#% total Attack Speed", "better": 1, "matchers": [{"string": "+#% total Attack Speed "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_attack_speed"]}}}
+{"ref": "+#% total Cast Speed", "better": 1, "matchers": [{"string": "+#% total Cast Speed "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_cast_speed"]}}}
+{"ref": "+#% total Elemental Resistance", "better": 1, "matchers": [{"string": "+#% total Elemental Resistance "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_elemental_resistance"]}}}
+{"ref": "+#% total to Chaos Resistance", "better": 1, "matchers": [{"string": "+#% total to Chaos Resistance "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_chaos_resistance"]}}}
+{"ref": "+#% total to Cold Resistance", "better": 1, "matchers": [{"string": "+#% total to Cold Resistance "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_cold_resistance"]}}}
+{"ref": "+#% total to Fire Resistance", "better": 1, "matchers": [{"string": "+#% total to Fire Resistance "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_fire_resistance"]}}}
+{"ref": "+#% total to Lightning Resistance", "better": 1, "matchers": [{"string": "+#% total to Lightning Resistance "}], "trade": {"ids": {"pseudo": ["pseudo.pseudo_total_lightning_resistance"]}}}
 {"ref": "+# to Strength", "better": 1, "id": "additional_strength", "matchers": [{"string": "# to Strength", "negate": false}], "trade": {"ids": {"explicit": ["explicit.stat_4080418644"], "implicit": ["implicit.stat_4080418644"], "enchant": ["enchant.stat_4080418644"], "rune": ["rune.stat_4080418644"]}}}
 {"ref": "+# to Dexterity", "better": 1, "id": "additional_dexterity", "matchers": [{"string": "# to Dexterity", "negate": false}], "trade": {"ids": {"explicit": ["explicit.stat_3261801346"], "implicit": ["implicit.stat_3261801346"], "enchant": ["enchant.stat_3261801346"], "rune": ["rune.stat_3261801346"]}}}
 {"ref": "+# to Intelligence", "better": 1, "id": "additional_intelligence", "matchers": [{"string": "# to Intelligence", "negate": false}], "trade": {"ids": {"explicit": ["explicit.stat_328541901"], "implicit": ["implicit.stat_328541901"], "enchant": ["enchant.stat_328541901"], "rune": ["rune.stat_328541901"]}}}

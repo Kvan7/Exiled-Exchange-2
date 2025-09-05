@@ -11,7 +11,7 @@
           "y": 0
         },
         "whisper": "@WangPing Hi, I would like to buy your Apocalypse Hide Expert Waxed Jacket listed for 1 divine in Standard (stash tab \"> 1 DIV\"; position: left 11, top 1)",
-        "whisper_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MzYzY2JmYzdkZjE0ODc4NGM1OThkNjQxZjU5MWFiOCIsImlzcyI6ImJhV0dQTUtjTCIsImF1ZCI6ImNjMjVjMjI0LTllMTAtNDUwYy1hM2U1LWIyMTRjMmEwYjU5OSIsImRzdCI6IldhbmdQaW5nIiwibG9jIjoiZW5fVVMiLCJ0b2siOiJpdGVtIiwic3ViIjoiN2Y0MmU0YWJhZWEwYjg5MmJiYTdjNTdjZjM0YThlMmE1NjNlYTQ1YWU5YWIwNTZhM2IwOWE4MDU2NGI3NzRhZSIsImRhdCI6IjlmZDY0ODNlMWNmMzAxMTY5MGNjNWVlOTgwNjllNzNhIiwiaWF0IjoxNzM3MzAxMDIxLCJleHAiOjE3MzczMDEzMjF9.RKcjzEK2OjMa4i7DFFLNbZ02ZUGB3eOulxbTiqmDAgA",
+        "whisper_token": "REDACTED_WHISPER_TOKEN",
         "account": {
           "name": "Ptatot#6545",
           "online": {
@@ -62,19 +62,34 @@
           },
           {
             "name": "[Quality]",
-            "values": [["+20%", 1]],
+            "values": [
+              [
+                "+20%",
+                1
+              ]
+            ],
             "displayMode": 0,
             "type": 6
           },
           {
             "name": "[Evasion|Evasion Rating]",
-            "values": [["965", 1]],
+            "values": [
+              [
+                "965",
+                1
+              ]
+            ],
             "displayMode": 0,
             "type": 17
           },
           {
             "name": "[EnergyShield|Energy Shield]",
-            "values": [["381", 1]],
+            "values": [
+              [
+                "381",
+                1
+              ]
+            ],
             "displayMode": 0,
             "type": 18
           }
@@ -82,19 +97,34 @@
         "requirements": [
           {
             "name": "Level",
-            "values": [["65", 0]],
+            "values": [
+              [
+                "65",
+                0
+              ]
+            ],
             "displayMode": 0,
             "type": 62
           },
           {
             "name": "[Dexterity|Dex]",
-            "values": [["86", 0]],
+            "values": [
+              [
+                "86",
+                0
+              ]
+            ],
             "displayMode": 1,
             "type": 64
           },
           {
             "name": "[Intelligence|Int]",
-            "values": [["86", 0]],
+            "values": [
+              [
+                "86",
+                0
+              ]
+            ],
             "displayMode": 1,
             "type": 65
           }
@@ -131,7 +161,12 @@
             "properties": [
               {
                 "name": "Stack Size",
-                "values": [["1/10", 0]],
+                "values": [
+                  [
+                    "1/10",
+                    0
+                  ]
+                ],
                 "displayMode": 0,
                 "type": 32
               }
@@ -162,7 +197,12 @@
             "properties": [
               {
                 "name": "Stack Size",
-                "values": [["1/10", 0]],
+                "values": [
+                  [
+                    "1/10",
+                    0
+                  ]
+                ],
                 "displayMode": 0,
                 "type": 32
               }
@@ -267,15 +307,56 @@
           },
           "hashes": {
             "explicit": [
-              ["explicit.stat_53045048", [5]],
-              ["explicit.stat_4052037485", [5]],
-              ["explicit.stat_1999113824", [3, 4]],
-              ["explicit.stat_3299347043", [4]],
-              ["explicit.stat_1671376347", [0]],
-              ["explicit.stat_2923486259", [2]],
-              ["explicit.stat_915769802", [1]]
+              [
+                "explicit.stat_53045048",
+                [
+                  5
+                ]
+              ],
+              [
+                "explicit.stat_4052037485",
+                [
+                  5
+                ]
+              ],
+              [
+                "explicit.stat_1999113824",
+                [
+                  3,
+                  4
+                ]
+              ],
+              [
+                "explicit.stat_3299347043",
+                [
+                  4
+                ]
+              ],
+              [
+                "explicit.stat_1671376347",
+                [
+                  0
+                ]
+              ],
+              [
+                "explicit.stat_2923486259",
+                [
+                  2
+                ]
+              ],
+              [
+                "explicit.stat_915769802",
+                [
+                  1
+                ]
+              ]
             ],
-            "rune": [["rune.stat_3523867985", null]]
+            "rune": [
+              [
+                "rune.stat_3523867985",
+                null
+              ]
+            ]
           }
         }
       }
@@ -291,7 +372,7 @@
           "y": 20
         },
         "whisper": "@ACAZARGITANOS Hola, quisiera comprar tu Núcleo de dolor Ballesta de bombardeo experta listado por 25 exalted en Standard (pestaña de alijo \"SELL\"; posición: izquierda 19, arriba 21)",
-        "whisper_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2NTkxMjYzNTlhZDk0MWY1NTAxYmQ5OWMxMzRjYzM1MiIsImlzcyI6IndKVzVLVm5pYiIsImF1ZCI6ImNjMjVjMjI0LTllMTAtNDUwYy1hM2U1LWIyMTRjMmEwYjU5OSIsImRzdCI6IkFDQVpBUkdJVEFOT1MiLCJsb2MiOiJlc19FUyIsInRvayI6Iml0ZW0iLCJzdWIiOiJmN2U0NzI2ZGYzOWQ1MjQ4Yzg3YjkwNTU5NGU1YzU1NmQ4MjBlODhiNzliYjcyMTljYTFlMjJiMDMwMTg5ZWM2IiwiZGF0IjoiYjZlMWY1MWI4MjZmZTIzM2IwZGU3NGU2NWE3YjlhMTMiLCJpYXQiOjE3MzcyNjE1MjgsImV4cCI6MTczNzI2MTgyOH0.OU3KLgqqF4H36ZrCQe4BGBLNpiubHqre7QmmiSr7N6s",
+        "whisper_token": "REDACTED_WHISPER_TOKEN",
         "account": {
           "name": "regladus#0004",
           "online": {
@@ -342,31 +423,56 @@
           },
           {
             "name": "[Physical] Damage",
-            "values": [["120-362", 1]],
+            "values": [
+              [
+                "120-362",
+                1
+              ]
+            ],
             "displayMode": 0,
             "type": 9
           },
           {
             "name": "Lightning Damage",
-            "values": [["1-53", 6]],
+            "values": [
+              [
+                "1-53",
+                6
+              ]
+            ],
             "displayMode": 0,
             "type": 10
           },
           {
             "name": "[Critical|Critical Hit] Chance",
-            "values": [["5.00%", 0]],
+            "values": [
+              [
+                "5.00%",
+                0
+              ]
+            ],
             "displayMode": 0,
             "type": 12
           },
           {
             "name": "Attacks per Second",
-            "values": [["1.65", 0]],
+            "values": [
+              [
+                "1.65",
+                0
+              ]
+            ],
             "displayMode": 0,
             "type": 13
           },
           {
             "name": "Reload Time",
-            "values": [["0.75", 0]],
+            "values": [
+              [
+                "0.75",
+                0
+              ]
+            ],
             "displayMode": 0,
             "type": 97
           }
@@ -374,24 +480,41 @@
         "requirements": [
           {
             "name": "Level",
-            "values": [["79", 0]],
+            "values": [
+              [
+                "79",
+                0
+              ]
+            ],
             "displayMode": 0,
             "type": 62
           },
           {
             "name": "[Strength|Str]",
-            "values": [["92", 1]],
+            "values": [
+              [
+                "92",
+                1
+              ]
+            ],
             "displayMode": 1,
             "type": 63
           },
           {
             "name": "[Dexterity|Dex]",
-            "values": [["92", 1]],
+            "values": [
+              [
+                "92",
+                1
+              ]
+            ],
             "displayMode": 1,
             "type": 64
           }
         ],
-        "runeMods": ["40% increased [Physical] Damage"],
+        "runeMods": [
+          "40% increased [Physical] Damage"
+        ],
         "implicitMods": [
           "[Grenade] Skills Fire an additional [Projectile|Projectile]"
         ],
@@ -423,7 +546,12 @@
             "properties": [
               {
                 "name": "Stack Size",
-                "values": [["1/10", 0]],
+                "values": [
+                  [
+                    "1/10",
+                    0
+                  ]
+                ],
                 "displayMode": 0,
                 "type": 32
               }
@@ -454,7 +582,12 @@
             "properties": [
               {
                 "name": "Stack Size",
-                "values": [["1/10", 0]],
+                "values": [
+                  [
+                    "1/10",
+                    0
+                  ]
+                ],
                 "displayMode": 0,
                 "type": 32
               }
@@ -576,15 +709,57 @@
           },
           "hashes": {
             "explicit": [
-              ["explicit.stat_1509134228", [1]],
-              ["explicit.stat_1940865751", [2]],
-              ["explicit.stat_3336890334", [3]],
-              ["explicit.stat_3639275092", [5]],
-              ["explicit.stat_3261801346", [4]],
-              ["explicit.stat_55876295", [0]]
+              [
+                "explicit.stat_1509134228",
+                [
+                  1
+                ]
+              ],
+              [
+                "explicit.stat_1940865751",
+                [
+                  2
+                ]
+              ],
+              [
+                "explicit.stat_3336890334",
+                [
+                  3
+                ]
+              ],
+              [
+                "explicit.stat_3639275092",
+                [
+                  5
+                ]
+              ],
+              [
+                "explicit.stat_3261801346",
+                [
+                  4
+                ]
+              ],
+              [
+                "explicit.stat_55876295",
+                [
+                  0
+                ]
+              ]
             ],
-            "implicit": [["implicit.stat_1980802737", [0]]],
-            "rune": [["rune.stat_1509134228", null]]
+            "implicit": [
+              [
+                "implicit.stat_1980802737",
+                [
+                  0
+                ]
+              ]
+            ],
+            "rune": [
+              [
+                "rune.stat_1509134228",
+                null
+              ]
+            ]
           }
         }
       }
@@ -600,7 +775,7 @@
           "y": 0
         },
         "whisper": "@김왕배 안녕하세요, 1 exalted(으)로 올려놓은 Standard 리그의 승리자의 버클 리넨 허리띠(을)를 구매하고 싶습니다 (보관함 탭 \"판매\", 위치: 왼쪽 5, 상단 1)",
-        "whisper_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3NmNlMjMyODc0YjQyNDUxNDMyYjMwOWQ4N2FlY2I3ZiIsImlzcyI6Im04amt5MHJ1NiIsImF1ZCI6ImNjMjVjMjI0LTllMTAtNDUwYy1hM2U1LWIyMTRjMmEwYjU5OSIsImRzdCI6Ilx1YWU0MFx1YzY1NVx1YmMzMCIsImxvYyI6ImtvX0tSIiwidG9rIjoiaXRlbSIsInN1YiI6IjkxZjdlOTkyNjRlOWIxNzNiYjI0NTU5YjkzN2ZiMDhjM2NmYTg0MDdlNWJkOGE4OWVjYWE0OGUwYWJkOTU2YWUiLCJkYXQiOiJjYTdhOWEwZTQ0ZjEwZTZlMTk3MDdjMDNhODJjMzAwMyIsImlhdCI6MTczNzMwMTEzMSwiZXhwIjoxNzM3MzAxNDMxfQ.JmtBNC59HDxOgjpiPt2h_4vOUDzmVK1M7RHbitcaMv0",
+        "whisper_token": "REDACTED_WHISPER_TOKEN",
         "account": {
           "name": "배나온아저씨#6526",
           "online": {
@@ -639,19 +814,31 @@
           },
           {
             "name": "Charm Slots",
-            "values": [["1", 0]],
+            "values": [
+              [
+                "1",
+                0
+              ]
+            ],
             "displayMode": 0
           }
         ],
         "requirements": [
           {
             "name": "Level",
-            "values": [["61", 0]],
+            "values": [
+              [
+                "61",
+                0
+              ]
+            ],
             "displayMode": 0,
             "type": 62
           }
         ],
-        "implicitMods": ["30% increased Mana Recovery from [Flask|Flasks]"],
+        "implicitMods": [
+          "30% increased Mana Recovery from [Flask|Flasks]"
+        ],
         "explicitMods": [
           "+92 to maximum Life",
           "36% increased [Flask] Life Recovery rate",
@@ -741,17 +928,56 @@
           },
           "hashes": {
             "explicit": [
-              ["explicit.stat_3299347043", [3]],
-              ["explicit.stat_51994685", [4]],
-              ["explicit.stat_3372524247", [2]],
-              ["explicit.stat_1671376347", [0]],
-              ["explicit.stat_1570770415", [1]]
+              [
+                "explicit.stat_3299347043",
+                [
+                  3
+                ]
+              ],
+              [
+                "explicit.stat_51994685",
+                [
+                  4
+                ]
+              ],
+              [
+                "explicit.stat_3372524247",
+                [
+                  2
+                ]
+              ],
+              [
+                "explicit.stat_1671376347",
+                [
+                  0
+                ]
+              ],
+              [
+                "explicit.stat_1570770415",
+                [
+                  1
+                ]
+              ]
             ],
-            "implicit": [["implicit.stat_2222186378", [0]]],
-            "pseudo": [["statgroup.0", null]]
+            "implicit": [
+              [
+                "implicit.stat_2222186378",
+                [
+                  0
+                ]
+              ]
+            ],
+            "pseudo": [
+              [
+                "statgroup.0",
+                null
+              ]
+            ]
           }
         },
-        "pseudoMods": ["Sum: 73"]
+        "pseudoMods": [
+          "Sum: 73"
+        ]
       }
     },
     {
@@ -765,7 +991,7 @@
           "y": 8
         },
         "whisper": "@쇠뇌워리어 안녕하세요, 1 regal(으)로 올려놓은 Standard 리그의 조밀한 극한의 생명력 플라스크 - 풍부(을)를 구매하고 싶습니다 (보관함 탭 \"판매2\", 위치: 왼쪽 4, 상단 9)",
-        "whisper_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJiODk3NWVhMjY0YzkyODY0MDJjYzNmZjI2NmFhZWY0ZCIsImlzcyI6IndKUHZSTTlzYiIsImF1ZCI6ImNjMjVjMjI0LTllMTAtNDUwYy1hM2U1LWIyMTRjMmEwYjU5OSIsImRzdCI6Ilx1YzFlMFx1YjFjY1x1YzZjY1x1YjlhY1x1YzViNCIsImxvYyI6ImtvX0tSIiwidG9rIjoiaXRlbSIsInN1YiI6IjRiNjk5Yzk2OTVhNmUzMDhmZDRlMGYyNDczNWU5ZWU2ODk2ZTI3YjA3ZWJmZmQyOTA2ZTlmYzI4YzU5ZmI1OTUiLCJkYXQiOiJiZjZhMDUzZTU3NDVkMWYyNjdjZDg2NGZlNGUwNTgzOCIsImlhdCI6MTczNzMwMTE3NCwiZXhwIjoxNzM3MzAxNDc0fQ.skTp_Cx-qRwi_vlLL-lZJejFrTWDsVzRRyyHcfCGtjs",
+        "whisper_token": "REDACTED_WHISPER_TOKEN",
         "account": {
           "name": "vlfdywhrjs#3888",
           "online": {
@@ -804,36 +1030,63 @@
           },
           {
             "name": "[Quality]",
-            "values": [["+5%", 1]],
+            "values": [
+              [
+                "+5%",
+                1
+              ]
+            ],
             "displayMode": 0,
             "type": 6
           },
           {
             "name": "Recovers {0} Life over {1} Seconds",
             "values": [
-              ["966", 1],
-              ["2.10", 1]
+              [
+                "966",
+                1
+              ],
+              [
+                "2.10",
+                1
+              ]
             ],
             "displayMode": 3
           },
           {
             "name": "Consumes {0} of {1} Charges on use",
             "values": [
-              ["10", 0],
-              ["120", 1]
+              [
+                "10",
+                0
+              ],
+              [
+                "120",
+                1
+              ]
             ],
             "displayMode": 3
           },
           {
             "name": "Currently has {0} Charges",
-            "values": [["0", 0]],
+            "values": [
+              [
+                "0",
+                0
+              ]
+            ],
             "displayMode": 3
           }
         ],
         "requirements": [
           {
             "name": "Level",
-            "values": [["60", 0]],
+            "values": [
+              [
+                "60",
+                0
+              ]
+            ],
             "displayMode": 0,
             "type": 62
           }
@@ -875,8 +1128,18 @@
           },
           "hashes": {
             "explicit": [
-              ["explicit.stat_173226756", [1]],
-              ["explicit.stat_1366840608", [0]]
+              [
+                "explicit.stat_173226756",
+                [
+                  1
+                ]
+              ],
+              [
+                "explicit.stat_1366840608",
+                [
+                  0
+                ]
+              ]
             ]
           }
         }
@@ -893,7 +1156,7 @@
           "y": 9
         },
         "whisper": "@touhuya こんにちは、Standard リーグで 1 exalted で売っている、あなたの 亀裂のある激突 ラトリングセプター を購入したいです (スタッシュタブ \"~price 1 exalted\"; 位置: 左から 1, 上から 10)",
-        "whisper_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1NTI4NTVlYzZjYmU3YzMwMTYxZGVmY2VhNjhjNzljNCIsImlzcyI6IjBEOFluNGVpZyIsImF1ZCI6ImNjMjVjMjI0LTllMTAtNDUwYy1hM2U1LWIyMTRjMmEwYjU5OSIsImRzdCI6InRvdWh1eWEiLCJsb2MiOiJqYV9KUCIsInRvayI6Iml0ZW0iLCJzdWIiOiIwNDdkMDRjOTk0MjU5Mzc2YzRhNGM0OWQ4OTlmZWI1NGY3OTQ5ZWRjOTlkMmVjMzcwODU1MmM5NTUzMDQzMDlhIiwiZGF0IjoiMzQ1ZjRjODJhMmU3YmE3YTRkMDQzNWI2NmVmNjY0ZjQiLCJpYXQiOjE3MzczMDEyMTAsImV4cCI6MTczNzMwMTUxMH0.7xhIuojABaZrh6tWXDDugjqdtvBmc-eS-ru4hFZaZ_k",
+        "whisper_token": "REDACTED_WHISPER_TOKEN",
         "account": {
           "name": "touhuya#3952",
           "online": {
@@ -931,7 +1194,12 @@
           },
           {
             "name": "Spirit",
-            "values": [["151", 1]],
+            "values": [
+              [
+                "151",
+                1
+              ]
+            ],
             "displayMode": 0,
             "type": 25
           }
@@ -939,19 +1207,34 @@
         "requirements": [
           {
             "name": "Level",
-            "values": [["78", 0]],
+            "values": [
+              [
+                "78",
+                0
+              ]
+            ],
             "displayMode": 0,
             "type": 62
           },
           {
             "name": "[Strength|Str]",
-            "values": [["43", 1]],
+            "values": [
+              [
+                "43",
+                1
+              ]
+            ],
             "displayMode": 1,
             "type": 63
           },
           {
             "name": "[Intelligence|Int]",
-            "values": [["110", 1]],
+            "values": [
+              [
+                "110",
+                1
+              ]
+            ],
             "displayMode": 1,
             "type": 65
           }
@@ -959,7 +1242,12 @@
         "grantedSkills": [
           {
             "name": "Grants Skill",
-            "values": [["Level 18 Skeletal Warrior Minion", 25]],
+            "values": [
+              [
+                "Level 18 Skeletal Warrior Minion",
+                25
+              ]
+            ],
             "displayMode": 0,
             "icon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1NraWxsSWNvbnMvV2l0Y2hXYXJyaW9yU2tlbGV0b24iLCJyZWFsbSI6InBvZTIifV0/b1213d0796/WitchWarriorSkeleton.png"
           }
@@ -1062,14 +1350,49 @@
           },
           "hashes": {
             "explicit": [
-              ["explicit.stat_3984865854", [0]],
-              ["explicit.stat_1574590649", [2]],
-              ["explicit.stat_2854751904", [1]],
-              ["explicit.stat_289128254", [3]],
-              ["explicit.stat_3639275092", [4]],
-              ["explicit.stat_789117908", [5]]
+              [
+                "explicit.stat_3984865854",
+                [
+                  0
+                ]
+              ],
+              [
+                "explicit.stat_1574590649",
+                [
+                  2
+                ]
+              ],
+              [
+                "explicit.stat_2854751904",
+                [
+                  1
+                ]
+              ],
+              [
+                "explicit.stat_289128254",
+                [
+                  3
+                ]
+              ],
+              [
+                "explicit.stat_3639275092",
+                [
+                  4
+                ]
+              ],
+              [
+                "explicit.stat_789117908",
+                [
+                  5
+                ]
+              ]
             ],
-            "skill": [["skill.summon_skeleton_warrior", null]]
+            "skill": [
+              [
+                "skill.summon_skeleton_warrior",
+                null
+              ]
+            ]
           }
         }
       }
@@ -1085,7 +1408,7 @@
           "y": 5
         },
         "whisper": "@ErectussMaximus Hi, I would like to buy your Blood Salvation Expert Waxed Jacket listed for 1 exalted in Standard (stash tab \"~price 1 exalted\"; position: left 7, top 6)",
-        "whisper_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJlODdiYzk0YTYxMDcyZmQyNWIwZjE5ZTU2MDVlNDY2YiIsImlzcyI6IlgwRFJlUFJpUCIsImF1ZCI6ImNjMjVjMjI0LTllMTAtNDUwYy1hM2U1LWIyMTRjMmEwYjU5OSIsImRzdCI6IkVyZWN0dXNzTWF4aW11cyIsImxvYyI6ImVuX1VTIiwidG9rIjoiaXRlbSIsInN1YiI6ImYyMzQ0NTA4YzUzZTIxYmNhNjA1Y2FmOTQyZjVjMGExNjdkMjJmODM0MTg1MDg3M2UyYzAyZWQ0MWI5Mjc2NGEiLCJkYXQiOiJiYjFjYTIzOTEwMzZjNGM3NWNhYzNjMmQ3ZDRlNzM5NSIsImlhdCI6MTczNzMwMTg0NiwiZXhwIjoxNzM3MzAyMTQ2fQ.FwfuXAh7uQCZJEr3iHYdyZzUkxLzyTxpo70ks0F9KDo",
+        "whisper_token": "REDACTED_WHISPER_TOKEN",
         "account": {
           "name": "Toast#9806",
           "online": {
@@ -1136,19 +1459,34 @@
           },
           {
             "name": "[Quality]",
-            "values": [["+20%", 1]],
+            "values": [
+              [
+                "+20%",
+                1
+              ]
+            ],
             "displayMode": 0,
             "type": 6
           },
           {
             "name": "[Evasion|Evasion Rating]",
-            "values": [["993", 1]],
+            "values": [
+              [
+                "993",
+                1
+              ]
+            ],
             "displayMode": 0,
             "type": 17
           },
           {
             "name": "[EnergyShield|Energy Shield]",
-            "values": [["388", 1]],
+            "values": [
+              [
+                "388",
+                1
+              ]
+            ],
             "displayMode": 0,
             "type": 18
           }
@@ -1156,19 +1494,34 @@
         "requirements": [
           {
             "name": "Level",
-            "values": [["65", 0]],
+            "values": [
+              [
+                "65",
+                0
+              ]
+            ],
             "displayMode": 0,
             "type": 62
           },
           {
             "name": "[Dexterity|Dex]",
-            "values": [["86", 0]],
+            "values": [
+              [
+                "86",
+                0
+              ]
+            ],
             "displayMode": 1,
             "type": 64
           },
           {
             "name": "[Intelligence|Int]",
-            "values": [["86", 0]],
+            "values": [
+              [
+                "86",
+                0
+              ]
+            ],
             "displayMode": 1,
             "type": 65
           }
@@ -1203,7 +1556,12 @@
             "properties": [
               {
                 "name": "Stack Size",
-                "values": [["1/10", 0]],
+                "values": [
+                  [
+                    "1/10",
+                    0
+                  ]
+                ],
                 "displayMode": 0,
                 "type": 32
               }
@@ -1234,7 +1592,12 @@
             "properties": [
               {
                 "name": "Stack Size",
-                "values": [["1/10", 0]],
+                "values": [
+                  [
+                    "1/10",
+                    0
+                  ]
+                ],
                 "displayMode": 0,
                 "type": 32
               }
@@ -1332,13 +1695,46 @@
           },
           "hashes": {
             "explicit": [
-              ["explicit.stat_53045048", [1, 2]],
-              ["explicit.stat_4052037485", [1, 2]],
-              ["explicit.stat_1999113824", [2, 3]],
-              ["explicit.stat_3261801346", [0]],
-              ["explicit.stat_328541901", [4]]
+              [
+                "explicit.stat_53045048",
+                [
+                  1,
+                  2
+                ]
+              ],
+              [
+                "explicit.stat_4052037485",
+                [
+                  1,
+                  2
+                ]
+              ],
+              [
+                "explicit.stat_1999113824",
+                [
+                  2,
+                  3
+                ]
+              ],
+              [
+                "explicit.stat_3261801346",
+                [
+                  0
+                ]
+              ],
+              [
+                "explicit.stat_328541901",
+                [
+                  4
+                ]
+              ]
             ],
-            "rune": [["rune.stat_3523867985", null]]
+            "rune": [
+              [
+                "rune.stat_3523867985",
+                null
+              ]
+            ]
           }
         }
       }
@@ -1354,7 +1750,7 @@
           "y": 2
         },
         "whisper": "@ПиськинТулупчик Здравствуйте, хочу купить у вас Кровоизливающий Рубин оглушения за 1 exalted в лиге Standard (секция \"4\"; позиция: 12 столбец, 3 ряд)",
-        "whisper_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4YzhiMjdlZTk3YTFlNjY4MDIzM2Y3ZDc4NTNiYmJjNCIsImlzcyI6ImFEYVhQZDNmZSIsImF1ZCI6ImNjMjVjMjI0LTllMTAtNDUwYy1hM2U1LWIyMTRjMmEwYjU5OSIsImRzdCI6Ilx1MDQxZlx1MDQzOFx1MDQ0MVx1MDQ0Y1x1MDQzYVx1MDQzOFx1MDQzZFx1MDQyMlx1MDQ0M1x1MDQzYlx1MDQ0M1x1MDQzZlx1MDQ0N1x1MDQzOFx1MDQzYSIsImxvYyI6InJ1X1JVIiwidG9rIjoiaXRlbSIsInN1YiI6ImUyMGZhM2JkODkxN2VmNDgxNjVhYjBjYmYxOTgzMTUyMjUyZWMzMTU1YjMyZDFlZjk0MjkxNTg2MzY5MWUyZDMiLCJkYXQiOiJmNzhhYzA2MDk5ODUyOTJhZjk2ZmI3NjZjZDAzYWJhNiIsImlhdCI6MTczOTk3Njg5MCwiZXhwIjoxNzM5OTc3MTkwfQ.MazdbgtwvDGM6J7xLGhjZYyfxmLD7tt_5MEWo1snRuI",
+        "whisper_token": "REDACTED_WHISPER_TOKEN",
         "account": {
           "name": "isoofix#4861",
           "online": {
@@ -1448,10 +1844,27 @@
           },
           "hashes": {
             "explicit": [
-              ["explicit.stat_239367161", [0]],
-              ["explicit.stat_3166958180", [1]]
+              [
+                "explicit.stat_239367161",
+                [
+                  0
+                ]
+              ],
+              [
+                "explicit.stat_3166958180",
+                [
+                  1
+                ]
+              ]
             ],
-            "enchant": [["enchant.stat_1658498488", [0]]]
+            "enchant": [
+              [
+                "enchant.stat_1658498488",
+                [
+                  0
+                ]
+              ]
+            ]
           }
         }
       }
