@@ -34,6 +34,7 @@ export default {
         craftOfExileKey: null,
         stashSearchKey: null,
         samePricedKey: null,
+        samePricedType: "both",
         maps: {
           profile: 1,
           showNewStats: false,

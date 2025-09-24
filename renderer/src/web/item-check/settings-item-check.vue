@@ -18,6 +18,10 @@
     </div>
     <div class="flex">
       <label class="flex-1">{{ t("item.find_same_price") }}</label>
+      <select v-model="samePricedType" class="p-1 rounded bg-gray-700 w-32">
+        <option value="price">{{ t("item.price") }}</option>
+        <option value="both">{{ t("item.price_and_item") }}</option>
+      </select>
       <hotkey-input v-model="samePricedKey" class="w-48" />
     </div>
   </div>
@@ -60,5 +64,10 @@ const samePricedKey = configModelValue(
   () => findWidget<ItemCheckWidget>("item-check", props.config)!,
   "samePricedKey",
 );
+const samePricedType = configModelValue(
+  () => findWidget<ItemCheckWidget>("item-check", props.config)!,
+  "samePricedType",
+);
+
 const { t } = useI18n();
 </script>

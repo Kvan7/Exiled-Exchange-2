@@ -152,7 +152,7 @@ export interface Config {
 }
 
 export const defaultConfig = (): Config => ({
-  configVersion: 27,
+  configVersion: 28,
   overlayKey: "Shift + Space",
   overlayBackground: "rgba(129, 139, 149, 0.15)",
   overlayBackgroundClose: true,
@@ -583,7 +583,16 @@ function upgradeConfig(_config: Config): Config {
 
     config.configVersion = 27;
   }
+  if (config.configVersion < 28) {
+    // NOTE: v0.12.7 || poe0.3.0c
 
+    const itemCheck = config.widgets.find(
+      (w) => w.wmType === "item-check",
+    ) as ItemCheckWidget;
+    itemCheck.samePricedType = "both";
+
+    config.configVersion = 28;
+  }
   return config as unknown as Config;
 }
 
