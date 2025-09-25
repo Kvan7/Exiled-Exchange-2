@@ -69,7 +69,7 @@ export function findSimilarItems(item: ParsedItem) {
 
 export function findSamePricedItems(item: ParsedItem) {
   if (!item.note) return;
-  const note = JSON.stringify(item.note);
+  const note = item.note ? JSON.stringify(item.note) : "";
   const name = JSON.stringify(item.info.name);
   const useName =
     AppConfig<ItemCheckWidget>("item-check")!.samePricedType === "both";
