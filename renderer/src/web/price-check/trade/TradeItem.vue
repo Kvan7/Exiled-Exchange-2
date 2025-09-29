@@ -13,13 +13,14 @@
         >{{ result.priceAmount }} {{ result.priceCurrency
         }}{{
           result.priceCurrency !== "exalted" &&
-          result.priceCurrency !== "divine"
+          result.priceCurrency !== "divine" &&
+          result.normalizedPrice
             ? ` (${result.normalizedPrice} ${
-                result.normalizedPriceCurrency === "exalted"
+                result.normalizedPriceCurrency! === "exalted"
                   ? "ex"
-                  : result.normalizedPriceCurrency === "chaos"
+                  : result.normalizedPriceCurrency! === "chaos"
                     ? "c"
-                    : result.normalizedPriceCurrency
+                    : result.normalizedPriceCurrency!
               })`
             : ""
         }}</span
