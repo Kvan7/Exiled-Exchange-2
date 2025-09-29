@@ -8,5 +8,6 @@ export interface ItemCheckWidget extends Widget {
   craftOfExileKey: string | null;
   stashSearchKey: string | null;
   samePricedKey: string | null;
+  samePricedType: "price" | "both";
   maps: MapCheckConfig;
 }

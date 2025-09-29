@@ -296,8 +296,8 @@ export interface PricingResult {
   priceAmount: number;
   priceCurrency: string;
   priceCurrencyRank?: number;
-  normalizedPrice: string;
-  normalizedPriceCurrency: string;
+  normalizedPrice?: string;
+  normalizedPriceCurrency?: string;
   isMine: boolean;
   hasNote: boolean;
   isInstantBuyout: boolean;
@@ -547,7 +547,7 @@ export function createTradeRequest(
           TOTAL_MODS_TEXT.EMPTY_MODIFIERS[stat.option!.value],
         )!.trade.ids[ModifierType.Pseudo][0],
       };
-
+      const emptyRoll = stat.roll!;
       query.stats.push({
         type: "count",
         value: { min: 1, max: 1 },
@@ -555,7 +555,7 @@ export function createTradeRequest(
         filters: [
           {
             id: TARGET_ID.EMPTY_MODIFIERS,
-            value: { min: 1, max: 1 },
+            value: { ...getMinMax(emptyRoll) },
             disabled: stat.disabled,
           },
         ],
@@ -991,13 +991,12 @@ export async function requestResults(
             currency: "exalted",
           }
         : // otherwise convert to stable
-          (cachedCurrencyByQuery(query, result.listing.price?.amount ?? 0) ?? {
-            min: 0,
-            max: 0,
-            currency: "exalted",
-          });
-    const normalizedPrice = displayRounding(normalizedCurrency.min);
-    const normalizedPriceCurrency = normalizedCurrency.currency;
+          cachedCurrencyByQuery(query, result.listing.price?.amount ?? 0);
+    const normalizedPrice =
+      normalizedCurrency !== undefined
+        ? displayRounding(normalizedCurrency.min)
+        : undefined;
+    const normalizedPriceCurrency = normalizedCurrency?.currency;
 
     return {
       id: result.id,

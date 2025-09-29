@@ -37,18 +37,18 @@ export default defineComponent({
       const { filter } = props;
       filter.option!.value = value;
       filter.disabled = false;
-      if (!filter.additionalInfo) return;
+      if (!filter.additionalInfo?.elementalInfo) return;
       const selectedRoll =
-        filter.additionalInfo[INTERNAL_TRADE_IDS[12 + value]];
+        filter.additionalInfo.elementalInfo[INTERNAL_TRADE_IDS[12 + value]];
       filter.roll = selectedRoll;
     }
     function selectRightClick(value: ItemIsElementalModifier) {
       const { filter } = props;
       filter.option!.value = value;
       filter.disabled = false;
-      if (!filter.additionalInfo) return;
+      if (!filter.additionalInfo?.elementalInfo) return;
       const selectedRoll =
-        filter.additionalInfo[INTERNAL_TRADE_IDS[12 + value]];
+        filter.additionalInfo.elementalInfo[INTERNAL_TRADE_IDS[12 + value]];
       // User is telling us they only want to block other elemental types
       selectedRoll.min = "";
       selectedRoll.max = "";
@@ -72,7 +72,9 @@ export default defineComponent({
         ] as const
       )
         .filter(
-          ([, text]) => filter.additionalInfo && text in filter.additionalInfo,
+          ([, text]) =>
+            filter.additionalInfo?.elementalInfo &&
+            text in filter.additionalInfo.elementalInfo,
         )
         .map(([value, text, tag]) => ({
           text,

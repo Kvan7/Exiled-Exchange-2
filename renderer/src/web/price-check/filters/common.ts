@@ -10,7 +10,6 @@ export function maxUsefulItemLevel(category: ItemCategory | undefined) {
   const itemLevelCaps: Partial<Record<ItemCategory, number>> = {
     [ItemCategory.Wand]: 81,
     [ItemCategory.Staff]: 81,
-    [ItemCategory.Spear]: 81,
     [ItemCategory.Relic]: 80,
     [ItemCategory.Tablet]: 1,
     [ItemCategory.Jewel]: 1,
