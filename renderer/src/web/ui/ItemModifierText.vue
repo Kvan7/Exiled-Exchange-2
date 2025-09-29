@@ -28,6 +28,7 @@ const parts = computed(() => {
     }
     if (idx !== parts.length - 1) {
       if (props.roll == null) {
+        console.log("No roll provided");
         res.push({ text: "#" });
       } else {
         res.push({

@@ -52,7 +52,7 @@
     "aps": "Attacks per Second: {0}",
     "spirit": "Spirit: {0}",
     "reload_time": "Reload Time: {0}",
-    "has_empty_modifier": "1 Empty or Crafted Modifier",
+    "has_empty_modifier": "{0} Empty Modifier",
     "has_empty_affix": "Any",
     "has_empty_prefix": "Prefix",
     "has_empty_suffix": "Suffix",

@@ -128,7 +128,10 @@ export interface StatFilter {
   hidden?: string;
   disabled: boolean; // NOTE: mutable in UI
   additionalInfo?: {
-    [key: string]: StatFilterRoll;
+    elementalInfo?: {
+      [key: string]: StatFilterRoll;
+    };
+    emptyModifierInfo?: Record<ItemHasEmptyModifier, number>;
   };
   editorAdded?: BaseType;
 }

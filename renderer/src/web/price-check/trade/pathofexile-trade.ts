@@ -547,7 +547,7 @@ export function createTradeRequest(
           TOTAL_MODS_TEXT.EMPTY_MODIFIERS[stat.option!.value],
         )!.trade.ids[ModifierType.Pseudo][0],
       };
-
+      const emptyRoll = stat.roll!;
       query.stats.push({
         type: "count",
         value: { min: 1, max: 1 },
@@ -555,7 +555,7 @@ export function createTradeRequest(
         filters: [
           {
             id: TARGET_ID.EMPTY_MODIFIERS,
-            value: { min: 1, max: 1 },
+            value: { ...getMinMax(emptyRoll) },
             disabled: stat.disabled,
           },
         ],

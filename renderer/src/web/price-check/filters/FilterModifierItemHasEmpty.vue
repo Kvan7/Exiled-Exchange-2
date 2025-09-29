@@ -28,6 +28,15 @@ export default defineComponent({
       const { filter } = props;
       filter.option!.value = value;
       filter.disabled = false;
+      const roll = filter.additionalInfo!.emptyModifierInfo![value];
+      filter.roll = {
+        value: roll,
+        min: roll,
+        max: undefined,
+        default: { min: roll, max: roll },
+        dp: false,
+        isNegated: false,
+      };
     }
 
     const options = computed(() => {
@@ -40,11 +49,13 @@ export default defineComponent({
           [ItemHasEmptyModifier.Prefix, "item.has_empty_prefix"],
           [ItemHasEmptyModifier.Suffix, "item.has_empty_suffix"],
         ] as const
-      ).map(([value, text]) => ({
-        text,
-        select: () => select(value),
-        isSelected: filter.option!.value === value,
-      }));
+      )
+        .filter(([value]) => filter.additionalInfo!.emptyModifierInfo![value])
+        .map(([value, text]) => ({
+          text,
+          select: () => select(value),
+          isSelected: filter.option!.value === value,
+        }));
     });
 
     const { t } = useI18n();

@@ -51,7 +51,7 @@
     "aps": "Ataques por segundo: {0}",
     "spirit": "Espírito: {0}",
     "reload_time": "Tempo de Recarregamento: {0}",
-    "has_empty_modifier": "1 modificador vazio ou fabricado",
+    "has_empty_modifier": "{0} modificador vazio ou fabricado",
     "has_empty_affix": "Qualquer",
     "has_empty_prefix": "Prefixo",
     "has_empty_suffix": "Sufixo",

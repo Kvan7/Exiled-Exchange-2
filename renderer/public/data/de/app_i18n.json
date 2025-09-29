@@ -52,7 +52,7 @@
     "aps": "Angriffe pro Sekunde: {0}",
     "spirit": "Geist: {0}",
     "reload_time": "Nachladezeit: {0}",
-    "has_empty_modifier": "1 Leerer oder hergestellter Modifikator",
+    "has_empty_modifier": "{0} Leerer oder hergestellter Modifikator",
     "has_empty_affix": "Beliebig",
     "has_empty_prefix": "Präfix",
     "has_empty_suffix": "Suffix",

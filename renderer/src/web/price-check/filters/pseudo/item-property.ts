@@ -241,21 +241,21 @@ function weaponProps(ctx: FiltersCreationContext) {
   };
 
   if (item.weaponELEMENTAL) {
-    const additionalInfo: Record<string, StatFilterRoll> = {};
+    const elementalInfo: Record<string, StatFilterRoll> = {};
     if (fireDps.value !== 0)
-      additionalInfo[INTERNAL_TRADE_IDS[13]] = shortRollToFilter(
+      elementalInfo[INTERNAL_TRADE_IDS[13]] = shortRollToFilter(
         fireDps,
         ctx.searchInRange,
         item,
       );
     if (coldDps.value !== 0)
-      additionalInfo[INTERNAL_TRADE_IDS[14]] = shortRollToFilter(
+      elementalInfo[INTERNAL_TRADE_IDS[14]] = shortRollToFilter(
         coldDps,
         ctx.searchInRange,
         item,
       );
     if (lightningDps.value !== 0)
-      additionalInfo[INTERNAL_TRADE_IDS[15]] = shortRollToFilter(
+      elementalInfo[INTERNAL_TRADE_IDS[15]] = shortRollToFilter(
         lightningDps,
         ctx.searchInRange,
         item,
@@ -289,9 +289,11 @@ function weaponProps(ctx: FiltersCreationContext) {
       ctx,
     );
 
-    if (Object.keys(additionalInfo).length) {
-      additionalInfo[INTERNAL_TRADE_IDS[12]] = elementalFilter.roll!;
-      elementalFilter.additionalInfo = additionalInfo;
+    if (Object.keys(elementalInfo).length) {
+      elementalInfo[INTERNAL_TRADE_IDS[12]] = elementalFilter.roll!;
+      elementalFilter.additionalInfo = {
+        elementalInfo,
+      };
     }
 
     ctx.filters.push(elementalFilter);
