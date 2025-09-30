@@ -734,7 +734,7 @@ function showHasEmptyModifier(ctx: FiltersCreationContext):
   | false {
   const { item } = ctx;
 
-  if (!itemIsModifiable(item)) {
+  if (!itemIsModifiable(item) || item.category === ItemCategory.Map) {
     return false;
   }
 
