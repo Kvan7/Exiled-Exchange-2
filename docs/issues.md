@@ -50,3 +50,4 @@ title: Common issues
 
 - [Tray icon is not shown](https://github.com/SnosMe/awakened-poe-trade/issues/106)
 - 🔥[Screen is black](https://github.com/SnosMe/awakened-poe-trade/issues/185)
+- [Some issues with running in Wayland](https://github.com/Kvan7/Exiled-Exchange-2/issues/673)
