@@ -15,17 +15,17 @@ describe("isUncutSkillGem", () => {
     setupTests();
     await loadForLang("en");
   });
-  test("should return true for uncut skill gem", () => {
+  test("FIXED so should now be false for uncut skill gem", () => {
     const sections = __testExports.itemTextToSections(UncutSkillGem.rawText);
-    expect(__testExports.isUncutSkillGem(sections[0])).toBe(true);
+    expect(__testExports.isUncutSkillGem(sections[0])).toBeFalsy();
   });
-  test("should return true for uncut spirit gem", () => {
+  test("FIXED so should now be false for uncut spirit gem", () => {
     const sections = __testExports.itemTextToSections(UncutSpiritGem.rawText);
-    expect(__testExports.isUncutSkillGem(sections[0])).toBe(true);
+    expect(__testExports.isUncutSkillGem(sections[0])).toBeFalsy();
   });
-  test("should return true for uncut skill gem", () => {
+  test("FIXED so should now be false for uncut skill gem", () => {
     const sections = __testExports.itemTextToSections(UncutSupportGem.rawText);
-    expect(__testExports.isUncutSkillGem(sections[0])).toBe(true);
+    expect(__testExports.isUncutSkillGem(sections[0])).toBeFalsy();
   });
   test("should return false for any other item", () => {
     const sections = __testExports.itemTextToSections(RareItem.rawText);
@@ -42,19 +42,19 @@ describe("Uncut gems parse correctly", () => {
     const result = parseClipboard(UncutSkillGem.rawText).unwrapOr(null);
     expect(result).not.toBeNull();
     expect(result!.category).toBe(UncutSkillGem.category);
-    expect(result!.gemLevel).toBe(UncutSkillGem.gemLevel);
+    expect(result!.gemLevel).toBeUndefined();
   });
   test("should parse uncut spirit gem", () => {
     const result = parseClipboard(UncutSpiritGem.rawText).unwrapOr(null);
     expect(result).not.toBeNull();
     expect(result!.category).toBe(UncutSpiritGem.category);
-    expect(result!.gemLevel).toBe(UncutSpiritGem.gemLevel);
+    expect(result!.gemLevel).toBeUndefined();
   });
   test("should parse uncut support gem", () => {
     const result = parseClipboard(UncutSupportGem.rawText).unwrapOr(null);
     expect(result).not.toBeNull();
     expect(result!.category).toBe(UncutSupportGem.category);
-    expect(result!.gemLevel).toBe(UncutSupportGem.gemLevel);
+    expect(result!.gemLevel).toBeUndefined();
   });
 });
 
@@ -67,7 +67,7 @@ describe("Create Filter for uncut gems", () => {
     { gem: UncutSkillGem },
     { gem: UncutSpiritGem },
     { gem: UncutSupportGem },
-  ])("createFilters should call createUncutGemFilters, %s", async ({ gem }) => {
+  ])("createFilters should call createUncutGemFilters, %#", async ({ gem }) => {
     const opts = {
       league: "Standard",
       currency: "exalt",
@@ -81,6 +81,6 @@ describe("Create Filter for uncut gems", () => {
     const result = createFilters(gem, opts);
 
     expect(result.searchExact).toBeTruthy();
-    expect(result.gemLevel).toBeTruthy();
+    expect(result.gemLevel).toBeUndefined();
   });
 });

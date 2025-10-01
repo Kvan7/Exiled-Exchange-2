@@ -118,7 +118,7 @@ export default {
   JEWEL_HELP: '放置到',
   SANCTUM_HELP: '"將此物品放置到絲克瑪',
   TIMELESS_RADIUS: '範圍: ',
-  PRECURSOR_TABLET_HELP: '可用於輿圖中的一座已完成高塔來影響',
+  PRECURSOR_TABLET_HELP: '可以使用於個人的地圖裝置來增加地圖的詞綴。',
   LOGBOOK_HELP: '把此道具帶回你的',
   REQUIRES: '需要',
   TIMELESS_SMALL_PASSIVES: '範圍內小型天賦也會賦予 {0}',

@@ -213,7 +213,7 @@ export default {
   // JewelRadiusLabel
   TIMELESS_RADIUS: 'Raio: ',
   // ItemDescriptionPrecursorTablet
-  PRECURSOR_TABLET_HELP: 'Pode ser usado em uma Torre concluída no seu Atlas para influenciar os Mapas ao redor',
+  PRECURSOR_TABLET_HELP: 'Pode ser usado em um Dispositivo de Mapas pessoal para adicionar modificadores em um Mapa.',
   // ItemDescriptionExpeditionLogbook
   LOGBOOK_HELP: 'Leve este item até Dannig',
   // HeistRequiresText?

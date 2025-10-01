@@ -118,7 +118,7 @@ export default {
   JEWEL_HELP: 'パッシブツリ',
   SANCTUM_HELP: 'セケマの試練開始時にこ',
   TIMELESS_RADIUS: '半径: ',
-  PRECURSOR_TABLET_HELP: 'アトラス上の完了した塔で使用することで、周囲の',
+  PRECURSOR_TABLET_HELP: '自身のマップデバイスで使用してマップにモッドを追加できる。',
   LOGBOOK_HELP: 'このアイテムをダニグに渡し、',
   REQUIRES: '要求',
   TIMELESS_SMALL_PASSIVES: '範囲内の通常パッシブスキルは{0}も付与する',

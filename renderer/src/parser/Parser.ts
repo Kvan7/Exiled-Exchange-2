@@ -377,14 +377,8 @@ function pickCorrectVariant(item: ParserState) {
 
 function parseNamePlate(section: string[]) {
   let line = section.shift();
-  let uncutSkillGem = false;
   if (!line?.startsWith(_$.ITEM_CLASS)) {
-    // FIXME: Uncut skill gems (remove)
-    if (line && section.unshift(line) && isUncutSkillGem(section)) {
-      uncutSkillGem = true;
-    } else {
-      return err("item.parse_error");
-    }
+    return err("item.parse_error");
   }
 
   line = section.shift();
@@ -443,9 +437,6 @@ function parseNamePlate(section: string[]) {
     case _$.RARITY_UNIQUE:
       item.rarity = ItemRarity.Unique;
       break;
-  }
-  if (uncutSkillGem) {
-    item.category = ItemCategory.UncutGem;
   }
 
   return ok(item);
@@ -1219,6 +1210,7 @@ function parseUnneededText(section: string[], item: ParsedItem) {
   }
   return "SECTION_SKIPPED";
 }
+
 function parseTimelostRadius(section: string[], item: ParsedItem) {
   if (item.category !== ItemCategory.Jewel) return "PARSER_SKIPPED";
   for (const line of section) {

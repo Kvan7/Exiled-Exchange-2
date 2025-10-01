@@ -48,6 +48,12 @@ export interface ParsedItem {
   weaponReload?: number;
   mapBlighted?: "Blighted" | "Blight-ravaged";
   mapTier?: number;
+  mapPackSize?: number;
+  mapItemRarity?: number;
+  mapRevives?: number;
+  mapDropChance?: number;
+  mapMagicMonsters?: number;
+  mapRareMonsters?: number;
   gemLevel?: number;
   areaLevel?: number;
   talismanTier?: number;
