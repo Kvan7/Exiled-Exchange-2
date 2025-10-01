@@ -118,7 +118,7 @@ export default {
   JEWEL_HELP: '패시브 스킬',
   SANCTUM_HELP: '세케마의 시련을 시작할 때',
   TIMELESS_RADIUS: '적용 반경: ',
-  PRECURSOR_TABLET_HELP: '아틀라스의 완료한 탑에서 사용하면 주위 지도에 ',
+  PRECURSOR_TABLET_HELP: '전용 지도 장치에서 지도에 속성을 부여할 수 있습니다.',
   LOGBOOK_HELP: '이 아이템을 은신처의 ',
   REQUIRES: '요구 사항',
   TIMELESS_SMALL_PASSIVES: '반경 내 소형 패시브 스킬이 {0}도 부여',
