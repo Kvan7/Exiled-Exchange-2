@@ -274,18 +274,15 @@ RareWithImplicit.suffixCount = 3;
 // #endregion
 
 // #region UncutSkillGem
-export const UncutSkillGem = new TestItem(`Rarity: Currency
-Uncut Skill Gem
---------
-Level: 19
---------
-Item Level: 19
+export const UncutSkillGem = new TestItem(`Item Class: Uncut Skill Gems
+Rarity: Currency
+Uncut Skill Gem (Level 19)
 --------
 Creates a Skill Gem or Level an existing gem to level 19
 --------
 Right Click to engrave a Skill Gem.
 `);
-UncutSkillGem.category = ItemCategory.UncutGem;
+UncutSkillGem.category = ItemCategory.Currency;
 UncutSkillGem.gemLevel = 19;
 UncutSkillGem.info = {
   name: "Uncut Skill Gem",
@@ -293,62 +290,56 @@ UncutSkillGem.info = {
   namespace: "ITEM",
   icon: "test",
   tags: [],
-  craftable: { category: ItemCategory.UncutGem },
+  craftable: { category: ItemCategory.Currency },
 };
 
-UncutSkillGem.sectionCount = 5;
+UncutSkillGem.sectionCount = 3;
 // #endregion
 
 // #region UncutSpiritGem
-export const UncutSpiritGem = new TestItem(`Rarity: Currency
-Uncut Spirit Gem
+export const UncutSpiritGem = new TestItem(`Item Class: Uncut Spirit Gems
+Rarity: Currency
+Uncut Spirit Gem (Level 16)
 --------
-Level: 19
---------
-Item Level: 19
---------
-Creates a Persistent Buff Skill Gem or Level an existing gem to Level 19
+Creates a Persistent Buff Skill Gem or Level an existing gem to Level 16
 --------
 Right Click to engrave a Persistent Buff Skill Gem.
 `);
-UncutSpiritGem.category = ItemCategory.UncutGem;
-UncutSpiritGem.gemLevel = 19;
+UncutSpiritGem.category = ItemCategory.Currency;
+UncutSpiritGem.gemLevel = 16;
 UncutSpiritGem.info = {
   name: "Uncut Spirit Gem",
   refName: "Uncut Spirit Gem",
   namespace: "ITEM",
   icon: "test",
   tags: [],
-  craftable: { category: ItemCategory.UncutGem },
+  craftable: { category: ItemCategory.Currency },
 };
 
-UncutSpiritGem.sectionCount = 5;
+UncutSpiritGem.sectionCount = 3;
 // #endregion
 
 // #region UncutSupportGem
-export const UncutSupportGem = new TestItem(`Rarity: Currency
-Uncut Support Gem
+export const UncutSupportGem = new TestItem(`Item Class: Uncut Support Gems
+Rarity: Currency
+Uncut Support Gem (Level 5)
 --------
-Level: 3
---------
-Item Level: 3
---------
-Creates a Support Gem up to level 3
+Creates a Support Gem
 --------
 Right Click to engrave a Support Gem.
 `);
-UncutSupportGem.category = ItemCategory.UncutGem;
-UncutSupportGem.gemLevel = 3;
+UncutSupportGem.category = ItemCategory.Currency;
+UncutSupportGem.gemLevel = 5;
 UncutSupportGem.info = {
   name: "Uncut Spirit Gem",
   refName: "Uncut Spirit Gem",
   namespace: "ITEM",
   icon: "test",
   tags: [],
-  craftable: { category: ItemCategory.UncutGem },
+  craftable: { category: ItemCategory.Currency },
 };
 
-UncutSupportGem.sectionCount = 5;
+UncutSupportGem.sectionCount = 3;
 // #endregion
 
 // #region HighDamageRareItem
@@ -525,4 +516,82 @@ NormalShield.sectionCount = 6;
 NormalShield.implicitCount = 1;
 
 NormalShield.note = "~b/o 1 aug";
+// #endregion
+
+// #region TwoImplicitItem
+export const TwoImplicitItem = new TestItem(`Item Class: Belts
+Rarity: Rare
+Corpse Snare
+Ornate Belt
+--------
+Requires: Level 59
+--------
+Item Level: 80
+--------
+{ Implicit Modifier }
+14(15-10)% reduced Charm Charges used (implicit)
+{ Implicit Modifier — Charm }
+Has 2(1-3) Charm Slots (implicit)
+--------
+{ Prefix Modifier "Transformative" (Tier: 4) }
+11(10-15)% increased Charm Effect Duration
+{ Prefix Modifier "Fecund" (Tier: 1) — Life }
++161(150-174) to maximum Life
+{ Suffix Modifier "of the Volcano" (Tier: 3) — Elemental, Fire, Resistance }
++32(31-35)% to Fire Resistance
+{ Suffix Modifier "of the Titan" (Tier: 2) — Attribute }
++33(31-33) to Strength
+{ Suffix Modifier "of Steel Skin" (Tier: 6) }
++94(73-97) to Stun Threshold
+`);
+TwoImplicitItem.category = ItemCategory.Belt;
+TwoImplicitItem.rarity = ItemRarity.Rare;
+TwoImplicitItem.itemLevel = 80;
+
+TwoImplicitItem.info.refName = "Ornate Belt";
+TwoImplicitItem.sectionCount = 5;
+TwoImplicitItem.implicitCount = 2;
+TwoImplicitItem.prefixCount = 2;
+TwoImplicitItem.suffixCount = 3;
+// #endregion
+
+// #region TwoLineOneImplicitItem
+export const TwoLineOneImplicitItem = new TestItem(`Item Class: Tablet
+Rarity: Rare
+Planar Challenge
+Delirium Precursor Tablet
+--------
+Item Level: 84
+--------
+{ Implicit Modifier }
+Adds a Mirror of Delirium to a Map (implicit)
+17 uses remaining (implicit)
+--------
+{ Prefix Modifier "Breeding" }
+7(4-10)% increased Pack Size in Map
+{ Prefix Modifier "Teeming" }
+Map has 16(25-70)% increased Magic Monsters
+{ Suffix Modifier "of the Simulacrum" (Tier: 1) }
+6(10-30)% increased Stack size of Simulacrum Splinters found in Map
+{ Suffix Modifier "of Phobia" (Tier: 1) }
+Delirium Encounters in Map are 5(10-30)% more likely to spawn Unique Bosses
+--------
+Can be used in a personal Map Device to add modifiers to a Map.
+--------
+Corrupted
+--------
+Note: ~b/o 1 exalted
+`);
+TwoLineOneImplicitItem.category = ItemCategory.Tablet;
+TwoLineOneImplicitItem.rarity = ItemRarity.Rare;
+TwoLineOneImplicitItem.itemLevel = 84;
+
+TwoLineOneImplicitItem.info.refName = "Delirium Precursor Tablet";
+TwoLineOneImplicitItem.sectionCount = 7;
+TwoLineOneImplicitItem.implicitCount = 1;
+TwoLineOneImplicitItem.prefixCount = 2;
+TwoLineOneImplicitItem.suffixCount = 2;
+
+TwoLineOneImplicitItem.isCorrupted = true;
+TwoLineOneImplicitItem.note = "~b/o 1 exalted";
 // #endregion

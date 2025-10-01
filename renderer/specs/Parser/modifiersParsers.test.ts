@@ -9,6 +9,8 @@ import {
   RareItem,
   RareWithImplicit,
   TestItem,
+  TwoImplicitItem,
+  TwoLineOneImplicitItem,
   UniqueItem,
   WandRareItem,
 } from "./items";
@@ -30,8 +32,10 @@ describe("parseModifiers", () => {
     [HighDamageRareItem, [5, 6, 7]],
     [ArmourHighValueRareItem, [5, 6]],
     [WandRareItem, [3, 4]],
+    [TwoImplicitItem, [3, 4]],
+    [TwoLineOneImplicitItem, [2, 3]],
   ])(
-    "Each mod section is recognized",
+    "%#, Each mod section is recognized",
     (testItem: TestItem, modifierSections: number[]) => {
       const sections = __testExports.itemTextToSections(testItem.rawText);
       const parsedItem: ParsedItem = {
@@ -56,22 +60,76 @@ describe("parseModifiers", () => {
   );
 
   it.each([
-    [MagicItem, 4, MagicItem.explicitCount],
-    [RareItem, 4, RareItem.explicitCount],
-    [UniqueItem, 4, UniqueItem.uniqueAffixCount],
-    [RareWithImplicit, 3, RareWithImplicit.implicitCount],
-    [RareWithImplicit, 4, RareWithImplicit.explicitCount],
-    [HighDamageRareItem, 5, 1],
-    [HighDamageRareItem, 6, HighDamageRareItem.implicitCount],
-    [HighDamageRareItem, 7, HighDamageRareItem.explicitCount],
-    [ArmourHighValueRareItem, 5, 1],
-    [ArmourHighValueRareItem, 6, ArmourHighValueRareItem.explicitCount],
-    [WandRareItem, 3, WandRareItem.implicitCount],
-    [WandRareItem, 4, WandRareItem.explicitCount],
-    [NormalShield, 4, NormalShield.implicitCount],
+    ["MagicItem:explicit", MagicItem, 4, MagicItem.explicitCount],
+    ["RareItem:explicit", RareItem, 4, RareItem.explicitCount],
+    ["UniqueItem:uniqueAffix", UniqueItem, 4, UniqueItem.uniqueAffixCount],
+    [
+      "RareWithImplicit:implicit",
+      RareWithImplicit,
+      3,
+      RareWithImplicit.implicitCount,
+    ],
+    [
+      "RareWithImplicit:explicit",
+      RareWithImplicit,
+      4,
+      RareWithImplicit.explicitCount,
+    ],
+    ["HighDamageRareItem:fixed", HighDamageRareItem, 5, 1],
+    [
+      "HighDamageRareItem:implicit",
+      HighDamageRareItem,
+      6,
+      HighDamageRareItem.implicitCount,
+    ],
+    [
+      "HighDamageRareItem:explicit",
+      HighDamageRareItem,
+      7,
+      HighDamageRareItem.explicitCount,
+    ],
+    ["ArmourHighValueRareItem:fixed", ArmourHighValueRareItem, 5, 1],
+    [
+      "ArmourHighValueRareItem:explicit",
+      ArmourHighValueRareItem,
+      6,
+      ArmourHighValueRareItem.explicitCount,
+    ],
+    ["WandRareItem:implicit", WandRareItem, 3, WandRareItem.implicitCount],
+    ["WandRareItem:explicit", WandRareItem, 4, WandRareItem.explicitCount],
+    ["NormalShield:implicit", NormalShield, 4, NormalShield.implicitCount],
+    [
+      "TwoImplicitItem:implicit",
+      TwoImplicitItem,
+      3,
+      TwoImplicitItem.implicitCount,
+    ],
+    [
+      "TwoImplicitItem:explicit",
+      TwoImplicitItem,
+      4,
+      TwoImplicitItem.explicitCount,
+    ],
+    [
+      "TwoLineOneImplicitItem:implicit",
+      TwoLineOneImplicitItem,
+      2,
+      TwoLineOneImplicitItem.implicitCount,
+    ],
+    [
+      "TwoLineOneImplicitItem:explicit",
+      TwoLineOneImplicitItem,
+      3,
+      TwoLineOneImplicitItem.explicitCount,
+    ],
   ])(
-    "Each mod section adds correct count to newMods",
-    (testItem: TestItem, section: number, expectedCount: number) => {
+    "%s, Each mod section adds correct count to newMods",
+    (
+      testName: string,
+      testItem: TestItem,
+      section: number,
+      expectedCount: number,
+    ) => {
       const sections = __testExports.itemTextToSections(testItem.rawText);
       const parsedItem: ParsedItem = {
         rarity: testItem.rarity,
