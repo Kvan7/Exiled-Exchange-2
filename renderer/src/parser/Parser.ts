@@ -1219,6 +1219,7 @@ function parseUnneededText(section: string[], item: ParsedItem) {
   }
   return "SECTION_SKIPPED";
 }
+
 function parseTimelostRadius(section: string[], item: ParsedItem) {
   if (item.category !== ItemCategory.Jewel) return "PARSER_SKIPPED";
   for (const line of section) {
