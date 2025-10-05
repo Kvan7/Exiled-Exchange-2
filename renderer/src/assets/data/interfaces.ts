@@ -221,6 +221,12 @@ export interface TranslationDict {
   COLD_DAMAGE: string;
   PRICE_NOTE: string;
   WAYSTONE_TIER: string;
+  WAYSTONE_REVIVES: string;
+  WAYSTONE_PACK_SIZE: string;
+  WAYSTONE_MAGIC_MONSTERS: string;
+  WAYSTONE_RARE_MONSTERS: string;
+  WAYSTONE_DROP_CHANCE: string;
+  WAYSTONE_RARITY: string;
   WAYSTONE_HELP: string;
   JEWEL_HELP: string;
   SANCTUM_HELP: string;

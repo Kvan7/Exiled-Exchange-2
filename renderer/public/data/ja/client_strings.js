@@ -127,5 +127,11 @@ export default {
   RELOAD_SPEED: '再装填時間: ',
   FRACTURED_ITEM: 'フラクチャーアイテム',
   SANCTIFIED: '聖別化',
-  HYPHEN: '-'
+  HYPHEN: '-',
+  WAYSTONE_REVIVES: '復活が利用可能: ',
+  WAYSTONE_PACK_SIZE: 'モンスターパックサイズ: ',
+  WAYSTONE_MAGIC_MONSTERS: 'マジックモンスター: ',
+  WAYSTONE_RARE_MONSTERS: 'レアモンスター: ',
+  WAYSTONE_DROP_CHANCE: 'ウェイストーンドロップ確率: ',
+  WAYSTONE_RARITY: 'アイテムレアリティ: '
 }

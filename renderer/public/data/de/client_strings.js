@@ -127,5 +127,11 @@ export default {
   RELOAD_SPEED: 'Nachladezeit: ',
   FRACTURED_ITEM: 'Brüchiger Gegenstand',
   SANCTIFIED: 'Geheiligt',
-  HYPHEN: '-'
+  HYPHEN: '-',
+  WAYSTONE_REVIVES: 'Wiederbelebungen verfügbar: ',
+  WAYSTONE_PACK_SIZE: 'Monstergruppengröße: ',
+  WAYSTONE_MAGIC_MONSTERS: 'Magische Monster: ',
+  WAYSTONE_RARE_MONSTERS: 'Seltene Monster: ',
+  WAYSTONE_DROP_CHANCE: 'Chance auf fallen gelassene Wegsteine: ',
+  WAYSTONE_RARITY: 'Gegenstandsseltenheit: '
 }

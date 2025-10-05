@@ -103,7 +103,13 @@
     "has_elemental_fire_affix": "Fire",
     "has_elemental_cold_affix": "Cold",
     "has_elemental_lightning_affix": "Lightning",
-    "rarity_magic": "Rarity: Magic"
+    "rarity_magic": "Rarity: Magic",
+    "map_revives": "Revives Available: {0}",
+    "map_pack_size": "Monster Pack Size: +{0}%",
+    "map_magic_monsters": "Magic Monsters: +{0}%",
+    "map_rare_monsters": "Rare Monsters: +{0}%",
+    "map_drop_chance": "Waystone Drop Chance: +{0}%",
+    "map_item_rarity": "Item Rarity: +{0}%"
   },
   "item_category": {
     "prop": "Category: {0}",
@@ -176,6 +182,8 @@
     "hide_empty_mod": "Select only if item has 6 modifiers (1 of which is crafted) or if it has 5 modifiers",
     "hide_low_ilvl": "Item has too low an item level to roll all mods",
     "hide_not_max_level": "Non max level granted skills rarely add value",
+    "hide_for_map": "Most map modifiers have no value",
+    "hide_revives": "Select only if not 0 and don't want to exalt it?",
     "tag_implicit": "implicit",
     "tag_fractured": "fractured",
     "tag_crafted": "crafted",

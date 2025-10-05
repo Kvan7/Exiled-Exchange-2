@@ -102,7 +102,13 @@
     "has_elemental_fire_affix": "Fire",
     "has_elemental_cold_affix": "Cold",
     "has_elemental_lightning_affix": "Lightning",
-    "rarity_magic": "稀有度: 魔法"
+    "rarity_magic": "稀有度: 魔法",
+    "map_revives": "可用的復活數: {0}",
+    "map_pack_size": "怪物群大小: +{0}%",
+    "map_magic_monsters": "魔法怪物: +{0}%",
+    "map_rare_monsters": "稀有怪物: +{0}%",
+    "map_drop_chance": "換界石掉落機率: +{0}%",
+    "map_item_rarity": "物品稀有度: +{0}%"
   },
   "item_category": {
     "prop": "類別：{0}",
@@ -171,6 +177,8 @@
     "hide_empty_mod": "僅在物品有 6 個詞綴（其中 1 個已製作）或有 5 個詞綴時選擇",
     "hide_low_ilvl": "Item has too low an item level to roll all mods",
     "hide_not_max_level": "Non max level granted skills rarely add value",
+    "hide_for_map": "Most map modifiers have no value",
+    "hide_revives": "Select only if not 0 and don't want to exalt it?",
     "tag_implicit": "隨機",
     "tag_fractured": "破裂",
     "tag_crafted": "已製作",

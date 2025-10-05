@@ -187,11 +187,15 @@ interface TradeRequest {
           str?: FilterRange;
         };
       };
-      // WILL PROBABLY BE REMOVED SOON
       map_filters?: {
         filters: {
-          map_bonus?: FilterRange;
           map_tier?: FilterRange;
+          map_revives?: FilterRange;
+          map_packsize?: FilterRange;
+          map_magic_monsters?: FilterRange;
+          map_rare_monsters?: FilterRange;
+          map_bonus?: FilterRange;
+          map_iir?: FilterRange;
         };
       };
       misc_filters?: {
@@ -769,6 +773,47 @@ export function createTradeRequest(
       case "item.rarity_magic":
         propSet(query.filters, "type_filters.filters.rarity.option", "magic");
         break;
+      case "item.map_revives":
+        propSet(
+          query.filters,
+          "map_filters.filters.map_revives.min",
+          typeof input.min === "number" ? input.min : undefined,
+        );
+        break;
+      case "item.map_pack_size":
+        propSet(
+          query.filters,
+          "map_filters.filters.map_packsize.min",
+          typeof input.min === "number" ? input.min : undefined,
+        );
+        break;
+      case "item.map_magic_monsters":
+        propSet(
+          query.filters,
+          "map_filters.filters.map_magic_monsters.min",
+          typeof input.min === "number" ? input.min : undefined,
+        );
+        break;
+      case "item.map_rare_monsters":
+        propSet(
+          query.filters,
+          "map_filters.filters.map_rare_monsters.min",
+          typeof input.min === "number" ? input.min : undefined,
+        );
+        break;
+      case "item.map_drop_chance":
+        propSet(
+          query.filters,
+          "map_filters.filters.map_bonus.min",
+          typeof input.min === "number" ? input.min : undefined,
+        );
+        break;
+      case "item.map_item_rarity":
+        propSet(
+          query.filters,
+          "map_filters.filters.map_iir.min",
+          typeof input.min === "number" ? input.min : undefined,
+        );
     }
   }
 

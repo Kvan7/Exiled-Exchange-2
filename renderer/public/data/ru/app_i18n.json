@@ -118,7 +118,13 @@
     "has_elemental_fire_affix": "Fire",
     "has_elemental_cold_affix": "Cold",
     "has_elemental_lightning_affix": "Lightning",
-    "rarity_magic": "Редкость: Волшебный"
+    "rarity_magic": "Редкость: Волшебный",
+    "map_revives": "Доступно возрождений: {0}",
+    "map_pack_size": "Размер групп монстров: +{0}%",
+    "map_magic_monsters": "Волшебные монстры: +{0}%",
+    "map_rare_monsters": "Редкие монстры: +{0}%",
+    "map_drop_chance": "Шанс выпадения путевого камня: +{0}%",
+    "map_item_rarity": "Редкость предметов: +{0}%"
   },
   "item_category": {
     "prop": "Категория: {0}",
@@ -187,6 +193,8 @@
     "hide_empty_mod": "Выбирайте, только если у предмета 6 свойств (1 из которых ремесленное) или если у него 5 свойств",
     "hide_low_ilvl": "Item has too low an item level to roll all mods",
     "hide_not_max_level": "Non max level granted skills rarely add value",
+    "hide_for_map": "Most map modifiers have no value",
+    "hide_revives": "Select only if not 0 and don't want to exalt it?",
     "tag_crafted": "мастер",
     "tag_fractured": "расколотый",
     "tag_scourge": "преображен",

@@ -96,7 +96,13 @@
     "not_mirrored": "Não espelhado",
     "sanctified": "Santificado",
     "not_sanctified": "Não Santificado",
-    "rarity_magic": "Raridade: Mágico"
+    "rarity_magic": "Raridade: Mágico",
+    "map_revives": "Ressurreições: {0}",
+    "map_pack_size": "Tamanho do Grupo de Monstros: +{0}%",
+    "map_magic_monsters": "Monstros Mágicos: +{0}%",
+    "map_rare_monsters": "Monstros Raros: +{0}%",
+    "map_drop_chance": "Chance de Queda de Pedra Guia: +{0}%",
+    "map_item_rarity": "Raridade de Itens: +{0}%"
   },
   "item_category": {
     "prop": "Categoria: {0}",
@@ -169,6 +175,8 @@
     "hide_empty_mod": "Selecionar apenas se o item tiver 6 modificadores (1 dos quais fabricado) ou se tiver 5 modificadores",
     "hide_low_ilvl": "Item has too low an item level to roll all mods",
     "hide_not_max_level": "Non max level granted skills rarely add value",
+    "hide_for_map": "Most map modifiers have no value",
+    "hide_revives": "Select only if not 0 and don't want to exalt it?",
     "tag_implicit": "implícito",
     "tag_fractured": "fraturado",
     "tag_crafts": "fabricado",

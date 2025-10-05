@@ -155,6 +155,12 @@ export const INTERNAL_TRADE_IDS = [
   "item.has_elemental_lightning_affix",
   "item.reload_time",
   "item.rarity_magic",
+  "item.map_revives",
+  "item.map_pack_size",
+  "item.map_drop_chance",
+  "item.map_item_rarity",
+  "item.map_magic_monsters",
+  "item.map_rare_monsters",
 ] as const;
 
 export type InternalTradeId = (typeof INTERNAL_TRADE_IDS)[number];

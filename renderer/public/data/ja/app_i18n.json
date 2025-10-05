@@ -102,7 +102,13 @@
     "has_elemental_fire_affix": "Fire",
     "has_elemental_cold_affix": "Cold",
     "has_elemental_lightning_affix": "Lightning",
-    "rarity_magic": "レアリティ: マジック"
+    "rarity_magic": "レアリティ: マジック",
+    "map_revives": "復活が利用可能: {0}",
+    "map_pack_size": "モンスターパックサイズ: +{0}%",
+    "map_magic_monsters": "マジックモンスター: +{0}%",
+    "map_rare_monsters": "レアモンスター: +{0}%",
+    "map_drop_chance": "ウェイストーンドロップ確率: +{0}%",
+    "map_item_rarity": "アイテムレアリティ: +{0}%"
   },
   "item_category": {
     "prop": "カテゴリー: {0}",
@@ -171,6 +177,8 @@
     "hide_empty_mod": "アイテムに6つの修飾子（そのうち1つはクラフト済み）または5つの修飾子がある場合のみ選択",
     "hide_low_ilvl": "Item has too low an item level to roll all mods",
     "hide_not_max_level": "Non max level granted skills rarely add value",
+    "hide_for_map": "Most map modifiers have no value",
+    "hide_revives": "Select only if not 0 and don't want to exalt it?",
     "tag_implicit": "暗黙",
     "tag_fractured": "フラクチャー",
     "tag_crafted": "クラフト",

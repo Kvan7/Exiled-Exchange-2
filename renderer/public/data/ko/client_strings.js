@@ -127,5 +127,11 @@ export default {
   RELOAD_SPEED: '재장전 시간: ',
   FRACTURED_ITEM: '분열된 아이템',
   SANCTIFIED: '축성',
-  HYPHEN: '-'
+  HYPHEN: '-',
+  WAYSTONE_REVIVES: '부활 횟수: ',
+  WAYSTONE_PACK_SIZE: '몬스터 무리 규모: ',
+  WAYSTONE_MAGIC_MONSTERS: '마법 몬스터: ',
+  WAYSTONE_RARE_MONSTERS: '희귀 몬스터: ',
+  WAYSTONE_DROP_CHANCE: '경로석 출현 확률: ',
+  WAYSTONE_RARITY: '아이템 희귀도: '
 }

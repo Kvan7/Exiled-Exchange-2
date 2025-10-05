@@ -127,5 +127,11 @@ export default {
   RELOAD_SPEED: '重新裝填時間: ',
   FRACTURED_ITEM: '破裂之物',
   SANCTIFIED: '聖化的',
-  HYPHEN: '到'
+  HYPHEN: '到',
+  WAYSTONE_REVIVES: '可用的復活數: ',
+  WAYSTONE_PACK_SIZE: '怪物群大小: ',
+  WAYSTONE_MAGIC_MONSTERS: '魔法怪物: ',
+  WAYSTONE_RARE_MONSTERS: '稀有怪物: ',
+  WAYSTONE_DROP_CHANCE: '換界石掉落機率: ',
+  WAYSTONE_RARITY: '物品稀有度: '
 }

@@ -231,5 +231,17 @@ export default {
   // ItemPopupSanctified
   SANCTIFIED: 'Sanctified',
   // ItemDisplayWeaponDamageRange
-  HYPHEN: '-'
+  HYPHEN: '-',
+  // NumberOfPortalsPerWaystone
+  WAYSTONE_REVIVES: 'Revives Available: ',
+  // ItemDisplayMapPackSizeIncrease
+  WAYSTONE_PACK_SIZE: 'Monster Pack Size: ',
+  // ItemDisplayMapMagicMonsterQuantityBonus
+  WAYSTONE_MAGIC_MONSTERS: 'Magic Monsters: ',
+  // ItemDisplayMapRareMonsterQuantityBonus
+  WAYSTONE_RARE_MONSTERS: 'Rare Monsters: ',
+  // ItemDisplayMapMapItemDropChanceIncrease
+  WAYSTONE_DROP_CHANCE: 'Waystone Drop Chance: ',
+  // ItemDisplayMapRarityIncrease
+  WAYSTONE_RARITY: 'Item Rarity: '
 }

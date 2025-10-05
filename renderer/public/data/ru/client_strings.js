@@ -161,5 +161,11 @@ export default {
   RELOAD_SPEED: 'Время перезарядки: ',
   FRACTURED_ITEM: 'Расколотый предмет',
   SANCTIFIED: 'Освящено',
-  HYPHEN: '-'
+  HYPHEN: '-',
+  WAYSTONE_REVIVES: 'Доступно возрождений: ',
+  WAYSTONE_PACK_SIZE: 'Размер групп монстров: ',
+  WAYSTONE_MAGIC_MONSTERS: 'Волшебные монстры: ',
+  WAYSTONE_RARE_MONSTERS: 'Редкие монстры: ',
+  WAYSTONE_DROP_CHANCE: 'Шанс выпадения путевого камня: ',
+  WAYSTONE_RARITY: 'Редкость предметов: '
 }

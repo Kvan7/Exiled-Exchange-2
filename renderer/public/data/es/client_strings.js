@@ -126,5 +126,11 @@ export default {
   RELOAD_SPEED: 'Tiempo de recarga: ',
   FRACTURED_ITEM: 'Objeto fracturado',
   SANCTIFIED: 'Santificado',
-  HYPHEN: '-'
+  HYPHEN: '-',
+  WAYSTONE_REVIVES: 'Resurrecciones disponibles: ',
+  WAYSTONE_PACK_SIZE: 'Tamaño de los grupos de monstruos: ',
+  WAYSTONE_MAGIC_MONSTERS: 'Monstruos mágicos: ',
+  WAYSTONE_RARE_MONSTERS: 'Monstruos raros: ',
+  WAYSTONE_DROP_CHANCE: 'Probabilidad de botín de piedra guía: ',
+  WAYSTONE_RARITY: 'Rareza de objetos: '
 }

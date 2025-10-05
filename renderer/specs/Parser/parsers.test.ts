@@ -83,6 +83,7 @@ describe("parseWeapon", () => {
     expect(parsedItem.weaponAS).toBe(HighDamageRareItem.weaponAS);
     expect(parsedItem.weaponCRIT).toBe(HighDamageRareItem.weaponCRIT);
     expect(parsedItem.weaponReload).toBe(HighDamageRareItem.weaponReload);
+    expect(parsedItem.quality).toBe(HighDamageRareItem.quality);
   });
 });
 
@@ -101,6 +102,8 @@ describe("parseArmour", () => {
     expect(parsedItem.armourAR).toBe(NormalItem.armourAR);
     expect(parsedItem.armourEV).toBe(NormalItem.armourEV);
     expect(parsedItem.armourES).toBe(NormalItem.armourES);
+    expect(parsedItem.quality).toBe(NormalItem.quality);
+    expect(parsedItem.armourBLOCK).toBe(NormalItem.armourBLOCK);
   });
   test("Unique Armour", () => {
     const sections = __testExports.itemTextToSections(UniqueItem.rawText);
@@ -112,6 +115,8 @@ describe("parseArmour", () => {
     expect(parsedItem.armourAR).toBe(UniqueItem.armourAR);
     expect(parsedItem.armourEV).toBe(UniqueItem.armourEV);
     expect(parsedItem.armourES).toBe(UniqueItem.armourES);
+    expect(parsedItem.quality).toBe(UniqueItem.quality);
+    expect(parsedItem.armourBLOCK).toBe(UniqueItem.armourBLOCK);
   });
   test("High Armour Rare", () => {
     const sections = __testExports.itemTextToSections(
@@ -125,5 +130,7 @@ describe("parseArmour", () => {
     expect(parsedItem.armourAR).toBe(ArmourHighValueRareItem.armourAR);
     expect(parsedItem.armourEV).toBe(ArmourHighValueRareItem.armourEV);
     expect(parsedItem.armourES).toBe(ArmourHighValueRareItem.armourES);
+    expect(parsedItem.quality).toBe(ArmourHighValueRareItem.quality);
+    expect(parsedItem.armourBLOCK).toBe(ArmourHighValueRareItem.armourBLOCK);
   });
 });

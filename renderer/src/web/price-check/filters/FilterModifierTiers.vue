@@ -34,6 +34,12 @@ export default defineComponent({
     );
     const tags = computed(() => {
       const { filter, item } = props;
+      if (
+        item.category === ItemCategory.Map ||
+        item.category === ItemCategory.Tablet
+      ) {
+        return [];
+      }
       const out: Array<{ type: string; tier: number }> = [];
       for (const source of filter.sources) {
         const tier = source.modifier.info.tier;

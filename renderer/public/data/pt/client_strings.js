@@ -227,5 +227,11 @@ export default {
   RELOAD_SPEED: 'Tempo de Recarregamento: ',
   FRACTURED_ITEM: 'Item Fixado',
   SANCTIFIED: 'Santificado',
-  HYPHEN: '-'
+  HYPHEN: '-',
+  WAYSTONE_REVIVES: 'Ressurreições: ',
+  WAYSTONE_PACK_SIZE: 'Tamanho do Grupo de Monstros: ',
+  WAYSTONE_MAGIC_MONSTERS: 'Monstros Mágicos: ',
+  WAYSTONE_RARE_MONSTERS: 'Monstros Raros: ',
+  WAYSTONE_DROP_CHANCE: 'Chance de Queda de Pedra Guia: ',
+  WAYSTONE_RARITY: 'Raridade de Itens: '
 }
