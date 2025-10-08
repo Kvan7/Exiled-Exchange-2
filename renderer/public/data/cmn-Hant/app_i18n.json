@@ -108,7 +108,8 @@
     "map_magic_monsters": "魔法怪物: +{0}%",
     "map_rare_monsters": "稀有怪物: +{0}%",
     "map_drop_chance": "換界石掉落機率: +{0}%",
-    "map_item_rarity": "物品稀有度: +{0}%"
+    "map_item_rarity": "物品稀有度: +{0}%",
+    "uses_remaining": "還能夠使用{0}次。"
   },
   "item_category": {
     "prop": "類別：{0}",

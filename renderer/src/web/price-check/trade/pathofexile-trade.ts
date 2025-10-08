@@ -108,6 +108,15 @@ const CONVERT_CURRENCY: Record<string, string> = {
   "perfect-exalted-orb": "P. exalted",
 };
 
+const TABLET_USES_STATS = [
+  "Adds Irradiated to a Map \n# use remaining",
+  "Adds Ritual Altars to a Map \n# use remaining",
+  "Adds a Kalguuran Expedition to a Map \n# use remaining",
+  "Adds a Mirror of Delirium to a Map \n# use remaining",
+  "Adds an Otherworldy Breach to a Map \n# use remaining",
+  "Empowers the Map Boss of a Map \n# use remaining",
+];
+
 interface FilterBoolean {
   option?: "true" | "false";
 }
@@ -537,6 +546,23 @@ export function createTradeRequest(
       "misc_filters.filters.sanctified.option",
       String(false),
     );
+  }
+
+  // Custom fake pseudo filter for uses remaining
+  if (filters.usesRemaining) {
+    query.stats.push({
+      type: "count",
+      value: { min: 1 },
+      disabled: filters.usesRemaining.disabled,
+      filters: TABLET_USES_STATS.map((ref) => {
+        const stat = STAT_BY_REF(ref)!;
+        return {
+          id: stat.trade.ids[ModifierType.Implicit][0],
+          value: { min: filters.usesRemaining!.value },
+          disabled: false,
+        };
+      }),
+    });
   }
 
   // TRADE FILTERS
