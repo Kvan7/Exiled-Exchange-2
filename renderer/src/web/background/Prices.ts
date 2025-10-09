@@ -29,8 +29,6 @@ export const usePoeninja = createGlobalState(() => {
   const leagues = useLeagues();
 
   const xchgRate = shallowRef<number | undefined>(undefined);
-  // const xchgRate1 = shallowRef<number | undefined>(undefined);
-  // xchgRate1.value = undefined;
 
   const isLoading = shallowRef(false);
   let PRICES_DB: PriceDatabase = [];

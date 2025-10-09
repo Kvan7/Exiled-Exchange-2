@@ -228,6 +228,7 @@ export default defineComponent({
         autoFillEmptyRuneSockets: false,
         alwaysShowTier: false,
         openItemEditorAbove: false,
+        primaryCurrency: "exalted",
       };
     },
   } satisfies WidgetSpec,

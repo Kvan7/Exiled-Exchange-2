@@ -86,6 +86,13 @@
     <ui-checkbox class="mb-4" v-model="rememberCurrency">{{
       t(":remember_currency")
     }}</ui-checkbox>
+    <div class="mb-4">
+      <div class="flex-1 mb-1">{{ t(":primary_currency") }}</div>
+      <select v-model="primaryCurrency" class="p-1 rounded bg-gray-700 w-24">
+        <option value="exalted">Exalted</option>
+        <option value="chaos">Chaos</option>
+      </select>
+    </div>
     <ui-checkbox class="mb-4" v-model="activateStockFilter">{{
       t(":select_stock")
     }}</ui-checkbox>
@@ -260,6 +267,10 @@ export default defineComponent({
       rememberCurrency: configModelValue(
         () => configWidget.value,
         "rememberCurrency",
+      ),
+      primaryCurrency: configModelValue(
+        () => configWidget.value,
+        "primaryCurrency",
       ),
       searchStatRange: computed<number>({
         get() {
