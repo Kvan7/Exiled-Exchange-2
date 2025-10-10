@@ -1,10 +1,10 @@
-import { shallowRef, watch, readonly } from "vue";
+import { shallowRef, watch, readonly, computed } from "vue";
 import { createGlobalState } from "@vueuse/core";
 import { Host } from "@/web/background/IPC";
 import { useLeagues } from "./Leagues";
 import { AppConfig } from "../Config";
 import { PriceCheckWidget } from "../overlay/widgets";
-import { usePrimaryCurrency } from "./PrimaryCurrency";
+import { ITEM_BY_REF } from "@/assets/data";
 
 interface NinjaDenseInfo {
   exalted: number;
@@ -28,9 +28,56 @@ export interface CurrencyValue {
   currency: "chaos" | "exalted" | "div";
 }
 
+interface CoreCurrency {
+  id: string;
+  abbrev: string;
+  ref: string;
+  text: string;
+  icon: string;
+}
+
+function getAvailableCoreCurrencies(): CoreCurrency[] {
+  return [
+    {
+      id: "exalted",
+      abbrev: "ex",
+      ref: "Exalted Orb",
+      text: "Exalted Orb",
+      icon: "/images/exa.png",
+    },
+    {
+      id: "chaos",
+      abbrev: "c",
+      ref: "Chaos Orb",
+      text: "Chaos Orb",
+      icon: "/images/chaos.png",
+    },
+  ];
+}
+
 export const usePoeninja = createGlobalState(() => {
   const leagues = useLeagues();
-  const primaryCurrency = usePrimaryCurrency();
+
+  const availableCoreCurrencies = shallowRef<CoreCurrency[]>([]);
+  const selectedCoreCurrencyId = computed<"exalted" | "chaos">({
+    get() {
+      return availableCoreCurrencies.value.length
+        ? AppConfig<PriceCheckWidget>("price-check")!.coreCurrency
+        : "exalted";
+    },
+    set(id) {
+      AppConfig<PriceCheckWidget>("price-check")!.coreCurrency = id;
+    },
+  });
+
+  const selectedCoreCurrency = computed(() => {
+    const { coreCurrency } = AppConfig<PriceCheckWidget>("price-check")!;
+    if (!availableCoreCurrencies.value || !coreCurrency) return undefined;
+    const listed = availableCoreCurrencies.value.find(
+      (currency) => currency.id === coreCurrency,
+    );
+    return listed;
+  });
 
   const xchgRate = shallowRef<number | undefined>(undefined);
   const xchgRateCurrency = shallowRef<"chaos" | "exalted" | undefined>(
@@ -68,6 +115,20 @@ export const usePoeninja = createGlobalState(() => {
     try {
       isLoading.value = true;
       downloadController = new AbortController();
+
+      availableCoreCurrencies.value = getAvailableCoreCurrencies().map(
+        (currency) => ({
+          ...currency,
+          text: ITEM_BY_REF("ITEM", currency.ref)![0].name,
+        }),
+      );
+      const haveCurrency = availableCoreCurrencies.value.some(
+        (currency) => currency.id === selectedCoreCurrencyId.value,
+      );
+      if (!haveCurrency) {
+        selectedCoreCurrencyId.value = "exalted";
+      }
+
       const response = await Host.proxy(
         `api.exiledexchange2.dev/overviewData.json`,
         {
@@ -90,7 +151,7 @@ export const usePoeninja = createGlobalState(() => {
         name: "Divine Orb",
       });
       const preferred =
-        AppConfig<PriceCheckWidget>("price-check")!.primaryCurrency;
+        AppConfig<PriceCheckWidget>("price-check")!.coreCurrency;
 
       if (divine && divine.exalted >= 30) {
         if (preferred === "exalted") {
@@ -218,15 +279,12 @@ export const usePoeninja = createGlobalState(() => {
   }, RETRY_INTERVAL_MS);
 
   watch(leagues.selectedId, () => {
-    console.log(`WATCH LEAGUE RUN ${leagues.selectedId.value}`);
     xchgRate.value = undefined;
     PRICES_DB = [];
     load(true);
   });
 
-  console.log("SETTING UP PRICES");
-  watch(primaryCurrency.selectedId, (curr, prev) => {
-    console.log(`WATCH PRIMARY RUN ${curr} ${prev}`);
+  watch(selectedCoreCurrencyId, (curr, prev) => {
     if (curr === prev) return;
     xchgRateCurrency.value = curr ?? "exalted";
     xchgRate.value = undefined;
@@ -236,12 +294,13 @@ export const usePoeninja = createGlobalState(() => {
 
   return {
     xchgRate: readonly(xchgRate),
-    xchgRateCurrency: readonly(xchgRateCurrency),
+    xchgRateCurrency: readonly(selectedCoreCurrency),
     findPriceByQuery,
     autoCurrency,
     queuePricesFetch,
     cachedCurrencyByQuery,
     initialLoading: () => isLoading.value && !PRICES_DB.length,
+    availableCoreCurrencies: readonly(availableCoreCurrencies),
   };
 });
 

@@ -23,7 +23,6 @@ export function AppConfig(type?: string) {
 
 export function updateConfig(updates: Config) {
   _config.value = deepReactive(JSON.parse(JSON.stringify(updates)));
-  console.log("SET CONFIG");
   document.documentElement.style.fontSize = `${_config.value!.fontSize}px`;
 }
 
@@ -599,7 +598,7 @@ function upgradeConfig(_config: Config): Config {
     const priceCheck = config.widgets.find(
       (w) => w.wmType === "price-check",
     ) as widget.PriceCheckWidget;
-    priceCheck.primaryCurrency = "exalted";
+    priceCheck.coreCurrency = "exalted";
     config.configVersion = 29;
   }
   return config as unknown as Config;

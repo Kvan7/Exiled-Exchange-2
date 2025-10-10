@@ -414,7 +414,7 @@
     "always_show_tier": "Always show tier",
     "remember_ratio": "Remember currency ratio",
     "open_editor_above": "Open rune socket selector upwards",
-    "primary_currency": "Primary base currency"
+    "core_currency": "Primary base currency"
   },
   "poe2_new": {
     "beta_warning": "これはPOE2のベータ版です、期待通りに動作しないことがあります。",

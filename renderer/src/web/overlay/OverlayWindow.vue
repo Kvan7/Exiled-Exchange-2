@@ -74,7 +74,6 @@ import LoadingAnimation from "./LoadingAnimation.vue";
 import { usePoeninja } from "@/web/background/Prices";
 import { useLeagues } from "@/web/background/Leagues";
 import { handleLine } from "@/web/client-log/client-log";
-import { usePrimaryCurrency } from "../background/PrimaryCurrency";
 
 type WMID = Widget["wmId"];
 
@@ -85,7 +84,6 @@ export default defineComponent({
   setup() {
     usePoeninja();
     useLeagues().load();
-    usePrimaryCurrency().load();
 
     const active = shallowRef(!Host.isElectron);
     const gameFocused = shallowRef(false);

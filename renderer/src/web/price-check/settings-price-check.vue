@@ -87,10 +87,10 @@
       t(":remember_currency")
     }}</ui-checkbox>
     <div class="mb-4">
-      <div class="flex-1 mb-1">{{ t(":primary_currency") }}</div>
-      <select v-model="primaryCurrency" class="p-1 rounded bg-gray-700 w-24">
+      <div class="flex-1 mb-1">{{ t(":core_currency") }}</div>
+      <select v-model="coreCurrency" class="p-1 rounded bg-gray-700 w-24">
         <option
-          v-for="currency of primaryCurrencies.list.value"
+          v-for="currency of availableCoreCurrencies"
           :key="currency.id"
           :value="currency.id"
         >
@@ -209,7 +209,7 @@ import { configModelValue, configProp, findWidget } from "../settings/utils.js";
 import type { PriceCheckWidget } from "@/web/overlay/interfaces";
 import { useLeagues } from "../background/Leagues";
 import { getRuneNameByRef } from "./filters/fill-runes.js";
-import { usePrimaryCurrency } from "../background/PrimaryCurrency.js";
+import { usePoeninja } from "../background/Prices.js";
 
 export default defineComponent({
   name: "price_check.name",
@@ -221,7 +221,7 @@ export default defineComponent({
     );
 
     const leagues = useLeagues();
-    const primaryCurrencies = usePrimaryCurrency();
+    const { availableCoreCurrencies } = usePoeninja();
     const { t } = useI18nNs("price_check");
 
     return {
@@ -275,10 +275,7 @@ export default defineComponent({
         () => configWidget.value,
         "rememberCurrency",
       ),
-      primaryCurrency: configModelValue(
-        () => configWidget.value,
-        "primaryCurrency",
-      ),
+      coreCurrency: configModelValue(() => configWidget.value, "coreCurrency"),
       searchStatRange: computed<number>({
         get() {
           return configWidget.value.searchStatRange;
@@ -309,7 +306,7 @@ export default defineComponent({
         "defaultAllSelected",
       ),
       leagues,
-      primaryCurrencies,
+      availableCoreCurrencies,
       tooltipHover: configModelValue(
         () => configWidget.value,
         "itemHoverTooltip",
