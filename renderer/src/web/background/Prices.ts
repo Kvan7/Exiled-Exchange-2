@@ -2,6 +2,9 @@ import { shallowRef, watch, readonly } from "vue";
 import { createGlobalState } from "@vueuse/core";
 import { Host } from "@/web/background/IPC";
 import { useLeagues } from "./Leagues";
+import { AppConfig } from "../Config";
+import { PriceCheckWidget } from "../overlay/widgets";
+import { usePrimaryCurrency } from "./PrimaryCurrency";
 
 interface NinjaDenseInfo {
   exalted: number;
@@ -27,8 +30,12 @@ export interface CurrencyValue {
 
 export const usePoeninja = createGlobalState(() => {
   const leagues = useLeagues();
+  const primaryCurrency = usePrimaryCurrency();
 
   const xchgRate = shallowRef<number | undefined>(undefined);
+  const xchgRateCurrency = shallowRef<"chaos" | "exalted" | undefined>(
+    undefined,
+  );
 
   const isLoading = shallowRef(false);
   let PRICES_DB: PriceDatabase = [];
@@ -76,12 +83,32 @@ export const usePoeninja = createGlobalState(() => {
         return;
       }
       PRICES_DB = splitJsonBlob(jsonBlob);
+
+      // TODO: update to search for requested currency instead of divine
       const divine = findPriceByQuery({
         ns: "ITEM",
         name: "Divine Orb",
       });
+      const preferred =
+        AppConfig<PriceCheckWidget>("price-check")!.primaryCurrency;
+
       if (divine && divine.exalted >= 30) {
-        xchgRate.value = divine.exalted;
+        if (preferred === "exalted") {
+          xchgRate.value = divine.exalted;
+          xchgRateCurrency.value = "exalted";
+        } else {
+          const ex = divine.exalted;
+          if (preferred === "chaos") {
+            const chaos = findPriceByQuery({
+              ns: "ITEM",
+              name: "Chaos Orb",
+            });
+            if (chaos && ex / chaos.exalted >= 5) {
+              xchgRate.value = ex / chaos.exalted;
+              xchgRateCurrency.value = "chaos";
+            }
+          }
+        }
       }
 
       // Clear cache
@@ -191,6 +218,17 @@ export const usePoeninja = createGlobalState(() => {
   }, RETRY_INTERVAL_MS);
 
   watch(leagues.selectedId, () => {
+    console.log(`WATCH LEAGUE RUN ${leagues.selectedId.value}`);
+    xchgRate.value = undefined;
+    PRICES_DB = [];
+    load(true);
+  });
+
+  console.log("SETTING UP PRICES");
+  watch(primaryCurrency.selectedId, (curr, prev) => {
+    console.log(`WATCH PRIMARY RUN ${curr} ${prev}`);
+    if (curr === prev) return;
+    xchgRateCurrency.value = curr ?? "exalted";
     xchgRate.value = undefined;
     PRICES_DB = [];
     load(true);
@@ -198,6 +236,7 @@ export const usePoeninja = createGlobalState(() => {
 
   return {
     xchgRate: readonly(xchgRate),
+    xchgRateCurrency: readonly(xchgRateCurrency),
     findPriceByQuery,
     autoCurrency,
     queuePricesFetch,

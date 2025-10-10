@@ -23,6 +23,7 @@ export function AppConfig(type?: string) {
 
 export function updateConfig(updates: Config) {
   _config.value = deepReactive(JSON.parse(JSON.stringify(updates)));
+  console.log("SET CONFIG");
   document.documentElement.style.fontSize = `${_config.value!.fontSize}px`;
 }
 

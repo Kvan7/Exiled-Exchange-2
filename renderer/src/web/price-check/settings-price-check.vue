@@ -89,8 +89,13 @@
     <div class="mb-4">
       <div class="flex-1 mb-1">{{ t(":primary_currency") }}</div>
       <select v-model="primaryCurrency" class="p-1 rounded bg-gray-700 w-24">
-        <option value="exalted">Exalted</option>
-        <option value="chaos">Chaos</option>
+        <option
+          v-for="currency of primaryCurrencies.list.value"
+          :key="currency.id"
+          :value="currency.id"
+        >
+          {{ currency.text }}
+        </option>
       </select>
     </div>
     <ui-checkbox class="mb-4" v-model="activateStockFilter">{{
@@ -204,6 +209,7 @@ import { configModelValue, configProp, findWidget } from "../settings/utils.js";
 import type { PriceCheckWidget } from "@/web/overlay/interfaces";
 import { useLeagues } from "../background/Leagues";
 import { getRuneNameByRef } from "./filters/fill-runes.js";
+import { usePrimaryCurrency } from "../background/PrimaryCurrency.js";
 
 export default defineComponent({
   name: "price_check.name",
@@ -215,6 +221,7 @@ export default defineComponent({
     );
 
     const leagues = useLeagues();
+    const primaryCurrencies = usePrimaryCurrency();
     const { t } = useI18nNs("price_check");
 
     return {
@@ -302,6 +309,7 @@ export default defineComponent({
         "defaultAllSelected",
       ),
       leagues,
+      primaryCurrencies,
       tooltipHover: configModelValue(
         () => configWidget.value,
         "itemHoverTooltip",
