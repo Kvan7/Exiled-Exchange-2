@@ -84,9 +84,9 @@
             <ui-radio v-model="filters.trade.currency" value="exalted">{{
               t(":currency_only_exalted")
             }}</ui-radio>
-            <!-- <ui-radio v-model="filters.trade.currency" value="chaos">{{
+            <ui-radio v-model="filters.trade.currency" value="chaos">{{
               t(":currency_only_chaos")
-            }}</ui-radio> -->
+            }}</ui-radio>
             <ui-radio v-model="filters.trade.currency" value="divine">{{
               t(":currency_only_div")
             }}</ui-radio>

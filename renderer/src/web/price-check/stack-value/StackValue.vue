@@ -42,14 +42,10 @@ export default defineComponent({
     function getPriceFor(n: number) {
       const one = findPriceByQuery(getDetailsId(props.item)!)!;
 
-      const price =
-        props.item.info.refName === "Divine Orb"
-          ? {
-              min: n * one.exalted,
-              max: n * one.exalted,
-              currency: "exalted" as const,
-            }
-          : autoCurrency(n * one.exalted);
+      const price = autoCurrency(
+        n * one.exalted,
+        props.item.info.refName === "Divine Orb",
+      );
 
       return `${displayRounding(price.min)} ${price.currency}`;
     }

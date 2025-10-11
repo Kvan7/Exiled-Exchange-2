@@ -28,8 +28,8 @@ export interface CurrencyValue {
   currency: "chaos" | "exalted" | "div";
 }
 
-interface CoreCurrency {
-  id: string;
+export interface CoreCurrency {
+  id: "exalted" | "chaos";
   abbrev: string;
   ref: string;
   text: string;
@@ -79,10 +79,20 @@ export const usePoeninja = createGlobalState(() => {
     return listed;
   });
 
+  /**
+   * core/div
+   */
   const xchgRate = shallowRef<number | undefined>(undefined);
+  /**
+   * Current core currency
+   */
   const xchgRateCurrency = shallowRef<"chaos" | "exalted" | undefined>(
     undefined,
   );
+  /**
+   * exalted/div
+   */
+  const exaltXchgRate = shallowRef<number | undefined>(undefined);
 
   const isLoading = shallowRef(false);
   let PRICES_DB: PriceDatabase = [];
@@ -150,24 +160,24 @@ export const usePoeninja = createGlobalState(() => {
         ns: "ITEM",
         name: "Divine Orb",
       });
-      const preferred =
-        AppConfig<PriceCheckWidget>("price-check")!.coreCurrency;
+      const preferred = selectedCoreCurrency.value;
 
       if (divine && divine.exalted >= 30) {
-        if (preferred === "exalted") {
+        exaltXchgRate.value = divine.exalted;
+        if (!preferred || preferred.id === "exalted") {
           xchgRate.value = divine.exalted;
           xchgRateCurrency.value = "exalted";
         } else {
-          const ex = divine.exalted;
-          if (preferred === "chaos") {
-            const chaos = findPriceByQuery({
-              ns: "ITEM",
-              name: "Chaos Orb",
-            });
-            if (chaos && ex / chaos.exalted >= 5) {
-              xchgRate.value = ex / chaos.exalted;
-              xchgRateCurrency.value = "chaos";
-            }
+          const ninjaPreferred = findPriceByQuery({
+            ns: "ITEM",
+            name: preferred.ref,
+          });
+          if (
+            ninjaPreferred &&
+            exaltXchgRate.value / ninjaPreferred.exalted >= 5
+          ) {
+            xchgRate.value = exaltXchgRate.value / ninjaPreferred.exalted;
+            xchgRateCurrency.value = preferred.id;
           }
         }
       }
@@ -230,33 +240,68 @@ export const usePoeninja = createGlobalState(() => {
     return null;
   }
 
-  function autoCurrency(value: number | [number, number]): CurrencyValue {
+  /**
+   * Converts item value from exalts to stable or current core currency
+   * @param value item value in exalts
+   * @returns Value in stable or core currency
+   */
+  function autoCurrency(
+    value: number | [number, number],
+    useOnlyCore: boolean = false,
+  ): CurrencyValue {
     if (Array.isArray(value)) {
-      if (value[1] > (xchgRate.value || 9999)) {
+      if (value[1] > (exaltXchgRate.value || 9999) && !useOnlyCore) {
         return {
-          min: exaltedToStable(value[0]),
-          max: exaltedToStable(value[1]),
+          min: exaltToStable(value[0]),
+          max: exaltToStable(value[1]),
           currency: "div",
         };
       }
+      if (selectedCoreCurrency.value?.id) {
+        // NOTE: This if should catch everything
+        return {
+          min: exaltToCore(value[0]),
+          max: exaltToCore(value[1]),
+          currency: selectedCoreCurrency.value.id,
+        };
+      }
+      // this should never run, assuming we have loaded a currency
       return { min: value[0], max: value[1], currency: "exalted" };
     }
-    if (value > (xchgRate.value || 9999) * 0.94) {
-      if (value < (xchgRate.value || 9999) * 1.06) {
+    if (value > (exaltXchgRate.value || 9999) * 0.94 && !useOnlyCore) {
+      if (value < (exaltXchgRate.value || 9999) * 1.06) {
         return { min: 1, max: 1, currency: "div" };
       } else {
         return {
-          min: exaltedToStable(value),
-          max: exaltedToStable(value),
+          min: exaltToStable(value),
+          max: exaltToStable(value),
           currency: "div",
         };
       }
     }
+    if (selectedCoreCurrency.value?.id) {
+      // NOTE: This if should catch everything
+      return {
+        min: exaltToCore(value),
+        max: exaltToCore(value),
+        currency: selectedCoreCurrency.value.id,
+      };
+    }
+    // this should never run, assuming we have loaded a currency
     return { min: value, max: value, currency: "exalted" };
   }
 
-  function exaltedToStable(count: number) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  function coreToStable(count: number) {
     return count / (xchgRate.value || 9999);
+  }
+  function exaltToStable(count: number) {
+    return count / (exaltXchgRate.value || 9999);
+  }
+  function exaltToCore(count: number) {
+    // ex -> core
+    // ex => ex * (div/ex) * (core/div) = core
+    return (count / (exaltXchgRate.value || 9999)) * (xchgRate.value || 9999);
   }
 
   function cachedCurrencyByQuery(query: DbQuery, count: number) {
@@ -265,7 +310,8 @@ export const usePoeninja = createGlobalState(() => {
       return priceCache.get(key)!;
     }
 
-    const price = findPriceByQuery(query);
+    const price = // since ex aren't currently in db
+      query.name === "Exalted Orb" ? { exalted: 1 } : findPriceByQuery(query);
     if (!price) {
       return;
     }

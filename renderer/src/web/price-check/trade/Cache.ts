@@ -5,6 +5,7 @@ const MIN_TTL = 300;
 
 export class Cache {
   private cached = new Map<string, unknown>();
+  private currency = "";
 
   get<T = unknown>(key: unknown): T | undefined {
     const _key = hash.sha1(JSON.parse(JSON.stringify(key)));
@@ -18,6 +19,13 @@ export class Cache {
     setTimeout(() => {
       this.cached.delete(_key);
     }, ttl * 1000);
+  }
+
+  purgeIfDifferentCurrency(currency: string | undefined) {
+    if (!currency || this.currency === currency) return;
+    this.currency = currency;
+    this.cached.clear();
+    console.log("Purged cache");
   }
 
   static deriveTtl(...limits: RateLimiter[]): number {

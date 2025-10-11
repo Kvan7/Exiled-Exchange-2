@@ -40,6 +40,11 @@
         src="/images/chaos.png"
         class="max-w-full max-h-full"
       />
+      <img
+        v-else-if="price?.currency === 'annul'"
+        src="/images/annul.png"
+        class="max-w-full max-h-full"
+      />
       <img v-else src="/images/exa.png" class="max-w-full max-h-full" />
     </div>
   </div>
@@ -56,7 +61,7 @@ export default defineComponent({
       type: Object as PropType<{
         min: number;
         max: number;
-        currency: "chaos" | "div" | "exalted";
+        currency: string;
       }>,
       default: undefined,
     },

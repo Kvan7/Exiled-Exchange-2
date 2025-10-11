@@ -12,16 +12,11 @@
         }"
         >{{ result.priceAmount }} {{ result.priceCurrency
         }}{{
-          result.priceCurrency !== "exalted" &&
+          result.normalizedPriceCurrency &&
+          result.priceCurrency !== result.normalizedPriceCurrency.id &&
           result.priceCurrency !== "divine" &&
           result.normalizedPrice
-            ? ` (${result.normalizedPrice} ${
-                result.normalizedPriceCurrency! === "exalted"
-                  ? "ex"
-                  : result.normalizedPriceCurrency! === "chaos"
-                    ? "c"
-                    : result.normalizedPriceCurrency!
-              })`
+            ? ` (${result.normalizedPrice} ${result.normalizedPriceCurrency.abbrev})`
             : ""
         }}</span
       >
@@ -31,18 +26,6 @@
         ><span class="font-sans">×</span> {{ result.listedTimes }}</span
       ><i v-else-if="!result.hasNote" class="fas fa-question" />
     </td>
-    <!-- <td class="px-2">
-      <div v-if="result.priceCurrencyRank" class="my-2 flex flex-row">
-        <div
-          v-for="i in result.priceCurrencyRank"
-          class="account-status mr-1"
-          :class="{
-            'rank-2': result.priceCurrencyRank === 2,
-            'rank-3': result.priceCurrencyRank === 3,
-          }"
-        ></div>
-      </div>
-    </td> -->
     <td v-if="item.stackSize" class="px-2 text-right">
       {{ result.stackSize }}
     </td>

@@ -310,7 +310,13 @@ export interface PricingResult {
   priceCurrency: string;
   priceCurrencyRank?: number;
   normalizedPrice?: string;
-  normalizedPriceCurrency?: string;
+  normalizedPriceCurrency?: {
+    id: "exalted" | "chaos";
+    abbrev: string;
+    ref: string;
+    text: string;
+    icon: string;
+  };
   isMine: boolean;
   hasNote: boolean;
   isInstantBuyout: boolean;
@@ -953,8 +959,11 @@ export async function requestResults(
   resultIds: string[],
   opts: { accountName: string },
 ): Promise<PricingResult[]> {
+  const { cachedCurrencyByQuery, xchgRateCurrency } = usePoeninja();
+  // Solves cached results showing random incorrect values
+  cache.purgeIfDifferentCurrency(xchgRateCurrency.value?.id);
+
   let data = cache.get<FetchResult[]>(resultIds);
-  const { cachedCurrencyByQuery } = usePoeninja();
 
   if (!data) {
     await RateLimiter.waitMulti(RATE_LIMIT_RULES.FETCH);
@@ -1053,21 +1062,15 @@ export async function requestResults(
     const query = getCurrencyDetailsId(
       result.listing.price?.currency ?? "no price",
     );
-    const normalizedCurrency =
-      result.listing.price?.currency === "exalted"
-        ? // exalts aren't in db since they are the stable currency
-          {
-            min: result.listing.price.amount,
-            max: result.listing.price.amount,
-            currency: "exalted",
-          }
-        : // otherwise convert to stable
-          cachedCurrencyByQuery(query, result.listing.price?.amount ?? 0);
+    const normalizedCurrency = cachedCurrencyByQuery(
+      query,
+      result.listing.price?.amount ?? 0,
+    );
     const normalizedPrice =
       normalizedCurrency !== undefined
         ? displayRounding(normalizedCurrency.min)
         : undefined;
-    const normalizedPriceCurrency = normalizedCurrency?.currency;
+    const normalizedPriceCurrency = xchgRateCurrency.value;
 
     return {
       id: result.id,

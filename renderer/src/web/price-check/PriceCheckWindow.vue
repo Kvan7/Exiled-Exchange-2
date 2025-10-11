@@ -50,7 +50,7 @@
         :title="title"
       >
         <ui-popover
-          v-if="stableOrbCost"
+          v-if="stableOrbCost && xchgRateCurrency?.id"
           trigger="click"
           boundary="#price-window"
         >
@@ -65,13 +65,14 @@
               :price="{
                 min: stableOrbCost,
                 max: stableOrbCost,
-                currency: 'exalted',
+                currency: xchgRateCurrency.id,
               }"
               item-img="/images/divine.png"
             />
             <div v-for="i in 9" :key="i">
               <div class="pl-1">
-                {{ i / 10 }} div ⇒ {{ Math.round((stableOrbCost * i) / 10) }} c
+                {{ i / 10 }} div ⇒ {{ Math.round((stableOrbCost * i) / 10) }}
+                {{ xchgRateCurrency.abbrev }}
               </div>
             </div>
           </template>
@@ -271,6 +272,7 @@ export default defineComponent({
     const wm = inject<WidgetManager>("wm")!;
     const {
       xchgRate,
+      xchgRateCurrency,
       initialLoading: xchgRateLoading,
       queuePricesFetch,
     } = usePoeninja();
@@ -452,6 +454,7 @@ export default defineComponent({
       closePriceCheck,
       title,
       stableOrbCost,
+      xchgRateCurrency,
       xchgRateLoading,
       showCheckPos,
       checkPosition,
