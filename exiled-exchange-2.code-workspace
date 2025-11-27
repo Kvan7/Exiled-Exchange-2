@@ -69,11 +69,13 @@
       "onesword",
       "onlineleague",
       "packsize",
+      "pathofexile",
       "pdps",
       "Poedb",
       "Poeninja",
       "runedagger",
       "shortcircuit",
+      "sparkline",
       "stormcloud's",
       "supportgem",
       "Synthesised",
@@ -112,6 +114,16 @@
       "titleBar.inactiveBackground": "#21573299",
       "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#215732"
+    "peacock.color": "#215732",
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+      "*.vue": "$(capture).ts",
+      "*.ts": "$(capture).js, $(capture).d.ts, $(capture).map, $(capture).test.ts",
+      "*.js": "$(capture).js.map, $(capture).min.js, $(capture).d.ts, $(capture).test.js",
+      "*.jsx": "$(capture).js",
+      "*.tsx": "$(capture).ts",
+      "tsconfig.json": "tsconfig.*.json",
+      "package.json": ".*, eslint.config.ts, CLAUDE.md, AGENTS.md, bun.lock, docker-compose.yml, docker-compose.yaml, dagger.json, env.d.ts, postcss.config.ts, vitest.config.*.ts, Dockerfile, railway.json, vitest.config.*.ts, uuid-rocks.code-workspace, astro.config.ts, ndstories.code-workspace, wrangler.jsonc, workflows.code-workspace, astroblog.code-workspace, astro.config.mjs, drizzle.config.ts, Earthfile, workers.code-workspace, Justfile, CHANGELOG.md, vitest.config.ts, vitest.workspace.ts, postcss.config.mjs, vite.config.ts, worker-configuration.d.ts, README.md, package-lock.json, yarn.lock, postcss.config.js, remix.config.js, remix.env.d.ts, tailwind.config.js, tsconfig.json, server.ts, tailwind.config.ts, turbo.jsonc, LICENSE, pnpm-lock.yaml, pnpm-workspace.yaml, vite.config.mjs, electron-builder.yml"
+    },
   }
 }

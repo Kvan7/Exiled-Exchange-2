@@ -43,8 +43,7 @@ export default defineComponent({
       const one = findPriceByQuery(getDetailsId(props.item)!)!;
 
       const price = autoCurrency(
-        n * one.exalted,
-        props.item.info.refName === "Divine Orb",
+        n * one.primaryValue
       );
 
       return `${displayRounding(price.min)} ${price.currency}`;

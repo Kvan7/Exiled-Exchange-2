@@ -81,7 +81,7 @@ function findPriceByQueryId(queryId: string) {
   // const [name, variant] = encodedName.split(" // ");
   const priceEntry = findPriceByQuery({ ns, name: encodedName });
   if (priceEntry) {
-    return autoCurrency(priceEntry.exalted);
+    return autoCurrency(priceEntry.primaryValue);
   }
 }
 

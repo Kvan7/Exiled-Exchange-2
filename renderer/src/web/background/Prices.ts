@@ -7,9 +7,23 @@ import { PriceCheckWidget } from "../overlay/widgets";
 import { ITEM_BY_REF } from "@/assets/data";
 
 interface NinjaDenseInfo {
-  exalted: number;
-  graph?: Array<number | null>;
   name: string;
+  detailsId: string;
+  id: string;
+  primaryValue: number;
+  volumePrimaryValue: number;
+  maxVolumeCurrency: string;
+  maxVolumeRate: number;
+  sparkline: {
+    totalChange: number;
+    data: Array<number | null>;
+  };
+}
+
+interface NinjaXchgRates {
+  rates: Record<string, number>;
+  primary: string;
+  secondary: string;
 }
 
 type PriceDatabase = Array<{ ns: string; url: string; lines: string }>;
@@ -89,10 +103,6 @@ export const usePoeninja = createGlobalState(() => {
   const xchgRateCurrency = shallowRef<"chaos" | "exalted" | undefined>(
     undefined,
   );
-  /**
-   * exalted/div
-   */
-  const exaltXchgRate = shallowRef<number | undefined>(undefined);
 
   const isLoading = shallowRef(false);
   let PRICES_DB: PriceDatabase = [];
@@ -107,14 +117,7 @@ export const usePoeninja = createGlobalState(() => {
 
   async function load(force: boolean = false) {
     const league = leagues.selected.value;
-    if (
-      !league ||
-      !league.isPopular ||
-      league.realm !== "pc-ggg" ||
-      // FIXME: only have non hc abyssal cached rn
-      league.id !== "Rise of the Abyssal"
-    )
-      return;
+    if (!league || !league.isPopular || league.realm !== "pc-ggg") return;
     if (
       !force &&
       (Date.now() - lastUpdateTime < UPDATE_INTERVAL_MS ||
@@ -140,7 +143,7 @@ export const usePoeninja = createGlobalState(() => {
       }
 
       const response = await Host.proxy(
-        `api.exiledexchange2.dev/overviewData.json`,
+        `api.exiledexchange2.dev/proxy/${selectedLeagueToUrl()}/overviewData.json`,
         {
           signal: downloadController.signal,
         },
@@ -153,32 +156,22 @@ export const usePoeninja = createGlobalState(() => {
         lastUpdateTime = Date.now() - 3 * RETRY_INTERVAL_MS;
         return;
       }
+
+      const ninjaXchg = parseXchg(jsonBlob);
+
       PRICES_DB = splitJsonBlob(jsonBlob);
 
       // TODO: update to search for requested currency instead of divine
-      const divine = findPriceByQuery({
-        ns: "ITEM",
-        name: "Divine Orb",
-      });
+      const divineRates = ninjaXchg.rates;
       const preferred = selectedCoreCurrency.value;
 
-      if (divine && divine.exalted >= 30) {
-        exaltXchgRate.value = divine.exalted;
-        if (!preferred || preferred.id === "exalted") {
-          xchgRate.value = divine.exalted;
-          xchgRateCurrency.value = "exalted";
+      if (divineRates && Object.values(divineRates).some((v) => v >= 10)) {
+        if (preferred && divineRates[preferred.id] >= 5) {
+          xchgRate.value = divineRates[preferred.id];
+          xchgRateCurrency.value = preferred.id;
         } else {
-          const ninjaPreferred = findPriceByQuery({
-            ns: "ITEM",
-            name: preferred.ref,
-          });
-          if (
-            ninjaPreferred &&
-            exaltXchgRate.value / ninjaPreferred.exalted >= 5
-          ) {
-            xchgRate.value = exaltXchgRate.value / ninjaPreferred.exalted;
-            xchgRateCurrency.value = preferred.id;
-          }
+          xchgRate.value = divineRates.exalted;
+          xchgRateCurrency.value = "exalted";
         }
       }
 
@@ -199,7 +192,6 @@ export const usePoeninja = createGlobalState(() => {
     load();
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   function selectedLeagueToUrl(): string {
     const league = leagues.selectedId.value!;
     switch (league) {
@@ -208,7 +200,7 @@ export const usePoeninja = createGlobalState(() => {
       case "Hardcore":
         return "hardcore";
       default:
-        return league.startsWith("Hardcore ") ? "challengehc" : "challenge";
+        return league.startsWith("HC ") ? "leaguehc" : "league";
     }
   }
 
@@ -216,92 +208,79 @@ export const usePoeninja = createGlobalState(() => {
     // NOTE: order of keys is important
     const searchString = JSON.stringify({
       name: query.name,
-      exalted: 0,
-    }).replace(":0}", ":");
+      detailsId: "",
+    }).replace(':""}', ":");
+    const endSearchString = "}}";
 
     for (const { ns, url, lines } of PRICES_DB) {
       if (ns !== query.ns) continue;
 
       const startPos = lines.indexOf(searchString);
       if (startPos === -1) continue;
-      const endPos = lines.indexOf("}", startPos);
+      const endPos = lines.indexOf(endSearchString, startPos);
 
       const info: NinjaDenseInfo = JSON.parse(
-        lines.slice(startPos, endPos + 1),
+        lines.slice(startPos, endPos + endSearchString.length),
       );
 
       return {
         ...info,
-        // url: `https://poe.ninja/poe2/economy/${selectedLeagueToUrl()}/${url}`,
-        // TODO: Currently i'm only supporting in league non hc
-        url: `https://poe.ninja/poe2/economy/abyss/${url}`,
+        url: `https://poe.ninja/poe2/economy/${selectedLeagueToUrl()}/${url}/${info.detailsId}`,
       };
     }
     return null;
   }
 
   /**
-   * Converts item value from exalts to stable or current core currency
-   * @param value item value in exalts
-   * @returns Value in stable or core currency
+   * Converts item value from divines to current core currency
+   * @param value item value in divines
+   * @returns Value in core currency or div
    */
-  function autoCurrency(
-    value: number | [number, number],
-    useOnlyCore: boolean = false,
-  ): CurrencyValue {
+  function autoCurrency(value: number | [number, number]): CurrencyValue {
     if (Array.isArray(value)) {
-      if (value[1] > (exaltXchgRate.value || 9999) && !useOnlyCore) {
+      const coreValue = value.map(divineToCore);
+      if (coreValue[0] > (xchgRate.value || 9999)) {
         return {
-          min: exaltToStable(value[0]),
-          max: exaltToStable(value[1]),
+          min: value[0],
+          max: value[1],
           currency: "div",
         };
       }
       if (selectedCoreCurrency.value?.id) {
-        // NOTE: This if should catch everything
         return {
-          min: exaltToCore(value[0]),
-          max: exaltToCore(value[1]),
+          min: coreValue[0],
+          max: coreValue[1],
           currency: selectedCoreCurrency.value.id,
         };
       }
       // this should never run, assuming we have loaded a currency
-      return { min: value[0], max: value[1], currency: "exalted" };
+      return { min: value[0], max: value[1], currency: "div" };
     }
-    if (value > (exaltXchgRate.value || 9999) * 0.94 && !useOnlyCore) {
-      if (value < (exaltXchgRate.value || 9999) * 1.06) {
+    const coreValue = divineToCore(value);
+    if (coreValue > (xchgRate.value || 9999) * 0.94) {
+      if (coreValue < (xchgRate.value || 9999) * 1.06) {
         return { min: 1, max: 1, currency: "div" };
       } else {
         return {
-          min: exaltToStable(value),
-          max: exaltToStable(value),
+          min: value,
+          max: value,
           currency: "div",
         };
       }
     }
     if (selectedCoreCurrency.value?.id) {
-      // NOTE: This if should catch everything
       return {
-        min: exaltToCore(value),
-        max: exaltToCore(value),
+        min: coreValue,
+        max: coreValue,
         currency: selectedCoreCurrency.value.id,
       };
     }
     // this should never run, assuming we have loaded a currency
-    return { min: value, max: value, currency: "exalted" };
+    return { min: value, max: value, currency: "div" };
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  function coreToStable(count: number) {
-    return count / (xchgRate.value || 9999);
-  }
-  function exaltToStable(count: number) {
-    return count / (exaltXchgRate.value || 9999);
-  }
-  function exaltToCore(count: number) {
-    // ex -> core
-    // ex => ex * (div/ex) * (core/div) = core
-    return (count / (exaltXchgRate.value || 9999)) * (xchgRate.value || 9999);
+  function divineToCore(count: number) {
+    return count * (xchgRate.value || 9999);
   }
 
   function cachedCurrencyByQuery(query: DbQuery, count: number) {
@@ -310,12 +289,11 @@ export const usePoeninja = createGlobalState(() => {
       return priceCache.get(key)!;
     }
 
-    const price = // since ex aren't currently in db
-      query.name === "Exalted Orb" ? { exalted: 1 } : findPriceByQuery(query);
+    const price = findPriceByQuery(query);
     if (!price) {
       return;
     }
-    const currency = autoCurrency(price.exalted * count);
+    const currency = autoCurrency(price.primaryValue * count);
     priceCache.set(key, currency);
     return currency;
   }
@@ -350,13 +328,12 @@ export const usePoeninja = createGlobalState(() => {
   };
 });
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function denseInfoToDetailsId(info: NinjaDenseInfo): string {
-  return info.name
-    .normalize("NFKD")
-    .replace(/[^a-zA-Z0-9:\- ]/g, "")
-    .toLowerCase()
-    .replace(/ /g, "-");
+function parseXchg(jsonBlob: string): NinjaXchgRates {
+  const RATES = '{"rates":';
+  const END_RATES = '"},';
+  const startPos = jsonBlob.indexOf(RATES);
+  const endPos = jsonBlob.indexOf(END_RATES, startPos) + 1;
+  return JSON.parse(jsonBlob.slice(startPos, endPos));
 }
 
 function splitJsonBlob(jsonBlob: string): PriceDatabase {
@@ -418,3 +395,10 @@ export function displayRounding(
   }
   return Math.round(value).toString();
 }
+
+// Disable since this is export for tests
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export const __testExports = {
+  parseXchg,
+  splitJsonBlob,
+};

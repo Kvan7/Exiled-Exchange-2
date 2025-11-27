@@ -142,18 +142,11 @@ export default defineComponent({
       const trend = detailsId && findPriceByQuery(detailsId);
       if (!trend) return;
 
-      const price =
-        props.item.info.refName === "Divine Orb"
-          ? {
-              min: trend.exalted,
-              max: trend.exalted,
-              currency: "exalted" as const,
-            }
-          : autoCurrency(trend.exalted);
+      const price = autoCurrency(trend.primaryValue);
 
       return {
         price,
-        change: trend.graph ? deltaFromGraph(trend.graph) : undefined,
+        change: trend.sparkline.data ? deltaFromGraph(trend.sparkline.data) : undefined,
         url: trend.url,
       };
     });

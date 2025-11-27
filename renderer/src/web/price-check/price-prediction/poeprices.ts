@@ -66,8 +66,9 @@ export async function requestPoeprices(
       throw new Error("poeprices.info gave the price in Exalted Orbs.");
     }
     const converted = autoCurrency([
-      data.min * xchgExalted.exalted,
-      data.max * xchgExalted.exalted,
+      // FIXME: check this if poeprices ever gets poe2 support
+      data.min * xchgExalted.primaryValue,
+      data.max * xchgExalted.primaryValue,
     ]);
     data.min = converted.min;
     data.max = converted.max;
