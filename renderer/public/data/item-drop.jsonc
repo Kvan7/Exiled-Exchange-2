@@ -123,6 +123,46 @@
       // "UNIQUE::Assailum // Closed Helm"
     ]
   },
+  {
+    "query": [
+      "GEM::Rakiata's Flow",
+      "GEM::Kaom's Madness",
+      "GEM::Tawhoa's Tending"
+    ],
+    "items": []
+  },
+  {
+    "query": [
+      "GEM::Atziri's Allure",
+      "GEM::Atalui's Bloodletting",
+      "GEM::Paquate's Pact"
+    ],
+    "items": []
+  },
+  {
+    "query": [
+      "GEM::Zarokh's Refrain",
+      "GEM::Garukhan's Resolve",
+      "GEM::Varashta's Blessing"
+    ],
+    "items": []
+  },
+  {
+    "query": [
+      "GEM::Einhar's Beastrite",
+      "GEM::Rigwald's Ferocity",
+      "GEM::Ailith's Chimes"
+    ],
+    "items": []
+  },
+  {
+    "query": [
+      "GEM::Techrod's Revenge",
+      "GEM::Kulemak's Dominion",
+      "GEM::Kurgal's Leash"
+    ],
+    "items": []
+  },
   // Reliquary Keys
   // {
   //   "query": [
@@ -238,6 +278,17 @@
   },
   {
     "query": [
+      "ITEM::Exotic Coinage",
+      "ITEM::Black Scythe Artifact",
+      "ITEM::Sun Artifact",
+      "ITEM::Broken Circle Artifact",
+      "ITEM::Order Artifact"
+    ],
+    "items": []
+  },
+  // Tiered Currencies
+  {
+    "query": [
       "ITEM::Chaos Orb",
       "ITEM::Greater Chaos Orb",
       "ITEM::Perfect Chaos Orb"
@@ -281,6 +332,116 @@
       "ITEM::Lesser Jeweller's Orb",
       "ITEM::Greater Jeweller's Orb",
       "ITEM::Perfect Jeweller's Orb"
+    ],
+    "items": []
+  },
+  // Crafting items commonly used together
+  {
+    "query": [
+      "ITEM::Omen of Abyssal Echoes"
+    ],
+    "items": [
+      "ITEM::Omen of Light",
+      "ITEM::Orb of Annulment"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Ancient Collarbone",
+      "ITEM::Ancient Jawbone",
+      "ITEM::Ancient Rib",
+      "ITEM::Preserved Cranium",
+      "ITEM::Preserved Vertebrae"
+    ],
+    "items": [
+      "ITEM::Omen of Dextral Necromancy",
+      "ITEM::Omen of Sinistral Necromancy",
+      "ITEM::Omen of the Blackblooded",
+      "ITEM::Omen of the Liege",
+      "ITEM::Omen of the Sovereign"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Omen of Dextral Necromancy",
+      "ITEM::Omen of Sinistral Necromancy",
+      "ITEM::Omen of the Blackblooded",
+      "ITEM::Omen of the Liege",
+      "ITEM::Omen of the Sovereign"
+    ],
+    "items": [
+      "ITEM::Ancient Collarbone",
+      "ITEM::Ancient Jawbone",
+      "ITEM::Ancient Rib",
+      "ITEM::Preserved Cranium",
+      "ITEM::Preserved Vertebrae"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Orb of Annulment",
+      "ITEM::Omen of Light",
+      "ITEM::Omen of Dextral Annulment",
+      "ITEM::Omen of Sinistral Annulment"
+    ],
+    "items": []
+  },
+  {
+    "query": [
+      "ITEM::Omen of Sanctification"
+    ],
+    "items": [
+      "ITEM::Divine Orb",
+      "ITEM::Hinekora's Lock"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Chance Orb",
+      "ITEM::Omen of Chance",
+      "ITEM::Omen of the Ancients"
+    ],
+    "items": [
+      // "UNIQUE::Headhunter // Heavy Belt",
+      // "UNIQUE::Astramentis // Stellar Amulet"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Omen of Chaotic Rarity",
+      "ITEM::Omen of Chaotic Quantity",
+      "ITEM::Omen of Chaotic Monsters"
+    ],
+    "items": [
+      "ITEM::Chaos Orb"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Omen of Whittling",
+      "ITEM::Omen of Sinistral Erasure",
+      "ITEM::Omen of Dextral Erasure"
+    ],
+    "items": [
+      "ITEM::Chaos Orb"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Omen of Homogenising Exaltation",
+      "ITEM::Omen of Catalysing Exaltation",
+      "ITEM::Omen of Sinistral Exaltation",
+      "ITEM::Omen of Dextral Exaltation",
+      "ITEM::Omen of Greater Exaltation"
+    ],
+    "items": [
+      "ITEM::Exalted Orb"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Omen of Sinistral Crystallisation",
+      "ITEM::Omen of Dextral Crystallisation"
     ],
     "items": []
   }
