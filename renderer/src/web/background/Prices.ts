@@ -34,6 +34,7 @@ const INTEREST_SPAN_MS = 20 * 60 * 1000;
 interface DbQuery {
   ns: string;
   name: string;
+  variant?: string;
 }
 
 export interface CurrencyValue {

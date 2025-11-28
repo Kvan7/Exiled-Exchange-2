@@ -7,7 +7,13 @@
     ],
     "items": [
       "GEM::Arbiter's Ignition",
-      "ITEM::The Arbiter's Reliquary Key"
+      "ITEM::The Arbiter's Reliquary Key",
+      "UNIQUE::Prism of Belief // Diamond",
+      "UNIQUE::Sacred Flame // Shrine Sceptre",
+      "UNIQUE::Ab Aeterno // Grand Cuisses",
+      "UNIQUE::Sine Aequo // Grand Manchettes",
+      "UNIQUE::Solus Ipse // Grand Visage",
+      "UNIQUE::Morior Invictus // Grand Regalia"
     ]
   },
   {
@@ -18,7 +24,13 @@
     ],
     "items": [
       "GEM::Arbiter's Ignition",
-      "ITEM::The Arbiter's Reliquary Key"
+      "ITEM::The Arbiter's Reliquary Key",
+      "UNIQUE::Prism of Belief // Diamond",
+      "UNIQUE::Sacred Flame // Shrine Sceptre",
+      "UNIQUE::Ab Aeterno // Grand Cuisses",
+      "UNIQUE::Sine Aequo // Grand Manchettes",
+      "UNIQUE::Solus Ipse // Grand Visage",
+      "UNIQUE::Morior Invictus // Grand Regalia"
     ]
   },
   {
@@ -29,7 +41,12 @@
     ],
     "items": [
       "GEM::Ixchel's Torment",
-      "ITEM::The Trialmaster's Reliquary Key"
+      "ITEM::The Trialmaster's Reliquary Key",
+      "UNIQUE::The Adorned // Diamond",
+      "UNIQUE::Hateforge // Moulded Mitts",
+      "UNIQUE::Mahuxotl's Machination // Omen Crest Shield",
+      "UNIQUE::Zerphi's Genesis // Heavy Belt",
+      "UNIQUE::Glimpse of Chaos // Tribal Mask"
     ]
   },
   {
@@ -37,7 +54,10 @@
       "ITEM::Kulemak's Invitation"
     ],
     "items": [
-      "GEM::Tecrod's Revenge"
+      "GEM::Tecrod's Revenge",
+      "UNIQUE::Undying Hate // Timeless Jewel",
+      "UNIQUE::Darkness Enthroned // Fine Belt",
+      "UNIQUE::The Unborn Lich // Ravenous Staff"
     ]
   },
   {
@@ -48,7 +68,12 @@
       "GEM::Uhtred's Augury",
       "GEM::Uhtred's Exodus",
       "GEM::Uhtred's Omen",
-      "ITEM::Olroth's Reliquary Key"
+      "ITEM::Olroth's Reliquary Key",
+      "UNIQUE::Olrovasara // Torment Club",
+      "UNIQUE::Keeper of the Arc // Spiritbone Crown",
+      "UNIQUE::Svalinn // Crucible Tower Shield",
+      "UNIQUE::Heroic Tragedy // Timeless Jewel",
+      "UNIQUE::Olroth's Resolve // Ultimate Life Flask"
     ]
   },
   {
@@ -60,7 +85,14 @@
       "GEM::Tul's Stillness",
       "GEM::Esh's Radiance",
       "GEM::Uul-Netol's Embrace",
-      "ITEM::Xesht's Reliquary Key"
+      "ITEM::Xesht's Reliquary Key",
+      "UNIQUE::Beyond Reach // Visceral Quiver",
+      "UNIQUE::Xoph's Blood // Amber Amulet",
+      "UNIQUE::The Pandemonius // Lapis Amulet",
+      "UNIQUE::Choir of the Storm // Jade Amulet",
+      "UNIQUE::Hand of Wisdom and Action // Spiral Wraps",
+      "UNIQUE::Skin of the Loyal // Garment",
+      "UNIQUE::Controlled Metamorphosis // Diamond"
     ]
   },
   {
@@ -68,7 +100,12 @@
       "ITEM::Petition Splinter"
     ],
     "items": [
-      "ITEM::Ritualistic Reliquary Key"
+      "ITEM::Ritualistic Reliquary Key",
+      "UNIQUE::Pragmatism // Explorer Armour",
+      "UNIQUE::The Burden of Shadows // Chiming Staff",
+      "UNIQUE::Ingenuity // Utility Belt",
+      "UNIQUE::From Nothing // Diamond",
+      "UNIQUE::Beetlebite // Velour Shoes"
     ]
   },
   {
@@ -76,7 +113,13 @@
       "ITEM::Simulacrum Splinter"
     ],
     "items": [
-      "ITEM::Tangmazu's Reliquary Key"
+      "ITEM::Tangmazu's Reliquary Key",
+      "UNIQUE::Megalomaniac // Diamond",
+      "UNIQUE::Strugglescream // Stellar Amulet",
+      "UNIQUE::Melting Maelstrom // Ultimate Mana Flask",
+      "UNIQUE::Collapsing Horizon // Wyrm Quarterstaff",
+      "UNIQUE::Perfidy // Knight Armour",
+      "UNIQUE::Assailum // Closed Helm"
     ]
   },
   {
@@ -118,6 +161,82 @@
       "GEM::Kurgal's Leash"
     ],
     "items": []
+  },
+  {
+    "query": [
+      "ITEM::Tangmazu's Reliquary Key"
+    ],
+    "items": [
+      "UNIQUE::Megalomaniac // Diamond",
+      "UNIQUE::Strugglescream // Stellar Amulet",
+      "UNIQUE::Melting Maelstrom // Ultimate Mana Flask",
+      "UNIQUE::Collapsing Horizon // Wyrm Quarterstaff",
+      "UNIQUE::Perfidy // Knight Armour",
+      "UNIQUE::Assailum // Closed Helm"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::The Arbiter's Reliquary Key"
+    ],
+    "items": [
+      "UNIQUE::Prism of Belief // Diamond",
+      "UNIQUE::Sacred Flame // Shrine Sceptre",
+      "UNIQUE::Ab Aeterno // Grand Cuisses",
+      "UNIQUE::Sine Aequo // Grand Manchettes",
+      "UNIQUE::Solus Ipse // Grand Visage",
+      "UNIQUE::Morior Invictus // Grand Regalia"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::The Trialmaster's Reliquary Key"
+    ],
+    "items": [
+      "UNIQUE::The Adorned // Diamond",
+      "UNIQUE::Hateforge // Moulded Mitts",
+      "UNIQUE::Mahuxotl's Machination // Omen Crest Shield",
+      "UNIQUE::Zerphi's Genesis // Heavy Belt",
+      "UNIQUE::Glimpse of Chaos // Tribal Mask"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Olroth's Reliquary Key"
+    ],
+    "items": [
+      "UNIQUE::Olrovasara // Torment Club",
+      "UNIQUE::Keeper of the Arc // Spiritbone Crown",
+      "UNIQUE::Svalinn // Crucible Tower Shield",
+      "UNIQUE::Heroic Tragedy // Timeless Jewel",
+      "UNIQUE::Olroth's Resolve // Ultimate Life Flask"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Xesht's Reliquary Key"
+    ],
+    "items": [
+      "UNIQUE::Beyond Reach // Visceral Quiver",
+      "UNIQUE::Xoph's Blood // Amber Amulet",
+      "UNIQUE::The Pandemonius // Lapis Amulet",
+      "UNIQUE::Choir of the Storm // Jade Amulet",
+      "UNIQUE::Hand of Wisdom and Action // Spiral Wraps",
+      "UNIQUE::Skin of the Loyal // Garment",
+      "UNIQUE::Controlled Metamorphosis // Diamond"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Ritualistic Reliquary Key"
+    ],
+    "items": [
+      "UNIQUE::Pragmatism // Explorer Armour",
+      "UNIQUE::The Burden of Shadows // Chiming Staff",
+      "UNIQUE::Ingenuity // Utility Belt",
+      "UNIQUE::From Nothing // Diamond",
+      "UNIQUE::Beetlebite // Velour Shoes"
+    ]
   },
   {
     "query": [
@@ -276,7 +395,10 @@
       "ITEM::Omen of Chance",
       "ITEM::Omen of the Ancients"
     ],
-    "items": []
+    "items": [
+      "UNIQUE::Headhunter // Heavy Belt",
+      "UNIQUE::Astramentis // Stellar Amulet"
+    ]
   },
   {
     "query": [
@@ -316,5 +438,63 @@
       "ITEM::Omen of Dextral Crystallisation"
     ],
     "items": []
+  },
+  {
+    "query": [
+      "ITEM::Inscribed Ultimatum"
+    ],
+    "items": [
+      "ITEM::Deadly Fate",
+      "ITEM::Victorious Fate",
+      "ITEM::Cowardly Fate"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Djinn Barya"
+    ],
+    "items": [
+      "UNIQUE::The Last Flam // Incense Relic",
+      "UNIQUE::The Changing Seasons // Seal Relic",
+      "UNIQUE::The Desperate Alliance // Vase Relic",
+      "UNIQUE::The Peacemaker's Draught // Amphora Relic",
+      "UNIQUE::The Burden of Leadership // Tapestry Relic"
+    ]
+  },
+  {
+    "query": [
+      "UNIQUE::The Last Flam // Incense Relic"
+    ],
+    "items": [
+      "UNIQUE::Temporalis // Silk Robe",
+      "ITEM::Zarokh's Reliquary Key: Temporalis"
+    ]
+  },
+  {
+    "query": [
+      "UNIQUE::The Changing Seasons // Seal Relic"
+    ],
+    "items": [
+      "UNIQUE::Sandstorm Visage // Chain Tiara",
+      "ITEM::Zarokh's Reliquary Key: Sandstorm Visage"
+    ]
+  },
+  {
+    "query": [
+      "UNIQUE::The Desperate Alliance // Vase Relic"
+    ],
+    "items": [
+      "UNIQUE::Against the Darkness // Time-Lost Diamond",
+      "ITEM::Zarokh's Reliquary Key: Against the Darkness"
+    ]
+  },
+  {
+    "query": [
+      "UNIQUE::The Burden of Leadership // Tapestry Relic"
+    ],
+    "items": [
+      "UNIQUE::Sekhema's Resolve // Ring",
+      "ITEM::Zarokh's Reliquary Key: Sekhema's Resolve"
+    ]
   }
 ]
