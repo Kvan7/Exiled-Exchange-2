@@ -1648,6 +1648,7 @@ export function getMaxSockets(item: ParsedItem) {
     case ItemCategory.Bow:
     case ItemCategory.Warstaff:
     case ItemCategory.Staff:
+    case ItemCategory.Talisman:
       return 2;
     case ItemCategory.Helmet:
     case ItemCategory.Shield:
@@ -1697,6 +1698,7 @@ export function isArmourOrWeaponOrCaster(
     case ItemCategory.Warstaff:
     case ItemCategory.Spear:
     case ItemCategory.Flail:
+    case ItemCategory.Talisman:
       return "weapon";
     case ItemCategory.Wand:
     case ItemCategory.Staff:

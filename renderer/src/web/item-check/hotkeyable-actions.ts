@@ -34,6 +34,7 @@ const POE2DB_CONVERSIONS = new Map([
   [ItemCategory.TwoHandedMace, "Two_Hand_Maces"],
   [ItemCategory.Warstaff, "Quarterstaves"],
   [ItemCategory.Crossbow, "Crossbows"],
+  [ItemCategory.Talisman, "Talismans"],
   // Jewelery
   [ItemCategory.Amulet, "Amulets"],
   [ItemCategory.Ring, "Rings"],
