@@ -2,10 +2,8 @@ import fnv1a from "@sindresorhus/fnv1a";
 import type {
   BaseType,
   DropEntry,
-  ItemCategoryToEmptyPrefix,
   RuneDataByRune,
   RuneDataByTradeId,
-  RuneSingleValue,
   Stat,
   StatMatcher,
   TranslationDict,
@@ -18,10 +16,8 @@ export let ITEM_DROP: DropEntry[];
 export let CLIENT_STRINGS: TranslationDict;
 export let CLIENT_STRINGS_REF: TranslationDict;
 export let APP_PATRONS: Array<{ from: string; months: number; style: number }>;
-export let RUNE_SINGLE_VALUE: RuneSingleValue;
 export let RUNE_DATA_BY_RUNE: RuneDataByRune;
 export let RUNE_DATA_BY_TRADE_ID: RuneDataByTradeId;
-export let ITEM_CATEGORY_TO_EMPTY_PREFIX: ItemCategoryToEmptyPrefix;
 
 export let RUNE_LIST: BaseType[];
 export const HIGH_VALUE_RUNES_HARDCODED = new Set<string>([]);
@@ -180,10 +176,6 @@ async function loadItems(language: string, isTest = false) {
     ITEMS_ITERATOR('refName":"Replica'),
   );
 
-  RUNE_SINGLE_VALUE = await (
-    await fetch(`${import.meta.env.BASE_URL}data/rune-single-value.json`)
-  ).json();
-
   TRADE_TAG_TO_REF = new Map<string, string>();
   for (const item of ITEMS_ITERATOR('"tradeTag":')) {
     TRADE_TAG_TO_REF.set(item.tradeTag!, item.refName);
@@ -262,10 +254,6 @@ export async function init(lang: string, isTest = false) {
   ).json();
   APP_PATRONS = await (
     await fetch(`${import.meta.env.BASE_URL}data/patrons.json`)
-  ).json();
-
-  ITEM_CATEGORY_TO_EMPTY_PREFIX = await (
-    await fetch(`${import.meta.env.BASE_URL}data/pseudo-empty-prefix.json`)
   ).json();
 
   await loadForLang(lang, isTest);
