@@ -149,20 +149,25 @@ export function findSamePricedItems(item: ParsedItem) {
   });
 }
 
+function encodePoe2dbUri(text: string) {
+  return text.replaceAll(/ /g, "_").replaceAll(/'/g, "");
+}
+
 function getPoe2dbPath(item: ParsedItem) {
   const category = item.category;
   const refName = item.info.refName;
   if (!category) return;
 
   if (item.rarity === ItemRarity.Unique) {
-    return `search?q=${refName}`;
+    return encodePoe2dbUri(refName);
   }
 
   if (POE2DB_CONVERSIONS.has(refName)) {
     return POE2DB_CONVERSIONS.get(refName)! + "#ModifiersCalc";
   }
+  // if we don't have a known modifiers page for an item category
   if (!POE2DB_CONVERSIONS.has(category)) {
-    return `search?q=${refName}`;
+    return encodePoe2dbUri(refName);
   }
 
   let path = POE2DB_CONVERSIONS.get(category)!;
@@ -183,3 +188,9 @@ function getPoe2dbPath(item: ParsedItem) {
 
   return path + "#ModifiersCalc";
 }
+
+// Disable since this is export for tests
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export const __testExports = {
+  encodePoe2dbUri,
+};
