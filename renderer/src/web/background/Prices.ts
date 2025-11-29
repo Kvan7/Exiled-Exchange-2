@@ -331,9 +331,9 @@ export const usePoeninja = createGlobalState(() => {
 
 function parseXchg(jsonBlob: string): NinjaXchgRates {
   const RATES = '{"rates":';
-  const END_RATES = '"},';
+  const END_RATES = '"}';
   const startPos = jsonBlob.indexOf(RATES);
-  const endPos = jsonBlob.indexOf(END_RATES, startPos) + 1;
+  const endPos = jsonBlob.indexOf(END_RATES, startPos) + END_RATES.length;
   return JSON.parse(jsonBlob.slice(startPos, endPos));
 }
 
