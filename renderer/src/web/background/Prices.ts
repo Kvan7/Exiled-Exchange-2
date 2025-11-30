@@ -144,19 +144,12 @@ export const usePoeninja = createGlobalState(() => {
       }
 
       const response = await Host.proxy(
-        `api.exiledexchange2.dev/proxy/${selectedLeagueToUrl()}/overviewData.json`,
+        `api.exiledexchange2.dev/proxy/${selectedLeagueToUrl(true)}/overviewData.json`,
         {
           signal: downloadController.signal,
         },
       );
       const jsonBlob = await response.text();
-      if (!jsonBlob.startsWith('{"ok":true,"data":[{')) {
-        PRICES_DB = [{ ns: "NAN", url: "NAN", lines: "NAN" }];
-        console.log("Failed to load prices");
-        // Set to now for now, determine better retry interval later
-        lastUpdateTime = Date.now() - 3 * RETRY_INTERVAL_MS;
-        return;
-      }
 
       const ninjaXchg = parseXchg(jsonBlob);
 
@@ -193,16 +186,18 @@ export const usePoeninja = createGlobalState(() => {
     load();
   }
 
-  function selectedLeagueToUrl(): string {
+  function selectedLeagueToUrl(proxy: boolean): string {
     const league = leagues.selectedId.value!;
     switch (league) {
       case "Standard":
         return "standard";
       case "Hardcore":
         return "hardcore";
-      default:
-        return league.startsWith("HC ") ? "leaguehc" : "league";
     }
+    if (league.startsWith("HC ")) {
+      return proxy ? "leaguehc" : "abysshc";
+    }
+    return proxy ? "league" : "abyss";
   }
 
   function findPriceByQuery(query: DbQuery) {
@@ -226,7 +221,7 @@ export const usePoeninja = createGlobalState(() => {
 
       return {
         ...info,
-        url: `https://poe.ninja/poe2/economy/${selectedLeagueToUrl()}/${url}/${info.detailsId}`,
+        url: `https://poe.ninja/poe2/economy/${selectedLeagueToUrl(false)}/${url}/${info.detailsId}`,
       };
     }
     return null;

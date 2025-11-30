@@ -133,6 +133,16 @@
   },
   {
     "query": [
+      "ITEM::Idol of Estazunti"
+    ],
+    "items": [
+      "GEM::Atziri's Allure",
+      "GEM::Atalui's Bloodletting",
+      "GEM::Paquate's Pact"
+    ]
+  },
+  {
+    "query": [
       "GEM::Atziri's Allure",
       "GEM::Atalui's Bloodletting",
       "GEM::Paquate's Pact"
