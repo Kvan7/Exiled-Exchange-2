@@ -119,5 +119,10 @@ export function createVirtualItem(
 }
 
 export function itemIsModifiable(item: ParsedItem) {
-  return !item.isCorrupted && !item.isMirrored && !item.isSanctified;
+  return (
+    item.info.craftable &&
+    !item.isCorrupted &&
+    !item.isMirrored &&
+    !item.isSanctified
+  );
 }

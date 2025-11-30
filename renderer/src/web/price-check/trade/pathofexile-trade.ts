@@ -512,6 +512,14 @@ export function createTradeRequest(
     );
   }
 
+  if (filters.fractured?.value === false) {
+    propSet(
+      query.filters,
+      "misc_filters.filters.fractured_item.option",
+      String(false),
+    );
+  }
+
   if (filters.mirrored) {
     if (filters.mirrored.disabled) {
       propSet(
