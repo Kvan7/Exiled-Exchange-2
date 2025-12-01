@@ -146,7 +146,9 @@ export default defineComponent({
 
       return {
         price,
-        change: trend.sparkline.data ? deltaFromGraph(trend.sparkline.data) : undefined,
+        change: trend.sparkline.data
+          ? deltaFromGraph(trend.sparkline.data)
+          : undefined,
         url: trend.url,
       };
     });

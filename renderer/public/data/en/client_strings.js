@@ -1,247 +1,156 @@
 // @ts-check
 /** @type{import('../../../src/assets/data/interfaces').TranslationDict} */
 export default {
-  // ItemDisplayStringNormal
   RARITY_NORMAL: 'Normal',
-  // ItemDisplayStringMagic
   RARITY_MAGIC: 'Magic',
-  // ItemDisplayStringRare
   RARITY_RARE: 'Rare',
-  // ItemDisplayStringUnique
   RARITY_UNIQUE: 'Unique',
-  // ItemDisplayStringGem
   RARITY_GEM: 'Gem',
-  // ItemDisplayStringCurrency
   RARITY_CURRENCY: 'Currency',
-  // ItemDisplayStringDivinationCard
   RARITY_DIVCARD: 'Divination Card',
-  // ItemDisplayStringQuest
   RARITY_QUEST: 'Quest',
-  // UIOptionsSectionTitleMap + Tier
   MAP_TIER: 'Map Tier: ',
-  // ItemDisplayStringRarity
   RARITY: 'Rarity: ',
-  // ItemDisplayStringClass
   ITEM_CLASS: 'Item Class: ',
-  // ItemDisplayStringItemLevel
   ITEM_LEVEL: 'Item Level: ',
-  // CorpseSuffix + Level
   CORPSE_LEVEL: 'Corpse Level: ',
-  // ItemDisplayStringTalismanTier
   TALISMAN_TIER: 'Talisman Tier: ',
-  // SkillGemCraftingLevel
   GEM_LEVEL: 'Level: ',
-  // ItemDisplayStackSize
   STACK_SIZE: 'Stack Size: ',
-  // ItemDisplayStringSockets
   SOCKETS: 'Sockets: ',
-  // Quality
   QUALITY: 'Quality: ',
-  // ItemDisplayWeaponPhysicalDamage
   PHYSICAL_DAMAGE: 'Physical Damage: ',
-  // ItemDisplayWeaponElementalDamage
   ELEMENTAL_DAMAGE: 'Elemental Damage: ',
-  // ItemDisplayWeaponLightningDamage
   LIGHTNING_DAMAGE: 'Lightning Damage: ',
-  // ItemDisplayWeaponColdDamage
   COLD_DAMAGE: 'Cold Damage: ',
-  // ItemDisplayWeaponFireDamage
   FIRE_DAMAGE: 'Fire Damage: ',
-  // ItemDisplayWeaponCriticalStrikeChance
   CRIT_CHANCE: 'Critical Hit Chance: ',
-  // ItemDisplayWeaponAttacksPerSecond
   ATTACK_SPEED: 'Attacks per Second: ',
-  // ItemDisplayArmourArmour
   ARMOUR: 'Armour: ',
-  // ItemDisplayArmourEvasionRating
   EVASION: 'Evasion Rating: ',
-  // ItemDisplayArmourEnergyShield
   ENERGY_SHIELD: 'Energy Shield: ',
-  // ItemDisplayShieldBlockChance
   BLOCK_CHANCE: 'Block chance: ',
-  // ItemPopupCorrupted
   CORRUPTED: 'Corrupted',
-  // ItemPopupUnidentified
   UNIDENTIFIED: 'Unidentified',
-  // QualityItem
-  ITEM_SUPERIOR: /^Superior (.*)$/,
-  // ExceptionalItem
-  ITEM_EXCEPTIONAL: /^Exceptional (.*)$/,
-  // InfectedMap
-  MAP_BLIGHTED: /^Blighted (.*)$/,
-  // UberInfectedMap
-  MAP_BLIGHT_RAVAGED: /^Blight-ravaged (.*)$/,
-  // ItemPopupShaperItem
   INFLUENCE_SHAPER: 'Shaper Item',
-  // ItemPopupElderItem
   INFLUENCE_ELDER: 'Elder Item',
-  // ItemPopupCrusaderItem
   INFLUENCE_CRUSADER: 'Crusader Item',
-  // ItemPopupHunterItem
   INFLUENCE_HUNTER: 'Hunter Item',
-  // ItemPopupRedeemerItem
   INFLUENCE_REDEEMER: 'Redeemer Item',
-  // ItemPopupWarlordItem
   INFLUENCE_WARLORD: 'Warlord Item',
-  // ItemPopupSynthesisedItem
   SECTION_SYNTHESISED: 'Synthesised Item',
-  // SynthesisedItem
-  ITEM_SYNTHESISED: /^Synthesised (.*)$/,
-  // ItemDisplayVeiledPrefix
   VEILED_PREFIX: 'Desecrated Prefix',
-  // ItemDisplayVeiledSuffix
   VEILED_SUFFIX: 'Desecrated Suffix',
-  // ItemDisplayChargesNCharges
-  FLASK_CHARGES: /^Currently has \d+ Charges$/,
-  // MetamorphosisItemisedMapBoss
-  METAMORPH_HELP: "Combine this with four other different samples in Tane's Laboratory.",
-  // ItemDescriptionItemisedCapturedMonster
+  METAMORPH_HELP: 'Combine this with four other different samples in Tane\'s Laboratory.',
   BEAST_HELP: 'Right-click to add this to your bestiary.',
-  // PrimordialWatchstoneDescriptionText
   VOIDSTONE_HELP: 'Socket this into your Atlas to increase the Tier of all Maps.',
-  METAMORPH_BRAIN: /^.* Brain$/,
-  METAMORPH_EYE: /^.* Eye$/,
-  METAMORPH_LUNG: /^.* Lung$/,
-  METAMORPH_HEART: /^.* Heart$/,
-  METAMORPH_LIVER: /^.* Liver$/,
-  // ItemPopupCannotUseItem
   CANNOT_USE_ITEM: 'You cannot use this item. Its stats will be ignored',
-  // GemAlternateQuality1Affix
-  QUALITY_ANOMALOUS: /^Anomalous (.*)$/,
-  // GemAlternateQuality2Affix
-  QUALITY_DIVERGENT: /^Divergent (.*)$/,
-  // GemAlternateQuality3Affix
-  QUALITY_PHANTASMAL: /^Phantasmal (.*)$/,
-  // ItemDisplayHeistContractLevel
   AREA_LEVEL: 'Area Level: ',
-  // ItemDisplayHeistBlueprintWings
   HEIST_WINGS_REVEALED: 'Wings Revealed: ',
-  // ItemDisplayHeistContractObjective
   HEIST_TARGET: 'Heist Target: ',
-  // HeistBlueprintRewardBunker
   HEIST_BLUEPRINT_ENCHANTS: 'Enchanted Armaments',
-  // HeistBlueprintRewardMines
   HEIST_BLUEPRINT_TRINKETS: 'Thieves\' Trinkets or Currency',
-  // HeistBlueprintRewardReliquary
   HEIST_BLUEPRINT_GEMS: 'Unusual Gems',
-  // HeistBlueprintRewardLibrary
   HEIST_BLUEPRINT_REPLICAS: 'Replicas or Experimented Items',
-  // ItemPopupMirrored
   MIRRORED: 'Mirrored',
-  // ModDescriptionLineTier ModDescriptionLineRank ModDescriptionLineLevel
-  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s+\(Tier: (?<tier>\d+)\))?(?:\s+\(Rank: (?<rank>\d+)\))?$/,
-  // ModDescriptionLinePrefix
   PREFIX_MODIFIER: 'Prefix Modifier',
-  // ModDescriptionLineSuffix
   SUFFIX_MODIFIER: 'Suffix Modifier',
-  // ModDescriptionLineCraftedPrefix
   CRAFTED_PREFIX: 'Master Crafted Prefix Modifier',
-  // ModDescriptionLineCraftedSuffix
   CRAFTED_SUFFIX: 'Master Crafted Suffix Modifier',
-  // DescriptionLabelFixedValueStat
   UNSCALABLE_VALUE: ' — Unscalable Value',
-  // ModDescriptionLineCorruptedImplicit
   CORRUPTED_IMPLICIT: 'Corruption Implicit Modifier',
-  // AlternateQualityModIncreaseText
-  MODIFIER_INCREASED: /^(.+?)% Increased$/,
-  // ItemDescriptionIncursionAccessibleRooms
   INCURSION_OPEN: 'Open Rooms:',
-  // ItemDescriptionIncursionInaccessibleRooms
   INCURSION_OBSTRUCTED: 'Obstructed Rooms:',
-  // ModDescriptionLineGreatTangleImplicit
-  EATER_IMPLICIT: /^Eater of Worlds Implicit Modifier \((?<rank>.+)\)$/,
-  // ModDescriptionLineCleansingFireImplicit
-  EXARCH_IMPLICIT: /^Searing Exarch Implicit Modifier \((?<rank>.+)\)$/,
-  // EldritchCurrencyTier1
   ELDRITCH_MOD_R1: 'Lesser',
-  // EldritchCurrencyTier2
   ELDRITCH_MOD_R2: 'Greater',
-  // EldritchCurrencyTier3
   ELDRITCH_MOD_R3: 'Grand',
-  // EldritchCurrencyTier4
   ELDRITCH_MOD_R4: 'Exceptional',
-  // EldritchCurrencyTier5
   ELDRITCH_MOD_R5: 'Exquisite',
-  // EldritchCurrencyTier6
   ELDRITCH_MOD_R6: 'Perfect',
-  // ItemDisplaySentinelDroneDurability
   SENTINEL_CHARGE: 'Charge: ',
-  SHAPER_MODS: ['of Shaping', "The Shaper's"],
-  ELDER_MODS: ['of the Elder', "The Elder's"],
-  CRUSADER_MODS: ["Crusader's", 'of the Crusade'],
-  HUNTER_MODS: ["Hunter's", 'of the Hunt'],
-  REDEEMER_MODS: ['of Redemption', "Redeemer's"],
-  WARLORD_MODS: ["Warlord's", 'of the Conquest'],
-  DELVE_MODS: ['Subterranean', 'of the Underground'],
-  VEILED_MODS: ['Chosen', 'of the Order'],
-  INCURSION_MODS: ["Guatelitzi's", "Xopec's", "Topotante's", "Tacati's", "Matatl's", 'of Matatl', "Citaqualotl's", 'of Citaqualotl', 'of Tacati', 'of Guatelitzi', 'of Puhuarte'],
-  // ItemPopupFoilUniqueVariant
   FOIL_UNIQUE: 'Foil Unique',
-  // ItemPopupUnmodifiable
   UNMODIFIABLE: 'Unmodifiable',
-  // ---
+  REQUIREMENTS: 'Requirements',
+  CHARM_SLOTS: 'Charm Slots: ',
+  BASE_SPIRIT: 'Spirit: ',
+  QUIVER_HELP_TEXT: 'Can only be equipped if you are wielding a Bow.',
+  FLASK_HELP_TEXT: 'Right click to drink. Can only hold charges while in belt. Refill at Wells or by killing monsters.',
+  CHARM_HELP_TEXT: 'Used automatically when condition is met. Can only hold charges while in belt. Refill at Wells or by killing monsters.',
+  PRICE_NOTE: 'Note: ',
+  WAYSTONE_TIER: 'Waystone Tier: ',
+  WAYSTONE_HELP: 'Can be used in a Map Device, allowing you to enter a Map. Waystones can only be used once.',
+  JEWEL_HELP: 'Place into an allocated Jewel Socket on the Passive Skill Tree. Right click to remove from the Socket.',
+  SANCTUM_HELP: 'Place this item on the Relic Altar at the start of the Trial of the Sekhemas',
+  TIMELESS_RADIUS: 'Radius: ',
+  PRECURSOR_TABLET_HELP: 'Can be used in a personal Map Device to add modifiers to a Map.',
+  LOGBOOK_HELP: 'Take this item to Dannig in your Hideout to open portals to an expedition.',
+  REQUIRES: 'Requires: ',
+  TIMELESS_SMALL_PASSIVES: 'Small Passive Skills in Radius also grant {0}',
+  TIMELESS_NOTABLE_PASSIVES: 'Notable Passive Skills in Radius also grant {0}',
+  GRANTS_SKILL: 'Grants Skill: ',
+  RELOAD_SPEED: 'Reload Time: ',
+  FRACTURED_ITEM: 'Fractured Item',
+  SANCTIFIED: 'Sanctified',
+  HYPHEN: '-',
+  WAYSTONE_REVIVES: 'Revives Available: ',
+  WAYSTONE_PACK_SIZE: 'Monster Pack Size: ',
+  WAYSTONE_MAGIC_MONSTERS: 'Magic Monsters: ',
+  WAYSTONE_RARE_MONSTERS: 'Rare Monsters: ',
+  WAYSTONE_DROP_CHANCE: 'Waystone Drop Chance: ',
+  WAYSTONE_RARITY: 'Item Rarity: ',
+  // [Array]
+  SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
+  // [Array]
+  ELDER_MODS: ['of the Elder', 'The Elder\'s'],
+  // [Array]
+  CRUSADER_MODS: ['Crusader\'s', 'of the Crusade'],
+  // [Array]
+  HUNTER_MODS: ['Hunter\'s', 'of the Hunt'],
+  // [Array]
+  REDEEMER_MODS: ['Redeemer\'s', 'of Redemption'],
+  // [Array]
+  WARLORD_MODS: ['Warlord\'s', 'of the Conquest'],
+  // [Array]
+  DELVE_MODS: ['Subterranean', 'of the Underground'],
+  // [Array]
+  VEILED_MODS: ['Chosen', 'of the Order'],
+  // [Array]
+  INCURSION_MODS: ['Guatelitzi\'s', 'Xopec\'s', 'Topotante\'s', 'Tacati\'s', 'Matatl\'s', 'of Matatl', 'Citaqualotl\'s', 'of Citaqualotl', 'of Tacati', 'of Guatelitzi', 'of Puhuarte'],
+  ITEM_SUPERIOR: /^Superior (.*)$/,
+  ITEM_EXCEPTIONAL: /^Exceptional (.*)$/,
+  MAP_BLIGHTED: /^Blighted (.*)$/,
+  MAP_BLIGHT_RAVAGED: /^Blight-ravaged (.*)$/,
+  ITEM_SYNTHESISED: /^Synthesised (.*)$/,
+  FLASK_CHARGES: /^Currently has \d+ Charges$/,
+  // [Manual]
+  METAMORPH_BRAIN: /^.* Brain$/,
+  // [Manual]
+  METAMORPH_EYE: /^.* Eye$/,
+  // [Manual]
+  METAMORPH_LUNG: /^.* Lung$/,
+  // [Manual]
+  METAMORPH_HEART: /^.* Heart$/,
+  // [Manual]
+  METAMORPH_LIVER: /^.* Liver$/,
+  QUALITY_ANOMALOUS: /^Anomalous (.*)$/,
+  QUALITY_DIVERGENT: /^Divergent (.*)$/,
+  QUALITY_PHANTASMAL: /^Phantasmal (.*)$/,
+  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s+\(Tier: (?<tier>\d+)\))?(?:\s+\(Rank: (?<rank>\d+)\))?$/,
+  MODIFIER_INCREASED: /^(.*)% Increased$/,
+  EATER_IMPLICIT: /^Eater of Worlds Implicit Modifier \((?<rank>.+)\)$/,
+  EXARCH_IMPLICIT: /^Searing Exarch Implicit Modifier \((?<rank>.+)\)$/,
+  // [Manual]
   CHAT_SYSTEM: /^: (?<body>.+)$/,
+  // [Manual]
   CHAT_TRADE: /^\$(?:<(?<guild_tag>.+?)> )?(?<char_name>.+?): (?<body>.+)$/,
+  // [Manual]
   CHAT_GLOBAL: /^#(?:<(?<guild_tag>.+?)> )?(?<char_name>.+?): (?<body>.+)$/,
+  // [Manual]
   CHAT_PARTY: /^%(?:<(?<guild_tag>.+?)> )?(?<char_name>.+?): (?<body>.+)$/,
+  // [Manual]
   CHAT_GUILD: /^&(?:<(?<guild_tag>.+?)> )?(?<char_name>.+?): (?<body>.+)$/,
   CHAT_WHISPER_TO: /^@To (?<char_name>.+?): (?<body>.+)$/,
   CHAT_WHISPER_FROM: /^@From (?:<(?<guild_tag>.+?)> )?(?<char_name>.+?): (?<body>.+)$/,
+  // [Manual]
   CHAT_WEBTRADE_GEM: /^level (?<gem_lvl>\d+) (?<gem_qual>\d+)% (?<gem_name>.+)$/,
-  // ItemPopupRequirements
-  REQUIREMENTS: 'Requirements',
-  // ItemDisplayBeltCharmSlots
-  CHARM_SLOTS: 'Charm Slots:',
-  // ItemDisplaySpiritValue
-  BASE_SPIRIT: 'Spirit:',
-  // ItemDescriptionQuiver
-  QUIVER_HELP_TEXT: 'Can only be equipped if you are wielding a Bow',
-  // ItemDescriptionFlask
-  FLASK_HELP_TEXT: 'Right click to drink.',
-  // ItemDescriptionFlaskUtility1
-  CHARM_HELP_TEXT: 'Used automatically when condition',
-  // ItemDisplayStringNote
-  PRICE_NOTE: 'Note: ',
-  // ItemDisplayMapTier
-  WAYSTONE_TIER: 'Waystone Tier: ',
-  // ItemDescriptionMap
-  WAYSTONE_HELP: 'Can be used in a Map Device,',
-  // ItemDescriptionPassiveJewel
-  JEWEL_HELP: 'Place into',
-  // ItemDescriptionSanctumRelic
-  SANCTUM_HELP: 'Place this item on the Relic Altar',
-  // JewelRadiusLabel
-  TIMELESS_RADIUS: 'Radius: ',
-  // ItemDescriptionPrecursorTablet
-  PRECURSOR_TABLET_HELP: 'Can be used in a personal Map Device to add modifiers to a Map.',
-  // ItemDescriptionExpeditionLogbook
-  LOGBOOK_HELP: 'Take this item to Dannig ',
-  // HeistRequiresText?
-  REQUIRES: 'Requires',
-  // ModStatJewelAddToSmall
-  TIMELESS_SMALL_PASSIVES: 'Small Passive Skills in Radius also grant {0}',
-  // ModStatJewelAddToNotable
-  TIMELESS_NOTABLE_PASSIVES: 'Notable Passive Skills in Radius also grant {0}',
-  // ItemDisplayGrantsSkill
-  GRANTS_SKILL: 'Grants Skill: ',
-  // SkillPopupReloadTime
-  RELOAD_SPEED: 'Reload Time: ',
-  // ItemPopupFracturedItem
-  FRACTURED_ITEM: 'Fractured Item',
-  // ItemPopupSanctified
-  SANCTIFIED: 'Sanctified',
-  // ItemDisplayWeaponDamageRange
-  HYPHEN: '-',
-  // NumberOfPortalsPerWaystone
-  WAYSTONE_REVIVES: 'Revives Available: ',
-  // ItemDisplayMapPackSizeIncrease
-  WAYSTONE_PACK_SIZE: 'Monster Pack Size: ',
-  // ItemDisplayMapMagicMonsterQuantityBonus
-  WAYSTONE_MAGIC_MONSTERS: 'Magic Monsters: ',
-  // ItemDisplayMapRareMonsterQuantityBonus
-  WAYSTONE_RARE_MONSTERS: 'Rare Monsters: ',
-  // ItemDisplayMapMapItemDropChanceIncrease
-  WAYSTONE_DROP_CHANCE: 'Waystone Drop Chance: ',
-  // ItemDisplayMapRarityIncrease
-  WAYSTONE_RARITY: 'Item Rarity: '
 }
