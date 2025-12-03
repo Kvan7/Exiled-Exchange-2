@@ -44,7 +44,7 @@ export interface CurrencyValue {
 }
 
 export interface CoreCurrency {
-  id: "exalted" | "chaos";
+  id: "exalted" | "chaos" | "div";
   abbrev: string;
   ref: string;
   text: string;
@@ -69,6 +69,13 @@ function getAvailableCoreCurrencies(): CoreCurrency[] {
     },
   ];
 }
+export const DivCurrency: CoreCurrency = {
+  id: "div",
+  abbrev: "div",
+  ref: "Divine Orb",
+  text: "Divine Orb",
+  icon: "/images/div.png",
+};
 
 export const usePoeninja = createGlobalState(() => {
   const leagues = useLeagues();
@@ -160,7 +167,11 @@ export const usePoeninja = createGlobalState(() => {
       const preferred = selectedCoreCurrency.value;
 
       if (divineRates && Object.values(divineRates).some((v) => v >= 10)) {
-        if (preferred && divineRates[preferred.id] >= 5) {
+        if (
+          preferred &&
+          preferred.id !== "div" &&
+          divineRates[preferred.id] >= 5
+        ) {
           xchgRate.value = divineRates[preferred.id];
           xchgRateCurrency.value = preferred.id;
         } else {

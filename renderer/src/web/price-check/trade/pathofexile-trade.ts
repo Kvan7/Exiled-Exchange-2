@@ -22,7 +22,12 @@ import { RateLimiter } from "./RateLimiter";
 import { ModifierType } from "@/parser/modifiers";
 import { Cache } from "./Cache";
 import { parseAffixStrings } from "@/parser/Parser";
-import { displayRounding, usePoeninja } from "@/web/background/Prices";
+import {
+  CoreCurrency,
+  displayRounding,
+  DivCurrency,
+  usePoeninja,
+} from "@/web/background/Prices";
 import { getCurrencyDetailsId } from "../trends/getDetailsId";
 
 export const CATEGORY_TO_TRADE_ID = new Map([
@@ -311,13 +316,7 @@ export interface PricingResult {
   priceCurrency: string;
   priceCurrencyRank?: number;
   normalizedPrice?: string;
-  normalizedPriceCurrency?: {
-    id: "exalted" | "chaos";
-    abbrev: string;
-    ref: string;
-    text: string;
-    icon: string;
-  };
+  normalizedPriceCurrency?: CoreCurrency;
   isMine: boolean;
   hasNote: boolean;
   isInstantBuyout: boolean;
@@ -1079,7 +1078,10 @@ export async function requestResults(
       normalizedCurrency !== undefined
         ? displayRounding(normalizedCurrency.min)
         : undefined;
-    const normalizedPriceCurrency = xchgRateCurrency.value;
+    const normalizedPriceCurrency =
+      normalizedCurrency?.currency !== "div"
+        ? xchgRateCurrency.value
+        : DivCurrency;
 
     return {
       id: result.id,
