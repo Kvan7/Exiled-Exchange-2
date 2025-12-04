@@ -407,7 +407,7 @@
   },
   {
     "query": [
-      "ITEM::Chance Orb",
+      "ITEM::Orb of Chance",
       "ITEM::Omen of Chance",
       "ITEM::Omen of the Ancients"
     ],
@@ -433,7 +433,9 @@
       "ITEM::Omen of Dextral Erasure"
     ],
     "items": [
-      "ITEM::Chaos Orb"
+      "ITEM::Chaos Orb",
+      "ITEM::Greater Chaos Orb",
+      "ITEM::Perfect Chaos Orb"
     ]
   },
   {
@@ -445,7 +447,9 @@
       "ITEM::Omen of Greater Exaltation"
     ],
     "items": [
-      "ITEM::Exalted Orb"
+      "ITEM::Exalted Orb",
+      "ITEM::Greater Exalted Orb",
+      "ITEM::Perfect Exalted Orb"
     ]
   },
   {
