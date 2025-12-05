@@ -18,5 +18,3 @@ cd ./main
 npm install
 npm run build
 npm run package
-
-

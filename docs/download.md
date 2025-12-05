@@ -60,4 +60,3 @@ In order for Exiled Exchange 2 to have access to the PoE window, it must be star
     - `config.json`
 7. **IMPORTANT:** Edit `config.json` and change the value of "windowTitle": "Path of Exile" to instead be "Path of Exile 2", otherwise it will open only for poe1
 8. Start Exiled Exchange 2 and PoE2
-

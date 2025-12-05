@@ -30,12 +30,12 @@ description
 	1
 		# "Les Ennemis ont une [Concentration|Concentration] égale à {0}% de leur Vie maximale"
 
-description 
+description
 	1 %_of_life_regeneration_applies_to_totems
 	1
 		# "[DNT] {}% of Life Regeneration applies to your Totems"
-	lang "Simplified Chinese"	
-	1	
+	lang "Simplified Chinese"
+	1
 		# "[DNT]生命再生的 {}% 对你的图腾生效"
 
 description
@@ -164,4 +164,3 @@ description
 	2
 		1|# "サイクロンの[Attack|アタック]スピードが{0}%増加する"
 		#|-1 "サイクロンの[Attack|アタック]スピードが{0}%減少する" negate 1
-
