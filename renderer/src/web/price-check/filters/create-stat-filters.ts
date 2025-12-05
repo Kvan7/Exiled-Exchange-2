@@ -637,7 +637,10 @@ export function finalFilterTweaks(ctx: FiltersCreationContext) {
       }
     }
     if (ctx.item.category === ItemCategory.Map) {
-      if (filter.tag !== FilterTag.Property) {
+      if (
+        filter.tag !== FilterTag.Property &&
+        filter.tag !== FilterTag.Desecrated
+      ) {
         filter.disabled = true;
         filter.hidden = "filters.hide_for_map";
       }

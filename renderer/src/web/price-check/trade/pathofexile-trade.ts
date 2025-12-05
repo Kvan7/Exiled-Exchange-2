@@ -81,6 +81,7 @@ export const CATEGORY_TO_TRADE_ID = new Map([
   [ItemCategory.Tablet, "map.tablet"],
   [ItemCategory.MapFragment, "map.fragment"],
   [ItemCategory.Talisman, "weapon.talisman"],
+  [ItemCategory.Waystone, "map.waystone"],
 ]);
 
 const TOTAL_MODS_TEXT = {
