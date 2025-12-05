@@ -1,0 +1,24 @@
+name: Tests
+
+on:
+  pull_request:
+    branches:
+    - master
+    - dev
+
+jobs:
+  all:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+    - uses: actions/setup-python@v3
+    - run: npm ci
+      working-directory: ./renderer
+    - run: npm ci
+      working-directory: ./main
+    - uses: pre-commit/action@v3.0.1
+    - run: npm run make-index-files
+      working-directory: ./renderer
+    - run: npm run test
+      working-directory: ./renderer
