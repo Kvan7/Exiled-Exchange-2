@@ -60,7 +60,7 @@ export async function requestPoeprices(
     const xchgExalted = findPriceByQuery({
       ns: "ITEM",
       name: "Exalted Orb",
-      // variant: undefined,
+      variant: undefined,
     });
     if (!xchgExalted) {
       throw new Error("poeprices.info gave the price in Exalted Orbs.");

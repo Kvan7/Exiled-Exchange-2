@@ -6,14 +6,26 @@ import { AppConfig } from "../Config";
 import { PriceCheckWidget } from "../overlay/widgets";
 import { ITEM_BY_REF } from "@/assets/data";
 
-interface NinjaDenseInfo {
+interface NinjaDenseExchangeInfo {
   name: string;
+  variant?: string;
+  primaryValue: number;
   detailsId: string;
   id: string;
-  primaryValue: number;
   volumePrimaryValue: number;
   maxVolumeCurrency: string;
   maxVolumeRate: number;
+  sparkline: {
+    totalChange: number;
+    data: Array<number | null>;
+  };
+}
+
+interface NinjaDenseStashInfo {
+  name: string;
+  variant?: string;
+  primaryValue: number;
+  detailsId: string;
   sparkline: {
     totalChange: number;
     data: Array<number | null>;
@@ -26,7 +38,16 @@ interface NinjaXchgRates {
   secondary: string;
 }
 
-type PriceDatabase = Array<{ ns: string; url: string; lines: string }>;
+type PriceDatabase = Array<{
+  // My namespace for searching
+  ns: string;
+  // If db is from the currency exchange (cx)
+  cx: boolean;
+  // base url on ninja
+  url: string;
+  // json blob data
+  lines: string;
+}>;
 const RETRY_INTERVAL_MS = 4 * 60 * 1000;
 const UPDATE_INTERVAL_MS = 31 * 60 * 1000;
 const INTEREST_SPAN_MS = 20 * 60 * 1000;
@@ -215,23 +236,25 @@ export const usePoeninja = createGlobalState(() => {
     // NOTE: order of keys is important
     const searchString = JSON.stringify({
       name: query.name,
-      detailsId: "",
-    }).replace(':""}', ":");
+      variant: query.variant,
+      primaryValue: 0,
+    }).replace(":0}", ":");
     const endSearchString = "}}";
 
-    for (const { ns, url, lines } of PRICES_DB) {
+    for (const { ns, cx, url, lines } of PRICES_DB) {
       if (ns !== query.ns) continue;
 
       const startPos = lines.indexOf(searchString);
       if (startPos === -1) continue;
       const endPos = lines.indexOf(endSearchString, startPos);
 
-      const info: NinjaDenseInfo = JSON.parse(
+      const info: NinjaDenseExchangeInfo | NinjaDenseStashInfo = JSON.parse(
         lines.slice(startPos, endPos + endSearchString.length),
       );
 
       return {
         ...info,
+        cx,
         url: `https://poe.ninja/poe2/economy/${selectedLeagueToUrl(false)}/${url}/${info.detailsId}`,
       };
     }
@@ -345,20 +368,30 @@ function parseXchg(jsonBlob: string): NinjaXchgRates {
 
 function splitJsonBlob(jsonBlob: string): PriceDatabase {
   const NINJA_OVERVIEW = '{"type":"';
-  const NAMESPACE_MAP: Array<{ ns: string; url: string; type: string }> = [
-    { ns: "ITEM", url: "currency", type: "Currency" },
-    { ns: "ITEM", url: "fragments", type: "Fragments" },
-    { ns: "ITEM", url: "abyssal-bones", type: "Abyss" },
-    { ns: "ITEM", url: "uncut-gems", type: "UncutGems" },
-    { ns: "ITEM", url: "lineage-support-gems", type: "LineageSupportGems" },
-    { ns: "ITEM", url: "essences", type: "Essences" },
-    { ns: "ITEM", url: "soul-cores", type: "Ultimatum" },
-    { ns: "ITEM", url: "talismans", type: "Talismans" },
-    { ns: "ITEM", url: "runes", type: "Runes" },
-    { ns: "ITEM", url: "omens", type: "Ritual" },
-    { ns: "ITEM", url: "expedition", type: "Expedition" },
-    { ns: "ITEM", url: "distilled-emotions", type: "Delirium" },
-    { ns: "ITEM", url: "breach-catalyst", type: "Breach" },
+  const NAMESPACE_MAP: Array<{
+    ns: string;
+    cx: boolean;
+    url: string;
+    type: string;
+  }> = [
+    { ns: "ITEM", cx: true, url: "currency", type: "Currency" },
+    { ns: "ITEM", cx: true, url: "fragments", type: "Fragments" },
+    { ns: "ITEM", cx: true, url: "abyssal-bones", type: "Abyss" },
+    { ns: "ITEM", cx: true, url: "uncut-gems", type: "UncutGems" },
+    {
+      ns: "ITEM",
+      cx: true,
+      url: "lineage-support-gems",
+      type: "LineageSupportGems",
+    },
+    { ns: "ITEM", cx: true, url: "essences", type: "Essences" },
+    { ns: "ITEM", cx: true, url: "soul-cores", type: "Ultimatum" },
+    { ns: "ITEM", cx: true, url: "talismans", type: "Talismans" },
+    { ns: "ITEM", cx: true, url: "runes", type: "Runes" },
+    { ns: "ITEM", cx: true, url: "omens", type: "Ritual" },
+    { ns: "ITEM", cx: true, url: "expedition", type: "Expedition" },
+    { ns: "ITEM", cx: true, url: "distilled-emotions", type: "Delirium" },
+    { ns: "ITEM", cx: true, url: "breach-catalyst", type: "Breach" },
   ];
 
   const database: PriceDatabase = [];
@@ -379,7 +412,12 @@ function splitJsonBlob(jsonBlob: string): PriceDatabase {
 
     const isSupported = NAMESPACE_MAP.find((entry) => entry.type === type);
     if (isSupported) {
-      database.push({ ns: isSupported.ns, url: isSupported.url, lines });
+      database.push({
+        ns: isSupported.ns,
+        cx: isSupported.cx,
+        url: isSupported.url,
+        lines,
+      });
     }
 
     if (endPos === -1) break;
