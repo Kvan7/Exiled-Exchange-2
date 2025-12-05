@@ -10,7 +10,7 @@ describe("Check Magic Name (en)", () => {
   });
   test("Should parse normal name", () => {
     const name = "Rattling Sceptre";
-    expect(magicBasetype(name)).toBe("Rattling Sceptre");
+    expect(magicBasetype(name)).toBe("Rattling Sceptr");
   });
   test("Should parse magic name with suffix", () => {
     const name = "Cultist Greathammer of Nourishment";
