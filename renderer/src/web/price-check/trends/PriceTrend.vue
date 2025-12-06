@@ -10,8 +10,15 @@
       </i18n-t>
     </div>
     <template v-else>
-      <div v-if="priceData.volume" class="flex flex-col items-center gap-y-1">
-        <div class="flex flex-row items-center">
+      <div
+        v-if="priceData.volume && volumeSetting !== 'none'"
+        class="flex flex-col items-center gap-y-1"
+      >
+        <!-- Currency per hour -->
+        <div
+          v-if="volumeSetting === 'value' || volumeSetting === 'both'"
+          class="flex flex-row items-center"
+        >
           {{ priceData.volume.primaryVolumePerHour }}
           <div class="w-6 h-6 flex items-center justify-center shrink-0">
             <img
@@ -28,7 +35,11 @@
           </div>
           <div class="text-xs text-gray-500">/hr</div>
         </div>
-        <div class="flex flex-row items-center">
+        <!-- Items per hour -->
+        <div
+          v-if="volumeSetting === 'item' || volumeSetting === 'both'"
+          class="flex flex-row items-center"
+        >
           {{ priceData.volume.itemsPerHour }}
           <div class="w-6 h-6 flex items-center justify-center shrink-0">
             <img
@@ -144,6 +155,8 @@ import VueApexcharts from "vue3-apexcharts";
 import { ParsedItem } from "@/parser";
 import { artificialSlowdown } from "../trade/artificial-slowdown";
 import { ItemFilters } from "../filters/interfaces";
+import { AppConfig } from "@/web/Config";
+import { PriceCheckWidget } from "@/web/overlay/interfaces";
 
 const slowdown = artificialSlowdown(800);
 
@@ -165,6 +178,10 @@ export default defineComponent({
   setup(props) {
     const { t } = useI18nNs("trade_result");
     const { findPriceByQuery, autoCurrency } = usePoeninja();
+
+    const volumeSetting = computed(
+      () => AppConfig<PriceCheckWidget>("price-check")!.currencyVolume,
+    );
 
     watch(
       () => props.item,
@@ -216,6 +233,7 @@ export default defineComponent({
         return isValuableBasetype(props.item);
       }),
       slowdown,
+      volumeSetting,
     };
   },
 });
