@@ -403,7 +403,8 @@
     "always_show_tier": "Tier immer anzeigen",
     "remember_ratio": "Währungs-Verhältnis merken",
     "open_editor_above": "Open rune socket selector upwards",
-    "core_currency": "Primary base currency"
+    "core_currency": "Primary base currency",
+    "show_volume": "Show Currency Exchange volume per hour:"
   },
   "poe2_new": {
     "beta_warning": "Dies ist eine BETA für POE2, es wird nicht immer wie erwartet funktionieren.",

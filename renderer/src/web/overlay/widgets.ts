@@ -57,6 +57,7 @@ export interface PriceCheckWidget extends Widget {
   alwaysShowTier: boolean;
   openItemEditorAbove: boolean;
   coreCurrency: "exalted" | "chaos";
+  currencyVolume: "none" | "value" | "item" | "both";
 }
 
 export interface StopwatchWidget extends Widget {

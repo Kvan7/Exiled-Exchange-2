@@ -594,11 +594,15 @@ function upgradeConfig(_config: Config): Config {
     config.configVersion = 28;
   }
   if (config.configVersion < 29) {
-    // NOTE: v0.13.0 || poe0.3.1b
+    // NOTE: v0.13.0 || poe0.4.0
+    config.tipsFrequency = TipsFrequency.Never;
+
     const priceCheck = config.widgets.find(
       (w) => w.wmType === "price-check",
     ) as widget.PriceCheckWidget;
     priceCheck.coreCurrency = "exalted";
+    priceCheck.currencyVolume = "both";
+
     config.configVersion = 29;
   }
   return config as unknown as Config;

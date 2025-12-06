@@ -414,7 +414,8 @@
     "always_show_tier": "始終顯示階級",
     "remember_ratio": "記住通貨比例",
     "open_editor_above": "Open rune socket selector upwards",
-    "core_currency": "Primary base currency"
+    "core_currency": "Primary base currency",
+    "show_volume": "Show Currency Exchange volume per hour:"
   },
   "poe2_new": {
     "beta_warning": "這是 POE2 的測試版，某些功能可能無法正常運作。",
