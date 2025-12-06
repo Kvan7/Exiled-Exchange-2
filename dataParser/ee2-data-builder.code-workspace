@@ -65,5 +65,7 @@
         "basedpyright.analysis.ignore": [
             "tests/**"
         ],
+        "gitlens.virtualRepositories.enabled": false,
+        "gitlens.plusFeatures.enabled": false,
     }
 }
