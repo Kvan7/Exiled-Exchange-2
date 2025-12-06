@@ -1,0 +1,69 @@
+{
+    "folders": [
+        {
+            "name": "ee2-data-builder",
+            "path": "."
+        },
+    ],
+    "settings": {
+        "workbench.colorCustomizations": {
+            "activityBar.activeBackground": "#48d4f9",
+            "activityBar.background": "#48d4f9",
+            "activityBar.foreground": "#15202b",
+            "activityBar.inactiveForeground": "#15202b99",
+            "activityBarBadge.background": "#f708c5",
+            "activityBarBadge.foreground": "#e7e7e7",
+            "commandCenter.border": "#15202b99",
+            "sash.hoverBorder": "#48d4f9",
+            "statusBar.background": "#16c8f8",
+            "statusBar.foreground": "#15202b",
+            "statusBarItem.hoverBackground": "#06a9d5",
+            "statusBarItem.remoteBackground": "#16c8f8",
+            "statusBarItem.remoteForeground": "#15202b",
+            "titleBar.activeBackground": "#16c8f8",
+            "titleBar.activeForeground": "#15202b",
+            "titleBar.inactiveBackground": "#16c8f899",
+            "titleBar.inactiveForeground": "#15202b99"
+        },
+        "peacock.color": "#16c8f8",
+        "cSpell.words": [
+            "Abyssals",
+            "Amanamu",
+            "COOLDOWN",
+            "Cursecarver",
+            "datalines",
+            "Defences",
+            "estazunti",
+            "Invictus",
+            "isort",
+            "Kalguur",
+            "Kulemak",
+            "leaguestone",
+            "Lich",
+            "Medved",
+            "METAMORPH",
+            "Morior",
+            "Olroth",
+            "Remembrancing",
+            "songworthy",
+            "SYNTHESISED",
+            "Tecrod",
+            "Ulaman",
+            "Vorana",
+            "Warcries",
+            "Warstaff",
+            "Waystone"
+        ],
+        "python.testing.pytestArgs": [
+            "tests"
+        ],
+        "python.testing.unittestEnabled": false,
+        "python.testing.pytestEnabled": true,
+        "python.analysis.typeCheckingMode": "off",
+        "python.analysis.autoImportCompletions": true,
+        "python.envFile": "${workspaceFolder}/.env",
+        "basedpyright.analysis.ignore": [
+            "tests/**"
+        ],
+    }
+}
