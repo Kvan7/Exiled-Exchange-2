@@ -429,6 +429,7 @@ function splitJsonBlob(jsonBlob: string): PriceDatabase {
 export function displayRounding(
   value: number,
   fraction: boolean = false,
+  truncateLargeNumbers: boolean = false,
 ): string {
   if (fraction && Math.abs(value) < 1) {
     if (value === 0) return "0";
@@ -437,6 +438,35 @@ export function displayRounding(
   }
   if (Math.abs(value) < 10) {
     return Number(value.toFixed(1)).toString().replace(".", "\u200A.\u200A");
+  }
+  if (truncateLargeNumbers && Math.abs(value) > 2250) {
+    if (Math.abs(value) < 1_050_000) {
+      // keep 1 decimal 12324 -> 12.3k
+      return (
+        Number((value / 1000).toFixed(1))
+          .toString()
+          .replace(".", "\u200A.\u200A") + "k"
+      );
+    }
+    if (Math.abs(value) < 1_050_000_000) {
+      return (
+        Number((value / 1_000_000).toFixed(1))
+          .toString()
+          .replace(".", "\u200A.\u200A") + "m"
+      );
+    }
+    if (Math.abs(value) < 1_050_000_000_000) {
+      return (
+        Number((value / 1_000_000_000).toFixed(1))
+          .toString()
+          .replace(".", "\u200A.\u200A") + "b"
+      );
+    }
+    return (
+      Number((value / 1_000_000_000_000).toFixed(1))
+        .toString()
+        .replace(".", "\u200A.\u200A") + "t"
+    );
   }
   return Math.round(value).toString();
 }

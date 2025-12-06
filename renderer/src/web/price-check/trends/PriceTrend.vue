@@ -178,21 +178,23 @@ export default defineComponent({
       const detailsId = getDetailsId(props.item);
       const entry = detailsId && findPriceByQuery(detailsId);
       if (!entry) return;
-
+      const usePerHour = "volumePrimaryValue" in entry;
       const price = autoCurrency(entry.primaryValue);
-      const perHour =
-        "volumePrimaryValue" in entry
-          ? autoCurrency(entry.volumePrimaryValue)
-          : undefined;
 
-      const volume =
-        "volumePrimaryValue" in entry
-          ? {
-              currency: perHour!.currency,
-              primaryVolumePerHour: displayRounding(perHour!.min),
-              itemsPerHour: displayRounding(perHour!.min / entry.primaryValue),
-            }
-          : undefined;
+      let volume;
+      if (usePerHour) {
+        const perHour = autoCurrency(entry.volumePrimaryValue);
+
+        const itemsPerHour =
+          perHour!.min /
+          (perHour!.currency === "div" ? entry.primaryValue : price.min);
+
+        volume = {
+          currency: perHour!.currency,
+          primaryVolumePerHour: displayRounding(perHour!.min),
+          itemsPerHour: displayRounding(itemsPerHour!, false, true),
+        };
+      }
 
       return {
         price,
