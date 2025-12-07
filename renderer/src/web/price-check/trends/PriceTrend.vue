@@ -12,7 +12,8 @@
     <template v-else>
       <div
         v-if="priceData.volume && volumeSetting !== 'none'"
-        class="flex flex-col items-center gap-y-1"
+        @click="openNinja"
+        class="flex flex-col items-center gap-y-1 rounded hover:bg-gray-700 px-1 cursor-pointer"
       >
         <!-- Currency per hour -->
         <div
