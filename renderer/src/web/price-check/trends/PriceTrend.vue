@@ -22,17 +22,7 @@
         >
           {{ priceData.volume.primaryVolumePerHour }}
           <div class="w-6 h-6 flex items-center justify-center shrink-0">
-            <img
-              v-if="priceData.volume.currency === 'div'"
-              src="/images/divine.png"
-              class="max-w-full max-h-full"
-            />
-            <img
-              v-else-if="priceData.volume.currency === 'chaos'"
-              src="/images/chaos.png"
-              class="max-w-full max-h-full"
-            />
-            <img v-else src="/images/exa.png" class="max-w-full max-h-full" />
+            <core-currency-img :currency="priceData.volume.currency" />
           </div>
           <div class="text-xs text-gray-500">/hr</div>
         </div>
@@ -123,22 +113,9 @@
           <div class="text-xs text-gray-500">{{ t(":highest_volume") }}</div>
 
           <div class="w-6 h-6 flex items-center justify-center shrink-0">
-            <img
-              v-if="priceData.volume.highestVolumeCurrency === 'divine'"
-              src="/images/divine.png"
-              class="max-w-full max-h-full"
+            <core-currency-img
+              :currency="priceData.volume.highestVolumeCurrency"
             />
-            <img
-              v-else-if="priceData.volume.highestVolumeCurrency === 'chaos'"
-              src="/images/chaos.png"
-              class="max-w-full max-h-full"
-            />
-            <img
-              v-else-if="priceData.volume.highestVolumeCurrency === 'exalted'"
-              src="/images/exa.png"
-              class="max-w-full max-h-full"
-            />
-            <img v-else src="/images/404.png" class="max-w-full max-h-full" />
           </div>
         </div>
       </div>
@@ -161,7 +138,11 @@
 <script lang="ts">
 import { defineComponent, PropType, computed, watch } from "vue";
 import { useI18nNs } from "@/web/i18n";
-import { displayRounding, usePoeninja } from "@/web/background/Prices";
+import {
+  CurrencyValue,
+  displayRounding,
+  usePoeninja,
+} from "@/web/background/Prices";
 import { isValuableBasetype, getDetailsId } from "./getDetailsId";
 import ItemQuickPrice from "@/web/ui/ItemQuickPrice.vue";
 import VueApexcharts from "vue3-apexcharts";
@@ -171,6 +152,7 @@ import { ItemFilters } from "../filters/interfaces";
 import { AppConfig } from "@/web/Config";
 import { PriceCheckWidget } from "@/web/overlay/interfaces";
 import UiItemImg from "@/web/ui/UiItemImg.vue";
+import CoreCurrencyImg from "@/web/ui/CoreCurrencyImg.vue";
 
 const slowdown = artificialSlowdown(800);
 
@@ -179,6 +161,7 @@ export default defineComponent({
     ItemQuickPrice,
     VueApexcharts,
     UiItemImg,
+    CoreCurrencyImg,
   },
   props: {
     item: {
@@ -210,18 +193,38 @@ export default defineComponent({
       const detailsId = getDetailsId(props.item);
       const entry = detailsId && findPriceByQuery(detailsId);
       if (!entry) return;
-      const usePerHour = "volumePrimaryValue" in entry;
       const price = autoCurrency(entry.primaryValue);
 
-      let volume;
-      if (usePerHour) {
+      const data: {
+        price: CurrencyValue;
+        change?: {
+          graph: { points: number[]; drawMin: number; drawMax: number };
+          forecast: string;
+          text: string;
+        } | null;
+        url: string;
+        volume?: {
+          currency: string;
+          primaryVolumePerHour: string;
+          itemsPerHour: string;
+          highestVolumeCurrency: string;
+        };
+      } = {
+        price,
+        change: entry.sparkline.data
+          ? deltaFromGraph(entry.sparkline.data)
+          : undefined,
+        url: entry.url,
+      };
+
+      if ("volumePrimaryValue" in entry) {
         const perHour = autoCurrency(entry.volumePrimaryValue);
 
         const itemsPerHour =
           perHour!.min /
           (perHour!.currency === "div" ? entry.primaryValue : price.min);
 
-        volume = {
+        data.volume = {
           currency: perHour!.currency,
           primaryVolumePerHour: displayRounding(perHour!.min),
           itemsPerHour: displayRounding(itemsPerHour!, false, true),
@@ -229,14 +232,7 @@ export default defineComponent({
         };
       }
 
-      return {
-        price,
-        volume,
-        change: entry.sparkline.data
-          ? deltaFromGraph(entry.sparkline.data)
-          : undefined,
-        url: entry.url,
-      };
+      return data;
     });
 
     return {
