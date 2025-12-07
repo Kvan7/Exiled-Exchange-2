@@ -9,6 +9,10 @@
       "path": "main"
     },
     {
+      "name": "dataParser",
+      "path": "dataParser"
+    },
+    {
       "name": "docs",
       "path": "docs"
     },
@@ -31,9 +35,6 @@
       "editor.tabSize": 4,
       "editor.insertSpaces": true
     },
-    "conventionalCommits.scopes": [
-      "Update to 2"
-    ],
     "cSpell.words": [
       "activegem",
       "Aequo",
