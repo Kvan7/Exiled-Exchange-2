@@ -15,11 +15,7 @@
           fraction
           class="text-base"
           :price="item.price"
-          :item-img="
-            item.icon === '%NOT_FOUND%' || item.icon === ''
-              ? '/images/404.png'
-              : item.icon
-          "
+          :item-img="item.icon"
         />
         <div
           class="text-left text-gray-600 mb-1 whitespace-nowrap overflow-hidden"
@@ -38,11 +34,7 @@
           fraction
           class="text-base"
           :price="item.price"
-          :item-img="
-            item.icon === '%NOT_FOUND%' || item.icon === ''
-              ? '/images/404.png'
-              : item.icon
-          "
+          :item-img="item.icon"
         />
         <div
           class="text-left text-gray-600 mb-1 whitespace-nowrap overflow-hidden"

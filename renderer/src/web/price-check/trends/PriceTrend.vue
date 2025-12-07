@@ -42,14 +42,7 @@
         >
           {{ priceData.volume.itemsPerHour }}
           <div class="w-6 h-6 flex items-center justify-center shrink-0">
-            <img
-              :src="
-                item.info.icon === '%NOT_FOUND%' || item.info.icon === ''
-                  ? '/images/404.png'
-                  : item.info.icon
-              "
-              class="max-w-full max-h-full overflow-hidden"
-            />
+            <ui-item-img :icon="item.info.icon" overflow-hidden />
           </div>
           <div class="text-xs text-gray-500">/hr</div>
         </div>
@@ -58,11 +51,7 @@
         class="flex-1 text-base justify-center"
         :price="priceData.price"
         :fraction="filters.stackSize != null"
-        :item-img="
-          item.info.icon === '%NOT_FOUND%' || item.info.icon === ''
-            ? '/images/404.png'
-            : item.info.icon
-        "
+        :item-img="item.info.icon"
         :item-base="item.info"
       >
         <template #item v-if="isValuableBasetype">
@@ -70,59 +59,86 @@
         </template>
       </item-quick-price>
       <div
-        v-if="priceData.change"
-        @click="openNinja"
-        :class="$style['trend-btn']"
+        v-if="priceData.change || priceData.volume"
+        class="flex flex-col items-center"
       >
-        <div class="text-center">
-          <div class="leading-tight">
-            <i
-              v-if="priceData.change.forecast === 'down'"
-              class="fas fa-angle-double-down pr-1 text-red-600"
-            ></i>
-            <i
-              v-if="priceData.change.forecast === 'up'"
-              class="fas fa-angle-double-up pr-1 text-green-500"
-            ></i>
-            <span
-              v-if="priceData.change.forecast === 'const'"
-              class="pr-1 text-gray-600 font-sans leading-none"
-              >±</span
-            >
-            <span>{{ priceData.change.text }}</span>
+        <div
+          v-if="priceData.change"
+          @click="openNinja"
+          :class="$style['trend-btn']"
+        >
+          <div class="text-center">
+            <div class="leading-tight">
+              <i
+                v-if="priceData.change.forecast === 'down'"
+                class="fas fa-angle-double-down pr-1 text-red-600"
+              ></i>
+              <i
+                v-if="priceData.change.forecast === 'up'"
+                class="fas fa-angle-double-up pr-1 text-green-500"
+              ></i>
+              <span
+                v-if="priceData.change.forecast === 'const'"
+                class="pr-1 text-gray-600 font-sans leading-none"
+                >±</span
+              >
+              <span>{{ priceData.change.text }}</span>
+            </div>
+            <div class="text-xs text-gray-500 leading-none">
+              {{ t(":graph_7d") }}
+            </div>
           </div>
-          <div class="text-xs text-gray-500 leading-none">
-            {{ t(":graph_7d") }}
+          <div v-if="priceData.change" class="w-12 h-8">
+            <vue-apexcharts
+              type="area"
+              :options="{
+                chart: {
+                  sparkline: { enabled: true },
+                  animations: { enabled: false },
+                },
+                stroke: {
+                  curve: 'smooth',
+                  width: 1,
+                  colors: ['#a0aec0' /* gray.500 */],
+                },
+                fill: { colors: ['#4a5568' /* gray.700 */], type: 'solid' },
+                tooltip: { enabled: false },
+                plotOptions: { area: { fillTo: 'end' } },
+                yaxis: {
+                  show: false,
+                  min: priceData.change.graph.drawMin,
+                  max: priceData.change.graph.drawMax,
+                },
+              }"
+              :series="[
+                {
+                  data: priceData.change.graph.points,
+                },
+              ]"
+            />
           </div>
         </div>
-        <div v-if="priceData.change" class="w-12 h-8">
-          <vue-apexcharts
-            type="area"
-            :options="{
-              chart: {
-                sparkline: { enabled: true },
-                animations: { enabled: false },
-              },
-              stroke: {
-                curve: 'smooth',
-                width: 1,
-                colors: ['#a0aec0' /* gray.500 */],
-              },
-              fill: { colors: ['#4a5568' /* gray.700 */], type: 'solid' },
-              tooltip: { enabled: false },
-              plotOptions: { area: { fillTo: 'end' } },
-              yaxis: {
-                show: false,
-                min: priceData.change.graph.drawMin,
-                max: priceData.change.graph.drawMax,
-              },
-            }"
-            :series="[
-              {
-                data: priceData.change.graph.points,
-              },
-            ]"
-          />
+        <div v-if="priceData.volume" class="flex flex-row items-center">
+          <div class="text-xs text-gray-500">{{ t("Highest volume:") }}</div>
+
+          <div class="w-6 h-6 flex items-center justify-center shrink-0">
+            <img
+              v-if="priceData.volume.highestVolumeCurrency === 'divine'"
+              src="/images/divine.png"
+              class="max-w-full max-h-full"
+            />
+            <img
+              v-else-if="priceData.volume.highestVolumeCurrency === 'chaos'"
+              src="/images/chaos.png"
+              class="max-w-full max-h-full"
+            />
+            <img
+              v-else-if="priceData.volume.highestVolumeCurrency === 'exalted'"
+              src="/images/exa.png"
+              class="max-w-full max-h-full"
+            />
+            <img v-else src="/images/404.png" class="max-w-full max-h-full" />
+          </div>
         </div>
       </div>
     </template>
@@ -135,11 +151,7 @@
     <item-quick-price
       class="flex-1 text-base justify-center"
       currency-text
-      :item-img="
-        item.info.icon === '%NOT_FOUND%' || item.info.icon === ''
-          ? '/images/404.png'
-          : item.info.icon
-      "
+      :item-img="item.info.icon"
       :item-base="item.info"
     />
   </div>
@@ -157,6 +169,7 @@ import { artificialSlowdown } from "../trade/artificial-slowdown";
 import { ItemFilters } from "../filters/interfaces";
 import { AppConfig } from "@/web/Config";
 import { PriceCheckWidget } from "@/web/overlay/interfaces";
+import UiItemImg from "@/web/ui/UiItemImg.vue";
 
 const slowdown = artificialSlowdown(800);
 
@@ -164,6 +177,7 @@ export default defineComponent({
   components: {
     ItemQuickPrice,
     VueApexcharts,
+    UiItemImg,
   },
   props: {
     item: {
@@ -210,6 +224,7 @@ export default defineComponent({
           currency: perHour!.currency,
           primaryVolumePerHour: displayRounding(perHour!.min),
           itemsPerHour: displayRounding(itemsPerHour!, false, true),
+          highestVolumeCurrency: entry.maxVolumeCurrency,
         };
       }
 
