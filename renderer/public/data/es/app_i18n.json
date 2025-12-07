@@ -348,7 +348,8 @@
     "results_warn_message": "El sitio de comercio oculta resultados entre {0} y {1} ex",
     "fix_complex_query": "Disable \"Use pseudo mods\" in settings or log in with builtin browser",
     "likely_price_fixed": "Mostly non-standard currency: ",
-    "filter_exalt_divine": "Filter by Exalt/Divine"
+    "filter_exalt_divine": "Filter by Exalt/Divine",
+    "highest_volume": "Highest volume:"
   },
   "settings": {
     "title": "Configuración - Exiled Exchange 2",
@@ -427,7 +428,8 @@
     "always_show_tier": "Always show tier",
     "remember_ratio": "Remember currency ratio",
     "open_editor_above": "Open rune socket selector upwards",
-    "core_currency": "Primary base currency"
+    "core_currency": "Primary base currency",
+    "show_volume": "Show Currency Exchange volume per hour:"
   },
   "poe2_new": {
     "beta_warning": "Esto está en BETA para POE2, las cosas no siempre funcionarán como se espera.",

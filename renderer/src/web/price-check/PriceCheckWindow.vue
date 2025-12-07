@@ -230,6 +230,7 @@ export default defineComponent({
         alwaysShowTier: false,
         openItemEditorAbove: false,
         coreCurrency: "exalted",
+        currencyVolume: "both",
       };
     },
   } satisfies WidgetSpec,

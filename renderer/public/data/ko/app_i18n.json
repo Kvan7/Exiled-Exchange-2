@@ -336,7 +336,8 @@
     "stack": "스택",
     "fix_complex_query": "Disable \"Use pseudo mods\" in settings or log in with builtin browser",
     "likely_price_fixed": "Mostly non-standard currency: ",
-    "filter_exalt_divine": "Filter by Exalt/Divine"
+    "filter_exalt_divine": "Filter by Exalt/Divine",
+    "highest_volume": "Highest volume:"
   },
   "settings": {
     "title": "세팅 - Exiled Exchange 2",
@@ -407,7 +408,8 @@
     "always_show_tier": "常にティアを表示",
     "remember_ratio": "通貨比率を記憶する",
     "open_editor_above": "Open rune socket selector upwards",
-    "core_currency": "Primary base currency"
+    "core_currency": "Primary base currency",
+    "show_volume": "Show Currency Exchange volume per hour:"
   },
   "poe2_new": {
     "beta_warning": "이 버전은 베타버전입니다. 예기치 못한 버그가 있을 수 있습니다.",

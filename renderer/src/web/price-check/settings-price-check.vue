@@ -82,10 +82,6 @@
         }}</ui-radio>
       </div>
     </div>
-
-    <ui-checkbox class="mb-4" v-model="rememberCurrency">{{
-      t(":remember_currency")
-    }}</ui-checkbox>
     <div class="mb-4">
       <div class="flex-1 mb-1">{{ t(":core_currency") }}</div>
       <select v-model="coreCurrency" class="p-1 rounded bg-gray-700 w-24">
@@ -98,9 +94,29 @@
         </option>
       </select>
     </div>
+    <ui-checkbox class="mb-4" v-model="rememberCurrency">{{
+      t(":remember_currency")
+    }}</ui-checkbox>
     <ui-checkbox class="mb-4" v-model="activateStockFilter">{{
       t(":select_stock")
     }}</ui-checkbox>
+    <div class="mb-4">
+      <div class="flex-1 mb-1">{{ t(":show_volume") }}</div>
+      <div class="mb-1 flex">
+        <ui-radio v-model="currencyVolume" value="none" class="mr-4">{{
+          t("None")
+        }}</ui-radio>
+        <ui-radio v-model="currencyVolume" value="value" class="mr-4">{{
+          t("Currency / Hour")
+        }}</ui-radio>
+        <ui-radio v-model="currencyVolume" value="item" class="mr-4">{{
+          t("Items / Hour")
+        }}</ui-radio>
+        <ui-radio v-model="currencyVolume" value="both">{{
+          t("Both")
+        }}</ui-radio>
+      </div>
+    </div>
     <ui-checkbox class="mb-4" v-model="requestPricePrediction"
       >{{ t(":show_prediction") }}
       <span class="bg-gray-700 px-1 rounded"
@@ -111,7 +127,7 @@
       t(":cursor_pos")
     }}</ui-checkbox>
 
-    <div class="mb-2">
+    <div class="mb-4">
       <select
         v-model="autoFillEmptyRuneSockets"
         class="p-1 rounded bg-gray-700 w-24"
@@ -126,7 +142,7 @@
       t(":open_editor_above")
     }}</ui-checkbox>
 
-    <div class="mb-2">
+    <div class="mb-4">
       <div class="flex-1 mb-1">{{ t(":use_tooltip_hover") }}</div>
       <div class="mb-1 flex">
         <ui-radio v-model="tooltipHover" value="off" class="mr-4">{{
@@ -276,6 +292,10 @@ export default defineComponent({
         "rememberCurrency",
       ),
       coreCurrency: configModelValue(() => configWidget.value, "coreCurrency"),
+      currencyVolume: configModelValue(
+        () => configWidget.value,
+        "currencyVolume",
+      ),
       searchStatRange: computed<number>({
         get() {
           return configWidget.value.searchStatRange;
