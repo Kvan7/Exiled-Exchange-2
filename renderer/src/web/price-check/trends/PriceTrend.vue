@@ -120,7 +120,7 @@
           </div>
         </div>
         <div v-if="priceData.volume" class="flex flex-row items-center">
-          <div class="text-xs text-gray-500">{{ t("Highest volume:") }}</div>
+          <div class="text-xs text-gray-500">{{ t(":highest_volume") }}</div>
 
           <div class="w-6 h-6 flex items-center justify-center shrink-0">
             <img

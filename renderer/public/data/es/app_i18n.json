@@ -348,7 +348,8 @@
     "results_warn_message": "El sitio de comercio oculta resultados entre {0} y {1} ex",
     "fix_complex_query": "Disable \"Use pseudo mods\" in settings or log in with builtin browser",
     "likely_price_fixed": "Mostly non-standard currency: ",
-    "filter_exalt_divine": "Filter by Exalt/Divine"
+    "filter_exalt_divine": "Filter by Exalt/Divine",
+    "highest_volume": "Highest volume:"
   },
   "settings": {
     "title": "Configuración - Exiled Exchange 2",

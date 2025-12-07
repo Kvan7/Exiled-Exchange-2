@@ -336,7 +336,8 @@
     "stack": "스택",
     "fix_complex_query": "Disable \"Use pseudo mods\" in settings or log in with builtin browser",
     "likely_price_fixed": "Mostly non-standard currency: ",
-    "filter_exalt_divine": "Filter by Exalt/Divine"
+    "filter_exalt_divine": "Filter by Exalt/Divine",
+    "highest_volume": "Highest volume:"
   },
   "settings": {
     "title": "세팅 - Exiled Exchange 2",

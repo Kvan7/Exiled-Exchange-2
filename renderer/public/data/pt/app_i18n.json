@@ -335,7 +335,8 @@
     "results_warn_title": "Preço provavelmente muito alto",
     "results_warn_message": "O site de comércio oculta resultados entre {0} e {1} ex",
     "likely_price_fixed": "Mostly non-standard currency: ",
-    "filter_exalt_divine": "Filter by Exalt/Divine"
+    "filter_exalt_divine": "Filter by Exalt/Divine",
+    "highest_volume": "Highest volume:"
   },
   "settings": {
     "title": "Configurações - Exiled Exchange 2",

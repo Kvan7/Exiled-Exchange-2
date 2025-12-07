@@ -354,7 +354,8 @@
     "stack": "Стак",
     "fix_complex_query": "Отключите \"Use pseudo mods\" в настройках или залогиньтесь во встроенном браузере",
     "likely_price_fixed": "Mostly non-standard currency: ",
-    "filter_exalt_divine": "Filter by Exalt/Divine"
+    "filter_exalt_divine": "Filter by Exalt/Divine",
+    "highest_volume": "Highest volume:"
   },
   "settings": {
     "title": "Настройки - Exiled Exchange 2",
