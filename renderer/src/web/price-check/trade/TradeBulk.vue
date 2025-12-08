@@ -24,6 +24,17 @@
             class="btn flex items-center mr-1"
             :style="{
               background:
+                selectedCurr !== 'xchgChaos' ? 'transparent' : undefined,
+            }"
+            @click="selectedCurr = 'xchgChaos'"
+          >
+            <img src="/images/chaos.png" class="trade-bulk-currency-icon" />
+            <span>{{ result.xchgChaos.listed.value?.total ?? "?" }}</span>
+          </button>
+          <button
+            class="btn flex items-center mr-1"
+            :style="{
+              background:
                 selectedCurr !== 'xchgStable' ? 'transparent' : undefined,
             }"
             @click="selectedCurr = 'xchgStable'"
@@ -49,7 +60,11 @@
                 style="line-height: 1.3125rem"
               >
                 <span class="w-8 inline-block text-right -ml-px mr-px">{{
-                  selectedCurr === "xchgExalted" ? "exalt" : "div"
+                  selectedCurr === "xchgExalted"
+                    ? "exalt"
+                    : selectedCurr === "xchgChaos"
+                      ? "chaos"
+                      : "div"
                 }}</span
                 ><span>{{ "\u2009" }}/{{ "\u2009" }}</span
                 ><span class="w-8 inline-block">{{ t(":bulk") }}</span>
@@ -166,25 +181,6 @@ import { useBulkApi } from "./bulk-api";
 
 const slowdown = artificialSlowdown(900);
 
-// function tempOverrideApi() {
-//   async function search(item: ParsedItem, filters: ItemFilters) {
-//     console.warn("Bulk Exchange is not available in this version.");
-//   }
-
-//   const error = shallowRef<string | null>(null);
-//   error.value = "Bulk Exchange is not available in this version.";
-
-//   const result: ShallowRef<Record<
-//     "xchgExalted" | "xchgStable",
-//     {
-//       listed: Ref<BulkSearch | null>;
-//       listedLazy: ComputedRef<PricingResult[]>;
-//     }
-//   > | null> = shallowRef(null);
-
-//   return { error, result, search };
-// }
-
 export default defineComponent({
   components: { OnlineFilter, TradeLinks, UiErrorBox },
   props: {
@@ -200,12 +196,14 @@ export default defineComponent({
   setup(props) {
     const widget = computed(() => AppConfig<PriceCheckWidget>("price-check")!);
     const { error, result, search } = useBulkApi();
-    // const { error, result, search } = tempOverrideApi();
 
     const showBrowser = inject<(url: string) => void>("builtin-browser")!;
 
-    const selectedCurr = shallowRef<"xchgExalted" | "xchgStable">(
-      "xchgExalted",
+    const useExalts = computed(() => widget.value.coreCurrency === "exalted");
+
+    const selectedCurr = shallowRef<"xchgExalted" | "xchgChaos" | "xchgStable">(
+      // only does this check on first load, otherwise will use last used currency
+      widget.value.coreCurrency === "exalted" ? "xchgExalted" : "xchgChaos",
     );
 
     watch(
@@ -226,22 +224,36 @@ export default defineComponent({
     });
 
     watch(result, () => {
+      // TODO: If we start having more than just ex & c, this is not scalable
       const stableTotal = result.value?.xchgStable.listed.value?.total;
       const exaltedTotal = result.value?.xchgExalted.listed.value?.total;
+      const chaosTotal = result.value?.xchgChaos.listed.value?.total;
+
       if (stableTotal == null) {
-        selectedCurr.value = "xchgExalted";
+        selectedCurr.value = useExalts.value ? "xchgExalted" : "xchgChaos";
       } else if (exaltedTotal == null) {
         selectedCurr.value = "xchgStable";
+      } else if (chaosTotal == null) {
+        selectedCurr.value = "xchgStable";
       } else {
-        selectedCurr.value =
-          stableTotal > exaltedTotal ? "xchgStable" : "xchgExalted";
+        if (useExalts.value) {
+          selectedCurr.value =
+            stableTotal > exaltedTotal ? "xchgStable" : "xchgExalted";
+        } else {
+          selectedCurr.value =
+            stableTotal > chaosTotal ? "xchgStable" : "xchgChaos";
+        }
       }
     });
 
     function makeTradeLink(_have?: string[]) {
       const have =
         _have ??
-        (selectedCurr.value === "xchgStable" ? ["divine"] : ["exalted"]);
+        (selectedCurr.value === "xchgStable"
+          ? ["divine"]
+          : selectedCurr.value === "xchgExalted"
+            ? ["exalted"]
+            : ["chaos"]);
       const httpPostBody = createTradeRequest(props.filters, props.item, have);
       const httpGetQuery = { exchange: httpPostBody.query };
       return `https://${getTradeEndpoint()}/trade2/exchange/poe2/${props.filters.trade.league}?q=${JSON.stringify(httpGetQuery)}`;
