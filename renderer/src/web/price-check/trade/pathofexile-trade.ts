@@ -334,6 +334,13 @@ export function createTradeRequest(
   stats: StatFilter[],
   item: ParsedItem,
 ) {
+  if (filters.trade.listingType === "onlineleague") {
+    console.error(
+      "onlineleague is not supported for trade, you shouldn't ever see this",
+    );
+    filters.trade.listingType = "securable";
+  }
+
   const body: TradeRequest = {
     query: {
       status: {

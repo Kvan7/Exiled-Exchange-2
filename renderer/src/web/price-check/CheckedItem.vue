@@ -205,6 +205,10 @@ export default defineComponent({
           itemStats.value,
           itemFilters.value,
         );
+
+        if (tradeAPI.value === "bulk") {
+          itemFilters.value.trade.listingType = "online";
+        }
       },
       { immediate: true, deep: true },
     );
