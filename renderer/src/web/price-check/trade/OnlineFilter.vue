@@ -27,18 +27,33 @@
     <template #content>
       <div class="flex gap-x-8 p-2 bg-gray-800 text-gray-400">
         <div class="flex flex-col gap-y-1">
-          <ui-radio v-model="filters.trade.listingType" value="available">{{
-            t("Instant or Online")
-          }}</ui-radio>
-          <ui-radio v-model="filters.trade.listingType" value="securable">{{
-            t("Instant")
-          }}</ui-radio>
-          <ui-radio v-model="filters.trade.listingType" value="online">{{
-            t("Online")
-          }}</ui-radio>
-          <ui-radio v-model="filters.trade.listingType" value="any">{{
-            t(":offline_toggle")
-          }}</ui-radio>
+          <template v-if="api === 'trade'">
+            <ui-radio v-model="filters.trade.listingType" value="available">{{
+              t("Instant or Online")
+            }}</ui-radio>
+            <ui-radio v-model="filters.trade.listingType" value="securable">{{
+              t("Instant")
+            }}</ui-radio>
+            <ui-radio v-model="filters.trade.listingType" value="online">{{
+              t("Online")
+            }}</ui-radio>
+            <ui-radio v-model="filters.trade.listingType" value="any">{{
+              t(":offline_toggle")
+            }}</ui-radio>
+          </template>
+          <template v-else>
+            <ui-radio
+              v-model="filters.trade.listingType"
+              value="onlineleague"
+              >{{ t(":in_league_toggle") }}</ui-radio
+            >
+            <ui-radio v-model="filters.trade.listingType" value="online">{{
+              t("Online")
+            }}</ui-radio>
+            <ui-radio v-model="filters.trade.listingType" value="any">{{
+              t(":offline_toggle")
+            }}</ui-radio>
+          </template>
           <template v-if="byTime">
             <ui-radio
               v-model="filters.trade.listed"
@@ -119,6 +134,10 @@ export default defineComponent({
     byTime: {
       type: Boolean,
       default: false,
+    },
+    api: {
+      type: String as PropType<"trade" | "bulk">,
+      required: true,
     },
   },
   setup(props) {

@@ -42,7 +42,9 @@
             <img src="/images/divine.png" class="trade-bulk-currency-icon" />
             <span>{{ result.xchgStable.listed.value?.total ?? "?" }}</span>
           </button>
-          <span class="ml-1"><online-filter :filters="filters" /></span>
+          <span class="ml-1"
+            ><online-filter :filters="filters" api="bulk"
+          /></span>
         </div>
       </div>
       <trade-links v-if="result" :get-link="makeTradeLink" />
