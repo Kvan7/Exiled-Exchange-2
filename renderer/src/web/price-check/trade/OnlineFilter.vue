@@ -14,7 +14,7 @@
           {{
             t(
               filters.trade.listingType === "securable"
-                ? "Instant Buyout"
+                ? "Instant"
                 : filters.trade.listingType === "any"
                   ? "Offline"
                   : "Online",
@@ -31,7 +31,7 @@
             t("Instant or Online")
           }}</ui-radio>
           <ui-radio v-model="filters.trade.listingType" value="securable">{{
-            t("Instant Buyout")
+            t("Instant")
           }}</ui-radio>
           <ui-radio v-model="filters.trade.listingType" value="online">{{
             t("Online")
