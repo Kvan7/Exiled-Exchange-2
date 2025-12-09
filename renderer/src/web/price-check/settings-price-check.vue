@@ -84,15 +84,24 @@
     </div>
     <div class="mb-4">
       <div class="flex-1 mb-1">{{ t(":core_currency") }}</div>
-      <select v-model="coreCurrency" class="p-1 rounded bg-gray-700 w-24">
-        <option
+      <div class="mb-1 flex">
+        <ui-radio
           v-for="currency of availableCoreCurrencies"
-          :key="currency.id"
+          v-model="coreCurrency"
           :value="currency.id"
+          class="mr-4"
+          use-bg-selection
         >
-          {{ currency.text }}
-        </option>
-      </select>
+          <div class="flex flex-row items-center">
+            <ui-item-img
+              :icon="currency.icon"
+              overflow-hidden
+              class="w-8 h-8"
+            />
+            <div>{{ t(currency.text) }}</div>
+          </div>
+        </ui-radio>
+      </div>
     </div>
     <ui-checkbox class="mb-4" v-model="rememberCurrency">{{
       t(":remember_currency")
@@ -226,10 +235,11 @@ import type { PriceCheckWidget } from "@/web/overlay/interfaces";
 import { useLeagues } from "../background/Leagues";
 import { getRuneNameByRef } from "./filters/fill-runes.js";
 import { usePoeninja } from "../background/Prices.js";
+import UiItemImg from "../ui/UiItemImg.vue";
 
 export default defineComponent({
   name: "price_check.name",
-  components: { UiRadio, UiCheckbox, UiToggle, UiErrorBox },
+  components: { UiRadio, UiCheckbox, UiToggle, UiErrorBox, UiItemImg },
   props: configProp(),
   setup(props) {
     const configWidget = computed(
