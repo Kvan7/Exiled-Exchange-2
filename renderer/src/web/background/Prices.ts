@@ -266,10 +266,13 @@ export const usePoeninja = createGlobalState(() => {
    * @param value item value in divines
    * @returns Value in core currency or div
    */
-  function autoCurrency(value: number | [number, number]): CurrencyValue {
+  function autoCurrency(
+    value: number | [number, number],
+    coreOnly: boolean = false,
+  ): CurrencyValue {
     if (Array.isArray(value)) {
       const coreValue = value.map(divineToCore);
-      if (coreValue[0] > (xchgRate.value || 9999)) {
+      if (coreValue[0] > (xchgRate.value || 9999) && !coreOnly) {
         return {
           min: value[0],
           max: value[1],
@@ -287,7 +290,7 @@ export const usePoeninja = createGlobalState(() => {
       return { min: value[0], max: value[1], currency: "div" };
     }
     const coreValue = divineToCore(value);
-    if (coreValue > (xchgRate.value || 9999) * 0.94) {
+    if (coreValue > (xchgRate.value || 9999) * 0.94 && !coreOnly) {
       if (coreValue < (xchgRate.value || 9999) * 1.06) {
         return { min: 1, max: 1, currency: "div" };
       } else {

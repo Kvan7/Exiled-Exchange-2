@@ -193,7 +193,10 @@ export default defineComponent({
       const detailsId = getDetailsId(props.item);
       const entry = detailsId && findPriceByQuery(detailsId);
       if (!entry) return;
-      const price = autoCurrency(entry.primaryValue);
+      const price = autoCurrency(
+        entry.primaryValue,
+        props.item.info.refName === "Divine Orb",
+      );
 
       const data: {
         price: CurrencyValue;
