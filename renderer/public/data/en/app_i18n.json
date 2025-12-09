@@ -110,6 +110,7 @@
     "map_rare_monsters": "Rare Monsters: +{0}%",
     "map_drop_chance": "Waystone Drop Chance: +{0}%",
     "map_item_rarity": "Item Rarity: +{0}%",
+    "map_gold": "Gold Found: +{0}%",
     "uses_remaining": "Uses Remaining: {0}"
   },
   "item_category": {

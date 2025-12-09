@@ -43,8 +43,7 @@ export default {
   VEILED_SUFFIX: '冒涜サフィックス',
   METAMORPH_HELP: 'ターネの研究所でこのサンプルと別箇所のサンプル4つを組み合わせる。',
   BEAST_HELP: '右クリックしてこのモンスターを怪獣園に追加する。',
-  VOIDSTONE_HELP: 'これをアトラスにはめて、
-すべてのマップのティアを上げる。',
+  VOIDSTONE_HELP: 'これをアトラスにはめて、',
   CANNOT_USE_ITEM: 'このアイテムを使用できません。アイテムの効果は無視されます',
   AREA_LEVEL: 'エリアレベル: ',
   HEIST_WINGS_REVEALED: '情報を聞いた区画: ',
@@ -99,6 +98,7 @@ export default {
   WAYSTONE_RARE_MONSTERS: 'レアモンスター: ',
   WAYSTONE_DROP_CHANCE: 'ウェイストーンドロップ確率: ',
   WAYSTONE_RARITY: 'アイテムレアリティ: ',
+  WAYSTONE_GOLD: '見つかるゴールド: ',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]
@@ -137,7 +137,7 @@ export default {
   QUALITY_DIVERGENT: /^相違の(.*)$/,
   QUALITY_PHANTASMAL: /^幻想の(.*)$/,
   MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s+\(ティア: (?<tier>\d+)\))?(?:\s+\(ランク: (?<rank>\d+)\))?$/,
-  MODIFIER_INCREASED: /^.*)%増加$/,
+  MODIFIER_INCREASED: /^(.*)%増加$/,
   EATER_IMPLICIT: /^世界を喰らう者 暗黙モッド 「(?<rank>.+)」$/,
   EXARCH_IMPLICIT: /^灼熱の代行者 暗黙モッド 「(?<rank>.+)」$/,
   // [Manual]

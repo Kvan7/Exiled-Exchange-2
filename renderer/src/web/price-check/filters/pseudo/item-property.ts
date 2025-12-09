@@ -521,6 +521,22 @@ function mapProps(ctx: FiltersCreationContext) {
       ),
     );
   }
+
+  if (item.mapGold) {
+    const gold = calcPropBounds(item.mapGold, { flat: [], incr: [] }, item);
+    ctx.filters.push(
+      propToFilter(
+        {
+          ref: "Gold Found: #%",
+          tradeId: "item.map_gold",
+          roll: gold.roll,
+          sources: gold.sources,
+          disabled: true,
+        },
+        ctx,
+      ),
+    );
+  }
 }
 
 function removeUsedStats(ctx: FiltersCreationContext, stats: Set<string>) {

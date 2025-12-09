@@ -109,6 +109,7 @@
     "map_rare_monsters": "レアモンスター: +{0}%",
     "map_drop_chance": "ウェイストーンドロップ確率: +{0}%",
     "map_item_rarity": "アイテムレアリティ: +{0}%",
+    "map_gold": "見つかるゴールド: +{0}%",
     "uses_remaining": "残り{0}回の使用可能"
   },
   "item_category": {

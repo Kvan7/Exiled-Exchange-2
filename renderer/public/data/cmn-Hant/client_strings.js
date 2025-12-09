@@ -98,6 +98,7 @@ export default {
   WAYSTONE_RARE_MONSTERS: '稀有怪物: ',
   WAYSTONE_DROP_CHANCE: '換界石掉落機率: ',
   WAYSTONE_RARITY: '物品稀有度: ',
+  WAYSTONE_GOLD: '找到黃金: ',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]

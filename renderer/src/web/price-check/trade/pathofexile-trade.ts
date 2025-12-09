@@ -863,6 +863,14 @@ export function createTradeRequest(
           "map_filters.filters.map_iir.min",
           typeof input.min === "number" ? input.min : undefined,
         );
+        break;
+      case "item.map_gold":
+        propSet(
+          query.filters,
+          "map_filters.filters.map_gold.min",
+          typeof input.min === "number" ? input.min : undefined,
+        );
+        break;
     }
   }
 

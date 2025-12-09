@@ -98,6 +98,7 @@ export default {
   WAYSTONE_RARE_MONSTERS: 'Редкие монстры: ',
   WAYSTONE_DROP_CHANCE: 'Шанс выпадения путевого камня: ',
   WAYSTONE_RARITY: 'Редкость предметов: ',
+  WAYSTONE_GOLD: 'Выпадение золота: ',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]
@@ -120,7 +121,7 @@ export default {
   ITEM_EXCEPTIONAL: /^Образцовое (.*)$/,
   MAP_BLIGHTED: /^Заражённая (.*)$/,
   MAP_BLIGHT_RAVAGED: /^Разорённая Скверной (.*)$/,
-  ITEM_SYNTHESISED: /^Синтезированное (.*) $/,
+  ITEM_SYNTHESISED: /^Синтезированное (.*)$/,
   FLASK_CHARGES: /^Содержит зарядов: \d+$/,
   // [Manual]
   METAMORPH_BRAIN: /^.* Brain$/,

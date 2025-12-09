@@ -98,6 +98,7 @@ export default {
   WAYSTONE_RARE_MONSTERS: 'Seltene Monster: ',
   WAYSTONE_DROP_CHANCE: 'Chance auf fallen gelassene Wegsteine: ',
   WAYSTONE_RARITY: 'Gegenstandsseltenheit: ',
+  WAYSTONE_GOLD: 'Gefundenes Gold: ',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]
@@ -136,7 +137,7 @@ export default {
   QUALITY_DIVERGENT: /^(.*) \(abweichend\)$/,
   QUALITY_PHANTASMAL: /^(.*) \(illusorisch\)$/,
   MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s+\(Level: (?<tier>\d+)\))?(?:\s+\(Rang: (?<rank>\d+)\))?$/,
-  MODIFIER_INCREASED: /^.*)% erhöht$/,
+  MODIFIER_INCREASED: /^(.*)% erhöht$/,
   EATER_IMPLICIT: /^Impliziter Modifikator des Weltenfressers \((?<rank>.+)\)$/,
   EXARCH_IMPLICIT: /^Impliziter Modifikator des Brennenden Exarchen \((?<rank>.+)\)$/,
   // [Manual]

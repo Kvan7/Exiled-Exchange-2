@@ -54,6 +54,7 @@ export interface ParsedItem {
   mapDropChance?: number;
   mapMagicMonsters?: number;
   mapRareMonsters?: number;
+  mapGold?: number;
   gemLevel?: number;
   areaLevel?: number;
   talismanTier?: number;

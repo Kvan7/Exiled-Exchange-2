@@ -98,6 +98,7 @@ export default {
   WAYSTONE_RARE_MONSTERS: '희귀 몬스터: ',
   WAYSTONE_DROP_CHANCE: '경로석 출현 확률: ',
   WAYSTONE_RARITY: '아이템 희귀도: ',
+  WAYSTONE_GOLD: '골드 발견량: ',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]

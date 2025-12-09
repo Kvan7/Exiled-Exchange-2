@@ -228,6 +228,7 @@ export interface TranslationDict {
   WAYSTONE_DROP_CHANCE: string;
   WAYSTONE_RARITY: string;
   WAYSTONE_HELP: string;
+  WAYSTONE_GOLD: string;
   JEWEL_HELP: string;
   SANCTUM_HELP: string;
   TIMELESS_RADIUS: string;

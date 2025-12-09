@@ -162,6 +162,7 @@ export const INTERNAL_TRADE_IDS = [
   "item.map_item_rarity",
   "item.map_magic_monsters",
   "item.map_rare_monsters",
+  "item.map_gold",
 ] as const;
 
 export type InternalTradeId = (typeof INTERNAL_TRADE_IDS)[number];

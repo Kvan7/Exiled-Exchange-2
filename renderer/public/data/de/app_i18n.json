@@ -109,6 +109,7 @@
     "map_rare_monsters": "Seltene Monster: +{0}%",
     "map_drop_chance": "Chance auf fallen gelassene Wegsteine: +{0}%",
     "map_item_rarity": "Gegenstandsseltenheit: +{0}%",
+    "map_gold": "Gefundenes Gold: +{0}%",
     "uses_remaining": "Nutzungen übrig: {0}"
   },
   "item_category": {

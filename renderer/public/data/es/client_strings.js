@@ -98,6 +98,7 @@ export default {
   WAYSTONE_RARE_MONSTERS: 'Monstruos raros: ',
   WAYSTONE_DROP_CHANCE: 'Probabilidad de botín de piedra guía: ',
   WAYSTONE_RARITY: 'Rareza de objetos: ',
+  WAYSTONE_GOLD: 'Oro encontrado: ',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]

@@ -109,6 +109,7 @@
     "map_rare_monsters": "Monstruos raros: +{0}%",
     "map_drop_chance": "Probabilidad de botín de piedra guía: +{0}%",
     "map_item_rarity": "Rareza de objetos: +{0}%",
+    "map_gold": "Oro encontrado: +{0}%",
     "uses_remaining": "Quedan usos: {0}"
   },
   "item_category": {

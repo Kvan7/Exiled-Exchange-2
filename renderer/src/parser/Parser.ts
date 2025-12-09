@@ -347,6 +347,11 @@ function parseWaystone(section: string[], item: ParsedItem) {
         );
         continue;
       }
+
+      if (line.startsWith(_$.WAYSTONE_GOLD)) {
+        item.mapGold = parseInt(line.slice(_$.WAYSTONE_GOLD.length), 10);
+        continue;
+      }
     }
 
     return "SECTION_PARSED";
