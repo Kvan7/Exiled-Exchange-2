@@ -462,5 +462,9 @@
     "tip_28": "設定でリーグを変更できます",
     "tip_29": "設定でカスタムチャットコマンドのホットキーを追加できます",
     "tip_30": "Exiled Exchange 1のことは話しません"
+  },
+  "leveling": {
+    "name": "Leveling",
+    "show_exp": "Show experience gain percentage"
   }
 }

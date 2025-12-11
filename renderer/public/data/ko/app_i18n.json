@@ -454,5 +454,9 @@
     "tip_28": "세팅에서 리그를 변경할 수 있습니다.",
     "tip_29": "세팅에서 채팅 명령어를 추가할 수 있습니다.",
     "tip_30": "Exiled Exchange 1과 관련된 내용이 아닙니다."
+  },
+  "leveling": {
+    "name": "Leveling",
+    "show_exp": "Show experience gain percentage"
   }
 }

@@ -5,7 +5,16 @@
     :inline-edit="false"
     move-handles="top-bottom"
   >
-    <div class="min-w-48 min-h-10" :class="$style['levelingContainer']">
+    <div
+      class="min-h-10"
+      :class="[
+        $style['levelingContainer'],
+        {
+          'min-w-48': expDisplay,
+          'min-w-32': !expDisplay,
+        },
+      ]"
+    >
       <input
         :class="$style['levelingInput']"
         :placeholder="t('min')"
@@ -13,7 +22,7 @@
         max="100"
         step="1"
         type="number"
-        v-model.number="playerLevel"
+        v-model.number="characterLevel"
         @mousewheel.stop
       />
       <div v-if="expDisplay">{{ expDisplay + expPenalty }}%</div>
@@ -23,12 +32,13 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType, ref } from "vue";
+import { computed, defineComponent, PropType } from "vue";
 
 import Widget from "../overlay/Widget.vue";
 import { WidgetSpec } from "../overlay/interfaces";
 import { LevelingWidget } from "./widget";
 import { useI18n } from "vue-i18n";
+import { useClientLog } from "../client-log/client-log";
 
 function calcBaseSafeZone(playerLevel: number): number {
   return Math.floor(playerLevel / 16) + 3;
@@ -85,22 +95,21 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const _playerLevel = ref<number>(1);
-    const _monsterLevel = ref<number>(42);
+    const { playerLevel, setPlayerLevel, areaLevel } = useClientLog();
 
-    const playerLevel = computed({
+    const characterLevel = computed({
       get() {
-        return _playerLevel.value;
+        return playerLevel.value;
       },
       set(value: number) {
-        console.log(value);
-        _playerLevel.value = value;
+        console.log(`leveled up to ${value}`);
+        setPlayerLevel(value);
       },
     });
 
     const expDisplay = computed(() => {
       if (props.config.showExp) {
-        if (_monsterLevel.value > 70 || playerLevel.value >= 95) {
+        if (areaLevel.value > 70 || characterLevel.value >= 95) {
           return "Exp*: ";
         }
         return "Exp: ";
@@ -113,13 +122,13 @@ export default defineComponent({
 
     return {
       t,
-      playerLevel,
+      characterLevel,
       expDisplay,
       expPenalty: computed(() => {
-        return getExpPenalty(playerLevel.value, _monsterLevel.value).toFixed(1);
+        return getExpPenalty(characterLevel.value, areaLevel.value).toFixed(1);
       }),
       overIdeal: computed(() => {
-        return getOverIdeal(playerLevel.value, _monsterLevel.value);
+        return getOverIdeal(characterLevel.value, areaLevel.value);
       }),
     };
   },

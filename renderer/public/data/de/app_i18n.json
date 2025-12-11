@@ -451,5 +451,9 @@
     "tip_28": "Du kannst deine Liga in den Einstellungen ändern.",
     "tip_29": "Du kannst in den Einstellungen benutzerdefinierte Chat-Befehl-Hotkeys hinzufügen.",
     "tip_30": "Wir reden nicht über Exiled Exchange 1."
+  },
+  "leveling": {
+    "name": "Leveling",
+    "show_exp": "Show experience gain percentage"
   }
 }

@@ -409,5 +409,9 @@
     "parse_error2": "Provavelmente possui um modificador que ainda não é compatível.",
     "parse_error3": "(Possivelmente um novo termo ou palavra modificada do poe1)",
     "bulk_exchange": "As taxas de troca em lote ainda não foram implementadas"
+  },
+  "leveling": {
+    "name": "Leveling",
+    "show_exp": "Show experience gain percentage"
   }
 }

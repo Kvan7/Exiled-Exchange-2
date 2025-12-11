@@ -479,5 +479,9 @@
     "tip_28": "You can change your league in the settings",
     "tip_29": "You can add custom chat command hotkeys in the settings",
     "tip_30": "We don't talk about Exiled Exchange 1"
+  },
+  "leveling": {
+    "name": "Leveling",
+    "show_exp": "Show experience gain percentage"
   }
 }

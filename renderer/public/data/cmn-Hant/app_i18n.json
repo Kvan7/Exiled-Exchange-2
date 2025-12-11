@@ -462,5 +462,9 @@
     "tip_28": "你可以在設定中更改聯盟。",
     "tip_29": "你可以在設定中添加自定義聊天命令快捷鍵。",
     "tip_30": "我們不談論 Exiled Exchange 1。"
+  },
+  "leveling": {
+    "name": "Leveling",
+    "show_exp": "Show experience gain percentage"
   }
 }

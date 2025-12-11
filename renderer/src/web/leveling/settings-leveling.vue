@@ -3,7 +3,7 @@
     <div class="mb-4">Reminder to enable read client logs in settings</div>
 
     <ui-checkbox class="mb-4" v-model="showExp">{{
-      t(":remember_currency")
+      t(":show_exp")
     }}</ui-checkbox>
   </div>
 </template>

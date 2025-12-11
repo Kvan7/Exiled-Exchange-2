@@ -597,7 +597,11 @@ function upgradeConfig(_config: Config): Config {
   }
   if (config.configVersion < 29) {
     // NOTE: v0.13.0 || poe0.4.0
-    config.widgets.push({
+    const itemSearchId: number = config.widgets.find(
+      (w) => w.wmType === "item-search",
+    )!.wmId;
+    // splicing to insert after the item-search widget, for positioning on the main overlay
+    config.widgets.splice(itemSearchId, 0, {
       ...defaultConfig().widgets.find((w) => w.wmType === "leveling")!,
       wmId: Math.max(0, ...config.widgets.map((_) => _.wmId)) + 1,
     });
