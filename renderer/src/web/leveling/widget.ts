@@ -1,6 +1,6 @@
 import { Anchor, Widget } from "../overlay/widgets";
 
-export interface LevelingWidget extends Widget {
+export interface XpWidget extends Widget {
   anchor: Anchor;
   showExp: boolean;
 }

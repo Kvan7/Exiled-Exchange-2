@@ -12,7 +12,7 @@ import { defineComponent, computed } from "vue";
 import { useI18nNs } from "@/web/i18n";
 import UiCheckbox from "@/web/ui/UiCheckbox.vue";
 import { configModelValue, configProp, findWidget } from "../settings/utils.js";
-import { LevelingWidget } from "./widget.js";
+import { XpWidget } from "./widget.js";
 
 export default defineComponent({
   name: "leveling.name",
@@ -20,7 +20,7 @@ export default defineComponent({
   props: configProp(),
   setup(props) {
     const configWidget = computed(
-      () => findWidget<LevelingWidget>("leveling", props.config)!,
+      () => findWidget<XpWidget>("experience-tracker", props.config)!,
     );
 
     const { t } = useI18nNs("leveling");

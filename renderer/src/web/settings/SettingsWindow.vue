@@ -308,13 +308,12 @@ function menuByType(type?: string) {
       return [[SettingsPricecheck]];
     case "item-search":
       return [[SettingsItemSearch]];
-    case "leveling":
-      return [[SettingsLeveling]];
     default:
       return [
         [SettingsHotkeys, SettingsChat],
         [SettingsGeneral],
         [SettingsPricecheck, SettingsMaps, SettingsItemcheck],
+        [SettingsLeveling],
         [SettingsHelp, SettingsDebug, SettingsAbout],
       ];
   }

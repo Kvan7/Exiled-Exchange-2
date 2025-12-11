@@ -602,7 +602,9 @@ function upgradeConfig(_config: Config): Config {
     )!.wmId;
     // splicing to insert after the item-search widget, for positioning on the main overlay
     config.widgets.splice(itemSearchId, 0, {
-      ...defaultConfig().widgets.find((w) => w.wmType === "leveling")!,
+      ...defaultConfig().widgets.find(
+        (w) => w.wmType === "experience-tracker",
+      )!,
       wmId: Math.max(0, ...config.widgets.map((_) => _.wmId)) + 1,
     });
 

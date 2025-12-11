@@ -1,22 +1,17 @@
 <template>
-  <Widget
-    :config="config"
-    :removable="false"
-    :inline-edit="false"
-    move-handles="top-bottom"
-  >
+  <Widget :config="config" :removable="false" move-handles="top-bottom">
     <div
       class="min-h-10"
       :class="[
-        $style['levelingContainer'],
+        $style['xpContainer'],
         {
-          'min-w-48': expDisplay,
-          'min-w-32': !expDisplay,
+          'min-w-48': config.showExp,
+          'min-w-32': !config.showExp,
         },
       ]"
     >
       <input
-        :class="$style['levelingInput']"
+        :class="$style['xpInput']"
         :placeholder="t('min')"
         min="1"
         max="100"
@@ -25,7 +20,11 @@
         v-model.number="characterLevel"
         @mousewheel.stop
       />
-      <div v-if="expDisplay">{{ expDisplay + expPenalty }}%</div>
+      <div v-if="config.showExp">
+        Exp
+        {{ areaLevel > 70 || characterLevel >= 95 ? "*" : "" }}:
+        {{ expPenalty }}%
+      </div>
       <div>Over: {{ overIdeal }}</div>
     </div>
   </Widget>
@@ -36,7 +35,7 @@ import { computed, defineComponent, PropType } from "vue";
 
 import Widget from "../overlay/Widget.vue";
 import { WidgetSpec } from "../overlay/interfaces";
-import { LevelingWidget } from "./widget";
+import { XpWidget } from "./widget";
 import { useI18n } from "vue-i18n";
 import { useClientLog } from "../client-log/client-log";
 
@@ -68,12 +67,12 @@ function getExpPenalty(playerLevel: number, monsterLevel: number): number {
 
 export default defineComponent({
   widget: {
-    type: "leveling",
+    type: "experience-tracker",
     instances: "single",
-    initInstance: (): LevelingWidget => {
+    initInstance: (): XpWidget => {
       return {
         wmId: 0,
-        wmType: "leveling",
+        wmType: "experience-tracker",
         wmTitle: "XP",
         wmWants: "hide",
         wmZorder: null,
@@ -90,11 +89,11 @@ export default defineComponent({
   components: { Widget },
   props: {
     config: {
-      type: Object as PropType<LevelingWidget>,
+      type: Object as PropType<XpWidget>,
       required: true,
     },
   },
-  setup(props) {
+  setup() {
     const { playerLevel, setPlayerLevel, areaLevel } = useClientLog();
 
     const characterLevel = computed({
@@ -102,20 +101,8 @@ export default defineComponent({
         return playerLevel.value;
       },
       set(value: number) {
-        console.log(`leveled up to ${value}`);
         setPlayerLevel(value);
       },
-    });
-
-    const expDisplay = computed(() => {
-      if (props.config.showExp) {
-        if (areaLevel.value > 70 || characterLevel.value >= 95) {
-          return "Exp*: ";
-        }
-        return "Exp: ";
-      } else {
-        return false;
-      }
     });
 
     const { t } = useI18n();
@@ -123,7 +110,7 @@ export default defineComponent({
     return {
       t,
       characterLevel,
-      expDisplay,
+      areaLevel,
       expPenalty: computed(() => {
         return getExpPenalty(characterLevel.value, areaLevel.value).toFixed(1);
       }),
@@ -136,7 +123,7 @@ export default defineComponent({
 </script>
 
 <style lang="postcss" module>
-.levelingInput {
+.xpInput {
   @apply bg-gray-900;
   @apply text-gray-300;
   @apply text-center;
@@ -158,7 +145,7 @@ export default defineComponent({
   }
 }
 
-.levelingContainer {
+.xpContainer {
   @apply flex flex-row;
   @apply justify-between items-center;
   @apply px-2;
