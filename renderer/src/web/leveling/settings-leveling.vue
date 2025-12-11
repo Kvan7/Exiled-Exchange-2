@@ -1,5 +1,7 @@
 <template>
-  <div class="max-w-md p-2"></div>
+  <div class="max-w-md p-2">
+    reminder to enable read client logs in settings
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent, computed } from "vue";

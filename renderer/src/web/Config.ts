@@ -597,6 +597,11 @@ function upgradeConfig(_config: Config): Config {
   }
   if (config.configVersion < 29) {
     // NOTE: v0.13.0 || poe0.4.0
+    config.widgets.push({
+      ...defaultConfig().widgets.find((w) => w.wmType === "leveling")!,
+      wmId: Math.max(0, ...config.widgets.map((_) => _.wmId)) + 1,
+    });
+
     config.tipsFrequency = TipsFrequency.Never;
 
     const priceCheck = config.widgets.find(
