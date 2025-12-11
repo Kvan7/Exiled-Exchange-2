@@ -241,6 +241,8 @@ export interface TranslationDict {
   FRACTURED_ITEM: string;
   SANCTIFIED: string;
   HYPHEN: string;
+  LOG_LEVEL_UP: RegExp;
+  LOG_ZONE_GEN: RegExp;
 }
 
 export interface Filter {
