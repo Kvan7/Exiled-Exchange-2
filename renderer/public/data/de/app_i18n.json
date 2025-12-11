@@ -368,7 +368,9 @@
     "tip_frequency_5": "Sehr selten",
     "tip_frequency_6": "Nie",
     "tips_header": "Alle Tipps durchblättern:",
-    "tip_number_header": "Tipp #{0}"
+    "tip_number_header": "Tipp #{0}",
+    "read_client_log": "Allow reading of Client.txt file",
+    "client_log_explain": "Client.txt log file contains debugging info and chat logs. This is used to detect zone changes and player level ups."
   },
   "price_check": {
     "name": "Preisprüfung",

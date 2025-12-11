@@ -383,7 +383,9 @@
     "tip_frequency_5": "ごく稀に",
     "tip_frequency_6": "表示しない",
     "tips_header": "すべてのヒントを切り替え：",
-    "tip_number_header": "ヒント #{0}"
+    "tip_number_header": "ヒント #{0}",
+    "read_client_log": "Allow reading of Client.txt file",
+    "client_log_explain": "Client.txt log file contains debugging info and chat logs. This is used to detect zone changes and player level ups."
   },
   "price_check": {
     "name": "価格チェック",

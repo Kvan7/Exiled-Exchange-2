@@ -371,7 +371,9 @@
     "debug_hotkeys": "Registrar todas as teclas pressionadas",
     "preferred_trade_site": "Site de comércio preferido",
     "enable_alphas": "Habilitar alfas",
-    "alphas_warning": "As alfas são extremamente experimentais e provavelmente não funcionarão como esperado. Por favor, reporte qualquer problema que encontrar."
+    "alphas_warning": "As alfas são extremamente experimentais e provavelmente não funcionarão como esperado. Por favor, reporte qualquer problema que encontrar.",
+    "read_client_log": "Allow reading of Client.txt file",
+    "client_log_explain": "Client.txt log file contains debugging info and chat logs. This is used to detect zone changes and player level ups."
   },
   "price_check": {
     "name": "Verificação de preços",

@@ -36,6 +36,7 @@ interface LogEntry {
 }
 
 export function handleLine(line: string) {
+  console.log(line);
   const text = line.split("] ").slice(1).join("] ");
   if (!text) return;
 

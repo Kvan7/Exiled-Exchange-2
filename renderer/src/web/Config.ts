@@ -149,6 +149,7 @@ export interface Config {
   enableAlphas: boolean;
   alphas: [];
   tipsFrequency: TipsFrequency;
+  readClientLog: boolean; // default to false, opt-in only
 }
 
 export const defaultConfig = (): Config => ({
@@ -220,9 +221,10 @@ export const defaultConfig = (): Config => ({
     },
     [],
   ),
-  enableAlphas: false,
+  enableAlphas: false, // default to false, opt-in only
   alphas: [],
   tipsFrequency: TipsFrequency.Normal,
+  readClientLog: false, // default to false, opt-in only
 });
 
 function upgradeConfig(_config: Config): Config {
@@ -603,6 +605,8 @@ function upgradeConfig(_config: Config): Config {
     priceCheck.coreCurrency = "exalted";
     priceCheck.currencyVolume = "both";
 
+    config.readClientLog = false; // default to false, opt-in only
+
     config.configVersion = 29;
   }
   return config as unknown as Config;
@@ -744,5 +748,6 @@ function getConfigForHost(): HostConfig {
     logKeys: config.logKeys,
     windowTitle: config.windowTitle,
     language: config.language,
+    readClientLog: config.readClientLog,
   };
 }
