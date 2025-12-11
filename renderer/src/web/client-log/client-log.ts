@@ -5,7 +5,7 @@ import { readonly, shallowRef } from "vue";
 
 export const useClientLog = createGlobalState(() => {
   const areaLevel = shallowRef<number>(1);
-  const zone = shallowRef<string>("G1_1"); // default to riverbank
+  const zoneName = shallowRef<string>("G1_1"); // default to riverbank
   const playerLevel = shallowRef<number>(1);
 
   function handleLine(line: string) {
@@ -18,15 +18,23 @@ export const useClientLog = createGlobalState(() => {
       if (zone.includes("town") || zone.includes("hideout")) {
         return;
       }
-      console.log(
-        `Created Zone Level: ${match.groups!.area_level} of type ${match.groups!.zone}`,
-      );
+
+      if (zone === "g1_1") {
+        // can only be on riverbank if new character
+        playerLevel.value = 1;
+      }
+
+      areaLevel.value = Number.parseInt(match.groups!.area_level, 10);
+      zoneName.value = match.groups!.zone;
     } else if ((match = text.match(_$.LOG_LEVEL_UP))) {
-      console.log(`Level up: ${match.groups!.level}`);
+      playerLevel.value = Number.parseInt(match.groups!.level, 10);
     }
   }
 
-  function setPlayerLevel(level: number) {
+  function setPlayerLevel(level: number | "") {
+    if (level === "") {
+      return;
+    }
     playerLevel.value = level;
   }
 
@@ -34,7 +42,7 @@ export const useClientLog = createGlobalState(() => {
     handleLine,
     playerLevel: readonly(playerLevel),
     areaLevel: readonly(areaLevel),
-    zone: readonly(zone),
+    zoneName: readonly(zoneName),
     setPlayerLevel,
   };
 });
