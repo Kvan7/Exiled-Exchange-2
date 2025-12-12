@@ -39,7 +39,7 @@ export default defineComponent({
         (oilName) => ITEM_BY_REF("ITEM", oilName)![0],
       );
 
-      let totalChaos: number | undefined = 0;
+      let totalDiv: number | undefined = 0;
       for (const oil of oils) {
         if (!oil) return null;
         const price = findPriceByQuery({
@@ -47,16 +47,16 @@ export default defineComponent({
           name: oil.refName,
         });
         if (price) {
-          totalChaos += price.exalted;
+          totalDiv += price.primaryValue;
         } else {
-          totalChaos = undefined;
+          totalDiv = undefined;
           break;
         }
       }
 
       return {
         icons: oils.map((item) => item!.icon),
-        price: totalChaos != null ? autoCurrency(totalChaos) : undefined,
+        price: totalDiv != null ? autoCurrency(totalDiv) : undefined,
       };
     });
 

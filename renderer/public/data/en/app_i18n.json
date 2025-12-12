@@ -103,7 +103,15 @@
     "has_elemental_fire_affix": "Fire",
     "has_elemental_cold_affix": "Cold",
     "has_elemental_lightning_affix": "Lightning",
-    "rarity_magic": "Rarity: Magic"
+    "rarity_magic": "Rarity: Magic",
+    "map_revives": "Revives Available: {0}",
+    "map_pack_size": "Monster Pack Size: +{0}%",
+    "map_magic_monsters": "Magic Monsters: +{0}%",
+    "map_rare_monsters": "Rare Monsters: +{0}%",
+    "map_drop_chance": "Waystone Drop Chance: +{0}%",
+    "map_item_rarity": "Item Rarity: +{0}%",
+    "map_gold": "Gold Found: +{0}%",
+    "uses_remaining": "Uses Remaining: {0}"
   },
   "item_category": {
     "prop": "Category: {0}",
@@ -160,6 +168,7 @@
     "selected_full_runes": "Runes Full",
     "empty_rune_socket": "Empty Rune Socket",
     "hidden_toggle": "Hidden",
+    "hidden_explicit_toggle": "Explicit",
     "collapse": "Collapse",
     "mods_toggle": "Mods",
     "empty": "No relevant stats were found",
@@ -176,6 +185,8 @@
     "hide_empty_mod": "Select only if item has 6 modifiers (1 of which is crafted) or if it has 5 modifiers",
     "hide_low_ilvl": "Item has too low an item level to roll all mods",
     "hide_not_max_level": "Non max level granted skills rarely add value",
+    "hide_for_map": "Most map modifiers have no value",
+    "hide_revives": "Select only if not 0 and don't want to exalt it?",
     "tag_implicit": "implicit",
     "tag_fractured": "fractured",
     "tag_crafted": "crafted",
@@ -219,7 +230,7 @@
     "currency_only_chaos": "Chaos Orb",
     "currency_only_div": "Divine Orb",
     "currency_chaos_div": "Both Orbs",
-    "currency_exalted_div": "Both Orbs",
+    "currency_exalted_div": "Ex/Div Orbs",
     "currency_only_exalted": "Exalted Orbs",
     "ratio_tooltip": "Ratio used for sorting locally\nDefault on trade site is 7.5:1"
   },
@@ -340,7 +351,8 @@
     "results_warn_message": "Trade site hiding results between {0} and {1} ex",
     "fix_complex_query": "Disable \"Use pseudo mods\" in settings or log in with builtin browser",
     "likely_price_fixed": "Mostly non-standard currency: ",
-    "filter_exalt_divine": "Filter by Exalt/Divine"
+    "filter_exalt_divine": "Filter by Exalt/Divine",
+    "highest_volume": "Highest volume:"
   },
   "settings": {
     "title": "Settings - Exiled Exchange 2",
@@ -385,7 +397,9 @@
     "tip_frequency_5": "Very Rarely",
     "tip_frequency_6": "Never",
     "tips_header": "Cycle Through All Tips:",
-    "tip_number_header": "Tip #{0}"
+    "tip_number_header": "Tip #{0}",
+    "read_client_log": "Allow reading of Client.txt file",
+    "client_log_explain": "Client.txt log file contains debugging info and chat logs. This is used to detect zone changes and player level ups."
   },
   "price_check": {
     "name": "Price check",
@@ -421,7 +435,9 @@
     "tier_numbering_help": "To try to reduce confusion due to conflicting naming conventions with the game, PoE1 tiers will use the name \"Grade\" instead of \"Tier\". ",
     "always_show_tier": "Always show tier",
     "remember_ratio": "Remember currency ratio",
-    "open_editor_above": "Open rune socket selector upwards"
+    "open_editor_above": "Open rune socket selector upwards",
+    "core_currency": "Primary base currency:",
+    "show_volume": "Show Currency Exchange volume per hour:"
   },
   "poe2_new": {
     "beta_warning": "This is in BETA for POE2, things will not work always as expected.",
@@ -464,5 +480,15 @@
     "tip_28": "You can change your league in the settings",
     "tip_29": "You can add custom chat command hotkeys in the settings",
     "tip_30": "We don't talk about Exiled Exchange 1"
+  },
+  "leveling": {
+    "name": "Leveling",
+    "enable_read_client_logs": "Leveling widgets require allowing reading of client logs",
+    "exp_tracking": "Experience Tracker",
+    "show_exp": "Show experience gain percentage",
+    "exp_tracking_help_tldr": "TLDR: try to keep 'Over' at 0 or 1",
+    "exp_tracking_help": "XP tracking widget shows your current level, current experience multiplier, and how close you are to being under-leveled. XP penalty is applied immediately if you are over-leveled, and when you are under-leveled by \u230A level/16 + 3 \u230B. The 'Over' is how many levels the your current level is over the bottom of the 'safe zone', generally 0 or 1 means you are killing the highest level monsters you can without incurring the under-leveled penalty",
+    "exp_inspire": "Based on ",
+    "exp_astrict": "*Experience gain percentages, when over level 95, or monster level over 70, or potentially when not at 100% exp gain, may not be fully tested and accurate."
   }
 }

@@ -99,7 +99,15 @@
     "has_elemental_fire_affix": "Fire",
     "has_elemental_cold_affix": "Cold",
     "has_elemental_lightning_affix": "Lightning",
-    "rarity_magic": "아이템 희귀도: 마법"
+    "rarity_magic": "아이템 희귀도: 마법",
+    "map_revives": "부활 횟수: {0}",
+    "map_pack_size": "몬스터 무리 규모: +{0}%",
+    "map_magic_monsters": "마법 몬스터: +{0}%",
+    "map_rare_monsters": "희귀 몬스터: +{0}%",
+    "map_drop_chance": "경로석 출현 확률: +{0}%",
+    "map_item_rarity": "아이템 희귀도: +{0}%",
+    "map_gold": "골드 발견량: +{0}%",
+    "uses_remaining": "남은 사용: {0}"
   },
   "item_category": {
     "prop": "유형: {0}",
@@ -152,6 +160,7 @@
     "selected_some": "{1} 중 {0}개 선택",
     "selected_none": "스탯 미선택",
     "hidden_toggle": "숨겨진",
+    "hidden_explicit_toggle": "부여된 속성",
     "collapse": "접기",
     "mods_toggle": "모드",
     "empty": "관련된 접사를 찾지 못했습니다",
@@ -168,6 +177,8 @@
     "hide_empty_mod": "접사가 5개 혹은 작업대 접사를 포함해서 6개인 아이템만 보려면 선택하세요",
     "hide_low_ilvl": "Item has too low an item level to roll all mods",
     "hide_not_max_level": "Non max level granted skills rarely add value",
+    "hide_for_map": "Most map modifiers have no value",
+    "hide_revives": "Select only if not 0 and don't want to exalt it?",
     "tag_implicit": "고정 속성",
     "tag_fractured": "분열된",
     "tag_crafted": "제작된",
@@ -327,7 +338,8 @@
     "stack": "스택",
     "fix_complex_query": "Disable \"Use pseudo mods\" in settings or log in with builtin browser",
     "likely_price_fixed": "Mostly non-standard currency: ",
-    "filter_exalt_divine": "Filter by Exalt/Divine"
+    "filter_exalt_divine": "Filter by Exalt/Divine",
+    "highest_volume": "Highest volume:"
   },
   "settings": {
     "title": "세팅 - Exiled Exchange 2",
@@ -365,7 +377,9 @@
     "tip_frequency_2": "Normal",
     "tip_frequency_3": "Rarely",
     "tip_frequency_4": "Very Rarely",
-    "tip_frequency_5": "Never"
+    "tip_frequency_5": "Never",
+    "read_client_log": "Allow reading of Client.txt file",
+    "client_log_explain": "Client.txt log file contains debugging info and chat logs. This is used to detect zone changes and player level ups."
   },
   "price_check": {
     "name": "가격 체크",
@@ -397,7 +411,9 @@
     "tier_numbering_help": "혼란을 방지하기 위해서 POE 1의 아이템 티어는 \"티어\"가아닌\"등급\"으로 표시됩니다.",
     "always_show_tier": "常にティアを表示",
     "remember_ratio": "通貨比率を記憶する",
-    "open_editor_above": "Open rune socket selector upwards"
+    "open_editor_above": "Open rune socket selector upwards",
+    "core_currency": "Primary base currency:",
+    "show_volume": "Show Currency Exchange volume per hour:"
   },
   "poe2_new": {
     "beta_warning": "이 버전은 베타버전입니다. 예기치 못한 버그가 있을 수 있습니다.",
@@ -439,5 +455,15 @@
     "tip_28": "세팅에서 리그를 변경할 수 있습니다.",
     "tip_29": "세팅에서 채팅 명령어를 추가할 수 있습니다.",
     "tip_30": "Exiled Exchange 1과 관련된 내용이 아닙니다."
+  },
+  "leveling": {
+    "name": "Leveling",
+    "enable_read_client_logs": "Leveling widgets require allowing reading of client logs",
+    "exp_tracking": "Experience Tracker",
+    "show_exp": "Show experience gain percentage",
+    "exp_tracking_help_tldr": "TLDR: try to keep 'Over' at 0 or 1",
+    "exp_tracking_help": "XP tracking widget shows your current level, current experience multiplier, and how close you are to being under-leveled. XP penalty is applied immediately if you are over-leveled, and when you are under-leveled by \u230A level/16 + 3 \u230B. The 'Over' is how many levels the your current level is over the bottom of the 'safe zone', generally 0 or 1 means you are killing the highest level monsters you can without incurring the under-leveled penalty",
+    "exp_inspire": "Based on ",
+    "exp_astrict": "*Experience gain percentages, when over level 95, or monster level over 70, or potentially when not at 100% exp gain, may not be fully tested and accurate."
   }
 }

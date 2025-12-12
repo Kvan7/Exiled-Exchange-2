@@ -141,17 +141,22 @@ export function createTradeRequest(
   item: ParsedItem,
   have: string[],
 ): TradeRequest {
+  if (
+    filters.trade.listingType === "securable" ||
+    filters.trade.listingType === "available"
+  ) {
+    console.error(
+      "securable and available are not supported for bulk, you shouldn't ever see this",
+    );
+    filters.trade.listingType = "online";
+  }
   return {
     engine: "new",
     query: {
       have,
       want: [tradeTag(item)!],
       status: {
-        option: filters.trade.offline
-          ? "any"
-          : filters.trade.onlineInLeague
-            ? "onlineleague"
-            : "online",
+        option: filters.trade.listingType,
       },
       minimum:
         filters.stackSize && !filters.stackSize.disabled

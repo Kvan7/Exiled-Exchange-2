@@ -123,7 +123,7 @@
     position: relative;
     margin-left: 0.5rem;
   }
-  
+
   h1>a.header-anchor::before, h2>a.header-anchor::before, h3>a.header-anchor::before, h4>a.header-anchor::before, h5>a.header-anchor::before, h6>a.header-anchor::before {
     content: "#";
     display: inline;
@@ -132,7 +132,7 @@
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
   }
-  
+
   h1:hover>a.header-anchor::before, h2:hover>a.header-anchor::before, h3:hover>a.header-anchor::before, h4:hover>a.header-anchor::before, h5:hover>a.header-anchor::before, h6:hover>a.header-anchor::before {
     opacity: 1;
   }

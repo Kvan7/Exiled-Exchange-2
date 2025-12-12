@@ -22,7 +22,12 @@ import { RateLimiter } from "./RateLimiter";
 import { ModifierType } from "@/parser/modifiers";
 import { Cache } from "./Cache";
 import { parseAffixStrings } from "@/parser/Parser";
-import { displayRounding, usePoeninja } from "@/web/background/Prices";
+import {
+  CoreCurrency,
+  displayRounding,
+  DivCurrency,
+  usePoeninja,
+} from "@/web/background/Prices";
 import { getCurrencyDetailsId } from "../trends/getDetailsId";
 
 export const CATEGORY_TO_TRADE_ID = new Map([
@@ -75,6 +80,8 @@ export const CATEGORY_TO_TRADE_ID = new Map([
   [ItemCategory.Buckler, "armour.buckler"],
   [ItemCategory.Tablet, "map.tablet"],
   [ItemCategory.MapFragment, "map.fragment"],
+  [ItemCategory.Talisman, "weapon.talisman"],
+  [ItemCategory.Waystone, "map.waystone"],
 ]);
 
 const TOTAL_MODS_TEXT = {
@@ -107,6 +114,16 @@ const CONVERT_CURRENCY: Record<string, string> = {
   "greater-exalted-orb": "G. exalted",
   "perfect-exalted-orb": "P. exalted",
 };
+
+const TABLET_USES_STATS = [
+  "Adds Irradiated to a Map \n# use remaining",
+  "Adds Ritual Altars to a Map \n# use remaining",
+  "Adds a Kalguuran Expedition to a Map \n# use remaining",
+  "Adds a Mirror of Delirium to a Map \n# use remaining",
+  "Adds an Otherworldy Breach to a Map \n# use remaining",
+  "Empowers the Map Boss of a Map \n# use remaining",
+  // "Adds Abysses to a Map \n# use remaining", // FIXME: enable this when data update
+];
 
 interface FilterBoolean {
   option?: "true" | "false";
@@ -187,11 +204,15 @@ interface TradeRequest {
           str?: FilterRange;
         };
       };
-      // WILL PROBABLY BE REMOVED SOON
       map_filters?: {
         filters: {
-          map_bonus?: FilterRange;
           map_tier?: FilterRange;
+          map_revives?: FilterRange;
+          map_packsize?: FilterRange;
+          map_magic_monsters?: FilterRange;
+          map_rare_monsters?: FilterRange;
+          map_bonus?: FilterRange;
+          map_iir?: FilterRange;
         };
       };
       misc_filters?: {
@@ -297,7 +318,7 @@ export interface PricingResult {
   priceCurrency: string;
   priceCurrencyRank?: number;
   normalizedPrice?: string;
-  normalizedPriceCurrency?: string;
+  normalizedPriceCurrency?: CoreCurrency;
   isMine: boolean;
   hasNote: boolean;
   isInstantBuyout: boolean;
@@ -314,6 +335,13 @@ export function createTradeRequest(
   stats: StatFilter[],
   item: ParsedItem,
 ) {
+  if (filters.trade.listingType === "onlineleague") {
+    console.error(
+      "onlineleague is not supported for trade, you shouldn't ever see this",
+    );
+    filters.trade.listingType = "securable";
+  }
+
   const body: TradeRequest = {
     query: {
       status: {
@@ -492,6 +520,14 @@ export function createTradeRequest(
     );
   }
 
+  if (filters.fractured?.value === false) {
+    propSet(
+      query.filters,
+      "misc_filters.filters.fractured_item.option",
+      String(false),
+    );
+  }
+
   if (filters.mirrored) {
     if (filters.mirrored.disabled) {
       propSet(
@@ -533,6 +569,23 @@ export function createTradeRequest(
       "misc_filters.filters.sanctified.option",
       String(false),
     );
+  }
+
+  // Custom fake pseudo filter for uses remaining
+  if (filters.usesRemaining) {
+    query.stats.push({
+      type: "count",
+      value: { min: 1 },
+      disabled: filters.usesRemaining.disabled,
+      filters: TABLET_USES_STATS.map((ref) => {
+        const stat = STAT_BY_REF(ref)!;
+        return {
+          id: stat.trade.ids[ModifierType.Implicit][0],
+          value: { min: filters.usesRemaining!.value },
+          disabled: false,
+        };
+      }),
+    });
   }
 
   // TRADE FILTERS
@@ -769,6 +822,55 @@ export function createTradeRequest(
       case "item.rarity_magic":
         propSet(query.filters, "type_filters.filters.rarity.option", "magic");
         break;
+      case "item.map_revives":
+        propSet(
+          query.filters,
+          "map_filters.filters.map_revives.min",
+          typeof input.min === "number" ? input.min : undefined,
+        );
+        break;
+      case "item.map_pack_size":
+        propSet(
+          query.filters,
+          "map_filters.filters.map_packsize.min",
+          typeof input.min === "number" ? input.min : undefined,
+        );
+        break;
+      case "item.map_magic_monsters":
+        propSet(
+          query.filters,
+          "map_filters.filters.map_magic_monsters.min",
+          typeof input.min === "number" ? input.min : undefined,
+        );
+        break;
+      case "item.map_rare_monsters":
+        propSet(
+          query.filters,
+          "map_filters.filters.map_rare_monsters.min",
+          typeof input.min === "number" ? input.min : undefined,
+        );
+        break;
+      case "item.map_drop_chance":
+        propSet(
+          query.filters,
+          "map_filters.filters.map_bonus.min",
+          typeof input.min === "number" ? input.min : undefined,
+        );
+        break;
+      case "item.map_item_rarity":
+        propSet(
+          query.filters,
+          "map_filters.filters.map_iir.min",
+          typeof input.min === "number" ? input.min : undefined,
+        );
+        break;
+      case "item.map_gold":
+        propSet(
+          query.filters,
+          "map_filters.filters.map_gold.min",
+          typeof input.min === "number" ? input.min : undefined,
+        );
+        break;
     }
   }
 
@@ -882,8 +984,11 @@ export async function requestResults(
   resultIds: string[],
   opts: { accountName: string },
 ): Promise<PricingResult[]> {
+  const { cachedCurrencyByQuery, xchgRateCurrency } = usePoeninja();
+  // Solves cached results showing random incorrect values
+  cache.purgeIfDifferentCurrency(xchgRateCurrency.value?.id);
+
   let data = cache.get<FetchResult[]>(resultIds);
-  const { cachedCurrencyByQuery } = usePoeninja();
 
   if (!data) {
     await RateLimiter.waitMulti(RATE_LIMIT_RULES.FETCH);
@@ -982,21 +1087,18 @@ export async function requestResults(
     const query = getCurrencyDetailsId(
       result.listing.price?.currency ?? "no price",
     );
-    const normalizedCurrency =
-      result.listing.price?.currency === "exalted"
-        ? // exalts aren't in db since they are the stable currency
-          {
-            min: result.listing.price.amount,
-            max: result.listing.price.amount,
-            currency: "exalted",
-          }
-        : // otherwise convert to stable
-          cachedCurrencyByQuery(query, result.listing.price?.amount ?? 0);
+    const normalizedCurrency = cachedCurrencyByQuery(
+      query,
+      result.listing.price?.amount ?? 0,
+    );
     const normalizedPrice =
       normalizedCurrency !== undefined
         ? displayRounding(normalizedCurrency.min)
         : undefined;
-    const normalizedPriceCurrency = normalizedCurrency?.currency;
+    const normalizedPriceCurrency =
+      normalizedCurrency?.currency !== "div"
+        ? xchgRateCurrency.value
+        : DivCurrency;
 
     return {
       id: result.id,

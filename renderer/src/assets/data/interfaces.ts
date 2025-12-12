@@ -221,7 +221,14 @@ export interface TranslationDict {
   COLD_DAMAGE: string;
   PRICE_NOTE: string;
   WAYSTONE_TIER: string;
+  WAYSTONE_REVIVES: string;
+  WAYSTONE_PACK_SIZE: string;
+  WAYSTONE_MAGIC_MONSTERS: string;
+  WAYSTONE_RARE_MONSTERS: string;
+  WAYSTONE_DROP_CHANCE: string;
+  WAYSTONE_RARITY: string;
   WAYSTONE_HELP: string;
+  WAYSTONE_GOLD: string;
   JEWEL_HELP: string;
   SANCTUM_HELP: string;
   TIMELESS_RADIUS: string;
@@ -234,6 +241,8 @@ export interface TranslationDict {
   FRACTURED_ITEM: string;
   SANCTIFIED: string;
   HYPHEN: string;
+  LOG_LEVEL_UP: RegExp;
+  LOG_ZONE_GEN: RegExp;
 }
 
 export interface Filter {

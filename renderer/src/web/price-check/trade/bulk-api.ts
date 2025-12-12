@@ -6,7 +6,7 @@ import { BulkSearch, execBulkSearch, PricingResult } from "./pathofexile-bulk";
 
 export function useBulkApi() {
   type BulkSearchExtended = Record<
-    "xchgExalted" | "xchgStable",
+    "xchgExalted" | "xchgChaos" | "xchgStable",
     {
       listed: Ref<BulkSearch | null>;
       listedLazy: ComputedRef<PricingResult[]>;
@@ -26,12 +26,21 @@ export function useBulkApi() {
       const _searchId = searchId;
 
       // override, because at league start many players set wrong price, and this breaks optimistic search
-      const have =
-        item.info.refName === "Exalted Orb"
-          ? ["divine"]
-          : item.info.refName === "Divine Orb"
-            ? ["exalted"]
-            : ["divine", "exalted"];
+      let have;
+      switch (item.info.refName) {
+        case "Exalted Orb":
+          have = ["divine", "chaos"];
+          break;
+        case "Chaos Orb":
+          have = ["divine", "exalted"];
+          break;
+        case "Divine Orb":
+          have = ["exalted", "chaos"];
+          break;
+        default:
+          have = ["divine", "exalted", "chaos"];
+          break;
+      }
 
       const optimisticSearch = await execBulkSearch(item, filters, have, {
         accountName: AppConfig().accountName,
@@ -50,6 +59,7 @@ export function useBulkApi() {
             optimisticSearch,
             "exalted",
           ),
+          xchgChaos: getResultsByHave(item, filters, optimisticSearch, "chaos"),
         };
       }
     } catch (err) {
@@ -61,7 +71,7 @@ export function useBulkApi() {
     item: ParsedItem,
     filters: ItemFilters,
     preloaded: Array<BulkSearch | null>,
-    have: "divine" | "exalted",
+    have: "divine" | "exalted" | "chaos",
   ) {
     const _result = shallowRef(
       preloaded.some((res) => res?.haveTag === have)

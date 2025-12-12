@@ -1,5 +1,10 @@
 import type { ItemFilters } from "./interfaces";
-import { ParsedItem, ItemCategory, ItemRarity } from "@/parser";
+import {
+  ParsedItem,
+  ItemCategory,
+  ItemRarity,
+  itemIsModifiable,
+} from "@/parser";
 import { tradeTag } from "../trade/common";
 import { ModifierType } from "@/parser/modifiers";
 import { BaseType, ITEM_BY_REF } from "@/assets/data";
@@ -131,16 +136,13 @@ export function createFilters(
         baseTypeTrade: t(opts, ITEM_BY_REF("ITEM", item.info.unique.base)![0]),
       };
     } else {
-      const isOccupiedBy = item.statsByType.some(
-        (calc) => calc.stat.ref === "Map is occupied by #",
-      );
       filters.searchExact = {
         baseType: item.info.name,
         baseTypeTrade: t(opts, item.info),
       };
       filters.searchRelaxed = {
         category: item.category,
-        disabled: !isOccupiedBy,
+        disabled: false,
       };
     }
 
@@ -353,7 +355,7 @@ export function createFilters(
     filters.sanctified = { disabled: false };
   }
 
-  if (!item.isFractured && opts.exact) {
+  if (!item.isFractured && itemIsModifiable(item)) {
     filters.fractured = { value: false };
   }
 
@@ -452,6 +454,20 @@ export function createFilters(
         filters.itemLevel.disabled = false;
       }
     }
+  }
+
+  if (item.category === ItemCategory.Tablet) {
+    const usesRemaining = item.statsByType.find(
+      (t) => t.type === ModifierType.Implicit,
+    )!.sources[0].contributes!.value;
+    filters.usesRemaining = {
+      value: usesRemaining,
+      disabled: usesRemaining < 10,
+    };
+    // Remove the used stat
+    item.statsByType = item.statsByType.filter(
+      (t) => t.type !== ModifierType.Implicit,
+    );
   }
 
   if (

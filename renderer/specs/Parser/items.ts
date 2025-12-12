@@ -23,6 +23,12 @@ export class TestItem implements ParsedItem {
   weaponReload?: number | undefined;
   mapBlighted?: "Blighted" | "Blight-ravaged" | undefined;
   mapTier?: number | undefined;
+  mapPackSize?: number;
+  mapItemRarity?: number;
+  mapRevives?: number;
+  mapDropChance?: number;
+  mapMagicMonsters?: number;
+  mapRareMonsters?: number;
   gemLevel?: number | undefined;
   areaLevel?: number | undefined;
   talismanTier?: number | undefined;
@@ -383,6 +389,7 @@ Fractured Item
 `);
 HighDamageRareItem.category = ItemCategory.Crossbow;
 HighDamageRareItem.rarity = ItemRarity.Rare;
+HighDamageRareItem.quality = 29;
 HighDamageRareItem.weaponPHYSICAL = 728.5;
 HighDamageRareItem.weaponAS = 2.07;
 HighDamageRareItem.weaponCRIT = 5;
@@ -437,6 +444,7 @@ Note: ~b/o 10 divine
 `);
 ArmourHighValueRareItem.category = ItemCategory.BodyArmour;
 ArmourHighValueRareItem.rarity = ItemRarity.Rare;
+ArmourHighValueRareItem.quality = 20;
 ArmourHighValueRareItem.armourAR = 3075;
 ArmourHighValueRareItem.itemLevel = 80;
 
@@ -510,6 +518,9 @@ Note: ~b/o 1 aug
 NormalShield.category = ItemCategory.Shield;
 NormalShield.rarity = ItemRarity.Normal;
 NormalShield.itemLevel = 82;
+NormalShield.armourAR = 71;
+NormalShield.armourEV = 64;
+NormalShield.armourBLOCK = 25;
 
 NormalShield.info.refName = "Polished Targe";
 NormalShield.sectionCount = 6;
@@ -594,4 +605,86 @@ TwoLineOneImplicitItem.suffixCount = 2;
 
 TwoLineOneImplicitItem.isCorrupted = true;
 TwoLineOneImplicitItem.note = "~b/o 1 exalted";
+// #endregion
+
+// #region Map
+export const RareMap = new TestItem(`Item Class: Waystones
+Rarity: Rare
+Desolate Route
+Waystone (Tier 14)
+--------
+Waystone Tier: 14
+Revives Available: 2 (augmented)
+Monster Pack Size: +34% (augmented)
+Rare Monsters: +28% (augmented)
+Waystone Drop Chance: +75% (augmented)
+--------
+Item Level: 80
+--------
+{ Prefix Modifier "Shocking" (Tier: 1) }
+Area has patches of Shocked Ground — Unscalable Value
+{ Prefix Modifier "Painful" (Tier: 1) }
+28(26-30)% increased Monster Damage
+{ Suffix Modifier "of Splitting" (Tier: 2) }
+Monsters fire 2 additional Projectiles
+{ Suffix Modifier "of Destruction" (Tier: 1) }
+Monsters have 293(260-300)% increased Critical Hit Chance
++26(26-30)% to Monster Critical Damage Bonus
+--------
+Can be used in a Map Device, allowing you to enter a Map. Waystones can only be used once.
+`);
+RareMap.category = ItemCategory.Map;
+RareMap.rarity = ItemRarity.Normal;
+RareMap.mapTier = 14;
+RareMap.mapRevives = 2;
+RareMap.mapPackSize = 34;
+RareMap.mapRareMonsters = 28;
+RareMap.mapDropChance = 75;
+RareMap.sectionCount = 5;
+// #endregion
+
+// #region RareMapFakeAllProps
+export const RareMapFakeAllProps = new TestItem(`Item Class: Waystones
+Rarity: Rare
+Blasted Control
+Waystone (Tier 16)
+--------
+Waystone Tier: 16
+Revives Available: 0 (augmented)
+Monster Pack Size: +20% (augmented)
+Magic Monsters: +30% (augmented)
+Rare Monsters: +71% (augmented)
+Waystone Drop Chance: +90% (augmented)
+Item Rarity: +17% (augmented)
+--------
+Item Level: 79
+--------
+{ Prefix Modifier "Painful" (Tier: 1) }
+30(26-30)% increased Monster Damage
+{ Prefix Modifier "Enduring" (Tier: 1) }
+Monsters are Armoured
+{ Prefix Modifier "Slowing" (Tier: 1) }
+Players are periodically Cursed with Temporal Chains — Unscalable Value
+{ Suffix Modifier "of the Unwavering" (Tier: 1) }
+Monsters have 71(70-79)% increased Ailment Threshold
+Monsters have 72(70-79)% increased Stun Threshold
+{ Suffix Modifier "of Drought" (Tier: 1) }
+Players gain 33(35-30)% reduced Flask Charges
+{ Suffix Modifier "of Shattering" (Tier: 1) }
+Monsters Break Armour equal to 36(30-45)% of Physical Damage dealt
+--------
+Can be used in a Map Device, allowing you to enter a Map. Waystones can only be used once.
+--------
+Corrupted
+`);
+RareMapFakeAllProps.category = ItemCategory.Map;
+RareMapFakeAllProps.rarity = ItemRarity.Normal;
+RareMapFakeAllProps.mapTier = 16;
+RareMapFakeAllProps.mapRevives = 0;
+RareMapFakeAllProps.mapPackSize = 20;
+RareMapFakeAllProps.mapMagicMonsters = 30;
+RareMapFakeAllProps.mapRareMonsters = 71;
+RareMapFakeAllProps.mapDropChance = 90;
+RareMapFakeAllProps.mapItemRarity = 17;
+RareMapFakeAllProps.sectionCount = 5;
 // #endregion

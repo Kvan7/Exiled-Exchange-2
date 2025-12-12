@@ -28,6 +28,9 @@ export function filterItemProp(ctx: FiltersCreationContext) {
   if (WEAPON.has(ctx.item.category!)) {
     weaponProps(ctx);
   }
+  if (ctx.item.category === ItemCategory.Map) {
+    mapProps(ctx);
+  }
 }
 
 export function filterBasePercentile(ctx: FiltersCreationContext) {
@@ -395,6 +398,147 @@ function weaponProps(ctx: FiltersCreationContext) {
   }
 }
 
+function mapProps(ctx: FiltersCreationContext) {
+  const { item } = ctx;
+
+  if (item.mapRevives) {
+    const revives = calcPropBounds(
+      item.mapRevives,
+      { flat: [], incr: [] },
+      item,
+    );
+    ctx.filters.push(
+      propToFilter(
+        {
+          ref: "Revives Available: #",
+          tradeId: "item.map_revives",
+          roll: revives.roll,
+          sources: revives.sources,
+          disabled: true,
+          hidden: "filters.hide_revives",
+        },
+        ctx,
+      ),
+    );
+  }
+
+  if (item.mapPackSize) {
+    const packSize = calcPropBounds(
+      item.mapPackSize,
+      { flat: [], incr: [] },
+      item,
+    );
+    ctx.filters.push(
+      propToFilter(
+        {
+          ref: "Monster Pack Size: #",
+          tradeId: "item.map_pack_size",
+          roll: packSize.roll,
+          sources: packSize.sources,
+          disabled: true,
+        },
+        ctx,
+      ),
+    );
+  }
+
+  if (item.mapMagicMonsters) {
+    const magicMonsters = calcPropBounds(
+      item.mapMagicMonsters,
+      { flat: [], incr: [] },
+      item,
+    );
+    ctx.filters.push(
+      propToFilter(
+        {
+          ref: "Magic Monsters: #",
+          tradeId: "item.map_magic_monsters",
+          roll: magicMonsters.roll,
+          sources: magicMonsters.sources,
+          disabled: true,
+        },
+        ctx,
+      ),
+    );
+  }
+
+  if (item.mapRareMonsters) {
+    const rareMonsters = calcPropBounds(
+      item.mapRareMonsters,
+      { flat: [], incr: [] },
+      item,
+    );
+    ctx.filters.push(
+      propToFilter(
+        {
+          ref: "Rare Monsters: #",
+          tradeId: "item.map_rare_monsters",
+          roll: rareMonsters.roll,
+          sources: rareMonsters.sources,
+          disabled: true,
+        },
+        ctx,
+      ),
+    );
+  }
+
+  if (item.mapDropChance) {
+    const dropChance = calcPropBounds(
+      item.mapDropChance,
+      { flat: [], incr: [] },
+      item,
+    );
+    ctx.filters.push(
+      propToFilter(
+        {
+          ref: "Waystone Drop Chance: #%",
+          tradeId: "item.map_drop_chance",
+          roll: dropChance.roll,
+          sources: dropChance.sources,
+          disabled: true,
+        },
+        ctx,
+      ),
+    );
+  }
+
+  if (item.mapItemRarity) {
+    const itemRarity = calcPropBounds(
+      item.mapItemRarity,
+      { flat: [], incr: [] },
+      item,
+    );
+    ctx.filters.push(
+      propToFilter(
+        {
+          ref: "Item Rarity: #%",
+          tradeId: "item.map_item_rarity",
+          roll: itemRarity.roll,
+          sources: itemRarity.sources,
+          disabled: true,
+        },
+        ctx,
+      ),
+    );
+  }
+
+  if (item.mapGold) {
+    const gold = calcPropBounds(item.mapGold, { flat: [], incr: [] }, item);
+    ctx.filters.push(
+      propToFilter(
+        {
+          ref: "Gold Found: #%",
+          tradeId: "item.map_gold",
+          roll: gold.roll,
+          sources: gold.sources,
+          disabled: true,
+        },
+        ctx,
+      ),
+    );
+  }
+}
+
 function removeUsedStats(ctx: FiltersCreationContext, stats: Set<string>) {
   ctx.statsByType = ctx.statsByType.filter((m) => !stats.has(m.stat.ref));
 }
@@ -419,7 +563,7 @@ function isPdpsImportant(item: ParsedItem) {
     case ItemCategory.Bow:
     case ItemCategory.Warstaff:
     case ItemCategory.Crossbow:
-    case ItemCategory.Spear: // TODO: Check that these actually need pdps
+    case ItemCategory.Spear:
     case ItemCategory.Flail:
       return true;
     default:

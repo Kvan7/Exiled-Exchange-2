@@ -300,7 +300,60 @@ function parseMap(section: string[], item: ParsedItem) {
 
 function parseWaystone(section: string[], item: ParsedItem) {
   if (section[0].startsWith(_$.WAYSTONE_TIER)) {
-    item.mapTier = Number(section[0].slice(_$.WAYSTONE_TIER.length));
+    item.mapTier = Number(section.shift()!.slice(_$.WAYSTONE_TIER.length));
+
+    for (const line of section) {
+      if (line.startsWith(_$.WAYSTONE_REVIVES)) {
+        item.mapRevives = parseInt(line.slice(_$.WAYSTONE_REVIVES.length), 10);
+        continue;
+      }
+
+      if (line.startsWith(_$.WAYSTONE_PACK_SIZE)) {
+        item.mapPackSize = parseInt(
+          line.slice(_$.WAYSTONE_PACK_SIZE.length),
+          10,
+        );
+        continue;
+      }
+
+      if (line.startsWith(_$.WAYSTONE_MAGIC_MONSTERS)) {
+        item.mapMagicMonsters = parseInt(
+          line.slice(_$.WAYSTONE_MAGIC_MONSTERS.length),
+          10,
+        );
+        continue;
+      }
+
+      if (line.startsWith(_$.WAYSTONE_RARE_MONSTERS)) {
+        item.mapRareMonsters = parseInt(
+          line.slice(_$.WAYSTONE_RARE_MONSTERS.length),
+          10,
+        );
+        continue;
+      }
+
+      if (line.startsWith(_$.WAYSTONE_DROP_CHANCE)) {
+        item.mapDropChance = parseInt(
+          line.slice(_$.WAYSTONE_DROP_CHANCE.length),
+          10,
+        );
+        continue;
+      }
+
+      if (line.startsWith(_$.WAYSTONE_RARITY)) {
+        item.mapItemRarity = parseInt(
+          line.slice(_$.WAYSTONE_RARITY.length),
+          10,
+        );
+        continue;
+      }
+
+      if (line.startsWith(_$.WAYSTONE_GOLD)) {
+        item.mapGold = parseInt(line.slice(_$.WAYSTONE_GOLD.length), 10);
+        continue;
+      }
+    }
+
     return "SECTION_PARSED";
   }
   return "SECTION_SKIPPED";
@@ -1600,6 +1653,7 @@ export function getMaxSockets(item: ParsedItem) {
     case ItemCategory.Bow:
     case ItemCategory.Warstaff:
     case ItemCategory.Staff:
+    case ItemCategory.Talisman:
       return 2;
     case ItemCategory.Helmet:
     case ItemCategory.Shield:
@@ -1649,6 +1703,7 @@ export function isArmourOrWeaponOrCaster(
     case ItemCategory.Warstaff:
     case ItemCategory.Spear:
     case ItemCategory.Flail:
+    case ItemCategory.Talisman:
       return "weapon";
     case ItemCategory.Wand:
     case ItemCategory.Staff:
@@ -1695,4 +1750,5 @@ export const __testExports = {
   parseWeapon,
   parseArmour,
   parseModifiers,
+  parseWaystone,
 };

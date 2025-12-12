@@ -1,8 +1,20 @@
 <template>
   <button @click="updateInput" :class="$style['radio']">
-    <i v-if="!isChecked" class="far fa-circle"></i>
-    <i v-else class="fas fa-check-circle"></i>
-    <slot />
+    <template v-if="!useBgSelection">
+      <i v-if="!isChecked" class="far fa-circle"></i>
+      <i v-else class="fas fa-check-circle"></i>
+      <slot />
+    </template>
+    <template v-else>
+      <div
+        class="rounded px-1 py-0.5"
+        :class="{
+          'bg-gray-700': isChecked,
+        }"
+      >
+        <slot />
+      </div>
+    </template>
   </button>
 </template>
 
@@ -20,6 +32,10 @@ export default defineComponent({
     modelValue: {
       type: null,
       required: true,
+    },
+    useBgSelection: {
+      type: Boolean,
+      default: false,
     },
   },
   setup(props, ctx) {

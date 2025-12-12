@@ -56,6 +56,8 @@ export interface PriceCheckWidget extends Widget {
   autoFillEmptyRuneSockets: "Iron Rune" | false;
   alwaysShowTier: boolean;
   openItemEditorAbove: boolean;
+  coreCurrency: "exalted" | "chaos";
+  currencyVolume: "none" | "value" | "item" | "both";
 }
 
 export interface StopwatchWidget extends Widget {

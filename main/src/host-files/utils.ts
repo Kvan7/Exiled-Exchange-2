@@ -2,8 +2,8 @@ import fs from "fs/promises";
 
 export async function guessFileLocation(
   entries: Iterable<string>,
-): Promise<string | null> {
-  let found: string | null = null;
+): Promise<string | null | undefined> {
+  let found: string | null | undefined;
   for (const path of entries) {
     try {
       await fs.access(path, fs.constants.R_OK);

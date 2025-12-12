@@ -1,8 +1,5 @@
 import { ParsedItem, ItemRarity, ItemCategory } from "@/parser";
-import {
-  SPECIAL_SUPPORT_GEM,
-  floorToBracket,
-} from "../filters/create-item-filters";
+import { floorToBracket } from "../filters/create-item-filters";
 import { ACCESSORY, ARMOUR, WEAPON } from "@/parser/meta";
 import { TRADE_TAG_TO_REF } from "@/assets/data";
 
@@ -39,13 +36,6 @@ export function isValuableBasetype(item: ParsedItem): boolean {
 }
 
 export function getDetailsId(item: ParsedItem) {
-  return {
-    ns: "ITEM",
-    name: item.info.refName,
-    variant: undefined,
-  };
-
-  // eslint-disable-next-line no-unreachable
   if (item.category === ItemCategory.Gem) {
     return forSkillGem(item);
   }
@@ -88,31 +78,32 @@ export function getDetailsId(item: ParsedItem) {
 }
 
 function forSkillGem(item: ParsedItem) {
+  // eslint-disable-next-line prefer-const
   let variant = "";
-  if (
-    SPECIAL_SUPPORT_GEM.includes(item.info.refName) ||
-    item.info.refName === "Portal" ||
-    item.info.refName === "Brand Recall" ||
-    item.info.refName === "Blood and Sand" ||
-    item.gemLevel! >= 20
-  ) {
-    variant += `${item.gemLevel}`;
-  } else {
-    variant += "1";
-  }
-  if (
-    item.quality &&
-    !SPECIAL_SUPPORT_GEM.includes(item.info.refName) &&
-    !(item.info.refName === "Brand Recall" && item.isCorrupted)
-    // @TODO(poe.ninja blocking): !(item.info.refName === 'Blood and Sand' && item.isCorrupted)
-  ) {
-    // Gem Q20 with up to 4xGCP (TODO: should this rule apply to corrupted gems?)
-    const q = item.quality >= 16 && item.quality <= 20 ? 20 : item.quality;
-    variant += `/${q}`;
-  }
-  if (item.isCorrupted && item.info.refName !== "Portal") {
-    variant += "c";
-  }
+  // if (
+  //   SPECIAL_SUPPORT_GEM.includes(item.info.refName) ||
+  //   item.info.refName === "Portal" ||
+  //   item.info.refName === "Brand Recall" ||
+  //   item.info.refName === "Blood and Sand" ||
+  //   item.gemLevel! >= 20
+  // ) {
+  //   variant += `${item.gemLevel}`;
+  // } else {
+  //   variant += "1";
+  // }
+  // if (
+  //   item.quality &&
+  //   !SPECIAL_SUPPORT_GEM.includes(item.info.refName) &&
+  //   !(item.info.refName === "Brand Recall" && item.isCorrupted)
+  //   // @TODO(poe.ninja blocking): !(item.info.refName === 'Blood and Sand' && item.isCorrupted)
+  // ) {
+  //   // Gem Q20 with up to 4xGCP (TODO: should this rule apply to corrupted gems?)
+  //   const q = item.quality >= 16 && item.quality <= 20 ? 20 : item.quality;
+  //   variant += `/${q}`;
+  // }
+  // if (item.isCorrupted && item.info.refName !== "Portal") {
+  //   variant += "c";
+  // }
 
   return {
     ns: item.info.namespace,
@@ -128,7 +119,7 @@ function forBasetype(item: ParsedItem) {
     ns: item.info.namespace,
     name: item.info.refName,
     variant: variant([
-      item.itemLevel! >= 86 ? "86+" : String(item.itemLevel!),
+      // item.itemLevel! >= 86 ? "86+" : String(item.itemLevel!),
       item.influences.length ? item.influences[0] : null,
     ]),
   };
@@ -141,13 +132,13 @@ function forUniqueItem(item: ParsedItem) {
     ns: item.info.namespace,
     name: item.info.refName,
     variant: variant([
-      getUniqueVariant(item),
+      //   getUniqueVariant(item),
       item.category === ItemCategory.Flask
         ? null
         : item.category === ItemCategory.SanctumRelic
           ? "Relic"
           : item.info.unique.base,
-      item.gemSockets?.linked ? `${item.gemSockets.linked}L` : null,
+      //   item.gemSockets?.linked ? `${item.gemSockets.linked}L` : null,
     ]),
   };
 }
@@ -158,6 +149,7 @@ function variant(props: Array<string | null>): string | undefined {
   return props.join(", ");
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function getUniqueVariant(item: ParsedItem) {
   function hasStat(item: ParsedItem, stat: string) {
     return item.statsByType.some((m) => m.stat.ref === stat);

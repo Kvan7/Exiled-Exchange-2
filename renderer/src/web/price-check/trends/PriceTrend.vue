@@ -1,5 +1,5 @@
 <template>
-  <div v-if="trend" class="flex items-center pb-4" style="min-height: 3rem">
+  <div v-if="priceData" class="flex items-center pb-4" style="min-height: 3rem">
     <div
       v-if="!isValuableBasetype && !slowdown.isReady.value"
       class="flex flex-1 justify-center"
@@ -10,71 +10,113 @@
       </i18n-t>
     </div>
     <template v-else>
+      <div
+        v-if="priceData.volume && volumeSetting !== 'none'"
+        @click="openNinja"
+        class="flex flex-col items-center gap-y-1 rounded hover:bg-gray-700 px-1 cursor-pointer"
+      >
+        <!-- Currency per hour -->
+        <div
+          v-if="volumeSetting === 'value' || volumeSetting === 'both'"
+          class="flex flex-row items-center"
+        >
+          {{ priceData.volume.primaryVolumePerHour }}
+          <div class="w-6 h-6 flex items-center justify-center shrink-0">
+            <core-currency-img :currency="priceData.volume.currency" />
+          </div>
+          <div class="text-xs text-gray-500">/hr</div>
+        </div>
+        <!-- Items per hour -->
+        <div
+          v-if="volumeSetting === 'item' || volumeSetting === 'both'"
+          class="flex flex-row items-center"
+        >
+          {{ priceData.volume.itemsPerHour }}
+          <div class="w-6 h-6 flex items-center justify-center shrink-0">
+            <ui-item-img :icon="item.info.icon" overflow-hidden />
+          </div>
+          <div class="text-xs text-gray-500">/hr</div>
+        </div>
+      </div>
       <item-quick-price
         class="flex-1 text-base justify-center"
-        :price="trend.price"
+        :price="priceData.price"
         :fraction="filters.stackSize != null"
-        :item-img="
-          item.info.icon === '%NOT_FOUND%' || item.info.icon === ''
-            ? '/images/404.png'
-            : item.info.icon
-        "
+        :item-img="item.info.icon"
         :item-base="item.info"
       >
         <template #item v-if="isValuableBasetype">
           <span class="text-gray-400">{{ t(":base_item") }}</span>
         </template>
       </item-quick-price>
-      <div v-if="trend.change" @click="openNinja" :class="$style['trend-btn']">
-        <div class="text-center">
-          <div class="leading-tight">
-            <i
-              v-if="trend.change.forecast === 'down'"
-              class="fas fa-angle-double-down pr-1 text-red-600"
-            ></i>
-            <i
-              v-if="trend.change.forecast === 'up'"
-              class="fas fa-angle-double-up pr-1 text-green-500"
-            ></i>
-            <span
-              v-if="trend.change.forecast === 'const'"
-              class="pr-1 text-gray-600 font-sans leading-none"
-              >±</span
-            >
-            <span>{{ trend.change.text }}</span>
+      <div
+        v-if="priceData.change || priceData.volume"
+        class="flex flex-col items-center"
+      >
+        <div
+          v-if="priceData.change"
+          @click="openNinja"
+          :class="$style['trend-btn']"
+        >
+          <div class="text-center">
+            <div class="leading-tight">
+              <i
+                v-if="priceData.change.forecast === 'down'"
+                class="fas fa-angle-double-down pr-1 text-red-600"
+              ></i>
+              <i
+                v-if="priceData.change.forecast === 'up'"
+                class="fas fa-angle-double-up pr-1 text-green-500"
+              ></i>
+              <span
+                v-if="priceData.change.forecast === 'const'"
+                class="pr-1 text-gray-600 font-sans leading-none"
+                >±</span
+              >
+              <span>{{ priceData.change.text }}</span>
+            </div>
+            <div class="text-xs text-gray-500 leading-none">
+              {{ t(":graph_7d") }}
+            </div>
           </div>
-          <div class="text-xs text-gray-500 leading-none">
-            {{ t(":graph_7d") }}
+          <div v-if="priceData.change" class="w-12 h-8">
+            <vue-apexcharts
+              type="area"
+              :options="{
+                chart: {
+                  sparkline: { enabled: true },
+                  animations: { enabled: false },
+                },
+                stroke: {
+                  curve: 'smooth',
+                  width: 1,
+                  colors: ['#a0aec0' /* gray.500 */],
+                },
+                fill: { colors: ['#4a5568' /* gray.700 */], type: 'solid' },
+                tooltip: { enabled: false },
+                plotOptions: { area: { fillTo: 'end' } },
+                yaxis: {
+                  show: false,
+                  min: priceData.change.graph.drawMin,
+                  max: priceData.change.graph.drawMax,
+                },
+              }"
+              :series="[
+                {
+                  data: priceData.change.graph.points,
+                },
+              ]"
+            />
           </div>
         </div>
-        <div v-if="trend.change" class="w-12 h-8">
-          <vue-apexcharts
-            type="area"
-            :options="{
-              chart: {
-                sparkline: { enabled: true },
-                animations: { enabled: false },
-              },
-              stroke: {
-                curve: 'smooth',
-                width: 1,
-                colors: ['#a0aec0' /* gray.500 */],
-              },
-              fill: { colors: ['#4a5568' /* gray.700 */], type: 'solid' },
-              tooltip: { enabled: false },
-              plotOptions: { area: { fillTo: 'end' } },
-              yaxis: {
-                show: false,
-                min: trend.change.graph.drawMin,
-                max: trend.change.graph.drawMax,
-              },
-            }"
-            :series="[
-              {
-                data: trend.change.graph.points,
-              },
-            ]"
-          />
+        <div v-if="priceData.volume" class="flex flex-row items-center">
+          <div class="text-xs text-gray-500">{{ t(":highest_volume") }}</div>
+
+          <div class="w-6 h-6 flex items-center justify-center shrink-0">
+            <core-currency-img
+              :currency="priceData.volume.highestVolumeCurrency"
+            />
+          </div>
         </div>
       </div>
     </template>
@@ -87,11 +129,7 @@
     <item-quick-price
       class="flex-1 text-base justify-center"
       currency-text
-      :item-img="
-        item.info.icon === '%NOT_FOUND%' || item.info.icon === ''
-          ? '/images/404.png'
-          : item.info.icon
-      "
+      :item-img="item.info.icon"
       :item-base="item.info"
     />
   </div>
@@ -100,13 +138,21 @@
 <script lang="ts">
 import { defineComponent, PropType, computed, watch } from "vue";
 import { useI18nNs } from "@/web/i18n";
-import { usePoeninja } from "@/web/background/Prices";
+import {
+  CurrencyValue,
+  displayRounding,
+  usePoeninja,
+} from "@/web/background/Prices";
 import { isValuableBasetype, getDetailsId } from "./getDetailsId";
 import ItemQuickPrice from "@/web/ui/ItemQuickPrice.vue";
 import VueApexcharts from "vue3-apexcharts";
 import { ParsedItem } from "@/parser";
 import { artificialSlowdown } from "../trade/artificial-slowdown";
 import { ItemFilters } from "../filters/interfaces";
+import { AppConfig } from "@/web/Config";
+import { PriceCheckWidget } from "@/web/overlay/interfaces";
+import UiItemImg from "@/web/ui/UiItemImg.vue";
+import CoreCurrencyImg from "@/web/ui/CoreCurrencyImg.vue";
 
 const slowdown = artificialSlowdown(800);
 
@@ -114,6 +160,8 @@ export default defineComponent({
   components: {
     ItemQuickPrice,
     VueApexcharts,
+    UiItemImg,
+    CoreCurrencyImg,
   },
   props: {
     item: {
@@ -129,6 +177,10 @@ export default defineComponent({
     const { t } = useI18nNs("trade_result");
     const { findPriceByQuery, autoCurrency } = usePoeninja();
 
+    const volumeSetting = computed(
+      () => AppConfig<PriceCheckWidget>("price-check")!.currencyVolume,
+    );
+
     watch(
       () => props.item,
       (item) => {
@@ -137,37 +189,66 @@ export default defineComponent({
       { immediate: true },
     );
 
-    const trend = computed(() => {
+    const priceData = computed(() => {
       const detailsId = getDetailsId(props.item);
-      const trend = detailsId && findPriceByQuery(detailsId);
-      if (!trend) return;
+      const entry = detailsId && findPriceByQuery(detailsId);
+      if (!entry) return;
+      const price = autoCurrency(
+        entry.primaryValue,
+        props.item.info.refName === "Divine Orb",
+      );
 
-      const price =
-        props.item.info.refName === "Divine Orb"
-          ? {
-              min: trend.exalted,
-              max: trend.exalted,
-              currency: "exalted" as const,
-            }
-          : autoCurrency(trend.exalted);
-
-      return {
+      const data: {
+        price: CurrencyValue;
+        change?: {
+          graph: { points: number[]; drawMin: number; drawMax: number };
+          forecast: string;
+          text: string;
+        } | null;
+        url: string;
+        volume?: {
+          currency: string;
+          primaryVolumePerHour: string;
+          itemsPerHour: string;
+          highestVolumeCurrency: string;
+        };
+      } = {
         price,
-        change: trend.graph ? deltaFromGraph(trend.graph) : undefined,
-        url: trend.url,
+        change: entry.sparkline.data
+          ? deltaFromGraph(entry.sparkline.data)
+          : undefined,
+        url: entry.url,
       };
+
+      if ("volumePrimaryValue" in entry) {
+        const perHour = autoCurrency(entry.volumePrimaryValue);
+
+        const itemsPerHour =
+          perHour!.min /
+          (perHour!.currency === "div" ? entry.primaryValue : price.min);
+
+        data.volume = {
+          currency: perHour!.currency,
+          primaryVolumePerHour: displayRounding(perHour!.min),
+          itemsPerHour: displayRounding(itemsPerHour!, false, true),
+          highestVolumeCurrency: entry.maxVolumeCurrency,
+        };
+      }
+
+      return data;
     });
 
     return {
       t,
-      trend,
+      priceData,
       openNinja() {
-        window.open(trend.value!.url);
+        window.open(priceData.value!.url);
       },
       isValuableBasetype: computed(() => {
         return isValuableBasetype(props.item);
       }),
       slowdown,
+      volumeSetting,
     };
   },
 });

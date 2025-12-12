@@ -319,8 +319,8 @@ function selectItem(
   const isAdded = addItem({
     info: item,
     discr: opts.altQuality,
-    chaos: price?.exalted,
-    price: price != null ? autoCurrency(price.exalted) : undefined,
+    chaos: price?.primaryValue,
+    price: price != null ? autoCurrency(price.primaryValue) : undefined,
   });
   if (isAdded && opts.withTimeout) {
     showTimeout.value?.reset();

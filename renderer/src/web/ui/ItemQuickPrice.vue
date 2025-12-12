@@ -2,7 +2,7 @@
   <div class="flex items-center gap-x-1">
     <slot name="item">
       <div class="flex items-center justify-center shrink-0" :class="imgSize">
-        <img :src="itemImg" class="max-w-full max-h-full overflow-hidden" />
+        <ui-item-img :icon="itemImg" overflow-hidden />
       </div>
     </slot>
     <i class="fas fa-arrow-right text-gray-600 px-1 text-sm"></i>
@@ -40,6 +40,11 @@
         src="/images/chaos.png"
         class="max-w-full max-h-full"
       />
+      <img
+        v-else-if="price?.currency === 'annul'"
+        src="/images/annul.png"
+        class="max-w-full max-h-full"
+      />
       <img v-else src="/images/exa.png" class="max-w-full max-h-full" />
     </div>
   </div>
@@ -49,14 +54,18 @@
 import { defineComponent, computed, PropType } from "vue";
 import { displayRounding } from "../background/Prices";
 import { ITEM_BY_REF, BaseType } from "@/assets/data";
+import UiItemImg from "./UiItemImg.vue";
 
 export default defineComponent({
+  components: {
+    UiItemImg,
+  },
   props: {
     price: {
       type: Object as PropType<{
         min: number;
         max: number;
-        currency: "chaos" | "div" | "exalted";
+        currency: string;
       }>,
       default: undefined,
     },
@@ -93,7 +102,7 @@ export default defineComponent({
       if (!props.itemBase) return "w-8 h-8";
 
       const base = props.itemBase.unique
-        ? ITEM_BY_REF("ITEM", props.itemBase.unique.base)![0] // ITEM_BY_REF("ITEM", props.itemBase.unique.base)![0]
+        ? ITEM_BY_REF("ITEM", props.itemBase.unique.base)![0]
         : props.itemBase;
 
       const width = base.w ?? 1;

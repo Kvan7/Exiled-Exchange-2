@@ -102,7 +102,15 @@
     "has_elemental_fire_affix": "Fire",
     "has_elemental_cold_affix": "Cold",
     "has_elemental_lightning_affix": "Lightning",
-    "rarity_magic": "稀有度: 魔法"
+    "rarity_magic": "稀有度: 魔法",
+    "map_revives": "可用的復活數: {0}",
+    "map_pack_size": "怪物群大小: +{0}%",
+    "map_magic_monsters": "魔法怪物: +{0}%",
+    "map_rare_monsters": "稀有怪物: +{0}%",
+    "map_drop_chance": "換界石掉落機率: +{0}%",
+    "map_item_rarity": "物品稀有度: +{0}%",
+    "map_gold": "找到黃金: +{0}%",
+    "uses_remaining": "還能夠使用{0}次。"
   },
   "item_category": {
     "prop": "類別：{0}",
@@ -155,6 +163,7 @@
     "selected_some": "已選擇：{0}/{1}，屬性",
     "selected_none": "忽略屬性",
     "hidden_toggle": "隱藏",
+    "hidden_explicit_toggle": "隨機",
     "collapse": "折疊",
     "mods_toggle": "修改詞綴",
     "empty": "未找到相關屬性",
@@ -171,6 +180,8 @@
     "hide_empty_mod": "僅在物品有 6 個詞綴（其中 1 個已製作）或有 5 個詞綴時選擇",
     "hide_low_ilvl": "Item has too low an item level to roll all mods",
     "hide_not_max_level": "Non max level granted skills rarely add value",
+    "hide_for_map": "Most map modifiers have no value",
+    "hide_revives": "Select only if not 0 and don't want to exalt it?",
     "tag_implicit": "隨機",
     "tag_fractured": "破裂",
     "tag_crafted": "已製作",
@@ -330,7 +341,8 @@
     "stack": "堆疊",
     "fix_complex_query": "請在設定中禁用\"偽屬性\"選項，或通過內置瀏覽器登錄。",
     "likely_price_fixed": "Mostly non-standard currency: ",
-    "filter_exalt_divine": "Filter by Exalt/Divine"
+    "filter_exalt_divine": "Filter by Exalt/Divine",
+    "highest_volume": "Highest volume:"
   },
   "settings": {
     "title": "設置 - 流亡交易所 2",
@@ -372,7 +384,9 @@
     "tip_frequency_5": "非常少",
     "tip_frequency_6": "從不",
     "tips_header": "循環查看所有提示：",
-    "tip_number_header": "提示 #{0}"
+    "tip_number_header": "提示 #{0}",
+    "read_client_log": "Allow reading of Client.txt file",
+    "client_log_explain": "Client.txt log file contains debugging info and chat logs. This is used to detect zone changes and player level ups."
   },
   "price_check": {
     "name": "價格檢查",
@@ -404,7 +418,9 @@
     "tier_numbering_help": "為了減少因遊戲內命名衝突而導致的混淆，POE1的層級將使用\"Grade\"而非\"Tier\"來命名。",
     "always_show_tier": "始終顯示階級",
     "remember_ratio": "記住通貨比例",
-    "open_editor_above": "Open rune socket selector upwards"
+    "open_editor_above": "Open rune socket selector upwards",
+    "core_currency": "Primary base currency:",
+    "show_volume": "Show Currency Exchange volume per hour:"
   },
   "poe2_new": {
     "beta_warning": "這是 POE2 的測試版，某些功能可能無法正常運作。",
@@ -447,5 +463,13 @@
     "tip_28": "你可以在設定中更改聯盟。",
     "tip_29": "你可以在設定中添加自定義聊天命令快捷鍵。",
     "tip_30": "我們不談論 Exiled Exchange 1。"
+  },
+  "leveling": {
+    "name": "Leveling",
+    "enable_read_client_logs": "Leveling widgets require allowing reading of client logs",
+    "exp_tracking": "Experience Tracker",
+    "show_exp": "Show experience gain percentage",
+    "exp_tracking_help_tldr": "TLDR: try to keep 'Over' at 0 or 1",
+    "exp_tracking_help": "XP tracking widget shows your current level, current experience multiplier, and how close you are to being under-leveled. XP penalty is applied immediately if you are over-leveled, and when you are under-leveled by \u230A level/16 + 3 \u230B. The 'Over' is how many levels the your current level is over the bottom of the 'safe zone', generally 0 or 1 means you are killing the highest level monsters you can without incurring the under-leveled penalty"
   }
 }

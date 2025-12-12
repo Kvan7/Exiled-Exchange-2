@@ -149,10 +149,11 @@ export interface Config {
   enableAlphas: boolean;
   alphas: [];
   tipsFrequency: TipsFrequency;
+  readClientLog: boolean; // default to false, opt-in only
 }
 
 export const defaultConfig = (): Config => ({
-  configVersion: 28,
+  configVersion: 29,
   overlayKey: "Shift + Space",
   overlayBackground: "rgba(129, 139, 149, 0.15)",
   overlayBackgroundClose: true,
@@ -220,9 +221,10 @@ export const defaultConfig = (): Config => ({
     },
     [],
   ),
-  enableAlphas: false,
+  enableAlphas: false, // default to false, opt-in only
   alphas: [],
   tipsFrequency: TipsFrequency.Normal,
+  readClientLog: false, // default to false, opt-in only
 });
 
 function upgradeConfig(_config: Config): Config {
@@ -593,6 +595,31 @@ function upgradeConfig(_config: Config): Config {
 
     config.configVersion = 28;
   }
+  if (config.configVersion < 29) {
+    // NOTE: v0.13.0 || poe0.4.0
+    const itemSearchId: number = config.widgets.find(
+      (w) => w.wmType === "item-search",
+    )!.wmId;
+    // splicing to insert after the item-search widget, for positioning on the main overlay
+    config.widgets.splice(itemSearchId, 0, {
+      ...defaultConfig().widgets.find(
+        (w) => w.wmType === "experience-tracker",
+      )!,
+      wmId: Math.max(0, ...config.widgets.map((_) => _.wmId)) + 1,
+    });
+
+    config.tipsFrequency = TipsFrequency.Never;
+
+    const priceCheck = config.widgets.find(
+      (w) => w.wmType === "price-check",
+    ) as widget.PriceCheckWidget;
+    priceCheck.coreCurrency = "exalted";
+    priceCheck.currencyVolume = "both";
+
+    config.readClientLog = false; // default to false, opt-in only
+
+    config.configVersion = 29;
+  }
   return config as unknown as Config;
 }
 
@@ -732,5 +759,6 @@ function getConfigForHost(): HostConfig {
     logKeys: config.logKeys,
     windowTitle: config.windowTitle,
     language: config.language,
+    readClientLog: config.readClientLog,
   };
 }

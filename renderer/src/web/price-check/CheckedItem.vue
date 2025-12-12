@@ -3,7 +3,7 @@
     <filter-name :filters="itemFilters" :item="item" />
     <!-- <price-prediction v-if="showPredictedPrice" class="mb-4" :item="item" /> -->
     <!-- <price-trend v-else :item="item" :filters="itemFilters" /> -->
-    <!-- <price-trend :item="item" :filters="itemFilters" /> -->
+    <price-trend :item="item" :filters="itemFilters" />
     <filters-block
       ref="filtersComponent"
       :filters="itemFilters"
@@ -205,6 +205,10 @@ export default defineComponent({
           itemStats.value,
           itemFilters.value,
         );
+
+        if (tradeAPI.value === "bulk") {
+          itemFilters.value.trade.listingType = "online";
+        }
       },
       { immediate: true, deep: true },
     );

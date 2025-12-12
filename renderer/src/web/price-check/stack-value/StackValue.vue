@@ -1,5 +1,8 @@
 <template>
-  <div v-if="show" class="p-2 border-2 border-gray-600 rounded mt-2">
+  <div
+    v-if="show"
+    class="p-2 border-dashed border border-gray-600 rounded mt-2"
+  >
     <div class="flex text-gray-400 leading-none">
       <div class="w-1/2">
         {{ t("trade_result.you_have") }} <span class="font-sans">×</span>
@@ -42,14 +45,7 @@ export default defineComponent({
     function getPriceFor(n: number) {
       const one = findPriceByQuery(getDetailsId(props.item)!)!;
 
-      const price =
-        props.item.info.refName === "Divine Orb"
-          ? {
-              min: n * one.exalted,
-              max: n * one.exalted,
-              currency: "exalted" as const,
-            }
-          : autoCurrency(n * one.exalted);
+      const price = autoCurrency(n * one.primaryValue);
 
       return `${displayRounding(price.min)} ${price.currency}`;
     }

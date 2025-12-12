@@ -45,13 +45,6 @@ export class OverlayWindow {
       },
     };
 
-    // Linux/X11: Special window configuration
-    if (process.platform === "linux") {
-      windowOpts.skipTaskbar = true;
-      windowOpts.focusable = true;
-      windowOpts.type = "notification"; // Best balance of focus handling and stability
-    }
-
     this.window = new BrowserWindow(windowOpts);
 
     this.window.setMenu(
@@ -72,12 +65,7 @@ export class OverlayWindow {
 
     this.window.webContents.setWindowOpenHandler((details) => {
       shell.openExternal(details.url);
-      // Linux: Return focus to game after external link
-      if (process.platform === "linux") {
-        setTimeout(() => {
-          OverlayController.focusTarget();
-        }, 100);
-      }
+
       return { action: "deny" };
     });
   }
@@ -104,7 +92,6 @@ export class OverlayWindow {
       this.isInteractable = true;
       // Linux needs explicit focus management
       if (process.platform === "linux" && this.window) {
-        this.window.setFocusable(true);
         this.window.focus();
       }
       OverlayController.activateOverlay();
@@ -117,7 +104,7 @@ export class OverlayWindow {
       this.isInteractable = false;
       // Linux needs to release focus explicitly
       if (process.platform === "linux" && this.window) {
-        this.window.setFocusable(false);
+        this.window.blur();
       }
       OverlayController.focusTarget();
       this.poeWindow.isActive = true;

@@ -1,0 +1,521 @@
+[
+  // Fragments
+  {
+    "query": [
+      "ITEM::Primary Calamity Fragment",
+      "ITEM::Secondary Calamity Fragment",
+      "ITEM::Tertiary Calamity Fragment"
+    ],
+    "items": [
+      "GEM::Arbiter's Ignition",
+      "ITEM::The Arbiter's Reliquary Key",
+      "UNIQUE::Prism of Belief // Diamond",
+      "UNIQUE::Sacred Flame // Shrine Sceptre",
+      "UNIQUE::Ab Aeterno // Grand Cuisses",
+      "UNIQUE::Sine Aequo // Grand Manchettes",
+      "UNIQUE::Solus Ipse // Grand Visage",
+      "UNIQUE::Morior Invictus // Grand Regalia"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Ancient Crisis Fragment",
+      "ITEM::Weathered Crisis Fragment",
+      "ITEM::Faded Crisis Fragment"
+    ],
+    "items": [
+      "GEM::Arbiter's Ignition",
+      "ITEM::The Arbiter's Reliquary Key",
+      "UNIQUE::Prism of Belief // Diamond",
+      "UNIQUE::Sacred Flame // Shrine Sceptre",
+      "UNIQUE::Ab Aeterno // Grand Cuisses",
+      "UNIQUE::Sine Aequo // Grand Manchettes",
+      "UNIQUE::Solus Ipse // Grand Visage",
+      "UNIQUE::Morior Invictus // Grand Regalia"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Deadly Fate",
+      "ITEM::Victorious Fate",
+      "ITEM::Cowardly Fate"
+    ],
+    "items": [
+      "GEM::Ixchel's Torment",
+      "ITEM::The Trialmaster's Reliquary Key",
+      "UNIQUE::The Adorned // Diamond",
+      "UNIQUE::Hateforge // Moulded Mitts",
+      "UNIQUE::Mahuxotl's Machination // Omen Crest Shield",
+      "UNIQUE::Zerphi's Genesis // Heavy Belt",
+      "UNIQUE::Glimpse of Chaos // Tribal Mask"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Kulemak's Invitation"
+    ],
+    "items": [
+      "GEM::Tecrod's Revenge",
+      "UNIQUE::Undying Hate // Timeless Jewel",
+      "UNIQUE::Darkness Enthroned // Fine Belt",
+      "UNIQUE::The Unborn Lich // Ravenous Staff"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Runic Splinter"
+    ],
+    "items": [
+      "GEM::Uhtred's Augury",
+      "GEM::Uhtred's Exodus",
+      "GEM::Uhtred's Omen",
+      "ITEM::Olroth's Reliquary Key",
+      "UNIQUE::Olrovasara // Torment Club",
+      "UNIQUE::Keeper of the Arc // Spiritbone Crown",
+      "UNIQUE::Svalinn // Crucible Tower Shield",
+      "UNIQUE::Heroic Tragedy // Timeless Jewel",
+      "UNIQUE::Olroth's Resolve // Ultimate Life Flask"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Breach Splinter"
+    ],
+    "items": [
+      "GEM::Xoph's Pyre",
+      "GEM::Tul's Stillness",
+      "GEM::Esh's Radiance",
+      "GEM::Uul-Netol's Embrace",
+      "ITEM::Xesht's Reliquary Key",
+      "UNIQUE::Beyond Reach // Visceral Quiver",
+      "UNIQUE::Xoph's Blood // Amber Amulet",
+      "UNIQUE::The Pandemonius // Lapis Amulet",
+      "UNIQUE::Choir of the Storm // Jade Amulet",
+      "UNIQUE::Hand of Wisdom and Action // Spiral Wraps",
+      "UNIQUE::Skin of the Loyal // Garment",
+      "UNIQUE::Controlled Metamorphosis // Diamond"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Petition Splinter"
+    ],
+    "items": [
+      "ITEM::Ritualistic Reliquary Key",
+      "UNIQUE::Pragmatism // Explorer Armour",
+      "UNIQUE::The Burden of Shadows // Chiming Staff",
+      "UNIQUE::Ingenuity // Utility Belt",
+      "UNIQUE::From Nothing // Diamond",
+      "UNIQUE::Beetlebite // Velour Shoes"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Simulacrum Splinter"
+    ],
+    "items": [
+      "ITEM::Tangmazu's Reliquary Key",
+      "UNIQUE::Megalomaniac // Diamond",
+      "UNIQUE::Strugglescream // Stellar Amulet",
+      "UNIQUE::Melting Maelstrom // Ultimate Mana Flask",
+      "UNIQUE::Collapsing Horizon // Wyrm Quarterstaff",
+      "UNIQUE::Perfidy // Knight Armour",
+      "UNIQUE::Assailum // Closed Helm"
+    ]
+  },
+  {
+    "query": [
+      "GEM::Rakiata's Flow",
+      "GEM::Kaom's Madness",
+      "GEM::Tawhoa's Tending"
+    ],
+    "items": []
+  },
+  {
+    "query": [
+      "ITEM::Idol of Estazunti"
+    ],
+    "items": [
+      "GEM::Atziri's Allure",
+      "GEM::Atalui's Bloodletting",
+      "GEM::Paquate's Pact"
+    ]
+  },
+  {
+    "query": [
+      "GEM::Atziri's Allure",
+      "GEM::Atalui's Bloodletting",
+      "GEM::Paquate's Pact"
+    ],
+    "items": []
+  },
+  {
+    "query": [
+      "GEM::Zarokh's Refrain",
+      "GEM::Garukhan's Resolve",
+      "GEM::Varashta's Blessing"
+    ],
+    "items": []
+  },
+  {
+    "query": [
+      "GEM::Einhar's Beastrite",
+      "GEM::Rigwald's Ferocity",
+      "GEM::Ailith's Chimes"
+    ],
+    "items": []
+  },
+  {
+    "query": [
+      "GEM::Techrod's Revenge",
+      "GEM::Kulemak's Dominion",
+      "GEM::Kurgal's Leash"
+    ],
+    "items": []
+  },
+  // Reliquary Keys
+  {
+    "query": [
+      "ITEM::Tangmazu's Reliquary Key"
+    ],
+    "items": [
+      "UNIQUE::Megalomaniac // Diamond",
+      "UNIQUE::Strugglescream // Stellar Amulet",
+      "UNIQUE::Melting Maelstrom // Ultimate Mana Flask",
+      "UNIQUE::Collapsing Horizon // Wyrm Quarterstaff",
+      "UNIQUE::Perfidy // Knight Armour",
+      "UNIQUE::Assailum // Closed Helm"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::The Arbiter's Reliquary Key"
+    ],
+    "items": [
+      "UNIQUE::Prism of Belief // Diamond",
+      "UNIQUE::Sacred Flame // Shrine Sceptre",
+      "UNIQUE::Ab Aeterno // Grand Cuisses",
+      "UNIQUE::Sine Aequo // Grand Manchettes",
+      "UNIQUE::Solus Ipse // Grand Visage",
+      "UNIQUE::Morior Invictus // Grand Regalia"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::The Trialmaster's Reliquary Key"
+    ],
+    "items": [
+      "UNIQUE::The Adorned // Diamond",
+      "UNIQUE::Hateforge // Moulded Mitts",
+      "UNIQUE::Mahuxotl's Machination // Omen Crest Shield",
+      "UNIQUE::Zerphi's Genesis // Heavy Belt",
+      "UNIQUE::Glimpse of Chaos // Tribal Mask"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Olroth's Reliquary Key"
+    ],
+    "items": [
+      "UNIQUE::Olrovasara // Torment Club",
+      "UNIQUE::Keeper of the Arc // Spiritbone Crown",
+      "UNIQUE::Svalinn // Crucible Tower Shield",
+      "UNIQUE::Heroic Tragedy // Timeless Jewel",
+      "UNIQUE::Olroth's Resolve // Ultimate Life Flask"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Xesht's Reliquary Key"
+    ],
+    "items": [
+      "UNIQUE::Beyond Reach // Visceral Quiver",
+      "UNIQUE::Xoph's Blood // Amber Amulet",
+      "UNIQUE::The Pandemonius // Lapis Amulet",
+      "UNIQUE::Choir of the Storm // Jade Amulet",
+      "UNIQUE::Hand of Wisdom and Action // Spiral Wraps",
+      "UNIQUE::Skin of the Loyal // Garment",
+      "UNIQUE::Controlled Metamorphosis // Diamond"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Ritualistic Reliquary Key"
+    ],
+    "items": [
+      "UNIQUE::Pragmatism // Explorer Armour",
+      "UNIQUE::The Burden of Shadows // Chiming Staff",
+      "UNIQUE::Ingenuity // Utility Belt",
+      "UNIQUE::From Nothing // Diamond",
+      "UNIQUE::Beetlebite // Velour Shoes"
+    ]
+  },
+  // Currency Groups
+  {
+    "query": [
+      "ITEM::Concentrated Liquid Isolation",
+      "ITEM::Concentrated Liquid Suffering",
+      "ITEM::Concentrated Liquid Fear",
+      "ITEM::Liquid Despair",
+      "ITEM::Liquid Disgust",
+      "ITEM::Liquid Envy",
+      "ITEM::Liquid Paranoia",
+      "ITEM::Diluted Liquid Greed",
+      "ITEM::Diluted Liquid Guilt",
+      "ITEM::Diluted Liquid Ire"
+    ],
+    "items": [
+      "ITEM::Simulacrum Splinter"
+    ]
+  },
+  // Check how this looks on UI may be too long
+  {
+    "query": [
+      "ITEM::Adaptive Catalyst",
+      "ITEM::Carapace Catalyst",
+      "ITEM::Chayula's Catalyst",
+      "ITEM::Esh's Catalyst",
+      "ITEM::Flesh Catalyst",
+      "ITEM::Neural Catalyst",
+      "ITEM::Reaver Catalyst",
+      "ITEM::Sibilant Catalyst",
+      "ITEM::Skittering Catalyst",
+      "ITEM::Tul's Catalyst",
+      "ITEM::Uul-Netol's Catalyst",
+      "ITEM::Xoph's Catalyst"
+    ],
+    "items": []
+  },
+  {
+    "query": [
+      "ITEM::Exotic Coinage",
+      "ITEM::Black Scythe Artifact",
+      "ITEM::Sun Artifact",
+      "ITEM::Broken Circle Artifact",
+      "ITEM::Order Artifact"
+    ],
+    "items": []
+  },
+  // Tiered Currencies
+  {
+    "query": [
+      "ITEM::Chaos Orb",
+      "ITEM::Greater Chaos Orb",
+      "ITEM::Perfect Chaos Orb"
+    ],
+    "items": []
+  },
+  {
+    "query": [
+      "ITEM::Exalted Orb",
+      "ITEM::Greater Exalted Orb",
+      "ITEM::Perfect Exalted Orb"
+    ],
+    "items": []
+  },
+  {
+    "query": [
+      "ITEM::Regal Orb",
+      "ITEM::Greater Regal Orb",
+      "ITEM::Perfect Regal Orb"
+    ],
+    "items": []
+  },
+  {
+    "query": [
+      "ITEM::Orb of Augmentation",
+      "ITEM::Greater Orb of Augmentation",
+      "ITEM::Perfect Orb of Augmentation"
+    ],
+    "items": []
+  },
+  {
+    "query": [
+      "ITEM::Orb of Transmutation",
+      "ITEM::Greater Orb of Transmutation",
+      "ITEM::Perfect Orb of Transmutation"
+    ],
+    "items": []
+  },
+  {
+    "query": [
+      "ITEM::Lesser Jeweller's Orb",
+      "ITEM::Greater Jeweller's Orb",
+      "ITEM::Perfect Jeweller's Orb"
+    ],
+    "items": []
+  },
+  // Crafting items commonly used together
+  {
+    "query": [
+      "ITEM::Omen of Abyssal Echoes"
+    ],
+    "items": [
+      "ITEM::Omen of Light",
+      "ITEM::Orb of Annulment"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Ancient Collarbone",
+      "ITEM::Ancient Jawbone",
+      "ITEM::Ancient Rib",
+      "ITEM::Preserved Cranium",
+      "ITEM::Preserved Vertebrae"
+    ],
+    "items": [
+      "ITEM::Omen of Dextral Necromancy",
+      "ITEM::Omen of Sinistral Necromancy",
+      "ITEM::Omen of the Blackblooded",
+      "ITEM::Omen of the Liege",
+      "ITEM::Omen of the Sovereign"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Omen of Dextral Necromancy",
+      "ITEM::Omen of Sinistral Necromancy",
+      "ITEM::Omen of the Blackblooded",
+      "ITEM::Omen of the Liege",
+      "ITEM::Omen of the Sovereign"
+    ],
+    "items": [
+      "ITEM::Ancient Collarbone",
+      "ITEM::Ancient Jawbone",
+      "ITEM::Ancient Rib",
+      "ITEM::Preserved Cranium",
+      "ITEM::Preserved Vertebrae"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Orb of Annulment",
+      "ITEM::Omen of Light",
+      "ITEM::Omen of Dextral Annulment",
+      "ITEM::Omen of Sinistral Annulment"
+    ],
+    "items": []
+  },
+  {
+    "query": [
+      "ITEM::Omen of Sanctification"
+    ],
+    "items": [
+      "ITEM::Divine Orb",
+      "ITEM::Hinekora's Lock"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Orb of Chance",
+      "ITEM::Omen of Chance",
+      "ITEM::Omen of the Ancients"
+    ],
+    "items": [
+      "UNIQUE::Headhunter // Heavy Belt",
+      "UNIQUE::Astramentis // Stellar Amulet"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Omen of Chaotic Rarity",
+      "ITEM::Omen of Chaotic Quantity",
+      "ITEM::Omen of Chaotic Monsters"
+    ],
+    "items": [
+      "ITEM::Chaos Orb"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Omen of Whittling",
+      "ITEM::Omen of Sinistral Erasure",
+      "ITEM::Omen of Dextral Erasure"
+    ],
+    "items": [
+      "ITEM::Chaos Orb",
+      "ITEM::Greater Chaos Orb",
+      "ITEM::Perfect Chaos Orb"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Omen of Homogenising Exaltation",
+      "ITEM::Omen of Catalysing Exaltation",
+      "ITEM::Omen of Sinistral Exaltation",
+      "ITEM::Omen of Dextral Exaltation",
+      "ITEM::Omen of Greater Exaltation"
+    ],
+    "items": [
+      "ITEM::Exalted Orb",
+      "ITEM::Greater Exalted Orb",
+      "ITEM::Perfect Exalted Orb"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Omen of Sinistral Crystallisation",
+      "ITEM::Omen of Dextral Crystallisation"
+    ],
+    "items": []
+  },
+  // Trials
+  {
+    "query": [
+      "ITEM::Inscribed Ultimatum"
+    ],
+    "items": [
+      "ITEM::Deadly Fate",
+      "ITEM::Victorious Fate",
+      "ITEM::Cowardly Fate"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Djinn Barya"
+    ],
+    "items": [
+      "UNIQUE::The Last Flam // Incense Relic",
+      "UNIQUE::The Changing Seasons // Seal Relic",
+      "UNIQUE::The Desperate Alliance // Vase Relic",
+      "UNIQUE::The Peacemaker's Draught // Amphora Relic",
+      "UNIQUE::The Burden of Leadership // Tapestry Relic"
+    ]
+  },
+  {
+    "query": [
+      "UNIQUE::The Last Flam // Incense Relic"
+    ],
+    "items": [
+      "UNIQUE::Temporalis // Silk Robe",
+      "ITEM::Zarokh's Reliquary Key: Temporalis"
+    ]
+  },
+  {
+    "query": [
+      "UNIQUE::The Changing Seasons // Seal Relic"
+    ],
+    "items": [
+      "UNIQUE::Sandstorm Visage // Chain Tiara",
+      "ITEM::Zarokh's Reliquary Key: Sandstorm Visage"
+    ]
+  },
+  {
+    "query": [
+      "UNIQUE::The Desperate Alliance // Vase Relic"
+    ],
+    "items": [
+      "UNIQUE::Against the Darkness // Time-Lost Diamond",
+      "ITEM::Zarokh's Reliquary Key: Against the Darkness"
+    ]
+  },
+  {
+    "query": [
+      "UNIQUE::The Burden of Leadership // Tapestry Relic"
+    ],
+    "items": [
+      "UNIQUE::Sekhema's Resolve // Ring",
+      "ITEM::Zarokh's Reliquary Key: Sekhema's Resolve"
+    ]
+  }
+]

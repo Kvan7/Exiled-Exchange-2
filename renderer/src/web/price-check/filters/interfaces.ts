@@ -78,10 +78,11 @@ export interface ItemFilters {
   areaLevel?: FilterNumeric;
   heistWingsRevealed?: FilterNumeric;
   sentinelCharge?: FilterNumeric;
+  usesRemaining?: FilterNumeric;
   trade: {
     offline: boolean;
     onlineInLeague: boolean;
-    listingType: "any" | "online" | "securable" | "available";
+    listingType: "any" | "online" | "securable" | "available" | "onlineleague";
     listed: string | undefined;
     currency: string | undefined;
     league: string;
@@ -155,6 +156,13 @@ export const INTERNAL_TRADE_IDS = [
   "item.has_elemental_lightning_affix",
   "item.reload_time",
   "item.rarity_magic",
+  "item.map_revives",
+  "item.map_pack_size",
+  "item.map_drop_chance",
+  "item.map_item_rarity",
+  "item.map_magic_monsters",
+  "item.map_rare_monsters",
+  "item.map_gold",
 ] as const;
 
 export type InternalTradeId = (typeof INTERNAL_TRADE_IDS)[number];

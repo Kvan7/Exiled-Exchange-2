@@ -61,6 +61,7 @@ export enum ItemCategory {
   Flail = "Flail",
   Buckler = "Buckler",
   MapFragment = "MapFragment",
+  Talisman = "Talisman",
 }
 
 export const WEAPON_ONE_HANDED_MELEE = new Set([
@@ -85,6 +86,7 @@ export const WEAPON_TWO_HANDED_MELEE = new Set([
   ItemCategory.TwoHandedMace,
   ItemCategory.TwoHandedSword,
   ItemCategory.Warstaff,
+  ItemCategory.Talisman,
 ]);
 
 export const MARTIAL_WEAPON = new Set([

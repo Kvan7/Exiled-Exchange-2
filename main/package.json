@@ -1,6 +1,6 @@
 {
   "name": "exiled-exchange-2",
-  "version": "0.12.8",
+  "version": "0.13.0",
   "private": true,
   "scripts": {
     "dev": "node build/script.mjs",
@@ -8,6 +8,7 @@
     "package": "electron-builder build",
     "lint": "eslint src",
     "fix": "eslint src --fix",
+    "check-types": "tsc --noemit",
     "format": "prettier . --write "
   },
   "author": {
