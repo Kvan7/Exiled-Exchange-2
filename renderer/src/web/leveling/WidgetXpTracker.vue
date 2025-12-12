@@ -1,5 +1,10 @@
 <template>
-  <Widget :config="config" :removable="false" move-handles="top-bottom">
+  <Widget
+    :config="config"
+    :removable="false"
+    :inline-edit="false"
+    move-handles="top-bottom"
+  >
     <div
       class="min-h-10"
       :class="[
@@ -23,9 +28,26 @@
       <div v-if="config.showExp">
         Exp
         {{ areaLevel > 70 || characterLevel >= 95 ? "*" : "" }}:
-        {{ expPenalty }}%
+        <span
+          class="font-semibold"
+          :class="{
+            'text-red-600': expPenalty !== '100.0',
+            'text-green-600': expPenalty === '100.0',
+          }"
+          >{{ expPenalty }}%</span
+        >
       </div>
-      <div>Over: {{ overIdeal }}</div>
+      <div>
+        Over:
+        <span
+          class="font-semibold"
+          :class="{
+            'text-red-600': overIdeal < 0,
+            'text-green-600': overIdeal === 0 || overIdeal === 1,
+          }"
+          >{{ overIdeal }}</span
+        >
+      </div>
     </div>
   </Widget>
 </template>
