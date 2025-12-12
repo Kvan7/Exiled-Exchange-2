@@ -382,7 +382,7 @@ function splitJsonBlob(jsonBlob: string): PriceDatabase {
     { ns: "ITEM", cx: true, url: "abyssal-bones", type: "Abyss" },
     { ns: "ITEM", cx: true, url: "uncut-gems", type: "UncutGems" },
     {
-      ns: "ITEM",
+      ns: "GEM",
       cx: true,
       url: "lineage-support-gems",
       type: "LineageSupportGems",
