@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { setupTests } from "@specs/vitest.setup";
 import { loadForLang } from "@/assets/data";
-import { handleLine } from "@/web/client-log/client-log";
+import { useClientLog } from "@/web/client-log/client-log";
 
 const log = `
 2025/09/11 18:21:43 167690796 f0c29dd2 [INFO Client 438888] Doodad hash: 1705339803
@@ -42,6 +42,8 @@ describe("clientLog", () => {
   });
 
   it("should parse", () => {
+    const { handleLine } = useClientLog();
+
     for (const line of log.split("\n")) {
       expect(() => {
         handleLine(line);

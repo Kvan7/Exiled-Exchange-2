@@ -33,9 +33,12 @@
       >
     </div>
 
-    <ui-checkbox class="mb-4" v-model="showExp">{{
+    <ui-checkbox class="mb-2" v-model="showExp">{{
       t(":show_exp")
     }}</ui-checkbox>
+    <div class="italic text-gray-500 mb-4">
+      {{ t(":exp_astrict") }}
+    </div>
   </div>
 </template>
 <script lang="ts">

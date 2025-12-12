@@ -17,7 +17,6 @@
     >
       <input
         :class="$style['xpInput']"
-        :placeholder="t('min')"
         min="1"
         max="100"
         step="1"
