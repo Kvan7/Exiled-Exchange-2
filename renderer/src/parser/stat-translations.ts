@@ -63,7 +63,7 @@ export function* linesToStatStrings(
     }
     notParsedLines.push(lines[start]);
   }
-  return notParsedLines;
+  return notParsedLines.filter((line) => line.length);
 }
 
 const PLACEHOLDER_MAP = [
