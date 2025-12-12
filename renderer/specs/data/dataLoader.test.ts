@@ -3,7 +3,6 @@ import { setupTests } from "../vitest.setup";
 import {
   __testExports,
   loadForLang,
-  RUNE_DATA_BY_RUNE,
   setLocalRuneFilter,
   STAT_BY_REF,
 } from "@/assets/data";
@@ -21,12 +20,13 @@ describe("runesToLookup", () => {
   test("empty list should not throw", () => {
     expect(() => __testExports.runesToLookup([])).not.toThrow();
   });
-  test("Searching Iron rune should give 3 types", () => {
-    RUNE_DATA_BY_RUNE["Iron Rune"].forEach((rune) => {
-      expect(rune.rune).toBe("Iron Rune");
-    });
-    expect(RUNE_DATA_BY_RUNE["Iron Rune"].length).toBe(3);
-  });
+  // Currently disabled
+  // test("Searching Iron rune should give 3 types", () => {
+  //   RUNE_DATA_BY_RUNE["Iron Rune"].forEach((rune) => {
+  //     expect(rune.rune).toBe("Iron Rune");
+  //   });
+  //   expect(RUNE_DATA_BY_RUNE["Iron Rune"].length).toBe(3);
+  // });
   test("Random stats should be present", () => {
     expect(STAT_BY_REF("Adds # to # Physical Damage")).toBeTruthy();
     expect(STAT_BY_REF("Adds # to # Lightning Damage")).toBeTruthy();

@@ -7,7 +7,6 @@ import { sumStatsByModType } from "@/parser/modifiers";
 import { ItemCategory, ItemRarity, ParsedItem } from "@/parser";
 import type { FilterPreset } from "./interfaces";
 import { PriceCheckWidget } from "@/web/overlay/widgets";
-import { handleApplyItemEdits } from "./fill-runes";
 import { hasCraftingValue, likelyFinishedItem } from "./common";
 
 const ROMAN_NUMERALS = ["I", "II", "III", "IV", "V"];
@@ -72,19 +71,19 @@ export function createPresets(
   };
 
   // Apply runes if we should
-  if (
-    (item.rarity === ItemRarity.Magic || item.rarity === ItemRarity.Rare) &&
-    pseudoPreset.filters.itemEditorSelection &&
-    !pseudoPreset.filters.itemEditorSelection.disabled &&
-    opts.autoFillEmptyRuneSockets
-  ) {
-    handleApplyItemEdits(
-      pseudoPreset.stats,
-      item,
-      pseudoPreset.filters.tempRuneStorage ?? [],
-      opts.autoFillEmptyRuneSockets ?? "None",
-    );
-  }
+  // if (
+  //   (item.rarity === ItemRarity.Magic || item.rarity === ItemRarity.Rare) &&
+  //   pseudoPreset.filters.itemEditorSelection &&
+  //   !pseudoPreset.filters.itemEditorSelection.disabled &&
+  //   opts.autoFillEmptyRuneSockets
+  // ) {
+  //   handleApplyItemEdits(
+  //     pseudoPreset.stats,
+  //     item,
+  //     pseudoPreset.filters.tempRuneStorage ?? [],
+  //     opts.autoFillEmptyRuneSockets ?? "None",
+  //   );
+  // }
 
   if (likelyFinishedItem(item) || !hasCraftingValue(item)) {
     return { active: pseudoPreset.id, presets: [pseudoPreset] };

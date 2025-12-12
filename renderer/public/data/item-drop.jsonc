@@ -418,16 +418,6 @@
   },
   {
     "query": [
-      "ITEM::Omen of Chaotic Rarity",
-      "ITEM::Omen of Chaotic Quantity",
-      "ITEM::Omen of Chaotic Monsters"
-    ],
-    "items": [
-      "ITEM::Chaos Orb"
-    ]
-  },
-  {
-    "query": [
       "ITEM::Omen of Whittling",
       "ITEM::Omen of Sinistral Erasure",
       "ITEM::Omen of Dextral Erasure"
@@ -440,7 +430,6 @@
   },
   {
     "query": [
-      "ITEM::Omen of Homogenising Exaltation",
       "ITEM::Omen of Catalysing Exaltation",
       "ITEM::Omen of Sinistral Exaltation",
       "ITEM::Omen of Dextral Exaltation",
