@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "check-types": "tsc --noemit",
     "lint": "eslint --ext .ts,.vue src",
     "lint-fix": "eslint --ext .ts,.vue src --fix",
     "format": "prettier . --write ",
