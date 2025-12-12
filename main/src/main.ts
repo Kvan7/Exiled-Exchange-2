@@ -103,7 +103,7 @@ if (process.platform === "darwin") {
                 cfg.restoreClipboard,
                 cfg.language,
               );
-              gameLogWatcher.restart(cfg.clientLog ?? "");
+              gameLogWatcher.restart(cfg.clientLog ?? "", cfg.readClientLog);
               gameConfig.readConfig(cfg.gameConfig ?? "");
               appUpdater.checkAtStartup();
               tray.overlayKey = cfg.overlayKey;
@@ -168,7 +168,7 @@ if (process.platform === "darwin") {
               cfg.restoreClipboard,
               cfg.language,
             );
-            gameLogWatcher.restart(cfg.clientLog ?? "");
+            gameLogWatcher.restart(cfg.clientLog ?? "", cfg.readClientLog);
             gameConfig.readConfig(cfg.gameConfig ?? "");
             appUpdater.checkAtStartup();
             tray.overlayKey = cfg.overlayKey;

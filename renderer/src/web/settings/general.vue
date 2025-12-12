@@ -97,6 +97,12 @@
         class="rounded bg-gray-900 px-1 block w-full mb-1 font-poe"
       />
     </div>
+    <ui-checkbox class="mb-1" v-model="readClientLog">{{
+      t(":read_client_log")
+    }}</ui-checkbox>
+    <div class="italic text-gray-500">
+      {{ t(":client_log_explain") }}
+    </div>
     <div class="mb-4" :class="{ 'p-2 bg-orange-800 rounded': enableAlphas }">
       <ui-checkbox class="mb-4" v-model="enableAlphas">{{
         t(":enable_alphas")
@@ -196,6 +202,7 @@ export default defineComponent({
       ),
       windowTitle: configModelValue(() => props.config, "windowTitle"),
       enableAlphas: configModelValue(() => props.config, "enableAlphas"),
+      readClientLog: configModelValue(() => props.config, "readClientLog"),
     };
   },
 });

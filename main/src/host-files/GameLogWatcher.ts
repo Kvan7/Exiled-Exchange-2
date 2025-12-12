@@ -50,7 +50,17 @@ export class GameLogWatcher {
     private logger: Logger,
   ) {}
 
-  async restart(logFile: string) {
+  async restart(logFile: string, readLog: boolean) {
+    if (!readLog) {
+      this.logger.write("info [GameLogWatcher] disabled");
+      if (this._state) {
+        unwatchFile(this._state.path);
+        await this._state.file.close();
+        this._state = null;
+      }
+      return;
+    }
+
     if (this._wantedPath !== logFile) {
       this._wantedPath = logFile;
       if (this._state) {
@@ -64,9 +74,19 @@ export class GameLogWatcher {
 
     if (!logFile.length) {
       const guessedPath = await guessFileLocation(POSSIBLE_PATH);
-      if (guessedPath != null) {
+      if (guessedPath) {
         logFile = guessedPath;
       } else {
+        if (guessedPath === null) {
+          this.logger.write(
+            "error [GameLogWatcher] Found 2 log files, please enter one into settings:",
+          );
+          for (const path of POSSIBLE_PATH) {
+            this.logger.write(`\n ${path}`);
+          }
+        } else {
+          this.logger.write("error [GameLogWatcher] No log file found");
+        }
         return;
       }
     }

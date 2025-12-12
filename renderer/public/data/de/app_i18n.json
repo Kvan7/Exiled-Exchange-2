@@ -368,7 +368,9 @@
     "tip_frequency_5": "Sehr selten",
     "tip_frequency_6": "Nie",
     "tips_header": "Alle Tipps durchblättern:",
-    "tip_number_header": "Tipp #{0}"
+    "tip_number_header": "Tipp #{0}",
+    "read_client_log": "Allow reading of Client.txt file",
+    "client_log_explain": "Client.txt log file contains debugging info and chat logs. This is used to detect zone changes and player level ups."
   },
   "price_check": {
     "name": "Preisprüfung",
@@ -449,5 +451,15 @@
     "tip_28": "Du kannst deine Liga in den Einstellungen ändern.",
     "tip_29": "Du kannst in den Einstellungen benutzerdefinierte Chat-Befehl-Hotkeys hinzufügen.",
     "tip_30": "Wir reden nicht über Exiled Exchange 1."
+  },
+  "leveling": {
+    "name": "Leveling",
+    "enable_read_client_logs": "Leveling widgets require allowing reading of client logs",
+    "exp_tracking": "Experience Tracker",
+    "show_exp": "Show experience gain percentage",
+    "exp_tracking_help_tldr": "TLDR: try to keep 'Over' at 0 or 1",
+    "exp_tracking_help": "XP tracking widget shows your current level, current experience multiplier, and how close you are to being under-leveled. XP penalty is applied immediately if you are over-leveled, and when you are under-leveled by \u230A level/16 + 3 \u230B. The 'Over' is how many levels the your current level is over the bottom of the 'safe zone', generally 0 or 1 means you are killing the highest level monsters you can without incurring the under-leveled penalty",
+    "exp_inspire": "Based on ",
+    "exp_astrict": "*Experience gain percentages, when over level 95, or monster level over 70, or potentially when not at 100% exp gain, may not be fully tested and accurate."
   }
 }
