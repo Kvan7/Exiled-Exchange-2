@@ -147,6 +147,7 @@
           "
         />
       </div>
+      <!--
       <button
         v-if="
           hasEmptyRuneSockets &&
@@ -176,7 +177,7 @@
           />
         </div>
       </button>
-    </div>
+    --></div>
     <!-- Handled parse error -->
     <div
       v-if="!statsVisibility.disabled && hasStats"
@@ -264,7 +265,6 @@ import UnknownModifier from "./UnknownModifier.vue";
 import { ItemFilters, StatFilter } from "./interfaces";
 import { ParsedItem, ItemRarity, ItemCategory } from "@/parser";
 import FilterBtnDropdown from "./FilterBtnDropdown.vue";
-import { handleApplyItemEdits, handleRemoveItemEdits } from "./fill-runes";
 import { RUNE_DATA_BY_RUNE } from "@/assets/data";
 import { ARMOUR, MARTIAL_WEAPON } from "@/parser/meta";
 
@@ -320,37 +320,37 @@ export default defineComponent({
         ),
     );
     // For handling filling runes
-    watch(
-      () => props.filters.itemEditorSelection?.value,
-      (selected, prev) => {
-        const normalCase = selected !== prev && props.filters.tempRuneStorage;
-        if (normalCase && selected !== undefined) {
-          // If last wasn't empty
-          if (
-            prev !== "None" &&
-            props.filters.tempRuneStorage &&
-            props.filters.tempRuneStorage.length > 0
-          ) {
-            // Remove current rune
-            handleRemoveItemEdits(
-              props.stats,
-              props.item,
-              props.filters.tempRuneStorage!,
-            );
-          }
-          // If we didn't choose empty
-          if (selected !== "None") {
-            // add new rune
-            handleApplyItemEdits(
-              props.stats,
-              props.item,
-              props.filters.tempRuneStorage!,
-              selected,
-            );
-          }
-        }
-      },
-    );
+    // watch(
+    //   () => props.filters.itemEditorSelection?.value,
+    //   (selected, prev) => {
+    //     const normalCase = selected !== prev && props.filters.tempRuneStorage;
+    //     if (normalCase && selected !== undefined) {
+    //       // If last wasn't empty
+    //       if (
+    //         prev !== "None" &&
+    //         props.filters.tempRuneStorage &&
+    //         props.filters.tempRuneStorage.length > 0
+    //       ) {
+    //         // Remove current rune
+    //         handleRemoveItemEdits(
+    //           props.stats,
+    //           props.item,
+    //           props.filters.tempRuneStorage!,
+    //         );
+    //       }
+    //       // If we didn't choose empty
+    //       if (selected !== "None") {
+    //         // add new rune
+    //         handleApplyItemEdits(
+    //           props.stats,
+    //           props.item,
+    //           props.filters.tempRuneStorage!,
+    //           selected,
+    //         );
+    //       }
+    //     }
+    //   },
+    // );
 
     const { t } = useI18n();
 
