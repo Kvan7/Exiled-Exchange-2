@@ -167,6 +167,7 @@
     "selected_full_runes": "Runas llenas",
     "empty_rune_socket": "Vacio en el Casillero de Runas",
     "hidden_toggle": "Oculto",
+    "hidden_explicit_toggle": "explícito",
     "collapse": "Colapsar",
     "mods_toggle": "Modificadores",
     "empty": "No se encontraron estadísticas relevantes",

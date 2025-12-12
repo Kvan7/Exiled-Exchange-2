@@ -163,6 +163,7 @@
     "selected_some": "スタット {1}つの内{0}",
     "selected_none": "スタット無視",
     "hidden_toggle": "非表示",
+    "hidden_explicit_toggle": "明示",
     "collapse": "折りたたむ",
     "mods_toggle": "モッズ",
     "empty": "関連するスタットが見つかりませんでした",

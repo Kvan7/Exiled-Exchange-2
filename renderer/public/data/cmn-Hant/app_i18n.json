@@ -163,6 +163,7 @@
     "selected_some": "已選擇：{0}/{1}，屬性",
     "selected_none": "忽略屬性",
     "hidden_toggle": "隱藏",
+    "hidden_explicit_toggle": "隨機",
     "collapse": "折疊",
     "mods_toggle": "修改詞綴",
     "empty": "未找到相關屬性",

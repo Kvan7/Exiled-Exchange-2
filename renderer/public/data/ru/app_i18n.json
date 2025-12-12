@@ -178,7 +178,8 @@
   "filters": {
     "selected_some": "Св-ва: {0} из {1}",
     "selected_none": "Св-ва не важны",
-    "hidden_toggle": "Скрытые",
+    "hidden_toggle": "свойство",
+    "hidden_explicit_toggle": "Explicit",
     "collapse": "Свернуть",
     "mods_toggle": "Моды",
     "empty": "Подходящие свойства не найдены",

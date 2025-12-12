@@ -234,7 +234,7 @@
           v-if="filteredStats.length != stats.length"
           v-model="showHidden"
           class="text-gray-400 pt-2"
-          >{{ t("filters.hidden_toggle") }}</ui-toggle
+          >{{ t(hiddenLabel) }}</ui-toggle
         >
         <ui-toggle
           v-model="showFilterSources"
@@ -394,6 +394,16 @@ export default defineComponent({
         const icon = RUNE_DATA_BY_RUNE[rune][0].icon;
         return icon === "%NOT_FOUND%" ? "/images/404.png" : icon;
       },
+      hiddenLabel: computed(() => {
+        if (
+          props.item.category === ItemCategory.Map ||
+          props.item.category === ItemCategory.Waystone
+        ) {
+          return t("filters.hidden_explicit_toggle");
+        } else {
+          return t("filters.hidden_toggle");
+        }
+      }),
     };
   },
 });

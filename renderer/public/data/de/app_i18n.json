@@ -167,6 +167,7 @@
     "selected_full_runes": "Runen Voll",
     "empty_rune_socket": "Leerer Runen-Sockel",
     "hidden_toggle": "Versteckt",
+    "hidden_explicit_toggle": "explizit",
     "collapse": "Einklappen",
     "mods_toggle": "Mods",
     "empty": "Keine relevanten Werte gefunden",

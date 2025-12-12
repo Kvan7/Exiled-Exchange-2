@@ -160,6 +160,7 @@
     "selected_some": "{1} 중 {0}개 선택",
     "selected_none": "스탯 미선택",
     "hidden_toggle": "숨겨진",
+    "hidden_explicit_toggle": "부여된 속성",
     "collapse": "접기",
     "mods_toggle": "모드",
     "empty": "관련된 접사를 찾지 못했습니다",

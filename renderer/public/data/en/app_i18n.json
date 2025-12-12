@@ -168,6 +168,7 @@
     "selected_full_runes": "Runes Full",
     "empty_rune_socket": "Empty Rune Socket",
     "hidden_toggle": "Hidden",
+    "hidden_explicit_toggle": "Explicit",
     "collapse": "Collapse",
     "mods_toggle": "Mods",
     "empty": "No relevant stats were found",

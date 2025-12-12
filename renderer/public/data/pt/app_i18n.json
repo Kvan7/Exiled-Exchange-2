@@ -161,6 +161,7 @@
     "selected_full_runes": "Runas completas",
     "empty_rune_socket": "Vazio no Engaste de Runas",
     "hidden_toggle": "Oculto",
+    "hidden_explicit_toggle": "explícito",
     "collapse": "Colapsar",
     "mods_toggle": "Modificadores",
     "empty": "Nenhuma estatística relevante encontrada",

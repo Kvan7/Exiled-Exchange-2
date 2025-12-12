@@ -97,7 +97,7 @@
         class="rounded bg-gray-900 px-1 block w-full mb-1 font-poe"
       />
     </div>
-    <ui-checkbox class="mb-1" v-model="readClientLog">{{
+    <ui-checkbox class="mb-4" v-model="readClientLog">{{
       t(":read_client_log")
     }}</ui-checkbox>
     <div class="italic text-gray-500">
