@@ -99,6 +99,7 @@ export default {
   WAYSTONE_DROP_CHANCE: 'Шанс выпадения путевого камня: ',
   WAYSTONE_RARITY: 'Редкость предметов: ',
   WAYSTONE_GOLD: 'Выпадение золота: ',
+  DOUBLE_CORRUPTED: 'Дважды осквернено',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]
@@ -136,7 +137,7 @@ export default {
   QUALITY_ANOMALOUS: /^Аномальный: (.*)$/,
   QUALITY_DIVERGENT: /^Искривлённый: (.*)$/,
   QUALITY_PHANTASMAL: /^Фантомный: (.*)$/,
-  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s+\(Уровень: (?<tier>\d+)\))?(?:\s+\(Ранг: (?<rank>\d+)\))?$/,
+  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s*\(Уровень: (?<tier>\d+)\))?(?:\s*\(Ранг: (?<rank>\d+)\))?$/,
   MODIFIER_INCREASED: /^(.*)% увеличение$/,
   EATER_IMPLICIT: /^Собственное свойство Пожирателя миров \((?<rank>.+)\)$/,
   EXARCH_IMPLICIT: /^Собственное свойство Пламенного экзарха \((?<rank>.+)\)$/,

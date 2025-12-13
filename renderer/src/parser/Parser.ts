@@ -531,7 +531,10 @@ function parseInfluence(section: string[], item: ParsedItem) {
 
 // #region Small Sections
 function parseCorrupted(section: string[], item: ParsedItem) {
-  if (section[0].trim() === _$.CORRUPTED) {
+  if (
+    section[0].trim() === _$.CORRUPTED ||
+    section[0].trim() === _$.DOUBLE_CORRUPTED
+  ) {
     item.isCorrupted = true;
     return "SECTION_PARSED";
   } else if (section[0] === _$.UNMODIFIABLE) {
@@ -1055,7 +1058,7 @@ function parseModifiers(section: string[], item: ParsedItem) {
 
   if (isModInfoLine(recognizedLine)) {
     for (const { modLine, statLines } of groupLinesByMod(section)) {
-      const { modType, lines } = parseModType(statLines);
+      const { modType, lines } = parseModType(statLines, modLine);
 
       const modInfo = parseModInfoLine(modLine, modType);
       if (

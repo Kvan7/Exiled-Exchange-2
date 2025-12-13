@@ -122,7 +122,7 @@ const TABLET_USES_STATS = [
   "Adds a Mirror of Delirium to a Map \n# use remaining",
   "Adds an Otherworldy Breach to a Map \n# use remaining",
   "Empowers the Map Boss of a Map \n# use remaining",
-  // "Adds Abysses to a Map \n# use remaining", // FIXME: enable this when data update
+  "Adds Abysses to a Map \n# use remaining",
 ];
 
 interface FilterBoolean {

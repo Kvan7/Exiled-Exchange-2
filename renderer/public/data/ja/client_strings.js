@@ -99,6 +99,7 @@ export default {
   WAYSTONE_DROP_CHANCE: 'ウェイストーンドロップ確率: ',
   WAYSTONE_RARITY: 'アイテムレアリティ: ',
   WAYSTONE_GOLD: '見つかるゴールド: ',
+  DOUBLE_CORRUPTED: 'ダブルコラプト状態',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]
@@ -136,7 +137,7 @@ export default {
   QUALITY_ANOMALOUS: /^異常な(.*)$/,
   QUALITY_DIVERGENT: /^相違の(.*)$/,
   QUALITY_PHANTASMAL: /^幻想の(.*)$/,
-  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s+\(ティア: (?<tier>\d+)\))?(?:\s+\(ランク: (?<rank>\d+)\))?$/,
+  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s*\(ティア: (?<tier>\d+)\))?(?:\s*\(ランク: (?<rank>\d+)\))?$/,
   MODIFIER_INCREASED: /^(.*)%増加$/,
   EATER_IMPLICIT: /^世界を喰らう者 暗黙モッド 「(?<rank>.+)」$/,
   EXARCH_IMPLICIT: /^灼熱の代行者 暗黙モッド 「(?<rank>.+)」$/,

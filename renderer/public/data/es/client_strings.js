@@ -99,6 +99,7 @@ export default {
   WAYSTONE_DROP_CHANCE: 'Probabilidad de botín de piedra guía: ',
   WAYSTONE_RARITY: 'Rareza de objetos: ',
   WAYSTONE_GOLD: 'Oro encontrado: ',
+  DOUBLE_CORRUPTED: 'Doblemente corrupto',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]
@@ -136,7 +137,7 @@ export default {
   QUALITY_ANOMALOUS: /^(.*) anómala$/,
   QUALITY_DIVERGENT: /^(.*) divergente$/,
   QUALITY_PHANTASMAL: /^(.*) fantasmal$/,
-  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s+\(Grado: (?<tier>\d+)\))?(?:\s+\(Rango: (?<rank>\d+)\))?$/,
+  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s*\(Grado: (?<tier>\d+)\))?(?:\s*\(Rango: (?<rank>\d+)\))?$/,
   MODIFIER_INCREASED: /^Aumentado un (.*)%$/,
   EATER_IMPLICIT: /^Mod. implícito del Devorador de mundos \((?<rank>.+)\)$/,
   EXARCH_IMPLICIT: /^Mod. implícito del Exarca abrasador \((?<rank>.+)\)$/,

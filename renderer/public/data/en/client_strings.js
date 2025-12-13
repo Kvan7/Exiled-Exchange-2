@@ -99,6 +99,7 @@ export default {
   WAYSTONE_DROP_CHANCE: 'Waystone Drop Chance: ',
   WAYSTONE_RARITY: 'Item Rarity: ',
   WAYSTONE_GOLD: 'Gold Found: ',
+  DOUBLE_CORRUPTED: 'Twice Corrupted',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]
@@ -136,7 +137,7 @@ export default {
   QUALITY_ANOMALOUS: /^Anomalous (.*)$/,
   QUALITY_DIVERGENT: /^Divergent (.*)$/,
   QUALITY_PHANTASMAL: /^Phantasmal (.*)$/,
-  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s+\(Tier: (?<tier>\d+)\))?(?:\s+\(Rank: (?<rank>\d+)\))?$/,
+  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s*\(Tier: (?<tier>\d+)\))?(?:\s*\(Rank: (?<rank>\d+)\))?$/,
   MODIFIER_INCREASED: /^(.*)% Increased$/,
   EATER_IMPLICIT: /^Eater of Worlds Implicit Modifier \((?<rank>.+)\)$/,
   EXARCH_IMPLICIT: /^Searing Exarch Implicit Modifier \((?<rank>.+)\)$/,

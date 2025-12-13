@@ -99,6 +99,7 @@ export default {
   WAYSTONE_DROP_CHANCE: '경로석 출현 확률: ',
   WAYSTONE_RARITY: '아이템 희귀도: ',
   WAYSTONE_GOLD: '골드 발견량: ',
+  DOUBLE_CORRUPTED: '두 번 타락',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]
@@ -136,7 +137,7 @@ export default {
   QUALITY_ANOMALOUS: /^기묘한 (.*)$/,
   QUALITY_DIVERGENT: /^상이한 (.*)$/,
   QUALITY_PHANTASMAL: /^몽환적인 (.*)$/,
-  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s+\(등급: (?<tier>\d+)\))?(?:\s+\(단계: (?<rank>\d+)\))?$/,
+  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s*\(등급: (?<tier>\d+)\))?(?:\s*\(단계: (?<rank>\d+)\))?$/,
   MODIFIER_INCREASED: /^(.*)% 증가$/,
   EATER_IMPLICIT: /^세계 포식자 고정 속성 \((?<rank>.+)\)$/,
   EXARCH_IMPLICIT: /^작열의 총주교 고정 속성 \((?<rank>.+)\)$/,

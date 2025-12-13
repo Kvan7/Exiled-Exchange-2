@@ -256,7 +256,7 @@ Requires: Level 45
 Item Level: 79
 --------
 { Implicit Modifier — Elemental, Fire, Cold, Lightning, Resistance }
-+8(7-10)% to all Elemental Resistances (implicit)
++8(7-10)% to all Elemental Resistances
 --------
 { Prefix Modifier "Vaporous" (Tier: 3) — Defences }
 +143(124-151) to Evasion Rating
@@ -369,7 +369,7 @@ Item Level: 82
 36% increased Physical Damage (rune)
 --------
 { Implicit Modifier }
-Grenade Skills Fire an additional Projectile (implicit)
+Grenade Skills Fire an additional Projectile
 --------
 { Prefix Modifier "Merciless" (Tier: 1) — Damage, Physical, Attack }
 173(170-179)% increased Physical Damage
@@ -540,9 +540,9 @@ Requires: Level 59
 Item Level: 80
 --------
 { Implicit Modifier }
-14(15-10)% reduced Charm Charges used (implicit)
+14(15-10)% reduced Charm Charges used
 { Implicit Modifier — Charm }
-Has 2(1-3) Charm Slots (implicit)
+Has 2(1-3) Charm Slots
 --------
 { Prefix Modifier "Transformative" (Tier: 4) }
 11(10-15)% increased Charm Effect Duration
@@ -575,8 +575,8 @@ Delirium Precursor Tablet
 Item Level: 84
 --------
 { Implicit Modifier }
-Adds a Mirror of Delirium to a Map (implicit)
-17 uses remaining (implicit)
+Adds a Mirror of Delirium to a Map
+17 uses remaining
 --------
 { Prefix Modifier "Breeding" }
 7(4-10)% increased Pack Size in Map

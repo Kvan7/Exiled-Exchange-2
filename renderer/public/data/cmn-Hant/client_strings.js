@@ -91,7 +91,7 @@ export default {
   RELOAD_SPEED: '重新裝填時間: ',
   FRACTURED_ITEM: '破裂之物',
   SANCTIFIED: '聖化的',
-  HYPHEN: ' 到 ',
+  HYPHEN: '到',
   WAYSTONE_REVIVES: '可用的復活數: ',
   WAYSTONE_PACK_SIZE: '怪物群大小: ',
   WAYSTONE_MAGIC_MONSTERS: '魔法怪物: ',
@@ -99,6 +99,7 @@ export default {
   WAYSTONE_DROP_CHANCE: '換界石掉落機率: ',
   WAYSTONE_RARITY: '物品稀有度: ',
   WAYSTONE_GOLD: '找到黃金: ',
+  DOUBLE_CORRUPTED: '雙重 Corrupted',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]
@@ -136,7 +137,7 @@ export default {
   QUALITY_ANOMALOUS: /^異常的 (.*)$/,
   QUALITY_DIVERGENT: /^相異的 (.*)$/,
   QUALITY_PHANTASMAL: /^幻影的 (.*)$/,
-  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s+\(層: (?<tier>\d+)\))?(?:\s+\(級: (?<rank>\d+)\))?$/,
+  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s*\(階層：(?<tier>\d+)\))?(?:\s*\(階級：(?<rank>\d+)\))?$/,
   MODIFIER_INCREASED: /^增加 (.*)%$/,
   EATER_IMPLICIT: /^吞噬天地固定詞綴 \((?<rank>.+)\)$/,
   EXARCH_IMPLICIT: /^灼烙總督固定詞綴 \((?<rank>.+)\)$/,
