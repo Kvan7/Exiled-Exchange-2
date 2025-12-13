@@ -137,7 +137,7 @@ export default {
   QUALITY_ANOMALOUS: /^異常的 (.*)$/,
   QUALITY_DIVERGENT: /^相異的 (.*)$/,
   QUALITY_PHANTASMAL: /^幻影的 (.*)$/,
-  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s+\(階層: (?<tier>\d+)\))?(?:\s+\(階級: (?<rank>\d+)\))?$/,
+  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s+\(階層：(?<tier>\d+)\))?(?:\s+\(階級：(?<rank>\d+)\))?$/,
   MODIFIER_INCREASED: /^增加 (.*)%$/,
   EATER_IMPLICIT: /^吞噬天地固定詞綴 \((?<rank>.+)\)$/,
   EXARCH_IMPLICIT: /^灼烙總督固定詞綴 \((?<rank>.+)\)$/,
