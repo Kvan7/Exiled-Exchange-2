@@ -99,6 +99,7 @@ export default {
   WAYSTONE_DROP_CHANCE: 'Шанс выпадения путевого камня: ',
   WAYSTONE_RARITY: 'Редкость предметов: ',
   WAYSTONE_GOLD: 'Выпадение золота: ',
+  DOUBLE_CORRUPTED: 'Дважды осквернено',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]

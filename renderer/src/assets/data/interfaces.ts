@@ -243,6 +243,7 @@ export interface TranslationDict {
   HYPHEN: string;
   LOG_LEVEL_UP: RegExp;
   LOG_ZONE_GEN: RegExp;
+  DOUBLE_CORRUPTED: string;
 }
 
 export interface Filter {

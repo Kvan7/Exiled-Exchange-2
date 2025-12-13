@@ -99,6 +99,7 @@ export default {
   WAYSTONE_DROP_CHANCE: 'Probabilidad de botín de piedra guía: ',
   WAYSTONE_RARITY: 'Rareza de objetos: ',
   WAYSTONE_GOLD: 'Oro encontrado: ',
+  DOUBLE_CORRUPTED: 'Doblemente corrupto',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]

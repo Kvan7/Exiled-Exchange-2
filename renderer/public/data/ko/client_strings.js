@@ -99,6 +99,7 @@ export default {
   WAYSTONE_DROP_CHANCE: '경로석 출현 확률: ',
   WAYSTONE_RARITY: '아이템 희귀도: ',
   WAYSTONE_GOLD: '골드 발견량: ',
+  DOUBLE_CORRUPTED: '두 번 타락',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]

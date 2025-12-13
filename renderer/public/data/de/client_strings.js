@@ -99,6 +99,7 @@ export default {
   WAYSTONE_DROP_CHANCE: 'Chance auf fallen gelassene Wegsteine: ',
   WAYSTONE_RARITY: 'Gegenstandsseltenheit: ',
   WAYSTONE_GOLD: 'Gefundenes Gold: ',
+  DOUBLE_CORRUPTED: 'Doppelt verderbt',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]

@@ -99,6 +99,7 @@ export default {
   WAYSTONE_DROP_CHANCE: 'Waystone Drop Chance: ',
   WAYSTONE_RARITY: 'Item Rarity: ',
   WAYSTONE_GOLD: 'Gold Found: ',
+  DOUBLE_CORRUPTED: 'Twice Corrupted',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]

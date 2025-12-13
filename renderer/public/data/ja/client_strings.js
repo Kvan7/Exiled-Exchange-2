@@ -99,6 +99,7 @@ export default {
   WAYSTONE_DROP_CHANCE: 'ウェイストーンドロップ確率: ',
   WAYSTONE_RARITY: 'アイテムレアリティ: ',
   WAYSTONE_GOLD: '見つかるゴールド: ',
+  DOUBLE_CORRUPTED: 'ダブルコラプト状態',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]
