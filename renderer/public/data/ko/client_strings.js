@@ -155,7 +155,7 @@ export default {
   CHAT_WHISPER_FROM: /^@수신 (?:<(?<guild_tag>.+?)> )?(?<char_name>.+?): (?<body>.+)$/,
   // [Manual]
   CHAT_WEBTRADE_GEM: /^level (?<gem_lvl>\d+) (?<gem_qual>\d+)% (?<gem_name>.+)$/,
-  LOG_LEVEL_UP: /^(.*)의 레벨이 (.*)이\(가\) 되(?<level>\d+)$/,
+  LOG_LEVEL_UP: /^(.*)의 레벨이 (?<level>\d+)이(가) 되었습니다$/,
   // [Manual]
   LOG_ZONE_GEN: /^Generating level (?<area_level>\d+) area "(?<zone>.*)" with seed (?<seed>\d+)$/,
 }
