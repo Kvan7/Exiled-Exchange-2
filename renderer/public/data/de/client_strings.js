@@ -137,7 +137,7 @@ export default {
   QUALITY_ANOMALOUS: /^(.*) \(anormal\)$/,
   QUALITY_DIVERGENT: /^(.*) \(abweichend\)$/,
   QUALITY_PHANTASMAL: /^(.*) \(illusorisch\)$/,
-  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s+\(Level: (?<tier>\d+)\))?(?:\s+\(Rang: (?<rank>\d+)\))?$/,
+  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s*\(Level: (?<tier>\d+)\))?(?:\s*\(Rang: (?<rank>\d+)\))?$/,
   MODIFIER_INCREASED: /^(.*)% erhöht$/,
   EATER_IMPLICIT: /^Impliziter Modifikator des Weltenfressers \((?<rank>.+)\)$/,
   EXARCH_IMPLICIT: /^Impliziter Modifikator des Brennenden Exarchen \((?<rank>.+)\)$/,

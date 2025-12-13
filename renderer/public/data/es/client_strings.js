@@ -137,7 +137,7 @@ export default {
   QUALITY_ANOMALOUS: /^(.*) anómala$/,
   QUALITY_DIVERGENT: /^(.*) divergente$/,
   QUALITY_PHANTASMAL: /^(.*) fantasmal$/,
-  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s+\(Grado: (?<tier>\d+)\))?(?:\s+\(Rango: (?<rank>\d+)\))?$/,
+  MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s*\(Grado: (?<tier>\d+)\))?(?:\s*\(Rango: (?<rank>\d+)\))?$/,
   MODIFIER_INCREASED: /^Aumentado un (.*)%$/,
   EATER_IMPLICIT: /^Mod. implícito del Devorador de mundos \((?<rank>.+)\)$/,
   EXARCH_IMPLICIT: /^Mod. implícito del Exarca abrasador \((?<rank>.+)\)$/,
