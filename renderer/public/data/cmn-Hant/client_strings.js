@@ -55,6 +55,7 @@ export default {
   MIRRORED: '已複製',
   PREFIX_MODIFIER: '前綴',
   SUFFIX_MODIFIER: '後綴',
+  IMPLICIT_MODIFIER: '固定詞綴',
   CRAFTED_PREFIX: '大師工藝前綴',
   CRAFTED_SUFFIX: '大師工藝後綴',
   UNSCALABLE_VALUE: ' — 無法使用的值',

@@ -55,6 +55,7 @@ export default {
   MIRRORED: 'Mirrored',
   PREFIX_MODIFIER: 'Prefix Modifier',
   SUFFIX_MODIFIER: 'Suffix Modifier',
+  IMPLICIT_MODIFIER: 'Implicit Modifier',
   CRAFTED_PREFIX: 'Master Crafted Prefix Modifier',
   CRAFTED_SUFFIX: 'Master Crafted Suffix Modifier',
   UNSCALABLE_VALUE: ' — Unscalable Value',

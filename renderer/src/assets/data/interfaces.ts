@@ -244,6 +244,7 @@ export interface TranslationDict {
   LOG_LEVEL_UP: RegExp;
   LOG_ZONE_GEN: RegExp;
   DOUBLE_CORRUPTED: string;
+  IMPLICIT_MODIFIER: string;
 }
 
 export interface Filter {

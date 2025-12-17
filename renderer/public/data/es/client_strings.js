@@ -55,6 +55,7 @@ export default {
   MIRRORED: 'Reflejado',
   PREFIX_MODIFIER: 'Mod. de prefijo',
   SUFFIX_MODIFIER: 'Mod. de sufijo',
+  IMPLICIT_MODIFIER: 'Mod. implícito',
   CRAFTED_PREFIX: 'Mod. de prefijo fabricado con maestros',
   CRAFTED_SUFFIX: 'Mod. de sufijo fabricado con maestros',
   UNSCALABLE_VALUE: ' — Valor fijo',

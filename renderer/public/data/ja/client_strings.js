@@ -55,6 +55,7 @@ export default {
   MIRRORED: 'ミラー状態',
   PREFIX_MODIFIER: 'プレフィックスモッド',
   SUFFIX_MODIFIER: 'サフィックスモッド',
+  IMPLICIT_MODIFIER: '暗黙モッド',
   CRAFTED_PREFIX: 'マスターがクラフトしたプレフィックスモッド',
   CRAFTED_SUFFIX: 'マスターがクラフトしたサフィックスモッド',
   UNSCALABLE_VALUE: ' — スケールできない値',

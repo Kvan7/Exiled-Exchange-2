@@ -55,6 +55,7 @@ export default {
   MIRRORED: 'Отражено',
   PREFIX_MODIFIER: 'Префикс',
   SUFFIX_MODIFIER: 'Суффикс',
+  IMPLICIT_MODIFIER: 'Собственное свойство',
   CRAFTED_PREFIX: 'Мастерский префикс',
   CRAFTED_SUFFIX: 'Мастерский суффикс',
   UNSCALABLE_VALUE: ' — Неизменяемое значение',
