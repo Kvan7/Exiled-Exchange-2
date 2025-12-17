@@ -832,7 +832,20 @@ function enableGoodRolledFilters(filters: StatFilter[], abovePct: number) {
 }
 
 function itemMaxModifiersBySlot(item: ParsedItem) {
-  const maxAmount = [6, 3, 3];
+  let base;
+  switch (item.category) {
+    case ItemCategory.Jewel:
+    case ItemCategory.Tablet:
+    case ItemCategory.Relic:
+    case ItemCategory.SanctumRelic:
+      base = 2;
+      break;
+    default:
+      base = 3;
+      break;
+  }
+
+  const maxAmount = [2 * base, base, base];
   // TODO: change this to be programmatic based on implicits
   if (
     item.info.refName === "Dusk Amulet" ||
