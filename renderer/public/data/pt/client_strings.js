@@ -55,6 +55,7 @@ export default {
   MIRRORED: 'Espelhado',
   PREFIX_MODIFIER: 'Mod Prefixo',
   SUFFIX_MODIFIER: 'Mod Sufixo',
+  IMPLICIT_MODIFIER: 'Mod Implícito',
   CRAFTED_PREFIX: 'Mod Prefixo Criado por Mestre',
   CRAFTED_SUFFIX: 'Mod Sufixo Criado por Mestre',
   UNSCALABLE_VALUE: ' — Valor não escalável',

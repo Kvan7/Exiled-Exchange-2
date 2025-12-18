@@ -1058,7 +1058,7 @@ function parseModifiers(section: string[], item: ParsedItem) {
 
   if (isModInfoLine(recognizedLine)) {
     for (const { modLine, statLines } of groupLinesByMod(section)) {
-      const { modType, lines } = parseModType(statLines, modLine);
+      const { modType, lines } = parseModType(statLines);
 
       const modInfo = parseModInfoLine(modLine, modType);
       if (

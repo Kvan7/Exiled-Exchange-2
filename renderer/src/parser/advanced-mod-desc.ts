@@ -8,7 +8,6 @@ export const RUNE_LINE = " (rune)";
 export const ADDED_RUNE_LINE = " (added rune)";
 export const ENCHANT_LINE = " (enchant)";
 export const IMPLICIT_LINE = " (implicit)";
-const IMPLICIT_MOD_INFO = "{ Implicit";
 export const DESECRATED_LINE = " (desecrated)";
 const CRAFTED_LINE = " (crafted)";
 const FRACTURED_LINE = " (fractured)";
@@ -85,6 +84,9 @@ export function parseModInfoLine(
       case _$.CORRUPTED_IMPLICIT:
         generation = "corrupted";
         break;
+      case _$.IMPLICIT_MODIFIER:
+        type = ModifierType.Implicit;
+        break;
     }
 
     name = match.groups!.name || undefined;
@@ -144,10 +146,7 @@ export function* groupLinesByMod(
   yield last!;
 }
 
-export function parseModType(
-  lines: string[],
-  modLine?: string,
-): {
+export function parseModType(lines: string[]): {
   modType: ModifierType;
   lines: string[];
 } {
@@ -163,9 +162,6 @@ export function parseModType(
   } else if (lines.some((line) => line.endsWith(IMPLICIT_LINE))) {
     modType = ModifierType.Implicit;
     lines = removeLinesEnding(lines, IMPLICIT_LINE);
-  } else if (modLine && modLine.startsWith(IMPLICIT_MOD_INFO)) {
-    // already doesn't have the ending thing so safe to just assign
-    modType = ModifierType.Implicit;
   } else if (lines.some((line) => line.endsWith(FRACTURED_LINE))) {
     modType = ModifierType.Fractured;
     lines = removeLinesEnding(lines, FRACTURED_LINE);

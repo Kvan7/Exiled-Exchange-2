@@ -55,6 +55,7 @@ export default {
   MIRRORED: '복제',
   PREFIX_MODIFIER: '접두어 속성 부여',
   SUFFIX_MODIFIER: '접미어 속성 부여',
+  IMPLICIT_MODIFIER: '고정 속성 부여',
   CRAFTED_PREFIX: '대가의 제작 접두어 속성 부여',
   CRAFTED_SUFFIX: '대가의 제작 접미어 속성 부여',
   UNSCALABLE_VALUE: ' — 변경이 불가능한 값',
