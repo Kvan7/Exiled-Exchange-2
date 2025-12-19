@@ -157,7 +157,8 @@
     "weapon_spear": "槍",
     "weapon_flail": "フレイル",
     "armour_buckler": "バックラー",
-    "map_tablet": "Tablet"
+    "map_tablet": "Tablet",
+    "weapon_talisman": "タリスマン"
   },
   "filters": {
     "selected_some": "スタット {1}つの内{0}",

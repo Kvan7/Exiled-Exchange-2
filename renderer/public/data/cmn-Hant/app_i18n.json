@@ -157,7 +157,8 @@
     "weapon_spear": "長鋒",
     "weapon_flail": "鏈錘",
     "armour_buckler": "輕盾",
-    "map_tablet": "Tablet"
+    "map_tablet": "Tablet",
+    "weapon_talisman": "魔符"
   },
   "filters": {
     "selected_some": "已選擇：{0}/{1}，屬性",

@@ -154,7 +154,8 @@
     "weapon_spear": "창",
     "weapon_flail": "도리깨",
     "armour_buckler": "버클러",
-    "map_tablet": "Tablet"
+    "map_tablet": "Tablet",
+    "weapon_talisman": "부적"
   },
   "filters": {
     "selected_some": "{1} 중 {0}개 선택",
