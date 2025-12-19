@@ -208,6 +208,8 @@ export const usePoeninja = createGlobalState(() => {
       >();
 
       lastUpdateTime = Date.now();
+    } catch (e) {
+      console.warn(e);
     } finally {
       isLoading.value = false;
     }
@@ -227,9 +229,9 @@ export const usePoeninja = createGlobalState(() => {
         return "hardcore";
     }
     if (league.startsWith("HC ")) {
-      return proxy ? "leaguehc" : "abysshc";
+      return proxy ? "leaguehc" : "vaalhc";
     }
-    return proxy ? "league" : "abyss";
+    return proxy ? "league" : "vaal";
   }
 
   function findPriceByQuery(query: DbQuery) {

@@ -158,7 +158,8 @@
     "weapon_spear": "Lanza",
     "weapon_flail": "Mangual",
     "armour_buckler": "Broquel",
-    "map_tablet": "Tablet"
+    "map_tablet": "Tablet",
+    "weapon_talisman": "Talismán"
   },
   "filters": {
     "selected_some": "{0} de {1}, estadísticas",

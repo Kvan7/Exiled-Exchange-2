@@ -173,7 +173,8 @@
     "weapon_spear": "Копьё",
     "weapon_flail": "Кистень",
     "armour_buckler": "Баклер",
-    "map_tablet": "Tablet"
+    "map_tablet": "Tablet",
+    "weapon_talisman": "Талисман"
   },
   "filters": {
     "selected_some": "Св-ва: {0} из {1}",

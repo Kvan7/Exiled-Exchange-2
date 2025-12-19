@@ -158,7 +158,8 @@
     "weapon_spear": "Speer",
     "weapon_flail": "Flegel",
     "armour_buckler": "Faustschild",
-    "map_tablet": "Tablet"
+    "map_tablet": "Tablet",
+    "weapon_talisman": "Talisman"
   },
   "filters": {
     "selected_some": "{0} von {1}, Werte",
