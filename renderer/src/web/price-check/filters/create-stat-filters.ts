@@ -781,16 +781,16 @@ function showHasEmptyModifier(ctx: FiltersCreationContext):
   }
 
   const { prefixes, suffixes, total } = explicitModifierCount(item);
+  const maxAmount = itemMaxModifiersBySlot(item);
 
-  if (total !== 6 && total !== 0) {
+  if (total !== maxAmount[ItemHasEmptyModifier.Any] && total !== 0) {
     const empty =
-      suffixes === 3
+      suffixes === maxAmount[ItemHasEmptyModifier.Suffix]
         ? ItemHasEmptyModifier.Prefix
-        : prefixes === 3
+        : prefixes === maxAmount[ItemHasEmptyModifier.Prefix]
           ? ItemHasEmptyModifier.Suffix
           : ItemHasEmptyModifier.Any;
 
-    const maxAmount = itemMaxModifiersBySlot(item);
     const counts = {
       [ItemHasEmptyModifier.Any]: maxAmount[ItemHasEmptyModifier.Any] - total,
       [ItemHasEmptyModifier.Prefix]:
