@@ -412,16 +412,6 @@
   },
   {
     "query": [
-      "ITEM::Omen of Chaotic Rarity",
-      "ITEM::Omen of Chaotic Quantity",
-      "ITEM::Omen of Chaotic Monsters"
-    ],
-    "items": [
-      "ITEM::Chaos Orb"
-    ]
-  },
-  {
-    "query": [
       "ITEM::Omen of Whittling",
       "ITEM::Omen of Sinistral Erasure",
       "ITEM::Omen of Dextral Erasure"
@@ -434,7 +424,6 @@
   },
   {
     "query": [
-      "ITEM::Omen of Homogenising Exaltation",
       "ITEM::Omen of Catalysing Exaltation",
       "ITEM::Omen of Sinistral Exaltation",
       "ITEM::Omen of Dextral Exaltation",
@@ -455,6 +444,26 @@
   },
   {
     "query": [
+      "ITEM::Vaal Orb",
+      "ITEM::Omen of Corruption",
+      "ITEM::Architect's Orb",
+      "ITEM::Crystallised Corruption",
+      "ITEM::Vaal Cultivation Orb"
+    ],
+    "items": []
+  },
+  {
+    "query": [
+      "ITEM::Core Destabiliser",
+      "ITEM::Citaqualotl's Thesis",
+      "ITEM::Guatelitzi's Thesis",
+      "ITEM::Jiquani's Thesis",
+      "ITEM::Quipolatl's Thesis"
+    ],
+    "items": []
+  },
+  {
+    "query": [
       "ITEM::Inscribed Ultimatum"
     ],
     "items": [
@@ -468,7 +477,7 @@
       "ITEM::Djinn Barya"
     ],
     "items": [
-      "UNIQUE::The Last Flam // Incense Relic",
+      "UNIQUE::The Last Flame // Incense Relic",
       "UNIQUE::The Changing Seasons // Seal Relic",
       "UNIQUE::The Desperate Alliance // Vase Relic",
       "UNIQUE::The Peacemaker's Draught // Amphora Relic",
@@ -477,7 +486,7 @@
   },
   {
     "query": [
-      "UNIQUE::The Last Flam // Incense Relic"
+      "UNIQUE::The Last Flame // Incense Relic"
     ],
     "items": [
       "UNIQUE::Temporalis // Silk Robe",
