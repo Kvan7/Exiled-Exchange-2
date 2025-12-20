@@ -468,6 +468,30 @@
     ],
     "items": []
   },
+  {
+    "query": [
+      "ITEM::Regal Shard"
+    ],
+    "items": [
+      "ITEM::Regal Orb"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Artificer's Shard"
+    ],
+    "items": [
+      "ITEM::Artificer's Orb"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Chance Shard"
+    ],
+    "items": [
+      "ITEM::Orb of Chance"
+    ]
+  },
   // Trials
   {
     "query": [

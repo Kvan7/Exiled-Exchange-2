@@ -25,7 +25,6 @@ export class Cache {
     if (!currency || this.currency === currency) return;
     this.currency = currency;
     this.cached.clear();
-    console.log("Purged cache");
   }
 
   static deriveTtl(...limits: RateLimiter[]): number {

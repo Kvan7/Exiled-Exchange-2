@@ -33,7 +33,7 @@ export class OverlayWindow {
 
     if (process.argv.includes("--no-overlay")) return;
 
-    const windowOpts: Electron.BrowserWindowConstructorOptions = {
+    this.window = new BrowserWindow({
       icon: path.join(__dirname, process.env.STATIC!, "icon.png"),
       ...OVERLAY_WINDOW_OPTS,
       width: 800,
@@ -43,9 +43,7 @@ export class OverlayWindow {
         webviewTag: true,
         spellcheck: false,
       },
-    };
-
-    this.window = new BrowserWindow(windowOpts);
+    });
 
     this.window.setMenu(
       Menu.buildFromTemplate([
@@ -65,7 +63,6 @@ export class OverlayWindow {
 
     this.window.webContents.setWindowOpenHandler((details) => {
       shell.openExternal(details.url);
-
       return { action: "deny" };
     });
   }
@@ -90,10 +87,6 @@ export class OverlayWindow {
   assertOverlayActive = () => {
     if (!this.isInteractable) {
       this.isInteractable = true;
-      // Linux needs explicit focus management
-      if (process.platform === "linux" && this.window) {
-        this.window.focus();
-      }
       OverlayController.activateOverlay();
       this.poeWindow.isActive = false;
     }
@@ -102,10 +95,6 @@ export class OverlayWindow {
   assertGameActive = () => {
     if (this.isInteractable) {
       this.isInteractable = false;
-      // Linux needs to release focus explicitly
-      if (process.platform === "linux" && this.window) {
-        this.window.blur();
-      }
       OverlayController.focusTarget();
       this.poeWindow.isActive = true;
     }
@@ -164,11 +153,11 @@ export class OverlayWindow {
   private handleOverlayAttached = (hasAccess?: boolean) => {
     if (hasAccess === false) {
       this.logger.write(
-        "error [Overlay] PoE is running with administrator rights",
+        "error [Overlay] PoE2 is running with administrator rights",
       );
 
       dialog.showErrorBox(
-        "PoE window - No access",
+        "PoE2 window - No access",
         // ----------------------
         "Path of Exile 2 is running with administrator rights.\n" +
           "\n" +

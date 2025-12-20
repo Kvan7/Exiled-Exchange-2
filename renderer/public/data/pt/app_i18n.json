@@ -89,6 +89,7 @@
     "mod_explicit": "Explícito",
     "mod_crafted": "Fabricado",
     "mod_scourge": "Flagelo",
+    "mod_rune": "aprimoramento",
     "unidentified": "Não identificado",
     "veiled": "Velado",
     "foil_unique": "Único Brilhante",
@@ -201,7 +202,7 @@
     "tag_explicit_delve": "Exploração",
     "tag_explicit_veiled": "Velado",
     "tag_explicit_incursion": "Incursão",
-    "tag_rune": "Runa",
+    "tag_rune": "aprimoramento",
     "tag_desecrated": "Profanado"
   },
   "online_filter": {
