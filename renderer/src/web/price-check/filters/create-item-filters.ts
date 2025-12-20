@@ -302,8 +302,8 @@ export function createFilters(
 
   if (
     !item.isUnmodifiable &&
-    // Ignore tablet since only corrupted are rares, and we want to compare to them
-    item.category !== ItemCategory.Tablet &&
+    // Ignore waystones now(prev tablets) since if  there is one that is corrupted with right mods buyer wont care
+    item.category !== ItemCategory.Map &&
     (item.rarity === ItemRarity.Normal ||
       item.rarity === ItemRarity.Magic ||
       item.rarity === ItemRarity.Rare ||
