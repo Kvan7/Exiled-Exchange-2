@@ -45,6 +45,13 @@ export class OverlayWindow {
       },
     };
 
+    // Linux/X11: Special window configuration for proper focus handling
+    if (process.platform === "linux") {
+      windowOpts.skipTaskbar = true;
+      windowOpts.focusable = true;
+      windowOpts.type = "notification";
+    }
+
     this.window = new BrowserWindow(windowOpts);
 
     this.window.setMenu(
@@ -92,6 +99,7 @@ export class OverlayWindow {
       this.isInteractable = true;
       // Linux needs explicit focus management
       if (process.platform === "linux" && this.window) {
+        this.window.setFocusable(true);
         this.window.focus();
       }
       OverlayController.activateOverlay();
@@ -104,7 +112,7 @@ export class OverlayWindow {
       this.isInteractable = false;
       // Linux needs to release focus explicitly
       if (process.platform === "linux" && this.window) {
-        this.window.blur();
+        this.window.setFocusable(false);
       }
       OverlayController.focusTarget();
       this.poeWindow.isActive = true;
