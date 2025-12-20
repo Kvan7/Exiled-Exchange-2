@@ -391,7 +391,7 @@ function splitJsonBlob(jsonBlob: string): PriceDatabase {
     },
     { ns: "ITEM", cx: true, url: "essences", type: "Essences" },
     { ns: "ITEM", cx: true, url: "soul-cores", type: "Ultimatum" },
-    { ns: "ITEM", cx: true, url: "talismans", type: "Talismans" },
+    { ns: "ITEM", cx: true, url: "idols", type: "Idols" },
     { ns: "ITEM", cx: true, url: "runes", type: "Runes" },
     { ns: "ITEM", cx: true, url: "omens", type: "Ritual" },
     { ns: "ITEM", cx: true, url: "expedition", type: "Expedition" },
