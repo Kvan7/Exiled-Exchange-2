@@ -464,6 +464,30 @@
   },
   {
     "query": [
+      "ITEM::Regal Shard"
+    ],
+    "items": [
+      "ITEM::Regal Orb"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Artificer's Shard"
+    ],
+    "items": [
+      "ITEM::Artificer's Orb"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Chance Shard"
+    ],
+    "items": [
+      "ITEM::Orb of Chance"
+    ]
+  },
+  {
+    "query": [
       "ITEM::Inscribed Ultimatum"
     ],
     "items": [
