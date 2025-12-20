@@ -20,24 +20,24 @@
   },
   "main": "dist/main.js",
   "dependencies": {
-    "electron-overlay-window": "3.3.1",
+    "electron-overlay-window": "4.0.1",
     "uiohook-napi": "1.5.x"
   },
   "devDependencies": {
     "@types/ini": "^4.1.0",
-    "@types/node": "20.x.x",
+    "@types/node": "22.x.x",
     "@types/ws": "^8.5.3",
     "@wokwi/bmp-ts": "^3.0.0",
     "comlink": "^4.3.1",
-    "electron": "33.2.1",
+    "electron": "39.2.7",
     "electron-builder": "26.0.12",
     "electron-devtools-installer": "^4.0.0",
     "electron-updater": "^6.6.2",
-    "esbuild": "^0.25.9",
-    "ini": "^5.0.0",
+    "esbuild": "^0.27.2",
+    "ini": "^6.0.0",
     "eslint-config-prettier": "^9.1.0",
     "prettier": "3.4.2",
-    "typescript": "5.6.x",
+    "typescript": "5.9.x",
     "ws": "^8.16.0"
   },
   "optionalDependencies": {
