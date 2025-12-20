@@ -433,7 +433,11 @@ export function createTradeRequest(
     }
   }
 
-  if (filters.requires && filters.requires.level && !filters.requires.level.disabled) {
+  if (
+    filters.requires &&
+    filters.requires.level &&
+    !filters.requires.level.disabled
+  ) {
     propSet(
       query.filters,
       "req_filters.filters.lvl.max",

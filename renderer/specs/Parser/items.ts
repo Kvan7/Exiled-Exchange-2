@@ -35,10 +35,10 @@ export class TestItem implements ParsedItem {
   quality?: number | undefined;
   runeSockets?:
     | {
-      empty: number;
-      current: number;
-      normal: number;
-    }
+        empty: number;
+        current: number;
+        normal: number;
+      }
     | undefined;
 
   gemSockets?: { number: number; linked?: number; white: number } | undefined;
@@ -59,9 +59,9 @@ export class TestItem implements ParsedItem {
   unknownModifiers: Array<{ text: string; type: ModifierType }> = [];
   heist?:
     | {
-      wingsRevealed?: number;
-      target?: "Enchants" | "Trinkets" | "Gems" | "Replicas";
-    }
+        wingsRevealed?: number;
+        target?: "Enchants" | "Trinkets" | "Gems" | "Replicas";
+      }
     | undefined;
 
   note?: string;

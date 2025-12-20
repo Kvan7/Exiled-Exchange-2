@@ -94,7 +94,7 @@ export interface ItemFilters {
     str?: FilterNumeric;
     dex?: FilterNumeric;
     int?: FilterNumeric;
-  }
+  };
 }
 
 export interface FilterNumeric {

@@ -580,36 +580,35 @@ function parseItemLevel(section: string[], item: ParsedItem) {
 }
 
 function parseRequirements(section: string[], item: ParsedItem) {
-  if (
-    section[0].startsWith(_$.REQUIREMENTS)) {
+  if (section[0].startsWith(_$.REQUIREMENTS)) {
     return "SECTION_PARSED";
   }
 
   if (section[0].startsWith(_$.REQUIRES)) {
     // TODO: Add translation support for Requires line
     try {
-      let text = section[0].replace('Requires: ', '');
-      let parts = text.split(', ');
+      let text = section[0].replace("Requires: ", "");
+      let parts = text.split(", ");
       for (const part of parts) {
-        if (part.startsWith('Level')) {
+        if (part.startsWith("Level")) {
           item.requires = {
             ...item.requires,
             level: parseInt(part.slice(6)),
           };
-        } else if (part.endsWith('Str')) {
-          let number = parseInt(part.split(' ')[0]);
+        } else if (part.endsWith("Str")) {
+          let number = parseInt(part.split(" ")[0]);
           item.requires = {
             ...item.requires,
             str: number,
           };
-        } else if (part.endsWith('Dex')) {
-          let number = parseInt(part.split(' ')[0]);
+        } else if (part.endsWith("Dex")) {
+          let number = parseInt(part.split(" ")[0]);
           item.requires = {
             ...item.requires,
             dex: number,
           };
-        } else if (part.endsWith('Int')) {
-          let number = parseInt(part.split(' ')[0]);
+        } else if (part.endsWith("Int")) {
+          let number = parseInt(part.split(" ")[0]);
           item.requires = {
             ...item.requires,
             int: number,

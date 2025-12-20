@@ -14,7 +14,10 @@ import {
 import { loadForLang } from "@/assets/data";
 import { ParsedItem } from "@/parser";
 
-function findAndParseRequirementsSection(sections: string[][], parsedItem: ParsedItem) {
+function findAndParseRequirementsSection(
+  sections: string[][],
+  parsedItem: ParsedItem,
+) {
   for (const section of sections) {
     if (section[0].startsWith("Requires: ")) {
       return __testExports.parseRequirements(section, parsedItem);
@@ -60,7 +63,9 @@ describe("parseWeapon", () => {
     // console.log(sections);
 
     expect(res).toBe("SECTION_PARSED");
-    expect(findAndParseRequirementsSection(sections, parsedItem)).toBe("SECTION_PARSED");
+    expect(findAndParseRequirementsSection(sections, parsedItem)).toBe(
+      "SECTION_PARSED",
+    );
     expect(parsedItem.weaponPHYSICAL).toBe(MagicItem.weaponPHYSICAL);
     expect(parsedItem.weaponELEMENTAL).toBe(MagicItem.weaponELEMENTAL);
     expect(parsedItem.weaponAS).toBe(MagicItem.weaponAS);
@@ -75,7 +80,9 @@ describe("parseWeapon", () => {
     const res = __testExports.parseWeapon(sections[1], parsedItem);
 
     expect(res).toBe("SECTION_PARSED");
-    expect(findAndParseRequirementsSection(sections, parsedItem)).toBe("SECTION_PARSED");
+    expect(findAndParseRequirementsSection(sections, parsedItem)).toBe(
+      "SECTION_PARSED",
+    );
     expect(parsedItem.weaponPHYSICAL).toBe(RareItem.weaponPHYSICAL);
     expect(parsedItem.weaponELEMENTAL).toBe(RareItem.weaponELEMENTAL);
     expect(parsedItem.weaponAS).toBe(RareItem.weaponAS);
@@ -92,7 +99,9 @@ describe("parseWeapon", () => {
     const res = __testExports.parseWeapon(sections[1], parsedItem);
 
     expect(res).toBe("SECTION_PARSED");
-    expect(findAndParseRequirementsSection(sections, parsedItem)).toBe("SECTION_PARSED");
+    expect(findAndParseRequirementsSection(sections, parsedItem)).toBe(
+      "SECTION_PARSED",
+    );
     expect(parsedItem.weaponPHYSICAL).toBe(HighDamageRareItem.weaponPHYSICAL);
     expect(parsedItem.weaponELEMENTAL).toBe(HighDamageRareItem.weaponELEMENTAL);
     expect(parsedItem.weaponAS).toBe(HighDamageRareItem.weaponAS);
@@ -115,7 +124,9 @@ describe("parseArmour", () => {
     const res = __testExports.parseArmour(sections[1], parsedItem);
 
     expect(res).toBe("SECTION_PARSED");
-    expect(findAndParseRequirementsSection(sections, parsedItem)).toBe("SECTION_PARSED");
+    expect(findAndParseRequirementsSection(sections, parsedItem)).toBe(
+      "SECTION_PARSED",
+    );
     expect(parsedItem.armourAR).toBe(NormalItem.armourAR);
     expect(parsedItem.armourEV).toBe(NormalItem.armourEV);
     expect(parsedItem.armourES).toBe(NormalItem.armourES);
@@ -130,7 +141,9 @@ describe("parseArmour", () => {
     const res = __testExports.parseArmour(sections[1], parsedItem);
 
     expect(res).toBe("SECTION_PARSED");
-    expect(findAndParseRequirementsSection(sections, parsedItem)).toBe("SECTION_PARSED");
+    expect(findAndParseRequirementsSection(sections, parsedItem)).toBe(
+      "SECTION_PARSED",
+    );
     expect(parsedItem.armourAR).toBe(UniqueItem.armourAR);
     expect(parsedItem.armourEV).toBe(UniqueItem.armourEV);
     expect(parsedItem.armourES).toBe(UniqueItem.armourES);
@@ -147,7 +160,9 @@ describe("parseArmour", () => {
     const res = __testExports.parseArmour(sections[1], parsedItem);
 
     expect(res).toBe("SECTION_PARSED");
-    expect(findAndParseRequirementsSection(sections, parsedItem)).toBe("SECTION_PARSED");
+    expect(findAndParseRequirementsSection(sections, parsedItem)).toBe(
+      "SECTION_PARSED",
+    );
     expect(parsedItem.armourAR).toBe(ArmourHighValueRareItem.armourAR);
     expect(parsedItem.armourEV).toBe(ArmourHighValueRareItem.armourEV);
     expect(parsedItem.armourES).toBe(ArmourHighValueRareItem.armourES);
