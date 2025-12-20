@@ -587,8 +587,8 @@ function parseRequirements(section: string[], item: ParsedItem) {
   if (section[0].startsWith(_$.REQUIRES)) {
     // TODO: Add translation support for Requires line
     try {
-      let text = section[0].replace("Requires: ", "");
-      let parts = text.split(", ");
+      const text = section[0].replace("Requires: ", "");
+      const parts = text.split(", ");
       for (const part of parts) {
         if (part.startsWith("Level")) {
           item.requires = {
@@ -596,19 +596,19 @@ function parseRequirements(section: string[], item: ParsedItem) {
             level: parseInt(part.slice(6)),
           };
         } else if (part.endsWith("Str")) {
-          let number = parseInt(part.split(" ")[0]);
+          const number = parseInt(part.split(" ")[0]);
           item.requires = {
             ...item.requires,
             str: number,
           };
         } else if (part.endsWith("Dex")) {
-          let number = parseInt(part.split(" ")[0]);
+          const number = parseInt(part.split(" ")[0]);
           item.requires = {
             ...item.requires,
             dex: number,
           };
         } else if (part.endsWith("Int")) {
-          let number = parseInt(part.split(" ")[0]);
+          const number = parseInt(part.split(" ")[0]);
           item.requires = {
             ...item.requires,
             int: number,
@@ -617,9 +617,8 @@ function parseRequirements(section: string[], item: ParsedItem) {
       }
     } catch (e) {
       console.log(e);
-    } finally {
-      return "SECTION_PARSED";
     }
+    return "SECTION_PARSED";
   }
   return "SECTION_SKIPPED";
 }
