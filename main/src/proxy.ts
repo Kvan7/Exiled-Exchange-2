@@ -52,13 +52,22 @@ export class HttpProxy {
         referrerPolicy: "no-referrer-when-downgrade",
       });
       proxyReq.addListener("response", (proxyRes) => {
-        const resHeaders = { ...proxyRes.headers };
-        delete resHeaders["content-encoding"];
-        res.writeHead(proxyRes.statusCode, proxyRes.statusMessage, resHeaders);
-        (proxyRes as unknown as NodeJS.ReadableStream).pipe(res);
+        try {
+          const resHeaders = { ...proxyRes.headers };
+          delete resHeaders["content-encoding"];
+          res.writeHead(
+            proxyRes.statusCode,
+            proxyRes.statusMessage,
+            resHeaders,
+          );
+          (proxyRes as unknown as NodeJS.ReadableStream).pipe(res);
+        } catch (error) {
+          logger.write(`error [proxy] ${(error as Error).message} (${host})`);
+          res.destroy();
+        }
       });
       proxyReq.addListener("error", (err) => {
-        logger.write(`error [cors-proxy] ${err.message} (${host})`);
+        logger.write(`error [proxy] ${err.message} (${host})`);
         res.destroy(err);
       });
 
