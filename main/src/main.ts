@@ -79,6 +79,12 @@ if (process.platform === "darwin") {
           console.log(`error installing Vue Devtools: ${error}`);
         }
       }
+      process.addListener("uncaughtException", (err) => {
+        logger.write(`error [uncaughtException] ${err.message}, ${err.stack}`);
+      });
+      process.addListener("unhandledRejection", (reason) => {
+        logger.write(`error [unhandledRejection] ${(reason as Error).stack}`);
+      });
 
       setTimeout(
         async () => {
@@ -144,6 +150,13 @@ if (process.platform === "darwin") {
         console.log(`error installing Vue Devtools: ${error}`);
       }
     }
+
+    process.addListener("uncaughtException", (err) => {
+      logger.write(`error [uncaughtException] ${err.message}, ${err.stack}`);
+    });
+    process.addListener("unhandledRejection", (reason) => {
+      logger.write(`error [unhandledRejection] ${(reason as Error).stack}`);
+    });
 
     setTimeout(
       async () => {

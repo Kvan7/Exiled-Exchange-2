@@ -62,13 +62,13 @@ export class HttpProxy {
           );
           (proxyRes as unknown as NodeJS.ReadableStream).pipe(res);
         } catch (error) {
-          logger.write(`error [res-err] ${(error as Error).message} (${host})`);
+          logger.write(`error [proxy] ${(error as Error).message} (${host})`);
           res.destroy();
         }
       });
       proxyReq.addListener("error", (err) => {
-        logger.write(`error [cors-proxy] ${err.message} (${host})`);
-        res.destroy();
+        logger.write(`error [proxy] ${err.message} (${host})`);
+        res.destroy(err);
       });
 
       req.pipe(proxyReq as unknown as NodeJS.WritableStream);
