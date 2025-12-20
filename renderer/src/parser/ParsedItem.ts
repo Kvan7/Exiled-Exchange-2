@@ -94,6 +94,12 @@ export interface ParsedItem {
   };
   note?: string;
   category?: ItemCategory;
+  requires?: {
+    level?: number;
+    str?: number;
+    dex?: number;
+    int?: number;
+  };
   info: BaseType;
   rawText: string;
 }

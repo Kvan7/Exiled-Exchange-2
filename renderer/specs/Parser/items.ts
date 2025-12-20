@@ -35,10 +35,10 @@ export class TestItem implements ParsedItem {
   quality?: number | undefined;
   runeSockets?:
     | {
-        empty: number;
-        current: number;
-        normal: number;
-      }
+      empty: number;
+      current: number;
+      normal: number;
+    }
     | undefined;
 
   gemSockets?: { number: number; linked?: number; white: number } | undefined;
@@ -59,13 +59,21 @@ export class TestItem implements ParsedItem {
   unknownModifiers: Array<{ text: string; type: ModifierType }> = [];
   heist?:
     | {
-        wingsRevealed?: number;
-        target?: "Enchants" | "Trinkets" | "Gems" | "Replicas";
-      }
+      wingsRevealed?: number;
+      target?: "Enchants" | "Trinkets" | "Gems" | "Replicas";
+    }
     | undefined;
 
   note?: string;
   category?: ItemCategory | undefined;
+
+  requires?: {
+    level?: number;
+    str?: number;
+    dex?: number;
+    int?: number;
+  };
+
   info: BaseType = {
     name: "test",
     refName: "test",
@@ -125,6 +133,11 @@ NormalItem.quality = 9;
 NormalItem.armourAR = 174;
 NormalItem.armourES = 60;
 NormalItem.itemLevel = 81;
+NormalItem.requires = {
+  level: 75,
+  str: 67,
+  int: 67,
+};
 
 NormalItem.info.refName = "Divine Crown";
 NormalItem.sectionCount = 4;
@@ -157,6 +170,10 @@ MagicItem.weaponELEMENTAL = MagicItem.weaponLIGHTNING;
 MagicItem.weaponCRIT = 5;
 MagicItem.weaponAS = 1.2;
 MagicItem.itemLevel = 32;
+MagicItem.requires = {
+  level: 28,
+  str: 57,
+};
 
 MagicItem.info.refName = "Temple Maul";
 MagicItem.sectionCount = 5;
@@ -200,6 +217,10 @@ RareItem.weaponELEMENTAL =
 RareItem.weaponAS = 1.2;
 RareItem.weaponCRIT = 5;
 RareItem.itemLevel = 80;
+RareItem.requires = {
+  level: 51,
+  dex: 103,
+};
 
 RareItem.info.refName = "Rider Bow";
 RareItem.sectionCount = 5;
@@ -237,6 +258,10 @@ UniqueItem.category = ItemCategory.Focus;
 UniqueItem.rarity = ItemRarity.Unique;
 UniqueItem.armourES = 44;
 UniqueItem.itemLevel = 81;
+UniqueItem.requires = {
+  level: 26,
+  int: 43,
+};
 
 // NOTE: requires step through to verify use of Name here is right
 UniqueItem.info.refName = "The Eternal Spark";
@@ -271,6 +296,9 @@ Item Level: 79
 RareWithImplicit.category = ItemCategory.Ring;
 RareWithImplicit.rarity = ItemRarity.Rare;
 RareWithImplicit.itemLevel = 79;
+RareWithImplicit.requires = {
+  level: 45,
+};
 
 RareWithImplicit.info.refName = "Prismatic Ring";
 RareWithImplicit.sectionCount = 5;
@@ -401,6 +429,11 @@ HighDamageRareItem.sectionCount = 9;
 HighDamageRareItem.prefixCount = 3;
 HighDamageRareItem.suffixCount = 3;
 HighDamageRareItem.implicitCount = 1;
+HighDamageRareItem.requires = {
+  level: 79,
+  str: 89,
+  dex: 89,
+};
 
 HighDamageRareItem.runeSockets = {
   empty: 0,
@@ -447,6 +480,10 @@ ArmourHighValueRareItem.rarity = ItemRarity.Rare;
 ArmourHighValueRareItem.quality = 20;
 ArmourHighValueRareItem.armourAR = 3075;
 ArmourHighValueRareItem.itemLevel = 80;
+ArmourHighValueRareItem.requires = {
+  level: 65,
+  str: 121,
+};
 
 ArmourHighValueRareItem.info.refName = "Soldier Cuirass";
 ArmourHighValueRareItem.sectionCount = 8;
@@ -488,6 +525,10 @@ Note: ~b/o 5 exalted
 WandRareItem.category = ItemCategory.Wand;
 WandRareItem.rarity = ItemRarity.Rare;
 WandRareItem.itemLevel = 82;
+WandRareItem.requires = {
+  level: 90,
+  int: 125,
+};
 
 WandRareItem.info.refName = "Withered Wand";
 WandRareItem.sectionCount = 6;
@@ -521,6 +562,11 @@ NormalShield.itemLevel = 82;
 NormalShield.armourAR = 71;
 NormalShield.armourEV = 64;
 NormalShield.armourBLOCK = 25;
+NormalShield.requires = {
+  level: 54,
+  str: 42,
+  dex: 42,
+};
 
 NormalShield.info.refName = "Polished Targe";
 NormalShield.sectionCount = 6;
@@ -558,6 +604,9 @@ Has 2(1-3) Charm Slots
 TwoImplicitItem.category = ItemCategory.Belt;
 TwoImplicitItem.rarity = ItemRarity.Rare;
 TwoImplicitItem.itemLevel = 80;
+TwoImplicitItem.requires = {
+  level: 59,
+};
 
 TwoImplicitItem.info.refName = "Ornate Belt";
 TwoImplicitItem.sectionCount = 5;

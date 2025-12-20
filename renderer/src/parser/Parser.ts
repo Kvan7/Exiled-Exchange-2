@@ -580,11 +580,51 @@ function parseItemLevel(section: string[], item: ParsedItem) {
 }
 
 function parseRequirements(section: string[], item: ParsedItem) {
+  process.stdout.write("Parsing Requirements\n" + section[0] + "\n");
   if (
-    section[0].startsWith(_$.REQUIREMENTS) ||
-    section[0].startsWith(_$.REQUIRES)
-  ) {
+    section[0].startsWith(_$.REQUIREMENTS)) {
     return "SECTION_PARSED";
+  }
+
+  if (section[0].startsWith(_$.REQUIRES)) {
+    // TODO: Add translation support for Requires line
+    try {
+      let text = section[0].replace('Requires: ', '');
+      process.stdout.write(text);
+      console.log(text);
+      let parts = text.split(', ');
+      for (const part of parts) {
+        if (part.startsWith('Level')) {
+          item.requires = {
+            ...item.requires,
+            level: parseInt(part.slice(6)),
+          };
+        } else if (part.endsWith('Str')) {
+          let number = parseInt(part.split(' ')[0]);
+          item.requires = {
+            ...item.requires,
+            str: number,
+          };
+        } else if (part.endsWith('Dex')) {
+          let number = parseInt(part.split(' ')[0]);
+          item.requires = {
+            ...item.requires,
+            dex: number,
+          };
+        } else if (part.endsWith('Int')) {
+          let number = parseInt(part.split(' ')[0]);
+          item.requires = {
+            ...item.requires,
+            int: number,
+          };
+        }
+      }
+      console.log(item.requires);
+    } catch (e) {
+      console.log(e);
+    } finally {
+      return "SECTION_PARSED";
+    }
   }
   return "SECTION_SKIPPED";
 }
@@ -1754,4 +1794,5 @@ export const __testExports = {
   parseArmour,
   parseModifiers,
   parseWaystone,
+  parseRequirements,
 };
