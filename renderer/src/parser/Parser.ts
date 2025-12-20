@@ -580,7 +580,6 @@ function parseItemLevel(section: string[], item: ParsedItem) {
 }
 
 function parseRequirements(section: string[], item: ParsedItem) {
-  process.stdout.write("Parsing Requirements\n" + section[0] + "\n");
   if (
     section[0].startsWith(_$.REQUIREMENTS)) {
     return "SECTION_PARSED";
@@ -590,8 +589,6 @@ function parseRequirements(section: string[], item: ParsedItem) {
     // TODO: Add translation support for Requires line
     try {
       let text = section[0].replace('Requires: ', '');
-      process.stdout.write(text);
-      console.log(text);
       let parts = text.split(', ');
       for (const part of parts) {
         if (part.startsWith('Level')) {
@@ -619,7 +616,6 @@ function parseRequirements(section: string[], item: ParsedItem) {
           };
         }
       }
-      console.log(item.requires);
     } catch (e) {
       console.log(e);
     } finally {

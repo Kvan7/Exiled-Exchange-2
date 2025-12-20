@@ -89,6 +89,12 @@ export interface ItemFilters {
     collapseListings: "api" | "app";
   };
   tempRuneStorage?: StatFilter[];
+  requires?: {
+    level?: FilterNumeric;
+    str?: FilterNumeric;
+    dex?: FilterNumeric;
+    int?: FilterNumeric;
+  }
 }
 
 export interface FilterNumeric {

@@ -57,6 +57,7 @@
     "has_empty_prefix": "Prefix",
     "has_empty_suffix": "Suffix",
     "item_level": "Item Level: {0}",
+    "min_level": "Level: {0}",
     "stock": "Stock: {0}",
     "map_tier": "Map Tier: {0}",
     "area_level": "Area Level: {0}",

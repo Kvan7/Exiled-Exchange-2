@@ -294,6 +294,44 @@ export function createFilters(
     };
   }
 
+  if (item.requires) {
+    if (item.requires.level != null) {
+      filters.requires = {
+        level: {
+          value: item.requires.level,
+          disabled: true,
+        },
+      };
+    }
+    if (item.requires.str != null) {
+      filters.requires = {
+        ...filters.requires,
+        str: {
+          value: item.requires.str,
+          disabled: true,
+        },
+      };
+    }
+    if (item.requires.dex != null) {
+      filters.requires = {
+        ...filters.requires,
+        dex: {
+          value: item.requires.dex,
+          disabled: true,
+        },
+      };
+    }
+    if (item.requires.int != null) {
+      filters.requires = {
+        ...filters.requires,
+        int: {
+          value: item.requires.int,
+          disabled: true,
+        },
+      };
+    }
+  }
+
   const forAdornedJewel =
     item.rarity === ItemRarity.Magic &&
     // item.isCorrupted && -- let the buyer corrupt

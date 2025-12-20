@@ -62,6 +62,11 @@
           :name="t('item.item_level')"
         />
         <filter-btn-numeric
+          v-if="filters.requires.level"
+          :filter="filters.requires.level"
+          :name="t('item.min_level')"
+        />
+        <filter-btn-numeric
           v-if="filters.stackSize"
           :filter="filters.stackSize"
           :name="t('item.stock')"
