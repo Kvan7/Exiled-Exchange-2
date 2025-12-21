@@ -379,6 +379,7 @@ function parseBlightedMap(item: ParsedItem) {
 }
 
 function parseFractured(item: ParserState) {
+  // NOTE: partially also controlled by parseFracturedText
   if (item.newMods.some((mod) => mod.info.type === ModifierType.Fractured)) {
     item.isFractured = true;
   }
@@ -1222,9 +1223,11 @@ function parsePriceNote(section: string[], item: ParsedItem) {
   return "SECTION_SKIPPED";
 }
 
-function parseFracturedText(section: string[], _item: ParsedItem) {
+function parseFracturedText(section: string[], item: ParsedItem) {
   for (const line of section) {
     if (line === _$.FRACTURED_ITEM) {
+      // HACK: remove once bug is fixed (https://www.pathofexile.com/forum/view-thread/3891367)
+      item.isFractured = true;
       return "SECTION_PARSED";
     }
   }
