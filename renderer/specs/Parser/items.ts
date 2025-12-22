@@ -68,10 +68,10 @@ export class TestItem implements ParsedItem {
   category?: ItemCategory | undefined;
 
   requires?: {
-    level?: number;
-    str?: number;
-    dex?: number;
-    int?: number;
+    level: number;
+    str: number;
+    dex: number;
+    int: number;
   };
 
   info: BaseType = {
@@ -136,6 +136,7 @@ NormalItem.itemLevel = 81;
 NormalItem.requires = {
   level: 75,
   str: 67,
+  dex: 0,
   int: 67,
 };
 
@@ -173,6 +174,8 @@ MagicItem.itemLevel = 32;
 MagicItem.requires = {
   level: 28,
   str: 57,
+  dex: 0,
+  int: 0,
 };
 
 MagicItem.info.refName = "Temple Maul";
@@ -219,7 +222,9 @@ RareItem.weaponCRIT = 5;
 RareItem.itemLevel = 80;
 RareItem.requires = {
   level: 51,
+  str: 0,
   dex: 103,
+  int: 0,
 };
 
 RareItem.info.refName = "Rider Bow";
@@ -260,6 +265,8 @@ UniqueItem.armourES = 44;
 UniqueItem.itemLevel = 81;
 UniqueItem.requires = {
   level: 26,
+  str: 0,
+  dex: 0,
   int: 43,
 };
 
@@ -298,6 +305,9 @@ RareWithImplicit.rarity = ItemRarity.Rare;
 RareWithImplicit.itemLevel = 79;
 RareWithImplicit.requires = {
   level: 45,
+  str: 0,
+  dex: 0,
+  int: 0,
 };
 
 RareWithImplicit.info.refName = "Prismatic Ring";
@@ -433,6 +443,7 @@ HighDamageRareItem.requires = {
   level: 79,
   str: 89,
   dex: 89,
+  int: 0,
 };
 
 HighDamageRareItem.runeSockets = {
@@ -483,6 +494,8 @@ ArmourHighValueRareItem.itemLevel = 80;
 ArmourHighValueRareItem.requires = {
   level: 65,
   str: 121,
+  dex: 0,
+  int: 0,
 };
 
 ArmourHighValueRareItem.info.refName = "Soldier Cuirass";
@@ -527,6 +540,8 @@ WandRareItem.rarity = ItemRarity.Rare;
 WandRareItem.itemLevel = 82;
 WandRareItem.requires = {
   level: 90,
+  str: 0,
+  dex: 0,
   int: 125,
 };
 
@@ -566,6 +581,7 @@ NormalShield.requires = {
   level: 54,
   str: 42,
   dex: 42,
+  int: 0,
 };
 
 NormalShield.info.refName = "Polished Targe";
@@ -606,6 +622,9 @@ TwoImplicitItem.rarity = ItemRarity.Rare;
 TwoImplicitItem.itemLevel = 80;
 TwoImplicitItem.requires = {
   level: 59,
+  str: 0,
+  dex: 0,
+  int: 0,
 };
 
 TwoImplicitItem.info.refName = "Ornate Belt";
@@ -785,10 +804,16 @@ Fractured Item
 FracturedItem.category = ItemCategory.Bow;
 FracturedItem.rarity = ItemRarity.Rare;
 FracturedItem.quality = 25;
-FracturedItem.weaponPHYSICAL = 381.5;
+FracturedItem.weaponPHYSICAL = 624;
 FracturedItem.weaponAS = 1.15;
 FracturedItem.weaponCRIT = 9.4;
 FracturedItem.itemLevel = 81;
+FracturedItem.requires = {
+  level: 78,
+  str: 163,
+  dex: 0,
+  int: 0,
+};
 
 FracturedItem.info.refName = "Obliterator Bow";
 FracturedItem.isFractured = true;
@@ -854,6 +879,12 @@ FracturedItemNoModMarked.weaponPHYSICAL = 381.5;
 FracturedItemNoModMarked.weaponAS = 1.15;
 FracturedItemNoModMarked.weaponCRIT = 9.4;
 FracturedItemNoModMarked.itemLevel = 81;
+FracturedItemNoModMarked.requires = {
+  level: 78,
+  str: 163,
+  dex: 0,
+  int: 0,
+};
 
 FracturedItemNoModMarked.info.refName = "Obliterator Bow";
 FracturedItemNoModMarked.isFractured = true;

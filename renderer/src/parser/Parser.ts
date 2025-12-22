@@ -581,47 +581,24 @@ function parseItemLevel(section: string[], item: ParsedItem) {
 }
 
 function parseRequirements(section: string[], item: ParsedItem) {
-  if (section[0].startsWith(_$.REQUIREMENTS)) {
-    return "SECTION_PARSED";
+  if (!section[0].startsWith(_$.REQUIRES)) {
+    return "SECTION_SKIPPED";
   }
 
-  if (section[0].startsWith(_$.REQUIRES)) {
-    // TODO: Add translation support for Requires line
-    try {
-      const text = section[0].replace("Requires: ", "");
-      const parts = text.split(", ");
-      for (const part of parts) {
-        if (part.startsWith("Level")) {
-          item.requires = {
-            ...item.requires,
-            level: parseInt(part.slice(6)),
-          };
-        } else if (part.endsWith("Str")) {
-          const number = parseInt(part.split(" ")[0]);
-          item.requires = {
-            ...item.requires,
-            str: number,
-          };
-        } else if (part.endsWith("Dex")) {
-          const number = parseInt(part.split(" ")[0]);
-          item.requires = {
-            ...item.requires,
-            dex: number,
-          };
-        } else if (part.endsWith("Int")) {
-          const number = parseInt(part.split(" ")[0]);
-          item.requires = {
-            ...item.requires,
-            int: number,
-          };
-        }
-      }
-    } catch (e) {
-      console.log(e);
-    }
-    return "SECTION_PARSED";
+  const match = section[0].match(_$.REQUIRES_LINE);
+  // TODO: remove once validated in other langs
+  if (!match) {
+    throw new Error("Failed to parse requirements");
   }
-  return "SECTION_SKIPPED";
+
+  item.requires = {
+    level: parseInt(match.groups!.level ?? "0"),
+    str: parseInt(match.groups!.str ?? "0"),
+    dex: parseInt(match.groups!.dex ?? "0"),
+    int: parseInt(match.groups!.int ?? "0"),
+  };
+
+  return "SECTION_PARSED";
 }
 
 function parseTalismanTier(section: string[], item: ParsedItem) {
