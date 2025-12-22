@@ -48,7 +48,7 @@ type SectionParseResult =
 type ParserFn = (section: string[], item: ParserState) => SectionParseResult;
 type VirtualParserFn = (item: ParserState) => Result<never, string> | void;
 
-interface ParserState extends ParsedItem {
+export interface ParserState extends ParsedItem {
   name: string;
   baseType: string | undefined;
   infoVariants: BaseType[];
@@ -1757,4 +1757,6 @@ export const __testExports = {
   parseArmour,
   parseModifiers,
   parseWaystone,
+  parseFractured,
+  parseFracturedText,
 };

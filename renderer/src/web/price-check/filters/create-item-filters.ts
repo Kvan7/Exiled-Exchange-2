@@ -1,10 +1,5 @@
 import type { ItemFilters } from "./interfaces";
-import {
-  ParsedItem,
-  ItemCategory,
-  ItemRarity,
-  itemIsModifiable,
-} from "@/parser";
+import { ParsedItem, ItemCategory, ItemRarity } from "@/parser";
 import { tradeTag } from "../trade/common";
 import { ModifierType } from "@/parser/modifiers";
 import { BaseType, ITEM_BY_REF } from "@/assets/data";
@@ -355,7 +350,7 @@ export function createFilters(
     filters.sanctified = { disabled: false };
   }
 
-  if (!item.isFractured && itemIsModifiable(item)) {
+  if (!item.isFractured && opts.exact) {
     filters.fractured = { value: false };
   }
 
