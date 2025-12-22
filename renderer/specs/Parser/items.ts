@@ -735,5 +735,135 @@ RareMapFakeAllProps.mapMagicMonsters = 30;
 RareMapFakeAllProps.mapRareMonsters = 71;
 RareMapFakeAllProps.mapDropChance = 90;
 RareMapFakeAllProps.mapItemRarity = 17;
-RareMapFakeAllProps.sectionCount = 5;
+RareMapFakeAllProps.sectionCount = 6;
+// #endregion
+
+// #region FracturedItem
+export const FracturedItem = new TestItem(`Item Class: Bows
+Rarity: Rare
+Miracle Siege
+Obliterator Bow
+--------
+Quality: +25% (augmented)
+Physical Damage: 381-705 (augmented)
+Critical Hit Chance: 9.40% (augmented)
+Attacks per Second: 1.15
+--------
+Requires: Level 78, 163 (unmet) Dex
+--------
+Sockets: S S
+--------
+Item Level: 81
+--------
+36% increased Physical Damage (rune)
+--------
+{ Implicit Modifier }
+50% reduced Projectile Range
+--------
+{ Prefix Modifier "Flaring" (Tier: 1) — Damage, Physical, Attack }
+Adds 32(26-39) to 59(44-66) Physical Damage (fractured)
+
+{ Prefix Modifier "Bloodthirsty" (Tier: 4) — Damage, Physical, Attack }
+134(110-134)% increased Physical Damage
+
+{ Prefix Modifier "Champion's" (Tier: 4) — Damage, Physical, Attack }
+54(45-54)% increased Physical Damage
++113(98-123) to Accuracy Rating
+
+{ Suffix Modifier "of the Essence" — Speed }
+20(20-25)% chance to gain Onslaught on Killing Hits with this Weapon
+
+{ Suffix Modifier "of the Essence" — Attack }
++3 to Level of all Attack Skills
+
+{ Suffix Modifier "of Ruin" (Tier: 2) — Attack, Critical }
++4.4(3.81-4.4)% to Critical Hit Chance
+
+--------
+Fractured Item
+`);
+FracturedItem.category = ItemCategory.Bow;
+FracturedItem.rarity = ItemRarity.Rare;
+FracturedItem.quality = 25;
+FracturedItem.weaponPHYSICAL = 381.5;
+FracturedItem.weaponAS = 1.15;
+FracturedItem.weaponCRIT = 9.4;
+FracturedItem.itemLevel = 81;
+
+FracturedItem.info.refName = "Obliterator Bow";
+FracturedItem.isFractured = true;
+FracturedItem.prefixCount = 3;
+FracturedItem.suffixCount = 3;
+FracturedItem.implicitCount = 1;
+FracturedItem.sectionCount = 9;
+FracturedItem.runeSockets = {
+  empty: 0,
+  current: 2,
+  normal: 2,
+};
+// #endregion
+
+// #region FracturedItemNoModMarked
+export const FracturedItemNoModMarked = new TestItem(`Item Class: Bows
+Rarity: Rare
+Miracle Siege
+Obliterator Bow
+--------
+Quality: +25% (augmented)
+Physical Damage: 381-705 (augmented)
+Critical Hit Chance: 9.40% (augmented)
+Attacks per Second: 1.15
+--------
+Requires: Level 78, 163 (unmet) Dex
+--------
+Sockets: S S
+--------
+Item Level: 81
+--------
+36% increased Physical Damage (rune)
+--------
+{ Implicit Modifier }
+50% reduced Projectile Range
+--------
+{ Prefix Modifier "Flaring" (Tier: 1) — Damage, Physical, Attack }
+Adds 32(26-39) to 59(44-66) Physical Damage
+
+{ Prefix Modifier "Bloodthirsty" (Tier: 4) — Damage, Physical, Attack }
+134(110-134)% increased Physical Damage
+
+{ Prefix Modifier "Champion's" (Tier: 4) — Damage, Physical, Attack }
+54(45-54)% increased Physical Damage
++113(98-123) to Accuracy Rating
+
+{ Suffix Modifier "of the Essence" — Speed }
+20(20-25)% chance to gain Onslaught on Killing Hits with this Weapon
+
+{ Suffix Modifier "of the Essence" — Attack }
++3 to Level of all Attack Skills
+
+{ Suffix Modifier "of Ruin" (Tier: 2) — Attack, Critical }
++4.4(3.81-4.4)% to Critical Hit Chance
+
+--------
+Fractured Item
+`);
+FracturedItemNoModMarked.category = ItemCategory.Bow;
+FracturedItemNoModMarked.rarity = ItemRarity.Rare;
+FracturedItemNoModMarked.quality = 25;
+FracturedItemNoModMarked.weaponPHYSICAL = 381.5;
+FracturedItemNoModMarked.weaponAS = 1.15;
+FracturedItemNoModMarked.weaponCRIT = 9.4;
+FracturedItemNoModMarked.itemLevel = 81;
+
+FracturedItemNoModMarked.info.refName = "Obliterator Bow";
+FracturedItemNoModMarked.isFractured = true;
+FracturedItemNoModMarked.prefixCount = 3;
+FracturedItemNoModMarked.suffixCount = 3;
+FracturedItemNoModMarked.implicitCount = 1;
+FracturedItemNoModMarked.sectionCount = 9;
+FracturedItemNoModMarked.runeSockets = {
+  empty: 0,
+  current: 2,
+  normal: 2,
+};
 // #endregion
