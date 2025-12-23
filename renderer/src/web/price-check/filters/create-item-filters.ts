@@ -289,6 +289,22 @@ export function createFilters(
     };
   }
 
+  if (item.requires && item.rarity === ItemRarity.Rare && !opts.exact) {
+    if (
+      item.requires.level &&
+      item.requires.level <= 75 &&
+      item.itemLevel &&
+      item.itemLevel <= 75
+    ) {
+      filters.requires = {
+        level: {
+          value: item.requires.level,
+          disabled: true,
+        },
+      };
+    }
+  }
+
   const forAdornedJewel =
     item.rarity === ItemRarity.Magic &&
     // item.isCorrupted && -- let the buyer corrupt

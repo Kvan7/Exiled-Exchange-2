@@ -57,6 +57,7 @@
     "has_empty_prefix": "Prefijo",
     "has_empty_suffix": "Sufijo",
     "item_level": "Nivel del objeto: {0}",
+    "requires_level": "Requiere Nivel: {0}",
     "stock": "Inventario: {0}",
     "map_tier": "Nivel del mapa: {0}",
     "area_level": "Nivel del área: {0}",

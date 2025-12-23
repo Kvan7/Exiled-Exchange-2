@@ -54,6 +54,7 @@
     "has_empty_suffix": "빈 접미어",
     "spirit": "정신력: {0}",
     "item_level": "아이템 레벨: {0}",
+    "requires_level": "요구 사항 레벨: {0}",
     "stock": "홈: {0}",
     "map_tier": "지도 등급: {0}",
     "area_level": "지역 레벨: {0}",

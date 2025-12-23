@@ -1,3 +1,4 @@
+import { CLIENT_STRINGS as _$ } from "@/assets/data";
 import { __testExports } from "@/parser/Parser";
 import { beforeEach, describe, expect, it, test } from "vitest";
 import { setupTests } from "@specs/vitest.setup";
@@ -8,6 +9,7 @@ import {
   NormalItem,
   RareItem,
   RareWithImplicit,
+  TestItem,
   UniqueItem,
   WandRareItem,
 } from "./items";
@@ -48,6 +50,8 @@ describe("parseWeapon", () => {
     const parsedItem = {} as ParsedItem;
 
     const res = __testExports.parseWeapon(sections[1], parsedItem);
+
+    // console.log(sections);
 
     expect(res).toBe("SECTION_PARSED");
     expect(parsedItem.weaponPHYSICAL).toBe(MagicItem.weaponPHYSICAL);
@@ -133,4 +137,87 @@ describe("parseArmour", () => {
     expect(parsedItem.quality).toBe(ArmourHighValueRareItem.quality);
     expect(parsedItem.armourBLOCK).toBe(ArmourHighValueRareItem.armourBLOCK);
   });
+});
+
+describe("parseRequirements", () => {
+  it.each([
+    ["Normal", NormalItem],
+    ["Magic", MagicItem],
+    ["Rare", RareItem],
+    ["Unique", UniqueItem],
+    ["RareWithImplicit", RareWithImplicit],
+    ["HighDamageRare", HighDamageRareItem],
+    ["ArmourHighValueRare", ArmourHighValueRareItem],
+    ["WandRare", WandRareItem],
+  ])(
+    "%s, items parse requirements",
+    async (testName: string, item: TestItem) => {
+      setupTests();
+      await loadForLang("en");
+      const sections = __testExports.itemTextToSections(item.rawText);
+      const parsedItem = {} as ParsedItem;
+
+      const res = __testExports.parseRequirements(
+        sections.find((s) => s.some((l) => l.startsWith(_$.REQUIRES)))!,
+        parsedItem,
+      );
+
+      expect(res).toBe("SECTION_PARSED");
+      expect(parsedItem.requires).toEqual(item.requires);
+    },
+  );
+
+  it.each([
+    [
+      "en",
+      "Requires: Level 28, 57 (augmented) Str",
+      { level: 28, str: 57, dex: 0, int: 0 },
+    ],
+    [
+      "cmn-Hant",
+      "需求: 等級 80, 108 (unmet) 智慧",
+      { level: 80, str: 0, dex: 0, int: 108 },
+    ],
+    [
+      "ja",
+      "装備条件：レベル 72, 70 筋力, 70 知性",
+      { level: 72, str: 70, dex: 0, int: 70 },
+    ],
+    [
+      "ko",
+      "요구 사항: 레벨 78, 89 힘, 89 (unmet) 민첩",
+      { level: 78, str: 89, dex: 89, int: 0 },
+    ],
+    [
+      "cmn-Hant",
+      "需求: 等級 78, 54 力量, 138 智慧",
+      { level: 78, str: 54, dex: 0, int: 138 },
+    ],
+    [
+      "ru",
+      "Требуется: Уровень 80, 59 (unmet) Ловк, 59 Инт",
+      {
+        level: 80,
+        str: 0,
+        dex: 59,
+        int: 59,
+      },
+    ],
+  ])(
+    "%s requires regex works",
+    async (
+      lang: string,
+      str: string,
+      expectedResult: ParsedItem["requires"],
+    ) => {
+      setupTests();
+      await loadForLang(lang);
+      const parsedItem = {} as ParsedItem;
+
+      const res = __testExports.parseRequirements([str], parsedItem);
+
+      expect(res).toBe("SECTION_PARSED");
+      expect(parsedItem.requires).toEqual(expectedResult);
+    },
+  );
 });

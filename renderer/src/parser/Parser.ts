@@ -581,13 +581,24 @@ function parseItemLevel(section: string[], item: ParsedItem) {
 }
 
 function parseRequirements(section: string[], item: ParsedItem) {
-  if (
-    section[0].startsWith(_$.REQUIREMENTS) ||
-    section[0].startsWith(_$.REQUIRES)
-  ) {
-    return "SECTION_PARSED";
+  if (!section[0].startsWith(_$.REQUIRES)) {
+    return "SECTION_SKIPPED";
   }
-  return "SECTION_SKIPPED";
+
+  const match = section[0].match(_$.REQUIRES_LINE);
+  // TODO: remove once validated in other langs
+  if (!match) {
+    throw new Error("Failed to parse requirements");
+  }
+
+  item.requires = {
+    level: parseInt(match.groups!.level ?? "0"),
+    str: parseInt(match.groups!.str ?? "0"),
+    dex: parseInt(match.groups!.dex ?? "0"),
+    int: parseInt(match.groups!.int ?? "0"),
+  };
+
+  return "SECTION_PARSED";
 }
 
 function parseTalismanTier(section: string[], item: ParsedItem) {
@@ -1757,6 +1768,7 @@ export const __testExports = {
   parseArmour,
   parseModifiers,
   parseWaystone,
+  parseRequirements,
   parseFractured,
   parseFracturedText,
 };

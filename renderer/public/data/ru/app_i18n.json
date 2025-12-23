@@ -71,6 +71,7 @@
     "has_empty_prefix": "Префикс",
     "has_empty_suffix": "Суффикс",
     "item_level": "Ур. предмета: {0}",
+    "requires_level": "Требуется Уровень: {0}",
     "spirit": "Дух: {0}",
     "reload_time": "Время перезарядки: {0}",
     "stock": "Запас: {0}",
