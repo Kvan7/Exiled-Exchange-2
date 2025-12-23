@@ -66,6 +66,14 @@ export class TestItem implements ParsedItem {
 
   note?: string;
   category?: ItemCategory | undefined;
+
+  requires?: {
+    level: number;
+    str: number;
+    dex: number;
+    int: number;
+  };
+
   info: BaseType = {
     name: "test",
     refName: "test",
@@ -125,6 +133,12 @@ NormalItem.quality = 9;
 NormalItem.armourAR = 174;
 NormalItem.armourES = 60;
 NormalItem.itemLevel = 81;
+NormalItem.requires = {
+  level: 75,
+  str: 67,
+  dex: 0,
+  int: 67,
+};
 
 NormalItem.info.refName = "Divine Crown";
 NormalItem.sectionCount = 4;
@@ -157,6 +171,12 @@ MagicItem.weaponELEMENTAL = MagicItem.weaponLIGHTNING;
 MagicItem.weaponCRIT = 5;
 MagicItem.weaponAS = 1.2;
 MagicItem.itemLevel = 32;
+MagicItem.requires = {
+  level: 28,
+  str: 57,
+  dex: 0,
+  int: 0,
+};
 
 MagicItem.info.refName = "Temple Maul";
 MagicItem.sectionCount = 5;
@@ -200,6 +220,12 @@ RareItem.weaponELEMENTAL =
 RareItem.weaponAS = 1.2;
 RareItem.weaponCRIT = 5;
 RareItem.itemLevel = 80;
+RareItem.requires = {
+  level: 51,
+  str: 0,
+  dex: 103,
+  int: 0,
+};
 
 RareItem.info.refName = "Rider Bow";
 RareItem.sectionCount = 5;
@@ -237,6 +263,12 @@ UniqueItem.category = ItemCategory.Focus;
 UniqueItem.rarity = ItemRarity.Unique;
 UniqueItem.armourES = 44;
 UniqueItem.itemLevel = 81;
+UniqueItem.requires = {
+  level: 26,
+  str: 0,
+  dex: 0,
+  int: 43,
+};
 
 // NOTE: requires step through to verify use of Name here is right
 UniqueItem.info.refName = "The Eternal Spark";
@@ -271,6 +303,12 @@ Item Level: 79
 RareWithImplicit.category = ItemCategory.Ring;
 RareWithImplicit.rarity = ItemRarity.Rare;
 RareWithImplicit.itemLevel = 79;
+RareWithImplicit.requires = {
+  level: 45,
+  str: 0,
+  dex: 0,
+  int: 0,
+};
 
 RareWithImplicit.info.refName = "Prismatic Ring";
 RareWithImplicit.sectionCount = 5;
@@ -401,6 +439,12 @@ HighDamageRareItem.sectionCount = 9;
 HighDamageRareItem.prefixCount = 3;
 HighDamageRareItem.suffixCount = 3;
 HighDamageRareItem.implicitCount = 1;
+HighDamageRareItem.requires = {
+  level: 79,
+  str: 89,
+  dex: 89,
+  int: 0,
+};
 
 HighDamageRareItem.runeSockets = {
   empty: 0,
@@ -447,6 +491,12 @@ ArmourHighValueRareItem.rarity = ItemRarity.Rare;
 ArmourHighValueRareItem.quality = 20;
 ArmourHighValueRareItem.armourAR = 3075;
 ArmourHighValueRareItem.itemLevel = 80;
+ArmourHighValueRareItem.requires = {
+  level: 65,
+  str: 121,
+  dex: 0,
+  int: 0,
+};
 
 ArmourHighValueRareItem.info.refName = "Soldier Cuirass";
 ArmourHighValueRareItem.sectionCount = 8;
@@ -488,6 +538,12 @@ Note: ~b/o 5 exalted
 WandRareItem.category = ItemCategory.Wand;
 WandRareItem.rarity = ItemRarity.Rare;
 WandRareItem.itemLevel = 82;
+WandRareItem.requires = {
+  level: 90,
+  str: 0,
+  dex: 0,
+  int: 125,
+};
 
 WandRareItem.info.refName = "Withered Wand";
 WandRareItem.sectionCount = 6;
@@ -521,6 +577,12 @@ NormalShield.itemLevel = 82;
 NormalShield.armourAR = 71;
 NormalShield.armourEV = 64;
 NormalShield.armourBLOCK = 25;
+NormalShield.requires = {
+  level: 54,
+  str: 42,
+  dex: 42,
+  int: 0,
+};
 
 NormalShield.info.refName = "Polished Targe";
 NormalShield.sectionCount = 6;
@@ -558,6 +620,12 @@ Has 2(1-3) Charm Slots
 TwoImplicitItem.category = ItemCategory.Belt;
 TwoImplicitItem.rarity = ItemRarity.Rare;
 TwoImplicitItem.itemLevel = 80;
+TwoImplicitItem.requires = {
+  level: 59,
+  str: 0,
+  dex: 0,
+  int: 0,
+};
 
 TwoImplicitItem.info.refName = "Ornate Belt";
 TwoImplicitItem.sectionCount = 5;
@@ -686,5 +754,147 @@ RareMapFakeAllProps.mapMagicMonsters = 30;
 RareMapFakeAllProps.mapRareMonsters = 71;
 RareMapFakeAllProps.mapDropChance = 90;
 RareMapFakeAllProps.mapItemRarity = 17;
-RareMapFakeAllProps.sectionCount = 5;
+RareMapFakeAllProps.sectionCount = 6;
+// #endregion
+
+// #region FracturedItem
+export const FracturedItem = new TestItem(`Item Class: Bows
+Rarity: Rare
+Miracle Siege
+Obliterator Bow
+--------
+Quality: +25% (augmented)
+Physical Damage: 381-705 (augmented)
+Critical Hit Chance: 9.40% (augmented)
+Attacks per Second: 1.15
+--------
+Requires: Level 78, 163 (unmet) Dex
+--------
+Sockets: S S
+--------
+Item Level: 81
+--------
+36% increased Physical Damage (rune)
+--------
+{ Implicit Modifier }
+50% reduced Projectile Range
+--------
+{ Prefix Modifier "Flaring" (Tier: 1) — Damage, Physical, Attack }
+Adds 32(26-39) to 59(44-66) Physical Damage (fractured)
+
+{ Prefix Modifier "Bloodthirsty" (Tier: 4) — Damage, Physical, Attack }
+134(110-134)% increased Physical Damage
+
+{ Prefix Modifier "Champion's" (Tier: 4) — Damage, Physical, Attack }
+54(45-54)% increased Physical Damage
++113(98-123) to Accuracy Rating
+
+{ Suffix Modifier "of the Essence" — Speed }
+20(20-25)% chance to gain Onslaught on Killing Hits with this Weapon
+
+{ Suffix Modifier "of the Essence" — Attack }
++3 to Level of all Attack Skills
+
+{ Suffix Modifier "of Ruin" (Tier: 2) — Attack, Critical }
++4.4(3.81-4.4)% to Critical Hit Chance
+
+--------
+Fractured Item
+`);
+FracturedItem.category = ItemCategory.Bow;
+FracturedItem.rarity = ItemRarity.Rare;
+FracturedItem.quality = 25;
+FracturedItem.weaponPHYSICAL = 624;
+FracturedItem.weaponAS = 1.15;
+FracturedItem.weaponCRIT = 9.4;
+FracturedItem.itemLevel = 81;
+FracturedItem.requires = {
+  level: 78,
+  str: 163,
+  dex: 0,
+  int: 0,
+};
+
+FracturedItem.info.refName = "Obliterator Bow";
+FracturedItem.isFractured = true;
+FracturedItem.prefixCount = 3;
+FracturedItem.suffixCount = 3;
+FracturedItem.implicitCount = 1;
+FracturedItem.sectionCount = 9;
+FracturedItem.runeSockets = {
+  empty: 0,
+  current: 2,
+  normal: 2,
+};
+// #endregion
+
+// #region FracturedItemNoModMarked
+export const FracturedItemNoModMarked = new TestItem(`Item Class: Bows
+Rarity: Rare
+Miracle Siege
+Obliterator Bow
+--------
+Quality: +25% (augmented)
+Physical Damage: 381-705 (augmented)
+Critical Hit Chance: 9.40% (augmented)
+Attacks per Second: 1.15
+--------
+Requires: Level 78, 163 (unmet) Dex
+--------
+Sockets: S S
+--------
+Item Level: 81
+--------
+36% increased Physical Damage (rune)
+--------
+{ Implicit Modifier }
+50% reduced Projectile Range
+--------
+{ Prefix Modifier "Flaring" (Tier: 1) — Damage, Physical, Attack }
+Adds 32(26-39) to 59(44-66) Physical Damage
+
+{ Prefix Modifier "Bloodthirsty" (Tier: 4) — Damage, Physical, Attack }
+134(110-134)% increased Physical Damage
+
+{ Prefix Modifier "Champion's" (Tier: 4) — Damage, Physical, Attack }
+54(45-54)% increased Physical Damage
++113(98-123) to Accuracy Rating
+
+{ Suffix Modifier "of the Essence" — Speed }
+20(20-25)% chance to gain Onslaught on Killing Hits with this Weapon
+
+{ Suffix Modifier "of the Essence" — Attack }
++3 to Level of all Attack Skills
+
+{ Suffix Modifier "of Ruin" (Tier: 2) — Attack, Critical }
++4.4(3.81-4.4)% to Critical Hit Chance
+
+--------
+Fractured Item
+`);
+FracturedItemNoModMarked.category = ItemCategory.Bow;
+FracturedItemNoModMarked.rarity = ItemRarity.Rare;
+FracturedItemNoModMarked.quality = 25;
+FracturedItemNoModMarked.weaponPHYSICAL = 381.5;
+FracturedItemNoModMarked.weaponAS = 1.15;
+FracturedItemNoModMarked.weaponCRIT = 9.4;
+FracturedItemNoModMarked.itemLevel = 81;
+FracturedItemNoModMarked.requires = {
+  level: 78,
+  str: 163,
+  dex: 0,
+  int: 0,
+};
+
+FracturedItemNoModMarked.info.refName = "Obliterator Bow";
+FracturedItemNoModMarked.isFractured = true;
+FracturedItemNoModMarked.prefixCount = 3;
+FracturedItemNoModMarked.suffixCount = 3;
+FracturedItemNoModMarked.implicitCount = 1;
+FracturedItemNoModMarked.sectionCount = 9;
+FracturedItemNoModMarked.runeSockets = {
+  empty: 0,
+  current: 2,
+  normal: 2,
+};
 // #endregion

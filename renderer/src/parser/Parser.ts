@@ -48,7 +48,7 @@ type SectionParseResult =
 type ParserFn = (section: string[], item: ParserState) => SectionParseResult;
 type VirtualParserFn = (item: ParserState) => Result<never, string> | void;
 
-interface ParserState extends ParsedItem {
+export interface ParserState extends ParsedItem {
   name: string;
   baseType: string | undefined;
   infoVariants: BaseType[];
@@ -379,6 +379,7 @@ function parseBlightedMap(item: ParsedItem) {
 }
 
 function parseFractured(item: ParserState) {
+  // NOTE: partially also controlled by parseFracturedText
   if (item.newMods.some((mod) => mod.info.type === ModifierType.Fractured)) {
     item.isFractured = true;
   }
@@ -580,13 +581,24 @@ function parseItemLevel(section: string[], item: ParsedItem) {
 }
 
 function parseRequirements(section: string[], item: ParsedItem) {
-  if (
-    section[0].startsWith(_$.REQUIREMENTS) ||
-    section[0].startsWith(_$.REQUIRES)
-  ) {
-    return "SECTION_PARSED";
+  if (!section[0].startsWith(_$.REQUIRES)) {
+    return "SECTION_SKIPPED";
   }
-  return "SECTION_SKIPPED";
+
+  const match = section[0].match(_$.REQUIRES_LINE);
+  // TODO: remove once validated in other langs
+  if (!match) {
+    throw new Error("Failed to parse requirements");
+  }
+
+  item.requires = {
+    level: parseInt(match.groups!.level ?? "0"),
+    str: parseInt(match.groups!.str ?? "0"),
+    dex: parseInt(match.groups!.dex ?? "0"),
+    int: parseInt(match.groups!.int ?? "0"),
+  };
+
+  return "SECTION_PARSED";
 }
 
 function parseTalismanTier(section: string[], item: ParsedItem) {
@@ -1222,9 +1234,11 @@ function parsePriceNote(section: string[], item: ParsedItem) {
   return "SECTION_SKIPPED";
 }
 
-function parseFracturedText(section: string[], _item: ParsedItem) {
+function parseFracturedText(section: string[], item: ParsedItem) {
   for (const line of section) {
     if (line === _$.FRACTURED_ITEM) {
+      // HACK: remove once bug is fixed (https://www.pathofexile.com/forum/view-thread/3891367)
+      item.isFractured = true;
       return "SECTION_PARSED";
     }
   }
@@ -1754,4 +1768,7 @@ export const __testExports = {
   parseArmour,
   parseModifiers,
   parseWaystone,
+  parseRequirements,
+  parseFractured,
+  parseFracturedText,
 };

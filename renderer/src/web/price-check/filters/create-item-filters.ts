@@ -1,10 +1,5 @@
 import type { ItemFilters } from "./interfaces";
-import {
-  ParsedItem,
-  ItemCategory,
-  ItemRarity,
-  itemIsModifiable,
-} from "@/parser";
+import { ParsedItem, ItemCategory, ItemRarity } from "@/parser";
 import { tradeTag } from "../trade/common";
 import { ModifierType } from "@/parser/modifiers";
 import { BaseType, ITEM_BY_REF } from "@/assets/data";
@@ -294,6 +289,22 @@ export function createFilters(
     };
   }
 
+  if (item.requires && item.rarity === ItemRarity.Rare && !opts.exact) {
+    if (
+      item.requires.level &&
+      item.requires.level <= 75 &&
+      item.itemLevel &&
+      item.itemLevel <= 75
+    ) {
+      filters.requires = {
+        level: {
+          value: item.requires.level,
+          disabled: true,
+        },
+      };
+    }
+  }
+
   const forAdornedJewel =
     item.rarity === ItemRarity.Magic &&
     // item.isCorrupted && -- let the buyer corrupt
@@ -355,12 +366,12 @@ export function createFilters(
     filters.sanctified = { disabled: false };
   }
 
-  if (!item.isFractured && itemIsModifiable(item)) {
+  if (!item.isFractured && opts.exact) {
     filters.fractured = { value: false };
   }
 
   if (item.isFoil) {
-    filters.foil = { disabled: false };
+    filters.foil = { disabled: true };
   }
 
   if (item.influences.length && item.influences.length <= 2) {

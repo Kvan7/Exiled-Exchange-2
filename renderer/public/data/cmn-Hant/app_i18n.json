@@ -57,6 +57,7 @@
     "has_empty_prefix": "前綴",
     "has_empty_suffix": "後綴",
     "item_level": "物品等級：{0}",
+    "requires_level": "需求 等級: {0}",
     "stock": "庫存：{0}",
     "map_tier": "地圖階級：{0}",
     "area_level": "區域等級：{0}",

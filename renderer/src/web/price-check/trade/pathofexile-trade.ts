@@ -433,6 +433,18 @@ export function createTradeRequest(
     }
   }
 
+  if (
+    filters.requires &&
+    filters.requires.level &&
+    !filters.requires.level.disabled
+  ) {
+    propSet(
+      query.filters,
+      "req_filters.filters.lvl.max",
+      filters.requires.level.value,
+    );
+  }
+
   if (filters.quality && !filters.quality.disabled) {
     propSet(
       query.filters,
