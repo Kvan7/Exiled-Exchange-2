@@ -289,38 +289,16 @@ export function createFilters(
     };
   }
 
-  if (item.requires) {
-    if (item.requires.level != null) {
+  if (item.requires && item.rarity === ItemRarity.Rare && !opts.exact) {
+    if (
+      item.requires.level &&
+      item.requires.level <= 75 &&
+      item.itemLevel &&
+      item.itemLevel <= 75
+    ) {
       filters.requires = {
         level: {
           value: item.requires.level,
-          disabled: true,
-        },
-      };
-    }
-    if (item.requires.str != null) {
-      filters.requires = {
-        ...filters.requires,
-        str: {
-          value: item.requires.str,
-          disabled: true,
-        },
-      };
-    }
-    if (item.requires.dex != null) {
-      filters.requires = {
-        ...filters.requires,
-        dex: {
-          value: item.requires.dex,
-          disabled: true,
-        },
-      };
-    }
-    if (item.requires.int != null) {
-      filters.requires = {
-        ...filters.requires,
-        int: {
-          value: item.requires.int,
           disabled: true,
         },
       };
