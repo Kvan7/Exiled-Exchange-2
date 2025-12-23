@@ -57,6 +57,7 @@
     "has_empty_prefix": "Präfix",
     "has_empty_suffix": "Suffix",
     "item_level": "Gegenstandsstufe: {0}",
+    "requires_level": "Erfordert Stufe: {0}",
     "stock": "Bestand: {0}",
     "map_tier": "Kartenstufe: {0}",
     "area_level": "Gebietsstufe: {0}",

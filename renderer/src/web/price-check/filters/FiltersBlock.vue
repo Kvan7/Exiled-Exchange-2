@@ -64,7 +64,7 @@
         <filter-btn-numeric
           v-if="filters.requires?.level"
           :filter="filters.requires?.level"
-          :name="t('item.min_level')"
+          :name="t('item.requires_level')"
         />
         <filter-btn-numeric
           v-if="filters.stackSize"

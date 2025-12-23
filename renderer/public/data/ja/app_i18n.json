@@ -57,6 +57,7 @@
     "has_empty_prefix": "プレフィックス",
     "has_empty_suffix": "サフィックス",
     "item_level": "アイテムレベル: {0}",
+    "requires_level": "装備条件 レベル: {0}",
     "stock": "在庫: {0}",
     "map_tier": "マップティア: {0}",
     "area_level": "エリアレベル: {0}",
