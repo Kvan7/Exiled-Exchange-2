@@ -371,7 +371,7 @@ export function createFilters(
   }
 
   if (item.isFoil) {
-    filters.foil = { disabled: false };
+    filters.foil = { disabled: true };
   }
 
   if (item.influences.length && item.influences.length <= 2) {
