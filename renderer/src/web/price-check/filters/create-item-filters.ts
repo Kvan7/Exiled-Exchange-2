@@ -457,7 +457,7 @@ export function createFilters(
       statRefs: item.statsByType
         .filter((calc) => calc.type === ModifierType.Veiled)
         .map((calc) => calc.stat.ref),
-      disabled: false,
+      disabled: true,
     };
 
     if (item.rarity !== ItemRarity.Unique) {

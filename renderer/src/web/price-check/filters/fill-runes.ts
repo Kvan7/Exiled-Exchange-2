@@ -133,11 +133,6 @@ function createNewStatFilter(
       ),
     ),
   );
-  if (item.isVeiled) {
-    ctx.filters.forEach((filter) => {
-      filter.disabled = true;
-    });
-  }
 
   finalFilterTweaks(ctx);
 
