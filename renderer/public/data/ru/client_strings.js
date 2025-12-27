@@ -160,5 +160,5 @@ export default {
   LOG_LEVEL_UP: /^(.*) теперь (?<level>\d+) уровня$/,
   // [Manual]
   LOG_ZONE_GEN: /^Generating level (?<area_level>\d+) area "(?<zone>.*)" with seed (?<seed>\d+)$/,
-  REQUIRES_LINE: /^Требуется: \s*(?:Уровень[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*Сила)?\D*(?:(?<dex>\d+)[^\d,]*Ловк)?\D*(?:(?<int>\d+)[^\d,]*Инт)?$/,
+  REQUIRES_LINE: /^Требуется: \s*(?:Уровень[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*(Сила|Сила))?\D*(?:(?<dex>\d+)[^\d,]*(Ловкость|Ловк))?\D*(?:(?<int>\d+)[^\d,]*(Интеллект|Инт))?$/,
 }

@@ -160,5 +160,5 @@ export default {
   LOG_LEVEL_UP: /^(.*) ist jetzt Stufe (?<level>\d+)$/,
   // [Manual]
   LOG_ZONE_GEN: /^Generating level (?<area_level>\d+) area "(?<zone>.*)" with seed (?<seed>\d+)$/,
-  REQUIRES_LINE: /^Erfordert: \s*(?:Stufe[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*Str)?\D*(?:(?<dex>\d+)[^\d,]*Ges )?\D*(?:(?<int>\d+)[^\d,]*Int)?$/,
+  REQUIRES_LINE: /^Erfordert: \s*(?:Stufe[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*(Stärke|Str))?\D*(?:(?<dex>\d+)[^\d,]*(Geschick |Ges ))?\D*(?:(?<int>\d+)[^\d,]*(Intelligenz|Int))?$/,
 }

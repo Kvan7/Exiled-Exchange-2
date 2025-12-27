@@ -160,5 +160,5 @@ export default {
   LOG_LEVEL_UP: /^(.*)は現在レベル(?<level>\d+)です$/,
   // [Manual]
   LOG_ZONE_GEN: /^Generating level (?<area_level>\d+) area "(?<zone>.*)" with seed (?<seed>\d+)$/,
-  REQUIRES_LINE: /^装備条件：\s*(?:レベル[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*筋力)?\D*(?:(?<dex>\d+)[^\d,]*器用さ)?\D*(?:(?<int>\d+)[^\d,]*知性)?$/,
+  REQUIRES_LINE: /^装備条件：\s*(?:レベル[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*(筋力|筋力))?\D*(?:(?<dex>\d+)[^\d,]*(器用さ|器用さ))?\D*(?:(?<int>\d+)[^\d,]*(知性|知性))?$/,
 }
