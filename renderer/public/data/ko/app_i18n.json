@@ -1,12 +1,12 @@
 {
-  "please_wait": "잠시만 기다려주세요\u2026",
+  "please_wait": "잠시만 기다려주세요…",
   "choose_file": "파일을 선택해주세요",
   "app_is_ready": "가 준비되었고 실행 중입니다.",
   "reopen_settings": "{0}을 눌러서 편집을 계속하세요.",
   "seconds": "초",
   "league": "리그",
   "app": {
-    "leagues_loading": "리그를 불러오는 중\u2026",
+    "leagues_loading": "리그를 불러오는 중…",
     "leagues_failed": "리그 불러오기를 실패하였습니다",
     "leagues_failed_help": "서버가 점검 중인지 확인해주세요. 혹은 \"Browser\" 버튼을 눌러주세요. CAPTCHA를 완료해야할 수도 있습니다.",
     "leagues_failed_help_alt": "아이템 가격 책정을 하시고 오류 설명에 있는 지시를 따라주세요.",
@@ -219,7 +219,7 @@
     "latest": "최신 버전을 사용 중입니다.",
     "error": "업데이트 체크 중 오류 발생",
     "checking": "업데이트 체크 중",
-    "downloading": "다운로드 중 \u2026",
+    "downloading": "다운로드 중 …",
     "available": "업데이트 가능: {0}",
     "never_checked": "체크 시간: 없음",
     "last_checked": "체크 시간: {0}",
@@ -231,7 +231,7 @@
     "download_disabled": "자동 업데이트를 비활성화 하였습니다."
   },
   "widget_menu": {
-    "add": "위젯 추가 \u2026",
+    "add": "위젯 추가 …",
     "always_show": "활성화된 위젯 표시하기",
     "price_check": "가격 검색 (Ctrl + V)"
   },
@@ -251,7 +251,7 @@
   },
   "item_search": {
     "name": "아이템 검색",
-    "input": "이름으로 검색 \u2026",
+    "input": "이름으로 검색 …",
     "reset": "아이템 초기화",
     "heist_target": "강탈 대상:",
     "target_gem": "스킬 젬",
@@ -334,7 +334,7 @@
     "tier_numbering": "티어 넘버링 스타일",
     "tier_numbering_poe1": "PoE1 (낮을수록 좋음)",
     "tier_numbering_poe2": "PoE2 (높을수록 좋음)",
-    "tier_numbering_help": "혼란을 방지하기 위해서 POE 1의 아이템 티어는 \"티어\"가아닌\"등급\"으로 표시됩니다.",
+    "tier_numbering_help": "혼란을 방지하기 위해서 POE 1의 아이템 티어는 \"티어\"가아닌\"등급\"으로 표시됩니다. ",
     "always_show_tier": "常にティアを表示",
     "remember_ratio": "通貨比率を記憶する"
   },
