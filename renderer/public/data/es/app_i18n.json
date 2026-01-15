@@ -20,7 +20,6 @@
     "report_bug": "Reportar un error en GitHub",
     "quit": "Salir"
   },
-  "map.mods.heist": "heist",
   "map.mods.uber": "T17",
   "map.mods.outdated": "desactualizado",
   "Support development on": "Apoya el desarrollo\u00A0en",
@@ -33,7 +32,6 @@
   "Hunter": "Cazador",
   "Redeemer": "Redentora",
   "Warlord": "Jefe de guerra",
-  "Superior": "Superior",
   "Anomalous": "Anómalo",
   "Divergent": "Divergente",
   "Phantasmal": "Fantasmagórico",
@@ -81,7 +79,6 @@
     "not_corrupted": "No corrupto",
     "mod_tier": "Nivel: {0}",
     "mod_rank": "Rango: {0}",
-    "mod_pseudo": "Pseudo",
     "mod_implicit": "Implícito",
     "mod_fractured": "Fracturado",
     "mod_explicit": "Explícito",
@@ -151,7 +148,6 @@
     "weapon_spear": "Lanza",
     "weapon_flail": "Mangual",
     "armour_buckler": "Broquel",
-    "map_tablet": "Tablet",
     "weapon_talisman": "Talismán"
   },
   "filters": {
@@ -166,7 +162,6 @@
     "mods_toggle": "Modificadores",
     "empty": "No se encontraron estadísticas relevantes",
     "tier": "Nivel {0}",
-    "preset_pseudo": "Pseudo",
     "preset_base_item": "Objeto base",
     "hide_const_roll": "La tirada no es variable",
     "hide_ele_dps": "El daño elemental no es la fuente principal de DPS",
@@ -184,8 +179,6 @@
     "tag_variant": "variante",
     "tag_corrupted": "corrupto",
     "tag_synthesised": "sintetizado",
-    "tag_eldritch": "eldritch",
-    "tag_pseudo": "pseudo",
     "tag_explicit": "explícito",
     "tag_explicit_shaper": "Forjador",
     "tag_explicit_elder": "Anciano",
@@ -198,7 +191,6 @@
     "tag_explicit_incursion": "Incursión",
     "tag_rune": "mejora",
     "tag_added_rune": "mejora",
-    "tag_sanctum": "Sanctum",
     "tag_desecrated": "profanado"
   },
   "online_filter": {
@@ -289,11 +281,9 @@
     "price": "Precio",
     "normalized": "N-Price",
     "bulk": "en lote",
-    "stock": "Stock",
     "fulfill": "Cumplir",
     "listed": "Listado",
     "seller": "Vendedor",
-    "item_level": "iLvl",
     "rank": "Rango",
     "gem_level": "Nivel",
     "gem_sockets": "Casilleros",

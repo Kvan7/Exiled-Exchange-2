@@ -124,7 +124,6 @@
   },
   "item_category": {
     "prop": "Категория: {0}",
-    "map": "Map",
     "jewel_abyss": "Самоцвет Бездны",
     "accessory_amulet": "Амулет",
     "accessory_belt": "Пояс",
@@ -187,10 +186,6 @@
     "hide_anointment": "Покупатель, скорее всего, поменяет зачарование",
     "hide_for_crafting": "Отмечайте, если проверяете цену в качестве базового предмета для крафта",
     "hide_empty_mod": "Выбирайте, только если у предмета 6 свойств (1 из которых ремесленное) или если у него 5 свойств",
-    "hide_low_ilvl": "Item has too low an item level to roll all mods",
-    "hide_not_max_level": "Non max level granted skills rarely add value",
-    "hide_for_map": "Most map modifiers have no value",
-    "hide_revives": "Select only if not 0 and don't want to exalt it?",
     "tag_crafted": "мастер",
     "tag_fractured": "расколотый",
     "tag_scourge": "преображен",
@@ -301,7 +296,6 @@
     "matched": "Найдено: {0}",
     "trade": "Трейд",
     "price": "Цена",
-    "normalized": "N-Price",
     "bulk": "опт",
     "stock": "Запас",
     "fulfill": "Сделки",
@@ -359,9 +353,7 @@
     "tip_frequency_5": "Очень редко",
     "tip_frequency_6": "Никогда",
     "tips_header": "Циклически отображать все подсказки:",
-    "tip_number_header": "Подсказка #{0}",
-    "read_client_log": "Allow reading of Client.txt file",
-    "client_log_explain": "Client.txt log file contains debugging info and chat logs. This is used to detect zone changes and player level ups."
+    "tip_number_header": "Подсказка #{0}"
   },
   "price_check": {
     "name": "Прайс-чек",
@@ -382,7 +374,6 @@
     "select_stock": "Всегда активировать фильтр \"Запас\"",
     "show_prediction": "Показывать приблизительную цену",
     "remember_currency": "Запоминать фильтр \"Валюты выкупа\"",
-    "default_all_selected": "Default all filters to enabled",
     "use_tooltip_hover": "Показывать предмет при наведении на цену",
     "use_tooltip_keybind": "SHIFT + наведение",
     "use_tooltip_always": "наведение",
