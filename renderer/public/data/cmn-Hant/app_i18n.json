@@ -1,5 +1,5 @@
 {
-  "please_wait": "請稍候\u2026",
+  "please_wait": "請稍候…",
   "choose_file": "選擇文件",
   "app_is_ready": "已準備就緒並在後台運行",
   "reopen_settings": "按 {0} 以繼續編輯。",
@@ -8,7 +8,7 @@
   "realm": "區域",
   "realm_intl": "國際",
   "app": {
-    "leagues_loading": "正在加載聯盟\u2026",
+    "leagues_loading": "正在加載聯盟…",
     "leagues_failed": "加載聯盟失敗",
     "leagues_failed_help": "確保該區域未進行維護。也嘗試點擊“瀏覽器”按鈕，可能需要在那裡完成 CAPTCHA 驗證。",
     "leagues_failed_help_alt": "價格檢查一個物品，並遵循那裡錯誤描述中的指示。",
@@ -24,7 +24,7 @@
   "map.mods.heist": "劫盜",
   "map.mods.uber": "T17",
   "map.mods.outdated": "已過時",
-  "Support development on": "支持開發於\u00A0",
+  "Support development on": "支持開發於 ",
   "Blighted": "凋落的",
   "Blight-ravaged": "凋落蔓延的",
   "Magic": "魔法",
@@ -228,7 +228,7 @@
     "latest": "您擁有最新版本",
     "error": "檢查更新時發生錯誤",
     "checking": "正在檢查更新",
-    "downloading": "正在下載\u2026",
+    "downloading": "正在下載…",
     "available": "更新可用：{0}",
     "never_checked": "上次檢查：從未",
     "last_checked": "上次檢查：{0}",
@@ -240,7 +240,7 @@
     "download_disabled": "您禁用了自動更新下載"
   },
   "widget_menu": {
-    "add": "添加小工具\u2026",
+    "add": "添加小工具…",
     "always_show": "顯示活躍小工具的按鈕",
     "price_check": "價格檢查 (Ctrl + V)"
   },
@@ -261,7 +261,7 @@
   },
   "item_search": {
     "name": "物品搜尋",
-    "input": "按名稱搜尋\u2026",
+    "input": "按名稱搜尋…",
     "reset": "重置物品",
     "heist_target": "劫盜目標：",
     "target_gem": "技能寶石",
@@ -297,7 +297,7 @@
     "base_item": "基礎物品",
     "graph_7d": "最近 7 天",
     "getting_price": "獲取價格 {0}",
-    "getting_price_from": "來自 poe.ninja \u2026",
+    "getting_price_from": "來自 poe.ninja …",
     "you_have": "您有",
     "stack": "堆疊",
     "fix_complex_query": "請在設定中禁用\"偽屬性\"選項，或通過內置瀏覽器登錄。"
@@ -370,7 +370,7 @@
     "tier_numbering": "層級編號風格",
     "tier_numbering_poe1": "POE1（數值越小越好）",
     "tier_numbering_poe2": "POE2（數值越大越好）",
-    "tier_numbering_help": "為了減少因遊戲內命名衝突而導致的混淆，POE1的層級將使用\"Grade\"而非\"Tier\"來命名。",
+    "tier_numbering_help": "為了減少因遊戲內命名衝突而導致的混淆，POE1的層級將使用\"Grade\"而非\"Tier\"來命名。 ",
     "always_show_tier": "始終顯示階級",
     "remember_ratio": "記住通貨比例"
   },
