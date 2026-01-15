@@ -1,5 +1,5 @@
 {
-  "please_wait": "しばらくお待ちください\u2026",
+  "please_wait": "しばらくお待ちください…",
   "choose_file": "ファイルを選択してください",
   "app_is_ready": "準備が整いバックグラウンドで実行中です",
   "reopen_settings": "{0} を押して編集を続行してください。",
@@ -8,7 +8,7 @@
   "realm": "レルム",
   "realm_intl": "インターナショナル",
   "app": {
-    "leagues_loading": "リーグを読み込み中\u2026",
+    "leagues_loading": "リーグを読み込み中…",
     "leagues_failed": "リーグの読み込みに失敗しました",
     "leagues_failed_help": "レルムがメンテナンス中でないことを確認してください。また「ブラウザ」ボタンをクリックしてみてください。そこでCAPTCHAを完了する必要があるかもしれません。",
     "leagues_failed_help_alt": "アイテムの価格チェックを行い、エラーの説明に従ってください。",
@@ -225,7 +225,7 @@
     "latest": "最新バージョンです",
     "error": "アップデートの確認中にエラーが発生しました",
     "checking": "アップデートを確認中",
-    "downloading": "ダウンロード中\u2026",
+    "downloading": "ダウンロード中…",
     "available": "アップデート利用可能: {0}",
     "never_checked": "最後の確認: 未確認",
     "last_checked": "最後の確認: {0}",
@@ -237,7 +237,7 @@
     "download_disabled": "自動アップデートのダウンロードを無効にしています"
   },
   "widget_menu": {
-    "add": "ウィジェットを追加\u2026",
+    "add": "ウィジェットを追加…",
     "always_show": "アクティブなウィジェット用ボタンを表示",
     "price_check": "価格チェック (Ctrl + V)"
   },
@@ -258,7 +258,7 @@
   },
   "item_search": {
     "name": "アイテム検索",
-    "input": "名前で検索\u2026",
+    "input": "名前で検索…",
     "reset": "アイテムをリセット",
     "heist_target": "ハイストターゲット:",
     "target_gem": "スキルジェム",
@@ -293,7 +293,7 @@
     "base_item": "ベースアイテム",
     "graph_7d": "過去7日間",
     "getting_price": "価格取得中 {0}",
-    "getting_price_from": "poe.ninjaから\u2026",
+    "getting_price_from": "poe.ninjaから…",
     "you_have": "既に所持しています",
     "stack": "スタック",
     "fix_complex_query": "設定で\"Use pseudo mods\"を無効にするか、組み込みブラウザでログインしてください"
@@ -367,7 +367,7 @@
     "tier_numbering": "ティアのナンバリングスタイル",
     "tier_numbering_poe1": "PoE1（数値が低いほど良い）",
     "tier_numbering_poe2": "PoE2（数値が高いほど良い）",
-    "tier_numbering_help": "ゲーム内の命名規則との衝突による混乱を減らすため、PoE1のティアは\"Tier\"ではなく\"Grade\"という名称を使用します。"
+    "tier_numbering_help": "ゲーム内の命名規則との衝突による混乱を減らすため、PoE1のティアは\"Tier\"ではなく\"Grade\"という名称を使用します。 "
   },
   "poe2_new": {
     "beta_warning": "これはPOE2のベータ版です、期待通りに動作しないことがあります。",
