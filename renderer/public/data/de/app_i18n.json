@@ -12,7 +12,7 @@
     "leagues_failed": "Laden der Ligen fehlgeschlagen",
     "leagues_failed_help": "Stelle sicher, dass der Realm nicht gewartet wird. Klicke auch auf den Button \"Browser\", dort musst du möglicherweise ein CAPTCHA lösen.",
     "leagues_failed_help_alt": "Führe eine Preisüberprüfung durch und folge den Anweisungen in der Fehlerbeschreibung.",
-    "thanks_3rd_party": "Dieses Tool basiert auf {0} und {1}. Bitte unterstütze diese ebenfalls.",
+    "thanks_3rd_party": "Dieses Tool basiert auf {0} und {1}. Bitte unterstütze diese ebenfalls",
     "toggle_browser_hint": "Drücke {0}, um zwischen Browser und Spiel zu wechseln.",
     "contact_me": "Kontaktiere mich auf einem der PoE-Discords,",
     "version": "Version {0}",
