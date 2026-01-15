@@ -1,5 +1,5 @@
 {
-  "please_wait": "Por favor, aguarde\u2026",
+  "please_wait": "Por favor, aguarde…",
   "choose_file": "Selecionar arquivo",
   "app_is_ready": "Pronto e funcionando em segundo plano",
   "reopen_settings": "Pressione {0} para continuar editando.",
@@ -8,7 +8,7 @@
   "realm": "Reino",
   "realm_intl": "Internacional",
   "app": {
-    "leagues_loading": "Carregando ligas\u2026",
+    "leagues_loading": "Carregando ligas…",
     "leagues_failed": "Erro ao carregar ligas",
     "leagues_failed_help": "Certifique-se de que o reino não está em manutenção. Também clique no botão \"Navegador\", pode ser necessário resolver um CAPTCHA.",
     "leagues_failed_help_alt": "Realize uma verificação de preços e siga as instruções na descrição do erro.",
@@ -241,7 +241,7 @@
     "latest": "Você tem a versão mais recente",
     "error": "Erro ao verificar atualizações",
     "checking": "Verificando atualizações",
-    "downloading": "Baixando\u2026",
+    "downloading": "Baixando…",
     "available": "Atualização disponível: {0}",
     "never_checked": "Última verificação: nunca",
     "last_checked": "Última verificação: {0}",
@@ -253,7 +253,7 @@
     "download_disabled": "Você desativou o download automático de atualizações"
   },
   "widget_menu": {
-    "add": "adicionar widget\u2026",
+    "add": "adicionar widget…",
     "always_show": "Mostrar botão para widgets ativos",
     "price_check": "Verificação de preços (Ctrl + V)"
   },
@@ -274,7 +274,7 @@
   },
   "item_search": {
     "name": "Busca de itens",
-    "input": "Buscar por nome\u2026",
+    "input": "Buscar por nome…",
     "reset": "Reiniciar itens",
     "heist_target": "Alvo de assalto:",
     "target_gem": "Gema de habilidade",
@@ -309,7 +309,7 @@
     "base_item": "Item base",
     "graph_7d": "Últimos 7 dias",
     "getting_price": "Obtendo preço {0}",
-    "getting_price_from": "de poe.ninja \u2026",
+    "getting_price_from": "de poe.ninja …",
     "you_have": "Você tem",
     "stack": "Pilha",
     "results_warn_tooltip": "Habilitar apenas Exaltados no Filtro online. Você pode desativar este alerta nas configurações.",
@@ -438,7 +438,7 @@
     "exp_tracking": "Rastreador de Experiência",
     "show_exp": "Mostrar porcentagem de ganho de experiência",
     "exp_tracking_help_tldr": "TLDR: Tente manter 'Over' em 0 ou 1",
-    "exp_tracking_help": " O widget de rastreamento de XP mostra o seu nível atual, o multiplicador de experiência atual e o quão próximo você está de ficar abaixo do nível. A penalidade de EXP é aplicada imediatamente se você estiver acima do nível e quando estiver abaixo do nível por \u230A nível/16 + 3 \u230B. O ‘Over’ é quantos níveis o seu nível atual está acima da parte inferior da ‘zona de segurança’, geralmente 0 ou 1 significa que você está matando os monstros de nível mais alto que pode sem penalidade de subnível",
+    "exp_tracking_help": "O widget de rastreamento de XP mostra o seu nível atual, o multiplicador de experiência atual e o quão próximo você está de ficar abaixo do nível. A penalidade de EXP é aplicada imediatamente se você estiver acima do nível e quando estiver abaixo do nível por ⌊ nível/16 + 3 ⌋. O ‘Over’ é quantos níveis o seu nível atual está acima da parte inferior da ‘zona de segurança’, geralmente 0 ou 1 significa que você está matando os monstros de nível mais alto que pode sem penalidade de subnível",
     "exp_inspire": "Baseado em ",
     "exp_astrict": "*As porcentagens de ganho de experiência, quando acima do nível 95, ou do nível de monstro acima de 70, ou potencialmente quando não estiver com 100% de ganho de experiência, podem não ser totalmente testadas e precisas."
   }
