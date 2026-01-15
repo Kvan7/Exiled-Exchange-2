@@ -266,7 +266,7 @@
     "heist_target": "劫盜目標：",
     "target_gem": "技能寶石",
     "target_replica": "贗品",
-    "too_many": "找到的物品過多，請更精確地輸入名稱。",
+    "too_many_": "找到的物品過多，請更精確地輸入名稱。",
     "not_found": "未找到物品。",
     "ocr_gems_key": "執行技能寶石的 OCR"
   },

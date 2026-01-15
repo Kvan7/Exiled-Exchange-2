@@ -261,7 +261,7 @@
     "heist_target": "Heist-Ziel:",
     "target_gem": "Skill-Gem",
     "target_replica": "Repliken",
-    "too_many": "Zu viele Gegenstände gefunden, geben Sie den Namen präziser ein.",
+    "too_many_": "Zu viele Gegenstände gefunden, geben Sie den Namen präziser ein.",
     "not_found": "Keine Gegenstände gefunden.",
     "ocr_gems_key": "Optische Texterkennung für eine Skill-Gem durchführen"
   },

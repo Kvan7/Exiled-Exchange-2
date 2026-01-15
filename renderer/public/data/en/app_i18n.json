@@ -288,7 +288,7 @@
     "heist_target": "Heist target:",
     "target_gem": "Skill Gem",
     "target_replica": "Replicas",
-    "too_many": "Too many items found, enter the name more precisely.",
+    "too_many_": "Too many items found, enter the name more precisely.",
     "not_found": "No items found.",
     "ocr_gems_key": "Perform an OCR for a Skill Gem"
   },

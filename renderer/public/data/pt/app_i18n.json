@@ -279,7 +279,7 @@
     "heist_target": "Alvo de assalto:",
     "target_gem": "Gema de habilidade",
     "target_replica": "Réplicas",
-    "too_many": "Muitos itens encontrados, insira o nome de forma mais precisa.",
+    "too_many_": "Muitos itens encontrados, insira o nome de forma mais precisa.",
     "not_found": "Nenhum item encontrado.",
     "ocr_gems_key": "Realizar um OCR para uma gema de habilidade"
   },
