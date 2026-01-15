@@ -1,5 +1,5 @@
 {
-  "please_wait": "Bitte warten\u2026",
+  "please_wait": "Bitte warten…",
   "choose_file": "Datei auswählen",
   "app_is_ready": "Bereit und läuft im Hintergrund",
   "reopen_settings": "Drücke {0}, um die Bearbeitung fortzusetzen.",
@@ -8,7 +8,7 @@
   "realm": "Realm",
   "realm_intl": "International",
   "app": {
-    "leagues_loading": "Ligen werden geladen\u2026",
+    "leagues_loading": "Ligen werden geladen…",
     "leagues_failed": "Laden der Ligen fehlgeschlagen",
     "leagues_failed_help": "Stelle sicher, dass der Realm nicht gewartet wird. Klicke auch auf den Button \"Browser\", dort musst du möglicherweise ein CAPTCHA lösen.",
     "leagues_failed_help_alt": "Führe eine Preisüberprüfung durch und folge den Anweisungen in der Fehlerbeschreibung.",
@@ -24,7 +24,7 @@
   "map.mods.heist": "Heist",
   "map.mods.uber": "T17",
   "map.mods.outdated": "veraltet",
-  "Support development on": "Unterstütze die Entwicklung\u00A0auf",
+  "Support development on": "Unterstütze die Entwicklung auf",
   "Blighted": "Befallene",
   "Blight-ravaged": "Befallene Plage",
   "Magic": "Magisch",
@@ -223,7 +223,7 @@
     "latest": "Sie haben die neueste Version",
     "error": "Fehler beim Überprüfen auf Updates",
     "checking": "Überprüfe auf Updates",
-    "downloading": "Herunterladen\u2026",
+    "downloading": "Herunterladen…",
     "available": "Update verfügbar: {0}",
     "never_checked": "Zuletzt geprüft: nie",
     "last_checked": "Zuletzt geprüft: {0}",
@@ -235,7 +235,7 @@
     "download_disabled": "Sie haben den automatischen Download von Updates deaktiviert"
   },
   "widget_menu": {
-    "add": "Widget hinzufügen\u2026",
+    "add": "Widget hinzufügen…",
     "always_show": "Schaltfläche für aktive Widgets anzeigen",
     "price_check": "Preisprüfung (Strg + V)"
   },
@@ -256,7 +256,7 @@
   },
   "item_search": {
     "name": "Gegenstandssuche",
-    "input": "Nach Namen suchen\u2026",
+    "input": "Nach Namen suchen…",
     "reset": "Gegenstände zurücksetzen",
     "heist_target": "Heist-Ziel:",
     "target_gem": "Skill-Gem",
@@ -293,7 +293,7 @@
     "base_item": "Basisgegenstand",
     "graph_7d": "Letzte 7 Tage",
     "getting_price": "Hole Preis {0}",
-    "getting_price_from": "von poe.ninja \u2026",
+    "getting_price_from": "von poe.ninja …",
     "you_have": "Du hast",
     "stack": "Stapel",
     "results_warn_tooltip": "Aktivieren Sie nur 'Exalted' im Online-Filter. Sie können diese Warnung in den Einstellungen deaktivieren.",
@@ -375,7 +375,7 @@
     "tier_numbering": "Stil der Tier-Nummerierung",
     "tier_numbering_poe1": "PoE1 (niedrigere Werte sind besser)",
     "tier_numbering_poe2": "PoE2 (höhere Werte sind besser)",
-    "tier_numbering_help": "Um Verwirrung durch widersprüchliche Namenskonventionen im Spiel zu reduzieren, werden PoE1-Tiers als \"Grad\" bezeichnet, anstatt \"Stufe\".",
+    "tier_numbering_help": "Um Verwirrung durch widersprüchliche Namenskonventionen im Spiel zu reduzieren, werden PoE1-Tiers als \"Grad\" bezeichnet, anstatt \"Stufe\". ",
     "always_show_tier": "Tier immer anzeigen",
     "remember_ratio": "Währungs-Verhältnis merken"
   },
