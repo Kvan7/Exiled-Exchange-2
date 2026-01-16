@@ -77,3 +77,9 @@ export interface ImageStripWidget extends Widget {
     url: string;
   }>;
 }
+
+export interface NotepadWidget extends Widget {
+  anchor: Anchor;
+  notepadBody: string;
+  notepadSize: "small" | "medium" | "large";
+}

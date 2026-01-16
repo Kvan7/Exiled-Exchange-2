@@ -253,6 +253,13 @@
     "search_text": "検索文字列もしくは正規表現",
     "friendly_name": "名称"
   },
+  "notepad": {
+    "name": "メモ帳",
+    "placeholder": "ここにメモを入力してください...",
+    "size": "サイズ",
+    "decrease_size": "サイズを小さくする",
+    "increase_size": "サイズを大きくする"
+  },
   "image_strip": {
     "name": "画像貼り付け"
   },

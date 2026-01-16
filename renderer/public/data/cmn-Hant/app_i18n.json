@@ -256,6 +256,13 @@
     "search_text": "搜尋文字或正則表達式",
     "friendly_name": "友好名稱"
   },
+  "notepad": {
+    "name": "記事本",
+    "placeholder": "在這裡輸入您的筆記...",
+    "size": "大小",
+    "decrease_size": "減小大小",
+    "increase_size": "增加大小"
+  },
   "image_strip": {
     "name": "圖像條"
   },
