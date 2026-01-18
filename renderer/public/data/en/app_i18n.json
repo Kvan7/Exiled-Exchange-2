@@ -272,6 +272,11 @@
     "toggle_key": "Start and Pause",
     "reset_key": "Reset"
   },
+  "notepad": {
+    "name": "Notepad",
+    "placeholder": "Type your notes here\u2026",
+    "width": "Width:"
+  },
   "stash_search": {
     "enable_keys": "Keys",
     "name": "Stash search",
