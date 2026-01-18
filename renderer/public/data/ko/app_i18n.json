@@ -246,13 +246,6 @@
     "search_text": "단어 혹은 Regex를 검색하세요",
     "friendly_name": "약칭"
   },
-  "notepad": {
-    "name": "메모장",
-    "placeholder": "여기에 메모를 입력하세요...",
-    "size": "크기",
-    "decrease_size": "크기 줄이기",
-    "increase_size": "크기 늘리기"
-  },
   "image_strip": {
     "name": "이미지"
   },

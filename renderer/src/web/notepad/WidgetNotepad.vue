@@ -4,53 +4,44 @@
     move-handles="corners"
     v-slot="{ isMoving, isEditing }"
   >
-    <div class="relative p-2 rounded bg-gray-900 shadow-lg">
-      <div
-        v-if="!isEditing"
-        class="text-gray-100 m-1 leading-4 text-center truncate"
-        :style="{ width: `${currentWidth}px` }"
-      >
+    <div
+      class="relative p-2 rounded bg-gray-900 overflow-y-auto text-gray-100"
+      :class="{
+        'w-64': config.notepadSize <= WidgetWidth.Small,
+        'w-[512px]': config.notepadSize === WidgetWidth.Medium,
+        'w-[768px]': config.notepadSize >= WidgetWidth.Large,
+      }"
+    >
+      <div v-if="!isEditing" class="m-1 text-center truncate">
         {{ config.wmTitle || "Untitled" }}
       </div>
       <input
         v-else
-        class="leading-4 rounded text-gray-100 p-1 bg-gray-700 w-full mb-1"
-        :placeholder="t('widget.title')"
+        class="rounded p-1 bg-gray-700 w-full mb-1"
         v-model="config.wmTitle"
       />
       <textarea
-        v-model="noteBody"
+        v-model="config.notepadBody"
         :disabled="isMoving"
-        :placeholder="t('notepad.placeholder')"
-        class="min-h-[150px] resize-none overflow-y-auto overflow-x-hidden box-border whitespace-pre-wrap break-words block p-2 rounded bg-gray-800 text-white font-mono border border-transparent outline-none focus:border-white/30 placeholder:text-gray-500"
-        :style="
-          {
-            width: `${currentWidth}px`,
-            maxHeight: `${maxDimensions.maxHeight}px`,
-            fieldSizing: 'content',
-          } as any
-        "
+        :placeholder="t(':placeholder')"
+        :class="$style.notepadArea"
       />
       <div
         v-if="!isMoving && isEditing"
-        class="absolute bottom-2.5 right-2.5 flex items-center gap-1.5 bg-gray-700 p-1 rounded"
+        class="absolute bottom-3 right-3 flex items-center gap-1 bg-gray-700 p-1 rounded"
       >
-        <span class="text-gray-400 text-xs leading-none"
-          >{{ t("notepad.size") }}:</span
-        >
+        <span class="text-gray-400 leading-none">{{ t(":width") }}</span>
         <button
-          class="rounded text-gray-400 w-6 h-6 leading-none text-xs border border-transparent cursor-pointer transition-all duration-150 hover:enabled:bg-gray-600 hover:enabled:text-white disabled:text-gray-600 disabled:cursor-not-allowed disabled:opacity-50 bg-gray-900"
-          @click="decreaseSize"
-          :disabled="widgetSize === 'small'"
-          :title="t('notepad.decrease_size')"
+          :class="$style.widthButton"
+          @click="config.notepadSize--"
+          :disabled="config.notepadSize === WidgetWidth.Small"
         >
           <i class="fas fa-minus"></i>
         </button>
         <button
-          class="rounded text-gray-400 w-6 h-6 leading-none text-xs border border-transparent cursor-pointer transition-all duration-150 hover:enabled:bg-gray-600 hover:enabled:text-white disabled:text-gray-600 disabled:cursor-not-allowed disabled:opacity-50 bg-gray-900"
-          @click="increaseSize"
-          :disabled="widgetSize === 'large'"
-          :title="t('notepad.increase_size')"
+          :class="$style.widthButton"
+          @click="config.notepadSize++"
+          :disabled="config.notepadSize === WidgetWidth.Large"
         >
           <i class="fas fa-plus"></i>
         </button>
@@ -60,20 +51,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, inject, computed } from "vue";
-import { useI18n } from "vue-i18n";
-import Widget from "../overlay/Widget.vue";
+import { defineComponent, PropType, inject } from "vue";
+import Widget from "@/web/overlay/Widget.vue";
 import {
   WidgetManager,
   WidgetSpec,
   NotepadWidget,
-} from "../overlay/interfaces";
+} from "@/web/overlay/interfaces";
+import { useI18nNs } from "@/web/i18n";
 
-const windowWidthPresets = {
-  small: 250,
-  medium: 500,
-  large: 750,
-};
+enum WidgetWidth {
+  Small = 0,
+  Medium = 1,
+  Large = 2,
+}
 
 export default defineComponent({
   widget: {
@@ -90,7 +81,6 @@ export default defineComponent({
   },
   setup(props) {
     const wm = inject<WidgetManager>("wm")!;
-    const { t } = useI18n();
 
     if (props.config.wmFlags[0] === "uninitialized") {
       const config = props.config as any;
@@ -99,54 +89,56 @@ export default defineComponent({
         x: Math.random() * (5 - 1) + 1,
         y: Math.random() * (12 - 8) + 16,
       };
-      config.wmTitle = t("notepad.name");
+      config.wmTitle = "Notepad";
       config.notepadBody = "";
       config.wmFlags = ["invisible-on-blur"];
-      config.notepadSize = "medium";
+      config.notepadSize = WidgetWidth.Medium;
       wm.show(config.wmId);
     }
 
-    const widgetSize = computed({
-      get: () => props.config.notepadSize || "medium",
-      set: (val) => {
-        props.config.notepadSize = val;
-      },
-    });
-
-    const currentWidth = computed(() => windowWidthPresets[widgetSize.value]);
-
-    const decreaseSize = () => {
-      if (widgetSize.value === "medium") widgetSize.value = "small";
-      else if (widgetSize.value === "large") widgetSize.value = "medium";
-    };
-
-    const increaseSize = () => {
-      if (widgetSize.value === "small") widgetSize.value = "medium";
-      else if (widgetSize.value === "medium") widgetSize.value = "large";
-    };
-
-    // Max dimensions: 1/3 of overlay size
-    const maxDimensions = computed(() => ({
-      maxWidth: Math.floor(wm.size.value.width / 3),
-      maxHeight: Math.floor(wm.size.value.height / 3),
-    }));
-
-    const noteBody = computed({
-      get: () => props.config.notepadBody || "",
-      set: (val) => {
-        props.config.notepadBody = val;
-      },
-    });
-
+    const { t } = useI18nNs("notepad");
     return {
       t,
-      maxDimensions,
-      widgetSize,
-      currentWidth,
-      decreaseSize,
-      increaseSize,
-      noteBody,
+      WidgetWidth,
     };
   },
 });
 </script>
+
+<style lang="postcss" module>
+.notepadArea {
+  @apply bg-gray-800 text-white;
+  @apply min-h-36 p-2 w-full max-h-[33vh];
+  @apply rounded border border-transparent;
+  @apply block box-border;
+  @apply resize-none whitespace-pre-wrap break-words font-mono;
+  @apply outline-none;
+
+  /* TODO: swap to tw-class on updating tailwind v4 */
+  field-sizing: content;
+
+  &:focus {
+    @apply border-white/30;
+  }
+
+  &:placeholder {
+    @apply text-gray-500;
+  }
+}
+
+.widthButton {
+  @apply bg-gray-900 text-gray-400;
+  @apply w-6 h-6;
+  @apply rounded border border-transparent;
+  @apply transition-all duration-150;
+  @apply cursor-pointer;
+
+  &:hover:enabled {
+    @apply bg-gray-600 text-white;
+  }
+
+  &:disabled {
+    @apply cursor-not-allowed opacity-50 text-gray-600;
+  }
+}
+</style>

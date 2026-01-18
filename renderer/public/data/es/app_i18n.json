@@ -251,13 +251,6 @@
     "search_text": "buscar texto o expresión regular",
     "friendly_name": "nombre amigable"
   },
-  "notepad": {
-    "name": "Bloc de notas",
-    "placeholder": "Escribe tus notas aquí...",
-    "size": "Tamaño",
-    "decrease_size": "Reducir tamaño",
-    "increase_size": "Aumentar tamaño"
-  },
   "image_strip": {
     "name": "Franja de imagen"
   },

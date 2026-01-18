@@ -251,13 +251,6 @@
     "search_text": "Text oder Regex suchen",
     "friendly_name": "Anzeigename"
   },
-  "notepad": {
-    "name": "Notizblock",
-    "placeholder": "Geben Sie hier Ihre Notizen ein...",
-    "size": "Größe",
-    "decrease_size": "Größe verringern",
-    "increase_size": "Größe erhöhen"
-  },
   "image_strip": {
     "name": "Bildleiste"
   },

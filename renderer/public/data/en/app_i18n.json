@@ -274,10 +274,8 @@
   },
   "notepad": {
     "name": "Notepad",
-    "placeholder": "Type your notes here...",
-    "size": "Size",
-    "decrease_size": "Decrease size",
-    "increase_size": "Increase size"
+    "placeholder": "Type your notes here\u2026",
+    "width": "Width:"
   },
   "stash_search": {
     "enable_keys": "Keys",

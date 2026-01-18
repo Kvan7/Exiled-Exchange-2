@@ -81,5 +81,5 @@ export interface ImageStripWidget extends Widget {
 export interface NotepadWidget extends Widget {
   anchor: Anchor;
   notepadBody: string;
-  notepadSize: "small" | "medium" | "large";
+  notepadSize: 0 | 1 | 2;
 }
