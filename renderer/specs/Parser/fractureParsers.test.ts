@@ -17,19 +17,20 @@ describe("Parse Fractured Items", () => {
     await loadForLang("en");
   });
   it.each([
-    [FracturedItem, true],
-    [FracturedItemNoModMarked, true],
-    [RareItem, undefined],
+    [FracturedItem, "SECTION_PARSED"],
+    [FracturedItemNoModMarked, "SECTION_PARSED"],
+    [RareItem, "SECTION_SKIPPED"],
   ])(
-    "%#, Each mod section is recognized",
-    (item: TestItem, isFractured: boolean | undefined) => {
+    "%#. Each mod section is recognized",
+    (item: TestItem, parsedStatus: string) => {
       const sections = __testExports.itemTextToSections(item.rawText);
       const parsedItem = {} as ParsedItem;
-      __testExports.parseFracturedText(
+      const res = __testExports.parseFracturedText(
         sections[sections.length - 1],
         parsedItem,
       );
-      expect(parsedItem.isFractured).toBe(isFractured);
+
+      expect(res).toBe(parsedStatus);
     },
   );
 

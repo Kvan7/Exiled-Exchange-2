@@ -11,7 +11,7 @@ describe("parseModType", () => {
     await loadForLang("en");
   });
 
-  it.each(createTestModInfo())("Parses mod type", (mod) => {
+  it.each(createTestModInfo())("%#. Parses mod type", (mod) => {
     const { modType } = parseModType(mod.rawText.split("\n"));
 
     const allowed: Partial<Record<ModifierType, ModifierType[]>> = {
@@ -36,35 +36,35 @@ describe("parseModInfoLine", () => {
     await loadForLang("en");
   });
 
-  it.each(createTestModInfo())("Parses mod type %s", (mod) => {
+  it.each(createTestModInfo())("%#. Parses mod type %s", (mod) => {
     const { modType, lines } = parseModType(mod.rawText.split("\n"));
     const modInfo = parseModInfoLine(lines[0], modType);
 
     expect(modInfo.type).toBe(mod.type);
   });
 
-  it.each(createTestModInfo())("Parses generation %s", (mod) => {
+  it.each(createTestModInfo())("%#. Parses generation %s", (mod) => {
     const { modType, lines } = parseModType(mod.rawText.split("\n"));
     const modInfo = parseModInfoLine(lines[0], modType);
 
     expect(modInfo.generation).toBe(mod.generation);
   });
 
-  it.each(createTestModInfo())("Parses name %s", (mod) => {
+  it.each(createTestModInfo())("%#. Parses name %s", (mod) => {
     const { modType, lines } = parseModType(mod.rawText.split("\n"));
     const modInfo = parseModInfoLine(lines[0], modType);
 
     expect(modInfo.name).toBe(mod.name);
   });
 
-  it.each(createTestModInfo())("Parses tags %s", (mod) => {
+  it.each(createTestModInfo())("%#. Parses tags %s", (mod) => {
     const { modType, lines } = parseModType(mod.rawText.split("\n"));
     const modInfo = parseModInfoLine(lines[0], modType);
 
     expect(modInfo.tags).toEqual(mod.tags);
   });
 
-  it.each(createTestModInfo())("Parses tier %s", (mod) => {
+  it.each(createTestModInfo())("%#. Parses tier %s", (mod) => {
     const { modType, lines } = parseModType(mod.rawText.split("\n"));
     const modInfo = parseModInfoLine(lines[0], modType);
 

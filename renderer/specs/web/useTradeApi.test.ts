@@ -51,7 +51,7 @@ describe("useTradeApi", () => {
     [20, 2],
     [21, 3],
   ])(
-    "when result list has %i result(s), requestResults is called %i time(s)",
+    "%#. when result list has %i result(s), requestResults is called %i time(s)",
     async (resultCount, expectedCalls) => {
       vi.mocked(createTradeRequest).mockReturnValue(
         {} as ReturnType<typeof createTradeRequest>,

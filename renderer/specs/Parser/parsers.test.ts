@@ -35,7 +35,7 @@ describe("itemTextToSections", () => {
     [HighDamageRareItem.rawText, HighDamageRareItem.sectionCount],
     [ArmourHighValueRareItem.rawText, ArmourHighValueRareItem.sectionCount],
     [WandRareItem.rawText, WandRareItem.sectionCount],
-  ])("standard item", (text: string, sectionCount: number) => {
+  ])("%#. standard item", (text: string, sectionCount: number) => {
     const sections = __testExports.itemTextToSections(text);
     expect(sections.length).toBe(sectionCount);
   });
