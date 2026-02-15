@@ -172,8 +172,9 @@ export interface TranslationDict {
   MODIFIER_LINE: RegExp;
   PREFIX_MODIFIER: string;
   SUFFIX_MODIFIER: string;
-  CRAFTED_PREFIX: string;
-  CRAFTED_SUFFIX: string;
+  CRAFTED_MODIFIER: string;
+  FRACTURED_MODIFIER: string;
+  DESECRATED_MODIFIER: string;
   UNSCALABLE_VALUE: string;
   CORRUPTED_IMPLICIT: string;
   MODIFIER_INCREASED: RegExp;

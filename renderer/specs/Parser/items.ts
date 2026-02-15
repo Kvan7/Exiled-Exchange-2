@@ -142,7 +142,7 @@ NormalItem.requires = {
 
 NormalItem.info.refName = "Divine Crown";
 NormalItem.sectionCount = 4;
-// #endregion
+// #endregion NormalItem
 
 // #region MagicItem
 export const MagicItem = new TestItem(`Item Class: Two Hand Maces
@@ -182,7 +182,7 @@ MagicItem.info.refName = "Temple Maul";
 MagicItem.sectionCount = 5;
 MagicItem.prefixCount = 1;
 MagicItem.suffixCount = 1;
-// #endregion
+// #endregion MagicItem
 
 // #region RareItem
 export const RareItem = new TestItem(`Item Class: Bows
@@ -231,7 +231,7 @@ RareItem.info.refName = "Rider Bow";
 RareItem.sectionCount = 5;
 RareItem.prefixCount = 3;
 RareItem.suffixCount = 1;
-// #endregion
+// #endregion RareItem
 
 // #region UniqueItem
 export const UniqueItem = new TestItem(`Item Class: Foci
@@ -275,7 +275,7 @@ UniqueItem.info.refName = "The Eternal Spark";
 UniqueItem.sectionCount = 6;
 UniqueItem.uniqueAffixCount = 5;
 UniqueItem.rollingUniqueAffixCount = 2;
-// #endregion
+// #endregion UniqueItem
 
 // #region RareWithImplicit
 export const RareWithImplicit = new TestItem(`Item Class: Rings
@@ -315,7 +315,7 @@ RareWithImplicit.sectionCount = 5;
 RareWithImplicit.implicitCount = 1;
 RareWithImplicit.prefixCount = 1;
 RareWithImplicit.suffixCount = 3;
-// #endregion
+// #endregion RareWithImplicit
 
 // #region UncutSkillGem
 export const UncutSkillGem = new TestItem(`Item Class: Uncut Skill Gems
@@ -338,7 +338,7 @@ UncutSkillGem.info = {
 };
 
 UncutSkillGem.sectionCount = 3;
-// #endregion
+// #endregion UncutSkillGem
 
 // #region UncutSpiritGem
 export const UncutSpiritGem = new TestItem(`Item Class: Uncut Spirit Gems
@@ -361,7 +361,7 @@ UncutSpiritGem.info = {
 };
 
 UncutSpiritGem.sectionCount = 3;
-// #endregion
+// #endregion UncutSpiritGem
 
 // #region UncutSupportGem
 export const UncutSupportGem = new TestItem(`Item Class: Uncut Support Gems
@@ -384,7 +384,7 @@ UncutSupportGem.info = {
 };
 
 UncutSupportGem.sectionCount = 3;
-// #endregion
+// #endregion UncutSupportGem
 
 // #region HighDamageRareItem
 export const HighDamageRareItem = new TestItem(`Item Class: Crossbows
@@ -451,7 +451,7 @@ HighDamageRareItem.augmentSockets = {
   current: 2,
   normal: 2,
 };
-// #endregion
+// #endregion HighDamageRareItem
 
 // #region ArmourHighValueRareItem
 export const ArmourHighValueRareItem = new TestItem(`Item Class: Body Armours
@@ -509,7 +509,7 @@ ArmourHighValueRareItem.augmentSockets = {
   normal: 2,
 };
 ArmourHighValueRareItem.note = "~b/o 10 divine";
-// #endregion
+// #endregion ArmourHighValueRareItem
 
 // #region WandRareItem
 export const WandRareItem = new TestItem(`Item Class: Wands
@@ -552,7 +552,7 @@ WandRareItem.suffixCount = 2;
 WandRareItem.implicitCount = 1;
 
 WandRareItem.note = "~b/o 5 exalted";
-// #endregion
+// #endregion WandRareItem
 
 // #region NormalShield
 export const NormalShield = new TestItem(`Item Class: Shields
@@ -589,7 +589,7 @@ NormalShield.sectionCount = 6;
 NormalShield.implicitCount = 1;
 
 NormalShield.note = "~b/o 1 aug";
-// #endregion
+// #endregion NormalShield
 
 // #region TwoImplicitItem
 export const TwoImplicitItem = new TestItem(`Item Class: Belts
@@ -632,7 +632,7 @@ TwoImplicitItem.sectionCount = 5;
 TwoImplicitItem.implicitCount = 2;
 TwoImplicitItem.prefixCount = 2;
 TwoImplicitItem.suffixCount = 3;
-// #endregion
+// #endregion TwoImplicitItem
 
 // #region TwoLineOneImplicitItem
 export const TwoLineOneImplicitItem = new TestItem(`Item Class: Tablet
@@ -673,7 +673,7 @@ TwoLineOneImplicitItem.suffixCount = 2;
 
 TwoLineOneImplicitItem.isCorrupted = true;
 TwoLineOneImplicitItem.note = "~b/o 1 exalted";
-// #endregion
+// #endregion TwoLineOneImplicitItem
 
 // #region Map
 export const RareMap = new TestItem(`Item Class: Waystones
@@ -709,7 +709,7 @@ RareMap.mapPackSize = 34;
 RareMap.mapRareMonsters = 28;
 RareMap.mapDropChance = 75;
 RareMap.sectionCount = 5;
-// #endregion
+// #endregion RareMap
 
 // #region RareMapFakeAllProps
 export const RareMapFakeAllProps = new TestItem(`Item Class: Waystones
@@ -755,7 +755,7 @@ RareMapFakeAllProps.mapRareMonsters = 71;
 RareMapFakeAllProps.mapDropChance = 90;
 RareMapFakeAllProps.mapItemRarity = 17;
 RareMapFakeAllProps.sectionCount = 6;
-// #endregion
+// #endregion RareMapFakeAllProps
 
 // #region FracturedItem
 export const FracturedItem = new TestItem(`Item Class: Bows
@@ -826,7 +826,7 @@ FracturedItem.augmentSockets = {
   current: 2,
   normal: 2,
 };
-// #endregion
+// #endregion FracturedItem
 
 // #region FracturedItemNoModMarked
 export const FracturedItemNoModMarked = new TestItem(`Item Class: Bows
@@ -897,7 +897,7 @@ FracturedItemNoModMarked.augmentSockets = {
   current: 2,
   normal: 2,
 };
-// #endregion
+// #endregion FracturedItemNoModMarked
 
 // #region RequiresOneAttribute
 export const RequiresOneAttribute = new TestItem(`Item Class: Boots
@@ -927,4 +927,54 @@ RequiresOneAttribute.requires = {
 RequiresOneAttribute.info.refName = "Dunerunner Sandals";
 RequiresOneAttribute.sectionCount = 5;
 RequiresOneAttribute.isUnidentified = true;
-// #endregion
+// #endregion RequiresOneAttribute
+
+// #region NewExplicitTypeDefinitions
+export const NewExplicitTypeDefinitions = new TestItem(`Item Class: Amulets
+Rarity: Rare
+Brood Locket
+Gold Amulet
+--------
+Requires: Level 60
+--------
+Item Level: 81
+--------
+Allocates Cooked (enchant)
+--------
+{ Implicit Modifier }
+18(12-20)% increased Rarity of Items found
+--------
+{ Prefix Modifier "Lady's" (Tier: 5) }
++30(30-33) to Spirit
+{ Prefix Modifier "Gentian" (Tier: 6) — Mana }
++90(90-104) to maximum Mana
+{ Prefix Modifier "Incanter's" (Tier: 1) — Damage, Caster }
+29(27-30)% increased Spell Damage
+{ Fractured Suffix Modifier "of the Ice" (Tier: 2) — Elemental, Cold, Resistance }
++37(36-40)% to Cold Resistance
+{ Suffix Modifier "of the Sorcerer" (Tier: 1) — Caster, Gem }
++3 to Level of all Spell Skills
+{ Desecrated Suffix Modifier "of Amanamu" (Tier: 1) — Elemental, Fire, Chaos, Resistance }
++17(13-17)% to Fire and Chaos Resistances
+--------
+Fractured Item
+`);
+
+NewExplicitTypeDefinitions.category = ItemCategory.Amulet;
+NewExplicitTypeDefinitions.rarity = ItemRarity.Rare;
+NewExplicitTypeDefinitions.itemLevel = 81;
+NewExplicitTypeDefinitions.requires = {
+  level: 60,
+  str: 0,
+  dex: 0,
+  int: 0,
+};
+
+NewExplicitTypeDefinitions.info.refName = "Gold Amulet";
+NewExplicitTypeDefinitions.sectionCount = 7;
+NewExplicitTypeDefinitions.isFractured = true;
+NewExplicitTypeDefinitions.prefixCount = 3;
+NewExplicitTypeDefinitions.suffixCount = 3;
+NewExplicitTypeDefinitions.implicitCount = 1;
+NewExplicitTypeDefinitions.enchantCount = 1;
+// #endregion NewExplicitTypeDefinitions
