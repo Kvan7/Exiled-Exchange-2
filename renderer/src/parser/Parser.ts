@@ -106,10 +106,6 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   // catch enchant and augments since they don't have curlys rn
   parseModifiersPoe2, // enchant
   parseModifiersPoe2, // augment
-  // HACK: catch implicit and explicit for controllers
-  parseModifiersPoe2, // implicit
-  parseModifiersPoe2, // grant skill
-  parseModifiersPoe2, // explicit
   { virtual: transformToLegacyModifiers },
   { virtual: parseFractured },
   { virtual: parseBlightedMap },
