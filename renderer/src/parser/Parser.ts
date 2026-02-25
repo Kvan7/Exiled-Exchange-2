@@ -76,8 +76,6 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseCharmSlots,
   parseSpirit,
   parsePriceNote,
-  parseUnneededText,
-  parseFracturedText,
   parseTimelostRadius,
   parseStackSize,
   parseCorrupted,
@@ -103,9 +101,6 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseModifiers, // implicit
   parseModifiers, // grant skill
   parseModifiers, // explicit
-  // catch enchant and augments since they don't have curlys rn
-  parseModifiersPoe2, // enchant
-  parseModifiersPoe2, // augment
   { virtual: transformToLegacyModifiers },
   { virtual: parseFractured },
   { virtual: parseBlightedMap },
@@ -385,7 +380,6 @@ function parseBlightedMap(item: ParsedItem) {
 
 function parseFractured(item: ParserState) {
   performance.mark("parseFractured");
-  // NOTE: partially also controlled by parseFracturedText
   if (item.newMods.some((mod) => mod.info.type === ModifierType.Fractured)) {
     item.isFractured = true;
   }
@@ -1269,53 +1263,6 @@ function parsePriceNote(section: string[], item: ParsedItem) {
   return "SECTION_SKIPPED";
 }
 
-function parseFracturedText(section: string[], item: ParsedItem) {
-  performance.mark("parseFracturedText");
-  for (const line of section) {
-    if (line === _$.FRACTURED_ITEM) {
-      return "SECTION_PARSED";
-    }
-  }
-  return "SECTION_SKIPPED";
-}
-
-function parseUnneededText(section: string[], item: ParsedItem) {
-  performance.mark("parseUnneededText");
-  if (
-    item.category !== ItemCategory.Quiver &&
-    item.category !== ItemCategory.Flask &&
-    item.category !== ItemCategory.Charm &&
-    item.category !== ItemCategory.Waystone &&
-    item.category !== ItemCategory.Map &&
-    item.category !== ItemCategory.Jewel &&
-    item.category !== ItemCategory.Relic &&
-    item.category !== ItemCategory.Tablet &&
-    item.info.refName !== "Expedition Logbook" &&
-    item.category !== ItemCategory.Shield &&
-    item.category !== ItemCategory.Spear &&
-    item.category !== ItemCategory.Buckler
-  ) {
-    return "PARSER_SKIPPED";
-  }
-
-  for (const line of section) {
-    if (
-      line.startsWith(_$.QUIVER_HELP_TEXT) ||
-      line.startsWith(_$.FLASK_HELP_TEXT) ||
-      line.startsWith(_$.CHARM_HELP_TEXT) ||
-      line.startsWith(_$.WAYSTONE_HELP) ||
-      line.startsWith(_$.JEWEL_HELP) ||
-      line.startsWith(_$.SANCTUM_HELP) ||
-      line.startsWith(_$.PRECURSOR_TABLET_HELP) ||
-      line.startsWith(_$.LOGBOOK_HELP) ||
-      line.startsWith(_$.GRANTS_SKILL)
-    ) {
-      return "SECTION_PARSED";
-    }
-  }
-  return "SECTION_SKIPPED";
-}
-
 function parseTimelostRadius(section: string[], item: ParsedItem) {
   performance.mark("parseTimelostRadius");
   if (item.category !== ItemCategory.Jewel) return "PARSER_SKIPPED";
@@ -1819,5 +1766,4 @@ export const __testExports = {
   parseWaystone,
   parseRequirements,
   parseFractured,
-  parseFracturedText,
 };

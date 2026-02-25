@@ -15,9 +15,9 @@ import {
   WandRareItem,
 } from "./items";
 import { loadForLang } from "@/assets/data";
-import { ItemCategory, ParsedItem } from "@/parser";
+import { ItemCategory, ItemRarity, ParsedItem } from "@/parser";
 
-describe("parseModifiers", () => {
+describe("[e2e] parseModifiers", () => {
   beforeEach(async () => {
     setupTests();
     await loadForLang("en");
@@ -153,4 +153,69 @@ describe("parseModifiers", () => {
       );
     },
   );
+});
+
+describe("[unit] parseModifiers", () => {
+  let parsedItem: ParsedItem = {} as unknown as ParsedItem;
+
+  beforeEach(async () => {
+    setupTests();
+    await loadForLang("en");
+    parsedItem = new TestItem("");
+    parsedItem.rarity = ItemRarity.Rare;
+    parsedItem.category = ItemCategory.Bow;
+  });
+
+  it("Should parse explicit modifiers", () => {
+    const section = `{ Fractured Prefix Modifier "Electrocuting" (Tier: 2) — Damage, Elemental, Lightning, Attack }
+Adds 10(1-16) to 273(239-300) Lightning Damage
+{ Prefix Modifier "Razor-sharp" (Tier: 3) — Damage, Physical, Attack }
+Adds 24(23-35) to 51(39-59) Physical Damage
+{ Master Crafted Prefix Modifier "Overpowering" (Tier: 2) — Damage, Elemental, Attack }
+109(100-119)% increased Elemental Damage with Attacks
+{ Suffix Modifier "of the Drought" (Tier: 1) — Mana, Physical, Attack }
+Leeches 7.59(7-7.9)% of Physical Damage as Mana
+{ Desecrated Suffix Modifier "of Siphoning" (Tier: 3) — Mana }
+Gain 21(21-27) Mana per enemy killed
+{ Suffix Modifier "of Acclaim" (Tier: 1) — Attack, Speed }
+18(17-19)% increased Attack Speed
+`;
+
+    const res = __testExports.parseModifiers(section.split("\n"), parsedItem);
+    expect(res).toBe("SECTION_PARSED");
+  });
+
+  it("Should parse implicit modifiers", () => {
+    const section = `{ Implicit Modifier — Attack }
+Loads an additional bolt
+`;
+
+    const res = __testExports.parseModifiers(section.split("\n"), parsedItem);
+    expect(res).toBe("SECTION_PARSED");
+  });
+
+  it("Should parse granted skill modifiers", () => {
+    const section = `Grants Skill: Level 18 Cackling Companions
+`;
+
+    const res = __testExports.parseModifiers(section.split("\n"), parsedItem);
+    expect(res).toBe("SECTION_PARSED");
+  });
+
+  it("Should parse augment modifiers", () => {
+    const section = `18% increased Physical Damage (rune)
+Gain 24 Mana per enemy killed (rune)
+`;
+
+    const res = __testExports.parseModifiers(section.split("\n"), parsedItem);
+    expect(res).toBe("SECTION_PARSED");
+  });
+
+  it("Should parse rune modifiers", () => {
+    const section = `45% increased Elemental Damage with Attacks (enchant)
+`;
+
+    const res = __testExports.parseModifiers(section.split("\n"), parsedItem);
+    expect(res).toBe("SECTION_PARSED");
+  });
 });
