@@ -233,7 +233,7 @@ function findInDatabase(item: ParserState) {
     info = ITEM_BY_REF("ITEM", item.baseType ?? item.name);
   }
   if (!info?.length) {
-    // HACK: controller support while poe2 doesn't have advanced copy for controllers
+    // BUG[UPSTREAM]: https://www.pathofexile.com/forum/view-thread/3913283
     if (item.category === ItemCategory.DivinationCard) {
       info = ITEM_BY_TRANSLATED("DIVINATION_CARD", item.name);
     } else if (item.category === ItemCategory.CapturedBeast) {
@@ -1758,6 +1758,7 @@ function isUncutSkillGem(section: string[]): boolean {
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export const __testExports = {
   itemTextToSections,
+  findInDatabase,
   parseNamePlate,
   isUncutSkillGem,
   parseWeapon,
