@@ -104,6 +104,7 @@ export class TestItem implements ParsedItem {
   suffixCount: number = 0;
   implicitCount: number = 0;
   enchantCount: number = 0;
+  skillCount: number = 0;
   uniqueAffixCount: number = 0;
   rollingUniqueAffixCount: number = 0;
 
@@ -875,7 +876,7 @@ Fractured Item
 FracturedItemNoModMarked.category = ItemCategory.Bow;
 FracturedItemNoModMarked.rarity = ItemRarity.Rare;
 FracturedItemNoModMarked.quality = 25;
-FracturedItemNoModMarked.weaponPHYSICAL = 381.5;
+FracturedItemNoModMarked.weaponPHYSICAL = 543;
 FracturedItemNoModMarked.weaponAS = 1.15;
 FracturedItemNoModMarked.weaponCRIT = 9.4;
 FracturedItemNoModMarked.itemLevel = 81;
@@ -978,3 +979,85 @@ NewExplicitTypeDefinitions.suffixCount = 3;
 NewExplicitTypeDefinitions.implicitCount = 1;
 NewExplicitTypeDefinitions.enchantCount = 1;
 // #endregion NewExplicitTypeDefinitions
+
+// #region ItemAllTheModifierTypes
+export const ItemAllTheModifierTypes = new TestItem(`Item Class: Crossbows
+Rarity: Rare
+Storm Core
+Gemini Crossbow
+--------
+Quality: +20% (augmented)
+Physical Damage: 74-231 (augmented)
+Lightning Damage: 10-273 (lightning)
+Critical Hit Chance: 5.00%
+Attacks per Second: 1.89 (augmented)
+Reload Time: 0.93 (augmented)
+--------
+Requires: Level 78, 89 Str, 89 Dex
+--------
+Sockets: S S
+--------
+Item Level: 80
+--------
+45% increased Elemental Damage with Attacks (enchant)
+--------
+18% increased Physical Damage (rune)
+Gain 24 Mana per enemy killed (rune)
+--------
+{ Implicit Modifier — Attack }
+Loads an additional bolt
+--------
+Grants Skill: Level 18 Cackling Companions
+--------
+{ Fractured Prefix Modifier "Electrocuting" (Tier: 2) — Damage, Elemental, Lightning, Attack }
+Adds 10(1-16) to 273(239-300) Lightning Damage
+{ Prefix Modifier "Razor-sharp" (Tier: 3) — Damage, Physical, Attack }
+Adds 24(23-35) to 51(39-59) Physical Damage
+{ Prefix Modifier "Overpowering" (Tier: 2) — Damage, Elemental, Attack }
+109(100-119)% increased Elemental Damage with Attacks
+{ Suffix Modifier "of the Drought" (Tier: 1) — Mana, Physical, Attack }
+Leeches 7.59(7-7.9)% of Physical Damage as Mana
+{ Desecrated Suffix Modifier "of Siphoning" (Tier: 3) — Mana }
+Gain 21(21-27) Mana per enemy killed
+{ Suffix Modifier "of Acclaim" (Tier: 1) — Attack, Speed }
+18(17-19)% increased Attack Speed
+--------
+Corrupted
+--------
+Fractured Item
+`);
+
+ItemAllTheModifierTypes.category = ItemCategory.Crossbow;
+ItemAllTheModifierTypes.rarity = ItemRarity.Rare;
+ItemAllTheModifierTypes.quality = 20;
+ItemAllTheModifierTypes.weaponPHYSICAL = 152.5;
+ItemAllTheModifierTypes.weaponLIGHTNING = 141.5;
+ItemAllTheModifierTypes.weaponELEMENTAL =
+  ItemAllTheModifierTypes.weaponLIGHTNING;
+ItemAllTheModifierTypes.weaponCRIT = 5;
+ItemAllTheModifierTypes.weaponAS = 1.89;
+ItemAllTheModifierTypes.weaponReload = 0.93;
+ItemAllTheModifierTypes.itemLevel = 80;
+ItemAllTheModifierTypes.requires = {
+  level: 78,
+  str: 89,
+  dex: 89,
+  int: 0,
+};
+
+ItemAllTheModifierTypes.info.refName = "Gemini Crossbow";
+ItemAllTheModifierTypes.sectionCount = 11;
+ItemAllTheModifierTypes.implicitCount = 1;
+ItemAllTheModifierTypes.enchantCount = 1;
+ItemAllTheModifierTypes.skillCount = 1;
+ItemAllTheModifierTypes.prefixCount = 3;
+ItemAllTheModifierTypes.suffixCount = 3;
+ItemAllTheModifierTypes.augmentSockets = {
+  empty: 0,
+  current: 2,
+  normal: 2,
+};
+ItemAllTheModifierTypes.isCorrupted = true;
+ItemAllTheModifierTypes.isFractured = true;
+
+// #endregion ItemAllTheModifierTypes
