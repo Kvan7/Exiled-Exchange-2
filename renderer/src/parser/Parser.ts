@@ -912,6 +912,11 @@ function parseWeapon(section: string[], item: ParsedItem) {
       isParsed = "SECTION_PARSED";
       continue;
     }
+    if (line.startsWith(_$.BASE_SPIRIT)) {
+      item.weaponSPIRIT = parseInt(line.slice(_$.BASE_SPIRIT.length), 10);
+      isParsed = "SECTION_PARSED";
+      continue;
+    }
   }
 
   if (isParsed === "SECTION_PARSED") {
@@ -928,6 +933,7 @@ function parseWeapon(section: string[], item: ParsedItem) {
     item.weaponFIRE = undefined;
     item.weaponCRIT = undefined;
     item.weaponReload = undefined;
+    item.weaponSPIRIT = undefined;
   }
 
   return isParsed;

@@ -1,12 +1,12 @@
 import { magicBasetype } from "@/parser/magic-name";
 import { beforeEach, describe, expect, test } from "vitest";
 import { setupTests } from "@specs/vitest.setup";
-import { loadForLang } from "@/assets/data";
+import { init } from "@/assets/data";
 
 describe("Check Magic Name (en)", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
   });
   test("Should parse normal name", () => {
     const name = "Rattling Sceptre";
@@ -29,7 +29,7 @@ describe("Check Magic Name (en)", () => {
 describe("Check Magic Name (cmn-Hant)", () => {
   beforeEach(async () => {
     setupTests({ language: "cmn-Hant" });
-    await loadForLang("cmn-Hant");
+    await init("cmn-Hant");
   });
   test("Should parse normal name", () => {
     const name = "雜響權杖";
@@ -52,7 +52,7 @@ describe("Check Magic Name (cmn-Hant)", () => {
 describe("Check Magic Name (cmn-Hant) when UI returns english name", () => {
   beforeEach(async () => {
     setupTests({ language: "cmn-Hant" });
-    await loadForLang("cmn-Hant");
+    await init("cmn-Hant");
   });
   test("Should parse normal name", () => {
     const name = "Rattling Sceptre";

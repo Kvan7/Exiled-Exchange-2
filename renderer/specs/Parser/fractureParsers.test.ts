@@ -1,13 +1,13 @@
 import { __testExports, ParserState } from "@/parser/Parser";
 import { beforeEach, describe, expect, it } from "vitest";
 import { setupTests } from "@specs/vitest.setup";
-import { loadForLang } from "@/assets/data";
+import { init } from "@/assets/data";
 import { ModifierType } from "@/parser/modifiers";
 
 describe("Parse Fractured Items", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
   });
 
   it("adds fractured if some mod is fractured", () => {

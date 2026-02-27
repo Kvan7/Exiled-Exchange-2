@@ -2,13 +2,13 @@ import { __testExports } from "@/parser/Parser";
 import { beforeEach, describe, expect, it } from "vitest";
 import { setupTests } from "@specs/vitest.setup";
 import { RareMap, RareMapFakeAllProps, TestItem } from "./items";
-import { loadForLang } from "@/assets/data";
+import { init } from "@/assets/data";
 import { ParsedItem } from "@/parser/ParsedItem";
 
 describe("parseMap", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
   });
   it.each([
     [RareMap.rawText, RareMap.mapTier],

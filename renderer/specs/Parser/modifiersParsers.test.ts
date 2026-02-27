@@ -14,13 +14,13 @@ import {
   UniqueItem,
   WandRareItem,
 } from "./items";
-import { loadForLang } from "@/assets/data";
+import { init } from "@/assets/data";
 import { ItemCategory, ItemRarity, ParsedItem } from "@/parser";
 
 describe("[e2e] parseModifiers", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
   });
 
   it.each([
@@ -160,7 +160,7 @@ describe("[unit] parseModifiers", () => {
 
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
     parsedItem = new TestItem("");
     parsedItem.rarity = ItemRarity.Rare;
     parsedItem.category = ItemCategory.Bow;

@@ -8,7 +8,7 @@ import {
   requestTradeResultList,
 } from "@/web/price-check/trade/pathofexile-trade";
 import { setupTests } from "@specs/vitest.setup";
-import { loadForLang } from "@/assets/data";
+import { init } from "@/assets/data";
 
 vi.mock("@/web/price-check/trade/pathofexile-trade", () => {
   return {
@@ -23,7 +23,7 @@ describe("useTradeApi", () => {
 
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
     composableResult = useTradeApi();
     vi.clearAllMocks();
   });

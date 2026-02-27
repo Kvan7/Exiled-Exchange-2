@@ -158,6 +158,7 @@ export const WEAPON_STATS = new Set<string>([
   stat("Adds # to # Lightning Damage"),
   stat("Adds # to # Cold Damage"),
   stat("Adds # to # Fire Damage"),
+  stat("#% increased Spirit"),
 ]);
 
 function weaponProps(ctx: FiltersCreationContext) {
@@ -388,11 +389,33 @@ function weaponProps(ctx: FiltersCreationContext) {
     );
   }
 
+  if (item.weaponSPIRIT) {
+    const spirit = calcPropBounds(
+      item.weaponSPIRIT,
+      { flat: [], incr: ["#% increased Spirit"] },
+      item,
+    );
+
+    ctx.filters.push(
+      propToFilter(
+        {
+          ref: "Spirit: #%",
+          tradeId: "item.spirit",
+          roll: spirit.roll,
+          sources: spirit.sources,
+          disabled: false,
+        },
+        ctx,
+      ),
+    );
+  }
+
   if (
     item.weaponAS ||
     item.weaponCRIT ||
     item.weaponELEMENTAL ||
-    item.weaponPHYSICAL
+    item.weaponPHYSICAL ||
+    item.weaponSPIRIT
   ) {
     removeUsedStats(ctx, WEAPON_STATS);
   }

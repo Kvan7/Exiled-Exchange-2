@@ -2,13 +2,13 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { createTestModInfo } from "./mods";
 import { parseModInfoLine, parseModType } from "@/parser/advanced-mod-desc";
 import { setupTests } from "@specs/vitest.setup";
-import { loadForLang } from "@/assets/data";
+import { init } from "@/assets/data";
 import { ModifierType } from "@/parser/modifiers";
 
 describe("parseModType", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
   });
 
   it.each(createTestModInfo())("%#. Parses mod type", (mod) => {
@@ -33,7 +33,7 @@ describe("parseModType", () => {
 describe("parseModInfoLine", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
   });
 
   it.each(createTestModInfo())("%#. Parses mod type %s", (mod) => {

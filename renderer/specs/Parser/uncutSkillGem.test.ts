@@ -7,13 +7,13 @@ import {
   UncutSpiritGem,
   UncutSupportGem,
 } from "./items";
-import { loadForLang } from "@/assets/data";
+import { init } from "@/assets/data";
 import { createFilters } from "@/web/price-check/filters/create-item-filters";
 
 describe("isUncutSkillGem", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
   });
   test("FIXED so should now be false for uncut skill gem", () => {
     const sections = __testExports.itemTextToSections(UncutSkillGem.rawText);
@@ -36,7 +36,7 @@ describe("isUncutSkillGem", () => {
 describe("Uncut gems parse correctly", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
   });
   test("should parse uncut skill gem", () => {
     const result = parseClipboard(UncutSkillGem.rawText).unwrapOr(null);
@@ -61,7 +61,7 @@ describe("Uncut gems parse correctly", () => {
 describe("Create Filter for uncut gems", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
   });
   test.each([
     { gem: UncutSkillGem },

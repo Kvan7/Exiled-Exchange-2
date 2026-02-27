@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, test } from "vitest";
 import { setupTests } from "../vitest.setup";
 import {
   __testExports,
-  loadForLang,
+  init,
   setLocalAugmentFilter,
   STAT_BY_REF,
 } from "@/assets/data";
@@ -14,7 +14,7 @@ describe("augmentsToLookup", () => {
     // Set a filter that allows all augments to pass through.
     setLocalAugmentFilter((value, index, array) => true);
     // Load the language data required for the tests.
-    await loadForLang("en");
+    await init("en");
   });
 
   test("empty list should not throw", () => {

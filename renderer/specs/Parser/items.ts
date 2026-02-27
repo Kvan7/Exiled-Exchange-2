@@ -21,6 +21,7 @@ export class TestItem implements ParsedItem {
   weaponLIGHTNING?: number | undefined;
   weaponChaos?: number | undefined;
   weaponReload?: number | undefined;
+  weaponSPIRIT?: number;
   mapBlighted?: "Blighted" | "Blight-ravaged" | undefined;
   mapTier?: number | undefined;
   mapPackSize?: number;
@@ -1061,3 +1062,57 @@ ItemAllTheModifierTypes.isCorrupted = true;
 ItemAllTheModifierTypes.isFractured = true;
 
 // #endregion ItemAllTheModifierTypes
+
+// #region SpectreIncSpirit
+export const SpectreIncSpirit = new TestItem(`Item Class: Sceptres
+Rarity: Rare
+Skull Song
+Shrine Sceptre
+--------
+Spirit: 152 (augmented)
+--------
+Requires: Level 72, 39 Str, 98 Int
+--------
+Sockets: S
+--------
+Item Level: 79
+--------
+Grants Skill: Level 17 Purity of Lightning
+--------
+{ Prefix Modifier "Duke's" (Tier: 3) }
+52(51-55)% increased Spirit
+{ Prefix Modifier "Arcing" (Tier: 4) — Damage, Elemental, Lightning, Attack }
+Allies in your Presence deal 2(1-2) to 34(33-40) added Attack Lightning Damage
+{ Prefix Modifier "Opalescent" (Tier: 5) — Mana }
++83(80-89) to maximum Mana
+{ Suffix Modifier "of Excitement" (Tier: 6) — Mana }
+18(10-19)% increased Mana Regeneration Rate
+{ Suffix Modifier "of the Tutor" (Tier: 5) — Life, Minion }
+Minions have 28(26-30)% increased maximum Life
+{ Suffix Modifier "of the Sage" (Tier: 3) — Attribute }
++27(25-27) to Intelligence
+`);
+
+SpectreIncSpirit.category = ItemCategory.Sceptre;
+SpectreIncSpirit.rarity = ItemRarity.Rare;
+SpectreIncSpirit.itemLevel = 79;
+SpectreIncSpirit.weaponSPIRIT = 152;
+SpectreIncSpirit.requires = {
+  level: 72,
+  str: 39,
+  dex: 0,
+  int: 98,
+};
+
+SpectreIncSpirit.info.refName = "Shrine Sceptre";
+SpectreIncSpirit.sectionCount = 7;
+SpectreIncSpirit.prefixCount = 3;
+SpectreIncSpirit.suffixCount = 3;
+SpectreIncSpirit.skillCount = 1;
+SpectreIncSpirit.augmentSockets = {
+  empty: 0,
+  current: 1,
+  normal: 1,
+};
+
+// #endregion SpectreIncSpirit

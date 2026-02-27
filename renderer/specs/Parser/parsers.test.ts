@@ -14,13 +14,13 @@ import {
   UniqueItem,
   WandRareItem,
 } from "./items";
-import { loadForLang } from "@/assets/data";
+import { init } from "@/assets/data";
 import { ParsedItem } from "@/parser";
 
 describe("itemTextToSections", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
   });
   test("empty string should not throw", () => {
     expect(() => __testExports.itemTextToSections("")).not.toThrow();
@@ -44,7 +44,7 @@ describe("itemTextToSections", () => {
 describe("parseWeapon", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
   });
   test("Magic Weapon", () => {
     const sections = __testExports.itemTextToSections(MagicItem.rawText);
@@ -93,7 +93,7 @@ describe("parseWeapon", () => {
 describe("parseArmour", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
   });
   test("Normal Armour", () => {
     const sections = __testExports.itemTextToSections(NormalItem.rawText);
@@ -153,7 +153,7 @@ describe("parseRequirements", () => {
     "%s, items parse requirements",
     async (testName: string, item: TestItem) => {
       setupTests();
-      await loadForLang("en");
+      await init("en");
       const sections = __testExports.itemTextToSections(item.rawText);
       const parsedItem = {} as ParsedItem;
 
@@ -211,7 +211,7 @@ describe("parseRequirements", () => {
       expectedResult: ParsedItem["requires"],
     ) => {
       setupTests();
-      await loadForLang(lang);
+      await init(lang);
       const parsedItem = {} as ParsedItem;
 
       const res = __testExports.parseRequirements([str], parsedItem);
