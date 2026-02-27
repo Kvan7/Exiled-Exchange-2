@@ -52,9 +52,11 @@ export function createExactStatFilters(
   const keepByType = [
     ModifierType.Pseudo,
     ModifierType.Fractured,
+    ModifierType.Desecrated,
     ModifierType.Enchant,
     ModifierType.Necropolis,
     ModifierType.Sanctum,
+    ModifierType.Skill,
   ];
 
   if (
