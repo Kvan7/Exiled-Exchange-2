@@ -111,11 +111,22 @@ export function createExactStatFilters(
   }
 
   for (const filter of ctx.filters) {
+    // show all mods for exact
     filter.hidden = undefined;
+
+    // skip these
+    if (
+      // Should select only fractured explicit
+      (ctx.item.isFractured && filter.tag === FilterTag.Explicit) ||
+      // Dont show implicit for tablets
+      (item.category === ItemCategory.Tablet &&
+        filter.tag === FilterTag.Implicit)
+    ) {
+      continue;
+    }
+
     if (item.category === ItemCategory.Tablet) {
-      if (filter.tag === FilterTag.Explicit) {
-        filter.disabled = false;
-      }
+      filter.disabled = false;
     } else if (filter.tag === FilterTag.Explicit) {
       filter.disabled = !filter.sources.some(
         (source) =>
@@ -132,7 +143,8 @@ export function createExactStatFilters(
     }
   }
 
-  // fractured but no mods are actually fractured (bug in game: https://www.pathofexile.com/forum/view-thread/3891367)
+  // fractured but no mods are actually fractured
+  // game bug associated with this is fixed, nearly no cost to keeping this though
   if (
     ctx.item.isFractured &&
     !ctx.filters.some((f) => f.tag === FilterTag.Fractured)
