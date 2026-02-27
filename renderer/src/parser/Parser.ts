@@ -908,7 +908,7 @@ function parseWeapon(section: string[], item: ParsedItem) {
     }
     if (line.startsWith(_$.RELOAD_SPEED)) {
       // No regex since it can have decimals
-      item.weaponReload = parseFloat(line.slice(_$.RELOAD_SPEED.length));
+      item.weaponRELOAD = parseFloat(line.slice(_$.RELOAD_SPEED.length));
       isParsed = "SECTION_PARSED";
       continue;
     }
@@ -932,7 +932,7 @@ function parseWeapon(section: string[], item: ParsedItem) {
     item.weaponLIGHTNING = undefined;
     item.weaponFIRE = undefined;
     item.weaponCRIT = undefined;
-    item.weaponReload = undefined;
+    item.weaponRELOAD = undefined;
     item.weaponSPIRIT = undefined;
   }
 

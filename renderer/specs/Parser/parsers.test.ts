@@ -57,7 +57,7 @@ describe("parseWeapon", () => {
     expect(parsedItem.weaponELEMENTAL).toBe(MagicItem.weaponELEMENTAL);
     expect(parsedItem.weaponAS).toBe(MagicItem.weaponAS);
     expect(parsedItem.weaponCRIT).toBe(MagicItem.weaponCRIT);
-    expect(parsedItem.weaponReload).toBe(MagicItem.weaponReload);
+    expect(parsedItem.weaponRELOAD).toBe(MagicItem.weaponRELOAD);
   });
   test("Rare Weapon", () => {
     const sections = __testExports.itemTextToSections(RareItem.rawText);
@@ -70,7 +70,7 @@ describe("parseWeapon", () => {
     expect(parsedItem.weaponELEMENTAL).toBe(RareItem.weaponELEMENTAL);
     expect(parsedItem.weaponAS).toBe(RareItem.weaponAS);
     expect(parsedItem.weaponCRIT).toBe(RareItem.weaponCRIT);
-    expect(parsedItem.weaponReload).toBe(RareItem.weaponReload);
+    expect(parsedItem.weaponRELOAD).toBe(RareItem.weaponRELOAD);
   });
   test("High Damage Rare Weapon", () => {
     const sections = __testExports.itemTextToSections(
@@ -85,7 +85,7 @@ describe("parseWeapon", () => {
     expect(parsedItem.weaponELEMENTAL).toBe(HighDamageRareItem.weaponELEMENTAL);
     expect(parsedItem.weaponAS).toBe(HighDamageRareItem.weaponAS);
     expect(parsedItem.weaponCRIT).toBe(HighDamageRareItem.weaponCRIT);
-    expect(parsedItem.weaponReload).toBe(HighDamageRareItem.weaponReload);
+    expect(parsedItem.weaponRELOAD).toBe(HighDamageRareItem.weaponRELOAD);
     expect(parsedItem.quality).toBe(HighDamageRareItem.quality);
   });
 });

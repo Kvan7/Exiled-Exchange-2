@@ -44,8 +44,8 @@ export interface ParsedItem {
   weaponFIRE?: number;
   weaponCOLD?: number;
   weaponLIGHTNING?: number;
-  weaponChaos?: number;
-  weaponReload?: number;
+  weaponCHAOS?: number;
+  weaponRELOAD?: number;
   weaponSPIRIT?: number;
   mapBlighted?: "Blighted" | "Blight-ravaged";
   mapTier?: number;

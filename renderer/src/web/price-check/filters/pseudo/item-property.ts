@@ -363,9 +363,9 @@ function weaponProps(ctx: FiltersCreationContext) {
     );
   }
 
-  if (item.weaponReload) {
+  if (item.weaponRELOAD) {
     const reloadTime = calcPropBounds(
-      item.weaponReload,
+      item.weaponRELOAD,
       {
         incr: ["#% increased Attack Speed"],
         flat: [],

@@ -19,8 +19,8 @@ export class TestItem implements ParsedItem {
   weaponFIRE?: number | undefined;
   weaponCOLD?: number | undefined;
   weaponLIGHTNING?: number | undefined;
-  weaponChaos?: number | undefined;
-  weaponReload?: number | undefined;
+  weaponCHAOS?: number | undefined;
+  weaponRELOAD?: number | undefined;
   weaponSPIRIT?: number;
   mapBlighted?: "Blighted" | "Blight-ravaged" | undefined;
   mapTier?: number | undefined;
@@ -433,7 +433,7 @@ HighDamageRareItem.quality = 29;
 HighDamageRareItem.weaponPHYSICAL = 728.5;
 HighDamageRareItem.weaponAS = 2.07;
 HighDamageRareItem.weaponCRIT = 5;
-HighDamageRareItem.weaponReload = 0.6;
+HighDamageRareItem.weaponRELOAD = 0.6;
 HighDamageRareItem.itemLevel = 82;
 
 HighDamageRareItem.info.refName = "Siege Crossbow";
@@ -1037,7 +1037,7 @@ ItemAllTheModifierTypes.weaponELEMENTAL =
   ItemAllTheModifierTypes.weaponLIGHTNING;
 ItemAllTheModifierTypes.weaponCRIT = 5;
 ItemAllTheModifierTypes.weaponAS = 1.89;
-ItemAllTheModifierTypes.weaponReload = 0.93;
+ItemAllTheModifierTypes.weaponRELOAD = 0.93;
 ItemAllTheModifierTypes.itemLevel = 80;
 ItemAllTheModifierTypes.requires = {
   level: 78,
