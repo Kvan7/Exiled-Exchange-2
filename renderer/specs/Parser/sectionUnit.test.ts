@@ -80,4 +80,54 @@ describe("parseTrials", () => {
       expect(parsedItem.trials!.numberOfTrials).toEqual(count);
     },
   );
+
+  it.each([
+    [["Area Level: 27", "Number of Trials: 1"], 27, 1],
+    [["Area Level: 56", "Number of Trials: 2"], 56, 2],
+    [["Area Level: 69", "Number of Trials: 3"], 69, 3],
+    [
+      ["Area Level: 75", "Number of Trials: 4", "Victorious"],
+      75,
+      4,
+      "Victorious",
+    ],
+    [["Area Level: 76", "Number of Trials: 4", "Cowardly"], 76, 4, "Cowardly"],
+    [["Area Level: 79", "Number of Trials: 4", "Deadly"], 79, 4, "Deadly"],
+  ])(
+    "%#. should parse Inscribed Ultimatum",
+    (lines: string[], area: number, count: number, hint?: string) => {
+      const parsedItem: ParsedItem = {
+        ...createTestItem(),
+        info: { ...createTestItem().info, refName: "Inscribed Ultimatum" },
+      };
+
+      const res = __testExports.parseTrials(lines, parsedItem);
+
+      expect(res).toBe("SECTION_PARSED");
+      expect(parsedItem.areaLevel).toBe(area);
+      expect(parsedItem.trials).toBeDefined();
+      expect(parsedItem.trials!.numberOfTrials).toEqual(count);
+      expect(parsedItem.trials!.ultimatumHint).toEqual(hint);
+    },
+  );
+
+  it.each([
+    ["Divine Crown", ["Area Level: 27", "Number of Trials: 1"]],
+    ["Withered Wand", ["Area Level: 56", "Number of Trials: 2"]],
+    ["Uncut Support Gem (Level 5)", ["Area Level: 69", "Number of Trials: 3"]],
+    ["Ornate Belt", ["Area Level: 75", "Number of Trials: 4", "Victorious"]],
+    ["Rider Bow", ["Area Level: 76", "Number of Trials: 4", "Cowardly"]],
+    ["", ["Area Level: 79", "Number of Trials: 4", "Deadly"]],
+  ])("%#. should skip non trial items", (refName: string, lines: string[]) => {
+    const parsedItem: ParsedItem = {
+      ...createTestItem(),
+      info: { ...createTestItem().info, refName },
+    };
+
+    const res = __testExports.parseTrials(lines, parsedItem);
+
+    expect(res).toBe("PARSER_SKIPPED");
+    expect(parsedItem.areaLevel).toBeUndefined();
+    expect(parsedItem.trials).toBeUndefined();
+  });
 });
