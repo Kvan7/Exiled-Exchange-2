@@ -101,6 +101,7 @@ export interface ParsedItem {
     dex: number;
     int: number;
   };
+  unidentifiedTier?: number;
   info: BaseType;
   rawText: string;
 }

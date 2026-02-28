@@ -75,6 +75,8 @@ export class TestItem implements ParsedItem {
     int: number;
   };
 
+  unidentifiedTier?: number;
+
   info: BaseType = {
     name: "test",
     refName: "test",
@@ -1116,3 +1118,59 @@ SpectreIncSpirit.augmentSockets = {
 };
 
 // #endregion SpectreIncSpirit
+
+// #region UnidentifiedBase
+export const UnidentifiedBase = new TestItem(`Item Class: Wands
+Rarity: Rare
+Volatile Wand
+--------
+Requires: 113 Intelligence
+--------
+Item Level: 69
+--------
+Grants Skill: Level 15 Volatile Dead
+--------
+Unidentified
+`);
+
+UnidentifiedBase.category = ItemCategory.Wand;
+UnidentifiedBase.rarity = ItemRarity.Rare;
+UnidentifiedBase.itemLevel = 69;
+UnidentifiedBase.requires = {
+  level: 0,
+  str: 0,
+  dex: 0,
+  int: 113,
+};
+
+UnidentifiedBase.info.refName = "Volatile Wand";
+UnidentifiedBase.sectionCount = 5;
+UnidentifiedBase.skillCount = 1;
+UnidentifiedBase.isUnidentified = true;
+
+// #endregion UnidentifiedBase
+
+// #region UnidentifiedTier
+export const UnidentifiedTier = new TestItem(`Item Class: Rings
+Rarity: Magic
+Sapphire Ring
+--------
+Item Level: 54
+--------
+{ Implicit Modifier — Elemental, Cold, Resistance }
++23(20-30)% to Cold Resistance
+--------
+Unidentified (Tier 4)
+`);
+
+UnidentifiedTier.category = ItemCategory.Ring;
+UnidentifiedTier.rarity = ItemRarity.Magic;
+UnidentifiedTier.itemLevel = 54;
+
+UnidentifiedTier.info.refName = "Volatile Wand";
+UnidentifiedTier.sectionCount = 4;
+UnidentifiedTier.implicitCount = 1;
+UnidentifiedTier.isUnidentified = true;
+UnidentifiedTier.unidentifiedTier = 4;
+
+// #endregion UnidentifiedTier

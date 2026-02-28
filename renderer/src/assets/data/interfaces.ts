@@ -133,7 +133,7 @@ export interface TranslationDict {
   ENERGY_SHIELD: string;
   BLOCK_CHANCE: string;
   CORRUPTED: string;
-  UNIDENTIFIED: string;
+  UNIDENTIFIED: RegExp;
   ITEM_SUPERIOR: RegExp;
   ITEM_EXCEPTIONAL: RegExp;
   MAP_BLIGHTED: RegExp;

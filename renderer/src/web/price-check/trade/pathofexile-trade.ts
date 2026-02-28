@@ -522,6 +522,14 @@ export function createTradeRequest(
     );
   }
 
+  if (filters.unidentifiedTier && !filters.unidentifiedTier.disabled) {
+    propSet(
+      query.filters,
+      "misc_filters.filters.unidentified_tier.min",
+      filters.unidentifiedTier.value,
+    );
+  }
+
   if (
     (filters.corrupted?.value === false || filters.corrupted?.exact) &&
     filters.corrupted &&

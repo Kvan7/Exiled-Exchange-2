@@ -100,8 +100,14 @@
             :img="`/images/influence-${influence.value}.png`"
           />
         </template>
+        <!-- Implicitly should only be tier or plain unid from create-item-filters -->
+        <filter-btn-numeric
+          v-if="filters.unidentifiedTier"
+          :filter="filters.unidentifiedTier"
+          :name="t('item.unidentified_tier')"
+        />
         <filter-btn-logical
-          v-if="filters.unidentified"
+          v-else-if="filters.unidentified"
           :filter="filters.unidentified"
           :text="t('item.unidentified')"
         />

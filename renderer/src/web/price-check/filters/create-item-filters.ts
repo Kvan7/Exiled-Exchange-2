@@ -447,10 +447,17 @@ export function createFilters(
   }
 
   if (item.isUnidentified) {
-    filters.unidentified = {
-      value: true,
-      disabled: item.rarity !== ItemRarity.Unique,
-    };
+    if (item.unidentifiedTier) {
+      filters.unidentifiedTier = {
+        value: item.unidentifiedTier,
+        disabled: item.unidentifiedTier < 5,
+      };
+    } else {
+      filters.unidentified = {
+        value: true,
+        disabled: item.rarity !== ItemRarity.Unique,
+      };
+    }
   }
 
   if (item.isVeiled) {

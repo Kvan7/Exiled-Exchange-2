@@ -32,7 +32,6 @@ export default {
   ENERGY_SHIELD: '能量護盾: ',
   BLOCK_CHANCE: '格擋機率: ',
   CORRUPTED: '已汙染',
-  UNIDENTIFIED: '未鑑定',
   INFLUENCE_SHAPER: '塑者之物',
   INFLUENCE_ELDER: '尊師之物',
   INFLUENCE_CRUSADER: '聖戰軍王物品',
@@ -156,4 +155,5 @@ export default {
   // [Manual]
   LOG_ZONE_GEN: /^Generating level (?<area_level>\d+) area "(?<zone>.*)" with seed (?<seed>\d+)$/,
   REQUIRES_LINE: /^需求: \s*(?:等級[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*(力量|力量))?\D*(?:(?<dex>\d+)[^\d,]*(敏捷|敏捷))?\D*(?:(?<int>\d+)[^\d,]*(智慧|智慧))?$/,
+  UNIDENTIFIED: /^未鑑定(?:\s*\(階級\s*(?<tier>\d+)\))?$/,
 }

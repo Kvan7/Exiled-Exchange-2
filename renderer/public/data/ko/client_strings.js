@@ -32,7 +32,6 @@ export default {
   ENERGY_SHIELD: '에너지 보호막: ',
   BLOCK_CHANCE: '막기 확률: ',
   CORRUPTED: '타락',
-  UNIDENTIFIED: '미확인',
   INFLUENCE_SHAPER: '쉐이퍼 아이템',
   INFLUENCE_ELDER: '엘더 아이템',
   INFLUENCE_CRUSADER: '십자군 아이템',
@@ -156,4 +155,5 @@ export default {
   // [Manual]
   LOG_ZONE_GEN: /^Generating level (?<area_level>\d+) area "(?<zone>.*)" with seed (?<seed>\d+)$/,
   REQUIRES_LINE: /^요구 사항: \s*(?:레벨[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*(힘|힘))?\D*(?:(?<dex>\d+)[^\d,]*(민첩|민첩))?\D*(?:(?<int>\d+)[^\d,]*(지능|지능))?$/,
+  UNIDENTIFIED: /^미확인(?:\s*\(등급\s*(?<tier>\d+)\))?$/,
 }
