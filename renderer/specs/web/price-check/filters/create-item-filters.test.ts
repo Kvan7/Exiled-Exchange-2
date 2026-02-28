@@ -1,7 +1,7 @@
 import { ItemRarity, ParsedItem } from "@/parser/ParsedItem";
 import { createFilters } from "@/web/price-check/filters/create-item-filters";
 import { describe, expect, it } from "vitest";
-import { createTestCreateOptions, createTestItem } from "./helper";
+import { createTestCreateOptions, createTestItem } from "@specs/helper";
 
 describe("unidentified item tests", () => {
   it("should not have unid filter if identified", () => {

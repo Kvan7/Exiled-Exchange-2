@@ -102,6 +102,10 @@ export interface ParsedItem {
     int: number;
   };
   unidentifiedTier?: number;
+  trials?: {
+    numberOfTrials?: number;
+    ultimatumHint?: "Victorious" | "Cowardly" | "Deadly";
+  };
   info: BaseType;
   rawText: string;
 }
