@@ -71,6 +71,10 @@ export interface ItemFilters {
     value: true;
     disabled: boolean;
   };
+  unidentifiedTier?: {
+    value: number;
+    disabled: boolean;
+  };
   veiled?: {
     statRefs: string[];
     veiledCount: number;
