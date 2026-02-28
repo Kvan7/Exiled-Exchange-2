@@ -32,7 +32,6 @@ export default {
   ENERGY_SHIELD: 'Energieschild: ',
   BLOCK_CHANCE: 'Blockchance: ',
   CORRUPTED: 'Verderbt',
-  UNIDENTIFIED: 'Nicht identifiziert',
   INFLUENCE_SHAPER: 'Schöpfer-Gegenstand',
   INFLUENCE_ELDER: 'Ältesten-Gegenstand',
   INFLUENCE_CRUSADER: 'Kreuzritter-Gegenstand',
@@ -156,4 +155,5 @@ export default {
   // [Manual]
   LOG_ZONE_GEN: /^Generating level (?<area_level>\d+) area "(?<zone>.*)" with seed (?<seed>\d+)$/,
   REQUIRES_LINE: /^Erfordert: \s*(?:Stufe[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*(Stärke|Str))?\D*(?:(?<dex>\d+)[^\d,]*(Geschick |Ges ))?\D*(?:(?<int>\d+)[^\d,]*(Intelligenz|Int))?$/,
+  UNIDENTIFIED: /^Nicht identifiziert(?:\s*\(Level\s*(?<tier>\d+)\))?$/,
 }

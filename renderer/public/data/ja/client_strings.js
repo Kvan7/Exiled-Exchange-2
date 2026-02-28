@@ -32,7 +32,6 @@ export default {
   ENERGY_SHIELD: 'エナジーシールド: ',
   BLOCK_CHANCE: 'ブロック率: ',
   CORRUPTED: 'コラプト状態',
-  UNIDENTIFIED: '未鑑定',
   INFLUENCE_SHAPER: 'シェイパーアイテム',
   INFLUENCE_ELDER: 'エルダーアイテム',
   INFLUENCE_CRUSADER: 'クルセイダーアイテム',
@@ -156,4 +155,5 @@ export default {
   // [Manual]
   LOG_ZONE_GEN: /^Generating level (?<area_level>\d+) area "(?<zone>.*)" with seed (?<seed>\d+)$/,
   REQUIRES_LINE: /^装備条件：\s*(?:レベル[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*(筋力|筋力))?\D*(?:(?<dex>\d+)[^\d,]*(器用さ|器用さ))?\D*(?:(?<int>\d+)[^\d,]*(知性|知性))?$/,
+  UNIDENTIFIED: /^未鑑定(?:\s*\(ティア\s*(?<tier>\d+)\))?$/,
 }

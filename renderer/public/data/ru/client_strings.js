@@ -32,7 +32,6 @@ export default {
   ENERGY_SHIELD: 'Энергетический щит: ',
   BLOCK_CHANCE: 'Шанс блока: ',
   CORRUPTED: 'Осквернено ',
-  UNIDENTIFIED: 'Неопознано',
   INFLUENCE_SHAPER: 'Предмет Создателя',
   INFLUENCE_ELDER: 'Древний предмет',
   INFLUENCE_CRUSADER: 'Предмет Крестоносца',
@@ -157,4 +156,5 @@ export default {
   // [Manual]
   LOG_ZONE_GEN: /^Generating level (?<area_level>\d+) area "(?<zone>.*)" with seed (?<seed>\d+)$/,
   REQUIRES_LINE: /^Требуется: \s*(?:Уровень[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*(Сила|Сила))?\D*(?:(?<dex>\d+)[^\d,]*(Ловкость|Ловк))?\D*(?:(?<int>\d+)[^\d,]*(Интеллект|Инт))?$/,
+  UNIDENTIFIED: /^Неопознано(?:\s*\(Ранг\s*(?<tier>\d+)\))?$/,
 }

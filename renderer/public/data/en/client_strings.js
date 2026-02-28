@@ -32,7 +32,6 @@ export default {
   ENERGY_SHIELD: 'Energy Shield: ',
   BLOCK_CHANCE: 'Block chance: ',
   CORRUPTED: 'Corrupted',
-  UNIDENTIFIED: 'Unidentified',
   INFLUENCE_SHAPER: 'Shaper Item',
   INFLUENCE_ELDER: 'Elder Item',
   INFLUENCE_CRUSADER: 'Crusader Item',
@@ -156,4 +155,5 @@ export default {
   // [Manual]
   LOG_ZONE_GEN: /^Generating level (?<area_level>\d+) area "(?<zone>.*)" with seed (?<seed>\d+)$/,
   REQUIRES_LINE: /^Requires: \s*(?:Level[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*(Strength|Str))?\D*(?:(?<dex>\d+)[^\d,]*(Dexterity|Dex))?\D*(?:(?<int>\d+)[^\d,]*(Intelligence|Int))?$/,
+  UNIDENTIFIED: /^Unidentified(?:\s*\(Tier\s*(?<tier>\d+)\))?$/,
 }
