@@ -96,6 +96,10 @@ export default {
   DOUBLE_CORRUPTED: '두 번 타락',
   UNIQUE_MODIFIER: '고유 속성 부여',
   VAAL_UNIQUE_MODIFIER: '바알 고유 속성',
+  TRIAL_COUNT: '시련 수: ',
+  ULTIMATUM_VICTORIOUS: '승리',
+  ULTIMATUM_COWARDLY: '겁쟁이',
+  ULTIMATUM_DEADLY: '치명적',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]

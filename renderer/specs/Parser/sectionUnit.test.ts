@@ -60,10 +60,10 @@ describe("parseTrials", () => {
   });
 
   it.each([
-    [["Area Level: 25", "Trial Count: 1"], 25, 1],
-    [["Area Level: 58", "Trial Count: 2"], 58, 2],
-    [["Area Level: 70", "Trial Count: 3"], 70, 3],
-    [["Area Level: 80", "Trial Count: 4"], 80, 4],
+    [["Area Level: 25", "Number of Trials: 1"], 25, 1],
+    [["Area Level: 58", "Number of Trials: 2"], 58, 2],
+    [["Area Level: 70", "Number of Trials: 3"], 70, 3],
+    [["Area Level: 80", "Number of Trials: 4"], 80, 4],
   ])(
     "%#. should parse Djinn Barya",
     (lines: string[], area: number, count: number) => {
@@ -77,7 +77,7 @@ describe("parseTrials", () => {
       expect(res).toBe("SECTION_PARSED");
       expect(parsedItem.areaLevel).toBe(area);
       expect(parsedItem.trials).toBeDefined();
-      expect(parsedItem.trials).toEqual(count);
+      expect(parsedItem.trials!.numberOfTrials).toEqual(count);
     },
   );
 });

@@ -96,6 +96,10 @@ export default {
   DOUBLE_CORRUPTED: 'Corrompido Duas Vezes',
   UNIQUE_MODIFIER: 'Mod Único',
   VAAL_UNIQUE_MODIFIER: 'Modificador Único Vaal',
+  TRIAL_COUNT: 'Número de Provações: ',
+  ULTIMATUM_VICTORIOUS: 'Triunfante',
+  ULTIMATUM_COWARDLY: 'Covarde',
+  ULTIMATUM_DEADLY: 'Mortal',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]

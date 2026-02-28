@@ -96,6 +96,10 @@ export default {
   DOUBLE_CORRUPTED: 'Twice Corrupted',
   UNIQUE_MODIFIER: 'Unique Modifier',
   VAAL_UNIQUE_MODIFIER: 'Vaal Unique Modifier',
+  TRIAL_COUNT: 'Number of Trials: ',
+  ULTIMATUM_VICTORIOUS: 'Victorious',
+  ULTIMATUM_COWARDLY: 'Cowardly',
+  ULTIMATUM_DEADLY: 'Deadly',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]
