@@ -1,6 +1,6 @@
 import { CLIENT_STRINGS as _$ } from "@/assets/data";
 import { __testExports } from "@/parser/Parser";
-import { beforeEach, describe, expect, it, test } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import { setupTests } from "@specs/vitest.setup";
 import {
   ArmourHighValueRareItem,
@@ -22,7 +22,7 @@ describe("itemTextToSections", () => {
     setupTests();
     await init("en");
   });
-  test("empty string should not throw", () => {
+  it("empty string should not throw", () => {
     expect(() => __testExports.itemTextToSections("")).not.toThrow();
   });
 
@@ -46,7 +46,7 @@ describe("parseWeapon", () => {
     setupTests();
     await init("en");
   });
-  test("Magic Weapon", () => {
+  it("Magic Weapon", () => {
     const sections = __testExports.itemTextToSections(MagicItem.rawText);
     const parsedItem = {} as ParsedItem;
 
@@ -59,7 +59,7 @@ describe("parseWeapon", () => {
     expect(parsedItem.weaponCRIT).toBe(MagicItem.weaponCRIT);
     expect(parsedItem.weaponRELOAD).toBe(MagicItem.weaponRELOAD);
   });
-  test("Rare Weapon", () => {
+  it("Rare Weapon", () => {
     const sections = __testExports.itemTextToSections(RareItem.rawText);
     const parsedItem = {} as ParsedItem;
 
@@ -72,7 +72,7 @@ describe("parseWeapon", () => {
     expect(parsedItem.weaponCRIT).toBe(RareItem.weaponCRIT);
     expect(parsedItem.weaponRELOAD).toBe(RareItem.weaponRELOAD);
   });
-  test("High Damage Rare Weapon", () => {
+  it("High Damage Rare Weapon", () => {
     const sections = __testExports.itemTextToSections(
       HighDamageRareItem.rawText,
     );
@@ -95,7 +95,7 @@ describe("parseArmour", () => {
     setupTests();
     await init("en");
   });
-  test("Normal Armour", () => {
+  it("Normal Armour", () => {
     const sections = __testExports.itemTextToSections(NormalItem.rawText);
     const parsedItem = {} as ParsedItem;
 
@@ -108,7 +108,7 @@ describe("parseArmour", () => {
     expect(parsedItem.quality).toBe(NormalItem.quality);
     expect(parsedItem.armourBLOCK).toBe(NormalItem.armourBLOCK);
   });
-  test("Unique Armour", () => {
+  it("Unique Armour", () => {
     const sections = __testExports.itemTextToSections(UniqueItem.rawText);
     const parsedItem = {} as ParsedItem;
 
@@ -121,7 +121,7 @@ describe("parseArmour", () => {
     expect(parsedItem.quality).toBe(UniqueItem.quality);
     expect(parsedItem.armourBLOCK).toBe(UniqueItem.armourBLOCK);
   });
-  test("High Armour Rare", () => {
+  it("High Armour Rare", () => {
     const sections = __testExports.itemTextToSections(
       ArmourHighValueRareItem.rawText,
     );
