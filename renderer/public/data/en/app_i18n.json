@@ -81,6 +81,7 @@
     "identification": "You are trying to price check unidentified Unique item with base type \"{0}\". Which one?",
     "open_on_wiki": "Open item on wiki",
     "open_on_poedb": "Open item on PoEDB",
+    "open_on_craftofexile": "Open base item on Craft of Exile",
     "info": "Item info",
     "corrupted": "Corrupted",
     "not_corrupted": "Not Corrupted",
