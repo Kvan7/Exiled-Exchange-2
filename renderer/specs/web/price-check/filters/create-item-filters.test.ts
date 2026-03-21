@@ -1,5 +1,9 @@
 import { ItemRarity, ParsedItem } from "@/parser/ParsedItem";
-import { createFilters } from "@/web/price-check/filters/create-item-filters";
+import {
+  areaLevelByAscendancyPoints,
+  ascendancyPointsByAreaLevel,
+  createFilters,
+} from "@/web/price-check/filters/create-item-filters";
 import { describe, expect, it } from "vitest";
 import { createTestCreateOptions, createTestItem } from "@specs/helper";
 
@@ -74,4 +78,58 @@ describe("unidentified item tests", () => {
     expect(res.unidentifiedTier!.value).toBe(tier);
     expect(res.unidentifiedTier!.disabled).toBe(disabled);
   });
+});
+
+describe("Ascendancy Points calcs", () => {
+  it.each([
+    ["Inscribed Ultimatum", 1, 1],
+    ["Inscribed Ultimatum", 23, 1],
+    ["Inscribed Ultimatum", 34, 1],
+    ["Inscribed Ultimatum", 42, 1],
+    ["Inscribed Ultimatum", 48, 1],
+    ["Inscribed Ultimatum", 55, 1],
+    ["Inscribed Ultimatum", 70, 2],
+    ["Inscribed Ultimatum", 78, 3],
+    ["Inscribed Ultimatum", 80, 3],
+    ["Inscribed Ultimatum", 100, 3],
+    ["Djinn Barya", 1, 1],
+    ["Djinn Barya", 23, 1],
+    ["Djinn Barya", 34, 1],
+    ["Djinn Barya", 42, 1],
+    ["Djinn Barya", 48, 2],
+    ["Djinn Barya", 55, 2],
+    ["Djinn Barya", 70, 3],
+    ["Djinn Barya", 78, 4],
+    ["Djinn Barya", 80, 4],
+    ["Djinn Barya", 100, 4],
+  ])(
+    "#. Should return correct points for %s area level %d",
+    (refName, areaLevel, expected) => {
+      const res = ascendancyPointsByAreaLevel(refName, areaLevel);
+
+      expect(res).toBe(expected);
+    },
+  );
+
+  it.each([
+    ["Inscribed Ultimatum", 0, 1],
+    ["Inscribed Ultimatum", 1, 1],
+    ["Inscribed Ultimatum", 2, 60],
+    ["Inscribed Ultimatum", 3, 75],
+    ["Inscribed Ultimatum", 4, 75],
+    ["Inscribed Ultimatum", 5, 75],
+    ["Djinn Barya", 0, 1],
+    ["Djinn Barya", 1, 1],
+    ["Djinn Barya", 2, 45],
+    ["Djinn Barya", 3, 60],
+    ["Djinn Barya", 4, 75],
+    ["Djinn Barya", 5, 75],
+  ])(
+    "#. Should return correct area level for %s points %d",
+    (refName, points, expected) => {
+      const res = areaLevelByAscendancyPoints(refName, points);
+
+      expect(res).toBe(expected);
+    },
+  );
 });

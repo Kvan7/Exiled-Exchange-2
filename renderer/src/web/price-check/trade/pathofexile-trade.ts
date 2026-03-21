@@ -214,6 +214,9 @@ interface TradeRequest {
           map_rare_monsters?: FilterRange;
           map_bonus?: FilterRange;
           map_iir?: FilterRange;
+          ultimatum_hint?: {
+            option?: "Victorious" | "Cowardly" | "Deadly";
+          };
         };
       };
       misc_filters?: {
@@ -507,10 +510,29 @@ export function createTradeRequest(
   }
 
   if (filters.areaLevel && !filters.areaLevel.disabled) {
+    if (filters.awardedAscendancyPoints) {
+      // set max, lower has higher value, so exclude worse(higher area level) items
+      propSet(
+        query.filters,
+        "misc_filters.filters.area_level.max",
+        filters.areaLevel.value,
+      );
+    } else {
+      propSet(
+        query.filters,
+        "misc_filters.filters.area_level.min",
+        filters.areaLevel.value,
+      );
+    }
+  }
+  if (
+    filters.awardedAscendancyPoints &&
+    !filters.awardedAscendancyPoints.disabled
+  ) {
     propSet(
       query.filters,
       "misc_filters.filters.area_level.min",
-      filters.areaLevel.value,
+      filters.awardedAscendancyPoints.value,
     );
   }
 
