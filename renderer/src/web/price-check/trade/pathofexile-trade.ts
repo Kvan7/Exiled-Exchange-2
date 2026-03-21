@@ -30,6 +30,7 @@ import {
   usePoeninja,
 } from "@/web/background/Prices";
 import { getCurrencyDetailsId } from "../trends/getDetailsId";
+import { areaLevelByAscendancyPoints } from "../filters/create-item-filters";
 
 export const CATEGORY_TO_TRADE_ID = new Map([
   [ItemCategory.Map, "map"],
@@ -532,7 +533,10 @@ export function createTradeRequest(
     propSet(
       query.filters,
       "misc_filters.filters.area_level.min",
-      filters.awardedAscendancyPoints.value,
+      areaLevelByAscendancyPoints(
+        item.info.refName,
+        filters.awardedAscendancyPoints.value,
+      ),
     );
   }
 
