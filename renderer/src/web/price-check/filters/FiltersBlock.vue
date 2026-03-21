@@ -18,6 +18,11 @@
           :name="t('item.map_tier')"
         />
         <filter-btn-numeric
+          v-if="filters.awardedAscendancyPoints"
+          :filter="filters.awardedAscendancyPoints"
+          :name="t('item.ascendancy_points')"
+        />
+        <filter-btn-numeric
           v-if="filters.areaLevel"
           :filter="filters.areaLevel"
           :name="t('item.area_level')"
