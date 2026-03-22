@@ -146,6 +146,11 @@
             )
           "
         />
+        <filter-btn-logical
+          v-if="filters.ultimatumHint"
+          :filter="filters.ultimatumHint"
+          :text="t(`item.${filters.ultimatumHint.value.toLowerCase()}`)"
+        />
         <filter-btn-numeric
           v-if="filters.usesRemaining"
           :filter="filters.usesRemaining"

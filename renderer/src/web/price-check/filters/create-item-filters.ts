@@ -618,14 +618,12 @@ export function createTrialsFilters(
   filters: ItemFilters,
   opts: CreateOptions,
 ) {
+  const refName = item.info.refName;
   filters.searchExact = {
     baseType: item.info.name,
     baseTypeTrade: t(opts, item.info),
   };
-  const fixedAreaLevel = ascendancyPointsByAreaLevel(
-    item.info.refName,
-    item.areaLevel!,
-  );
+  const fixedAreaLevel = ascendancyPointsByAreaLevel(refName, item.areaLevel!);
 
   filters.awardedAscendancyPoints = {
     value: fixedAreaLevel,
@@ -636,6 +634,13 @@ export function createTrialsFilters(
     value: item.areaLevel!,
     disabled: false,
   };
+
+  if (refName === "Inscribed Ultimatum" && item.trials?.ultimatumHint) {
+    filters.ultimatumHint = {
+      value: item.trials.ultimatumHint,
+      disabled: true,
+    };
+  }
 
   return filters;
 }

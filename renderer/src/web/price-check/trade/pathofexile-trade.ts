@@ -486,6 +486,14 @@ export function createTradeRequest(
     );
   }
 
+  if (filters.ultimatumHint && !filters.ultimatumHint.disabled) {
+    propSet(
+      query.filters,
+      "map_filters.filters.ultimatum_hint.option",
+      filters.ultimatumHint.value,
+    );
+  }
+
   // MISC FILTERS
   if (filters.gemLevel && !filters.gemLevel.disabled) {
     propSet(
@@ -526,6 +534,7 @@ export function createTradeRequest(
       );
     }
   }
+
   if (
     filters.awardedAscendancyPoints &&
     !filters.awardedAscendancyPoints.disabled
