@@ -104,7 +104,10 @@
     "map_drop_chance": "ウェイストーンドロップ確率: +{0}%",
     "map_item_rarity": "アイテムレアリティ: +{0}%",
     "map_gold": "見つかるゴールド: +{0}%",
-    "uses_remaining": "残り{0}回の使用可能"
+    "uses_remaining": "残り{0}回の使用可能",
+    "victorious": "勝利",
+    "cowardly": "卑怯者",
+    "deadly": "致死"
   },
   "item_category": {
     "prop": "カテゴリー: {0}",

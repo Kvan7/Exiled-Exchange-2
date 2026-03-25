@@ -105,7 +105,10 @@
     "map_drop_chance": "換界石掉落機率: +{0}%",
     "map_item_rarity": "物品稀有度: +{0}%",
     "map_gold": "找到黃金: +{0}%",
-    "uses_remaining": "還能夠使用{0}次。"
+    "uses_remaining": "還能夠使用{0}次。",
+    "victorious": "勝利",
+    "cowardly": "怯懦",
+    "deadly": "致命"
   },
   "item_category": {
     "prop": "類別：{0}",

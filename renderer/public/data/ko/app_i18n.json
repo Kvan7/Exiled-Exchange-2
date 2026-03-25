@@ -98,7 +98,10 @@
     "map_drop_chance": "경로석 출현 확률: +{0}%",
     "map_item_rarity": "아이템 희귀도: +{0}%",
     "map_gold": "골드 발견량: +{0}%",
-    "uses_remaining": "남은 사용: {0}"
+    "uses_remaining": "남은 사용: {0}",
+    "victorious": "승리",
+    "cowardly": "겁쟁이",
+    "deadly": "치명적"
   },
   "item_category": {
     "prop": "유형: {0}",
