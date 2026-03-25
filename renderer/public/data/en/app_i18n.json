@@ -115,7 +115,11 @@
     "map_drop_chance": "Waystone Drop Chance: +{0}%",
     "map_item_rarity": "Item Rarity: +{0}%",
     "map_gold": "Gold Found: +{0}%",
-    "uses_remaining": "Uses Remaining: {0}"
+    "uses_remaining": "Uses Remaining: {0}",
+    "ascendancy_points": "Points: {0}",
+    "victorious": "Victorious",
+    "cowardly": "Cowardly",
+    "deadly": "Deadly"
   },
   "item_category": {
     "prop": "Category: {0}",

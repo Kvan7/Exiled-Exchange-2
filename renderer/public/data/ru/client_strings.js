@@ -96,6 +96,10 @@ export default {
   DOUBLE_CORRUPTED: 'Дважды осквернено',
   UNIQUE_MODIFIER: 'Уникальное свойство ',
   VAAL_UNIQUE_MODIFIER: 'Уникальное свойство ваал',
+  TRIAL_COUNT: 'Число испытаний: ',
+  ULTIMATUM_VICTORIOUS: 'Победный',
+  ULTIMATUM_COWARDLY: 'Трусливый',
+  ULTIMATUM_DEADLY: 'Смертельный',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]

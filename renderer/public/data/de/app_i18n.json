@@ -103,7 +103,10 @@
     "map_drop_chance": "Chance auf fallen gelassene Wegsteine: +{0}%",
     "map_item_rarity": "Gegenstandsseltenheit: +{0}%",
     "map_gold": "Gefundenes Gold: +{0}%",
-    "uses_remaining": "Nutzungen übrig: {0}"
+    "uses_remaining": "Nutzungen übrig: {0}",
+    "victorious": "Siegreich",
+    "cowardly": "Feige",
+    "deadly": "Tödlich"
   },
   "item_category": {
     "prop": "Kategorie: {0}",

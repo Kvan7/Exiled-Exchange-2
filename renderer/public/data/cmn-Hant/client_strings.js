@@ -96,6 +96,10 @@ export default {
   DOUBLE_CORRUPTED: '雙重 Corrupted',
   UNIQUE_MODIFIER: '傳奇詞綴',
   VAAL_UNIQUE_MODIFIER: '瓦爾傳奇終結特效',
+  TRIAL_COUNT: '試煉數量: ',
+  ULTIMATUM_VICTORIOUS: '勝利',
+  ULTIMATUM_COWARDLY: '怯懦',
+  ULTIMATUM_DEADLY: '致命',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]

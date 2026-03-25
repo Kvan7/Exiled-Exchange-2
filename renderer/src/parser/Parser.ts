@@ -86,6 +86,7 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseSockets,
   parseAugmentSockets,
   parseHeistBlueprint,
+  parseTrials,
   parseAreaLevel,
   parseAtzoatlRooms,
   parseMirroredTablet,
@@ -1400,6 +1401,38 @@ function parseHeistBlueprint(section: string[], item: ParsedItem) {
   return "SECTION_PARSED";
 }
 
+function parseTrials(section: string[], item: ParsedItem) {
+  performance.mark("parseTrials");
+  if (
+    item.info.refName !== "Djinn Barya" &&
+    item.info.refName !== "Inscribed Ultimatum"
+  ) {
+    return "PARSER_SKIPPED";
+  }
+
+  parseAreaLevelNested(section, item);
+  if (!item.areaLevel) {
+    return "SECTION_SKIPPED";
+  }
+  item.trials = {};
+
+  for (const line of section) {
+    if (line.startsWith(_$.TRIAL_COUNT)) {
+      item.trials.numberOfTrials = Number(line.slice(_$.TRIAL_COUNT.length));
+    } else if (item.info.refName === "Inscribed Ultimatum") {
+      if (line.startsWith(_$.ULTIMATUM_VICTORIOUS)) {
+        item.trials.ultimatumHint = "Victorious";
+      } else if (line.startsWith(_$.ULTIMATUM_COWARDLY)) {
+        item.trials.ultimatumHint = "Cowardly";
+      } else if (line.startsWith(_$.ULTIMATUM_DEADLY)) {
+        item.trials.ultimatumHint = "Deadly";
+      }
+    }
+  }
+
+  return "SECTION_PARSED";
+}
+
 function parseAreaLevelNested(section: string[], item: ParsedItem) {
   performance.mark("parseAreaLevelNested");
   for (const line of section) {
@@ -1778,4 +1811,5 @@ export const __testExports = {
   parseRequirements,
   parseFractured,
   parseUnidentified,
+  parseTrials,
 };

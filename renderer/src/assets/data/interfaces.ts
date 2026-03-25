@@ -241,6 +241,10 @@ export interface TranslationDict {
   REQUIRES_LINE: RegExp;
   UNIQUE_MODIFIER: string;
   VAAL_UNIQUE_MODIFIER: string;
+  TRIAL_COUNT: string;
+  ULTIMATUM_VICTORIOUS: string;
+  ULTIMATUM_COWARDLY: string;
+  ULTIMATUM_DEADLY: string;
 }
 
 export interface Filter {

@@ -49,7 +49,8 @@ export function createPresets(
     item.category === ItemCategory.HeistContract ||
     item.category === ItemCategory.HeistBlueprint ||
     item.category === ItemCategory.Sentinel ||
-    item.category === ItemCategory.Tablet
+    item.category === ItemCategory.Tablet ||
+    (item.category === ItemCategory.Currency && item.trials?.numberOfTrials)
   ) {
     return {
       active: "filters.preset_exact",

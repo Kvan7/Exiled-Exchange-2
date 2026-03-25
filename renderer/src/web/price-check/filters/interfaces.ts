@@ -80,6 +80,11 @@ export interface ItemFilters {
     veiledCount: number;
     disabled: boolean;
   };
+  awardedAscendancyPoints?: FilterNumeric;
+  ultimatumHint?: {
+    value: "Victorious" | "Cowardly" | "Deadly";
+    disabled: boolean;
+  };
   areaLevel?: FilterNumeric;
   heistWingsRevealed?: FilterNumeric;
   sentinelCharge?: FilterNumeric;

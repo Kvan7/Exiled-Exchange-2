@@ -96,6 +96,10 @@ export default {
   DOUBLE_CORRUPTED: 'ダブルコラプト状態',
   UNIQUE_MODIFIER: 'ユニークモッド',
   VAAL_UNIQUE_MODIFIER: 'ヴァールユニークモッド',
+  TRIAL_COUNT: '試練数: ',
+  ULTIMATUM_VICTORIOUS: '勝利',
+  ULTIMATUM_COWARDLY: '卑怯者',
+  ULTIMATUM_DEADLY: '致死',
   // [Array]
   SHAPER_MODS: ['of Shaping', 'The Shaper\'s'],
   // [Array]

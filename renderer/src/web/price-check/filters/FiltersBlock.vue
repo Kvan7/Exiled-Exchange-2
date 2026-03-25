@@ -18,6 +18,11 @@
           :name="t('item.map_tier')"
         />
         <filter-btn-numeric
+          v-if="filters.awardedAscendancyPoints"
+          :filter="filters.awardedAscendancyPoints"
+          :name="t('item.ascendancy_points')"
+        />
+        <filter-btn-numeric
           v-if="filters.areaLevel"
           :filter="filters.areaLevel"
           :name="t('item.area_level')"
@@ -140,6 +145,11 @@
                 : 'item.sanctified',
             )
           "
+        />
+        <filter-btn-logical
+          v-if="filters.ultimatumHint"
+          :filter="filters.ultimatumHint"
+          :text="t(`item.${filters.ultimatumHint.value.toLowerCase()}`)"
         />
         <filter-btn-numeric
           v-if="filters.usesRemaining"
