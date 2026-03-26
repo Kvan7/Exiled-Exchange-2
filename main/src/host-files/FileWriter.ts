@@ -51,14 +51,16 @@ export class FileWriter {
       if (!existsSync(this.uploadsPath)) {
         await fs.mkdir(this.uploadsPath, { recursive: true });
       }
+      const filePath = path.join(this.uploadsPath, name + ".csv");
+      if (!existsSync(filePath)) {
+        const file = await fs.open(filePath, "w");
+        this._state = { file };
 
-      const file = await fs.open(
-        path.join(this.uploadsPath, name + ".csv"),
-        "w",
-      );
-      this._state = { file };
-
-      this.writeLine(header);
+        this.writeLine(header);
+      } else {
+        const file = await fs.open(filePath, "a");
+        this._state = { file };
+      }
     } catch {
       this.logger.write("error [FileWriter] Failed to create session file.");
     }
