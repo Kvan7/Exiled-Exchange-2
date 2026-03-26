@@ -147,7 +147,7 @@ export interface Config {
   showAttachNotification: boolean;
   overlayAlwaysClose: boolean;
   enableAlphas: boolean;
-  alphas: [];
+  alphas: Array<"library">;
   tipsFrequency: TipsFrequency;
   readClientLog: boolean; // default to false, opt-in only
 }

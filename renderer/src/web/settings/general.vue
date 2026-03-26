@@ -107,7 +107,9 @@
       <ui-checkbox class="mb-4" v-model="enableAlphas">{{
         t(":enable_alphas")
       }}</ui-checkbox>
-      <div v-if="enableAlphas" class="mt-1">No alphas available right now</div>
+      <ui-checkbox class="mb-4" v-model="libraryAlpha" v-if="enableAlphas"
+        >Item Data Collection</ui-checkbox
+      >
       <div v-if="enableAlphas" class="mt-1">
         {{ t(":alphas_warning") }}
       </div>
@@ -116,7 +118,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, ref, watch } from "vue";
 import { useI18nNs } from "@/web/i18n";
 import UiRadio from "@/web/ui/UiRadio.vue";
 import UiCheckbox from "@/web/ui/UiCheckbox.vue";
@@ -129,6 +131,24 @@ export default defineComponent({
   props: configProp(),
   setup(props) {
     const { t } = useI18nNs("settings");
+    const libraryAlpha = ref(
+      AppConfig().enableAlphas && AppConfig().alphas.includes("library"),
+    );
+    watch(
+      libraryAlpha,
+      (value) => {
+        if (value) {
+          console.log("ADDED ALPHA");
+          props.config.alphas.push("library");
+        } else {
+          console.log("REMOVED ALPHA");
+          props.config.alphas = props.config.alphas.filter(
+            (alpha) => alpha !== "library",
+          );
+        }
+      },
+      { immediate: true },
+    );
 
     return {
       t,
@@ -203,6 +223,7 @@ export default defineComponent({
       windowTitle: configModelValue(() => props.config, "windowTitle"),
       enableAlphas: configModelValue(() => props.config, "enableAlphas"),
       readClientLog: configModelValue(() => props.config, "readClientLog"),
+      libraryAlpha,
     };
   },
 });

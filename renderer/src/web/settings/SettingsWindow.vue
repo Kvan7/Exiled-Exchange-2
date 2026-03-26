@@ -261,6 +261,23 @@ export default defineComponent({
       },
     );
 
+    watch(
+      () =>
+        configClone.value?.enableAlphas &&
+        configClone.value?.alphas.includes("library"),
+      (curr) => {
+        if (curr === undefined) return;
+        const library = findWidget("library", configClone.value!);
+        if (!library) return;
+
+        if (curr) {
+          enableWidget(library);
+        } else {
+          disableWidget(library);
+        }
+      },
+    );
+
     const menuItems = computed(() =>
       flatJoin(
         menuByType(configWidget.value?.wmType).map((group) =>

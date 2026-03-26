@@ -33,7 +33,7 @@ export default defineComponent({
         wmTitle: "{icon=fa-book}",
         wmWants: "hide",
         wmZorder: null,
-        wmFlags: ["invisible-on-blur"],
+        wmFlags: ["invisible-on-blur", "menu::skip"],
         anchor: {
           pos: "bc",
           x: 68,
