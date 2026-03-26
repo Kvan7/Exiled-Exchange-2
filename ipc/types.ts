@@ -10,6 +10,7 @@ export interface HostConfig {
   language: string;
   readClientLog: boolean;
   libraryAlpha: boolean;
+  libraryOutputPath: string | null;
 }
 
 export interface ShortcutAction {
@@ -94,7 +95,7 @@ export type IpcEvent =
 
 export type IpcEventPayload<
   Name extends IpcEvent["name"],
-  T extends IpcEvent = IpcEvent
+  T extends IpcEvent = IpcEvent,
 > = T extends { name: Name; payload: infer P } ? P : never;
 
 type IpcOverlayAttached = Event<"MAIN->OVERLAY::overlay-attached">;

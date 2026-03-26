@@ -116,7 +116,7 @@ let tray: AppTray;
             gameConfig.readConfig(cfg.gameConfig ?? "");
             appUpdater.checkAtStartup();
             tray.overlayKey = cfg.overlayKey;
-            fileWriter.restart(cfg.libraryAlpha);
+            fileWriter.restart(cfg.libraryAlpha, cfg.libraryOutputPath);
           },
         );
         uIOhook.start();

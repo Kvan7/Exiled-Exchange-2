@@ -7,6 +7,7 @@ import { ParsedModifier } from "@/parser/advanced-mod-desc";
 export interface LibraryWidget extends Widget {
   anchor: Anchor;
   logItemKey: string | null;
+  libraryOutputPath: string | null;
   profiles: Record<string, ColumnOpts>;
 }
 

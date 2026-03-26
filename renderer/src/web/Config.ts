@@ -786,5 +786,6 @@ function getConfigForHost(): HostConfig {
     language: config.language,
     readClientLog: config.readClientLog,
     libraryAlpha: config.enableAlphas && config.alphas.includes("library"),
+    libraryOutputPath: library.libraryOutputPath,
   };
 }

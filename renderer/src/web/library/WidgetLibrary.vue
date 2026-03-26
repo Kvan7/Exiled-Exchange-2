@@ -101,6 +101,7 @@ export default defineComponent({
           y: 20,
         },
         logItemKey: null,
+        libraryOutputPath: null,
         profiles: {
           chaos: {
             refName: true,

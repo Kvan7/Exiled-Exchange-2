@@ -5,11 +5,13 @@ import { promises as fs, existsSync } from "fs";
 import { Logger } from "../RemoteLogger";
 
 export class FileWriter {
-  private uploadsPath = path.join(
+  private defaultUploadsPath = path.join(
     app.getPath("userData"),
     "apt-data",
     "csv-data",
   );
+
+  private uploadsPath = this.defaultUploadsPath;
 
   private _state: {
     file: fs.FileHandle;
@@ -42,8 +44,12 @@ export class FileWriter {
     });
   }
 
-  async restart(enabled: boolean) {
+  async restart(enabled: boolean, outputPath: string | null) {
     this._enabled = enabled;
+    this.uploadsPath = outputPath ?? this.defaultUploadsPath;
+    if (!this.uploadsPath.length) {
+      this.uploadsPath = this.defaultUploadsPath;
+    }
   }
 
   private async writeSessionStart(name: string, header: string) {
