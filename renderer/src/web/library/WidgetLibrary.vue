@@ -104,7 +104,6 @@ export default defineComponent({
           y: 20,
         },
         logItemKey: null,
-        outputPath: null,
       };
     },
   } satisfies WidgetSpec,
@@ -159,7 +158,9 @@ export default defineComponent({
 
         itemModsDiff.value = diffItem(curr, prev);
 
-        buildCsvString(curr, sessionType.value, itemModsDiff.value)
+        const opts = { emptyVal: "None" };
+
+        buildCsvString(curr, sessionType.value, itemModsDiff.value, opts)
           .andThen((text) => {
             Host.sendEvent({
               name: "CLIENT->MAIN::write-data",
