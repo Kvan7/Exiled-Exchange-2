@@ -7,6 +7,7 @@ import type { StashSearchWidget } from "./stash-search/widget";
 import type { ItemCheckWidget } from "./item-check/widget";
 import type { ItemSearchWidget } from "./item-search/widget";
 import { registry as widgetRegistry } from "./overlay/widget-registry.js";
+import { LibraryWidget } from "./library/widget";
 
 const _config = shallowRef<Config | null>(null);
 let _lastSavedConfig: Config | null = null;
@@ -697,6 +698,15 @@ function getConfigForHost(): HostConfig {
       action: { type: "copy-item", target: "item-check", focusOverlay: true },
     });
   }
+  const library = AppConfig("library") as LibraryWidget;
+  if (library.logItemKey) {
+    actions.push({
+      shortcut: library.logItemKey,
+      keepModKeys: true,
+      action: { type: "copy-item", target: "log-item" },
+    });
+  }
+
   const delveGrid = AppConfig("delve-grid") as widget.DelveGridWidget;
   if (delveGrid.toggleKey) {
     actions.push({

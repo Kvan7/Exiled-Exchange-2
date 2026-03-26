@@ -138,10 +138,8 @@ export default defineComponent({
       libraryAlpha,
       (value) => {
         if (value) {
-          console.log("ADDED ALPHA");
           props.config.alphas.push("library");
         } else {
-          console.log("REMOVED ALPHA");
           props.config.alphas = props.config.alphas.filter(
             (alpha) => alpha !== "library",
           );

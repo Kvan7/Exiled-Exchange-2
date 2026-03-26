@@ -9,18 +9,21 @@
       class="widget-default-style flex flex-col p-1 gap-1"
       style="min-width: 24rem"
     >
-      cconnnteeetnty
+      super<br />
+      text
     </div>
   </Widget>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent, PropType, ref } from "vue";
 
 import Widget from "../overlay/Widget.vue";
 import { WidgetSpec } from "../overlay/interfaces";
 import { LibraryWidget } from "./widget";
 import { useI18n } from "vue-i18n";
+import { MainProcess } from "../background/IPC";
+import { parseClipboard, ParsedItem } from "@/parser";
 
 export default defineComponent({
   widget: {
@@ -51,6 +54,19 @@ export default defineComponent({
     },
   },
   setup() {
+    const item = ref<ParsedItem | null>(null);
+    MainProcess.onEvent("MAIN->CLIENT::item-text", (e) => {
+      if (e.target !== "log-item") return;
+
+      performance.mark("log-item-event");
+      item.value = parseClipboard(e.clipboard).unwrapOr(null);
+      performance.mark("log-item-parsed");
+
+      if (item.value) {
+        console.log(item.value);
+      }
+    });
+
     const { t } = useI18n();
 
     return {
