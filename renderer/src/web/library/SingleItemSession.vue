@@ -127,7 +127,6 @@ export default defineComponent({
 
       performance.mark("log-item-event");
       const res = parseClipboard(e.clipboard);
-      errMessage.value = "HI";
       if (res.isErr()) {
         errMessage.value = res.error;
         item.value = null;

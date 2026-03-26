@@ -145,7 +145,7 @@ export default defineComponent({
     const sessionName = shallowRef<string>("mySession");
     const sessionType = shallowRef<"chaos">("chaos");
     const currentOpts = shallowRef<ColumnOpts>(props.config.profiles.chaos);
-    const errMessage = shallowRef<string | null>("test");
+    const errMessage = shallowRef<string | null>();
 
     watch(libEnabled, (curr) => {
       if (!curr) {
