@@ -30,13 +30,11 @@
       <div class="flex flex-col gap-y-1 overflow-y-auto min-h-0">
         <div :class="$style.dataField">
           <div>{{ t(":record_count") }}</div>
-          <div
-            class="text-center bg-transparent text-gray-300 border-2 rounded border-gray-900 p-1"
-          >
+          <div :class="$style.numericField">
             {{ rollCount }}
           </div>
         </div>
-        <div :class="$style.dataField">
+        <div v-if="lastMod" :class="$style.dataField">
           <div>{{ lastMod }}</div>
         </div>
       </div>
@@ -54,14 +52,14 @@ import {
   watch,
 } from "vue";
 
-import Widget from "../overlay/Widget.vue";
-import { WidgetSpec } from "../overlay/interfaces";
+import Widget from "@/web/overlay/Widget.vue";
+import { WidgetSpec } from "@/web/overlay/interfaces";
 import { LibraryWidget } from "./widget";
-import { useI18n } from "vue-i18n";
-import { Host, MainProcess } from "../background/IPC";
+import { Host, MainProcess } from "@/web/background/IPC";
 import { parseClipboard, ParsedItem } from "@/parser";
-import { AppConfig } from "../Config";
+import { AppConfig } from "@/web/Config";
 import { err, ok, Result } from "neverthrow";
+import { useI18nNs } from "@/web/i18n";
 
 function startSessionHost(name: string, header: string) {
   Host.sendEvent({
@@ -89,19 +87,32 @@ function buildCsvString(
   sessionType: "chaos",
 ): Result<string, string> {
   if (sessionType === "chaos") {
+    const filteredMods = item.newMods.filter(
+      (mod) =>
+        mod.info.generation === "suffix" || mod.info.generation === "prefix",
+    );
+    if (filteredMods.length === 1) {
+      const mod = filteredMods[0];
+      return ok(
+        [item.info.refName, item.itemLevel, mod.info.name, mod.info.tier].join(
+          ",",
+        ),
+      );
+    }
+
     return ok(
       [
         item.info.refName,
         item.itemLevel,
-        `"${JSON.stringify(item.newMods.map((mod) => mod.info.name))}"`,
-        `"${JSON.stringify(item.newMods.map((mod) => mod.info.tier))}"`,
+        `"${JSON.stringify(filteredMods.map((mod) => mod.info.name)).replaceAll('"', "\\'")}"`,
+        `"${JSON.stringify(filteredMods.map((mod) => mod.info.tier))}"`,
       ].join(","),
     );
   }
   return err("sessionType not supported");
 }
 const headers = {
-  chaos: "base,ilvl,mod,tier",
+  chaos: "base,ilvl,mods,tiers",
 };
 
 export default defineComponent({
@@ -203,7 +214,7 @@ export default defineComponent({
       performance.mark("log-item-parsed");
     });
 
-    const { t } = useI18n();
+    const { t } = useI18nNs("library");
 
     return {
       t,
@@ -242,10 +253,17 @@ export default defineComponent({
   @apply p-2 leading-4;
   @apply text-gray-100 bg-gray-800;
   @apply flex flex-row justify-between;
-  @apply content-center;
+  @apply content-center items-center;
   text-align: left;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.numericField {
+  @apply text-center p-1;
+  @apply bg-transparent text-gray-300;
+  @apply rounded border-2 border-gray-900;
+  @apply min-w-8;
 }
 </style>
