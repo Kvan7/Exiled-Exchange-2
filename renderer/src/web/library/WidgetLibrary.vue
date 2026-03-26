@@ -6,11 +6,20 @@
     move-handles="top-bottom"
   >
     <div
-      class="widget-default-style p-1 flex flex-col overflow-y-auto min-h-0"
-      style="min-width: 5rem"
+      class="widget-default-style p-1 flex flex-col overflow-y-auto min-h-0 min-w-48"
     >
       <div class="text-gray-100 p-1 flex items-center justify-between gap-4">
-        <span class="truncate">{{ sessionName }}</span>
+        <div
+          v-if="inSession"
+          class="text-gray-100 m-1 leading-4 w-full text-center p-1"
+        >
+          {{ sessionName }}
+        </div>
+        <input
+          v-else
+          class="leading-4 rounded text-gray-100 p-1 bg-gray-700 w-full mb-1"
+          v-model="sessionName"
+        />
         <button v-if="!inSession" @click="startSession" :class="$style.button">
           <i class="fas fa-play"></i>
         </button>
@@ -20,7 +29,15 @@
       </div>
       <div class="flex flex-col gap-y-1 overflow-y-auto min-h-0">
         <div :class="$style.dataField">
-          {{ t(":record_count") }} {{ rollCount }}
+          <div>{{ t(":record_count") }}</div>
+          <div
+            class="text-center bg-transparent text-gray-300 border-2 rounded border-gray-900 p-1"
+          >
+            {{ rollCount }}
+          </div>
+        </div>
+        <div :class="$style.dataField">
+          <div>{{ lastMod }}</div>
         </div>
       </div>
     </div>
@@ -76,8 +93,8 @@ function buildCsvString(
       [
         item.info.refName,
         item.itemLevel,
-        item.newMods.map((mod) => mod.info.name).toString(),
-        item.newMods.map((mod) => mod.info.tier).toString(),
+        `"${JSON.stringify(item.newMods.map((mod) => mod.info.name))}"`,
+        `"${JSON.stringify(item.newMods.map((mod) => mod.info.tier))}"`,
       ].join(","),
     );
   }
@@ -178,6 +195,8 @@ export default defineComponent({
 
     MainProcess.onEvent("MAIN->CLIENT::item-text", (e) => {
       if (e.target !== "log-item") return;
+      if (!libEnabled.value) return;
+      if (!inSession.value) return;
 
       performance.mark("log-item-event");
       item.value = parseClipboard(e.clipboard).unwrapOr(null);
@@ -193,6 +212,7 @@ export default defineComponent({
       inSession,
       sessionName,
       rollCount,
+      lastMod: computed(() => item.value?.newMods.find(() => true)?.info.name),
     };
   },
   beforeUnmount() {
@@ -203,12 +223,16 @@ export default defineComponent({
 
 <style lang="postcss" module>
 .button {
-  background: rgba(29, 29, 29, 0.863);
+  @apply bg-gray-800;
   @apply rounded;
   line-height: 1;
-  width: 2rem;
-  height: 2rem;
-  @apply mx-1;
+  @apply w-8 h-8;
+  @apply max-w-8 max-h-8;
+  @apply min-w-8 min-h-8;
+
+  &:hover {
+    @apply bg-gray-700;
+  }
 }
 
 .dataField {
@@ -217,6 +241,8 @@ export default defineComponent({
   @apply max-w-sm;
   @apply p-2 leading-4;
   @apply text-gray-100 bg-gray-800;
+  @apply flex flex-row justify-between;
+  @apply content-center;
   text-align: left;
   overflow: hidden;
   white-space: nowrap;
