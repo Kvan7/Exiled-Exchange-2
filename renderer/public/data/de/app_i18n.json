@@ -334,8 +334,6 @@
     "show_overlay_ready": "Benachrichtigung anzeigen, wenn Overlay ein PoE-Fenster erkennt",
     "debug_hotkeys": "Alle Tastenanschläge aufzeichnen",
     "preferred_trade_site": "Bevorzugte Handelsseite",
-    "enable_alphas": "Alphas aktivieren",
-    "alphas_warning": "Alphas sind extrem experimentell und werden wahrscheinlich nicht wie erwartet funktionieren. Bitte melden Sie alle auftretenden Probleme.",
     "help": "Hilfe",
     "show_tips_on_startup": "Tipps bei Startbenachrichtigung anzeigen",
     "show_tips_frequency": "Wie oft sollen Tipps beim Preis-Check angezeigt werden?",

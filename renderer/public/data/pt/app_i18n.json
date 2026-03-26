@@ -354,8 +354,6 @@
     "show_overlay_ready": "Mostrar uma notificação quando a Sobreposição detectar uma janela do PoE",
     "debug_hotkeys": "Registrar todas as teclas pressionadas",
     "preferred_trade_site": "Site de comércio preferido",
-    "enable_alphas": "Habilitar versões alfas",
-    "alphas_warning": "As versões alfas são extremamente experimentais e provavelmente não funcionarão como esperado. Por favor, reporte qualquer problema que encontrar.",
     "help": "Ajuda",
     "show_tips_on_startup": "Mostrar dicas na notificação de inicialização",
     "show_tips_frequency": "Frequência das dicas ao checar preço",

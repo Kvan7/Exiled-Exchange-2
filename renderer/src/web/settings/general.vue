@@ -103,16 +103,13 @@
     <div class="italic text-gray-500">
       {{ t(":client_log_explain") }}
     </div>
-    <div class="mb-4" :class="{ 'p-2 bg-orange-800 rounded': enableAlphas }">
+    <div class="mb-4" :class="{ 'p-2 bg-gray-900 rounded': enableAlphas }">
       <ui-checkbox class="mb-4" v-model="enableAlphas">{{
         t(":enable_alphas")
       }}</ui-checkbox>
-      <ui-checkbox class="mb-4" v-model="libraryAlpha" v-if="enableAlphas"
-        >Item Data Collection</ui-checkbox
-      >
-      <div v-if="enableAlphas" class="mt-1">
-        {{ t(":alphas_warning") }}
-      </div>
+      <ui-checkbox v-model="libraryAlpha" v-if="enableAlphas">{{
+        t(":alpha_library")
+      }}</ui-checkbox>
     </div>
   </div>
 </template>

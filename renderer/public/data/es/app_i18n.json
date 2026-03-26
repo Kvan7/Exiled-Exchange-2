@@ -332,9 +332,7 @@
     "restore_clipboard": "Restaurar portapapeles",
     "show_overlay_ready": "Mostrar una notificación cuando la Superposición detecte una ventana de PoE",
     "debug_hotkeys": "Registrar todas las teclas presionadas",
-    "preferred_trade_site": "Sitio de comercio preferido",
-    "enable_alphas": "Habilitar alfas",
-    "alphas_warning": "Las alfas son extremadamente experimentales y probablemente no funcionarán como se espera. Por favor, reporta cualquier problema que encuentres."
+    "preferred_trade_site": "Sitio de comercio preferido"
   },
   "price_check": {
     "name": "Comprobación de precios",

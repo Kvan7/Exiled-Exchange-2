@@ -373,8 +373,8 @@
     "show_overlay_ready": "Show a notification when the Overlay detects a PoE window",
     "debug_hotkeys": "Record all key presses",
     "preferred_trade_site": "Preferred trade site",
-    "enable_alphas": "Enable alphas",
-    "alphas_warning": "Alphas are extremely experimental and will probably not work as expected. Please report any issues you encounter.",
+    "enable_alphas": "Enable experimental features",
+    "alpha_library": "Item Data Collection",
     "help": "Help",
     "show_tips_on_startup": "Show tips on startup notification",
     "show_tips_frequency": "How often to show tips when price checking",
@@ -481,6 +481,8 @@
   },
   "library": {
     "name": "Library",
-    "log_item_key": "Log item to csv"
+    "log_item_key": "Log item to csv",
+    "output_file": "Output csv path",
+    "output_file_help": "Some info text"
   }
 }

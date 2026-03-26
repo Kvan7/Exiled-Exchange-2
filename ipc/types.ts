@@ -9,6 +9,7 @@ export interface HostConfig {
   windowTitle: string;
   language: string;
   readClientLog: boolean;
+  outputPath: string | null;
 }
 
 export interface ShortcutAction {

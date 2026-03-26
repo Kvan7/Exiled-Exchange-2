@@ -43,6 +43,7 @@ export default defineComponent({
           y: 98,
         },
         logItemKey: null,
+        outputPath: null,
       };
     },
   } satisfies WidgetSpec,
