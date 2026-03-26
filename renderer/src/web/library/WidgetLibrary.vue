@@ -27,43 +27,40 @@
           <i class="fas fa-stop"></i>
         </button>
       </div>
-      <div class="flex flex-col gap-y-1 overflow-y-auto min-h-0">
-        <div :class="[$style.dataField, $style.dataFieldRow]">
-          <div>{{ t(":record_count") }}</div>
-          <div :class="$style.numericField">
-            {{ rollCount }}
-          </div>
-        </div>
-        <div
-          v-if="modsDiff.length"
-          :class="[$style.dataField, $style.dataFieldColumn]"
+      <single-item-session
+        :session-type="sessionType"
+        :current-opts="currentOpts"
+        :in-session="inSession"
+        :lib-enabled="libEnabled"
+      />
+      <div
+        v-if="errMessage && errMessage !== ''"
+        class="flex-row bg-orange-700 mt-1"
+        :class="[$style.dataField, $style.dataFieldColumn]"
+      >
+        <div>{{ errMessage }}</div>
+        <button
+          @click="errMessage = null"
+          class="w-6 h-6 min-w-6 min-h-6 max-w-6 max-h-6"
+          :class="$style.button"
         >
-          <div v-for="mod in modsDiff">{{ mod }}</div>
-        </div>
+          <i class="fas fa-times"></i>
+        </button>
       </div>
     </div>
   </Widget>
 </template>
 
 <script lang="ts">
-import {
-  computed,
-  defineComponent,
-  PropType,
-  ref,
-  shallowRef,
-  watch,
-} from "vue";
+import { computed, defineComponent, PropType, shallowRef, watch } from "vue";
 
 import Widget from "@/web/overlay/Widget.vue";
 import { WidgetSpec } from "@/web/overlay/interfaces";
-import { buildCsvString, diffItem, headers, LibraryWidget } from "./widget";
-import { Host, MainProcess } from "@/web/background/IPC";
-import { parseClipboard, ParsedItem } from "@/parser";
+import { ColumnOpts, getHeader, LibraryWidget } from "./widget";
+import { Host } from "@/web/background/IPC";
 import { AppConfig } from "@/web/Config";
-import { ok } from "neverthrow";
 import { useI18nNs } from "@/web/i18n";
-import { ParsedModifier } from "@/parser/advanced-mod-desc";
+import SingleItemSession from "./SingleItemSession.vue";
 
 function startSessionHost(name: string, header: string) {
   Host.sendEvent({
@@ -104,10 +101,34 @@ export default defineComponent({
           y: 20,
         },
         logItemKey: null,
+        profiles: {
+          chaos: {
+            refName: true,
+            itemLevel: true,
+            rarity: true,
+            sockets: true,
+            mods: true,
+            addedMods: true,
+            removedMods: true,
+            keep: {
+              explicit: true,
+              implicit: false,
+              enchant: false,
+              augment: false,
+            },
+            modOpts: {
+              name: true,
+              tier: true,
+              roll: true,
+              ref: true,
+              type: true,
+            },
+          },
+        },
       };
     },
   } satisfies WidgetSpec,
-  components: { Widget },
+  components: { Widget, SingleItemSession },
   props: {
     config: {
       type: Object as PropType<LibraryWidget>,
@@ -122,10 +143,9 @@ export default defineComponent({
     const inSession = shallowRef<boolean>(false);
 
     const sessionName = shallowRef<string>("mySession");
-    const item = ref<ParsedItem | null>(null);
-    const itemModsDiff = ref<ParsedModifier[]>([]);
-    const rollCount = shallowRef<number>(0);
     const sessionType = shallowRef<"chaos">("chaos");
+    const currentOpts = shallowRef<ColumnOpts>(props.config.profiles.chaos);
+    const errMessage = shallowRef<string | null>("test");
 
     watch(libEnabled, (curr) => {
       if (!curr) {
@@ -134,10 +154,26 @@ export default defineComponent({
       }
     });
 
+    // update selected options when user changes settings for profiles or switches profiles
+    watch(
+      props.config.profiles,
+      () => {
+        currentOpts.value = props.config.profiles[sessionType.value];
+      },
+      { deep: true },
+    );
+    watch(sessionType, () => {
+      currentOpts.value = props.config.profiles[sessionType.value];
+    });
+
     function startSession() {
-      item.value = null;
-      rollCount.value = 0;
-      startSessionHost(sessionName.value, headers[sessionType.value]);
+      const header = getHeader(sessionType.value);
+
+      if (header.isErr()) {
+        errMessage.value = header.error;
+        return;
+      }
+      startSessionHost(sessionName.value, header.value);
       inSession.value = true;
       props.config.wmFlags = props.config.wmFlags.filter(
         (f) => f !== "invisible-on-blur",
@@ -151,57 +187,18 @@ export default defineComponent({
       }
     }
 
-    watch(
-      item,
-      (curr, prev) => {
-        if (!curr) return;
-
-        itemModsDiff.value = diffItem(curr, prev);
-
-        const opts = { emptyVal: "None" };
-
-        buildCsvString(curr, sessionType.value, itemModsDiff.value, opts)
-          .andThen((text) => {
-            Host.sendEvent({
-              name: "CLIENT->MAIN::write-data",
-              payload: {
-                action: "log-item",
-                text,
-              },
-            });
-            rollCount.value++;
-            return ok(null);
-          })
-          .mapErr((err) => {
-            console.warn(err);
-          });
-      },
-      { deep: true },
-    );
-
-    MainProcess.onEvent("MAIN->CLIENT::item-text", (e) => {
-      if (e.target !== "log-item") return;
-      if (!libEnabled.value) return;
-      if (!inSession.value) return;
-
-      performance.mark("log-item-event");
-      item.value = parseClipboard(e.clipboard).unwrapOr(null);
-      performance.mark("log-item-parsed");
-    });
-
     const { t } = useI18nNs("library");
 
     return {
       t,
       startSession,
       endSession,
+      libEnabled,
       inSession,
       sessionName,
-      rollCount,
-      modsDiff: computed(() => {
-        if (itemModsDiff.value.length === 0) return ["No change"];
-        return itemModsDiff.value.map((mod) => mod.info.name);
-      }),
+      sessionType,
+      currentOpts,
+      errMessage,
     };
   },
   beforeUnmount() {
