@@ -620,6 +620,21 @@ function upgradeConfig(_config: Config): Config {
 
     config.configVersion = 29;
   }
+
+  if (config.configVersion < 30) {
+    // NOTE: v0.13.11 || poe0.4.0d
+    const itemSearchId: number = config.widgets.find(
+      (w) => w.wmType === "item-search",
+    )!.wmId;
+    // splicing to insert after the item-search widget, for positioning on the main overlay
+    config.widgets.splice(itemSearchId, 0, {
+      ...defaultConfig().widgets.find((w) => w.wmType === "library")!,
+      wmId: Math.max(0, ...config.widgets.map((_) => _.wmId)) + 1,
+    });
+
+    config.configVersion = 30;
+  }
+
   return config as unknown as Config;
 }
 
