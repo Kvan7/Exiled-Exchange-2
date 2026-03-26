@@ -5,14 +5,23 @@ import { describe, expect, it } from "vitest";
 
 describe("modFilter", () => {
   it.each([
-    [{ explict: true, implicit: false, enchant: false, augment: false }, [0]],
-    [{ explict: true, implicit: false, enchant: true, augment: false }, [0, 2]],
-    [{ explict: true, implicit: false, enchant: false, augment: true }, [0, 3]],
+    [{ explicit: true, implicit: false, enchant: false, augment: false }, [0]],
     [
-      { explict: true, implicit: false, enchant: true, augment: true },
+      { explicit: true, implicit: false, enchant: true, augment: false },
+      [0, 2],
+    ],
+    [
+      { explicit: true, implicit: false, enchant: false, augment: true },
+      [0, 3],
+    ],
+    [
+      { explicit: true, implicit: false, enchant: true, augment: true },
       [0, 2, 3],
     ],
-    [{ explict: true, implicit: true, enchant: false, augment: false }, [0, 1]],
+    [
+      { explicit: true, implicit: true, enchant: false, augment: false },
+      [0, 1],
+    ],
   ])(
     "Returns correct mods",
     (filter: Record<string, boolean>, expected: number[]) => {
