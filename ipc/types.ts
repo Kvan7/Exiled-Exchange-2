@@ -9,7 +9,7 @@ export interface HostConfig {
   windowTitle: string;
   language: string;
   readClientLog: boolean;
-  outputPath: string | null;
+  libraryAlpha: boolean;
 }
 
 export interface ShortcutAction {
@@ -89,7 +89,8 @@ export type IpcEvent =
   | IpcItemText
   | IpcOcrText
   | IpcConfigChanged
-  | IpcUserAction;
+  | IpcUserAction
+  | IpcWriteCsv;
 
 export type IpcEventPayload<
   Name extends IpcEvent["name"],
@@ -207,6 +208,20 @@ type IpcUserAction = Event<
   | {
       action: "stash-search";
       text: string;
+    }
+>;
+
+type IpcWriteCsv = Event<
+  "CLIENT->MAIN::write-data",
+  | {
+      action: "log-item";
+      text: string;
+    }
+  | {
+      action: "session";
+      start: boolean;
+      name?: string;
+      header?: string;
     }
 >;
 

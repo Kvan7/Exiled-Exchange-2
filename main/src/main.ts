@@ -15,6 +15,7 @@ import { OverlayVisibility } from "./windowing/OverlayVisibility";
 import { GameLogWatcher } from "./host-files/GameLogWatcher";
 import { HttpProxy } from "./proxy";
 import { installExtension, VUEJS_DEVTOOLS } from "electron-devtools-installer";
+import { FileWriter } from "./host-files/FileWriter";
 
 if (!app.requestSingleInstanceLock()) {
   app.exit();
@@ -70,6 +71,7 @@ let tray: AppTray;
     const appUpdater = new AppUpdater(eventPipe);
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const _httpProxy = new HttpProxy(server, logger);
+    const fileWriter = new FileWriter(eventPipe, logger);
 
     if (process.env.VITE_DEV_SERVER_URL) {
       try {
@@ -114,6 +116,7 @@ let tray: AppTray;
             gameConfig.readConfig(cfg.gameConfig ?? "");
             appUpdater.checkAtStartup();
             tray.overlayKey = cfg.overlayKey;
+            fileWriter.restart(cfg.libraryAlpha);
           },
         );
         uIOhook.start();

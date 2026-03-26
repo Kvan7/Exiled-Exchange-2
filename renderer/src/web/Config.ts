@@ -699,7 +699,6 @@ function getConfigForHost(): HostConfig {
     });
   }
   const library = AppConfig("library") as LibraryWidget;
-  const outputPath = library.outputPath;
   if (library.logItemKey) {
     actions.push({
       shortcut: library.logItemKey,
@@ -786,6 +785,6 @@ function getConfigForHost(): HostConfig {
     windowTitle: config.windowTitle,
     language: config.language,
     readClientLog: config.readClientLog,
-    outputPath,
+    libraryAlpha: config.enableAlphas && config.alphas.includes("library"),
   };
 }
