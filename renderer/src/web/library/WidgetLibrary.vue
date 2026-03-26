@@ -28,14 +28,17 @@
         </button>
       </div>
       <div class="flex flex-col gap-y-1 overflow-y-auto min-h-0">
-        <div :class="$style.dataField">
+        <div :class="[$style.dataField, $style.dataFieldRow]">
           <div>{{ t(":record_count") }}</div>
           <div :class="$style.numericField">
             {{ rollCount }}
           </div>
         </div>
-        <div v-if="lastMod" :class="$style.dataField">
-          <div>{{ lastMod }}</div>
+        <div
+          v-if="modsDiff.length"
+          :class="[$style.dataField, $style.dataFieldColumn]"
+        >
+          <div v-for="mod in modsDiff">{{ mod }}</div>
         </div>
       </div>
     </div>
@@ -54,12 +57,13 @@ import {
 
 import Widget from "@/web/overlay/Widget.vue";
 import { WidgetSpec } from "@/web/overlay/interfaces";
-import { LibraryWidget } from "./widget";
+import { buildCsvString, diffItem, headers, LibraryWidget } from "./widget";
 import { Host, MainProcess } from "@/web/background/IPC";
 import { parseClipboard, ParsedItem } from "@/parser";
 import { AppConfig } from "@/web/Config";
-import { err, ok, Result } from "neverthrow";
+import { ok } from "neverthrow";
 import { useI18nNs } from "@/web/i18n";
+import { ParsedModifier } from "@/parser/advanced-mod-desc";
 
 function startSessionHost(name: string, header: string) {
   Host.sendEvent({
@@ -81,39 +85,6 @@ function endSessionHost() {
     },
   });
 }
-
-function buildCsvString(
-  item: ParsedItem,
-  sessionType: "chaos",
-): Result<string, string> {
-  if (sessionType === "chaos") {
-    const filteredMods = item.newMods.filter(
-      (mod) =>
-        mod.info.generation === "suffix" || mod.info.generation === "prefix",
-    );
-    if (filteredMods.length === 1) {
-      const mod = filteredMods[0];
-      return ok(
-        [item.info.refName, item.itemLevel, mod.info.name, mod.info.tier].join(
-          ",",
-        ),
-      );
-    }
-
-    return ok(
-      [
-        item.info.refName,
-        item.itemLevel,
-        `"${JSON.stringify(filteredMods.map((mod) => mod.info.name)).replaceAll('"', "\\'")}"`,
-        `"${JSON.stringify(filteredMods.map((mod) => mod.info.tier))}"`,
-      ].join(","),
-    );
-  }
-  return err("sessionType not supported");
-}
-const headers = {
-  chaos: "base,ilvl,mods,tiers",
-};
 
 export default defineComponent({
   widget: {
@@ -153,6 +124,7 @@ export default defineComponent({
 
     const sessionName = shallowRef<string>("mySession");
     const item = ref<ParsedItem | null>(null);
+    const itemModsDiff = ref<ParsedModifier[]>([]);
     const rollCount = shallowRef<number>(0);
     const sessionType = shallowRef<"chaos">("chaos");
 
@@ -182,10 +154,12 @@ export default defineComponent({
 
     watch(
       item,
-      (curr) => {
+      (curr, prev) => {
         if (!curr) return;
 
-        buildCsvString(curr, sessionType.value)
+        itemModsDiff.value = diffItem(curr, prev);
+
+        buildCsvString(curr, sessionType.value, itemModsDiff.value)
           .andThen((text) => {
             Host.sendEvent({
               name: "CLIENT->MAIN::write-data",
@@ -223,7 +197,10 @@ export default defineComponent({
       inSession,
       sessionName,
       rollCount,
-      lastMod: computed(() => item.value?.newMods.find(() => true)?.info.name),
+      modsDiff: computed(() => {
+        if (itemModsDiff.value.length === 0) return ["No change"];
+        return itemModsDiff.value.map((mod) => mod.info.name);
+      }),
     };
   },
   beforeUnmount() {
@@ -252,12 +229,18 @@ export default defineComponent({
   @apply max-w-sm;
   @apply p-2 leading-4;
   @apply text-gray-100 bg-gray-800;
-  @apply flex flex-row justify-between;
-  @apply content-center items-center;
+  @apply content-center items-center justify-between;
   text-align: left;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.dataFieldRow {
+  @apply flex flex-row;
+}
+.dataFieldColumn {
+  @apply flex flex-col;
 }
 
 .numericField {
