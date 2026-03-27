@@ -483,6 +483,7 @@
     "name": "Library",
     "log_item_key": "Log item to csv",
     "output_file": "Output csv path",
+    "output_folder": "Output Folder",
     "output_file_help": "Some info text",
     "record_count": "Session Rolls:"
   }

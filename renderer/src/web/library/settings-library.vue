@@ -4,6 +4,14 @@
       <label class="flex-1">{{ t(":log_item_key") }}</label>
       <hotkey-input v-model="logItemKey" class="w-48" />
     </div>
+    <div class="mb-2">
+      <div class="flex-1 mb-1">{{ t(":output_folder") }}</div>
+      <input
+        v-model.trim="outputFolder"
+        class="rounded bg-gray-900 px-1 block w-full font-sans"
+        placeholder="...?/AppData/Roaming/exiled-exchange-2/apt-data/csv-data"
+      />
+    </div>
   </div>
 </template>
 
@@ -30,6 +38,10 @@ export default defineComponent({
       logItemKey: configModelValue(
         () => configLibraryWidget.value,
         "logItemKey",
+      ),
+      outputFolder: configModelValue(
+        () => configLibraryWidget.value,
+        "libraryOutputPath",
       ),
     };
   },
