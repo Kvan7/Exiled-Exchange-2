@@ -9,6 +9,8 @@ export interface HostConfig {
   windowTitle: string;
   language: string;
   readClientLog: boolean;
+  libraryAlpha: boolean;
+  libraryOutputPath: string | null;
 }
 
 export interface ShortcutAction {
@@ -88,11 +90,12 @@ export type IpcEvent =
   | IpcItemText
   | IpcOcrText
   | IpcConfigChanged
-  | IpcUserAction;
+  | IpcUserAction
+  | IpcWriteCsv;
 
 export type IpcEventPayload<
   Name extends IpcEvent["name"],
-  T extends IpcEvent = IpcEvent
+  T extends IpcEvent = IpcEvent,
 > = T extends { name: Name; payload: infer P } ? P : never;
 
 type IpcOverlayAttached = Event<"MAIN->OVERLAY::overlay-attached">;
@@ -206,6 +209,20 @@ type IpcUserAction = Event<
   | {
       action: "stash-search";
       text: string;
+    }
+>;
+
+type IpcWriteCsv = Event<
+  "CLIENT->MAIN::write-data",
+  | {
+      action: "log-item";
+      text: string;
+    }
+  | {
+      action: "session";
+      start: boolean;
+      name?: string;
+      header?: string;
     }
 >;
 

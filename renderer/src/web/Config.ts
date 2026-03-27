@@ -7,6 +7,7 @@ import type { StashSearchWidget } from "./stash-search/widget";
 import type { ItemCheckWidget } from "./item-check/widget";
 import type { ItemSearchWidget } from "./item-search/widget";
 import { registry as widgetRegistry } from "./overlay/widget-registry.js";
+import { LibraryWidget } from "./library/widget";
 
 const _config = shallowRef<Config | null>(null);
 let _lastSavedConfig: Config | null = null;
@@ -147,7 +148,7 @@ export interface Config {
   showAttachNotification: boolean;
   overlayAlwaysClose: boolean;
   enableAlphas: boolean;
-  alphas: [];
+  alphas: Array<"library">;
   tipsFrequency: TipsFrequency;
   readClientLog: boolean; // default to false, opt-in only
 }
@@ -620,6 +621,21 @@ function upgradeConfig(_config: Config): Config {
 
     config.configVersion = 29;
   }
+
+  if (config.configVersion < 30) {
+    // NOTE: v0.13.11 || poe0.4.0d
+    const itemSearchId: number = config.widgets.find(
+      (w) => w.wmType === "item-search",
+    )!.wmId;
+    // splicing to insert after the item-search widget, for positioning on the main overlay
+    config.widgets.splice(itemSearchId, 0, {
+      ...defaultConfig().widgets.find((w) => w.wmType === "library")!,
+      wmId: Math.max(0, ...config.widgets.map((_) => _.wmId)) + 1,
+    });
+
+    config.configVersion = 30;
+  }
+
   return config as unknown as Config;
 }
 
@@ -682,6 +698,15 @@ function getConfigForHost(): HostConfig {
       action: { type: "copy-item", target: "item-check", focusOverlay: true },
     });
   }
+  const library = AppConfig("library") as LibraryWidget;
+  if (library.logItemKey) {
+    actions.push({
+      shortcut: library.logItemKey,
+      keepModKeys: true,
+      action: { type: "copy-item", target: "log-item" },
+    });
+  }
+
   const delveGrid = AppConfig("delve-grid") as widget.DelveGridWidget;
   if (delveGrid.toggleKey) {
     actions.push({
@@ -760,5 +785,7 @@ function getConfigForHost(): HostConfig {
     windowTitle: config.windowTitle,
     language: config.language,
     readClientLog: config.readClientLog,
+    libraryAlpha: config.enableAlphas && config.alphas.includes("library"),
+    libraryOutputPath: library.libraryOutputPath,
   };
 }

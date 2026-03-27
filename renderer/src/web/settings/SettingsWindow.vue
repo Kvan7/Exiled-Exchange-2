@@ -141,6 +141,7 @@ import SettingsStashSearch from "../stash-search/stash-search-editor.vue";
 import SettingsStopwatch from "../stopwatch/settings-stopwatch.vue";
 import SettingsItemSearch from "../item-search/settings-item-search.vue";
 import SettingsLeveling from "../leveling/settings-leveling.vue";
+import SettingsLibrary from "../library/settings-library.vue";
 import { disableWidget, enableWidget, findWidget } from "./utils";
 
 function shuffle<T>(array: T[]): T[] {
@@ -260,6 +261,23 @@ export default defineComponent({
       },
     );
 
+    watch(
+      () =>
+        configClone.value?.enableAlphas &&
+        configClone.value?.alphas.includes("library"),
+      (curr) => {
+        if (curr === undefined) return;
+        const library = findWidget("library", configClone.value!);
+        if (!library) return;
+
+        if (curr) {
+          enableWidget(library);
+        } else {
+          disableWidget(library);
+        }
+      },
+    );
+
     const menuItems = computed(() =>
       flatJoin(
         menuByType(configWidget.value?.wmType).map((group) =>
@@ -329,6 +347,8 @@ function menuByType(type?: string) {
       return [[SettingsPricecheck]];
     case "item-search":
       return [[SettingsItemSearch]];
+    case "library":
+      return [[SettingsLibrary]];
     default:
       return [
         [SettingsHotkeys, SettingsChat],
