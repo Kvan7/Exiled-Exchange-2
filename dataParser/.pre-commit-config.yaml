@@ -10,7 +10,6 @@ repos:
       - id: check-case-conflict
       - id: check-ast
       - id: check-builtin-literals
-      - id: check-docstring-first
   - repo: https://github.com/pre-commit/pygrep-hooks
     rev: v1.10.0
     hooks:

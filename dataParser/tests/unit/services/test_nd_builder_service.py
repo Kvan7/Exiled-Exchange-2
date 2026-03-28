@@ -3,7 +3,6 @@ from unittest.mock import MagicMock, patch
 import pandas as pd
 import pytest
 
-from constants.known_stats import TRADE_INVERTED
 from services.nd_builder_service import NdBuilderService
 
 

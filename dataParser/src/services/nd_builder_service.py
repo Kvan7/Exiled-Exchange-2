@@ -1,6 +1,7 @@
 # pyright: basic
 
 import logging
+from collections import defaultdict
 from typing import Any
 
 import pandas as pd
@@ -14,6 +15,7 @@ from constants.filenames import (
     ITEM_CLASSES,
     MODS,
     STATS,
+    TABLET_STAT_DESCRIPTIONS,
     TAGS,
     WORDS,
 )
@@ -22,8 +24,8 @@ from constants.known_stats import (
     TRADE_INVERTED,
     UNIQUE_ITEMS_FIXED_STATS,
 )
-from constants.lang import ENGLISH, LANG, RUSSIAN
-from constants.mod_types import EXPLICIT, MOD_TYPES
+from constants.lang import ENGLISH, LANG
+from constants.mod_types import AUGMENT, EXPLICIT, MOD_TYPES, RUNE
 from services.image_provider import MODE, ImageProvider
 from services.logbook_factions import LogbookFactions
 from services.specific_column_service import SpecificColumnService
@@ -67,13 +69,15 @@ class NdBuilderService:
         logger.info("Joining trade site and descriptions")
         joined_df = self.join_trade_and_descriptions(valueless_trade_stats_df, desc_df)
 
-        timeless_mask = joined_df["ref"].str.startswith(("Small", "Notable"))
-        joined_df.loc[timeless_mask] = joined_df.loc[timeless_mask].apply(
+        matcher_deduped = self.dedupe_matchers(joined_df)
+
+        timeless_mask = matcher_deduped["ref"].str.startswith(("Small", "Notable"))
+        matcher_deduped.loc[timeless_mask] = matcher_deduped.loc[timeless_mask].apply(
             self.timeless_function, axis=1
         )
 
         logger.info("Joining stats with and without values")
-        concated = pd.concat([joined_df, value_trade_stats_df]).sort_values("ref")
+        concated = pd.concat([matcher_deduped, value_trade_stats_df]).sort_values("ref")
         map_ids = self.map_stat_ids()
 
         concated.loc[concated["id"].isin(map_ids), "fromAreaMods"] = True
@@ -190,8 +194,9 @@ class NdBuilderService:
             "id", keep="last"
         )
         atlas_ones = self.game_store.get_description(ATLAS_STAT_DESCRIPTIONS)
+        tablet_ones = self.game_store.get_description(TABLET_STAT_DESCRIPTIONS)
 
-        return pd.concat([atlas_ones, all_desc_de_dupped])
+        return pd.concat([atlas_ones, tablet_ones, all_desc_de_dupped])
 
     def valueless_trade_stats_df(self) -> pd.DataFrame:
         stats_df = self.stats_combined_df()
@@ -250,7 +255,8 @@ class NdBuilderService:
             ids = {}
             for mod in MOD_TYPES:
                 if row[mod]:
-                    ids[mod] = sorted(row[mod])
+                    lookup_mod = mod if mod != AUGMENT else RUNE
+                    ids[lookup_mod] = sorted(row[mod])
                     if (
                         mod == EXPLICIT
                         and self.lang in SAME_TRANSLATIONS_DIFFERENT_STATS
@@ -342,7 +348,7 @@ class NdBuilderService:
                 "h",
                 "armour",
                 "gem",
-                "rune",
+                "augment",
             ]
         ]
         return self.items
@@ -458,9 +464,14 @@ class NdBuilderService:
 
     def fill_in_missing_matchers(self, joined_df_i: pd.DataFrame) -> pd.DataFrame:
         trade_stats_df = self.stats_combined_df()
-        trade_stats_df["matchers"] = trade_stats_df["text"].apply(
-            lambda x: [{"string": x}]
-        )
+
+        def create_matchers(row):
+            text = row["text"]
+            if row["type"] == "pseudo":
+                text += " "
+            return [{"string": text}]
+
+        trade_stats_df["matchers"] = trade_stats_df.apply(create_matchers, axis=1)
         ref_matchers_dict = trade_stats_df.set_index("ref")["matchers"].to_dict()
 
         def update_matchers(row):
@@ -472,3 +483,81 @@ class NdBuilderService:
 
         joined_df_i["matchers"] = joined_df_i.apply(update_matchers, axis=1)
         return joined_df_i
+
+    def get_refs_to_merge(self, in_df: pd.DataFrame) -> pd.Series:
+        """get groups of rows(refs) that have any same matchers"""
+        matchers_exploded = in_df.explode("matchers")
+        # make all matchers hashable, and where currently nan(pseudos) make empty frozenset
+        matchers_exploded["matchers"] = matchers_exploded["matchers"].apply(
+            lambda x: frozenset([]) if isinstance(x, float) else frozenset(x.items())
+        )
+        # put similar matchers in the same group, all other columns into a list
+        matchers_grouped = matchers_exploded.groupby("matchers").agg(list).reset_index()
+
+        # make matchers into a list
+        matchers_grouped["matchers"] = matchers_grouped["matchers"].apply(list)
+        # any here with some count of matchers means they found some similar (0 catches everything else)
+        # any with more than 1 ref, means they are from two different rows
+        refs_to_merge = matchers_grouped.loc[
+            (matchers_grouped["matchers"].str.len() > 0)
+            & (matchers_grouped["ref"].str.len() > 1)
+        ]["ref"].apply(set)  # convert to set for easier lookup later
+        return refs_to_merge
+
+    def dedupe_matchers(self, in_df: pd.DataFrame) -> pd.DataFrame:
+        refs_to_merge = self.get_refs_to_merge(in_df)
+        refs_set = {item for row in refs_to_merge for item in row}
+
+        data_with_saved_refs = (
+            in_df.loc[in_df["ref"].isin(refs_set)].copy().sort_values("id")
+        )
+        data_without_saved_refs = in_df.loc[~in_df["ref"].isin(refs_set)].copy()
+
+        def custom_fn(df):
+            """Add column to utilize custom groupings"""
+
+            def find_index(c):
+                for index, val in enumerate(refs_to_merge):
+                    if c in val:
+                        return index
+                return -1
+
+            r = df["ref"]
+            # basically grouping by the index of the ref (in a set) in the list incoming
+            new_series = r.apply(find_index)
+            return new_series
+
+        with_groups = data_with_saved_refs.assign(custom_groups=custom_fn)
+
+        def custom_agg_refs(col: pd.Series):  # pyright: ignore[reportMissingTypeArgument]
+            col_name = col.name
+            if col_name == "hash":
+                return list({i for row in col.dropna() for i in row})
+
+            if col_name == "matchers":
+                return list(
+                    {
+                        frozenset(d.items()): d for sub in col.dropna() for d in sub
+                    }.values()
+                )
+
+            if col_name == "trade":
+                new_trade = defaultdict(list)
+                for row in col:
+                    t = row["ids"]
+                    for k, v in t.items():
+                        new_trade[k].extend(v)
+                return {"ids": dict(new_trade)}
+
+            return col.iloc[0]
+
+        merged_refs_df = (
+            with_groups.groupby("custom_groups")
+            .agg(custom_agg_refs)
+            .reset_index()
+            .drop(columns="custom_groups")
+        )
+
+        matcher_deduped = pd.concat([data_without_saved_refs, merged_refs_df])
+
+        return matcher_deduped

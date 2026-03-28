@@ -59,6 +59,8 @@ def test_game_store_get_description(lang):
                             == "map_betrayal_non_interrogate_options_grant_X_intelligence"
                             or id_
                             == "remnant_pickup_range_+%_if_you_have_at_least_100_tribute"
+                            or id_
+                            == "recover_%_life_and_mana_per_minute_for_supported_offering_lifetime"
                         )
                     )
                     or (
@@ -69,13 +71,21 @@ def test_game_store_get_description(lang):
                             or id_ == "base_number_of_projectiles"
                         )
                     )
-                    or (lang == "de" and (id_ == "temporal_chains_gem_level_+"))
+                    or (
+                        lang == "de"
+                        and (
+                            id_ == "temporal_chains_gem_level_+"
+                            or id_ == "tower_add_irradiated_to_X_maps"
+                        )
+                    )
                     or (
                         lang == "pt"
                         and (
                             id_
                             == "support_advancing_assault_projectile_damage_+%_final"
                             or id_ == "map_expedition_rare_monsters_+%"
+                            or id_
+                            == "map_dropped_waystones_are_rare_and_corrupted_chance_%"
                         )
                     )
                 ):

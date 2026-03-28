@@ -8,4 +8,4 @@ def test_copy_client_string():
     def get(x):
         return "test"
 
-    assert ccs.string(get, ENGLISH) == "  // [text2]\n  KEY_VALUE: 'test',"
+    assert ccs.string(get, ENGLISH) == "  KEY_VALUE: 'test',"

@@ -32,6 +32,9 @@ GAME_API_TABLES_TYPE = Literal[
     "PassiveSkills.json",
     "SkillGemInfo.json",
     "SkillGems.json",
+    "SoulCoreStatCategories.json",
+    "SoulCoreStats.json",
+    "SoulCoreTypes.json",
     "SoulCores.json",
     "SoulCoresPerClass.json",
     "Stats.json",
@@ -56,6 +59,9 @@ MODS = "Mods.json"
 PASSIVE_SKILLS = "PassiveSkills.json"
 SKILL_GEM_INFO = "SkillGemInfo.json"
 SKILL_GEMS = "SkillGems.json"
+SOUL_CORE_STAT_CATEGORIES = "SoulCoreStatCategories.json"
+SOUL_CORE_STATS = "SoulCoreStats.json"
+SOUL_CORE_TYPES = "SoulCoreTypes.json"
 SOUL_CORES = "SoulCores.json"
 SOUL_CORES_PER_CLASS = "SoulCoresPerClass.json"
 STATS = "Stats.json"
@@ -80,8 +86,10 @@ GAME_API_TABLES = (
     PASSIVE_SKILLS,
     SKILL_GEM_INFO,
     SKILL_GEMS,
+    SOUL_CORE_STAT_CATEGORIES,
+    SOUL_CORE_STATS,
+    SOUL_CORE_TYPES,
     SOUL_CORES,
-    SOUL_CORES_PER_CLASS,
     STATS,
     TAGS,
     UNIQUE_STASH_LAYOUT,
@@ -92,99 +100,99 @@ GAME_API_TABLES = (
 
 # Stat Description Files
 STAT_DESCRIPTION_FILES_TYPE = Literal[
-    "Metadata@StatDescriptions@active_skill_gem_stat_descriptions.csd",
-    "Metadata@StatDescriptions@advanced_mod_stat_descriptions.csd",
-    "Metadata@StatDescriptions@atlas_stat_descriptions.csd",
-    "Metadata@StatDescriptions@character_panel_gamepad_stat_descriptions.csd",
-    "Metadata@StatDescriptions@character_panel_stat_descriptions.csd",
-    "Metadata@StatDescriptions@chest_stat_descriptions.csd",
-    "Metadata@StatDescriptions@endgame_map_stat_descriptions.csd",
-    "Metadata@StatDescriptions@expedition_relic_stat_descriptions.csd",
-    "Metadata@StatDescriptions@gem_stat_descriptions.csd",
-    "Metadata@StatDescriptions@heist_equipment_stat_descriptions.csd",
-    "Metadata@StatDescriptions@leaguestone_stat_descriptions.csd",
-    "Metadata@StatDescriptions@map_stat_descriptions.csd",
-    "Metadata@StatDescriptions@meta_gem_stat_descriptions.csd",
-    "Metadata@StatDescriptions@monster_stat_descriptions.csd",
-    "Metadata@StatDescriptions@passive_skill_aura_stat_descriptions.csd",
-    "Metadata@StatDescriptions@passive_skill_stat_descriptions.csd",
-    "Metadata@StatDescriptions@primordial_altar_stat_descriptions.csd",
-    "Metadata@StatDescriptions@sanctum_relic_stat_descriptions.csd",
-    "Metadata@StatDescriptions@sentinel_stat_descriptions.csd",
-    "Metadata@StatDescriptions@skill_stat_descriptions.csd",
-    "Metadata@StatDescriptions@stat_descriptions.csd",
-    "Metadata@StatDescriptions@tablet_stat_descriptions.csd",
-    "Metadata@StatDescriptions@utility_flask_buff_stat_descriptions.csd",
+    "data@StatDescriptions@active_skill_gem_stat_descriptions.csd",
+    "data@StatDescriptions@advanced_mod_stat_descriptions.csd",
+    "data@StatDescriptions@atlas_stat_descriptions.csd",
+    "data@StatDescriptions@character_panel_gamepad_stat_descriptions.csd",
+    "data@StatDescriptions@character_panel_stat_descriptions.csd",
+    "data@StatDescriptions@chest_stat_descriptions.csd",
+    "data@StatDescriptions@endgame_map_stat_descriptions.csd",
+    "data@StatDescriptions@expedition_relic_stat_descriptions.csd",
+    "data@StatDescriptions@gem_stat_descriptions.csd",
+    "data@StatDescriptions@heist_equipment_stat_descriptions.csd",
+    "data@StatDescriptions@leaguestone_stat_descriptions.csd",
+    "data@StatDescriptions@map_stat_descriptions.csd",
+    "data@StatDescriptions@meta_gem_stat_descriptions.csd",
+    "data@StatDescriptions@monster_stat_descriptions.csd",
+    "data@StatDescriptions@passive_skill_aura_stat_descriptions.csd",
+    "data@StatDescriptions@passive_skill_stat_descriptions.csd",
+    "data@StatDescriptions@primordial_altar_stat_descriptions.csd",
+    "data@StatDescriptions@sanctum_relic_stat_descriptions.csd",
+    "data@StatDescriptions@sentinel_stat_descriptions.csd",
+    "data@StatDescriptions@skill_stat_descriptions.csd",
+    "data@StatDescriptions@stat_descriptions.csd",
+    "data@StatDescriptions@tablet_stat_descriptions.csd",
+    "data@StatDescriptions@utility_flask_buff_stat_descriptions.csd",
 ]
 
 ACTIVE_SKILL_GEM_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@active_skill_gem_stat_descriptions.csd"
+    "data@StatDescriptions@active_skill_gem_stat_descriptions.csd"
 )
 ADVANCED_MOD_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@advanced_mod_stat_descriptions.csd"
+    "data@StatDescriptions@advanced_mod_stat_descriptions.csd"
 )
 ATLAS_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@atlas_stat_descriptions.csd"
+    "data@StatDescriptions@atlas_stat_descriptions.csd"
 )
 CHARACTER_PANEL_GAMEPAD_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@character_panel_gamepad_stat_descriptions.csd"
+    "data@StatDescriptions@character_panel_gamepad_stat_descriptions.csd"
 )
 CHARACTER_PANEL_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@character_panel_stat_descriptions.csd"
+    "data@StatDescriptions@character_panel_stat_descriptions.csd"
 )
 CHEST_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@chest_stat_descriptions.csd"
+    "data@StatDescriptions@chest_stat_descriptions.csd"
 )
 ENDGAME_MAP_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@endgame_map_stat_descriptions.csd"
+    "data@StatDescriptions@endgame_map_stat_descriptions.csd"
 )
 EXPEDITION_RELIC_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@expedition_relic_stat_descriptions.csd"
+    "data@StatDescriptions@expedition_relic_stat_descriptions.csd"
 )
 GEM_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@gem_stat_descriptions.csd"
+    "data@StatDescriptions@gem_stat_descriptions.csd"
 )
 HEIST_EQUIPMENT_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@heist_equipment_stat_descriptions.csd"
+    "data@StatDescriptions@heist_equipment_stat_descriptions.csd"
 )
 LEAGUESTONE_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@leaguestone_stat_descriptions.csd"
+    "data@StatDescriptions@leaguestone_stat_descriptions.csd"
 )
 MAP_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@map_stat_descriptions.csd"
+    "data@StatDescriptions@map_stat_descriptions.csd"
 )
 META_GEM_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@meta_gem_stat_descriptions.csd"
+    "data@StatDescriptions@meta_gem_stat_descriptions.csd"
 )
 MONSTER_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@monster_stat_descriptions.csd"
+    "data@StatDescriptions@monster_stat_descriptions.csd"
 )
 PASSIVE_SKILL_AURA_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@passive_skill_aura_stat_descriptions.csd"
+    "data@StatDescriptions@passive_skill_aura_stat_descriptions.csd"
 )
 PASSIVE_SKILL_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@passive_skill_stat_descriptions.csd"
+    "data@StatDescriptions@passive_skill_stat_descriptions.csd"
 )
 PRIMORDIAL_ALTAR_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@primordial_altar_stat_descriptions.csd"
+    "data@StatDescriptions@primordial_altar_stat_descriptions.csd"
 )
 SANCTUM_RELIC_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@sanctum_relic_stat_descriptions.csd"
+    "data@StatDescriptions@sanctum_relic_stat_descriptions.csd"
 )
 SENTINEL_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@sentinel_stat_descriptions.csd"
+    "data@StatDescriptions@sentinel_stat_descriptions.csd"
 )
 SKILL_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@skill_stat_descriptions.csd"
+    "data@StatDescriptions@skill_stat_descriptions.csd"
 )
 STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@stat_descriptions.csd"
+    "data@StatDescriptions@stat_descriptions.csd"
 )
 TABLET_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@tablet_stat_descriptions.csd"
+    "data@StatDescriptions@tablet_stat_descriptions.csd"
 )
 UTILITY_FLASK_BUFF_STAT_DESCRIPTIONS: STAT_DESCRIPTION_FILES_TYPE = (
-    "Metadata@StatDescriptions@utility_flask_buff_stat_descriptions.csd"
+    "data@StatDescriptions@utility_flask_buff_stat_descriptions.csd"
 )
 
 STAT_DESCRIPTION_FILES = (
@@ -208,9 +216,9 @@ STAT_DESCRIPTION_FILES = (
     SANCTUM_RELIC_STAT_DESCRIPTIONS,
     SENTINEL_STAT_DESCRIPTIONS,
     SKILL_STAT_DESCRIPTIONS,
-    STAT_DESCRIPTIONS,
     TABLET_STAT_DESCRIPTIONS,
     UTILITY_FLASK_BUFF_STAT_DESCRIPTIONS,
+    STAT_DESCRIPTIONS,
 )
 
 ITEM_IMAGE_CACHE = "itemImageCache.json"

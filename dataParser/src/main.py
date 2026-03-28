@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 
 def main(**kwargs: dict[str, bool | str]):
     pull: bool = kwargs.get("pull", False)  # pyright: ignore[reportAssignmentType]
-    image_mode: MODE = kwargs.get("image_mode", "new")  # pyright: ignore[reportAssignmentType]
+    image_mode: MODE = kwargs.get("image_mode", "noLookup")  # pyright: ignore[reportAssignmentType]
     push: bool = kwargs.get("push", False)  # pyright: ignore[reportAssignmentType]
     main_repo_path: str = kwargs.get("main_repo_path", "../exiled-exchange-2")  # pyright: ignore[reportAssignmentType]
 
@@ -44,7 +44,10 @@ def main(**kwargs: dict[str, bool | str]):
         logger.info(
             "================================================================================"
         )
-        nd = NdBuilderService(lang, image_mode if lang is ENGLISH else "new")
+        nd = NdBuilderService(
+            lang,
+            image_mode if lang is ENGLISH else "noLookup",
+        )
 
         stats = nd.build_stats_ndjson()
         stats_o = stats.where(stats.notna(), None)
@@ -104,7 +107,7 @@ if __name__ == "__main__":
     )
     _ = parser.add_argument(
         "--image-mode",
-        default="new",
+        default="noLookup",
         choices=["noLookup", "missing", "new", "all"],
         help="Image mode (noLookup, missing, new, all)",
     )
