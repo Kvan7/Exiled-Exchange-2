@@ -8,6 +8,16 @@ Helps to collect data on crafting results of items.
 
 The name shown will be the csv file name, above it would be `mySession.csv`. Pressing the play button will start the session, creating the file, if it doesn't exist yet. Data will be written to the file for each roll, stopping the "session" doesn't really do much. The count of rolls is shown along with the latest modifiers name.
 
+## Activation
+
+To enable, Experimental features must be enabled in the "General" tab of the settings then enable "Item Data Collection"
+
+![Experimental features](/reference-images/expFeatures.png)
+
+The widget will then appear on the main overlay UI as a book icon. Clicking it will open the widget.
+
+![widget icon](/reference-images/libraryWidgetIcon.png)
+
 ## Settings
 
 Settings can be accessed via clicking edit on the side of the widget
