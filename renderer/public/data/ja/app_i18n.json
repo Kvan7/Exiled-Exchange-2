@@ -1,5 +1,5 @@
 {
-  "please_wait": "しばらくお待ちください\u2026",
+  "please_wait": "しばらくお待ちください…",
   "choose_file": "ファイルを選択してください",
   "app_is_ready": "準備が整いバックグラウンドで実行中です",
   "reopen_settings": "{0} を押して編集を続行してください。",
@@ -8,7 +8,7 @@
   "realm": "レルム",
   "realm_intl": "インターナショナル",
   "app": {
-    "leagues_loading": "リーグを読み込み中\u2026",
+    "leagues_loading": "リーグを読み込み中…",
     "leagues_failed": "リーグの読み込みに失敗しました",
     "leagues_failed_help": "レルムがメンテナンス中でないことを確認してください。また「ブラウザ」ボタンをクリックしてみてください。そこでCAPTCHAを完了する必要があるかもしれません。",
     "leagues_failed_help_alt": "アイテムの価格チェックを行い、エラーの説明に従ってください。",
@@ -18,8 +18,7 @@
     "version": "バージョン {0}",
     "release_notes": "リリースノート",
     "report_bug": "GitHubでバグを報告する",
-    "quit": "終了",
-    "deprecated": "This feature is deprecated and will be removed in update {0}"
+    "quit": "終了"
   },
   "map.mods.heist": "ハイスト",
   "map.mods.uber": "ティア17",
@@ -70,9 +69,6 @@
     "augment_sockets": "ソケット: {0}",
     "sentinel_charge": "チャージ: {0}",
     "find_in_stash": "スタッシュで見つける",
-    "find_same_price": "Filter by",
-    "find_same_price_type": "Filter by:",
-    "price": "Price Only",
     "parse_error": "アイテムの解析中にエラーが発生しました",
     "parse_error_help": "これはおそらくバグであり、GitHubで報告できます。",
     "unknown": "不明なアイテム",
@@ -93,17 +89,13 @@
     "mod_scourge": "スカージ",
     "mod_rune": "オーグメント",
     "unidentified": "未鑑定",
+    "unidentified_tier": "未鑑定: ",
     "veiled": "ヴェール",
     "foil_unique": "フォイルユニーク",
     "mirrored": "ミラー化",
     "not_mirrored": "非ミラー",
     "sanctified": "聖別化",
-    "not_sanctified": "Not Sanctified",
     "mod_grade": "グレード: {0}",
-    "has_elemental_affix": "Any",
-    "has_elemental_fire_affix": "Fire",
-    "has_elemental_cold_affix": "Cold",
-    "has_elemental_lightning_affix": "Lightning",
     "rarity_magic": "レアリティ: マジック",
     "map_revives": "復活が利用可能: {0}",
     "map_pack_size": "モンスターパックサイズ: +{0}%",
@@ -112,7 +104,10 @@
     "map_drop_chance": "ウェイストーンドロップ確率: +{0}%",
     "map_item_rarity": "アイテムレアリティ: +{0}%",
     "map_gold": "見つかるゴールド: +{0}%",
-    "uses_remaining": "残り{0}回の使用可能"
+    "uses_remaining": "残り{0}回の使用可能",
+    "victorious": "勝利",
+    "cowardly": "卑怯者",
+    "deadly": "致死"
   },
   "item_category": {
     "prop": "カテゴリー: {0}",
@@ -159,7 +154,6 @@
     "weapon_spear": "槍",
     "weapon_flail": "フレイル",
     "armour_buckler": "バックラー",
-    "map_tablet": "Tablet",
     "weapon_talisman": "タリスマン"
   },
   "filters": {
@@ -181,10 +175,6 @@
     "hide_anointment": "購入者はおそらくアノイントを変更するでしょう",
     "hide_for_crafting": "クラフト用のベースアイテムとして価格を確認する場合のみ選択",
     "hide_empty_mod": "アイテムに6つの修飾子（そのうち1つはクラフト済み）または5つの修飾子がある場合のみ選択",
-    "hide_low_ilvl": "Item has too low an item level to roll all mods",
-    "hide_not_max_level": "Non max level granted skills rarely add value",
-    "hide_for_map": "Most map modifiers have no value",
-    "hide_revives": "Select only if not 0 and don't want to exalt it?",
     "tag_implicit": "暗黙",
     "tag_fractured": "フラクチャー",
     "tag_crafted": "クラフト",
@@ -207,13 +197,8 @@
     "tag_explicit_incursion": "インカージョン",
     "tag_rune": "オーグメント",
     "tag_added_rune": "オーグメント",
-    "tag_sanctum": "Sanctum",
     "tag_desecrated": "冒涜",
-    "tag_skill": "Skill",
-    "tag_mutated": "Mutated",
-    "fill_rune_iron": "Fill Runes(Iron)",
-    "grade": "グレード {0}",
-    "hybrid_note": "Tier may be incorrect due to the potential for a hybrid mod"
+    "grade": "グレード {0}"
   },
   "online_filter": {
     "offline_toggle": "オフライン & オンライン",
@@ -244,7 +229,7 @@
     "latest": "最新バージョンです",
     "error": "アップデートの確認中にエラーが発生しました",
     "checking": "アップデートを確認中",
-    "downloading": "ダウンロード中\u2026",
+    "downloading": "ダウンロード中…",
     "available": "アップデート利用可能: {0}",
     "never_checked": "最後の確認: 未確認",
     "last_checked": "最後の確認: {0}",
@@ -256,7 +241,7 @@
     "download_disabled": "自動アップデートのダウンロードを無効にしています"
   },
   "widget_menu": {
-    "add": "ウィジェットを追加\u2026",
+    "add": "ウィジェットを追加…",
     "always_show": "アクティブなウィジェット用ボタンを表示",
     "price_check": "価格チェック (Ctrl + V)"
   },
@@ -272,44 +257,17 @@
     "search_text": "検索文字列もしくは正規表現",
     "friendly_name": "名称"
   },
-  "filter_generator": {
-    "name": "Filter Generator",
-    "editor": "Editor",
-    "open_settings": "Edit extra rules",
-    "update_filter": "Update",
-    "update_disclaimer": "After you update it, remember to refresh the filter in Settings > Game",
-    "friendly_name": "friendly name",
-    "identifier": "identifier",
-    "identifier_key": "Key",
-    "identifier_value": "Value",
-    "identifier_add": "Add identifier",
-    "about_folder": "Filter files folder location (change only if it's not populated by default or is invalid)",
-    "about_file_select": "Select which filter file will be updated with your custom rules:",
-    "about_strategy_select": "Additional filter will be put between dedicated comments. If filter file does not have those comments, put extra rules at:",
-    "about_disclaimer_header": "Disclaimer regarding early access",
-    "about_disclaimer_text1": "As of day of writing this PoE2 developers did not provide us PoE2 dedicated filter instructions.",
-    "about_disclaimer_text2": "All working filters are based on PoE1 filter instructions. You can find them at",
-    "about_disclaimer_text3": "Go check full documentation to sell all potential identifiers, there's lots of them.",
-    "about_disclaimer_link_desc": "under Conditions section",
-    "examples_header": "Examples for editor",
-    "examples_class": "Filtering by class (for belts)",
-    "examples_class_multi": "Filtering by class (for belts and Amulets)",
-    "examples_name": "Filtering by name (for Stellar Amulet)",
-    "examples_name_multi": "Filtering by name (for Flasks)",
-    "examples_complex": "Filtering by amulets that dropped on map under level 50 (map level, not waystone tier)",
-    "base_type_note": "Note: Keys are case-sensitive, ei: BaseType"
-  },
   "image_strip": {
     "name": "画像貼り付け"
   },
   "item_search": {
     "name": "アイテム検索",
-    "input": "名前で検索\u2026",
+    "input": "名前で検索…",
     "reset": "アイテムをリセット",
     "heist_target": "ハイストターゲット:",
     "target_gem": "スキルジェム",
     "target_replica": "レプリカ",
-    "too_many": "アイテムが多すぎます。名前をより正確に入力してください。",
+    "too_many_": "アイテムが多すぎます。名前をより正確に入力してください。",
     "not_found": "アイテムが見つかりませんでした。",
     "ocr_gems_key": "スキルジェムのOCRを実行"
   },
@@ -327,7 +285,6 @@
     "matched": "一致: {0}",
     "trade": "トレード",
     "price": "価格",
-    "normalized": "N-Price",
     "bulk": "一括",
     "stock": "在庫",
     "fulfill": "充足",
@@ -340,13 +297,10 @@
     "base_item": "ベースアイテム",
     "graph_7d": "過去7日間",
     "getting_price": "価格取得中 {0}",
-    "getting_price_from": "poe.ninjaから\u2026",
+    "getting_price_from": "poe.ninjaから…",
     "you_have": "既に所持しています",
     "stack": "スタック",
-    "fix_complex_query": "設定で\"Use pseudo mods\"を無効にするか、組み込みブラウザでログインしてください",
-    "likely_price_fixed": "Mostly non-standard currency: ",
-    "filter_exalt_divine": "Filter by Exalt/Divine",
-    "highest_volume": "Highest volume:"
+    "fix_complex_query": "設定で\"Use pseudo mods\"を無効にするか、組み込みブラウザでログインしてください"
   },
   "settings": {
     "title": "設定 - Exiled Exchange 2",
@@ -388,9 +342,7 @@
     "tip_frequency_5": "ごく稀に",
     "tip_frequency_6": "表示しない",
     "tips_header": "すべてのヒントを切り替え：",
-    "tip_number_header": "ヒント #{0}",
-    "read_client_log": "Allow reading of Client.txt file",
-    "client_log_explain": "Client.txt log file contains debugging info and chat logs. This is used to detect zone changes and player level ups."
+    "tip_number_header": "ヒント #{0}"
   },
   "price_check": {
     "name": "価格チェック",
@@ -419,12 +371,7 @@
     "tier_numbering": "ティアのナンバリングスタイル",
     "tier_numbering_poe1": "PoE1（数値が低いほど良い）",
     "tier_numbering_poe2": "PoE2（数値が高いほど良い）",
-    "tier_numbering_help": "ゲーム内の命名規則との衝突による混乱を減らすため、PoE1のティアは\"Tier\"ではなく\"Grade\"という名称を使用します。",
-    "always_show_tier": "Always show tier",
-    "remember_ratio": "Remember currency ratio",
-    "open_editor_above": "Open rune socket selector upwards",
-    "core_currency": "Primary base currency:",
-    "show_volume": "Show Currency Exchange volume per hour:"
+    "tier_numbering_help": "ゲーム内の命名規則との衝突による混乱を減らすため、PoE1のティアは\"Tier\"ではなく\"Grade\"という名称を使用します。 "
   },
   "poe2_new": {
     "beta_warning": "これはPOE2のベータ版です、期待通りに動作しないことがあります。",
@@ -467,15 +414,5 @@
     "tip_28": "設定でリーグを変更できます",
     "tip_29": "設定でカスタムチャットコマンドのホットキーを追加できます",
     "tip_30": "Exiled Exchange 1のことは話しません"
-  },
-  "leveling": {
-    "name": "Leveling",
-    "enable_read_client_logs": "Leveling widgets require allowing reading of client logs",
-    "exp_tracking": "Experience Tracker",
-    "show_exp": "Show experience gain percentage",
-    "exp_tracking_help_tldr": "TLDR: try to keep 'Over' at 0 or 1",
-    "exp_tracking_help": "XP tracking widget shows your current level, current experience multiplier, and how close you are to being under-leveled. XP penalty is applied immediately if you are over-leveled, and when you are under-leveled by \u230A level/16 + 3 \u230B. The 'Over' is how many levels the your current level is over the bottom of the 'safe zone', generally 0 or 1 means you are killing the highest level monsters you can without incurring the under-leveled penalty",
-    "exp_inspire": "Based on ",
-    "exp_astrict": "*Experience gain percentages, when over level 95, or monster level over 70, or potentially when not at 100% exp gain, may not be fully tested and accurate."
   }
 }

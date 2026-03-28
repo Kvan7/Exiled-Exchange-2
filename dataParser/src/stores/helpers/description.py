@@ -8,7 +8,10 @@ from numpy.strings import isdigit
 
 from constants.filenames import STAT_DESCRIPTION_FILES_TYPE
 from constants.known_stats import (
+    ACTUALLY_NEGATE_FLIPPED_IN_GAME,
+    ALWAYS_POSITIVE,
     BETTER_LOOKUP,
+    MONSTER_EFFECTIVENESS,
     RECOVERY_APPLIED_INSTANTLY,
     TIME_LOST_HISTORIC_JEWEL,
 )
@@ -207,8 +210,14 @@ class Description:
                     continue
                 out["value"] = value
             negate = self.parse_negate(flags)
+            if id in ACTUALLY_NEGATE_FLIPPED_IN_GAME:
+                negate = True if negate is None else None
+
             if negate or self.override_negate(value_placeholders, id):
-                out["negate"] = True
+                if id == MONSTER_EFFECTIVENESS:
+                    out["negate"] = False
+                else:
+                    out["negate"] = True
             canonical = self.parse_canonical(flags)
             if canonical:
                 pass
@@ -274,15 +283,7 @@ class Description:
         index = self.value_index(id)
         placeholder = value_placeholders[index]
 
-        if id in {
-            836936635,
-            3598623697,
-            472520716,
-            1444556985,
-            3979226081,
-            2991563371,
-            1726353460,
-        }:
+        if id in ALWAYS_POSITIVE:
             return False
 
         return placeholder == "#|-1"

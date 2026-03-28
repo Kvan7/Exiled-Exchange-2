@@ -36,8 +36,7 @@
     "version": "Версия {0}",
     "release_notes": "Список изменений",
     "report_bug": "Сообщить о баге на GitHub",
-    "quit": "Выход",
-    "deprecated": "This feature is deprecated and will be removed in update {0}"
+    "quit": "Выход"
   },
   "map.mods.heist": "кража",
   "map.mods.outdated": "устарело",
@@ -86,9 +85,6 @@
     "gem_level": "Уровень: {0}",
     "sentinel_charge": "Заряд: {0}",
     "find_in_stash": "Найти в тайнике",
-    "find_same_price": "Filter by",
-    "find_same_price_type": "Filter by:",
-    "price": "Price Only",
     "parse_error": "Произошла ошибка при парсинге предмета",
     "parse_error_help": "Скорее всего, это ошибка, и вы можете сообщить о ней на GitHub.",
     "unknown": "Неизвестный предмет",
@@ -109,6 +105,7 @@
     "mod_scourge": "Преображённое",
     "mod_rune": "усилителей",
     "unidentified": "Неопознанный",
+    "unidentified_tier": "Неопознанный: ",
     "veiled": "Завуалирован",
     "foil_unique": "Реликвия",
     "mirrored": "Отражено",
@@ -116,10 +113,6 @@
     "sanctified": "Освящено",
     "not_sanctified": "Не освящено",
     "mod_grade": "Грейд: {0}",
-    "has_elemental_affix": "Any",
-    "has_elemental_fire_affix": "Fire",
-    "has_elemental_cold_affix": "Cold",
-    "has_elemental_lightning_affix": "Lightning",
     "rarity_magic": "Редкость: Волшебный",
     "map_revives": "Доступно возрождений: {0}",
     "map_pack_size": "Размер групп монстров: +{0}%",
@@ -128,11 +121,13 @@
     "map_drop_chance": "Шанс выпадения путевого камня: +{0}%",
     "map_item_rarity": "Редкость предметов: +{0}%",
     "map_gold": "Выпадение золота: +{0}%",
-    "uses_remaining": "Осталось использовать: {0}"
+    "uses_remaining": "Осталось использовать: {0}",
+    "victorious": "Победный",
+    "cowardly": "Трусливый",
+    "deadly": "Смертельный"
   },
   "item_category": {
     "prop": "Категория: {0}",
-    "map": "Map",
     "jewel_abyss": "Самоцвет Бездны",
     "accessory_amulet": "Амулет",
     "accessory_belt": "Пояс",
@@ -175,14 +170,12 @@
     "weapon_spear": "Копьё",
     "weapon_flail": "Кистень",
     "armour_buckler": "Баклер",
-    "map_tablet": "Tablet",
     "weapon_talisman": "Талисман"
   },
   "filters": {
     "selected_some": "Св-ва: {0} из {1}",
     "selected_none": "Св-ва не важны",
     "hidden_toggle": "свойство",
-    "hidden_explicit_toggle": "Explicit",
     "collapse": "Свернуть",
     "mods_toggle": "Моды",
     "empty": "Подходящие свойства не найдены",
@@ -197,10 +190,6 @@
     "hide_anointment": "Покупатель, скорее всего, поменяет зачарование",
     "hide_for_crafting": "Отмечайте, если проверяете цену в качестве базового предмета для крафта",
     "hide_empty_mod": "Выбирайте, только если у предмета 6 свойств (1 из которых ремесленное) или если у него 5 свойств",
-    "hide_low_ilvl": "Item has too low an item level to roll all mods",
-    "hide_not_max_level": "Non max level granted skills rarely add value",
-    "hide_for_map": "Most map modifiers have no value",
-    "hide_revives": "Select only if not 0 and don't want to exalt it?",
     "tag_crafted": "мастер",
     "tag_fractured": "расколотый",
     "tag_scourge": "преображен",
@@ -225,11 +214,7 @@
     "tag_added_rune": "усилителей",
     "tag_sanctum": "Святилище",
     "tag_desecrated": "Очернённый",
-    "tag_skill": "Skill",
-    "tag_mutated": "Mutated",
-    "fill_rune_iron": "Fill Runes(Iron)",
-    "grade": "Грейд {0}",
-    "hybrid_note": "Tier may be incorrect due to the potential for a hybrid mod"
+    "grade": "Грейд {0}"
   },
   "online_filter": {
     "offline_toggle": "Офлайн и Онлайн",
@@ -287,33 +272,6 @@
     "search_text": "текст или регекс",
     "friendly_name": "нормальное название"
   },
-  "filter_generator": {
-    "name": "Генератор фильтров",
-    "editor": "Редактор",
-    "open_settings": "Отредактировать правила",
-    "update_filter": "Обновить фильтр",
-    "update_disclaimer": "После обновления, не забудьте перезагрузить фильтр в Настройках > Игра",
-    "friendly_name": "Уместное название",
-    "identifier": "идентификатор",
-    "identifier_key": "Ключ",
-    "identifier_value": "Значение",
-    "identifier_add": "Добавить идентификатор",
-    "about_folder": "Директория с файлами фильтров (меняйте только если у вас нестандартная директория или есть какая-то проблема)",
-    "about_file_select": "Выберите, в какой фильтр вносить ваши новые правила:",
-    "about_strategy_select": "Дополнительный фильтр будет вставлен между соответствующими комментариями. Если в фильтре нет этих комментариев, вставлять правила на:",
-    "about_disclaimer_header": "Предупреждение о раннем доступе",
-    "about_disclaimer_text1": "На момент написания этого текста у нас нет инструкций по созданию фильтров к PoE2 от разработчиков.",
-    "about_disclaimer_text2": "Все имеющиеся фильтры основаны на документации к фильтрам PoE1. Их можно найти по ссылке",
-    "about_disclaimer_text3": "Ознакомьтесь с ней, чтобы узнать все возможные идентификаторы, их довольно много.",
-    "about_disclaimer_link_desc": "под разделом 'Условия'",
-    "examples_header": "Примеры для редактора",
-    "examples_class": "Фильтрация по классу (пояса)",
-    "examples_class_multi": "Фильтрация по классу (пояса и амулеты)",
-    "examples_name": "Фильтрация по имени (Звёздный амулет)",
-    "examples_name_multi": "Фильтрация по имени (флаконы)",
-    "examples_complex": "Фильтрация амулетов, выпадающих на локациях до 50 уровня (уровень локации, не тир карты)",
-    "base_type_note": "Note: Keys are case-sensitive, ei: BaseType"
-  },
   "image_strip": {
     "name": "Лента изображений"
   },
@@ -324,7 +282,7 @@
     "heist_target": "Цель Кражи:",
     "target_gem": "Камни умений",
     "target_replica": "Копии",
-    "too_many": "Найдено слишком много предметов, уточните название.",
+    "too_many_": "Найдено слишком много предметов, уточните название.",
     "not_found": "Не найдено ни одного предмета.",
     "ocr_gems_key": "Выполнить OCR для гема"
   },
@@ -342,7 +300,6 @@
     "matched": "Найдено: {0}",
     "trade": "Трейд",
     "price": "Цена",
-    "normalized": "N-Price",
     "bulk": "опт",
     "stock": "Запас",
     "fulfill": "Сделки",
@@ -358,10 +315,7 @@
     "getting_price_from": "с poe.ninja \u2026",
     "you_have": "В наличии",
     "stack": "Стак",
-    "fix_complex_query": "Отключите \"Use pseudo mods\" в настройках или залогиньтесь во встроенном браузере",
-    "likely_price_fixed": "Mostly non-standard currency: ",
-    "filter_exalt_divine": "Filter by Exalt/Divine",
-    "highest_volume": "Highest volume:"
+    "fix_complex_query": "Отключите \"Use pseudo mods\" в настройках или залогиньтесь во встроенном браузере"
   },
   "settings": {
     "title": "Настройки - Exiled Exchange 2",
@@ -403,9 +357,7 @@
     "tip_frequency_5": "Очень редко",
     "tip_frequency_6": "Никогда",
     "tips_header": "Циклически отображать все подсказки:",
-    "tip_number_header": "Подсказка #{0}",
-    "read_client_log": "Allow reading of Client.txt file",
-    "client_log_explain": "Client.txt log file contains debugging info and chat logs. This is used to detect zone changes and player level ups."
+    "tip_number_header": "Подсказка #{0}"
   },
   "price_check": {
     "name": "Прайс-чек",
@@ -426,7 +378,6 @@
     "select_stock": "Всегда активировать фильтр \"Запас\"",
     "show_prediction": "Показывать приблизительную цену",
     "remember_currency": "Запоминать фильтр \"Валюты выкупа\"",
-    "default_all_selected": "Default all filters to enabled",
     "use_tooltip_hover": "Показывать предмет при наведении на цену",
     "use_tooltip_keybind": "SHIFT + наведение",
     "use_tooltip_always": "наведение",
@@ -434,12 +385,7 @@
     "tier_numbering": "Стиль нумерации тиров",
     "tier_numbering_poe1": "PoE1 (меньше - лучше)",
     "tier_numbering_poe2": "PoE2 (больше - лучше)",
-    "tier_numbering_help": "Во избежание недоразумений связанных с системой наименований в игре, тиры из PoE1 будут называться \"Grade\" вместо \"Tier\". ",
-    "always_show_tier": "Always show tier",
-    "remember_ratio": "Remember currency ratio",
-    "open_editor_above": "Open rune socket selector upwards",
-    "core_currency": "Primary base currency:",
-    "show_volume": "Show Currency Exchange volume per hour:"
+    "tier_numbering_help": "Во избежание недоразумений связанных с системой наименований в игре, тиры из PoE1 будут называться \"Grade\" вместо \"Tier\". "
   },
   "poe2_new": {
     "beta_warning": "Функционал для PoE2 находится в стадии бета тестирования и не всегда работает так, как задумано.",
@@ -482,15 +428,5 @@
     "tip_28": "Вы можете изменить вашу лигу в настройках",
     "tip_29": "Вы можете добавить горячие клавиши для пользовательских команд чата в настройках",
     "tip_30": "Мы не говорим о Exiled Exchange 1"
-  },
-  "leveling": {
-    "name": "Leveling",
-    "enable_read_client_logs": "Leveling widgets require allowing reading of client logs",
-    "exp_tracking": "Experience Tracker",
-    "show_exp": "Show experience gain percentage",
-    "exp_tracking_help_tldr": "TLDR: try to keep 'Over' at 0 or 1",
-    "exp_tracking_help": "XP tracking widget shows your current level, current experience multiplier, and how close you are to being under-leveled. XP penalty is applied immediately if you are over-leveled, and when you are under-leveled by \u230A level/16 + 3 \u230B. The 'Over' is how many levels the your current level is over the bottom of the 'safe zone', generally 0 or 1 means you are killing the highest level monsters you can without incurring the under-leveled penalty",
-    "exp_inspire": "Based on ",
-    "exp_astrict": "*Experience gain percentages, when over level 95, or monster level over 70, or potentially when not at 100% exp gain, may not be fully tested and accurate."
   }
 }

@@ -18,7 +18,7 @@ class ClientString(BaseClientString):
         self,
         my_key: str,
         poe_keys: list[str],
-        format: str | None = None,
+        format: str | list[str] | None = None,
         substring: list[
             tuple[int | Callable[[str], int], int | Callable[[str], int] | None] | None
         ]
@@ -26,10 +26,11 @@ class ClientString(BaseClientString):
         keep_tooltip: bool = False,
         keep_format_option: bool = False,
         trim: bool = False,
+        override: dict[LANG, str] | None = None,
     ):
         self._my_key = my_key
         self.poe_keys: list[str] = poe_keys
-        self.format: str | None = format
+        self.format: str | list[str] | None = format
         self.substring: (
             list[
                 tuple[int | Callable[[str], int], int | Callable[[str], int] | None]
@@ -40,10 +41,15 @@ class ClientString(BaseClientString):
         self.keep_tooltip: bool = keep_tooltip
         self.keep_format_option: bool = keep_format_option
         self.trim: bool = trim
+        self.override: dict[LANG, str] | None = override
 
     def apply(self, values: list[str]) -> str:
         if self.format is None:
             return "".join(values)
+        if isinstance(self.format, list):
+            if len(values) == 1:
+                return values[0].format(*self.format)
+            return "ERROR"
         return self.format.format(*values)
 
     @property
@@ -54,6 +60,9 @@ class ClientString(BaseClientString):
     @override
     def string(self, poe_key_lookup: Callable[[str], str], lang: LANG) -> str:
         logger.debug(self)
+        if self.override is not None and lang in self.override:
+            return f"  // [Override]\n  {self.my_key}: '{self.override[lang]}',"
+
         out_out = self.value(poe_key_lookup, lang)
         out_string = "\n".join(
             [
@@ -65,7 +74,7 @@ class ClientString(BaseClientString):
 
     @override
     def value(self, poe_key_lookup: Callable[[str], str], lang: LANG) -> str:
-        out_values = [poe_key_lookup(x) for x in self.poe_keys]
+        out_values = [poe_key_lookup(x).split("\r\n")[0] for x in self.poe_keys]
 
         out_values = [self.replace_gender_if_block(x) for x in out_values]
 
@@ -84,6 +93,10 @@ class ClientString(BaseClientString):
 
         if self.trim:
             out_out = out_out.strip()
+            while out_out.startswith(" "):
+                out_out = out_out[1:]
+            while out_out.endswith(" "):
+                out_out = out_out[:-1]
 
         out_out = out_out.replace("'", "\\'")
 

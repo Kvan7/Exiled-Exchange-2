@@ -71,9 +71,18 @@ export interface ItemFilters {
     value: true;
     disabled: boolean;
   };
+  unidentifiedTier?: {
+    value: number;
+    disabled: boolean;
+  };
   veiled?: {
     statRefs: string[];
     veiledCount: number;
+    disabled: boolean;
+  };
+  awardedAscendancyPoints?: FilterNumeric;
+  ultimatumHint?: {
+    value: "Victorious" | "Cowardly" | "Deadly";
     disabled: boolean;
   };
   areaLevel?: FilterNumeric;

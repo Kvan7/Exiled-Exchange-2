@@ -16,7 +16,7 @@ export function magicBasetype(name: string) {
 
   const result = perm
     .map((name) => {
-      // HACK: Remember to remove "by translated" when controller copy is fixed
+      // BUG[UPSTREAM]: https://www.pathofexile.com/forum/view-thread/3913283
       const result =
         ITEM_BY_REF("ITEM", name) ?? ITEM_BY_TRANSLATED("ITEM", name);
       return { name, found: result && result[0].craftable };

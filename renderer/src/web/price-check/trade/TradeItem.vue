@@ -4,6 +4,10 @@
     ref="target"
     @mouseenter="isHovered = true"
     @mouseleave="isHovered = false"
+    @click="travelToHideoutRow"
+    :class="{
+      'cursor-pointer': showTravel === 'row' && isCtrlPressed,
+    }"
   >
     <td class="px-2 whitespace-nowrap">
       <span
@@ -104,6 +108,17 @@
         >{{ t("Gone") }}</span
       >
     </td>
+    <td
+      v-if="showTravel === 'button' && result.hideoutToken"
+      class="px-2 whitespace-nowrap"
+    >
+      <button
+        @click="$emit('travel-to-hideout')"
+        class="bg-gray-700 text-gray-400 rounded px-2"
+      >
+        <i class="w-5 fas fa-sack-dollar"></i>
+      </button>
+    </td>
   </tr>
 </template>
 
@@ -150,6 +165,10 @@ export default defineComponent({
       type: [Boolean, String] as PropType<PriceCheckWidget["showSeller"]>,
       default: undefined,
     },
+    showTravel: {
+      type: String,
+      default: "disabled",
+    },
     itemLevel: {
       type: Object as PropType<FilterNumeric>,
       default: undefined,
@@ -159,8 +178,9 @@ export default defineComponent({
       default: undefined,
     },
   },
+  emits: ["travel-to-hideout"],
 
-  setup(props) {
+  setup(props, ctx) {
     const tooltipOption = computed(
       () => AppConfig<PriceCheckWidget>("price-check")!.itemHoverTooltip,
     );
@@ -169,6 +189,7 @@ export default defineComponent({
     let instance: Instance;
     // Shift Key Detection
     const isShiftPressed = ref(false);
+    const isCtrlPressed = ref(false);
     const isHovered = ref(false); // Track hover state
 
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -179,6 +200,9 @@ export default defineComponent({
         }
         isShiftPressed.value = true;
       }
+      if (event.key === "Control") {
+        isCtrlPressed.value = true;
+      }
     };
 
     const handleKeyUp = (event: KeyboardEvent) => {
@@ -186,6 +210,9 @@ export default defineComponent({
         instance.hide();
         instance.disable();
         isShiftPressed.value = false;
+      }
+      if (event.key === "Control") {
+        isCtrlPressed.value = false;
       }
     };
 
@@ -232,7 +259,14 @@ export default defineComponent({
       target,
       isHovered,
       isShiftPressed,
+      isCtrlPressed,
       ItemCategory,
+      travelToHideoutRow() {
+        if (props.showTravel !== "row") return;
+        if (!props.result.hideoutToken) return;
+        if (!isCtrlPressed.value) return;
+        ctx.emit("travel-to-hideout");
+      },
     };
   },
 });

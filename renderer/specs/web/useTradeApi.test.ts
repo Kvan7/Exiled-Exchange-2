@@ -8,7 +8,7 @@ import {
   requestTradeResultList,
 } from "@/web/price-check/trade/pathofexile-trade";
 import { setupTests } from "@specs/vitest.setup";
-import { loadForLang } from "@/assets/data";
+import { init } from "@/assets/data";
 
 vi.mock("@/web/price-check/trade/pathofexile-trade", () => {
   return {
@@ -23,7 +23,7 @@ describe("useTradeApi", () => {
 
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
     composableResult = useTradeApi();
     vi.clearAllMocks();
   });
@@ -51,7 +51,7 @@ describe("useTradeApi", () => {
     [20, 2],
     [21, 3],
   ])(
-    "when result list has %i result(s), requestResults is called %i time(s)",
+    "%#. when result list has %i result(s), requestResults is called %i time(s)",
     async (resultCount, expectedCalls) => {
       vi.mocked(createTradeRequest).mockReturnValue(
         {} as ReturnType<typeof createTradeRequest>,

@@ -71,14 +71,28 @@ export function parseModInfoLine(
     if (!match) {
       throw new Error("Invalid regex for mod info line");
     }
+    if (match.groups!.type.startsWith(_$.FRACTURED_MODIFIER)) {
+      match.groups!.type = match
+        .groups!.type.slice(_$.FRACTURED_MODIFIER.length)
+        .trim();
+      type = ModifierType.Fractured;
+    } else if (match.groups!.type.startsWith(_$.DESECRATED_MODIFIER)) {
+      match.groups!.type = match
+        .groups!.type.slice(_$.DESECRATED_MODIFIER.length)
+        .trim();
+      type = ModifierType.Desecrated;
+    } else if (match.groups!.type.startsWith(_$.CRAFTED_MODIFIER)) {
+      match.groups!.type = match
+        .groups!.type.slice(_$.CRAFTED_MODIFIER.length)
+        .trim();
+      type = ModifierType.Crafted;
+    }
 
     switch (match.groups!.type) {
       case _$.PREFIX_MODIFIER:
-      case _$.CRAFTED_PREFIX:
         generation = "prefix";
         break;
       case _$.SUFFIX_MODIFIER:
-      case _$.CRAFTED_SUFFIX:
         generation = "suffix";
         break;
       case _$.CORRUPTED_IMPLICIT:

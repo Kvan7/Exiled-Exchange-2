@@ -133,7 +133,7 @@ export interface TranslationDict {
   ENERGY_SHIELD: string;
   BLOCK_CHANCE: string;
   CORRUPTED: string;
-  UNIDENTIFIED: string;
+  UNIDENTIFIED: RegExp;
   ITEM_SUPERIOR: RegExp;
   ITEM_EXCEPTIONAL: RegExp;
   MAP_BLIGHTED: RegExp;
@@ -172,8 +172,9 @@ export interface TranslationDict {
   MODIFIER_LINE: RegExp;
   PREFIX_MODIFIER: string;
   SUFFIX_MODIFIER: string;
-  CRAFTED_PREFIX: string;
-  CRAFTED_SUFFIX: string;
+  CRAFTED_MODIFIER: string;
+  FRACTURED_MODIFIER: string;
+  DESECRATED_MODIFIER: string;
   UNSCALABLE_VALUE: string;
   CORRUPTED_IMPLICIT: string;
   MODIFIER_INCREASED: RegExp;
@@ -203,9 +204,6 @@ export interface TranslationDict {
   REQUIRES: string;
   CHARM_SLOTS: string;
   BASE_SPIRIT: string;
-  QUIVER_HELP_TEXT: string;
-  FLASK_HELP_TEXT: string;
-  CHARM_HELP_TEXT: string;
   // ---
   CHAT_SYSTEM: RegExp;
   CHAT_TRADE: RegExp;
@@ -227,13 +225,8 @@ export interface TranslationDict {
   WAYSTONE_RARE_MONSTERS: string;
   WAYSTONE_DROP_CHANCE: string;
   WAYSTONE_RARITY: string;
-  WAYSTONE_HELP: string;
   WAYSTONE_GOLD: string;
-  JEWEL_HELP: string;
-  SANCTUM_HELP: string;
   TIMELESS_RADIUS: string;
-  PRECURSOR_TABLET_HELP: string;
-  LOGBOOK_HELP: string;
   TIMELESS_SMALL_PASSIVES: string;
   TIMELESS_NOTABLE_PASSIVES: string;
   GRANTS_SKILL: string;
@@ -248,6 +241,10 @@ export interface TranslationDict {
   REQUIRES_LINE: RegExp;
   UNIQUE_MODIFIER: string;
   VAAL_UNIQUE_MODIFIER: string;
+  TRIAL_COUNT: string;
+  ULTIMATUM_VICTORIOUS: string;
+  ULTIMATUM_COWARDLY: string;
+  ULTIMATUM_DEADLY: string;
 }
 
 export interface Filter {

@@ -2,19 +2,19 @@ import { __testExports } from "@/parser/Parser";
 import { beforeEach, describe, expect, it } from "vitest";
 import { setupTests } from "@specs/vitest.setup";
 import { RareMap, RareMapFakeAllProps, TestItem } from "./items";
-import { loadForLang } from "@/assets/data";
+import { init } from "@/assets/data";
 import { ParsedItem } from "@/parser/ParsedItem";
 
 describe("parseMap", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
   });
   it.each([
     [RareMap.rawText, RareMap.mapTier],
     [RareMapFakeAllProps.rawText, RareMapFakeAllProps.mapTier],
   ])(
-    "%#, Each mod section is recognized",
+    "%#. Each mod section is recognized",
     (rawText: string, mapTier: number | undefined) => {
       const sections = __testExports.itemTextToSections(rawText);
       const parsedItem = {} as ParsedItem;
@@ -27,7 +27,7 @@ describe("parseMap", () => {
     [RareMap.rawText, RareMap],
     [RareMapFakeAllProps.rawText, RareMapFakeAllProps],
   ])(
-    "%#, Each mod section adds correct count to newMods",
+    "%#. Each mod section adds correct count to newMods",
     (rawText: string, testItem: TestItem) => {
       const sections = __testExports.itemTextToSections(rawText);
       const parsedItem = {} as ParsedItem;

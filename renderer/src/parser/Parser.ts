@@ -76,8 +76,6 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseCharmSlots,
   parseSpirit,
   parsePriceNote,
-  parseUnneededText,
-  parseFracturedText,
   parseTimelostRadius,
   parseStackSize,
   parseCorrupted,
@@ -88,6 +86,7 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseSockets,
   parseAugmentSockets,
   parseHeistBlueprint,
+  parseTrials,
   parseAreaLevel,
   parseAtzoatlRooms,
   parseMirroredTablet,
@@ -103,13 +102,6 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseModifiers, // implicit
   parseModifiers, // grant skill
   parseModifiers, // explicit
-  // catch enchant and augments since they don't have curlys rn
-  parseModifiersPoe2, // enchant
-  parseModifiersPoe2, // augment
-  // HACK: catch implicit and explicit for controllers
-  parseModifiersPoe2, // implicit
-  parseModifiersPoe2, // grant skill
-  parseModifiersPoe2, // explicit
   { virtual: transformToLegacyModifiers },
   { virtual: parseFractured },
   { virtual: parseBlightedMap },
@@ -242,7 +234,7 @@ function findInDatabase(item: ParserState) {
     info = ITEM_BY_REF("ITEM", item.baseType ?? item.name);
   }
   if (!info?.length) {
-    // HACK: controller support while poe2 doesn't have advanced copy for controllers
+    // BUG[UPSTREAM]: https://www.pathofexile.com/forum/view-thread/3913283
     if (item.category === ItemCategory.DivinationCard) {
       info = ITEM_BY_TRANSLATED("DIVINATION_CARD", item.name);
     } else if (item.category === ItemCategory.CapturedBeast) {
@@ -389,7 +381,6 @@ function parseBlightedMap(item: ParsedItem) {
 
 function parseFractured(item: ParserState) {
   performance.mark("parseFractured");
-  // NOTE: partially also controlled by parseFracturedText
   if (item.newMods.some((mod) => mod.info.type === ModifierType.Fractured)) {
     item.isFractured = true;
   }
@@ -574,8 +565,12 @@ function parseFoil(section: string[], item: ParsedItem) {
 
 function parseUnidentified(section: string[], item: ParsedItem) {
   performance.mark("parseUnidentified");
-  if (section[0] === _$.UNIDENTIFIED) {
+  const match = section[0].match(_$.UNIDENTIFIED);
+  if (match) {
     item.isUnidentified = true;
+    if (match.groups!.tier) {
+      item.unidentifiedTier = Number(match.groups!.tier);
+    }
     return "SECTION_PARSED";
   }
   return "SECTION_SKIPPED";
@@ -918,7 +913,12 @@ function parseWeapon(section: string[], item: ParsedItem) {
     }
     if (line.startsWith(_$.RELOAD_SPEED)) {
       // No regex since it can have decimals
-      item.weaponReload = parseFloat(line.slice(_$.RELOAD_SPEED.length));
+      item.weaponRELOAD = parseFloat(line.slice(_$.RELOAD_SPEED.length));
+      isParsed = "SECTION_PARSED";
+      continue;
+    }
+    if (line.startsWith(_$.BASE_SPIRIT)) {
+      item.weaponSPIRIT = parseInt(line.slice(_$.BASE_SPIRIT.length), 10);
       isParsed = "SECTION_PARSED";
       continue;
     }
@@ -937,7 +937,8 @@ function parseWeapon(section: string[], item: ParsedItem) {
     item.weaponLIGHTNING = undefined;
     item.weaponFIRE = undefined;
     item.weaponCRIT = undefined;
-    item.weaponReload = undefined;
+    item.weaponRELOAD = undefined;
+    item.weaponSPIRIT = undefined;
   }
 
   return isParsed;
@@ -1273,55 +1274,6 @@ function parsePriceNote(section: string[], item: ParsedItem) {
   return "SECTION_SKIPPED";
 }
 
-function parseFracturedText(section: string[], item: ParsedItem) {
-  performance.mark("parseFracturedText");
-  for (const line of section) {
-    if (line === _$.FRACTURED_ITEM) {
-      // HACK: remove once bug is fixed (https://www.pathofexile.com/forum/view-thread/3891367)
-      item.isFractured = true;
-      return "SECTION_PARSED";
-    }
-  }
-  return "SECTION_SKIPPED";
-}
-
-function parseUnneededText(section: string[], item: ParsedItem) {
-  performance.mark("parseUnneededText");
-  if (
-    item.category !== ItemCategory.Quiver &&
-    item.category !== ItemCategory.Flask &&
-    item.category !== ItemCategory.Charm &&
-    item.category !== ItemCategory.Waystone &&
-    item.category !== ItemCategory.Map &&
-    item.category !== ItemCategory.Jewel &&
-    item.category !== ItemCategory.Relic &&
-    item.category !== ItemCategory.Tablet &&
-    item.info.refName !== "Expedition Logbook" &&
-    item.category !== ItemCategory.Shield &&
-    item.category !== ItemCategory.Spear &&
-    item.category !== ItemCategory.Buckler
-  ) {
-    return "PARSER_SKIPPED";
-  }
-
-  for (const line of section) {
-    if (
-      line.startsWith(_$.QUIVER_HELP_TEXT) ||
-      line.startsWith(_$.FLASK_HELP_TEXT) ||
-      line.startsWith(_$.CHARM_HELP_TEXT) ||
-      line.startsWith(_$.WAYSTONE_HELP) ||
-      line.startsWith(_$.JEWEL_HELP) ||
-      line.startsWith(_$.SANCTUM_HELP) ||
-      line.startsWith(_$.PRECURSOR_TABLET_HELP) ||
-      line.startsWith(_$.LOGBOOK_HELP) ||
-      line.startsWith(_$.GRANTS_SKILL)
-    ) {
-      return "SECTION_PARSED";
-    }
-  }
-  return "SECTION_SKIPPED";
-}
-
 function parseTimelostRadius(section: string[], item: ParsedItem) {
   performance.mark("parseTimelostRadius");
   if (item.category !== ItemCategory.Jewel) return "PARSER_SKIPPED";
@@ -1443,6 +1395,38 @@ function parseHeistBlueprint(section: string[], item: ParsedItem) {
         line.slice(_$.HEIST_WINGS_REVEALED.length),
         10,
       );
+    }
+  }
+
+  return "SECTION_PARSED";
+}
+
+function parseTrials(section: string[], item: ParsedItem) {
+  performance.mark("parseTrials");
+  if (
+    item.info.refName !== "Djinn Barya" &&
+    item.info.refName !== "Inscribed Ultimatum"
+  ) {
+    return "PARSER_SKIPPED";
+  }
+
+  parseAreaLevelNested(section, item);
+  if (!item.areaLevel) {
+    return "SECTION_SKIPPED";
+  }
+  item.trials = {};
+
+  for (const line of section) {
+    if (line.startsWith(_$.TRIAL_COUNT)) {
+      item.trials.numberOfTrials = Number(line.slice(_$.TRIAL_COUNT.length));
+    } else if (item.info.refName === "Inscribed Ultimatum") {
+      if (line.startsWith(_$.ULTIMATUM_VICTORIOUS)) {
+        item.trials.ultimatumHint = "Victorious";
+      } else if (line.startsWith(_$.ULTIMATUM_COWARDLY)) {
+        item.trials.ultimatumHint = "Cowardly";
+      } else if (line.startsWith(_$.ULTIMATUM_DEADLY)) {
+        item.trials.ultimatumHint = "Deadly";
+      }
     }
   }
 
@@ -1817,6 +1801,7 @@ function isUncutSkillGem(section: string[]): boolean {
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export const __testExports = {
   itemTextToSections,
+  findInDatabase,
   parseNamePlate,
   isUncutSkillGem,
   parseWeapon,
@@ -1825,5 +1810,6 @@ export const __testExports = {
   parseWaystone,
   parseRequirements,
   parseFractured,
-  parseFracturedText,
+  parseUnidentified,
+  parseTrials,
 };

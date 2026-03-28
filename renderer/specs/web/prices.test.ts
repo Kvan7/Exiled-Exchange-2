@@ -1,12 +1,12 @@
 import { __testExports } from "@/web/background/Prices";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { setupTests } from "@specs/vitest.setup";
-import { loadForLang } from "@/assets/data";
+import { init } from "@/assets/data";
 
 describe("useTradeApi", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
     vi.clearAllMocks();
   });
 

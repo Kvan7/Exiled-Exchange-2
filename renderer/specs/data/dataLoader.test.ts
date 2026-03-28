@@ -1,8 +1,8 @@
-import { beforeEach, describe, expect, test } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import { setupTests } from "../vitest.setup";
 import {
   __testExports,
-  loadForLang,
+  init,
   setLocalAugmentFilter,
   STAT_BY_REF,
 } from "@/assets/data";
@@ -14,10 +14,10 @@ describe("augmentsToLookup", () => {
     // Set a filter that allows all augments to pass through.
     setLocalAugmentFilter((value, index, array) => true);
     // Load the language data required for the tests.
-    await loadForLang("en");
+    await init("en");
   });
 
-  test("empty list should not throw", () => {
+  it("should not throw with empty list", () => {
     expect(() => __testExports.augmentsToLookup([])).not.toThrow();
   });
   // Currently disabled
@@ -27,7 +27,7 @@ describe("augmentsToLookup", () => {
   //   });
   //   expect(AUGMENT_DATA_BY_AUGMENT["Iron Rune"].length).toBe(3);
   // });
-  test("Random stats should be present", () => {
+  it("Random stats should be present", () => {
     expect(STAT_BY_REF("Adds # to # Physical Damage")).toBeTruthy();
     expect(STAT_BY_REF("Adds # to # Lightning Damage")).toBeTruthy();
     expect(STAT_BY_REF("#% to Fire Resistance")).toBeTruthy();

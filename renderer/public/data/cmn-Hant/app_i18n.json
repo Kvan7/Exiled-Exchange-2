@@ -1,5 +1,5 @@
 {
-  "please_wait": "請稍候\u2026",
+  "please_wait": "請稍候…",
   "choose_file": "選擇文件",
   "app_is_ready": "已準備就緒並在後台運行",
   "reopen_settings": "按 {0} 以繼續編輯。",
@@ -8,7 +8,7 @@
   "realm": "區域",
   "realm_intl": "國際",
   "app": {
-    "leagues_loading": "正在加載聯盟\u2026",
+    "leagues_loading": "正在加載聯盟…",
     "leagues_failed": "加載聯盟失敗",
     "leagues_failed_help": "確保該區域未進行維護。也嘗試點擊“瀏覽器”按鈕，可能需要在那裡完成 CAPTCHA 驗證。",
     "leagues_failed_help_alt": "價格檢查一個物品，並遵循那裡錯誤描述中的指示。",
@@ -24,7 +24,7 @@
   "map.mods.heist": "劫盜",
   "map.mods.uber": "T17",
   "map.mods.outdated": "已過時",
-  "Support development on": "支持開發於\u00A0",
+  "Support development on": "支持開發於 ",
   "Blighted": "凋落的",
   "Blight-ravaged": "凋落蔓延的",
   "Magic": "魔法",
@@ -70,9 +70,6 @@
     "augment_sockets": "插槽：{0}",
     "sentinel_charge": "充能：{0}",
     "find_in_stash": "在倉庫中尋找",
-    "find_same_price": "Filter by",
-    "find_same_price_type": "Filter by:",
-    "price": "Price Only",
     "parse_error": "解析物品時發生錯誤",
     "parse_error_help": "這可能是一個錯誤，你可以在 GitHub 上報告。",
     "unknown": "未知物品",
@@ -93,17 +90,13 @@
     "mod_scourge": "災厄",
     "mod_rune": "Augment",
     "unidentified": "未鑑定",
+    "unidentified_tier": "未鑑定: ",
     "veiled": "隱匿",
     "foil_unique": "貼模傳奇",
     "mirrored": "已複製",
     "not_mirrored": "未複製",
     "sanctified": "聖化的",
-    "not_sanctified": "Not Sanctified",
     "mod_grade": "等級: {0}",
-    "has_elemental_affix": "Any",
-    "has_elemental_fire_affix": "Fire",
-    "has_elemental_cold_affix": "Cold",
-    "has_elemental_lightning_affix": "Lightning",
     "rarity_magic": "稀有度: 魔法",
     "map_revives": "可用的復活數: {0}",
     "map_pack_size": "怪物群大小: +{0}%",
@@ -112,7 +105,10 @@
     "map_drop_chance": "換界石掉落機率: +{0}%",
     "map_item_rarity": "物品稀有度: +{0}%",
     "map_gold": "找到黃金: +{0}%",
-    "uses_remaining": "還能夠使用{0}次。"
+    "uses_remaining": "還能夠使用{0}次。",
+    "victorious": "勝利",
+    "cowardly": "怯懦",
+    "deadly": "致命"
   },
   "item_category": {
     "prop": "類別：{0}",
@@ -159,7 +155,6 @@
     "weapon_spear": "長鋒",
     "weapon_flail": "鏈錘",
     "armour_buckler": "輕盾",
-    "map_tablet": "Tablet",
     "weapon_talisman": "魔符"
   },
   "filters": {
@@ -181,10 +176,6 @@
     "hide_anointment": "買家可能會更改塗抹",
     "hide_for_crafting": "僅在作為基礎物品價格檢查時選擇",
     "hide_empty_mod": "僅在物品有 6 個詞綴（其中 1 個已製作）或有 5 個詞綴時選擇",
-    "hide_low_ilvl": "Item has too low an item level to roll all mods",
-    "hide_not_max_level": "Non max level granted skills rarely add value",
-    "hide_for_map": "Most map modifiers have no value",
-    "hide_revives": "Select only if not 0 and don't want to exalt it?",
     "tag_implicit": "隨機",
     "tag_fractured": "破裂",
     "tag_crafted": "已製作",
@@ -209,9 +200,6 @@
     "tag_added_rune": "符文",
     "tag_sanctum": "聖域聯盟",
     "tag_desecrated": "褻瀆",
-    "tag_skill": "Skill",
-    "tag_mutated": "Mutated",
-    "fill_rune_iron": "Fill Runes(Iron)",
     "grade": "等級 {0}",
     "hybrid_note": "階級可能因複合詞綴的存在而顯示不正確"
   },
@@ -244,7 +232,7 @@
     "latest": "您擁有最新版本",
     "error": "檢查更新時發生錯誤",
     "checking": "正在檢查更新",
-    "downloading": "正在下載\u2026",
+    "downloading": "正在下載…",
     "available": "更新可用：{0}",
     "never_checked": "上次檢查：從未",
     "last_checked": "上次檢查：{0}",
@@ -256,7 +244,7 @@
     "download_disabled": "您禁用了自動更新下載"
   },
   "widget_menu": {
-    "add": "添加小工具\u2026",
+    "add": "添加小工具…",
     "always_show": "顯示活躍小工具的按鈕",
     "price_check": "價格檢查 (Ctrl + V)"
   },
@@ -272,44 +260,17 @@
     "search_text": "搜尋文字或正則表達式",
     "friendly_name": "友好名稱"
   },
-  "filter_generator": {
-    "name": "Filter Generator",
-    "editor": "Editor",
-    "open_settings": "Edit extra rules",
-    "update_filter": "Update",
-    "update_disclaimer": "After you update it, remember to refresh the filter in Settings > Game",
-    "friendly_name": "friendly name",
-    "identifier": "identifier",
-    "identifier_key": "Key",
-    "identifier_value": "Value",
-    "identifier_add": "Add identifier",
-    "about_folder": "Filter files folder location (change only if it's not populated by default or is invalid)",
-    "about_file_select": "Select which filter file will be updated with your custom rules:",
-    "about_strategy_select": "Additional filter will be put between dedicated comments. If filter file does not have those comments, put extra rules at:",
-    "about_disclaimer_header": "Disclaimer regarding early access",
-    "about_disclaimer_text1": "As of day of writing this PoE2 developers did not provide us PoE2 dedicated filter instructions.",
-    "about_disclaimer_text2": "All working filters are based on PoE1 filter instructions. You can find them at",
-    "about_disclaimer_text3": "Go check full documentation to sell all potential identifiers, there's lots of them.",
-    "about_disclaimer_link_desc": "under Conditions section",
-    "examples_header": "Examples for editor",
-    "examples_class": "Filtering by class (for belts)",
-    "examples_class_multi": "Filtering by class (for belts and Amulets)",
-    "examples_name": "Filtering by name (for Stellar Amulet)",
-    "examples_name_multi": "Filtering by name (for Flasks)",
-    "examples_complex": "Filtering by amulets that dropped on map under level 50 (map level, not waystone tier)",
-    "base_type_note": "Note: Keys are case-sensitive, ei: BaseType"
-  },
   "image_strip": {
     "name": "圖像條"
   },
   "item_search": {
     "name": "物品搜尋",
-    "input": "按名稱搜尋\u2026",
+    "input": "按名稱搜尋…",
     "reset": "重置物品",
     "heist_target": "劫盜目標：",
     "target_gem": "技能寶石",
     "target_replica": "贗品",
-    "too_many": "找到的物品過多，請更精確地輸入名稱。",
+    "too_many_": "找到的物品過多，請更精確地輸入名稱。",
     "not_found": "未找到物品。",
     "ocr_gems_key": "執行技能寶石的 OCR"
   },
@@ -340,13 +301,10 @@
     "base_item": "基礎物品",
     "graph_7d": "最近 7 天",
     "getting_price": "獲取價格 {0}",
-    "getting_price_from": "來自 poe.ninja \u2026",
+    "getting_price_from": "來自 poe.ninja …",
     "you_have": "您有",
     "stack": "堆疊",
-    "fix_complex_query": "請在設定中禁用\"偽屬性\"選項，或通過內置瀏覽器登錄。",
-    "likely_price_fixed": "Mostly non-standard currency: ",
-    "filter_exalt_divine": "Filter by Exalt/Divine",
-    "highest_volume": "Highest volume:"
+    "fix_complex_query": "請在設定中禁用\"偽屬性\"選項，或通過內置瀏覽器登錄。"
   },
   "settings": {
     "title": "設置 - 流亡交易所 2",
@@ -388,9 +346,7 @@
     "tip_frequency_5": "非常少",
     "tip_frequency_6": "從不",
     "tips_header": "循環查看所有提示：",
-    "tip_number_header": "提示 #{0}",
-    "read_client_log": "Allow reading of Client.txt file",
-    "client_log_explain": "Client.txt log file contains debugging info and chat logs. This is used to detect zone changes and player level ups."
+    "tip_number_header": "提示 #{0}"
   },
   "price_check": {
     "name": "價格檢查",
@@ -411,7 +367,6 @@
     "select_stock": "始終選擇“庫存”過濾器",
     "show_prediction": "顯示價格預測",
     "remember_currency": "記住買方貨幣過濾器",
-    "default_all_selected": "Default all filters to enabled",
     "use_tooltip_hover": "將滑鼠懸停在價格上時顯示物品",
     "use_tooltip_keybind": "SHIFT + 懸停",
     "use_tooltip_always": "始終懸停顯示",
@@ -419,12 +374,9 @@
     "tier_numbering": "層級編號風格",
     "tier_numbering_poe1": "POE1（數值越小越好）",
     "tier_numbering_poe2": "POE2（數值越大越好）",
-    "tier_numbering_help": "為了減少因遊戲內命名衝突而導致的混淆，POE1的層級將使用\"Grade\"而非\"Tier\"來命名。",
+    "tier_numbering_help": "為了減少因遊戲內命名衝突而導致的混淆，POE1的層級將使用\"Grade\"而非\"Tier\"來命名。 ",
     "always_show_tier": "始終顯示階級",
-    "remember_ratio": "記住通貨比例",
-    "open_editor_above": "Open rune socket selector upwards",
-    "core_currency": "Primary base currency:",
-    "show_volume": "Show Currency Exchange volume per hour:"
+    "remember_ratio": "記住通貨比例"
   },
   "poe2_new": {
     "beta_warning": "這是 POE2 的測試版，某些功能可能無法正常運作。",
@@ -467,13 +419,5 @@
     "tip_28": "你可以在設定中更改聯盟。",
     "tip_29": "你可以在設定中添加自定義聊天命令快捷鍵。",
     "tip_30": "我們不談論 Exiled Exchange 1。"
-  },
-  "leveling": {
-    "name": "Leveling",
-    "enable_read_client_logs": "Leveling widgets require allowing reading of client logs",
-    "exp_tracking": "Experience Tracker",
-    "show_exp": "Show experience gain percentage",
-    "exp_tracking_help_tldr": "TLDR: try to keep 'Over' at 0 or 1",
-    "exp_tracking_help": "XP tracking widget shows your current level, current experience multiplier, and how close you are to being under-leveled. XP penalty is applied immediately if you are over-leveled, and when you are under-leveled by \u230A level/16 + 3 \u230B. The 'Over' is how many levels the your current level is over the bottom of the 'safe zone', generally 0 or 1 means you are killing the highest level monsters you can without incurring the under-leveled penalty"
   }
 }

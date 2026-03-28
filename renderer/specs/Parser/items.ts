@@ -19,8 +19,9 @@ export class TestItem implements ParsedItem {
   weaponFIRE?: number | undefined;
   weaponCOLD?: number | undefined;
   weaponLIGHTNING?: number | undefined;
-  weaponChaos?: number | undefined;
-  weaponReload?: number | undefined;
+  weaponCHAOS?: number | undefined;
+  weaponRELOAD?: number | undefined;
+  weaponSPIRIT?: number;
   mapBlighted?: "Blighted" | "Blight-ravaged" | undefined;
   mapTier?: number | undefined;
   mapPackSize?: number;
@@ -74,6 +75,8 @@ export class TestItem implements ParsedItem {
     int: number;
   };
 
+  unidentifiedTier?: number;
+
   info: BaseType = {
     name: "test",
     refName: "test",
@@ -104,6 +107,7 @@ export class TestItem implements ParsedItem {
   suffixCount: number = 0;
   implicitCount: number = 0;
   enchantCount: number = 0;
+  skillCount: number = 0;
   uniqueAffixCount: number = 0;
   rollingUniqueAffixCount: number = 0;
 
@@ -142,7 +146,7 @@ NormalItem.requires = {
 
 NormalItem.info.refName = "Divine Crown";
 NormalItem.sectionCount = 4;
-// #endregion
+// #endregion NormalItem
 
 // #region MagicItem
 export const MagicItem = new TestItem(`Item Class: Two Hand Maces
@@ -182,7 +186,7 @@ MagicItem.info.refName = "Temple Maul";
 MagicItem.sectionCount = 5;
 MagicItem.prefixCount = 1;
 MagicItem.suffixCount = 1;
-// #endregion
+// #endregion MagicItem
 
 // #region RareItem
 export const RareItem = new TestItem(`Item Class: Bows
@@ -231,7 +235,7 @@ RareItem.info.refName = "Rider Bow";
 RareItem.sectionCount = 5;
 RareItem.prefixCount = 3;
 RareItem.suffixCount = 1;
-// #endregion
+// #endregion RareItem
 
 // #region UniqueItem
 export const UniqueItem = new TestItem(`Item Class: Foci
@@ -275,7 +279,7 @@ UniqueItem.info.refName = "The Eternal Spark";
 UniqueItem.sectionCount = 6;
 UniqueItem.uniqueAffixCount = 5;
 UniqueItem.rollingUniqueAffixCount = 2;
-// #endregion
+// #endregion UniqueItem
 
 // #region RareWithImplicit
 export const RareWithImplicit = new TestItem(`Item Class: Rings
@@ -315,7 +319,7 @@ RareWithImplicit.sectionCount = 5;
 RareWithImplicit.implicitCount = 1;
 RareWithImplicit.prefixCount = 1;
 RareWithImplicit.suffixCount = 3;
-// #endregion
+// #endregion RareWithImplicit
 
 // #region UncutSkillGem
 export const UncutSkillGem = new TestItem(`Item Class: Uncut Skill Gems
@@ -338,7 +342,7 @@ UncutSkillGem.info = {
 };
 
 UncutSkillGem.sectionCount = 3;
-// #endregion
+// #endregion UncutSkillGem
 
 // #region UncutSpiritGem
 export const UncutSpiritGem = new TestItem(`Item Class: Uncut Spirit Gems
@@ -361,7 +365,7 @@ UncutSpiritGem.info = {
 };
 
 UncutSpiritGem.sectionCount = 3;
-// #endregion
+// #endregion UncutSpiritGem
 
 // #region UncutSupportGem
 export const UncutSupportGem = new TestItem(`Item Class: Uncut Support Gems
@@ -384,7 +388,7 @@ UncutSupportGem.info = {
 };
 
 UncutSupportGem.sectionCount = 3;
-// #endregion
+// #endregion UncutSupportGem
 
 // #region HighDamageRareItem
 export const HighDamageRareItem = new TestItem(`Item Class: Crossbows
@@ -431,7 +435,7 @@ HighDamageRareItem.quality = 29;
 HighDamageRareItem.weaponPHYSICAL = 728.5;
 HighDamageRareItem.weaponAS = 2.07;
 HighDamageRareItem.weaponCRIT = 5;
-HighDamageRareItem.weaponReload = 0.6;
+HighDamageRareItem.weaponRELOAD = 0.6;
 HighDamageRareItem.itemLevel = 82;
 
 HighDamageRareItem.info.refName = "Siege Crossbow";
@@ -451,7 +455,7 @@ HighDamageRareItem.augmentSockets = {
   current: 2,
   normal: 2,
 };
-// #endregion
+// #endregion HighDamageRareItem
 
 // #region ArmourHighValueRareItem
 export const ArmourHighValueRareItem = new TestItem(`Item Class: Body Armours
@@ -509,7 +513,7 @@ ArmourHighValueRareItem.augmentSockets = {
   normal: 2,
 };
 ArmourHighValueRareItem.note = "~b/o 10 divine";
-// #endregion
+// #endregion ArmourHighValueRareItem
 
 // #region WandRareItem
 export const WandRareItem = new TestItem(`Item Class: Wands
@@ -552,7 +556,7 @@ WandRareItem.suffixCount = 2;
 WandRareItem.implicitCount = 1;
 
 WandRareItem.note = "~b/o 5 exalted";
-// #endregion
+// #endregion WandRareItem
 
 // #region NormalShield
 export const NormalShield = new TestItem(`Item Class: Shields
@@ -589,7 +593,7 @@ NormalShield.sectionCount = 6;
 NormalShield.implicitCount = 1;
 
 NormalShield.note = "~b/o 1 aug";
-// #endregion
+// #endregion NormalShield
 
 // #region TwoImplicitItem
 export const TwoImplicitItem = new TestItem(`Item Class: Belts
@@ -632,7 +636,7 @@ TwoImplicitItem.sectionCount = 5;
 TwoImplicitItem.implicitCount = 2;
 TwoImplicitItem.prefixCount = 2;
 TwoImplicitItem.suffixCount = 3;
-// #endregion
+// #endregion TwoImplicitItem
 
 // #region TwoLineOneImplicitItem
 export const TwoLineOneImplicitItem = new TestItem(`Item Class: Tablet
@@ -673,7 +677,7 @@ TwoLineOneImplicitItem.suffixCount = 2;
 
 TwoLineOneImplicitItem.isCorrupted = true;
 TwoLineOneImplicitItem.note = "~b/o 1 exalted";
-// #endregion
+// #endregion TwoLineOneImplicitItem
 
 // #region Map
 export const RareMap = new TestItem(`Item Class: Waystones
@@ -709,7 +713,7 @@ RareMap.mapPackSize = 34;
 RareMap.mapRareMonsters = 28;
 RareMap.mapDropChance = 75;
 RareMap.sectionCount = 5;
-// #endregion
+// #endregion RareMap
 
 // #region RareMapFakeAllProps
 export const RareMapFakeAllProps = new TestItem(`Item Class: Waystones
@@ -755,7 +759,7 @@ RareMapFakeAllProps.mapRareMonsters = 71;
 RareMapFakeAllProps.mapDropChance = 90;
 RareMapFakeAllProps.mapItemRarity = 17;
 RareMapFakeAllProps.sectionCount = 6;
-// #endregion
+// #endregion RareMapFakeAllProps
 
 // #region FracturedItem
 export const FracturedItem = new TestItem(`Item Class: Bows
@@ -826,7 +830,7 @@ FracturedItem.augmentSockets = {
   current: 2,
   normal: 2,
 };
-// #endregion
+// #endregion FracturedItem
 
 // #region FracturedItemNoModMarked
 export const FracturedItemNoModMarked = new TestItem(`Item Class: Bows
@@ -875,7 +879,7 @@ Fractured Item
 FracturedItemNoModMarked.category = ItemCategory.Bow;
 FracturedItemNoModMarked.rarity = ItemRarity.Rare;
 FracturedItemNoModMarked.quality = 25;
-FracturedItemNoModMarked.weaponPHYSICAL = 381.5;
+FracturedItemNoModMarked.weaponPHYSICAL = 543;
 FracturedItemNoModMarked.weaponAS = 1.15;
 FracturedItemNoModMarked.weaponCRIT = 9.4;
 FracturedItemNoModMarked.itemLevel = 81;
@@ -897,7 +901,7 @@ FracturedItemNoModMarked.augmentSockets = {
   current: 2,
   normal: 2,
 };
-// #endregion
+// #endregion FracturedItemNoModMarked
 
 // #region RequiresOneAttribute
 export const RequiresOneAttribute = new TestItem(`Item Class: Boots
@@ -927,4 +931,246 @@ RequiresOneAttribute.requires = {
 RequiresOneAttribute.info.refName = "Dunerunner Sandals";
 RequiresOneAttribute.sectionCount = 5;
 RequiresOneAttribute.isUnidentified = true;
-// #endregion
+// #endregion RequiresOneAttribute
+
+// #region NewExplicitTypeDefinitions
+export const NewExplicitTypeDefinitions = new TestItem(`Item Class: Amulets
+Rarity: Rare
+Brood Locket
+Gold Amulet
+--------
+Requires: Level 60
+--------
+Item Level: 81
+--------
+Allocates Cooked (enchant)
+--------
+{ Implicit Modifier }
+18(12-20)% increased Rarity of Items found
+--------
+{ Prefix Modifier "Lady's" (Tier: 5) }
++30(30-33) to Spirit
+{ Prefix Modifier "Gentian" (Tier: 6) — Mana }
++90(90-104) to maximum Mana
+{ Prefix Modifier "Incanter's" (Tier: 1) — Damage, Caster }
+29(27-30)% increased Spell Damage
+{ Fractured Suffix Modifier "of the Ice" (Tier: 2) — Elemental, Cold, Resistance }
++37(36-40)% to Cold Resistance
+{ Suffix Modifier "of the Sorcerer" (Tier: 1) — Caster, Gem }
++3 to Level of all Spell Skills
+{ Desecrated Suffix Modifier "of Amanamu" (Tier: 1) — Elemental, Fire, Chaos, Resistance }
++17(13-17)% to Fire and Chaos Resistances
+--------
+Fractured Item
+`);
+
+NewExplicitTypeDefinitions.category = ItemCategory.Amulet;
+NewExplicitTypeDefinitions.rarity = ItemRarity.Rare;
+NewExplicitTypeDefinitions.itemLevel = 81;
+NewExplicitTypeDefinitions.requires = {
+  level: 60,
+  str: 0,
+  dex: 0,
+  int: 0,
+};
+
+NewExplicitTypeDefinitions.info.refName = "Gold Amulet";
+NewExplicitTypeDefinitions.sectionCount = 7;
+NewExplicitTypeDefinitions.isFractured = true;
+NewExplicitTypeDefinitions.prefixCount = 3;
+NewExplicitTypeDefinitions.suffixCount = 3;
+NewExplicitTypeDefinitions.implicitCount = 1;
+NewExplicitTypeDefinitions.enchantCount = 1;
+// #endregion NewExplicitTypeDefinitions
+
+// #region ItemAllTheModifierTypes
+export const ItemAllTheModifierTypes = new TestItem(`Item Class: Crossbows
+Rarity: Rare
+Storm Core
+Gemini Crossbow
+--------
+Quality: +20% (augmented)
+Physical Damage: 74-231 (augmented)
+Lightning Damage: 10-273 (lightning)
+Critical Hit Chance: 5.00%
+Attacks per Second: 1.89 (augmented)
+Reload Time: 0.93 (augmented)
+--------
+Requires: Level 78, 89 Str, 89 Dex
+--------
+Sockets: S S
+--------
+Item Level: 80
+--------
+45% increased Elemental Damage with Attacks (enchant)
+--------
+18% increased Physical Damage (rune)
+Gain 24 Mana per enemy killed (rune)
+--------
+{ Implicit Modifier — Attack }
+Loads an additional bolt
+--------
+Grants Skill: Level 18 Cackling Companions
+--------
+{ Fractured Prefix Modifier "Electrocuting" (Tier: 2) — Damage, Elemental, Lightning, Attack }
+Adds 10(1-16) to 273(239-300) Lightning Damage
+{ Prefix Modifier "Razor-sharp" (Tier: 3) — Damage, Physical, Attack }
+Adds 24(23-35) to 51(39-59) Physical Damage
+{ Prefix Modifier "Overpowering" (Tier: 2) — Damage, Elemental, Attack }
+109(100-119)% increased Elemental Damage with Attacks
+{ Suffix Modifier "of the Drought" (Tier: 1) — Mana, Physical, Attack }
+Leeches 7.59(7-7.9)% of Physical Damage as Mana
+{ Desecrated Suffix Modifier "of Siphoning" (Tier: 3) — Mana }
+Gain 21(21-27) Mana per enemy killed
+{ Suffix Modifier "of Acclaim" (Tier: 1) — Attack, Speed }
+18(17-19)% increased Attack Speed
+--------
+Corrupted
+--------
+Fractured Item
+`);
+
+ItemAllTheModifierTypes.category = ItemCategory.Crossbow;
+ItemAllTheModifierTypes.rarity = ItemRarity.Rare;
+ItemAllTheModifierTypes.quality = 20;
+ItemAllTheModifierTypes.weaponPHYSICAL = 152.5;
+ItemAllTheModifierTypes.weaponLIGHTNING = 141.5;
+ItemAllTheModifierTypes.weaponELEMENTAL =
+  ItemAllTheModifierTypes.weaponLIGHTNING;
+ItemAllTheModifierTypes.weaponCRIT = 5;
+ItemAllTheModifierTypes.weaponAS = 1.89;
+ItemAllTheModifierTypes.weaponRELOAD = 0.93;
+ItemAllTheModifierTypes.itemLevel = 80;
+ItemAllTheModifierTypes.requires = {
+  level: 78,
+  str: 89,
+  dex: 89,
+  int: 0,
+};
+
+ItemAllTheModifierTypes.info.refName = "Gemini Crossbow";
+ItemAllTheModifierTypes.sectionCount = 11;
+ItemAllTheModifierTypes.implicitCount = 1;
+ItemAllTheModifierTypes.enchantCount = 1;
+ItemAllTheModifierTypes.skillCount = 1;
+ItemAllTheModifierTypes.prefixCount = 3;
+ItemAllTheModifierTypes.suffixCount = 3;
+ItemAllTheModifierTypes.augmentSockets = {
+  empty: 0,
+  current: 2,
+  normal: 2,
+};
+ItemAllTheModifierTypes.isCorrupted = true;
+ItemAllTheModifierTypes.isFractured = true;
+
+// #endregion ItemAllTheModifierTypes
+
+// #region SpectreIncSpirit
+export const SpectreIncSpirit = new TestItem(`Item Class: Sceptres
+Rarity: Rare
+Skull Song
+Shrine Sceptre
+--------
+Spirit: 152 (augmented)
+--------
+Requires: Level 72, 39 Str, 98 Int
+--------
+Sockets: S
+--------
+Item Level: 79
+--------
+Grants Skill: Level 17 Purity of Lightning
+--------
+{ Prefix Modifier "Duke's" (Tier: 3) }
+52(51-55)% increased Spirit
+{ Prefix Modifier "Arcing" (Tier: 4) — Damage, Elemental, Lightning, Attack }
+Allies in your Presence deal 2(1-2) to 34(33-40) added Attack Lightning Damage
+{ Prefix Modifier "Opalescent" (Tier: 5) — Mana }
++83(80-89) to maximum Mana
+{ Suffix Modifier "of Excitement" (Tier: 6) — Mana }
+18(10-19)% increased Mana Regeneration Rate
+{ Suffix Modifier "of the Tutor" (Tier: 5) — Life, Minion }
+Minions have 28(26-30)% increased maximum Life
+{ Suffix Modifier "of the Sage" (Tier: 3) — Attribute }
++27(25-27) to Intelligence
+`);
+
+SpectreIncSpirit.category = ItemCategory.Sceptre;
+SpectreIncSpirit.rarity = ItemRarity.Rare;
+SpectreIncSpirit.itemLevel = 79;
+SpectreIncSpirit.weaponSPIRIT = 152;
+SpectreIncSpirit.requires = {
+  level: 72,
+  str: 39,
+  dex: 0,
+  int: 98,
+};
+
+SpectreIncSpirit.info.refName = "Shrine Sceptre";
+SpectreIncSpirit.sectionCount = 7;
+SpectreIncSpirit.prefixCount = 3;
+SpectreIncSpirit.suffixCount = 3;
+SpectreIncSpirit.skillCount = 1;
+SpectreIncSpirit.augmentSockets = {
+  empty: 0,
+  current: 1,
+  normal: 1,
+};
+
+// #endregion SpectreIncSpirit
+
+// #region UnidentifiedBase
+export const UnidentifiedBase = new TestItem(`Item Class: Wands
+Rarity: Rare
+Volatile Wand
+--------
+Requires: 113 Intelligence
+--------
+Item Level: 69
+--------
+Grants Skill: Level 15 Volatile Dead
+--------
+Unidentified
+`);
+
+UnidentifiedBase.category = ItemCategory.Wand;
+UnidentifiedBase.rarity = ItemRarity.Rare;
+UnidentifiedBase.itemLevel = 69;
+UnidentifiedBase.requires = {
+  level: 0,
+  str: 0,
+  dex: 0,
+  int: 113,
+};
+
+UnidentifiedBase.info.refName = "Volatile Wand";
+UnidentifiedBase.sectionCount = 5;
+UnidentifiedBase.skillCount = 1;
+UnidentifiedBase.isUnidentified = true;
+
+// #endregion UnidentifiedBase
+
+// #region UnidentifiedTier
+export const UnidentifiedTier = new TestItem(`Item Class: Rings
+Rarity: Magic
+Sapphire Ring
+--------
+Item Level: 54
+--------
+{ Implicit Modifier — Elemental, Cold, Resistance }
++23(20-30)% to Cold Resistance
+--------
+Unidentified (Tier 4)
+`);
+
+UnidentifiedTier.category = ItemCategory.Ring;
+UnidentifiedTier.rarity = ItemRarity.Magic;
+UnidentifiedTier.itemLevel = 54;
+
+UnidentifiedTier.info.refName = "Volatile Wand";
+UnidentifiedTier.sectionCount = 4;
+UnidentifiedTier.implicitCount = 1;
+UnidentifiedTier.isUnidentified = true;
+UnidentifiedTier.unidentifiedTier = 4;
+
+// #endregion UnidentifiedTier

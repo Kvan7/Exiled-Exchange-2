@@ -63,6 +63,12 @@
             <th v-if="showSeller" class="trade-table-heading w-full">
               <div class="px-2">{{ t(":seller") }}</div>
             </th>
+            <th
+              v-if="showTravel === 'button'"
+              class="trade-table-heading w-full"
+            >
+              <div class="px-2">{{ t(":travel") }}</div>
+            </th>
           </tr>
         </thead>
         <tbody style="overflow: scroll">
@@ -78,6 +84,8 @@
               :show-seller="showSeller"
               :item-level="filters.itemLevel"
               :quality="filters.quality"
+              :showTravel="showTravel"
+              @travel-to-hideout="travelToHideout(result.hideoutToken)"
             />
           </template>
         </tbody>
@@ -170,7 +178,8 @@ export default defineComponent({
       { immediate: true },
     );
 
-    const { error, searchResult, groupedResults, search } = useTradeApi();
+    const { error, searchResult, groupedResults, search, whisper } =
+      useTradeApi();
 
     const showBrowser = inject<(url: string) => void>("builtin-browser")!;
 
@@ -238,9 +247,18 @@ export default defineComponent({
         return undefined;
       }),
       showSeller: computed(() => widget.value.showSeller),
+      showTravel: computed(() => {
+        if (groupedResults.value.some((res) => res.hideoutToken)) {
+          return widget.value.travelButtonEnable;
+        }
+        return "disabled";
+      }),
       makeTradeLink,
       openTradeLink() {
         showBrowser(makeTradeLink());
+      },
+      travelToHideout(token?: string) {
+        whisper(token);
       },
       // Shift key state and methods
       isShiftPressed,

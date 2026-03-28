@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { setupTests } from "@specs/vitest.setup";
-import { loadForLang } from "@/assets/data";
+import { init } from "@/assets/data";
 import { useClientLog } from "@/web/client-log/client-log";
 
 const log = `
@@ -37,7 +37,7 @@ const log = `
 describe("clientLog", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
     vi.clearAllMocks();
   });
 

@@ -6,6 +6,7 @@ MOD_TYPE = Literal[
     "fractured",
     "enchant",
     "rune",
+    "augment",
     "desecrated",
     "sanctum",
     "skill",
@@ -17,6 +18,7 @@ IMPLICIT: MOD_TYPE = "implicit"
 FRACTURED: MOD_TYPE = "fractured"
 ENCHANT: MOD_TYPE = "enchant"
 RUNE: MOD_TYPE = "rune"
+AUGMENT: MOD_TYPE = "augment"
 DESECRATED: MOD_TYPE = "desecrated"
 SANCTUM: MOD_TYPE = "sanctum"
 SKILL: MOD_TYPE = "skill"
@@ -27,7 +29,7 @@ MOD_TYPES: list[MOD_TYPE] = [
     IMPLICIT,
     FRACTURED,
     ENCHANT,
-    RUNE,
+    AUGMENT,
     DESECRATED,
     SANCTUM,
     SKILL,

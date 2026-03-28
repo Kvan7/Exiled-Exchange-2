@@ -148,6 +148,23 @@ export function translateStatWithRoll(
   };
 }
 
+export function modsEqual(a: ParsedModifier, b: ParsedModifier) {
+  return (
+    a.stats.length === b.stats.length &&
+    a.info.name === b.info.name &&
+    a.info.tier === b.info.tier &&
+    a.info.generation === b.info.generation &&
+    a.info.type === b.info.type &&
+    a.stats.every(
+      (statA, i) =>
+        statA.stat.ref === b.stats[i].stat.ref &&
+        statA.roll?.min === b.stats[i].roll?.min &&
+        statA.roll?.max === b.stats[i].roll?.max &&
+        statA.roll?.value === b.stats[i].roll?.value,
+    )
+  );
+}
+
 export enum ModifierType {
   Pseudo = "pseudo",
   Explicit = "explicit",

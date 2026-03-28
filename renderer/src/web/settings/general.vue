@@ -97,26 +97,25 @@
         class="rounded bg-gray-900 px-1 block w-full mb-1 font-poe"
       />
     </div>
-    <ui-checkbox class="mb-4" v-model="readClientLog">{{
+    <ui-checkbox class="mb-1" v-model="readClientLog">{{
       t(":read_client_log")
     }}</ui-checkbox>
-    <div class="italic text-gray-500">
+    <div class="italic text-gray-500 mb-4">
       {{ t(":client_log_explain") }}
     </div>
-    <div class="mb-4" :class="{ 'p-2 bg-orange-800 rounded': enableAlphas }">
+    <div class="mb-4" :class="{ 'p-2 bg-slate-800 rounded': enableAlphas }">
       <ui-checkbox class="mb-4" v-model="enableAlphas">{{
         t(":enable_alphas")
       }}</ui-checkbox>
-      <div v-if="enableAlphas" class="mt-1">No alphas available right now</div>
-      <div v-if="enableAlphas" class="mt-1">
-        {{ t(":alphas_warning") }}
-      </div>
+      <ui-checkbox v-model="libraryAlpha" v-if="enableAlphas">{{
+        t(":alpha_library")
+      }}</ui-checkbox>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, ref, watch } from "vue";
 import { useI18nNs } from "@/web/i18n";
 import UiRadio from "@/web/ui/UiRadio.vue";
 import UiCheckbox from "@/web/ui/UiCheckbox.vue";
@@ -129,6 +128,22 @@ export default defineComponent({
   props: configProp(),
   setup(props) {
     const { t } = useI18nNs("settings");
+    const libraryAlpha = ref(
+      AppConfig().enableAlphas && AppConfig().alphas.includes("library"),
+    );
+    watch(
+      libraryAlpha,
+      (value) => {
+        if (value) {
+          props.config.alphas.push("library");
+        } else {
+          props.config.alphas = props.config.alphas.filter(
+            (alpha) => alpha !== "library",
+          );
+        }
+      },
+      { immediate: true },
+    );
 
     return {
       t,
@@ -203,6 +218,7 @@ export default defineComponent({
       windowTitle: configModelValue(() => props.config, "windowTitle"),
       enableAlphas: configModelValue(() => props.config, "enableAlphas"),
       readClientLog: configModelValue(() => props.config, "readClientLog"),
+      libraryAlpha,
     };
   },
 });

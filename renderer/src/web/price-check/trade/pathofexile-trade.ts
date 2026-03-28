@@ -30,6 +30,7 @@ import {
   usePoeninja,
 } from "@/web/background/Prices";
 import { getCurrencyDetailsId } from "../trends/getDetailsId";
+import { areaLevelByAscendancyPoints } from "../filters/create-item-filters";
 
 export const CATEGORY_TO_TRADE_ID = new Map([
   [ItemCategory.Map, "map"],
@@ -214,6 +215,9 @@ interface TradeRequest {
           map_rare_monsters?: FilterRange;
           map_bonus?: FilterRange;
           map_iir?: FilterRange;
+          ultimatum_hint?: {
+            option?: "Victorious" | "Cowardly" | "Deadly";
+          };
         };
       };
       misc_filters?: {
@@ -294,6 +298,7 @@ interface FetchResult {
     };
     account: Account;
     in_demand?: boolean;
+    hideout_token?: string;
   };
   gone?: boolean;
 }
@@ -330,6 +335,16 @@ export interface PricingResult {
   displayItem: DisplayItem;
   inDemand?: boolean;
   gone?: boolean;
+  hideoutToken?: string;
+}
+
+interface WhisperRequest {
+  token: string;
+  continue?: true;
+}
+
+interface WhisperResult {
+  success: boolean;
 }
 
 export function createTradeRequest(
@@ -482,6 +497,14 @@ export function createTradeRequest(
     );
   }
 
+  if (filters.ultimatumHint && !filters.ultimatumHint.disabled) {
+    propSet(
+      query.filters,
+      "map_filters.filters.ultimatum_hint.option",
+      filters.ultimatumHint.value,
+    );
+  }
+
   // MISC FILTERS
   if (filters.gemLevel && !filters.gemLevel.disabled) {
     propSet(
@@ -507,10 +530,33 @@ export function createTradeRequest(
   }
 
   if (filters.areaLevel && !filters.areaLevel.disabled) {
+    if (filters.awardedAscendancyPoints) {
+      // set max, lower has higher value, so exclude worse(higher area level) items
+      propSet(
+        query.filters,
+        "misc_filters.filters.area_level.max",
+        filters.areaLevel.value,
+      );
+    } else {
+      propSet(
+        query.filters,
+        "misc_filters.filters.area_level.min",
+        filters.areaLevel.value,
+      );
+    }
+  }
+
+  if (
+    filters.awardedAscendancyPoints &&
+    !filters.awardedAscendancyPoints.disabled
+  ) {
     propSet(
       query.filters,
       "misc_filters.filters.area_level.min",
-      filters.areaLevel.value,
+      areaLevelByAscendancyPoints(
+        item.info.refName,
+        filters.awardedAscendancyPoints.value,
+      ),
     );
   }
 
@@ -519,6 +565,14 @@ export function createTradeRequest(
       query.filters,
       "misc_filters.filters.identified.option",
       String(false),
+    );
+  }
+
+  if (filters.unidentifiedTier && !filters.unidentifiedTier.disabled) {
+    propSet(
+      query.filters,
+      "misc_filters.filters.unidentified_tier.min",
+      filters.unidentifiedTier.value,
     );
   }
 
@@ -1175,8 +1229,36 @@ export async function requestResults(
       displayItem,
       inDemand: result.listing.in_demand,
       gone: result.gone,
+      hideoutToken: result.listing.hideout_token,
     };
   });
+}
+
+export async function sendWhisperRequest(body: WhisperRequest) {
+  await RateLimiter.waitMulti(RATE_LIMIT_RULES.WHISPER);
+
+  const response = await Host.proxy(
+    `${getTradeEndpoint()}/api/trade2/whisper`,
+    {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Priority": "u=0",
+        "X-Requested-With": "XMLHttpRequest",
+      },
+      body: JSON.stringify(body),
+    },
+  );
+  adjustRateLimits(RATE_LIMIT_RULES.WHISPER, response.headers);
+
+  const _data = (await response.json()) as TradeResponse<WhisperResult>;
+  if (_data.error) {
+    throw new Error(_data.error.message);
+  }
+  if (!_data.success) {
+    throw new Error("Travel to hideout failed...");
+  }
 }
 
 function getMinMax(roll: StatFilter["roll"]) {

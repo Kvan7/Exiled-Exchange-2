@@ -1,6 +1,6 @@
 import { CLIENT_STRINGS as _$ } from "@/assets/data";
 import { __testExports } from "@/parser/Parser";
-import { beforeEach, describe, expect, it, test } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import { setupTests } from "@specs/vitest.setup";
 import {
   ArmourHighValueRareItem,
@@ -14,15 +14,15 @@ import {
   UniqueItem,
   WandRareItem,
 } from "./items";
-import { loadForLang } from "@/assets/data";
+import { init } from "@/assets/data";
 import { ParsedItem } from "@/parser";
 
 describe("itemTextToSections", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
   });
-  test("empty string should not throw", () => {
+  it("empty string should not throw", () => {
     expect(() => __testExports.itemTextToSections("")).not.toThrow();
   });
 
@@ -35,7 +35,7 @@ describe("itemTextToSections", () => {
     [HighDamageRareItem.rawText, HighDamageRareItem.sectionCount],
     [ArmourHighValueRareItem.rawText, ArmourHighValueRareItem.sectionCount],
     [WandRareItem.rawText, WandRareItem.sectionCount],
-  ])("standard item", (text: string, sectionCount: number) => {
+  ])("%#. standard item", (text: string, sectionCount: number) => {
     const sections = __testExports.itemTextToSections(text);
     expect(sections.length).toBe(sectionCount);
   });
@@ -44,9 +44,9 @@ describe("itemTextToSections", () => {
 describe("parseWeapon", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
   });
-  test("Magic Weapon", () => {
+  it("Magic Weapon", () => {
     const sections = __testExports.itemTextToSections(MagicItem.rawText);
     const parsedItem = {} as ParsedItem;
 
@@ -57,9 +57,9 @@ describe("parseWeapon", () => {
     expect(parsedItem.weaponELEMENTAL).toBe(MagicItem.weaponELEMENTAL);
     expect(parsedItem.weaponAS).toBe(MagicItem.weaponAS);
     expect(parsedItem.weaponCRIT).toBe(MagicItem.weaponCRIT);
-    expect(parsedItem.weaponReload).toBe(MagicItem.weaponReload);
+    expect(parsedItem.weaponRELOAD).toBe(MagicItem.weaponRELOAD);
   });
-  test("Rare Weapon", () => {
+  it("Rare Weapon", () => {
     const sections = __testExports.itemTextToSections(RareItem.rawText);
     const parsedItem = {} as ParsedItem;
 
@@ -70,9 +70,9 @@ describe("parseWeapon", () => {
     expect(parsedItem.weaponELEMENTAL).toBe(RareItem.weaponELEMENTAL);
     expect(parsedItem.weaponAS).toBe(RareItem.weaponAS);
     expect(parsedItem.weaponCRIT).toBe(RareItem.weaponCRIT);
-    expect(parsedItem.weaponReload).toBe(RareItem.weaponReload);
+    expect(parsedItem.weaponRELOAD).toBe(RareItem.weaponRELOAD);
   });
-  test("High Damage Rare Weapon", () => {
+  it("High Damage Rare Weapon", () => {
     const sections = __testExports.itemTextToSections(
       HighDamageRareItem.rawText,
     );
@@ -85,7 +85,7 @@ describe("parseWeapon", () => {
     expect(parsedItem.weaponELEMENTAL).toBe(HighDamageRareItem.weaponELEMENTAL);
     expect(parsedItem.weaponAS).toBe(HighDamageRareItem.weaponAS);
     expect(parsedItem.weaponCRIT).toBe(HighDamageRareItem.weaponCRIT);
-    expect(parsedItem.weaponReload).toBe(HighDamageRareItem.weaponReload);
+    expect(parsedItem.weaponRELOAD).toBe(HighDamageRareItem.weaponRELOAD);
     expect(parsedItem.quality).toBe(HighDamageRareItem.quality);
   });
 });
@@ -93,9 +93,9 @@ describe("parseWeapon", () => {
 describe("parseArmour", () => {
   beforeEach(async () => {
     setupTests();
-    await loadForLang("en");
+    await init("en");
   });
-  test("Normal Armour", () => {
+  it("Normal Armour", () => {
     const sections = __testExports.itemTextToSections(NormalItem.rawText);
     const parsedItem = {} as ParsedItem;
 
@@ -108,7 +108,7 @@ describe("parseArmour", () => {
     expect(parsedItem.quality).toBe(NormalItem.quality);
     expect(parsedItem.armourBLOCK).toBe(NormalItem.armourBLOCK);
   });
-  test("Unique Armour", () => {
+  it("Unique Armour", () => {
     const sections = __testExports.itemTextToSections(UniqueItem.rawText);
     const parsedItem = {} as ParsedItem;
 
@@ -121,7 +121,7 @@ describe("parseArmour", () => {
     expect(parsedItem.quality).toBe(UniqueItem.quality);
     expect(parsedItem.armourBLOCK).toBe(UniqueItem.armourBLOCK);
   });
-  test("High Armour Rare", () => {
+  it("High Armour Rare", () => {
     const sections = __testExports.itemTextToSections(
       ArmourHighValueRareItem.rawText,
     );
@@ -153,7 +153,7 @@ describe("parseRequirements", () => {
     "%s, items parse requirements",
     async (testName: string, item: TestItem) => {
       setupTests();
-      await loadForLang("en");
+      await init("en");
       const sections = __testExports.itemTextToSections(item.rawText);
       const parsedItem = {} as ParsedItem;
 
@@ -211,7 +211,7 @@ describe("parseRequirements", () => {
       expectedResult: ParsedItem["requires"],
     ) => {
       setupTests();
-      await loadForLang(lang);
+      await init(lang);
       const parsedItem = {} as ParsedItem;
 
       const res = __testExports.parseRequirements([str], parsedItem);

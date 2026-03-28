@@ -106,7 +106,7 @@
             </div>
           </div>
           <div v-if="results === false" class="text-center p-8 max-w-xs">
-            <i class="fas fa-search" /> {{ t(":too_many") }}
+            <i class="fas fa-search" /> {{ t(":too_many_") }}
           </div>
           <div v-else-if="!results.length" class="text-center p-8 max-w-xs">
             <i class="fas fa-exclamation-triangle" /> {{ t(":not_found") }}

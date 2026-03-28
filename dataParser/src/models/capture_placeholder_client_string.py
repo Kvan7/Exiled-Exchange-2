@@ -18,7 +18,7 @@ class CapturePlaceholderClientString(ClientString, RegexClientString):
         self,
         my_key: str,
         poe_keys: list[str],
-        format: str | None = None,
+        format: str | list[str] | None = None,
         substring: list[
             tuple[int | Callable[[str], int], int | Callable[[str], int] | None] | None
         ]
@@ -27,6 +27,7 @@ class CapturePlaceholderClientString(ClientString, RegexClientString):
         keep_format_option: bool = False,
         trim: bool = False,
         capture_str: str = "(.*)",
+        override: dict[LANG, str] | None = None,
     ):
         super().__init__(
             my_key,
@@ -36,12 +37,16 @@ class CapturePlaceholderClientString(ClientString, RegexClientString):
             keep_tooltip,
             keep_format_option,
             trim,
+            override,
         )
         self.capture_str = capture_str
 
     @override
     def string(self, poe_key_lookup: Callable[[str], str], lang: LANG) -> str:
         logger.debug(self)
+        if self.override is not None and lang in self.override:
+            return f"  // [Override]\n  {self.my_key}: /^{self.override[lang]}$/,"
+
         out_out = self.value(poe_key_lookup, lang)
         out_string = "\n".join(
             [

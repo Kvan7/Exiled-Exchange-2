@@ -51,4 +51,4 @@ class ClientStringsBuilder:
             CLIENT_STRING_JS_FOOTER.strip(),
         ]
         logger.info("Joined strings")
-        return "\n".join(format)
+        return "\n".join(format) + "\n"

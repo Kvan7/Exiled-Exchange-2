@@ -1,29 +1,29 @@
 {
     "steam": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Path of Exile 2",
     "files": [
-        "Metadata/StatDescriptions/active_skill_gem_stat_descriptions.csd",
-        "Metadata/StatDescriptions/advanced_mod_stat_descriptions.csd",
-        "Metadata/StatDescriptions/atlas_stat_descriptions.csd",
-        "Metadata/StatDescriptions/character_panel_gamepad_stat_descriptions.csd",
-        "Metadata/StatDescriptions/character_panel_stat_descriptions.csd",
-        "Metadata/StatDescriptions/chest_stat_descriptions.csd",
-        "Metadata/StatDescriptions/endgame_map_stat_descriptions.csd",
-        "Metadata/StatDescriptions/expedition_relic_stat_descriptions.csd",
-        "Metadata/StatDescriptions/gem_stat_descriptions.csd",
-        "Metadata/StatDescriptions/heist_equipment_stat_descriptions.csd",
-        "Metadata/StatDescriptions/leaguestone_stat_descriptions.csd",
-        "Metadata/StatDescriptions/map_stat_descriptions.csd",
-        "Metadata/StatDescriptions/meta_gem_stat_descriptions.csd",
-        "Metadata/StatDescriptions/monster_stat_descriptions.csd",
-        "Metadata/StatDescriptions/passive_skill_aura_stat_descriptions.csd",
-        "Metadata/StatDescriptions/passive_skill_stat_descriptions.csd",
-        "Metadata/StatDescriptions/primordial_altar_stat_descriptions.csd",
-        "Metadata/StatDescriptions/sanctum_relic_stat_descriptions.csd",
-        "Metadata/StatDescriptions/sentinel_stat_descriptions.csd",
-        "Metadata/StatDescriptions/skill_stat_descriptions.csd",
-        "Metadata/StatDescriptions/stat_descriptions.csd",
-        "Metadata/StatDescriptions/tablet_stat_descriptions.csd",
-        "Metadata/StatDescriptions/utility_flask_buff_stat_descriptions.csd"
+        "data/StatDescriptions/active_skill_gem_stat_descriptions.csd",
+        "data/StatDescriptions/advanced_mod_stat_descriptions.csd",
+        "data/StatDescriptions/atlas_stat_descriptions.csd",
+        "data/StatDescriptions/character_panel_gamepad_stat_descriptions.csd",
+        "data/StatDescriptions/character_panel_stat_descriptions.csd",
+        "data/StatDescriptions/chest_stat_descriptions.csd",
+        "data/StatDescriptions/endgame_map_stat_descriptions.csd",
+        "data/StatDescriptions/expedition_relic_stat_descriptions.csd",
+        "data/StatDescriptions/gem_stat_descriptions.csd",
+        "data/StatDescriptions/heist_equipment_stat_descriptions.csd",
+        "data/StatDescriptions/leaguestone_stat_descriptions.csd",
+        "data/StatDescriptions/map_stat_descriptions.csd",
+        "data/StatDescriptions/meta_gem_stat_descriptions.csd",
+        "data/StatDescriptions/monster_stat_descriptions.csd",
+        "data/StatDescriptions/passive_skill_aura_stat_descriptions.csd",
+        "data/StatDescriptions/passive_skill_stat_descriptions.csd",
+        "data/StatDescriptions/primordial_altar_stat_descriptions.csd",
+        "data/StatDescriptions/sanctum_relic_stat_descriptions.csd",
+        "data/StatDescriptions/sentinel_stat_descriptions.csd",
+        "data/StatDescriptions/skill_stat_descriptions.csd",
+        "data/StatDescriptions/stat_descriptions.csd",
+        "data/StatDescriptions/tablet_stat_descriptions.csd",
+        "data/StatDescriptions/utility_flask_buff_stat_descriptions.csd"
     ],
     "translations": [
         "English",
@@ -125,7 +125,8 @@
                 "RadiusJewelType",
                 "Level",
                 "GenerationType",
-                "Families"
+                "Families",
+                "ImplicitTags"
             ]
         },
         {
@@ -170,7 +171,6 @@
                 "IsLocal",
                 "IsWeaponLocal",
                 "Semantic",
-                "Text",
                 "IsVirtual",
                 "HASH32",
                 "BelongsActiveSkills",
@@ -187,9 +187,7 @@
         {
             "name": "GoldModPrices",
             "columns": [
-                "Mod",
-                "Tags",
-                "SpawnWeight"
+                "Mod"
             ]
         },
         {
@@ -236,27 +234,37 @@
             ]
         },
         {
-            "name": "SoulCores",
+            "name": "SoulCoreStatCategories",
             "columns": [
-                "BaseItemType",
-                "StatsMartialWeapon",
-                "StatsValuesMartialWeapon",
-                "StatsArmour",
-                "StatsValuesArmour",
-                "RequiredLevel",
-                "StatsCasterWeapon",
-                "StatsValuesCasterWeapon",
-                "StatsAllEquipment",
-                "StatsValuesAllEquipment"
+                "Id",
+                "TargetItemClasses"
             ]
         },
         {
-            "name": "SoulCoresPerClass",
+            "name": "SoulCoreTypes",
             "columns": [
-                "BaseItemType",
-                "ItemClass",
+                "Id",
+                "EffectStat",
+                "Name",
+                "SocketedStat"
+            ]
+        },
+        {
+            "name": "SoulCoreStats",
+            "columns": [
+                "SoulCore",
+                "StatCategory",
                 "Stats",
                 "StatsValues"
+            ]
+        },
+        {
+            "name": "SoulCores",
+            "columns": [
+                "BaseItemType",
+                "RequiredLevel",
+                "Limit",
+                "Type"
             ]
         }
     ]

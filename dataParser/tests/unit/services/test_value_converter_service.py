@@ -280,40 +280,40 @@ def test_historic_agg_integration():
             },
             {
                 "hash": TIME_LOST_HISTORIC_JEWEL,
-                "ref": "Glorifying the defilement of # souls in tribute to Amanamu\nPassives in radius are Conquered by the Abyssals",
-                "text": "Glorifying the defilement of # souls in tribute to Amanamu\nPassives in radius are Conquered by the Abyssals",
+                "ref": "Glorifying the defilement of # souls in tribute to Amanamu\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
+                "text": "Glorifying the defilement of # souls in tribute to Amanamu\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
                 "value": 24,
                 "type": "mod",
                 "id": "explicit.stat_3418580811",
             },
             {
                 "hash": TIME_LOST_HISTORIC_JEWEL,
-                "ref": "Glorifying the defilement of # souls in tribute to Kulemak\nPassives in radius are Conquered by the Abyssals",
-                "text": "Glorifying the defilement of # souls in tribute to Kulemak\nPassives in radius are Conquered by the Abyssals",
+                "ref": "Glorifying the defilement of # souls in tribute to Kulemak\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
+                "text": "Glorifying the defilement of # souls in tribute to Kulemak\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
                 "value": 25,
                 "type": "mod",
                 "id": "explicit.stat_3418580811",
             },
             {
                 "hash": TIME_LOST_HISTORIC_JEWEL,
-                "ref": "Glorifying the defilement of # souls in tribute to Kurgal\nPassives in radius are Conquered by the Abyssals",
-                "text": "Glorifying the defilement of # souls in tribute to Kurgal\nPassives in radius are Conquered by the Abyssals",
+                "ref": "Glorifying the defilement of # souls in tribute to Kurgal\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
+                "text": "Glorifying the defilement of # souls in tribute to Kurgal\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
                 "value": 26,
                 "type": "mod",
                 "id": "explicit.stat_3418580811",
             },
             {
                 "hash": TIME_LOST_HISTORIC_JEWEL,
-                "ref": "Glorifying the defilement of # souls in tribute to Tecrod\nPassives in radius are Conquered by the Abyssals",
-                "text": "Glorifying the defilement of # souls in tribute to Tecrod\nPassives in radius are Conquered by the Abyssals",
+                "ref": "Glorifying the defilement of # souls in tribute to Tecrod\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
+                "text": "Glorifying the defilement of # souls in tribute to Tecrod\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
                 "value": 27,
                 "type": "mod",
                 "id": "explicit.stat_3418580811",
             },
             {
                 "hash": TIME_LOST_HISTORIC_JEWEL,
-                "ref": "Glorifying the defilement of # souls in tribute to Ulaman\nPassives in radius are Conquered by the Abyssals",
-                "text": "Glorifying the defilement of # souls in tribute to Ulaman\nPassives in radius are Conquered by the Abyssals",
+                "ref": "Glorifying the defilement of # souls in tribute to Ulaman\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
+                "text": "Glorifying the defilement of # souls in tribute to Ulaman\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
                 "value": 28,
                 "type": "mod",
                 "id": "explicit.stat_3418580811",
@@ -369,8 +369,8 @@ def test_historic_agg_integration():
                 "better": 0,
                 "matchers": [
                     {
-                        "string": "Glorifying the defilement of # souls in tribute to Amanamu\nPassives in radius are Conquered by the Abyssals",
-                        "advanced": "Glorifying the defilement of # souls in tribute to Amanamu(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals",
+                        "string": "Glorifying the defilement of # souls in tribute to Amanamu\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
+                        "advanced": "Glorifying the defilement of # souls in tribute to Amanamu(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
                     }
                 ],
                 "trade": {"ids": {"explicit": ["explicit.stat_3418580811|24"]}},
@@ -382,8 +382,8 @@ def test_historic_agg_integration():
                 "better": 0,
                 "matchers": [
                     {
-                        "string": "Glorifying the defilement of # souls in tribute to Kulemak\nPassives in radius are Conquered by the Abyssals",
-                        "advanced": "Glorifying the defilement of # souls in tribute to Kulemak(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals",
+                        "string": "Glorifying the defilement of # souls in tribute to Kulemak\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
+                        "advanced": "Glorifying the defilement of # souls in tribute to Kulemak(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
                     }
                 ],
                 "trade": {"ids": {"explicit": ["explicit.stat_3418580811|25"]}},
@@ -395,8 +395,8 @@ def test_historic_agg_integration():
                 "better": 0,
                 "matchers": [
                     {
-                        "string": "Glorifying the defilement of # souls in tribute to Kurgal\nPassives in radius are Conquered by the Abyssals",
-                        "advanced": "Glorifying the defilement of # souls in tribute to Kurgal(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals",
+                        "string": "Glorifying the defilement of # souls in tribute to Kurgal\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
+                        "advanced": "Glorifying the defilement of # souls in tribute to Kurgal(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
                     }
                 ],
                 "trade": {"ids": {"explicit": ["explicit.stat_3418580811|26"]}},
@@ -408,8 +408,8 @@ def test_historic_agg_integration():
                 "better": 0,
                 "matchers": [
                     {
-                        "string": "Glorifying the defilement of # souls in tribute to Tecrod\nPassives in radius are Conquered by the Abyssals",
-                        "advanced": "Glorifying the defilement of # souls in tribute to Tecrod(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals",
+                        "string": "Glorifying the defilement of # souls in tribute to Tecrod\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
+                        "advanced": "Glorifying the defilement of # souls in tribute to Tecrod(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
                     }
                 ],
                 "trade": {"ids": {"explicit": ["explicit.stat_3418580811|27"]}},
@@ -421,8 +421,8 @@ def test_historic_agg_integration():
                 "better": 0,
                 "matchers": [
                     {
-                        "string": "Glorifying the defilement of # souls in tribute to Ulaman\nPassives in radius are Conquered by the Abyssals",
-                        "advanced": "Glorifying the defilement of # souls in tribute to Ulaman(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals",
+                        "string": "Glorifying the defilement of # souls in tribute to Ulaman\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
+                        "advanced": "Glorifying the defilement of # souls in tribute to Ulaman(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable",
                     }
                 ],
                 "trade": {"ids": {"explicit": ["explicit.stat_3418580811|28"]}},
