@@ -623,7 +623,7 @@ function upgradeConfig(_config: Config): Config {
   }
 
   if (config.configVersion < 30) {
-    // NOTE: v0.13.11 || poe0.4.0d
+    // NOTE: v0.14.0 || poe0.4.0d
     const itemSearchId: number = config.widgets.find(
       (w) => w.wmType === "item-search",
     )!.wmId;
@@ -632,6 +632,11 @@ function upgradeConfig(_config: Config): Config {
       ...defaultConfig().widgets.find((w) => w.wmType === "library")!,
       wmId: Math.max(0, ...config.widgets.map((_) => _.wmId)) + 1,
     });
+
+    const priceCheck = config.widgets.find(
+      (w) => w.wmType === "price-check",
+    ) as widget.PriceCheckWidget;
+    priceCheck.travelButtonEnable = "disabled";
 
     config.configVersion = 30;
   }

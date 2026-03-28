@@ -231,6 +231,7 @@ export default defineComponent({
         openItemEditorAbove: false,
         coreCurrency: "exalted",
         currencyVolume: "both",
+        travelButtonEnable: "disabled",
       };
     },
   } satisfies WidgetSpec,
