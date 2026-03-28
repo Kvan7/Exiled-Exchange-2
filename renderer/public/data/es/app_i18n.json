@@ -1,5 +1,5 @@
 {
-  "please_wait": "Por favor, espera\u2026",
+  "please_wait": "Por favor, espera…",
   "choose_file": "Seleccionar archivo",
   "app_is_ready": "Listo y funcionando en segundo plano",
   "reopen_settings": "Presiona {0} para continuar editando.",
@@ -8,11 +8,11 @@
   "realm": "Reino",
   "realm_intl": "Internacional",
   "app": {
-    "leagues_loading": "Cargando ligas\u2026",
+    "leagues_loading": "Cargando ligas…",
     "leagues_failed": "Error al cargar ligas",
     "leagues_failed_help": "Asegúrate de que el reino no esté en mantenimiento. También haz clic en el botón \"Navegador\", es posible que debas resolver un CAPTCHA.",
     "leagues_failed_help_alt": "Realiza una comprobación de precios y sigue las instrucciones en la descripción del error.",
-    "thanks_3rd_party": "Esta herramienta se basa en {0} y {1}. Por favor, apóyalos también.",
+    "thanks_3rd_party": "Esta herramienta se basa en {0} y {1}. Por favor, apóyalos también",
     "toggle_browser_hint": "Presiona {0} para alternar entre el navegador y el juego.",
     "contact_me": "Contáctame en uno de los Discords de PoE,",
     "version": "Versión {0}",
@@ -22,7 +22,7 @@
   },
   "map.mods.uber": "T17",
   "map.mods.outdated": "desactualizado",
-  "Support development on": "Apoya el desarrollo\u00A0en",
+  "Support development on": "Apoya el desarrollo en",
   "Blighted": "Infestado",
   "Blight-ravaged": "Devastado por la plaga",
   "Magic": "Mágico",
@@ -227,7 +227,7 @@
     "latest": "Tienes la última versión",
     "error": "Error al comprobar actualizaciones",
     "checking": "Comprobando actualizaciones",
-    "downloading": "Descargando\u2026",
+    "downloading": "Descargando…",
     "available": "Actualización disponible: {0}",
     "never_checked": "Última comprobación: nunca",
     "last_checked": "Última comprobación: {0}",
@@ -239,7 +239,7 @@
     "download_disabled": "Has desactivado la descarga automática de actualizaciones"
   },
   "widget_menu": {
-    "add": "agregar widget\u2026",
+    "add": "agregar widget…",
     "always_show": "Mostrar botón para widgets activos",
     "price_check": "Comprobación de precios (Ctrl + V)"
   },
@@ -260,7 +260,7 @@
   },
   "item_search": {
     "name": "Búsqueda de objetos",
-    "input": "Buscar por nombre\u2026",
+    "input": "Buscar por nombre…",
     "reset": "Reiniciar objetos",
     "heist_target": "Objetivo de robo:",
     "target_gem": "Gema de habilidad",
@@ -295,7 +295,7 @@
     "base_item": "Objeto base",
     "graph_7d": "Últimos 7 días",
     "getting_price": "Obteniendo precio {0}",
-    "getting_price_from": "de poe.ninja \u2026",
+    "getting_price_from": "de poe.ninja …",
     "you_have": "Tienes",
     "stack": "Pila",
     "results_warn_tooltip": "Habilitar solo Exaltados en el Filtro en línea. Puedes desactivar esta alerta en configuración.",
