@@ -22,38 +22,38 @@ export let AUGMENT_DATA_BY_TRADE_ID: AugmentDataByTradeId;
 export let AUGMENT_LIST: BaseType[];
 export const HIGH_VALUE_AUGMENTS_HARDCODED = new Set<string>([]);
 
-export let ITEM_BY_TRANSLATED = (
+export let ITEM_BY_TRANSLATED: (
   ns: BaseType["namespace"],
   name: string,
-): BaseType[] | undefined => undefined;
-export let ITEM_BY_REF = (
+) => BaseType[] | undefined = () => undefined;
+export let ITEM_BY_REF: (
   ns: BaseType["namespace"],
   name: string,
-): BaseType[] | undefined => undefined;
-export let ITEMS_ITERATOR = function* (
+) => BaseType[] | undefined = () => undefined;
+export let ITEMS_ITERATOR: (
   includes: string,
   andIncludes?: string[],
-): Generator<BaseType> {};
+) => Generator<BaseType> = function* () {};
 
-export let ALTQ_GEM_NAMES = function* (): Generator<string> {};
-export let REPLICA_UNIQUE_NAMES = function* (): Generator<string> {};
+export let ALTQ_GEM_NAMES: () => Generator<string> = function* () {};
+export let REPLICA_UNIQUE_NAMES: () => Generator<string> = function* () {};
 
 export let TRADE_TAG_TO_REF = new Map<string, string>();
 
-export let STAT_BY_MATCH_STR = (
+export let STAT_BY_MATCH_STR: (
   name: string,
-): { matcher: StatMatcher; stat: Stat } | undefined => undefined;
-export let STAT_BY_REF = (name: string): Stat | undefined => undefined;
-export let STATS_ITERATOR = function* (
+) => { matcher: StatMatcher; stat: Stat } | undefined = () => undefined;
+export let STAT_BY_REF: (name: string) => Stat | undefined = () => undefined;
+export let STATS_ITERATOR: (
   includes: string,
   andIncludes?: string[],
-): Generator<Stat> {};
+) => Generator<Stat> = function* () {};
 
 let localAugmentFilter: (
   value: BaseType,
   index: number,
   array: BaseType[],
-) => unknown = (value: BaseType, index: number, array: BaseType[]) => true;
+) => unknown | undefined = () => undefined;
 
 function dataBinarySearch(
   data: Uint32Array,
@@ -117,7 +117,7 @@ function itemNamesFromLines(items: Generator<BaseType>) {
   };
 }
 
-async function loadItems(language: string, isTest = false) {
+async function loadItems(language: string) {
   const ndjson = await (
     await fetch(`${import.meta.env.BASE_URL}data/${language}/items.ndjson`)
   ).text();
@@ -182,7 +182,7 @@ async function loadItems(language: string, isTest = false) {
   }
 }
 
-async function loadStats(language: string, isTest = false) {
+async function loadStats(language: string) {
   const ndjson = await (
     await fetch(`${import.meta.env.BASE_URL}data/${language}/stats.ndjson`)
   ).text();
@@ -247,7 +247,7 @@ export function stat(text: string) {
   return text;
 }
 
-export async function init(lang: string, isTest = false) {
+export async function init(lang: string) {
   CLIENT_STRINGS_REF = await loadClientStrings("en");
   ITEM_DROP = await (
     await fetch(`${import.meta.env.BASE_URL}data/item-drop.json`)
@@ -256,7 +256,7 @@ export async function init(lang: string, isTest = false) {
     await fetch(`${import.meta.env.BASE_URL}data/patrons.json`)
   ).json();
 
-  await loadForLang(lang, isTest);
+  await loadForLang(lang);
 
   let failed = false;
   const missing = [];
@@ -285,7 +285,7 @@ export function setLocalAugmentFilter(
   localAugmentFilter = filter;
 }
 
-export async function loadForLang(lang: string, isTest = false) {
+export async function loadForLang(lang: string) {
   CLIENT_STRINGS = await loadClientStrings(lang);
   await loadItems(lang);
   await loadStats(lang);

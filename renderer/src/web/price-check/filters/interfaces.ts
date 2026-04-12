@@ -153,7 +153,7 @@ export interface StatFilter {
   editorAdded?: BaseType;
 }
 
-export const INTERNAL_TRADE_IDS = [
+export const _INTERNAL_TRADE_IDS = [
   "item.base_percentile",
   "item.armour",
   "item.evasion_rating",
@@ -182,6 +182,7 @@ export const INTERNAL_TRADE_IDS = [
 ] as const;
 
 export type InternalTradeId = (typeof INTERNAL_TRADE_IDS)[number];
+export const INTERNAL_TRADE_IDS = _INTERNAL_TRADE_IDS as readonly string[];
 
 export enum ItemHasEmptyModifier {
   Any = 0,

@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { CLIENT_STRINGS as _$ } from "@/assets/data";
 import { createGlobalState } from "@vueuse/core";
 import { readonly, shallowRef } from "vue";

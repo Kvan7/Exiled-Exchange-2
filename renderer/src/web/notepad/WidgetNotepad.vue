@@ -83,7 +83,7 @@ export default defineComponent({
     const wm = inject<WidgetManager>("wm")!;
 
     if (props.config.wmFlags[0] === "uninitialized") {
-      const config = props.config as any;
+      const config = props.config;
       config.anchor = {
         pos: "tl",
         x: Math.random() * (5 - 1) + 1,

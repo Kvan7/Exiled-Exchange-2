@@ -229,6 +229,7 @@ export const defaultConfig = (): Config => ({
 });
 
 function upgradeConfig(_config: Config): Config {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const config = _config as Omit<Config, "widgets"> & {
     widgets: Array<Record<string, any>>;
   };
@@ -640,6 +641,7 @@ function upgradeConfig(_config: Config): Config {
 
     config.configVersion = 30;
   }
+  /* eslint-enable */
 
   return config as unknown as Config;
 }

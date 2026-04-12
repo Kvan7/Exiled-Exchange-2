@@ -331,7 +331,10 @@ export default defineComponent({
       checkPosition.value = e.position;
       advancedCheck.value = e.focusOverlay;
       performance.mark("price-check-start-handling-item");
-      item.value = handleItemPaste({ clipboard: e.clipboard, item: e.item });
+      item.value = handleItemPaste({
+        clipboard: e.clipboard,
+        item: e.item as ParsedItem,
+      });
 
       if (item.value.isOk()) {
         queuePricesFetch();
@@ -339,10 +342,8 @@ export default defineComponent({
       performance.mark("price-check-event-end");
     });
 
-    function handleItemPaste(e: { clipboard: string; item: any }) {
-      const newItem = (
-        e.item ? ok(e.item as ParsedItem) : parseClipboard(e.clipboard)
-      )
+    function handleItemPaste(e: { clipboard: string; item: ParsedItem }) {
+      const newItem = (e.item ? ok(e.item) : parseClipboard(e.clipboard))
         .andThen((item) =>
           (item.category === ItemCategory.HeistContract &&
             item.rarity !== ItemRarity.Unique) ||

@@ -78,7 +78,6 @@ export function getDetailsId(item: ParsedItem) {
 }
 
 function forSkillGem(item: ParsedItem) {
-  // eslint-disable-next-line prefer-const
   let variant;
   // if (
   //   SPECIAL_SUPPORT_GEM.includes(item.info.refName) ||

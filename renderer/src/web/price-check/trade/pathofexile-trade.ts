@@ -136,7 +136,6 @@ interface FilterRange {
 }
 
 interface TradeRequest {
-  /* eslint-disable camelcase */
   query: {
     status: { option: "available" | "securable" | "online" | "any" };
     name?: string | { discriminator: string; option: string };
@@ -942,9 +941,7 @@ export function createTradeRequest(
     }
   }
 
-  stats = stats.filter(
-    (stat) => !INTERNAL_TRADE_IDS.includes(stat.tradeId[0] as any),
-  );
+  stats = stats.filter((stat) => !INTERNAL_TRADE_IDS.includes(stat.tradeId[0]));
 
   // if (filters.influences) {
   //   for (const influence of filters.influences) {
@@ -1132,7 +1129,7 @@ export async function requestResults(
     });
     const extended = result.item.extended
       ? Object.entries(result.item.extended)
-          .filter(([key, value]) => value !== undefined) // Include only keys with defined values
+          .filter(([value]) => value !== undefined) // Include only keys with defined values
           .filter(([key]) =>
             ["ar", "ev", "es", "dps", "pdps", "edps"].includes(key),
           ) // Exclude mods

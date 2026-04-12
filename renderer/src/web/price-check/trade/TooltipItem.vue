@@ -51,7 +51,7 @@ export default defineComponent({
         content: props.result.corrupted ? ["Corrupted"] : [],
       },
     ];
-    function isNonEmptyObject(obj: Record<string, any>): boolean {
+    function isNonEmptyObject(obj: Record<string, string | number>): boolean {
       return Object.values(obj).some((value) => value !== undefined);
     }
 
@@ -61,6 +61,10 @@ export default defineComponent({
         sections[currentIndex].content.length > 0 &&
         sections.slice(currentIndex + 1).some((section) => {
           const { content } = section;
+          if (!content) {
+            return false;
+          }
+
           // Check if the content is an array or object
           if (Array.isArray(content)) {
             return content.length > 0; // Non-empty array

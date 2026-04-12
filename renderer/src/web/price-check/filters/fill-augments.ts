@@ -23,6 +23,7 @@ export function handleApplyItemEdits(
   currencyItem: string,
   editType?: ItemEditorType,
 ) {
+  if (editType && editType !== ItemEditorType.Augment) return;
   if (filterStorage.length !== 0) return;
   // Testing with just one stat
   const newFilters = createNewStatFilter(item, currencyItem);

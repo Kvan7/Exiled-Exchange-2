@@ -168,6 +168,7 @@ export function diffItem(curr: ParsedItem, prev: ParsedItem | null) {
 }
 
 function modToShortMod(mod: ParsedModifier, opts: ColumnOpts): ShortMod {
+  if (!opts) throw new Error("ColumnOpts is null");
   let type: ShortMod["type"];
   if (
     mod.info.generation &&

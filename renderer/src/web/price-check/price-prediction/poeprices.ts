@@ -7,7 +7,7 @@ import { usePoeninja } from "@/web/background/Prices";
 const cache = new Cache();
 
 interface PoepricesApiResponse {
-  /* eslint-disable camelcase */ currency: "chaos" | "divine" | "exalt";
+  currency: "chaos" | "divine" | "exalt";
   error: number;
   error_msg: string;
   warning_msg: string;
@@ -33,7 +33,7 @@ export async function requestPoeprices(
 ): Promise<RareItemPrice> {
   const query = querystring({
     i: utf8ToBase64(transformItemText(item.rawText)),
-    l: useLeagues().selectedId.value,
+    l: useLeagues().selectedId.value!,
     s: "awakened-poe-trade", // might be required name here
   });
 
@@ -42,7 +42,7 @@ export async function requestPoeprices(
     const response = await Host.proxy(`www.poeprices.info/api?${query}`);
     try {
       data = (await response.json()) as PoepricesApiResponse;
-    } catch (e) {
+    } catch {
       throw new Error(
         `${response.status}, poeprices.info API is under load or down.`,
       );
@@ -92,7 +92,7 @@ export async function requestPoeprices(
 export function getExternalLink(item: ParsedItem): string {
   const query = querystring({
     i: utf8ToBase64(transformItemText(item.rawText)),
-    l: useLeagues().selectedId.value,
+    l: useLeagues().selectedId.value!,
     s: "awakened-poe-trade",
     w: 1,
   });
@@ -120,7 +120,7 @@ export async function sendFeedback(
     body,
   });
   console.log(response);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   // const text = await response.text();
   // console.assert(text === `"${feedback.option}"`)
 }
@@ -129,7 +129,7 @@ function utf8ToBase64(value: string) {
   return btoa(unescape(encodeURIComponent(value)));
 }
 
-function querystring(q: Record<string, any>) {
+function querystring(q: Record<string, string | number>) {
   return Object.entries(q)
     .map((pair) => pair.map(encodeURIComponent).join("="))
     .join("&");

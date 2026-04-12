@@ -567,12 +567,15 @@ function removeUsedStats(ctx: FiltersCreationContext, stats: Set<string>) {
 }
 
 function isSingleAttrArmour(item: ParsedItem) {
-  return true;
-  // return (
-  //   [item.armourAR, item.armourEV, item.armourES].filter(
-  //     (value) => value != null,
-  //   ).length === 1
-  // );
+  return (
+    [item.armourAR, item.armourEV, item.armourES].filter(
+      (value) => value != null,
+    ).length === 1 ||
+    // TODO: figure out if people are actually using hybrid in 2
+    // originally this method was for 1 where people don't touch hybrid,
+    // or when they do they only care about one type
+    true
+  );
 }
 
 function isPdpsImportant(item: ParsedItem) {

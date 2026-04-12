@@ -1769,6 +1769,7 @@ export function isArmourOrWeaponOrCaster(
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function augmentCount(mod: ParsedModifier, statCalc: StatCalculated): number {
   if (mod.info.type !== ModifierType.Augment) return 0;
   // HACK: fix since I can't detect how many exist due to augment tiers
