@@ -121,7 +121,7 @@ export default {
   ITEM_SUPERIOR: /^(.*) supérieur$/,
   ITEM_EXCEPTIONAL: /^Exceptionnel (.*)$/,
   MAP_BLIGHTED: /^(.*) infestée$/,
-  MAP_BLIGHT_RAVAGED: /^(.*) ravagée par l\'Infestation$/,
+  MAP_BLIGHT_RAVAGED: /^(.*) ravagée par l'Infestation$/,
   ITEM_SYNTHESISED: /^(.*) synthétisé$/,
   FLASK_CHARGES: /^Contient actuellement \d+ charges$/,
   // [Manual]
@@ -140,7 +140,7 @@ export default {
   MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+"(?<name>[^"]*)")?(?:\s*\(Palier : (?<tier>\d+)\))?(?:\s*\(Rang : (?<rank>\d+)\))?$/,
   MODIFIER_INCREASED: /^Augmentation : (.*)%$/,
   EATER_IMPLICIT: /^Implicite du Mangeur de mondes \((?<rank>.+)\)$/,
-  EXARCH_IMPLICIT: /^Implicite de l\'Exarque ardent \((?<rank>.+)\)$/,
+  EXARCH_IMPLICIT: /^Implicite de l'Exarque ardent \((?<rank>.+)\)$/,
   // [Manual]
   CHAT_SYSTEM: /^: (?<body>.+)$/,
   // [Manual]
