@@ -432,8 +432,7 @@
     "tip_26": "O círculo vermelho próximo ao preço de um item indica que o jogador está Offline",
     "tip_27": "Os Logs são mostrados na aba de \"Depuração\" nas opções",
     "tip_28": "Você pode trocar a liga nas opções",
-    "tip_29": "Você pode adicionar teclas de atalhos com comandos customizados para o chat nas opções",
-    "tip_30": "Nós não falamos sobre o Exiled Exchange 1"
+    "tip_29": "Você pode adicionar teclas de atalhos com comandos customizados para o chat nas opções"
   },
   "leveling": {
     "enable_read_client_logs": "Os widgets de Leveling exigem a leitura dos logs do client",
