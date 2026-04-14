@@ -194,7 +194,9 @@
     "no_mods": "L'objet n'a aucun modificateur.",
     "search_selected": "Seulement sélectionné",
     "search_stat_col": "Stat (trouvée : {0})",
-    "new_mods_icon": "Afficher l'icône pour les nouveaux mods"
+    "new_mods_icon": "Afficher l'icône pour les nouveaux mods",
+    "name": "Vérification de carte",
+    "profile": "Profil"
   },
   "trade_result": {
     "error": "La requête au site d'échange a échoué",
@@ -246,7 +248,33 @@
     "chat": "Chat",
     "general": "Général",
     "debug": "Débug",
-    "about": "A propos"
+    "about": "A propos",
+    "font_size": "Taille de police",
+    "overlay_bg": "Arrière-plan lorsque l'overlay est cliquable",
+    "overlay_bg_none": "Transparente",
+    "overlay_bg_focus_game": "Cliquer sur l'arrière-plan redonne le focus au jeu",
+    "overlay_always_close": "Toujours fermer complètement l'overlay au lieu de le masquer",
+    "poe_log_file": "Fichier de log PoE",
+    "poe_cfg_file": "Fichier de configuration PoE",
+    "restore_clipboard": "Restaurer le presse-papiers",
+    "show_overlay_ready": "Afficher une notification lorsque l'overlay détecte une fenêtre PoE",
+    "debug_hotkeys": "Enregistrer toutes les pressions de touches",
+    "preferred_trade_site": "Site d'échange préféré",
+    "enable_alphas": "Activer les fonctionnalités expérimentales",
+    "alpha_library": "Collecte de données d'objets",
+    "help": "Aide",
+    "show_tips_on_startup": "Afficher des astuces dans la notification de démarrage",
+    "show_tips_frequency": "À quelle fréquence afficher des astuces lors de la vérification des prix",
+    "tip_frequency_2": "Souvent",
+    "tip_frequency_1": "Toujours",
+    "tip_frequency_4": "Rarement",
+    "tip_frequency_3": "Normal",
+    "tip_frequency_5": "Très rarement",
+    "tip_frequency_6": "Jamais",
+    "tips_header": "Parcourir toutes les astuces :",
+    "tip_number_header": "Astuce n°{0}",
+    "read_client_log": "Autoriser la lecture du fichier Client.txt",
+    "client_log_explain": "Le fichier de journal Client.txt contient des informations de débogage et des journaux de discussion. Il est utilisé pour détecter les changements de zone et les montées de niveau des joueurs."
   },
   "map.mods.heist": "Casse",
   "Divergent": "Divergent",
@@ -275,7 +303,29 @@
     "preset_base_item": "Objet de base",
     "hide_const_roll": "Le jet n'est pas variable",
     "selected_some": "{0} sur {1}, stats",
-    "selected_full_runes": "Runes complètes"
+    "selected_full_runes": "Runes complètes",
+    "hide_ele_dps": "Les dégâts élémentaires ne sont pas la principale source de DPS",
+    "hide_ele_res": "Filtrer par une résistance élémentaire exacte augmente déraisonnablement le prix",
+    "hide_empty_mod": "Sélectionner uniquement si l'objet a 6 modificateurs (dont 1 fabriqué) ou s'il en a 5 modificateurs",
+    "hide_for_crafting": "Sélectionner uniquement si vous vérifiez le prix en tant qu'objet de base pour l'artisanat",
+    "hide_for_map": "La plupart des modificateurs de carte n'ont aucune valeur",
+    "hide_low_ilvl": "L'objet a un niveau d'objet trop bas pour lancer tous les mods",
+    "hide_not_max_level": "Les compétences accordées de niveau non maximal ajoutent rarement de la valeur",
+    "hide_phys_dps": "Les dégâts physiques ne sont pas la principale source de DPS",
+    "hide_revives": "Sélectionner uniquement si ce n'est pas 0 et que vous ne souhaitez pas l'exalter ?",
+    "hybrid_note": "Le palier peut être incorrect en raison de la possibilité d'un mod hybride",
+    "mods_toggle": "Mods",
+    "grade": "Grade {0}",
+    "fill_rune_iron": "Remplir les runes (Fer)",
+    "hide_anointment": "L'acheteur changera probablement l'instillation",
+    "hide_crafted_chaos": "La résistance au chaos fabriquée sans mod explicite n'a aucune valeur",
+    "selected_none": "Statistiques ignorées",
+    "tag_implicit": "Implicite",
+    "tag_fractured": "Fracturé",
+    "tag_crafted": "Fabriqué",
+    "tag_scourge": "Fléau",
+    "tag_enchant": "Enchanter",
+    "tag_variant": "Variante"
   },
   "Redeemer": "Rédempteur",
   "poe2_new": {
@@ -292,5 +342,15 @@
   },
   "image_strip": {
     "name": "Bande d'images"
+  },
+  "price_check": {
+    "name": "Estimation de prix",
+    "hotkey": "Mode masquage automatique",
+    "hotkey_locked": "Ouvrir sans masquage automatique",
+    "enable_browser": "Activer le navigateur intégré",
+    "use_pseudo": "Utiliser des mods pseudo (désactiver en cas de problèmes d'authentification)",
+    "builtin_browser_warning": "Je suis conscient que les versions futures peuvent potentiellement contenir du code malveillant susceptible de voler mon POESESSID.",
+    "highlight_hint": "Vos objets seront mis en surbrillance même si ce paramètre est désactivé",
+    "show_seller": "Afficher le vendeur"
   }
 }
