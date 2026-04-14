@@ -12,7 +12,7 @@
     "leagues_failed": "Échec du chargement des ligues",
     "leagues_failed_help": "Assurez-vous que le serveur n'est pas en maintenance. Essayez également de cliquer sur le bouton \"Navigateur\" ; vous devrez peut‑être y compléter un CAPTCHA.",
     "leagues_failed_help_alt": "Vérifiez le prix d'un objet et suivez les instructions dans la description de l'erreur.",
-    "thanks_3rd_party": "Cet outil repose sur {0} et {1}, envisagez également de les soutenir.",
+    "thanks_3rd_party": "Cet outil repose sur {0} et {1}, envisagez également de les soutenir",
     "toggle_browser_hint": "Appuyez sur {0} pour basculer entre le navigateur et le jeu.",
     "contact_me": "Contactez‑moi sur l'un des Discords de PoE,",
     "version": "Version {0}",
