@@ -219,7 +219,7 @@
     "preset_pseudo": "Pseudo",
     "hide_low_ilvl": "Gegenstand hat eine zu niedrige Gegenstandsstufe, um alle Mods zu rollen",
     "hide_not_max_level": "Fertigkeiten, die nicht auf maximaler Stufe gewährt werden, haben selten einen Wert",
-    "hide_revives": "Nur auswählen, wenn nicht 0 und du es nicht erhöhen möchtest",
+    "hide_revives": "Nur auswählen, wenn nicht 0 und du es nicht erhöhen möchtest ?",
     "tag_pseudo": "Pseudo",
     "tag_explicit_incursion": "Inkursion",
     "tag_sanctum": "Heiligtum",
