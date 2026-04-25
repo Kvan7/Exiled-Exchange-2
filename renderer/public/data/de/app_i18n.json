@@ -383,8 +383,7 @@
     "overlay_bg_none": "Transparent",
     "enable_alphas": "Experimentelle Funktionen aktivieren",
     "alpha_library": "Gegenstandsdatenerfassung",
-    "read_client_log": "Lesen der Client.txt-Datei erlauben",
-    "client_log_explain": "–"
+    "read_client_log": "Lesen der Client.txt-Datei erlauben"
   },
   "price_check": {
     "name": "Preisprüfung",
