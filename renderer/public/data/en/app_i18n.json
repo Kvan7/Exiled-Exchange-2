@@ -1,5 +1,5 @@
 {
-  "please_wait": "Please wait\u2026",
+  "please_wait": "Please wait…",
   "choose_file": "Choose File",
   "app_is_ready": "Is ready and running in background",
   "reopen_settings": "Press {0} to continue editing.",
@@ -8,7 +8,7 @@
   "realm": "Realm",
   "realm_intl": "International",
   "app": {
-    "leagues_loading": "Loading leagues\u2026",
+    "leagues_loading": "Loading leagues…",
     "leagues_failed": "Failed to load leagues",
     "leagues_failed_help": "Make sure the realm is not under maintenance. Also try clicking on the \"Browser\" button, you may need to complete a CAPTCHA there.",
     "leagues_failed_help_alt": "Price check an Item, and follow the instructions in the error description there.",
@@ -24,7 +24,7 @@
   "map.mods.heist": "heist",
   "map.mods.uber": "T17",
   "map.mods.outdated": "outdated",
-  "Support development on": "Support development\u00A0on",
+  "Support development on": "Support development on",
   "Blighted": "Blighted",
   "Blight-ravaged": "Blight-ravaged",
   "Magic": "Magic",
@@ -257,7 +257,7 @@
     "latest": "You have the latest version",
     "error": "Error while checking for updates",
     "checking": "Checking for updates",
-    "downloading": "Downloading\u2026",
+    "downloading": "Downloading…",
     "available": "Update available: {0}",
     "never_checked": "Last checked: never",
     "last_checked": "Last checked: {0}",
@@ -269,7 +269,7 @@
     "download_disabled": "You have disabled automatic updates download"
   },
   "widget_menu": {
-    "add": "add widget\u2026",
+    "add": "add widget…",
     "always_show": "Show button for active widgets",
     "price_check": "Price check (Ctrl + V)"
   },
@@ -281,7 +281,7 @@
   },
   "notepad": {
     "name": "Notepad",
-    "placeholder": "Type your notes here\u2026",
+    "placeholder": "Type your notes here…",
     "width": "Width:"
   },
   "stash_search": {
@@ -295,7 +295,7 @@
   },
   "item_search": {
     "name": "Item search",
-    "input": "Search by name\u2026",
+    "input": "Search by name…",
     "reset": "Reset items",
     "heist_target": "Heist target:",
     "target_gem": "Skill Gem",
@@ -333,7 +333,7 @@
     "base_item": "Base item",
     "graph_7d": "Last 7 days",
     "getting_price": "Getting price {0}",
-    "getting_price_from": "from poe.ninja \u2026",
+    "getting_price_from": "from poe.ninja …",
     "you_have": "You have",
     "stack": "Stack",
     "results_warn_tooltip": "Enable Exalted Only in Online Filter. You can disable this alert in settings.",
@@ -445,7 +445,7 @@
   },
   "tips": {
     "tip_1": "You can add your own images to the cheat sheet widget by hitting \"edit\"",
-    "tip_2": "Selecting too many filters may over estimate the price of an item",
+    "tip_2": "Selecting too many filters may over estimate the price of an item.",
     "tip_3": "When hovering over a price, hold SHIFT to show the item's stats",
     "tip_4": "Enable \"mods\" when price checking to see what stats are used for each filter",
     "tip_5": "You can switch between PoE1 and PoE2 tier numbering styles in the settings",
@@ -454,25 +454,25 @@
     "tip_8": "You can drag the bars that show when price checking a unique item to change their values",
     "tip_9": "You can use the \"Fill Iron\" button to fill empty rune sockets with iron runes",
     "tip_10": "If a stat is not shown, it may be in the \"Hidden\" section",
-    "tip_11": "Stats that contribute to a weapon's dps are not shown and instead are factored into the dps filter",
+    "tip_11": "Stats that contribute to a weapon's DPS are not shown and instead are factored into the DPS filter",
     "tip_12": "When a tier is shown on the filter, it means that tier is the best or second best for the item",
     "tip_13": "To not have to hold a button to keep price check open, you can use \"Auto-hide off\" in the settings",
     "tip_14": "The \"Pseudo\" button will open the trade site also, but with resistances as a fake pseudo weighted sum",
-    "tip_15": "You can use \"Profile\" to save different map check selections for different characters",
-    "tip_16": "Use \"Find in Stash\" to search for a base type in your stash",
-    "tip_17": "Using \"Online filter\" allows you to use more meta filtering options like \"Exalted only\" or \"Offline & Online\"",
+    "tip_15": "You can use \"Profile\" to save different map check selections for different characters.",
+    "tip_16": "Use \"Find in Stash\" to search for a base type in your stash.",
+    "tip_17": "Using \"Online filter\" allows you to use more meta filtering options like \"Exalted only\" or \"Offline & Online\".",
     "tip_18": "Have Fun!",
-    "tip_19": "If you want to time something in the game, you can use the \"Stopwatch\" widget",
-    "tip_20": "If you experience any issues, please report them on GitHub",
-    "tip_21": "You can use the \"Stash search\" widget to search for items in your stash",
-    "tip_22": "Map Check can be used to quickly make sure a map doesn't have any mods you don't want",
-    "tip_23": "To enable Stash Tab Scrolling, disable \"Mousewheel Zoom\" in PoE settings (Options -> UI)",
-    "tip_24": "The question mark next to an item's price indicates item is priced using stash tab name and is probably not a real price",
-    "tip_25": "The orange circle next to an item's price shows player's status is AFK",
-    "tip_26": "The red circle next to an item's price shows player's status is Offline",
-    "tip_27": "Logs are shown under the \"Debug\" tab in settings",
-    "tip_28": "You can change your league in the settings",
-    "tip_29": "You can add custom chat command hotkeys in the settings"
+    "tip_19": "If you want to time something in the game, you can use the \"Stopwatch\" widget.",
+    "tip_20": "If you experience any issues, please report them on GitHub.",
+    "tip_21": "You can use the \"Stash search\" widget to search for items in your stash.",
+    "tip_22": "Map Check can be used to quickly make sure a map doesn't have any mods you don't want.",
+    "tip_23": "To enable Stash Tab Scrolling, disable \"Mousewheel Zoom\" in PoE settings (Options -> UI).",
+    "tip_24": "The question mark next to an item's price indicates item is priced using stash tab name and is probably not a real price.",
+    "tip_25": "The orange circle next to an item's price shows player's status is AFK.",
+    "tip_26": "The red circle next to an item's price shows player's status is Offline.",
+    "tip_27": "Logs are shown under the \"Debug\" tab in settings.",
+    "tip_28": "You can change your league in the settings.",
+    "tip_29": "You can add custom chat command hotkeys in the settings."
   },
   "leveling": {
     "name": "Leveling",
@@ -480,7 +480,7 @@
     "exp_tracking": "Experience Tracker",
     "show_exp": "Show experience gain percentage",
     "exp_tracking_help_tldr": "TLDR: try to keep 'Over' at 0 or 1",
-    "exp_tracking_help": "XP tracking widget shows your current level, current experience multiplier, and how close you are to being under-leveled. XP penalty is applied immediately if you are over-leveled, and when you are under-leveled by \u230A level/16 + 3 \u230B. The 'Over' is how many levels the your current level is over the bottom of the 'safe zone', generally 0 or 1 means you are killing the highest level monsters you can without incurring the under-leveled penalty",
+    "exp_tracking_help": "XP tracking widget shows your current level, current experience multiplier, and how close you are to being under-leveled. XP penalty is applied immediately if you are over-leveled, and when you are under-leveled by ⌊ level/16 + 3 ⌋. The 'Over' is how many levels the your current level is over the bottom of the 'safe zone', generally 0 or 1 means you are killing the highest level monsters you can without incurring the under-leveled penalty",
     "exp_inspire": "Based on ",
     "exp_astrict": "*Experience gain percentages, when over level 95, or monster level over 70, or potentially when not at 100% exp gain, may not be fully tested and accurate."
   },
