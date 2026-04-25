@@ -63,7 +63,7 @@
           >
             {{ t("app.quit") }}
           </button>
-          <div
+          <!-- <div
             class="text-gray-400 text-center mt-auto pr-3 pt-4 pb-12"
             style="max-width: fit-content; min-width: 100%"
           >
@@ -75,7 +75,7 @@
               target="_blank"
               ><img class="inline h-5" src="/images/Patreon.svg"
             /></a>
-          </div>
+          </div> -->
         </div>
         <div class="text-gray-100 grow layout-column bg-gray-900">
           <div class="grow overflow-y-auto bg-gray-800 rounded-tl">
