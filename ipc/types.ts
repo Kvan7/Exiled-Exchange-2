@@ -91,7 +91,7 @@ export type IpcEvent =
   | IpcOcrText
   | IpcConfigChanged
   | IpcUserAction
-  | IpcWriteCsv;
+  | IpcWriteToFile;
 
 export type IpcEventPayload<
   Name extends IpcEvent["name"],
@@ -212,7 +212,7 @@ type IpcUserAction = Event<
     }
 >;
 
-type IpcWriteCsv = Event<
+type IpcWriteToFile = Event<
   "CLIENT->MAIN::write-data",
   | {
       action: "log-item";
@@ -223,6 +223,13 @@ type IpcWriteCsv = Event<
       start: boolean;
       name?: string;
       header?: string;
+    }
+  | {
+      action: "client-log-event";
+      timestamp: number;
+      data: string;
+      hash: string;
+      close: boolean;
     }
 >;
 
