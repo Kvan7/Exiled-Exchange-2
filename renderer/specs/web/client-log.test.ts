@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { setupTests } from "@specs/vitest.setup";
 import { init } from "@/assets/data";
 import { useClientLog } from "@/web/client-log/client-log";
+import { readFileSync } from "fs";
 
 const log = `
 2025/09/11 18:21:43 167690796 f0c29dd2 [INFO Client 438888] Doodad hash: 1705339803
@@ -48,6 +49,45 @@ describe("clientLog", () => {
       expect(() => {
         handleLine(line);
       }).not.toThrow();
+    }
+  });
+});
+
+describe("local performance tests", () => {
+  let lines: string[] = [];
+
+  beforeEach(() => {
+    const blob = readFileSync(
+      "C:/Program Files (x86)/Steam/steamapps/common/Path of Exile 2/logs/Client.txt",
+    );
+    lines = blob.toString().split("\n");
+  });
+
+  it("slice", { timeout: 0, skip: true }, () => {
+    for (const line of lines) {
+      const splat1 = line.split("] ");
+      const splat2 = splat1.shift()?.split(" ");
+      const message = splat1.join("] ");
+      const date = splat2?.shift();
+      const time = splat2?.shift();
+      const millis = splat2?.shift();
+      if ((!date || !time || !millis) && message) {
+        throw new Error(`Failed to parse line: ${line}`);
+      }
+    }
+  });
+  const logRegex =
+    /^(?<date>\d{4}\/\d{2}\/\d{2}) (?<time>\d{2}:\d{2}:\d{2}) (?<millis>\d+) .*\] (?<message>.*)$/;
+  it("regex", { timeout: 0, skip: true }, () => {
+    for (const line of lines) {
+      const match = line.match(logRegex);
+      if (!match) {
+        continue;
+      }
+      const { date, time, millis, message } = match.groups!;
+      if ((!date || !time || !millis) && message) {
+        throw new Error(`Failed to parse line: ${line}`);
+      }
     }
   });
 });
