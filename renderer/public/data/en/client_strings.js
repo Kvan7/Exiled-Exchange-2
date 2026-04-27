@@ -155,7 +155,7 @@ export default {
   CHAT_WHISPER_FROM: /^@From (?:<(?<guild_tag>.+?)> )?(?<char_name>.+?): (?<body>.+)$/,
   // [Manual]
   CHAT_WEBTRADE_GEM: /^level (?<gem_lvl>\d+) (?<gem_qual>\d+)% (?<gem_name>.+)$/,
-  LOG_LEVEL_UP: /^(.*) is now level (?<level>\d+)$/,
+  LOG_LEVEL_UP: /^(?<char_name>\w) \((?<char_class>\w)\) is now level (?<level>\d+)$/,
   // [Manual]
   LOG_ZONE_GEN: /^Generating level (?<area_level>\d+) area "(?<zone>.*)" with seed (?<seed>\d+)$/,
   REQUIRES_LINE: /^Requires: \s*(?:Level[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*(Strength|Str))?\D*(?:(?<dex>\d+)[^\d,]*(Dexterity|Dex))?\D*(?:(?<int>\d+)[^\d,]*(Intelligence|Int))?$/,

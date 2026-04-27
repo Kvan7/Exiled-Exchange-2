@@ -1141,7 +1141,7 @@
 {"ref": "Grants Skill: Level # Compose Requiem", "better": 1, "matchers": [{"string": "Concede Habilidade: Nível # Compor Réquiem"}], "trade": {"ids": {"skill": ["skill.requiem_ammo"]}}}
 {"ref": "Grants Skill: Level # Consecrate", "better": 1, "matchers": [{"string": "Concede Habilidade: Nível # Consagrar"}], "trade": {"ids": {"skill": ["skill.consecrate"]}}}
 {"ref": "Grants Skill: Level # Crackling Palm", "better": 1, "matchers": [{"string": "Concede Habilidade: Nível # Palma Crepitante"}], "trade": {"ids": {"skill": ["skill.crackling_palm"]}}}
-{"ref": "Grants Skill: Level # Decompose", "better": 1, "matchers": [{"string": "Concede Habilidade: Nível # Decompor"}], "trade": {"ids": {"skill": ["skill.corpse_cloud", "skill.corpse_cloud_triggered"]}}}
+{"ref": "Grants Skill: Level # Decompose", "better": 1, "matchers": [{"string": "Concede Habilidade: Nível # Decomposição"}], "trade": {"ids": {"skill": ["skill.corpse_cloud", "skill.corpse_cloud_triggered"]}}}
 {"ref": "Grants Skill: Level # Discipline", "better": 1, "matchers": [{"string": "Concede Habilidade: Nível # Disciplina"}], "trade": {"ids": {"skill": ["skill.discipline"]}}}
 {"ref": "Grants Skill: Level # Ember Fusillade", "better": 1, "matchers": [{"string": "Concede Habilidade: Nível # Fuzilamento Flamejante"}], "trade": {"ids": {"skill": ["skill.unique_dusk_vigil_triggered_blazing_cluster"]}}}
 {"ref": "Grants Skill: Level # Enervating Nova", "better": 1, "matchers": [{"string": "Concede Habilidade: Nível # Nova Debilitante"}], "trade": {"ids": {"skill": ["skill.enervating_nova"]}}}
