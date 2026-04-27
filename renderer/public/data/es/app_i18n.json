@@ -18,7 +18,8 @@
     "version": "Versión {0}",
     "release_notes": "Notas de la versión",
     "report_bug": "Reportar un error en GitHub",
-    "quit": "Salir"
+    "quit": "Salir",
+    "deprecated": "Esta función está obsoleta y se eliminará en la actualización {0}"
   },
   "map.mods.uber": "T17",
   "map.mods.outdated": "desactualizado",
@@ -59,12 +60,12 @@
     "map_tier": "Nivel del mapa: {0}",
     "area_level": "Nivel del área: {0}",
     "heist_wings_revealed": "Alas reveladas: {0}",
-    "linked_sockets": "Conexiones: {0}",
+    "linked_sockets": "Enlaces: {0}",
     "white_sockets": "Blanco: {0}",
     "quality": "Calidad: {0}",
     "gem_level": "Nivel: {0}",
-    "gem_sockets": "Ranuras: {0}",
-    "augment_sockets": "Ranuras: {0}",
+    "gem_sockets": "Zócalos: {0}",
+    "augment_sockets": "Zócalo: {0}",
     "sentinel_charge": "Carga: {0}",
     "find_in_stash": "Encontrar en el alijo",
     "parse_error": "Se produjo un error al analizar el objeto",
@@ -104,7 +105,18 @@
     "uses_remaining": "Quedan usos: {0}",
     "victorious": "Victorioso",
     "cowardly": "Cobarde",
-    "deadly": "Letal"
+    "deadly": "Letal",
+    "find_same_price": "Filtrar por",
+    "find_same_price_type": "Filtrar por:",
+    "price": "precio solo",
+    "price_and_item": "Precio y artículos",
+    "mod_pseudo": "Mentiroso",
+    "mod_desecrated": "Profanado",
+    "mod_grade": "Grado: {0}",
+    "has_elemental_affix": "Cualquier",
+    "has_elemental_fire_affix": "Fuego",
+    "has_elemental_cold_affix": "Frío",
+    "has_elemental_lightning_affix": "Relampago"
   },
   "item_category": {
     "prop": "Categoría: {0}",
@@ -372,5 +384,6 @@
     "parse_error2": "Probablemente tenga un modificador que aún no es compatible.",
     "parse_error3": "(Posiblemente un nuevo término o palabra modificada de poe1)",
     "bulk_exchange": "Las tasas de cambio a granel aún no están implementadas"
-  }
+  },
+  "map.mods.heist": "robo"
 }
