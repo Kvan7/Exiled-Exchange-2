@@ -155,7 +155,7 @@ export default {
   CHAT_WHISPER_FROM: /^@來自 (?:<(?<guild_tag>.+?)> )?(?<char_name>.+?): (?<body>.+)$/,
   // [Manual]
   CHAT_WEBTRADE_GEM: /^level (?<gem_lvl>\d+) (?<gem_qual>\d+)% (?<gem_name>.+)$/,
-  LOG_LEVEL_UP: /^(?<char_name>\w) \((?<char_class>\w)\) 現在等級 (?<level>\d+)$/,
+  LOG_LEVEL_UP: /^(?<char_name>.*) \((?<char_class>.*)\) 現在等級 (?<level>\d+)$/,
   // [Manual]
   LOG_ZONE_GEN: /^Generating level (?<area_level>\d+) area "(?<zone>.*)" with seed (?<seed>\d+)$/,
   REQUIRES_LINE: /^需求: \s*(?:等級[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*(力量|力量))?\D*(?:(?<dex>\d+)[^\d,]*(敏捷|敏捷))?\D*(?:(?<int>\d+)[^\d,]*(智慧|智慧))?$/,

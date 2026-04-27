@@ -4,7 +4,7 @@ import path from "path";
 import { Headers } from "node-fetch"; // Assuming you are using node-fetch
 import { Config, TipsFrequency } from "@/web/Config";
 
-vi.mock("@/web/Config", async (original) => {
+vi.mock("@/web/Config", async () => {
   return {
     AppConfig: vi.fn(() => mockConfig),
     TipsFrequency: {
@@ -22,9 +22,9 @@ export const setupClientStringLoaderMock = () => {
 
       try {
         return (await import(/* @vite-ignore */ `${filePath}`)).default;
-      } catch (error: any) {
+      } catch (error: unknown) {
         throw new Error(
-          `Error loading client_strings.js for ${lang}: ${error.message}`,
+          `Error loading client_strings.js for ${lang}: ${(error as Error).message}`,
         );
       }
     }),
@@ -41,7 +41,7 @@ export const setupFetchMock = () => {
       url.replace(import.meta.env.BASE_URL, ""),
     );
 
-    const createResponse = (body: any, status = 200) => ({
+    const createResponse = (body: unknown, status = 200) => ({
       ok: status >= 200 && status < 300,
       status,
       statusText: status === 200 ? "OK" : "Not Found",
@@ -52,10 +52,10 @@ export const setupFetchMock = () => {
       clone: () => createResponse(body, status),
       body: null,
       bodyUsed: false,
-      json: async () => JSON.parse(body),
+      json: async () => JSON.parse(body as string),
       text: async () => body,
-      arrayBuffer: async () => Buffer.from(body).buffer,
-      blob: async () => new Blob([body]),
+      arrayBuffer: async () => Buffer.from(body as string).buffer,
+      blob: async () => new Blob([body as string]),
       formData: async () => {
         throw new Error("formData not implemented");
       },
@@ -74,7 +74,7 @@ export const setupFetchMock = () => {
         const data = fs.readFileSync(filePath, "utf8");
         return createResponse(data, 200);
       }
-    } catch (error) {
+    } catch {
       return createResponse(`File not found: ${filePath}`, 404);
     }
 

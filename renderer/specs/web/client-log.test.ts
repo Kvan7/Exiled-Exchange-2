@@ -3,6 +3,8 @@ import { setupTests } from "@specs/vitest.setup";
 import { init } from "@/assets/data";
 import { useClientLog } from "@/web/client-log/client-log";
 import { readFileSync } from "fs";
+import { Host } from "@/web/background/IPC";
+import { LevelUpEvent } from "@ipc/types";
 
 const log1 = `
 2025/09/11 18:21:43 167690796 f0c29dd2 [INFO Client 438888] Doodad hash: 1705339803
@@ -35,6 +37,243 @@ const log1 = `
 2025/09/11 18:29:16 168144046 f0c29dd3 [INFO Client 438888] Tile hash: 3342134387
 `;
 const logStartThroughRedVale = `
+2026/04/26 09:28:47 ***** LOG FILE OPENING *****
+2026/04/26 09:28:47 1785270671 84b56f9c [INFO Client 443804] [JOB] Irrecoverable Exception Callback: SET
+2026/04/26 09:28:47 1785270812 44e52699 [INFO Client 443804] [CMD][Unrecognized] --nopatch
+2026/04/26 09:28:47 1785270812 a1e2d252 [INFO Client 443804] [HTTP2] User agent: PoE poe2_production/tags/4.4.0j Windows x64
+2026/04/26 09:28:47 1785270812 a1e2d25d [INFO Client 443804] [HTTP2] Using backend: cURL
+2026/04/26 09:28:47 1785270812 84b56fd9 [INFO Client 443804] [JOB] Emulate Platforms: OFF
+2026/04/26 09:28:47 1785270812 84b5703f [INFO Client 443804] [JOB] Tight Buffers: ON
+2026/04/26 09:28:47 1785270812 84b56bdf [INFO Client 443804] [JOB] Test Many Queues: OFF
+2026/04/26 09:28:47 1785270812 84b56f5a [INFO Client 443804] [JOB] Start
+2026/04/26 09:28:47 1785270812 84b534d7 [INFO Client 443804] [JOB] HIGH: 8
+2026/04/26 09:28:47 1785270812 84b534d7 [INFO Client 443804] [JOB] MEDIUM: 27
+2026/04/26 09:28:47 1785270812 84b534d7 [INFO Client 443804] [JOB] LOW: 4
+2026/04/26 09:28:47 1785270812 84b534d7 [INFO Client 443804] [JOB] IDLE: 0
+2026/04/26 09:28:47 1785270812 aa6e6b49 [INFO Client 443804] [STORAGE] Linearize: OFF
+2026/04/26 09:28:47 1785270812 aa6e6b62 [INFO Client 443804] [STORAGE] Mapping bucket count: 8
+2026/04/26 09:28:47 1785270812 aa6e6b64 [INFO Client 443804] [STORAGE] Consolidate: OFF
+2026/04/26 09:28:47 1785270812 aa6e6bc5 [INFO Client 443804] [STORAGE] Init bundle cache
+2026/04/26 09:28:47 1785271359 f6f3c084 [INFO Client 443804] [BUNDLE] Bundle index: Bundles2/_.index.bin
+2026/04/26 09:28:47 1785271359 f6f3c083 [INFO Client 443804] [BUNDLE] Found 57648 entries (10.1 MB)
+2026/04/26 09:28:47 1785271359 f6f3c082 [INFO Client 443804] [BUNDLE] Found 3481245 slots (66.4 MB)
+2026/04/26 09:28:47 1785271359 f6f3c081 [INFO Client 443804] [BUNDLE] Found 86392 directories (1012.4 KB)
+2026/04/26 09:28:47 1785271375 aa6e6c04 [INFO Client 443804] [STORAGE] Async: ON
+2026/04/26 09:28:47 1785271375 2962e3d6 [INFO Client 443804] [RESOURCE] Jobs: ON
+2026/04/26 09:28:47 1785271375 bdfe0c38 [INFO Client 443804] [STARTUP] Registration Start
+2026/04/26 09:28:47 1785271375 b394a432 [INFO Client 443804] [ENGINE] Build Revision: 304532
+2026/04/26 09:28:47 1785271375 b394a3da [INFO Client 443804] [ENGINE] Init
+2026/04/26 09:28:47 1785271375 b394a3db [INFO Client 443804] [ENGINE] Current directory: C:/Program Files (x86)/Steam/steamapps/common/Path of Exile 2
+2026/04/26 09:28:47 1785271375 b394a3d8 [INFO Client 443804] [ENGINE] Cache directory: C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\
+2026/04/26 09:28:47 1785271375 b394a3d9 [INFO Client 443804] [ENGINE] Download directory: C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\Download\\
+2026/04/26 09:28:47 1785271375 b394a3de [INFO Client 443804] [ENGINE] Settings directory: C:\\Users\\kvan\\Documents\\My Games\\Path of Exile 2\\
+2026/04/26 09:28:47 1785271375 b394a3d3 [INFO Client 443804] [ENGINE] Test Synchronous UI: OFF
+2026/04/26 09:28:47 1785271375 b3949f34 [INFO Client 443804] [ENGINE] Test Synchronous Simulation: OFF
+2026/04/26 09:28:47 1785271375 b3949f30 [INFO Client 443804] [ENGINE] Test Disable Frame Move Jobs: OFF
+2026/04/26 09:28:47 1785271375 b3949f31 [INFO Client 443804] [ENGINE] Test Disable Frame Render Jobs: OFF
+2026/04/26 09:28:47 1785271375 b3949f3c [INFO Client 443804] [ENGINE] Linearize: OFF
+2026/04/26 09:28:47 1785271375 b335d920 [INFO Client 443804] [RENDER] Render: ON
+2026/04/26 09:28:47 1785271375 b335d925 [INFO Client 443804] [RENDER] Emulate: OFF
+2026/04/26 09:28:47 1785271375 b335d92a [INFO Client 443804] [RENDER] Tight: ON
+2026/04/26 09:28:47 1785271375 b335da0e [INFO Client 443804] [RENDER] Consolidate: OFF
+2026/04/26 09:28:47 1785271375 b335da09 [INFO Client 443804] [RENDER] Linearize: OFF
+2026/04/26 09:28:47 1785271375 b335da04 [INFO Client 443804] [RENDER] Linearize Textures: OFF
+2026/04/26 09:28:47 1785271375 b335da6c [INFO Client 443804] [RENDER] Validate Bindings: OFF
+2026/04/26 09:28:47 1785271375 b335da69 [INFO Client 443804] [RENDER] Single Buffered: OFF
+2026/04/26 09:28:47 1785271375 b335da6a [INFO Client 443804] [RENDER] Device Recovery: ON
+2026/04/26 09:28:47 1785271375 b335d505 [INFO Client 443804] [RENDER] Resource Manager: OFF
+2026/04/26 09:28:47 1785271375 b335d502 [INFO Client 443804] [RENDER] Disable Transfer Queue: OFF
+2026/04/26 09:28:47 1785271375 6285a3bc [INFO Client 443804] [RENDER] Async: ON
+2026/04/26 09:28:47 1785271375 6285a391 [INFO Client 443804] [RENDER] Budget: ON
+2026/04/26 09:28:47 1785271375 b335d904 [INFO Client 443804] [RENDER] Wait: ON
+2026/04/26 09:28:47 1785271375 b335d902 [INFO Client 443804] [RENDER] Warmup: ON
+2026/04/26 09:28:47 1785271375 b335d967 [INFO Client 443804] [RENDER] Skip: ON
+2026/04/26 09:28:47 1785271375 b335d96d [INFO Client 443804] [RENDER] Throttling: ON
+2026/04/26 09:28:47 1785271375 40326d91 [INFO Client 443804] [SHADER] Packed Only: OFF
+2026/04/26 09:28:47 1785271375 40326d94 [INFO Client 443804] [SHADER] Force Compile: OFF
+2026/04/26 09:28:47 1785271375 dd2a0f70 [INFO Client 443804] [TEXTURE] Streaming: ON
+2026/04/26 09:28:47 1785271375 dd2a0eb2 [INFO Client 443804] [TEXTURE] Budget: ON
+2026/04/26 09:28:47 1785271375 dd2a0eb8 [INFO Client 443804] [TEXTURE] Throw: OFF
+2026/04/26 09:28:47 1785271375 dd2a0ed7 [INFO Client 443804] [TEXTURE] Upload: ON
+2026/04/26 09:28:47 1785271375 dd2a101d [INFO Client 443804] [TEXTURE] Active Always Fits: ON
+2026/04/26 09:28:47 1785271375 80ce039a [INFO Client 443804] [MESH] Tight Buffers: ON
+2026/04/26 09:28:47 1785271375 80ce0395 [INFO Client 443804] [MESH] Small Caches: OFF
+2026/04/26 09:28:47 1785271375 80ce043d [INFO Client 443804] [MESH] Emulate: OFF
+2026/04/26 09:28:47 1785271375 80ce039d [INFO Client 443804] [MESH] Dynamic Bucket count: 16
+2026/04/26 09:28:47 1785271375 80ce03de [INFO Client 443804] [MESH] Throw: OFF
+2026/04/26 09:28:47 1785271390 26280a25 [INFO Client 443804] [ENGINE] Running Engine version 2.6.0
+2026/04/26 09:28:47 1785271390 b394971f [INFO Client 443804] [ENGINE] Wiping cache Minimap at C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\Minimap.tmp
+2026/04/26 09:28:47 1785271390 b394971f [INFO Client 443804] [ENGINE] Wiping cache DailyDealCache at C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\DailyDealCache.tmp
+2026/04/26 09:28:47 1785271390 b394971f [INFO Client 443804] [ENGINE] Wiping cache MOTDCache at C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\MOTDCache.tmp
+2026/04/26 09:28:47 1785271390 b394971f [INFO Client 443804] [ENGINE] Wiping cache Countdown at C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\Countdown.tmp
+2026/04/26 09:28:47 1785271390 b394971f [INFO Client 443804] [ENGINE] Wiping cache ShopImages at C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\ShopImages.tmp
+2026/04/26 09:28:47 1785271390 b394971f [INFO Client 443804] [ENGINE] Wiping cache PaymentPackage at C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\PaymentPackage.tmp
+2026/04/26 09:28:47 1785271390 b394971f [INFO Client 443804] [ENGINE] Wiping cache SupporterPackSet at C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\SupporterPackSet.tmp
+2026/04/26 09:28:47 1785271390 b394971f [INFO Client 443804] [ENGINE] Wiping cache VideoCache at C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\VideoCache.tmp
+2026/04/26 09:28:47 1785271390 b394971f [INFO Client 443804] [ENGINE] Wiping cache ShaderCacheNull at C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\ShaderCacheNull.tmp
+2026/04/26 09:28:47 1785271390 b394971f [INFO Client 443804] [ENGINE] Wiping cache ShaderCacheD3D11 at C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\ShaderCacheD3D11.tmp
+2026/04/26 09:28:47 1785271390 b394971f [INFO Client 443804] [ENGINE] Wiping cache ShaderCacheD3D12 at C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\ShaderCacheD3D12.tmp
+2026/04/26 09:28:47 1785271390 b394971f [INFO Client 443804] [ENGINE] Wiping cache ShaderCacheD3D12_X at C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\ShaderCacheD3D12_X.tmp
+2026/04/26 09:28:47 1785271390 b394971f [INFO Client 443804] [ENGINE] Wiping cache ShaderCacheD3D12_XS at C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\ShaderCacheD3D12_XS.tmp
+2026/04/26 09:28:47 1785271390 b394971f [INFO Client 443804] [ENGINE] Wiping cache ShaderCacheGMNX at C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\ShaderCacheGMNX.tmp
+2026/04/26 09:28:47 1785271390 b394971f [INFO Client 443804] [ENGINE] Wiping cache ShaderCacheAGC at C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\ShaderCacheAGC.tmp
+2026/04/26 09:28:47 1785271390 b394971f [INFO Client 443804] [ENGINE] Wiping cache ShaderCacheVulkan at C:\\Users\\kvan\\AppData\\Roaming\\Path of Exile 2\\ShaderCacheVulkan.tmp
+2026/04/26 09:28:47 1785271390 d86b4b01 [INFO Client 443804] [TRAILS] Immutable: ON
+2026/04/26 09:28:47 1785271390 d86b4b0e [INFO Client 443804] [TRAILS] Debug: OFF
+2026/04/26 09:28:47 1785271390 d86b4b24 [INFO Client 443804] [TRAILS] Linearize: OFF
+2026/04/26 09:28:47 1785271390 6689d126 [INFO Client 443804] [MAT] Tight: ON
+2026/04/26 09:28:47 1785271390 6689d120 [INFO Client 443804] [MAT] Ingore Temp: ON
+2026/04/26 09:28:47 1785271390 6689d12d [INFO Client 443804] [MAT] Enable Validation: OFF
+2026/04/26 09:28:47 1785271390 6689d0c5 [INFO Client 443804] [MAT] Enable Throw: OFF
+2026/04/26 09:28:47 1785271390 6689d0c0 [INFO Client 443804] [MAT] Linearize: OFF
+2026/04/26 09:28:47 1785271437 6689d047 [INFO Client 443804] [MAT] Mat table size: 248946.  83817 graph combinations have inlined parameters.  1303750 parameters are inlined.
+2026/04/26 09:28:47 1785271437 b18f0f57 [INFO Client 443804] [MAT] Dynamic Bucket count: 8
+2026/04/26 09:28:47 1785271437 6689d1ef [INFO Client 443804] [MAT] Async: ON
+2026/04/26 09:28:47 1785271437 6689d18a [INFO Client 443804] [MAT] Wait: ON
+2026/04/26 09:28:47 1785271437 6689d18c [INFO Client 443804] [MAT] Warmup: ON
+2026/04/26 09:28:47 1785271437 80841de1 [INFO Client 443804] [GRAPH] Tight: ON
+2026/04/26 09:28:47 1785271437 80841def [INFO Client 443804] [GRAPH] Ignore Temp: ON
+2026/04/26 09:28:47 1785271437 80841dc5 [INFO Client 443804] [GRAPH] Inline Uniforms: ON
+2026/04/26 09:28:47 1785271437 80841dc2 [INFO Client 443804] [GRAPH] Enable Throw: OFF
+2026/04/26 09:28:47 1785271437 80841dcf [INFO Client 443804] [GRAPH] Linearize: OFF
+2026/04/26 09:28:47 1785271437 4e0deab [INFO Client 443804] [GRAPH] Dynamic Bucket count: 8
+2026/04/26 09:28:47 1785271437 104b656a [INFO Client 443804] [SOUND] Audio: ON
+2026/04/26 09:28:47 1785271437 104b656b [INFO Client 443804] [SOUND] LiveUpdate: OFF
+2026/04/26 09:28:47 1785271437 f2559bd7 [INFO Client 443804] [VIDEO] Enable: ON
+2026/04/26 09:28:47 1785271468 52958d23 [INFO Client 443804] [SOUND] Buffer size = 128.0 MB
+2026/04/26 09:28:47 1785271515 529584e0 [INFO Client 443804] [SOUND] Channel count = 128 (asked for 128)
+2026/04/26 09:28:47 1785271515 529584e1 [INFO Client 443804] [SOUND] Source count = 512
+2026/04/26 09:28:47 1785271531 5295990d [INFO Client 443804] [SOUND] Fmod Init success ( version 0x20311 )
+2026/04/26 09:28:47 1785271562 ae8fed80 [INFO Client 443804] [PARTICLE] Immutable: ON
+2026/04/26 09:28:47 1785271562 ae8fed85 [INFO Client 443804] [PARTICLE] Debug: OFF
+2026/04/26 09:28:47 1785271562 ae8fed86 [INFO Client 443804] [PARTICLE] Keep Persistent: ON
+2026/04/26 09:28:47 1785271562 ae8feda0 [INFO Client 443804] [PARTICLE] Linearize: OFF
+2026/04/26 09:28:47 1785271562 36ec5eb4 [INFO Client 443804] Enumerated adapter: NVIDIA GeForce RTX 4090
+2026/04/26 09:28:47 1785271593 bdfe0bdf [INFO Client 443804] [STARTUP] Registration in 0.217541 seconds
+2026/04/26 09:28:47 1785271625 5295a2a8 [INFO Client 443804] [SOUND] Changing to device "Out 1-2 (MOTU M Series)"
+2026/04/26 09:28:48 1785271671 36ec5336 [INFO Client 443804] Enumerated device for adapter: NVIDIA GeForce RTX 4090. Selected feature level: 49408. Max feature level: 49408
+2026/04/26 09:28:48 1785271671 36ec7d35 [INFO Client 443804] Enumerated output for adapter NVIDIA GeForce RTX 4090 of \\\\.\\DISPLAY3
+2026/04/26 09:28:48 1785271671 36ec7d35 [INFO Client 443804] Enumerated output for adapter NVIDIA GeForce RTX 4090 of \\\\.\\DISPLAY1
+2026/04/26 09:28:48 1785271671 36ec7d35 [INFO Client 443804] Enumerated output for adapter NVIDIA GeForce RTX 4090 of \\\\.\\DISPLAY2
+2026/04/26 09:28:48 1785271671 36ec5eb4 [INFO Client 443804] Enumerated adapter: AMD Radeon(TM) Graphics
+2026/04/26 09:28:48 1785271687 36ec5336 [INFO Client 443804] Enumerated device for adapter: AMD Radeon(TM) Graphics. Selected feature level: 49408. Max feature level: 49408
+2026/04/26 09:28:48 1785271687 36ec5eb4 [INFO Client 443804] Enumerated adapter: Microsoft Basic Render Driver
+2026/04/26 09:28:48 1785271687 36ec5336 [INFO Client 443804] Enumerated device for adapter: Microsoft Basic Render Driver. Selected feature level: 49408. Max feature level: 49408
+2026/04/26 09:28:48 1785271718 190bb25d [INFO Client 443804] [RENDER] Driver Version: 32.0.15.8157
+2026/04/26 09:28:48 1785271718 190bb252 [INFO Client 443804] [RENDER] Hardware-accelerated GPU scheduling: Enabled
+2026/04/26 09:28:48 1785271718 190bb279 [INFO Client 443804] [ENGINE] Windows Version: Windows 10 Build 19045
+2026/04/26 09:28:48 1785271718 190bb231 [INFO Client 443804] [ENGINE] OS: Windows 10 Build 19045
+2026/04/26 09:28:48 1785271812 3a821288 [INFO Client 443804] [ENGINE] Use Safe Graph: OFF
+2026/04/26 09:28:48 1785271812 1dc4a51c [DEBUG Client 443804] Selected XInput.dll is xinput1_4.dll
+2026/04/26 09:28:48 1785271812 b394ab70 [INFO Client 443804] [ENGINE] Ready
+2026/04/26 09:28:48 1785271828 bdfe0c38 [INFO Client 443804] [STARTUP] Game Start
+2026/04/26 09:28:48 1785271828 4915b749 [CRIT Client 443804] Failed to preload UI assets, UI::Core is not initialised yet.
+2026/04/26 09:28:48 1785271859 bdfe0c38 [INFO Client 443804] [STARTUP] Device Start
+2026/04/26 09:28:48 1785271890 62858759 [INFO Client 443804] [RENDER] Starting device: DirectX12
+2026/04/26 09:28:48 1785271890 bdfe0c38 [INFO Client 443804] [STREAMLINE] Init Start
+2026/04/26 09:28:49 1785273296 bdfe0bdf [INFO Client 443804] [STREAMLINE] Init in 1.41676 seconds
+2026/04/26 09:28:49 1785273312 cb0f8ef6 [INFO Client 443804] [STREAMLINE] Initialized (Enabled)
+2026/04/26 09:28:49 1785273375 bdfe0bdf [INFO Client 443804] [STARTUP] Game in 1.54878 seconds
+2026/04/26 09:28:49 1785273406 e0a4d0bb [INFO Client 443804] [D3D12] Found matching adapter using LUID 00000462EA101D70 (NVIDIA GeForce RTX 4090 - MPG321UR-QD)
+2026/04/26 09:28:51 1785275015 e0a4d8df [INFO Client 443804] [D3D12] Agility SDK Version = 618
+2026/04/26 09:28:51 1785275015 e0a4bc1a [INFO Client 443804] [D3D12] GPU type: discrete (NVidia)
+2026/04/26 09:28:51 1785275015 e0a4bc1e [DEBUG Client 443804] [D3D12] VRAM shared = 31.56 GB dedicated = 23.58 GB
+2026/04/26 09:28:51 1785275015 e0a4bc1f [INFO Client 443804] [D3D12] VRAM limit: 23.58 GB
+2026/04/26 09:28:51 1785275015 e0a4ed77 [INFO Client 443804] [D3D12] Shader Model: D3D_SHADER_MODEL_6_6
+2026/04/26 09:28:51 1785275015 e0a4ed11 [INFO Client 443804] [D3D12] Feature Level: 12.1
+2026/04/26 09:28:51 1785275015 e0a4e1b8 [INFO Client 443804] [D3D12] Wave Lane Count: 32
+2026/04/26 09:28:51 1785275015 e0a4e195 [INFO Client 443804] [D3D12] Transfer Queue Timestamps: true
+2026/04/26 09:28:51 1785275015 e0a4e15f [INFO Client 443804] [D3D12] VRS Supported: true (4x4)
+2026/04/26 09:28:51 1785275015 e0a4aeb7 [INFO Client 443804] [D3D12] Tight Alignment: true
+2026/04/26 09:28:51 1785275078 cb0f9693 [INFO Client 443804] [STREAMLINE][DLSS]: Loaded version 2.4.10 (NGX: 3.7.10)
+2026/04/26 09:28:51 1785275078 cb0f9693 [INFO Client 443804] [STREAMLINE][Reflex]: Loaded version 2.4.10 (NGX: 0.0.0)
+2026/04/26 09:28:51 1785275078 cb0f9693 [INFO Client 443804] [STREAMLINE][PCL]: Loaded version 2.4.10 (NGX: 0.0.0)
+2026/04/26 09:28:51 1785275078 cb0f9752 [INFO Client 443804] [STREAMLINE][NIS]: Loaded proxy version
+2026/04/26 09:28:51 1785275078 cb0f9752 [INFO Client 443804] [STREAMLINE][FSR]: Loaded proxy version
+2026/04/26 09:28:51 1785275078 cb0f9752 [INFO Client 443804] [STREAMLINE][XeSS]: Loaded proxy version
+2026/04/26 09:28:51 1785275078 cb0f9752 [INFO Client 443804] [STREAMLINE][PSSR]: Loaded proxy version
+2026/04/26 09:28:51 1785275078 cb0f9771 [INFO Client 443804] [STREAMLINE][DLSS] Enabled: true
+2026/04/26 09:28:51 1785275078 4436f5ae [INFO Client 443804] [STREAMLINE][Reflex] Reflex Low Latency: ON
+2026/04/26 09:28:51 1785275078 4436f5ad [INFO Client 443804] [STREAMLINE][Reflex] Reflex Flash Indicator: ON
+2026/04/26 09:28:51 1785275078 cb0f9771 [INFO Client 443804] [STREAMLINE][Reflex] Enabled: true
+2026/04/26 09:28:51 1785275078 cb0f9771 [INFO Client 443804] [STREAMLINE][PCL] Enabled: true
+2026/04/26 09:28:51 1785275078 cb0f9771 [INFO Client 443804] [STREAMLINE][NIS] Enabled: true
+2026/04/26 09:28:51 1785275078 cb0f977e [INFO Client 443804] [STREAMLINE][FSR] Enabled: true
+2026/04/26 09:28:51 1785275109 da2b9991 [INFO Client 443804] [STREAMLINE][XeSS]: Loaded version 2.0.2 (XeFX: 0.0.0)
+2026/04/26 09:28:51 1785275109 cb0f977e [INFO Client 443804] [STREAMLINE][XeSS] Enabled: true
+2026/04/26 09:28:51 1785275109 cb0f977e [INFO Client 443804] [STREAMLINE][PSSR] Enabled: false
+2026/04/26 09:28:51 1785275140 55e61cfc [INFO Client 443804] [D3D12] Buffer Count = 2
+2026/04/26 09:28:51 1785275140 3a81fdab [DEBUG Client 443804] [WINDOW] TriggerDeviceCreate
+2026/04/26 09:28:51 1785275156 bdc24083 [INFO Client 443804] [EShop Request] Attempting to request site settings
+2026/04/26 09:28:51 1785275156 3a81fd4d [DEBUG Client 443804] [WINDOW] TriggerDeviceReset
+2026/04/26 09:28:51 1785275171 bdfe0bdf [INFO Client 443804] [STARTUP] Device in 3.31415 seconds
+2026/04/26 09:28:51 1785275171 bdfe0c38 [INFO Client 443804] [STARTUP] Tencent Start
+2026/04/26 09:28:51 1785275171 bdfe0bdf [INFO Client 443804] [STARTUP] Tencent in 8e-06 seconds
+2026/04/26 09:28:51 1785275171 bdfe0c38 [INFO Client 443804] [STARTUP] None Start
+2026/04/26 09:28:51 1785275171 bdfe0bdf [INFO Client 443804] [STARTUP] None in 9e-06 seconds
+2026/04/26 09:28:51 1785275171 bdfe0c38 [INFO Client 443804] [STARTUP] Loading Start
+2026/04/26 09:28:51 1785275187 bdfe0bdf [INFO Client 443804] [STARTUP] Loading in 0.016574 seconds
+2026/04/26 09:28:51 1785275187 bdfe0c38 [INFO Client 443804] [STARTUP] DebugGUI Start
+2026/04/26 09:28:51 1785275187 bdfe0bdf [INFO Client 443804] [STARTUP] DebugGUI in 9e-06 seconds
+2026/04/26 09:28:51 1785275203 7fbd122e [INFO Client 443804] [SCENE] Set Source [(unknown)]
+2026/04/26 09:28:51 1785275312 b394b073 [INFO Client 443804] [ENGINE] Reset static
+2026/04/26 09:28:52 1785275968 528852f8 [INFO Client 443804] [WINDOW] Lost focus
+2026/04/26 09:28:53 1785277046 52884db2 [INFO Client 443804] [WINDOW] Gained focus
+2026/04/26 09:28:55 1785279359 64a60fe5 [WARN Client 443804] Failed to create effect graph node (ID: 1428025895). Node type does not exist
+2026/04/26 09:28:55 1785279359 35d98e36 [WARN Client 443804] Failed to create effect graph node "VertexFlipBookOffset" in graph "Metadata/Effects/Graphs/General/FlipbookOld.fxgraph"
+2026/04/26 09:28:56 1785280312 4f3e4d2a [INFO Client 443804] Async connecting to dal.login.pathofexile2.com:21262
+2026/04/26 09:28:56 1785280343 4f3e4ba7 [INFO Client 443804] Connected to dal.login.pathofexile2.com in 0ms.
+2026/04/26 09:28:58 1785282015 7fbd122e [INFO Client 443804] [SCENE] Set Source [(null)]
+2026/04/26 09:28:58 1785282031 2d8e9b94 [DEBUG Client 443804] Got Instance Details from login server
+2026/04/26 09:28:58 1785282046 91c6cce [INFO Client 443804] Connecting to instance server at 64.87.51.236:21360
+2026/04/26 09:28:58 1785282062 91c63c3 [DEBUG Client 443804] Connect time to instance server was 16ms
+2026/04/26 09:28:58 1785282093 2caa1e5f [DEBUG Client 443804] Client-Safe Instance ID = 3821972762
+2026/04/26 09:28:58 1785282093 2caa22d2 [DEBUG Client 443804] Generating level 15 area "G1_town" with seed 1
+2026/04/26 09:28:58 1785282140 8fba9720 [DEBUG Client 443804] [EShop CallForAction] Load starts at 1785282166
+2026/04/26 09:28:58 1785282140 8fba870a [WARN Client 443804] [EShop CallForAction] Failed to parse call for action of PaymentPackages
+2026/04/26 09:28:58 1785282140 8fba96e6 [DEBUG Client 443804] [EShop CallForAction] Load ends at 1785282167
+2026/04/26 09:28:58 1785282453 d7c737f0 [CRIT Client 443804] Unable to load steam stats. Achievements will not work. Error: 2
+2026/04/26 09:28:58 1785282578 f0c29dd3 [INFO Client 443804] Tile hash: 892597717
+2026/04/26 09:28:58 1785282578 f0c29dd2 [INFO Client 443804] Doodad hash: 2628743579
+2026/04/26 09:28:59 1785282687 7fbd122e [INFO Client 443804] [SCENE] Set Source [Clearfell Encampment]
+2026/04/26 09:28:59 1785282750 1a620748 [DEBUG Client 443804] Joined guild named Some guild'e with 97 members
+2026/04/26 09:28:59 1785282750 1a62038d [DEBUG Client 443804] InstanceClientSetSelfPartyInvitationSecurityCode = 0
+2026/04/26 09:28:59 1785282953 7b991246 [INFO Client 443804] [EShop Request] Attempting to request shop resources
+2026/04/26 09:28:59 1785283218 3ef232c2 [INFO Client 443804] : You have joined trade chat channel 820 English.
+2026/04/26 09:28:59 1785283218 3ef232c2 [INFO Client 443804] : You have joined global chat channel 100 English.
+2026/04/26 09:29:01 1785285281 528852f8 [INFO Client 443804] [WINDOW] Lost focus
+2026/04/26 09:29:02 1785286484 52884db2 [INFO Client 443804] [WINDOW] Gained focus
+2026/04/26 09:29:10 1785293640 3ef232c2 [INFO Client 443804] &: GUILD UPDATE: M E L E E
+2026/04/26 09:29:10 1785293781 bf08f15c [INFO Client 443804] [Item Filter] Preparing to download online filter jeOW68UJ
+2026/04/26 09:29:10 1785293781 bf08f196 [INFO Client 443804] [Item Filter] Hash for online filter jeOW68UJ is: 2c868b25951a2502dbc013547e30f29d
+2026/04/26 09:29:10 1785293968 bf08f190 [INFO Client 443804] [Item Filter] Online item filter jeOW68UJ returned status: 304
+2026/04/26 09:29:10 1785293968 bf08f1fa [DEBUG Client 443804] [Item Filter] Online item filter request resolved to: 2600:1405:e400:3::1737:ec8a
+2026/04/26 09:29:10 1785293968 ddd288d2 [INFO Client 443804] [Item Filter] Finished reloading online filter jeOW68UJ. Result: true. Hash: 2c868b25951a2502dbc013547e30f29d. Type: Normal. Message:
+2026/04/26 09:29:10 1785293968 d4f84d48 [INFO Client 443804] PrecalcBaseTypeHashMap
+2026/04/26 09:29:10 1785293984 d4f84d4a [INFO Client 443804] PrecalcModNameHashMap
+2026/04/26 09:29:10 1785294015 d4f84d44 [INFO Client 443804] PrecalcItemClassMap
+2026/04/26 09:29:10 1785294015 d4f84d6d [INFO Client 443804] PrecalcSoundEffects
+2026/04/26 09:29:10 1785294015 d4f84d6f [INFO Client 443804] PrecalcDropEffects
+2026/04/26 09:29:10 1785294015 d4f84d69 [INFO Client 443804] PrecalcNonEnchantModHashes
+2026/04/26 09:29:10 1785294015 d4f84d6b [INFO Client 443804] PrecalcRuleNameToTypeMap
+2026/04/26 09:29:10 1785294015 d4f84d65 [INFO Client 443804] PrecalcCJESPNIndexMap
+2026/04/26 09:29:10 1785294015 d4f84c02 [INFO Client 443804] PrecalcTransfiguredGemsIndexMap
+2026/04/26 09:29:15 1785299015 528852f8 [INFO Client 443804] [WINDOW] Lost focus
+2026/04/26 09:29:46 1785329625 52884db2 [INFO Client 443804] [WINDOW] Gained focus
+2026/04/26 09:30:07 1785351078 528852f8 [INFO Client 443804] [WINDOW] Lost focus
+2026/04/26 09:30:12 1785356203 52884db2 [INFO Client 443804] [WINDOW] Gained focus
+2026/04/26 09:30:13 1785356718 528852f8 [INFO Client 443804] [WINDOW] Lost focus
+2026/04/26 09:30:34 1785377687 52884db2 [INFO Client 443804] [WINDOW] Gained focus
+2026/04/26 09:30:35 1785378640 528852f8 [INFO Client 443804] [WINDOW] Lost focus
+2026/04/26 09:30:36 1785380265 52884db2 [INFO Client 443804] [WINDOW] Gained focus
+2026/04/26 09:30:49 1785392718 528852f8 [INFO Client 443804] [WINDOW] Lost focus
+2026/04/26 09:30:49 1785393484 52884db2 [INFO Client 443804] [WINDOW] Gained focus
+2026/04/26 09:30:50 1785393765 528852f8 [INFO Client 443804] [WINDOW] Lost focus
+2026/04/26 09:30:56 1785400468 52884db2 [INFO Client 443804] [WINDOW] Gained focus
+2026/04/26 09:30:58 1785402468 528852f8 [INFO Client 443804] [WINDOW] Lost focus
+2026/04/26 09:34:06 1785589734 52884db2 [INFO Client 443804] [WINDOW] Gained focus
+2026/04/26 09:34:15 1785598734 528852f8 [INFO Client 443804] [WINDOW] Lost focus
+2026/04/26 09:38:59 1785882765 52884db2 [INFO Client 443804] [WINDOW] Gained focus
 2026/04/26 09:39:04 1785887718 2d8e9b94 [DEBUG Client 443804] Got Instance Details from login server
 2026/04/26 09:39:04 1785887734 91c6cce [INFO Client 443804] Connecting to instance server at 64.87.51.212:21360
 2026/04/26 09:39:04 1785887750 91c63c3 [DEBUG Client 443804] Connect time to instance server was 0ms
@@ -468,7 +707,7 @@ const logStartThroughRedVale = `
 2026/04/26 12:55:50 1797694625 f0c29dd3 [INFO Client 366640] Tile hash: 892597717
 2026/04/26 12:55:50 1797694625 f0c29dd2 [INFO Client 366640] Doodad hash: 2628743579
 2026/04/26 12:55:51 1797694734 7fbd122e [INFO Client 366640] [SCENE] Set Source [Clearfell Encampment]
-2026/04/26 12:55:51 1797694812 1a620748 [DEBUG Client 366640] Joined guild named Woolie's UNGA BUNGAS with 97 members
+2026/04/26 12:55:51 1797694812 1a620748 [DEBUG Client 366640] Joined guild named Some guild'e with 97 members
 2026/04/26 12:55:51 1797694828 1a62038d [DEBUG Client 366640] InstanceClientSetSelfPartyInvitationSecurityCode = 0
 2026/04/26 12:55:51 1797695062 7b991246 [INFO Client 366640] [EShop Request] Attempting to request shop resources
 2026/04/26 12:55:51 1797695390 3ef232c2 [INFO Client 366640] : You have joined global chat channel 100 English.
@@ -493,6 +732,8 @@ const logStartThroughRedVale = `
 2026/04/26 12:56:41 1797745406 f4ab5a9a [INFO Client 366640] Successfully allocated passive skill id: elemental8_, name: Elemental Damage
 `;
 
+vi.mock("@/web/background/IPC");
+
 describe("clientLog", () => {
   beforeEach(async () => {
     setupTests();
@@ -500,14 +741,119 @@ describe("clientLog", () => {
     vi.clearAllMocks();
   });
 
-  it("should parse", () => {
+  it("should parse first log", () => {
     const { handleLine } = useClientLog();
 
     for (const line of log1.split("\n")) {
+      handleLine(line);
       expect(() => {
         handleLine(line);
       }).not.toThrow();
     }
+    expect(Host.sendEvent).toHaveBeenCalled();
+  });
+
+  it("should parse second log", () => {
+    const { handleLine } = useClientLog();
+
+    for (const line of logStartThroughRedVale.split("\n")) {
+      expect(() => {
+        handleLine(line);
+      }).not.toThrow();
+    }
+    expect(Host.sendEvent).toHaveBeenCalled();
+  });
+
+  it("Timestamp should be correct format", () => {
+    const { handleLine } = useClientLog();
+
+    for (const line of log1.split("\n")) {
+      handleLine(line);
+    }
+    vi.mocked(Host.sendEvent).mock.calls.forEach((call) => {
+      const arg = call[0];
+      expect(arg.name).toBe("CLIENT->MAIN::write-data");
+
+      if (
+        arg.name !== "CLIENT->MAIN::write-data" ||
+        arg.payload.action !== "client-log-event"
+      ) {
+        return;
+      }
+
+      const d = new Date(arg.payload.data.ts);
+
+      expect(d.getUTCFullYear()).toBe(2025);
+      expect(d.getUTCMonth()).toBe(8); // because zero indexed for some reason
+      expect(d.getUTCDate()).toBe(11);
+    });
+  });
+
+  it.each([
+    [log1, 0],
+    [logStartThroughRedVale, 2],
+  ])("Should have expected game starts", (log, count) => {
+    const { handleLine } = useClientLog();
+
+    for (const line of log.split("\n")) {
+      handleLine(line);
+    }
+
+    const calls = vi
+      .mocked(Host.sendEvent)
+      .mock.calls.filter(
+        (c) =>
+          c[0].name === "CLIENT->MAIN::write-data" &&
+          c[0].payload.action === "client-log-event" &&
+          c[0].payload.data.type === "game-start",
+      );
+    expect(calls.length).toBe(count);
+  });
+
+  it.each([
+    [log1, 2],
+    [logStartThroughRedVale, 15],
+  ])("Should have expected load zone events", (log, count) => {
+    const { handleLine } = useClientLog();
+
+    for (const line of log.split("\n")) {
+      handleLine(line);
+    }
+
+    const calls = vi
+      .mocked(Host.sendEvent)
+      .mock.calls.filter(
+        (c) =>
+          c[0].name === "CLIENT->MAIN::write-data" &&
+          c[0].payload.action === "client-log-event" &&
+          c[0].payload.data.type === "load-zone",
+      );
+    expect(calls.length).toBe(count);
+  });
+
+  it.each([
+    [log1, 2],
+    [logStartThroughRedVale, 4],
+  ])("Should have expected level up events", (log, count) => {
+    const { handleLine } = useClientLog();
+
+    for (const line of log.split("\n")) {
+      handleLine(line);
+    }
+
+    const calls = vi
+      .mocked(Host.sendEvent)
+      .mock.calls.filter(
+        (c) =>
+          c[0].name === "CLIENT->MAIN::write-data" &&
+          c[0].payload.action === "client-log-event" &&
+          c[0].payload.data.type === "level-up",
+      );
+    expect(calls.length).toBe(count);
+    calls.forEach((call) => {
+      const arg = call[0].payload as unknown as { data: LevelUpEvent };
+      expect(arg.data.charName.toLowerCase()).toContain("kvan");
+    });
   });
 });
 

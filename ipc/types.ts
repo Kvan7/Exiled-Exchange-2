@@ -226,12 +226,33 @@ type IpcWriteToFile = Event<
     }
   | {
       action: "client-log-event";
-      timestamp: number;
-      data: string;
-      hash: string;
+      data: GeneralLogEvent | LoadZoneEvent | LevelUpEvent;
       close: boolean;
     }
 >;
+
+type BaseLogEvent = {
+  ts: number;
+  ms: number;
+};
+
+export type GeneralLogEvent = BaseLogEvent & {
+  type: "log" | "game-start" | "login";
+};
+
+export type LoadZoneEvent = BaseLogEvent & {
+  type: "load-zone";
+  zone: string;
+  areaLevel: number;
+  seed: number;
+};
+
+export type LevelUpEvent = BaseLogEvent & {
+  type: "level-up";
+  charName: string;
+  charClass: string;
+  level: number;
+};
 
 interface Event<TName extends string, TPayload = undefined> {
   name: TName;

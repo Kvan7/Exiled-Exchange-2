@@ -40,9 +40,10 @@ export class FileWriter {
         return;
       if (e.action === "client-log-event") {
         if (!this._state.clientLogFile) {
-          this.openChannel(this.uploadsPath, FileChannel.ClientLog, true);
+          const filePath = path.join(this.uploadsPath, "client-log.ndjson");
+          this.openChannel(filePath, FileChannel.ClientLog, true);
         }
-        this.writeLine(e.data, FileChannel.ClientLog);
+        this.writeLine(JSON.stringify(e.data), FileChannel.ClientLog);
         if (e.close) {
           this.closeChannel(FileChannel.ClientLog);
         }
