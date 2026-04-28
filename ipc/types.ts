@@ -231,6 +231,8 @@ type IpcWriteToFile = Event<
     }
 >;
 
+export type ClientLogEvent = GeneralLogEvent | LoadZoneEvent | LevelUpEvent;
+
 type BaseLogEvent = {
   ts: number;
   ms: number;

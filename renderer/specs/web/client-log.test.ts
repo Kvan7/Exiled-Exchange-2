@@ -739,6 +739,7 @@ describe("clientLog", () => {
     setupTests();
     await init("en");
     vi.clearAllMocks();
+    useClientLog().testOnlyResetGameMillis();
   });
 
   it("should parse first log", () => {
