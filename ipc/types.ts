@@ -226,12 +226,22 @@ type IpcWriteToFile = Event<
     }
   | {
       action: "client-log-event";
-      data: GeneralLogEvent | LoadZoneEvent | LevelUpEvent;
+      data: ClientLogEvent;
       close: boolean;
     }
 >;
 
-export type ClientLogEvent = GeneralLogEvent | LoadZoneEvent | LevelUpEvent;
+export type ClientLogEvent =
+  | GeneralLogEvent
+  | LoadZoneEvent
+  | LevelUpEvent
+  | GameVersionEvent
+  | AltTabEvent
+  | NpcEvent
+  | PlayerDeathEvent
+  | PassiveTreeEvent
+  | PermanentBonusEvent
+  | SkillPointEvent;
 
 type BaseLogEvent = {
   ts: number;
@@ -254,6 +264,45 @@ export type LevelUpEvent = BaseLogEvent & {
   charName: string;
   charClass: string;
   level: number;
+};
+
+export type GameVersionEvent = BaseLogEvent & {
+  type: "game-version";
+  version: string;
+};
+
+export type AltTabEvent = BaseLogEvent & {
+  type: "alt-tab";
+  gameFocused: boolean;
+};
+
+export type NpcEvent = BaseLogEvent & {
+  type: "npc";
+  npcName: string;
+  message: string;
+};
+
+export type PlayerDeathEvent = BaseLogEvent & {
+  type: "player-death";
+  charName: string;
+};
+
+export type PassiveTreeEvent = BaseLogEvent & {
+  type: "passive-tree";
+  allocate: boolean;
+  nodeId: string;
+  nodeName: string;
+};
+
+export type PermanentBonusEvent = BaseLogEvent & {
+  type: "permanent-bonus";
+  permanentBonus: string;
+  charName?: string;
+};
+
+export type SkillPointEvent = BaseLogEvent & {
+  type: "skill-point";
+  points: number;
 };
 
 interface Event<TName extends string, TPayload = undefined> {

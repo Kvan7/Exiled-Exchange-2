@@ -4,7 +4,7 @@ import { init } from "@/assets/data";
 import { useClientLog } from "@/web/client-log/client-log";
 import { readFileSync } from "fs";
 import { Host } from "@/web/background/IPC";
-import { LevelUpEvent } from "@ipc/types";
+import { GameVersionEvent, LevelUpEvent } from "@ipc/types";
 
 const log1 = `
 2025/09/11 18:21:43 167690796 f0c29dd2 [INFO Client 438888] Doodad hash: 1705339803
@@ -854,6 +854,31 @@ describe("clientLog", () => {
     calls.forEach((call) => {
       const arg = call[0].payload as unknown as { data: LevelUpEvent };
       expect(arg.data.charName.toLowerCase()).toContain("kvan");
+    });
+  });
+
+  it.each([
+    [log1, 0],
+    [logStartThroughRedVale, 2],
+  ])("Should have game versions", (log, count) => {
+    const { handleLine } = useClientLog();
+
+    for (const line of log.split("\n")) {
+      handleLine(line);
+    }
+
+    const calls = vi
+      .mocked(Host.sendEvent)
+      .mock.calls.filter(
+        (c) =>
+          c[0].name === "CLIENT->MAIN::write-data" &&
+          c[0].payload.action === "client-log-event" &&
+          c[0].payload.data.type === "game-version",
+      );
+    expect(calls.length).toBe(count);
+    calls.forEach((call) => {
+      const arg = call[0].payload as unknown as { data: GameVersionEvent };
+      expect(arg.data.version.toLowerCase()).toBe("0.4.0j");
     });
   });
 });
