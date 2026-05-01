@@ -1,5 +1,5 @@
 import { CLIENT_STRINGS as _$ } from "@/assets/data";
-import { ClientLogEvent } from "@ipc/types";
+import { ClientLogEvent, SkillPointEvent } from "@ipc/types";
 
 export enum ClientLogInfoType {
   Log = "log",
@@ -14,6 +14,7 @@ export enum ClientLogInfoType {
   PassiveTree = "passive-tree",
   PermanentBonus = "permanent-bonus",
   SkillPoint = "skill-point",
+  MapNav = "map-nav",
 }
 
 enum LogNamespace {
@@ -21,6 +22,7 @@ enum LogNamespace {
   Startup = "STARTUP",
   Http2 = "HTTP2",
   Window = "WINDOW",
+  Scene = "SCENE",
 }
 
 const GAME_VERSION_LINE = "User agent: PoE poe2_production/tags/";
@@ -38,7 +40,9 @@ const PASSIVE_SKILL_REGEX_REF =
   /Successfully (?<direction>(un)?allocated) passive skill id: (?<node_id>.+), name: (?<node_name>.+)/;
 const PERMANENT_BONUS_REGEX = /(?<char_name>.+) has received (?<bonus>.+)/;
 const SKILL_POINT_REGEX =
-  /You have received (?<points>\d+) Passive Skill Point\./;
+  /You have received (?<points>(\d+|an?)) (?<point_type>.*) Skill Points?\./;
+
+const MAP_NAV_REGEX = /Set Source \[(?<map_name>.+)\]/;
 
 function parseLogVersion0(
   text: string,
@@ -94,6 +98,21 @@ function parseLogVersion0(
         gameFocused: false,
       };
     }
+  } else if (namespace === LogNamespace.Scene) {
+    if ((match = text.match(MAP_NAV_REGEX))) {
+      // when opening the 'Map' or the 'Atlas' or closing it
+      // could be timing menuing time
+      // Set Source [(null)] is for closing
+      // Set Source [(unknown)] is logging out probably
+      // Set Source [Atlas] is for atlas
+      // Set Source [Act \d] typical "map"
+
+      data = {
+        ...data,
+        type: ClientLogInfoType.MapNav,
+        mapName: match.groups!.map_name,
+      };
+    }
   } else if (namespace === LogNamespace.None) {
     if (text[0] === ":") {
       // we are an info(local??) message shown to the player in chat
@@ -118,11 +137,61 @@ function parseLogVersion0(
           charName: match.groups!.char_name,
         };
       } else if ((match = colonLess.match(SKILL_POINT_REGEX))) {
-        // permanent bonus
+        // Skill points
+        const count =
+          match.groups!.points[0] === "a"
+            ? 1
+            : Number.parseInt(match.groups!.points, 10);
+
+        let pointType: SkillPointEvent["pointType"];
+
+        switch (match.groups!.point_type) {
+          case "Atlas":
+            pointType = "atlas";
+            break;
+          case "Map Boss Atlas":
+            pointType = "map-boss";
+            break;
+          case "Arbiter Boss Atlas":
+            pointType = "arbiter-boss";
+            break;
+          case "Abyss Atlas":
+            pointType = "abyss";
+            break;
+          case "Ritual Atlas":
+            pointType = "ritual";
+            break;
+          case "Delirium Atlas":
+            pointType = "delirium";
+            break;
+          case "Expedition Atlas":
+            pointType = "expedition";
+            break;
+          case "Breach Atlas":
+            pointType = "breach";
+            break;
+          case "Weapon Set Passive":
+            pointType = "weapon-set";
+            break;
+          case "Passive":
+          default:
+            pointType = "passive";
+            break;
+        }
+
         data = {
           ...data,
           type: ClientLogInfoType.SkillPoint,
-          points: Number.parseInt(match.groups!.points, 10),
+          points: count,
+          pointType,
+        };
+      } else if ((match = text.match(SLAIN_REGEX))) {
+        // ded
+
+        data = {
+          ...data,
+          type: ClientLogInfoType.PlayerDeath,
+          charName: match.groups!.char_name,
         };
       }
     } else if (text[0] === "#") {
@@ -144,14 +213,6 @@ function parseLogVersion0(
         zone: zone,
         areaLevel: Number.parseInt(match.groups!.area_level, 10),
         seed: Number.parseInt(match.groups!.seed, 10),
-      };
-    } else if ((match = text.match(SLAIN_REGEX))) {
-      // ded
-
-      data = {
-        ...data,
-        type: ClientLogInfoType.PlayerDeath,
-        charName: match.groups!.char_name,
       };
     } else if ((match = text.match(PASSIVE_SKILL_REGEX_REF))) {
       // passive point spend/refund

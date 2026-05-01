@@ -2,9 +2,20 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { setupTests } from "@specs/vitest.setup";
 import { init } from "@/assets/data";
 import { useClientLog } from "@/web/client-log/client-log";
-import { readFileSync } from "fs";
+import fs from "fs";
 import { Host } from "@/web/background/IPC";
-import { GameVersionEvent, LevelUpEvent } from "@ipc/types";
+import {
+  AltTabEvent,
+  GameVersionEvent,
+  LevelUpEvent,
+  MapNavEvent,
+  NpcEvent,
+  PassiveTreeEvent,
+  PermanentBonusEvent,
+  PlayerDeathEvent,
+  SkillPointEvent,
+} from "@ipc/types";
+import path from "path";
 
 const log1 = `
 2025/09/11 18:21:43 167690796 f0c29dd2 [INFO Client 438888] Doodad hash: 1705339803
@@ -34,7 +45,9 @@ const log1 = `
 2025/09/11 18:29:16 168143890 91c64c9 [DEBUG Client 438888] Connect time to instance server was 32ms
 2025/09/11 18:29:16 168143921 2caa1b1f [DEBUG Client 438888] Client-Safe Instance ID = 2080218402
 2025/09/11 18:29:16 168143921 2caa1afc [DEBUG Client 438888] Generating level 16 area "G2_1" with seed 3515667606
-2025/09/11 18:29:16 168144046 f0c29dd3 [INFO Client 438888] Tile hash: 3342134387
+2025/09/11 18:29:16 168144001 f0c29dd3 [INFO Client 438888] Tile hash: 3342134387
+2025/09/11 18:29:16 168144002 f0c29dd3 [INFO Client 438888] : You have received 2 Passive Skill Points.
+2025/09/11 18:29:16 168144046 f0c29dd3 [INFO Client 438888] : You have received 2 Weapon Set Passive Skill Points.
 `;
 const logStartThroughRedVale = `
 2026/04/26 09:28:47 ***** LOG FILE OPENING *****
@@ -765,6 +778,19 @@ describe("clientLog", () => {
     expect(Host.sendEvent).toHaveBeenCalled();
   });
 
+  it("Should parse full campaign client log", () => {
+    const { handleLine } = useClientLog();
+
+    const filePath = path.join(__dirname, "FullCampaign.txt");
+    const lines = fs.readFileSync(filePath, "utf-8").split("\n");
+
+    for (const line of lines) {
+      handleLine(line);
+    }
+
+    expect(Host.sendEvent).toHaveBeenCalled();
+  });
+
   it("Timestamp should be correct format", () => {
     const { handleLine } = useClientLog();
 
@@ -878,8 +904,222 @@ describe("clientLog", () => {
     expect(calls.length).toBe(count);
     calls.forEach((call) => {
       const arg = call[0].payload as unknown as { data: GameVersionEvent };
-      expect(arg.data.version.toLowerCase()).toBe("0.4.0j");
+      expect(arg.data.version.toLowerCase()).toBe("4.4.0j");
     });
+  });
+
+  it.each([
+    [log1, 0],
+    [logStartThroughRedVale, 28],
+  ])("Should have alt-tabs", (log, count) => {
+    const { handleLine } = useClientLog();
+
+    for (const line of log.split("\n")) {
+      handleLine(line);
+    }
+
+    const calls = vi
+      .mocked(Host.sendEvent)
+      .mock.calls.filter(
+        (c) =>
+          c[0].name === "CLIENT->MAIN::write-data" &&
+          c[0].payload.action === "client-log-event" &&
+          c[0].payload.data.type === "alt-tab",
+      );
+    expect(calls.length).toBe(count);
+    let lastWas = true;
+    calls.forEach((call) => {
+      const arg = call[0].payload as unknown as { data: AltTabEvent };
+      expect(arg.data.gameFocused).toBe(!lastWas);
+      lastWas = arg.data.gameFocused;
+    });
+  });
+
+  it.each([
+    [log1, 0, {}],
+    [
+      logStartThroughRedVale,
+      33,
+      {
+        "Wounded Man": 3,
+        "Mortimer": 2,
+        "The Bloated Miller": 10,
+        "Renly": 4,
+        "Beira of the Rotten Pack": 7,
+        "Ghostly Voice": 3,
+        "The Rust King": 4,
+      },
+    ],
+  ])("Should have npc dialog", (log, count, expectedCounts) => {
+    const { handleLine } = useClientLog();
+
+    for (const line of log.split("\n")) {
+      handleLine(line);
+    }
+
+    const calls = vi
+      .mocked(Host.sendEvent)
+      .mock.calls.filter(
+        (c) =>
+          c[0].name === "CLIENT->MAIN::write-data" &&
+          c[0].payload.action === "client-log-event" &&
+          c[0].payload.data.type === "npc",
+      );
+    expect(calls.length).toBe(count);
+    const npcCounts: Record<string, number> = {};
+    calls.forEach((call) => {
+      const arg = call[0].payload as unknown as { data: NpcEvent };
+      npcCounts[arg.data.npcName] = (npcCounts[arg.data.npcName] ?? 0) + 1;
+    });
+    expect(npcCounts).toEqual(expectedCounts);
+  });
+
+  it.each([
+    [log1, 1],
+    [logStartThroughRedVale, 1],
+  ])("Should have deaths", (log, count) => {
+    const { handleLine } = useClientLog();
+
+    for (const line of log.split("\n")) {
+      handleLine(line);
+    }
+
+    const calls = vi
+      .mocked(Host.sendEvent)
+      .mock.calls.filter(
+        (c) =>
+          c[0].name === "CLIENT->MAIN::write-data" &&
+          c[0].payload.action === "client-log-event" &&
+          c[0].payload.data.type === "player-death",
+      );
+    expect(calls.length).toBe(count);
+    calls.forEach((call) => {
+      const arg = call[0].payload as unknown as { data: PlayerDeathEvent };
+      expect(arg.data.charName.toLowerCase()).toContain("kvan");
+    });
+  });
+
+  it.each([
+    [log1, 1, { expectedAdd: 0, expectedRemove: 1 }],
+    [logStartThroughRedVale, 6, { expectedAdd: 5, expectedRemove: 1 }],
+  ])(
+    "Should have passive tree add & removes",
+    (log, count, { expectedAdd, expectedRemove }) => {
+      const { handleLine } = useClientLog();
+
+      for (const line of log.split("\n")) {
+        handleLine(line);
+      }
+
+      const calls = vi
+        .mocked(Host.sendEvent)
+        .mock.calls.filter(
+          (c) =>
+            c[0].name === "CLIENT->MAIN::write-data" &&
+            c[0].payload.action === "client-log-event" &&
+            c[0].payload.data.type === "passive-tree",
+        );
+      expect(calls.length).toBe(count);
+      let added = 0;
+      let removed = 0;
+      calls.forEach((call) => {
+        const arg = call[0].payload as unknown as { data: PassiveTreeEvent };
+        expect(arg.data.nodeId.match(/\d/)).toBeTruthy();
+        if (arg.data.allocate) {
+          added++;
+        } else {
+          removed++;
+        }
+      });
+      expect(added).toBe(expectedAdd);
+      expect(removed).toBe(expectedRemove);
+    },
+  );
+
+  it.each([
+    [log1, 0],
+    [logStartThroughRedVale, 1],
+  ])("Should have permanent bonuses", (log, count) => {
+    const { handleLine } = useClientLog();
+
+    for (const line of log.split("\n")) {
+      handleLine(line);
+    }
+
+    const calls = vi
+      .mocked(Host.sendEvent)
+      .mock.calls.filter(
+        (c) =>
+          c[0].name === "CLIENT->MAIN::write-data" &&
+          c[0].payload.action === "client-log-event" &&
+          c[0].payload.data.type === "permanent-bonus",
+      );
+    expect(calls.length).toBe(count);
+    calls.forEach((call) => {
+      const arg = call[0].payload as unknown as { data: PermanentBonusEvent };
+      expect(arg.data.charName.toLowerCase()).toContain("kvan");
+      expect(arg.data.permanentBonus.match(/\d/)).toBeTruthy();
+    });
+  });
+
+  it.each([
+    [log1, 2],
+    [logStartThroughRedVale, 0],
+  ])("Should have skill points", (log, count) => {
+    const { handleLine } = useClientLog();
+
+    for (const line of log.split("\n")) {
+      handleLine(line);
+    }
+
+    const calls = vi
+      .mocked(Host.sendEvent)
+      .mock.calls.filter(
+        (c) =>
+          c[0].name === "CLIENT->MAIN::write-data" &&
+          c[0].payload.action === "client-log-event" &&
+          c[0].payload.data.type === "skill-point",
+      );
+    expect(calls.length).toBe(count);
+    calls.forEach((call) => {
+      const arg = call[0].payload as unknown as { data: SkillPointEvent };
+      expect(arg.data.points).toBe(2);
+      expect(arg.data.pointType).toBeOneOf(["passive", "weapon-set"]);
+    });
+  });
+
+  it.each([
+    [log1, 4, 2, 0],
+    [logStartThroughRedVale, 42, 19, 5],
+  ])("Should have source sets", (log, count, nulls, unknowns) => {
+    const { handleLine } = useClientLog();
+
+    for (const line of log.split("\n")) {
+      handleLine(line);
+    }
+
+    const calls = vi
+      .mocked(Host.sendEvent)
+      .mock.calls.filter(
+        (c) =>
+          c[0].name === "CLIENT->MAIN::write-data" &&
+          c[0].payload.action === "client-log-event" &&
+          c[0].payload.data.type === "map-nav",
+      );
+    expect(calls.length).toBe(count);
+    let nullCount = 0;
+    let unknownCount = 0;
+    calls.forEach((call) => {
+      const arg = call[0].payload as unknown as { data: MapNavEvent };
+      const mapName = arg.data.mapName;
+      if (mapName === "(null)") {
+        nullCount++;
+      } else if (mapName === "(unknown)") {
+        unknownCount++;
+      }
+    });
+    expect(nullCount).toBe(nulls);
+    expect(unknownCount).toBe(unknowns);
   });
 });
 
@@ -887,7 +1127,7 @@ describe("local performance tests", () => {
   let lines: string[] = [];
 
   beforeEach(() => {
-    const blob = readFileSync(
+    const blob = fs.readFileSync(
       "C:/Program Files (x86)/Steam/steamapps/common/Path of Exile 2/logs/Client.txt",
     );
     lines = blob.toString().split("\n");

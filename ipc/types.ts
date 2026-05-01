@@ -241,7 +241,8 @@ export type ClientLogEvent =
   | PlayerDeathEvent
   | PassiveTreeEvent
   | PermanentBonusEvent
-  | SkillPointEvent;
+  | SkillPointEvent
+  | MapNavEvent;
 
 type BaseLogEvent = {
   ts: number;
@@ -297,12 +298,29 @@ export type PassiveTreeEvent = BaseLogEvent & {
 export type PermanentBonusEvent = BaseLogEvent & {
   type: "permanent-bonus";
   permanentBonus: string;
-  charName?: string;
+  charName: string;
 };
 
 export type SkillPointEvent = BaseLogEvent & {
   type: "skill-point";
   points: number;
+  pointType:
+    | "passive"
+    | "weapon-set"
+    | "atlas"
+    // all atlas sub trees
+    | "map-boss"
+    | "arbiter-boss"
+    | "abyss"
+    | "ritual"
+    | "delirium"
+    | "expedition"
+    | "breach";
+};
+
+export type MapNavEvent = BaseLogEvent & {
+  type: "map-nav";
+  mapName: string;
 };
 
 interface Event<TName extends string, TPayload = undefined> {
