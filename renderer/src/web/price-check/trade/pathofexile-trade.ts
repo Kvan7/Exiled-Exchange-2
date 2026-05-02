@@ -127,6 +127,137 @@ const TABLET_USES_STATS = [
   "Adds Abysses to a Map \n# use remaining",
 ];
 
+enum TradePropType {
+  Unused,
+  MapTier,
+  MapQuantityBonus,
+  MapRarityBonus,
+  MapPackSizeBonus,
+  GemLevel,
+  Quality,
+  QualityItemBonus,
+  QualitySupportBonus,
+  WeaponPhysicalDamage,
+  WeaponElementalDamage,
+  WeaponChaosDamage,
+  WeaponCriticalChance,
+  WeaponSpeed,
+  WeaponRange,
+  ShieldBlock,
+  ArmourReduction,
+  ArmourEvasion,
+  ArmourEnergyShield,
+  NetTier,
+  GemLevelProgress,
+  BestiaryGenus,
+  BestiaryGroup,
+  BestiaryFamily,
+  JewelRadius,
+  Spirit,
+  SanctumFloors,
+  UltimatumRooms,
+  Notable,
+  HarvestGrowth,
+  MonsterLevel,
+  StoredExperience,
+  StackSize,
+  Durability,
+  AreaLevel,
+  HeistWings,
+  HeistEscapeRoutes,
+  HeistRewardRooms,
+  HeistJobLockpicking,
+  HeistJobBruteForce,
+  HeistJobPerception,
+  HeistJobDemolition,
+  HeistJobCounterThaumaturgy,
+  HeistJobTrapDisarmament,
+  HeistJobAgility,
+  HeistJobDeception,
+  HeistJobEngineering,
+  HeistContractObjective,
+  RitualStoneWorldArea,
+  IncursionTempleRoom,
+  MavenCollectedMaps,
+  UltimatumTrialItemRequirement,
+  UltimatumTrialReward,
+  UltimatumTrialDifficulty,
+  ArmourWard,
+  ArmourAdaptation,
+  QualityGlobalStatsBonus,
+  ClassRequirement,
+  SentinelDroneUses,
+  SentinelDuration,
+  SentinelTagLimit,
+  SentinelEmpowerment,
+  LevelRequirement,
+  StrengthRequirement,
+  DexterityRequirement,
+  IntelligenceRequirement,
+  MapMapItemDropChanceBonus,
+  MapItemsDropCorruptedChance,
+  SanctumResolve,
+  SanctumInspiration,
+  SanctumGold,
+  SanctumMinorBoons,
+  SanctumMajorBoons,
+  SanctumMinorCurses,
+  SanctumMajorCurses,
+  SanctumPacts,
+  CompletionReward,
+  MapConversion,
+  ItemLevel,
+  CorpseTag,
+  MapConversionShaper,
+  MapConversionElder,
+  MapConversionConqueror,
+  MapConversionUnique,
+  MapConversionChargedCompass,
+  MapConversionMavenInvite,
+  MapConversionMemoryLine,
+  ScarabUseLimit, // ScrabUseLimit?
+  MapMapDropBonus,
+  MapScarabDropBonus,
+  MapCurrencyDropBonus,
+  MapDivinationCardDropBonus,
+  ShieldDeflect,
+  TrapToolDamage,
+  TrapToolSpeed,
+  TrapToolDetonationType,
+  WeaponRequirement,
+  WeaponReloadTime,
+  MapPortals,
+  ZanaInfluence,
+  MapGoldQuantityBonus,
+  MapExperienceBonus,
+  MapMagicMonstersQuantityBonus,
+  MapRareMonstersQuantityBonus,
+  ReservationCost,
+  MapKeyWorldArea,
+  RitualStoneUniqueMonsters,
+  RitualStoneOtherMonsters,
+}
+
+enum TradeNumberColors {
+  White = 0,
+  Augmented = 1,
+  Unmet = 2,
+  Physical = 3,
+  Fire = 4,
+  Cold = 5,
+  Lightning = 6,
+  Chaos = 7,
+  Unique = 8,
+  Unreachable = 9,
+  Currency = 10,
+  Reward = 11,
+  Divination = 12,
+  SanctumBoon = 13,
+  SanctumCurse = 14,
+  SanctumPact = 15,
+  GrantedSkill = 25,
+}
+
 interface FilterBoolean {
   option?: "true" | "false";
 }
@@ -255,22 +386,41 @@ export interface SearchResult {
   inexact?: boolean;
 }
 
+interface TradeModMetadata {
+  name: string;
+  tier: number;
+  level: number;
+  magnitudes: Array<{ hash: string; min: string; max: string }>;
+}
+
+interface TradeDataRichLine {
+  name: string;
+  values: Array<[string, TradeNumberColors]>;
+  displayMode: number;
+  type?: TradePropType;
+  icon?: string;
+}
+
 interface FetchResult {
   id: string;
   item: {
+    w: 2;
+    h: 3;
+    icon: string;
+    sockets: Array<{ group: number; type: string; item: string }>;
+    name: string;
+    typeLine: string;
+    baseType: string;
+    rarity: ItemRarity;
     ilvl?: number;
+    identified: boolean;
+    note?: string;
     stackSize?: number;
     corrupted?: boolean;
     gemSockets?: string[];
-    properties?: Array<{
-      values: [[string, number]];
-      type:
-        | 78 // Corpse Level (Filled Coffin)
-        | 30 // Spawns a Level %0 Monster when Harvested
-        | 6 // Quality
-        | 5; // Level
-    }>;
-    note?: string;
+    properties?: TradeDataRichLine[];
+    requirements?: TradeDataRichLine[];
+    grantedSkills?: TradeDataRichLine[];
     implicitMods?: string[];
     explicitMods?: string[];
     enchantMods?: string[];
@@ -282,6 +432,14 @@ interface FetchResult {
       ar?: number;
       ev?: number;
       es?: number;
+      dps_aug?: boolean;
+      pdps_aug?: boolean;
+      edps_aug?: boolean;
+      ar_aug?: boolean;
+      ev_aug?: boolean;
+      es_aug?: boolean;
+      mods?: Record<string, TradeModMetadata[]>;
+      hashes?: Record<string, Array<Array<string | number[] | null>>>;
     };
     pseudoMods?: string[];
     desecratedMods?: string[];
@@ -301,14 +459,27 @@ interface FetchResult {
   };
   gone?: boolean;
 }
-
 export interface DisplayItem {
+  title: string[];
+  nameBlock?: Array<{
+    text: string;
+    value: string | number;
+    color: TradeNumberColors;
+  }>;
+  itemProps?: Array<{
+    text: string;
+    value: string | number;
+    color: TradeNumberColors;
+  }>;
+  enchantMods?: string[];
   runeMods?: string[];
   implicitMods?: string[];
+  fracturedMods?: string[];
   explicitMods?: string[];
-  enchantMods?: string[];
+  desecratedMods?: string[];
   pseudoMods?: string[];
   extended?: Array<{ text: string; value: number }>;
+  itemTags?: string[];
 }
 
 export interface PricingResult {
@@ -1102,65 +1273,7 @@ export async function requestResults(
   }
 
   return data.map<PricingResult>((result) => {
-    const runeMods = result.item.runeMods?.map((s) => parseAffixStrings(s));
-    const implicitMods = result.item.implicitMods?.map((s) =>
-      parseAffixStrings(s),
-    );
-    const explicitMods = result.item.explicitMods?.map((s) =>
-      parseAffixStrings(s),
-    );
-    const enchantMods = result.item.enchantMods?.map((s) =>
-      parseAffixStrings(s),
-    );
-    const desecratedMods = result.item.desecratedMods?.map((s) =>
-      parseAffixStrings(s),
-    );
-    const fracturedMods = result.item.fracturedMods?.map((s) =>
-      parseAffixStrings(s),
-    );
-    const pseudoMods = result.item.pseudoMods?.map((s) => {
-      if (s.startsWith("Sum: ")) {
-        const pseudoRes = +s.slice(5);
-        if (!isNaN(pseudoRes)) {
-          return `+${pseudoRes}% total Elemental Resistance`;
-        }
-      }
-      return s;
-    });
-    const extended = result.item.extended
-      ? Object.entries(result.item.extended)
-          .filter(([value]) => value !== undefined) // Include only keys with defined values
-          .filter(([key]) =>
-            ["ar", "ev", "es", "dps", "pdps", "edps"].includes(key),
-          ) // Exclude mods
-          .map(([key, value]) => {
-            const labels: Record<string, string> = {
-              ar: "Armour: ",
-              ev: "Evasion Rating: ",
-              es: "Energy Shield: ",
-              dps: "Total DPS: ",
-              pdps: "Physical DPS: ",
-              edps: "Elemental DPS: ",
-            };
-
-            return {
-              text: labels[key] || `${key}: `,
-              value: Math.round(value),
-            };
-          })
-      : undefined;
-
-    const displayItem: PricingResult["displayItem"] = {
-      runeMods,
-      implicitMods,
-      // HACK: fix the implementation at some point
-      explicitMods: (fracturedMods ?? [])
-        .concat(explicitMods ?? [])
-        .concat(desecratedMods ?? []),
-      enchantMods,
-      pseudoMods,
-      extended,
-    };
+    const displayItem: DisplayItem = parseFetchResult(result);
 
     let priceCurrencyRank: PricingResult["priceCurrencyRank"];
     if (
@@ -1321,3 +1434,252 @@ function nameToQuery(name: string, filters: ItemFilters) {
     };
   }
 }
+
+/**
+ * Parse out all the components from a fetch result into something easier to display on the ui
+ * @param result fetch result json from the trade site
+ * @returns item to display on ui
+ */
+function parseFetchResult(result: FetchResult): PricingResult["displayItem"] {
+  /* Components on the trade site:
+  Name block
+  ------
+  Item props
+  ------
+  Enchant mods
+  ------
+  Rune mods
+  ------
+  Implicit mods
+  ------
+  Explicit mods (+ fractured + desecrated)
+  ------
+  item tags
+  */
+
+  // TODO: check on granted skills
+
+  const extended = result.item.extended
+    ? Object.entries(result.item.extended)
+        .filter(([value]) => value !== undefined && typeof value === "number") // Include only keys with defined values
+        .filter(([key]) =>
+          ["ar", "ev", "es", "dps", "pdps", "edps"].includes(key),
+        ) // Exclude mods
+        .map(([key, value]) => {
+          const labels: Record<string, string> = {
+            ar: "item.armour",
+            ev: "item.evasion_rating",
+            es: "item.energy_shield",
+            dps: "item.total_dps",
+            pdps: "item.physical_dps",
+            edps: "item.elemental_dps",
+          };
+
+          return {
+            text: labels[key] || `${key}: `,
+            value: Math.round(value as number),
+          };
+        })
+    : undefined;
+
+  const title: string[] = [];
+  if (result.item.name && result.item.name.length > 0) {
+    title.push(result.item.name);
+  }
+  if (result.item.typeLine) {
+    title.push(result.item.typeLine);
+  }
+
+  const displayItem: PricingResult["displayItem"] = {
+    title,
+    nameBlock: buildNameBlock(result.item.extended, result.item.properties),
+    itemProps: buildItemProps(result.item.ilvl, result.item.requirements),
+    ...parseMods(result),
+    extended,
+  };
+
+  return displayItem;
+}
+
+function parseMods(result: FetchResult): {
+  enchantMods?: string[];
+  runeMods?: string[];
+  implicitMods?: string[];
+  explicitMods?: string[];
+  desecratedMods?: string[];
+  fracturedMods?: string[];
+  pseudoMods?: string[];
+} {
+  /*
+
+  */
+  return {
+    enchantMods: parseModBlock(result.item.enchantMods),
+    runeMods: parseModBlock(result.item.runeMods),
+    implicitMods: parseModBlock(result.item.implicitMods),
+    explicitMods: parseModBlock(result.item.explicitMods),
+    desecratedMods: parseModBlock(result.item.desecratedMods),
+    fracturedMods: parseModBlock(result.item.fracturedMods),
+    pseudoMods: parseModBlock(result.item.pseudoMods),
+  };
+}
+
+function parseModBlock(
+  translated: string[] | undefined,
+  // mods: TradeModMetadata[] | undefined,
+  // hashes: Array<Array<string | number[] | null>> | undefined,
+) {
+  // separate function, allow doing complex parsing later if needed
+  if (!translated) return undefined;
+  return translated.map((s) => parseAffixStrings(s));
+}
+
+function buildNameBlock(
+  extended: FetchResult["item"]["extended"],
+  props: FetchResult["item"]["properties"],
+): DisplayItem["nameBlock"] {
+  const block: Array<{
+    text: string;
+    value: string | number;
+    color: TradeNumberColors;
+  }> = [];
+  if (!props || !extended) return block;
+
+  // put everything from props in the block, but replace certain ones
+  if (props) {
+    let hasDamage = false;
+    for (const prop of props) {
+      const { name, values, type } = prop;
+      let text: string | undefined;
+      switch (type) {
+        // TODO: swap to dps from extended
+        case TradePropType.WeaponPhysicalDamage:
+          block.push({
+            text: "item.physical_dps",
+            value: extended.pdps!,
+            color: useColor(extended.pdps_aug),
+          });
+          hasDamage = true;
+          continue;
+        case TradePropType.WeaponElementalDamage:
+          block.push({
+            text: "item.elemental_dps",
+            value: extended.edps!,
+            color: useColor(extended.edps_aug),
+          });
+          hasDamage = true;
+          continue;
+
+        case TradePropType.ArmourReduction:
+          block.push({
+            text: "item.armour",
+            value: extended.ar!,
+            color: useColor(extended.ar_aug),
+          });
+          break;
+        case TradePropType.ArmourEvasion:
+          block.push({
+            text: "item.evasion_rating",
+            value: extended.ev!,
+            color: useColor(extended.ev_aug),
+          });
+          break;
+        case TradePropType.ArmourEnergyShield:
+          block.push({
+            text: "item.energy_shield",
+            value: extended.es!,
+            color: useColor(extended.es_aug),
+          });
+          break;
+
+        case TradePropType.Quality:
+          if (values[0][0].length < 4) continue;
+
+          // "+##%" (0-30)
+          if (Number.parseInt(values[0][0].slice(1, 3), 10) <= 20) continue; // dont care if it is no or normal quality
+          text = "item.quality";
+          break;
+
+        case TradePropType.WeaponSpeed:
+          text = "item.aps";
+          break;
+        case TradePropType.WeaponCriticalChance:
+          text = "item.crit";
+          break;
+        case TradePropType.WeaponReloadTime:
+          text = "item.reload_time";
+          break;
+        case TradePropType.ShieldBlock:
+          text = "item.block";
+          break;
+        case TradePropType.Spirit:
+          text = "item.spirit";
+          break;
+      }
+
+      block.push({
+        text: text ?? parseAffixStrings(name),
+        // if we have a value, there should only be one probably...
+        value: values.length ? values[0][0] : "",
+        color: values.length ? values[0][1] : TradeNumberColors.White,
+      });
+    }
+    if (hasDamage) {
+      block.push({
+        text: "item.total_dps",
+        value: extended.dps!,
+        color: useColor(extended.dps_aug),
+      });
+    }
+
+    return block;
+  }
+
+  function useColor(use: boolean | undefined) {
+    return use ? TradeNumberColors.Augmented : TradeNumberColors.White;
+  }
+}
+
+function buildItemProps(
+  ilvl: number | undefined,
+  requirements: TradeDataRichLine[] | undefined,
+): DisplayItem["itemProps"] {
+  if (!ilvl && !requirements) return;
+
+  const block: Array<{
+    text: string;
+    value: string | number;
+    color: TradeNumberColors;
+  }> = [];
+  if (ilvl) {
+    block.push({
+      text: "item.item_level",
+      value: ilvl,
+      color: TradeNumberColors.White,
+    });
+  }
+  if (requirements && requirements.length) {
+    let value = requirements[0].values[0][0];
+
+    if (requirements.length > 1) {
+      value = `${value}, ${requirements
+        .slice(1)
+        .map((r) => `${r.values[0][0]} ${r.name}`)
+        .join(", ")}`;
+    }
+
+    // do i actually care about this?
+    block.push({
+      text: parseAffixStrings(requirements[0].name),
+      value,
+      color: TradeNumberColors.White,
+    });
+  }
+  return block;
+}
+
+// Disable since this is export for tests
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export const __testExports = {
+  parseFetchResult,
+};
