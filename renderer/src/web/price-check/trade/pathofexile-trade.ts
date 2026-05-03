@@ -256,6 +256,9 @@ enum TradeNumberColors {
   SanctumCurse = 14,
   SanctumPact = 15,
   GrantedSkill = 25,
+  Enchant = 8729,
+  Fractured = 8730,
+  Desecrated = 8731,
 }
 
 interface FilterBoolean {
@@ -459,26 +462,26 @@ interface FetchResult {
   };
   gone?: boolean;
 }
+
+export interface DisplayItemLine {
+  // text should include colon if required...
+  text: string;
+  value?: string | number;
+  color: TradeNumberColors;
+}
+
 export interface DisplayItem {
   title: string[];
-  nameBlock?: Array<{
-    text: string;
-    value: string | number;
-    color: TradeNumberColors;
-  }>;
-  itemProps?: Array<{
-    text: string;
-    value: string | number;
-    color: TradeNumberColors;
-  }>;
-  grantSkill?: string[];
-  enchantMods?: string[];
-  runeMods?: string[];
-  implicitMods?: string[];
-  fracturedMods?: string[];
-  explicitMods?: string[];
-  desecratedMods?: string[];
-  pseudoMods?: string[];
+  nameBlock?: DisplayItemLine[];
+  itemProps?: DisplayItemLine[];
+  grantSkill?: DisplayItemLine[];
+  enchantMods?: DisplayItemLine[];
+  runeMods?: DisplayItemLine[];
+  implicitMods?: DisplayItemLine[];
+  fracturedMods?: DisplayItemLine[];
+  explicitMods?: DisplayItemLine[];
+  desecratedMods?: DisplayItemLine[];
+  pseudoMods?: DisplayItemLine[];
   extended?: Array<{ text: string; value: number }>;
   itemTags?: string[];
 }
@@ -1504,36 +1507,48 @@ function parseFetchResult(result: FetchResult): PricingResult["displayItem"] {
 }
 
 function parseMods(result: FetchResult): {
-  enchantMods?: string[];
-  runeMods?: string[];
-  implicitMods?: string[];
-  explicitMods?: string[];
-  desecratedMods?: string[];
-  fracturedMods?: string[];
-  pseudoMods?: string[];
+  enchantMods?: DisplayItemLine[] | undefined;
+  runeMods?: DisplayItemLine[] | undefined;
+  implicitMods?: DisplayItemLine[] | undefined;
+  explicitMods?: DisplayItemLine[] | undefined;
+  desecratedMods?: DisplayItemLine[] | undefined;
+  fracturedMods?: DisplayItemLine[] | undefined;
+  pseudoMods?: DisplayItemLine[] | undefined;
 } {
   /*
 
   */
   return {
-    enchantMods: parseModBlock(result.item.enchantMods),
-    runeMods: parseModBlock(result.item.runeMods),
+    enchantMods: parseModBlock(
+      result.item.enchantMods,
+      TradeNumberColors.Enchant,
+    ),
+    runeMods: parseModBlock(result.item.runeMods, TradeNumberColors.Enchant),
     implicitMods: parseModBlock(result.item.implicitMods),
+    fracturedMods: parseModBlock(
+      result.item.fracturedMods,
+      TradeNumberColors.Fractured,
+    ),
     explicitMods: parseModBlock(result.item.explicitMods),
-    desecratedMods: parseModBlock(result.item.desecratedMods),
-    fracturedMods: parseModBlock(result.item.fracturedMods),
+    desecratedMods: parseModBlock(
+      result.item.desecratedMods,
+      TradeNumberColors.Desecrated,
+    ),
     pseudoMods: parseModBlock(result.item.pseudoMods),
   };
 }
 
 function parseModBlock(
   translated: string[] | undefined,
+  color: TradeNumberColors = TradeNumberColors.Augmented,
   // mods: TradeModMetadata[] | undefined,
   // hashes: Array<Array<string | number[] | null>> | undefined,
-) {
+): DisplayItemLine[] | undefined {
   // separate function, allow doing complex parsing later if needed
   if (!translated) return undefined;
-  return translated.map((s) => parseAffixStrings(s));
+  return translated.map((s) => {
+    return { text: parseAffixStrings(s), color };
+  });
 }
 
 function buildNameBlock(
@@ -1672,7 +1687,8 @@ function buildItemProps(
 
     // do i actually care about this?
     block.push({
-      text: parseAffixStrings(requirements[0].name),
+      // no colon for req
+      text: `${parseAffixStrings(requirements[0].name)} `,
       value,
       color: TradeNumberColors.White,
     });
@@ -1682,13 +1698,15 @@ function buildItemProps(
 
 function buildGrantSkillBlock(
   skills: TradeDataRichLine[] | undefined,
-): string[] {
+): DisplayItemLine[] {
   if (!skills || skills.length === 0) return [];
-  const block = [];
+  const block: DisplayItemLine[] = [];
   for (const skill of skills) {
-    block.push(
-      `${parseAffixStrings(skill.name)}: ${parseAffixStrings(skill.values[0][0])}`,
-    );
+    block.push({
+      text: `${parseAffixStrings(skill.name)}: `,
+      value: parseAffixStrings(skill.values[0][0]),
+      color: skill.values[0][1],
+    });
   }
 
   return block;

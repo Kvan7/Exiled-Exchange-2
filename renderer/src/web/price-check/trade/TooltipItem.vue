@@ -1,27 +1,33 @@
 <template>
-  <div class="flex flex-col p-1 bg-gray-800 text-indigo-400 text-center">
+  <div class="flex flex-col p-1 bg-gray-800 text-center">
     <template v-for="(section, index) in sections">
       <div v-if="section.content" :key="index">
         <div
           v-for="mod in section.content"
-          :key="isExtendedContent(mod) ? mod.text : mod"
+          :key="mod.text"
           class="flex items-center justify-between"
         >
-          <span v-if="isExtendedContent(mod)" class="flex-grow text-center">
-            <span class="text-gray-400">{{ mod.text }}</span>
-            {{ mod.value }}
+          <span class="flex-grow text-center">
+            <span
+              :class="
+                mod.value
+                  ? 'text-gray-400'
+                  : $style[`number-color-${mod.color}`]
+              "
+              >{{ mod.text }}</span
+            >
+            <span
+              v-if="mod.value"
+              :class="$style[`number-color-${mod.color}`]"
+              >{{ mod.value }}</span
+            >
           </span>
-          <span
-            v-else-if="section.key === 'corrupted'"
-            class="flex-grow text-center text-red-600"
-          >
-            {{ mod }}
-          </span>
-          <span v-else class="flex-grow text-center">{{ mod }}</span>
-          <!-- <span class="ml-2 text-gray-400">▲</span> -->
         </div>
       </div>
-      <div v-if="shouldShowDivider(index)" class="divider"></div>
+      <hr
+        v-if="shouldShowDivider(index)"
+        class="block h-[2px] bg-gradient-to-r from-transparent via-gray-400 to-transparent my-1 border-0 border-none"
+      />
     </template>
   </div>
 </template>
@@ -40,16 +46,21 @@ export default defineComponent({
   setup(props) {
     const item = props.result.displayItem;
     const sections = [
-      { key: "extended", content: item.extended },
+      { key: "nameBlock", content: item.nameBlock },
+      { key: "itemProps", content: item.itemProps },
       { key: "enchantMods", content: item.enchantMods },
       { key: "runeMods", content: item.runeMods },
       { key: "implicitMods", content: item.implicitMods },
-      { key: "explicitMods", content: item.explicitMods },
-      { key: "pseudoMods", content: item.pseudoMods },
       {
-        key: "corrupted",
-        content: props.result.corrupted ? ["Corrupted"] : [],
+        key: "explicitMods",
+        content: [
+          // ? maybe keep
+          ...(item.fracturedMods ?? []),
+          ...(item.explicitMods ?? []),
+          ...(item.desecratedMods ?? []),
+        ],
       },
+      { key: "pseudoMods", content: item.pseudoMods },
     ];
     function isNonEmptyObject(obj: Record<string, string | number>): boolean {
       return Object.values(obj).some((value) => value !== undefined);
@@ -86,6 +97,7 @@ export default defineComponent({
         !Array.isArray(content)
       );
     }
+
     return {
       item,
       sections,
@@ -96,12 +108,89 @@ export default defineComponent({
 });
 </script>
 
-<style lang="postcss">
-.divider {
-  @apply h-[2px] bg-gradient-to-r from-transparent via-gray-400 to-transparent my-1;
-}
-
+<style lang="postcss" module>
 .mod {
   @apply text-sm;
+}
+
+.number-color-0 {
+  /*white*/
+  @apply text-white;
+}
+.number-color-1 {
+  /*aug*/
+  @apply text-indigo-500;
+}
+.number-color-2 {
+  /*unmet*/
+  @apply text-red-500;
+}
+.number-color-3 {
+  /*physical*/
+  @apply text-white;
+}
+.number-color-4 {
+  /*fire*/
+  @apply text-red-700;
+}
+.number-color-5 {
+  /*cold*/
+  @apply text-blue-700;
+}
+.number-color-6 {
+  /*lightning*/
+  @apply text-yellow-500;
+}
+.number-color-7 {
+  /*chaos*/
+  @apply text-pink-800;
+}
+.number-color-8 {
+  /*unique*/
+  @apply text-orange-700;
+}
+.number-color-9 {
+  /*unreachable*/
+  @apply text-gray-500;
+}
+.number-color-10 {
+  /*currency*/
+  @apply text-gray-300;
+}
+.number-color-11 {
+  /*reward*/
+  @apply text-white;
+}
+.number-color-12 {
+  /*divination*/
+  @apply text-blue-300;
+}
+.number-color-13 {
+  /*sanctum boon*/
+  @apply text-gray-500;
+}
+.number-color-14 {
+  /*sanctum curse*/
+  @apply text-purple-300;
+}
+.number-color-15 {
+  /*sanctum pact*/
+  @apply text-pink-200;
+}
+.number-color-25 {
+  /*grant skill*/
+  @apply text-indigo-500;
+}
+.number-color-8729 {
+  /*aug*/
+  @apply text-indigo-300;
+}
+.number-color-8730 {
+  /*fractured*/
+  @apply text-yellow-500;
+}
+.number-color-8731 {
+  /*desecrated*/
+  @apply text-indigo-500 bg-gradient-to-l from-green-900 via-transparent to-transparent w-full;
 }
 </style>
