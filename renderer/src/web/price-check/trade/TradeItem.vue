@@ -124,11 +124,12 @@
 
 <script lang="ts">
 import {
+  App,
   computed,
   createApp,
   defineComponent,
+  onBeforeUnmount,
   onMounted,
-  onUnmounted,
   PropType,
   ref,
 } from "vue";
@@ -187,6 +188,8 @@ export default defineComponent({
     const target = ref<HTMLElement>(null!);
     const { t } = useI18nNs("trade_result");
     let instance: Instance;
+    let tooltipApp: App<Element> | undefined;
+
     // Shift Key Detection
     const isShiftPressed = ref(false);
     const isCtrlPressed = ref(false);
@@ -233,13 +236,16 @@ export default defineComponent({
         delay: [0, 0],
         animation: false,
         maxWidth: "none",
-        onShow() {
-          const app = createApp(TooltipItem, {
+        onMount() {
+          tooltipApp = createApp(TooltipItem, {
             result: props.result,
           });
           const tooltipContainer = document.createElement("div");
-          app.mount(tooltipContainer);
+          tooltipApp.mount(tooltipContainer);
           instance.setContent(tooltipContainer);
+        },
+        onDestroy() {
+          tooltipApp?.unmount();
         },
       });
       if (tooltipOption.value === "keybind") {
@@ -247,12 +253,11 @@ export default defineComponent({
       }
     });
 
-    onUnmounted(() => {
+    onBeforeUnmount(() => {
       window.removeEventListener("keydown", handleKeyDown);
       window.removeEventListener("keyup", handleKeyUp);
 
-      // tippy stuff
-      instance.destroy();
+      instance?.destroy();
     });
     return {
       t,
