@@ -636,11 +636,6 @@ function upgradeConfig(_config: Config): Config {
       wmId: Math.max(0, ...config.widgets.map((_) => _.wmId)) + 1,
     });
 
-    const priceCheck = config.widgets.find(
-      (w) => w.wmType === "price-check",
-    ) as widget.PriceCheckWidget;
-    priceCheck.travelButtonEnable = "disabled";
-
     config.configVersion = 30;
   }
   /* eslint-enable */

@@ -324,7 +324,6 @@
     "fulfill": "Fulfill",
     "listed": "Listed",
     "seller": "Seller",
-    "travel": "Travel",
     "item_level": "iLvl",
     "rank": "Rank",
     "gem_level": "Level",
@@ -427,11 +426,7 @@
     "remember_ratio": "Remember currency ratio",
     "open_editor_above": "Open rune socket selector upwards",
     "core_currency": "Primary base currency:",
-    "show_volume": "Show Currency Exchange volume per hour:",
-    "travel_to_hideout": "Travel to hideout for listings. Requires logging in via builtin browser, keep in mind associated risks.",
-    "travel_option_disabled": "Disabled",
-    "travel_option_button": "Button",
-    "travel_option_row": "Ctrl Click"
+    "show_volume": "Show Currency Exchange volume per hour:"
   },
   "poe2_new": {
     "beta_warning": "This is in BETA for POE2, things will not work always as expected.",

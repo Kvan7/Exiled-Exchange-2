@@ -8,7 +8,6 @@ import {
   createTradeRequest,
   requestTradeResultList,
   requestResults,
-  sendWhisperRequest,
 } from "@/web/price-check/trade/pathofexile-trade";
 
 const API_FETCH_LIMIT = 100;
@@ -129,14 +128,5 @@ export function useTradeApi() {
     }
   }
 
-  async function whisper(token?: string) {
-    if (!token) return;
-    try {
-      await sendWhisperRequest({ token });
-    } catch (err) {
-      error.value = (err as Error).message;
-    }
-  }
-
-  return { error, searchResult, groupedResults, search, whisper };
+  return { error, searchResult, groupedResults, search };
 }

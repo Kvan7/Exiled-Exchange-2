@@ -458,7 +458,6 @@ interface FetchResult {
     };
     account: Account;
     in_demand?: boolean;
-    hideout_token?: string;
   };
   gone?: boolean;
 }
@@ -509,16 +508,6 @@ export interface PricingResult {
   displayItem: DisplayItem;
   inDemand?: boolean;
   gone?: boolean;
-  hideoutToken?: string;
-}
-
-interface WhisperRequest {
-  token: string;
-  continue?: true;
-}
-
-interface WhisperResult {
-  success: boolean;
 }
 
 export function createTradeRequest(
@@ -1343,36 +1332,8 @@ export async function requestResults(
       displayItem,
       inDemand: result.listing.in_demand,
       gone: result.gone,
-      hideoutToken: result.listing.hideout_token,
     };
   });
-}
-
-export async function sendWhisperRequest(body: WhisperRequest) {
-  await RateLimiter.waitMulti(RATE_LIMIT_RULES.WHISPER);
-
-  const response = await Host.proxy(
-    `${getTradeEndpoint()}/api/trade2/whisper`,
-    {
-      method: "POST",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-        "Priority": "u=0",
-        "X-Requested-With": "XMLHttpRequest",
-      },
-      body: JSON.stringify(body),
-    },
-  );
-  adjustRateLimits(RATE_LIMIT_RULES.WHISPER, response.headers);
-
-  const _data = (await response.json()) as TradeResponse<WhisperResult>;
-  if (_data.error) {
-    throw new Error(_data.error.message);
-  }
-  if (!_data.success) {
-    throw new Error("Travel to hideout failed...");
-  }
 }
 
 function getMinMax(roll: StatFilter["roll"]) {
