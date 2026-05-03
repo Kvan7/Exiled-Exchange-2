@@ -471,6 +471,7 @@ export interface DisplayItem {
     value: string | number;
     color: TradeNumberColors;
   }>;
+  grantSkill?: string[];
   enchantMods?: string[];
   runeMods?: string[];
   implicitMods?: string[];
@@ -1494,6 +1495,7 @@ function parseFetchResult(result: FetchResult): PricingResult["displayItem"] {
     title,
     nameBlock: buildNameBlock(result.item.extended, result.item.properties),
     itemProps: buildItemProps(result.item.ilvl, result.item.requirements),
+    grantSkill: buildGrantSkillBlock(result.item.grantedSkills),
     ...parseMods(result),
     extended,
   };
@@ -1675,6 +1677,20 @@ function buildItemProps(
       color: TradeNumberColors.White,
     });
   }
+  return block;
+}
+
+function buildGrantSkillBlock(
+  skills: TradeDataRichLine[] | undefined,
+): string[] {
+  if (!skills || skills.length === 0) return [];
+  const block = [];
+  for (const skill of skills) {
+    block.push(
+      `${parseAffixStrings(skill.name)}: ${parseAffixStrings(skill.values[0][0])}`,
+    );
+  }
+
   return block;
 }
 
