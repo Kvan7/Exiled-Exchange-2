@@ -1554,27 +1554,23 @@ function buildNameBlock(
             value: extended.ar!,
             color: useColor(extended.ar_aug),
           });
-          break;
+          continue;
         case TradePropType.ArmourEvasion:
           block.push({
             text: "item.evasion_rating",
             value: extended.ev!,
             color: useColor(extended.ev_aug),
           });
-          break;
+          continue;
         case TradePropType.ArmourEnergyShield:
           block.push({
             text: "item.energy_shield",
             value: extended.es!,
             color: useColor(extended.es_aug),
           });
-          break;
+          continue;
 
         case TradePropType.Quality:
-          if (values[0][0].length < 4) continue;
-
-          // "+##%" (0-30)
-          if (Number.parseInt(values[0][0].slice(1, 3), 10) <= 20) continue; // dont care if it is no or normal quality
           text = "item.quality";
           break;
 
@@ -1593,10 +1589,39 @@ function buildNameBlock(
         case TradePropType.Spirit:
           text = "item.spirit";
           break;
+
+        // map stuffs
+        case TradePropType.MapTier:
+          text = "item.map_tier";
+          break;
+        case TradePropType.MapPortals:
+          text = "item.map_revives";
+          break;
+        case TradePropType.MapPackSizeBonus:
+          text = "item.map_pack_size";
+          break;
+        case TradePropType.MapMagicMonstersQuantityBonus:
+          text = "item.map_magic_monsters";
+          break;
+        case TradePropType.MapRareMonstersQuantityBonus:
+          text = "item.map_rare_monsters";
+          break;
+        case TradePropType.MapMapItemDropChanceBonus:
+          text = "item.map_drop_chance";
+          break;
+        case TradePropType.MapRarityBonus:
+          text = "item.map_item_rarity";
+          break;
+        case TradePropType.MapGoldQuantityBonus:
+          text = "item.map_gold";
+          break;
+        case TradePropType.MapQuantityBonus:
+          // text = "item.map_item_quantity";
+          break;
       }
 
       block.push({
-        text: text ?? parseAffixStrings(name),
+        text: text ?? `${parseAffixStrings(name)} `,
         // if we have a value, there should only be one probably...
         value: values.length ? values[0][0] : "",
         color: values.length ? values[0][1] : TradeNumberColors.White,
@@ -1640,10 +1665,12 @@ function buildItemProps(
     let value = requirements[0].values[0][0];
 
     if (requirements.length > 1) {
-      value = `${value}, ${requirements
-        .slice(1)
-        .map((r) => `${r.values[0][0]} ${r.name}`)
-        .join(", ")}`;
+      value = parseAffixStrings(
+        `${value}, ${requirements
+          .slice(1)
+          .map((r) => `${r.values[0][0]} ${r.name}`)
+          .join(", ")}`,
+      );
     }
 
     // do i actually care about this?

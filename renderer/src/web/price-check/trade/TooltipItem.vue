@@ -14,7 +14,19 @@
                   ? 'text-gray-400'
                   : $style[`number-color-${mod.color}`]
               "
-              >{{ t(mod.text) }}</span
+              >{{
+                // need to remove builtin %
+                mod.text === "item.crit" ||
+                mod.text === "item.map_pack_size" ||
+                mod.text === "item.map_magic_monsters" ||
+                mod.text === "item.map_rare_monsters" ||
+                mod.text === "item.map_drop_chance" ||
+                mod.text === "item.map_item_rarity" ||
+                mod.text === "item.map_gold"
+                  ? ((txt) => txt.slice(0, txt.lastIndexOf(" ")))(t(mod.text)) +
+                    " "
+                  : t(mod.text)
+              }}</span
             >
             <span
               v-if="mod.value"
