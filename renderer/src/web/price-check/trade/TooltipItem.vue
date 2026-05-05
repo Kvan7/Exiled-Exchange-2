@@ -14,7 +14,7 @@
                   ? 'text-gray-400'
                   : $style[`number-color-${mod.color}`]
               "
-              >{{ mod.text }}</span
+              >{{ t(mod.text) }}</span
             >
             <span
               v-if="mod.value"
@@ -35,6 +35,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { PricingResult } from "./pathofexile-trade";
+import { useI18n } from "vue-i18n";
 
 export default defineComponent({
   props: {
@@ -97,8 +98,10 @@ export default defineComponent({
         !Array.isArray(content)
       );
     }
+    const { t } = useI18n();
 
     return {
+      t,
       item,
       sections,
       shouldShowDivider,
