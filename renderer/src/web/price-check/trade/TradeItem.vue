@@ -105,13 +105,14 @@
       >
     </td>
   </tr>
+  <div ref="content">
+    <tooltip-item :result="result" />
+  </div>
 </template>
 
 <script lang="ts">
 import {
-  App,
   computed,
-  createApp,
   defineComponent,
   onBeforeUnmount,
   onMounted,
@@ -125,15 +126,16 @@ import { ParsedItem } from "@/parser/ParsedItem";
 import { FilterNumeric } from "../filters/interfaces";
 import { useI18nNs } from "@/web/i18n";
 import { PriceCheckWidget } from "@/web/overlay/widgets";
-import TooltipItem from "./TooltipItem.vue";
 import tippy, { Instance } from "tippy.js";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
 import { AppConfig } from "@/web/Config";
 import { ItemCategory } from "@/parser";
+import TooltipItem from "./TooltipItem.vue";
 
 export default defineComponent({
   name: "TradeItem",
+  components: { TooltipItem },
   props: {
     result: {
       type: Object as PropType<
@@ -161,14 +163,14 @@ export default defineComponent({
     },
   },
 
-  setup(props) {
+  setup() {
     const tooltipOption = computed(
       () => AppConfig<PriceCheckWidget>("price-check")!.itemHoverTooltip,
     );
     const target = ref<HTMLElement>(null!);
+    const content = ref<HTMLElement>(null!);
     const { t } = useI18nNs("trade_result");
     let instance: Instance;
-    let tooltipApp: App<Element> | undefined;
 
     // Shift Key Detection
     const isShiftPressed = ref(false);
@@ -201,25 +203,15 @@ export default defineComponent({
 
       // tippy stuff
       instance = tippy(target.value, {
+        content: content.value,
         interactive: true,
         theme: "light",
-        trigger: undefined,
+        trigger: "mouseenter",
         placement: "left",
         arrow: true,
         delay: [0, 0],
         animation: false,
         maxWidth: "none",
-        onMount() {
-          tooltipApp = createApp(TooltipItem, {
-            result: props.result,
-          });
-          const tooltipContainer = document.createElement("div");
-          tooltipApp.mount(tooltipContainer);
-          instance.setContent(tooltipContainer);
-        },
-        onDestroy() {
-          tooltipApp?.unmount();
-        },
       });
       if (tooltipOption.value === "keybind") {
         instance.disable();
@@ -235,6 +227,7 @@ export default defineComponent({
     return {
       t,
       target,
+      content,
       isHovered,
       isShiftPressed,
       ItemCategory,
@@ -245,10 +238,10 @@ export default defineComponent({
 
 <style lang="postcss">
 .tippy-box {
-  @apply rounded;
+  @apply rounded w-fit h-fit;
 }
 
 .tippy-content {
-  @apply p-1;
+  @apply p-1 w-fit h-fit;
 }
 </style>
