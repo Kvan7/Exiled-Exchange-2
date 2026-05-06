@@ -410,7 +410,7 @@ interface FetchResult {
     w: 2;
     h: 3;
     icon: string;
-    sockets: Array<{ group: number; type: string; item: string }>;
+    sockets: Array<{ group: number; type: string; item?: string }>;
     name: string;
     typeLine: string;
     baseType: string;
@@ -484,6 +484,12 @@ export interface DisplayItem {
   pseudoMods?: DisplayItemLine[];
   extended?: Array<{ text: string; value: number }>;
   itemTags?: string[];
+  sockets: Array<{ group: number; type: string; item?: string }>;
+  icon?: {
+    url: string;
+    w: number;
+    h: number;
+  };
 }
 
 export interface PricingResult {
@@ -1425,29 +1431,6 @@ function parseFetchResult(result: FetchResult): PricingResult["displayItem"] {
 
   // TODO: check on granted skills
 
-  const extended = result.item.extended
-    ? Object.entries(result.item.extended)
-        .filter(([value]) => value !== undefined && typeof value === "number") // Include only keys with defined values
-        .filter(([key]) =>
-          ["ar", "ev", "es", "dps", "pdps", "edps"].includes(key),
-        ) // Exclude mods
-        .map(([key, value]) => {
-          const labels: Record<string, string> = {
-            ar: "item.armour",
-            ev: "item.evasion_rating",
-            es: "item.energy_shield",
-            dps: "item.total_dps",
-            pdps: "item.physical_dps",
-            edps: "item.elemental_dps",
-          };
-
-          return {
-            text: labels[key] || `${key}: `,
-            value: Math.round(value as number),
-          };
-        })
-    : undefined;
-
   const title: string[] = [];
   if (result.item.name && result.item.name.length > 0) {
     title.push(result.item.name);
@@ -1463,7 +1446,12 @@ function parseFetchResult(result: FetchResult): PricingResult["displayItem"] {
     itemProps: buildItemProps(result.item.ilvl, result.item.requirements),
     grantSkill: buildGrantSkillBlock(result.item.grantedSkills),
     ...parseMods(result),
-    extended,
+    sockets: result.item.sockets,
+    icon: {
+      url: result.item.icon,
+      w: result.item.w,
+      h: result.item.h,
+    },
   };
 
   return displayItem;
@@ -1554,21 +1542,21 @@ function buildNameBlock(
           block.push({
             text: "item.armour",
             value: extended.ar!,
-            color: useColor(extended.ar_aug),
+            color: useColor(extended.ar_aug) || values[0][1],
           });
           continue;
         case TradePropType.ArmourEvasion:
           block.push({
             text: "item.evasion_rating",
             value: extended.ev!,
-            color: useColor(extended.ev_aug),
+            color: useColor(extended.ev_aug) || values[0][1],
           });
           continue;
         case TradePropType.ArmourEnergyShield:
           block.push({
             text: "item.energy_shield",
             value: extended.es!,
-            color: useColor(extended.es_aug),
+            color: useColor(extended.es_aug) || values[0][1],
           });
           continue;
 

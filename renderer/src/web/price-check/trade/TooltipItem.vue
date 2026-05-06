@@ -1,6 +1,27 @@
 <template>
   <div class="flex flex-row items-start">
-    <div class="bg-fire h-16 w-8 min-h-16 min-w-8">XXX</div>
+    <div
+      v-if="result.displayItem.icon"
+      class="bg-gray-600 bg-opacity-50 inline-block"
+      :class="$style['icon-w-' + result.displayItem.icon.w]"
+    >
+      <img :src="result.displayItem.icon.url" />
+      <div
+        v-if="result.displayItem.sockets"
+        class=""
+        :class="[
+          $style['icon-w-' + result.displayItem.icon.w],
+          $style['icon-h-' + result.displayItem.icon.h],
+          $style['sockets-' + result.displayItem.sockets.length],
+        ]"
+      >
+        <div
+          v-for="socket in result.displayItem.sockets"
+          :key="socket.group"
+          class="w-8 h-8 bg-[url('/images/empty-rune-socket.png')] bg-no-repeat bg-center bg-[size:2rem]"
+        />
+      </div>
+    </div>
     <div class="flex flex-col bg-black text-center">
       <div
         class="flex flex-col items-center justify-center text-base px-8"
@@ -239,6 +260,16 @@ export default defineComponent({
     46px auto,
     46px auto,
     46px auto;
+}
+
+.icon-w-1 {
+  @apply w-12;
+}
+.icon-w-2 {
+  @apply w-24;
+}
+.icon-w-3 {
+  @apply w-36;
 }
 
 .number-color-0 {
