@@ -1,69 +1,72 @@
 <template>
-  <div class="flex flex-col bg-black text-center">
-    <div
-      class="flex flex-col items-center justify-center text-base px-8"
-      :class="$style[result.displayItem.rarity + '-title']"
-    >
-      <div v-if="result.displayItem.title.length">
-        {{ result.displayItem.title[0] }}
-      </div>
-      <div v-if="result.displayItem.title.length > 1">
-        {{ result.displayItem.title[1] }}
-      </div>
-    </div>
-    <div class="flex flex-col p-1 text-center">
-      <template v-for="(section, index) in sections">
-        <div v-if="section.content" :key="index">
-          <div
-            v-for="mod in section.content"
-            :key="mod.text"
-            class="flex items-center justify-between"
-          >
-            <span class="flex-grow text-center">
-              <span
-                :class="
-                  mod.value
-                    ? 'text-gray-400'
-                    : $style[`number-color-${mod.color}`]
-                "
-                >{{
-                  // need to remove builtin %
-                  mod.text === "item.crit" ||
-                  mod.text === "item.map_pack_size" ||
-                  mod.text === "item.map_magic_monsters" ||
-                  mod.text === "item.map_rare_monsters" ||
-                  mod.text === "item.map_drop_chance" ||
-                  mod.text === "item.map_item_rarity" ||
-                  mod.text === "item.map_gold"
-                    ? ((txt) => txt.slice(0, txt.lastIndexOf(" ")))(
-                        t(mod.text),
-                      ) + " "
-                    : t(mod.text)
-                }}</span
-              >
-              <span
-                v-if="mod.value"
-                :class="$style[`number-color-${mod.color}`]"
-                >{{ mod.value }}</span
-              >
-            </span>
-          </div>
+  <div class="flex flex-row items-start">
+    <div class="bg-fire h-16 w-8 min-h-16 min-w-8">XXX</div>
+    <div class="flex flex-col bg-black text-center">
+      <div
+        class="flex flex-col items-center justify-center text-base px-8"
+        :class="$style[result.displayItem.rarity + '-title']"
+      >
+        <div v-if="result.displayItem.title.length">
+          {{ result.displayItem.title[0] }}
         </div>
-        <template v-if="shouldShowDivider(index)">
-          <div
-            v-if="
-              result.displayItem.rarity === 'Rare' ||
-              result.displayItem.rarity === 'Unique' ||
-              result.displayItem.rarity === 'Magic'
-            "
-            :class="$style[result.displayItem.rarity + '-separator']"
-          />
-          <hr
-            v-else
-            class="block h-[2px] bg-gradient-to-r from-transparent via-gray-400 to-transparent my-1 border-0 border-none"
-          />
+        <div v-if="result.displayItem.title.length > 1">
+          {{ result.displayItem.title[1] }}
+        </div>
+      </div>
+      <div class="flex flex-col p-1 text-center">
+        <template v-for="(section, index) in sections">
+          <div v-if="section.content" :key="index">
+            <div
+              v-for="mod in section.content"
+              :key="mod.text"
+              class="flex items-center justify-between"
+            >
+              <span class="flex-grow text-center">
+                <span
+                  :class="
+                    mod.value
+                      ? 'text-gray-400'
+                      : $style[`number-color-${mod.color}`]
+                  "
+                  >{{
+                    // need to remove builtin %
+                    mod.text === "item.crit" ||
+                    mod.text === "item.map_pack_size" ||
+                    mod.text === "item.map_magic_monsters" ||
+                    mod.text === "item.map_rare_monsters" ||
+                    mod.text === "item.map_drop_chance" ||
+                    mod.text === "item.map_item_rarity" ||
+                    mod.text === "item.map_gold"
+                      ? ((txt) => txt.slice(0, txt.lastIndexOf(" ")))(
+                          t(mod.text),
+                        ) + " "
+                      : t(mod.text)
+                  }}</span
+                >
+                <span
+                  v-if="mod.value"
+                  :class="$style[`number-color-${mod.color}`]"
+                  >{{ mod.value }}</span
+                >
+              </span>
+            </div>
+          </div>
+          <template v-if="shouldShowDivider(index)">
+            <div
+              v-if="
+                result.displayItem.rarity === 'Rare' ||
+                result.displayItem.rarity === 'Unique' ||
+                result.displayItem.rarity === 'Magic'
+              "
+              :class="$style[result.displayItem.rarity + '-separator']"
+            />
+            <hr
+              v-else
+              class="block h-[2px] bg-gradient-to-r from-transparent via-gray-400 to-transparent my-1 border-0 border-none"
+            />
+          </template>
         </template>
-      </template>
+      </div>
     </div>
   </div>
 </template>

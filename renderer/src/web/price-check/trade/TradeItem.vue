@@ -235,8 +235,15 @@ export default defineComponent({
 </script>
 
 <style lang="postcss">
-.tippy-box {
+.tippy-box,
+.tippy-box[data-theme~="light"] {
   @apply w-fit h-fit;
+  /* hiding box more */
+  @apply shadow-none bg-transparent;
+}
+
+div[data-tippy-root] {
+  @apply bg-transparent;
 }
 
 .tippy-content {
