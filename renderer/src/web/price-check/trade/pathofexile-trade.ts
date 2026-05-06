@@ -471,6 +471,7 @@ export interface DisplayItemLine {
 
 export interface DisplayItem {
   title: string[];
+  rarity: ItemRarity;
   nameBlock?: DisplayItemLine[];
   itemProps?: DisplayItemLine[];
   grantSkill?: DisplayItemLine[];
@@ -1457,6 +1458,7 @@ function parseFetchResult(result: FetchResult): PricingResult["displayItem"] {
 
   const displayItem: PricingResult["displayItem"] = {
     title,
+    rarity: result.item.rarity,
     nameBlock: buildNameBlock(result.item.extended, result.item.properties),
     itemProps: buildItemProps(result.item.ilvl, result.item.requirements),
     grantSkill: buildGrantSkillBlock(result.item.grantedSkills),
@@ -1628,7 +1630,8 @@ function buildNameBlock(
       });
     }
     if (hasDamage) {
-      block.push({
+      const dpsIndex = block.findIndex((line) => line.text.includes("dps"));
+      block.splice(dpsIndex, 0, {
         text: "item.total_dps",
         value: extended.dps!,
         color: useColor(extended.dps_aug),

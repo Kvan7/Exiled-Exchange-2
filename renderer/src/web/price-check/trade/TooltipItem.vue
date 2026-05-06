@@ -1,46 +1,70 @@
 <template>
-  <div class="flex flex-col p-1 bg-gray-800 text-center">
-    <template v-for="(section, index) in sections">
-      <div v-if="section.content" :key="index">
-        <div
-          v-for="mod in section.content"
-          :key="mod.text"
-          class="flex items-center justify-between"
-        >
-          <span class="flex-grow text-center">
-            <span
-              :class="
-                mod.value
-                  ? 'text-gray-400'
-                  : $style[`number-color-${mod.color}`]
-              "
-              >{{
-                // need to remove builtin %
-                mod.text === "item.crit" ||
-                mod.text === "item.map_pack_size" ||
-                mod.text === "item.map_magic_monsters" ||
-                mod.text === "item.map_rare_monsters" ||
-                mod.text === "item.map_drop_chance" ||
-                mod.text === "item.map_item_rarity" ||
-                mod.text === "item.map_gold"
-                  ? ((txt) => txt.slice(0, txt.lastIndexOf(" ")))(t(mod.text)) +
-                    " "
-                  : t(mod.text)
-              }}</span
-            >
-            <span
-              v-if="mod.value"
-              :class="$style[`number-color-${mod.color}`]"
-              >{{ mod.value }}</span
-            >
-          </span>
-        </div>
+  <div class="flex flex-col bg-black text-center">
+    <div
+      class="flex flex-col items-center justify-center text-base px-8"
+      :class="$style[result.displayItem.rarity + '-title']"
+    >
+      <div v-if="result.displayItem.title.length">
+        {{ result.displayItem.title[0] }}
       </div>
-      <hr
-        v-if="shouldShowDivider(index)"
-        class="block h-[2px] bg-gradient-to-r from-transparent via-gray-400 to-transparent my-1 border-0 border-none"
-      />
-    </template>
+      <div v-if="result.displayItem.title.length > 1">
+        {{ result.displayItem.title[1] }}
+      </div>
+    </div>
+    <div class="flex flex-col p-1 text-center">
+      <template v-for="(section, index) in sections">
+        <div v-if="section.content" :key="index">
+          <div
+            v-for="mod in section.content"
+            :key="mod.text"
+            class="flex items-center justify-between"
+          >
+            <span class="flex-grow text-center">
+              <span
+                :class="
+                  mod.value
+                    ? 'text-gray-400'
+                    : $style[`number-color-${mod.color}`]
+                "
+                >{{
+                  // need to remove builtin %
+                  mod.text === "item.crit" ||
+                  mod.text === "item.map_pack_size" ||
+                  mod.text === "item.map_magic_monsters" ||
+                  mod.text === "item.map_rare_monsters" ||
+                  mod.text === "item.map_drop_chance" ||
+                  mod.text === "item.map_item_rarity" ||
+                  mod.text === "item.map_gold"
+                    ? ((txt) => txt.slice(0, txt.lastIndexOf(" ")))(
+                        t(mod.text),
+                      ) + " "
+                    : t(mod.text)
+                }}</span
+              >
+              <span
+                v-if="mod.value"
+                :class="$style[`number-color-${mod.color}`]"
+                >{{ mod.value }}</span
+              >
+            </span>
+          </div>
+        </div>
+        <template v-if="shouldShowDivider(index)">
+          <div
+            v-if="
+              result.displayItem.rarity === 'Rare' ||
+              result.displayItem.rarity === 'Unique' ||
+              result.displayItem.rarity === 'Magic'
+            "
+            :class="$style[result.displayItem.rarity + '-separator']"
+          />
+          <hr
+            v-else
+            class="block h-[2px] bg-gradient-to-r from-transparent via-gray-400 to-transparent my-1 border-0 border-none"
+          />
+        </template>
+      </template>
+    </div>
   </div>
 </template>
 
@@ -126,6 +150,92 @@ export default defineComponent({
 <style lang="postcss" module>
 .mod {
   @apply text-sm;
+}
+
+.Rare-separator,
+.Magic-separator,
+.Unique-separator {
+  @apply bg-center bg-no-repeat h-1;
+}
+
+.Magic-separator {
+  @apply bg-[url(/images/item-display/separator-magic.png)];
+}
+.Rare-separator {
+  @apply bg-[url(/images/item-display/separator-rare.png)];
+}
+.Unique-separator {
+  @apply bg-[url(/images/item-display/separator-unique.png)];
+}
+
+.Normal-title,
+.Magic-title {
+  @apply h-[34px];
+}
+.Rare-title,
+.Unique-title {
+  @apply h-14;
+}
+
+.Normal-title {
+  @apply text-normal;
+  background-image: url("/images/item-display/normal-left.png"),
+    url("/images/item-display/normal-right.png"),
+    url("/images/item-display/normal-middle.png");
+  background-position:
+    top left,
+    top right,
+    top center;
+  background-repeat: no-repeat, no-repeat, repeat-x;
+  background-size:
+    29px auto,
+    29px auto,
+    29px auto;
+}
+.Magic-title {
+  @apply text-magic;
+  background-image: url("/images/item-display/magic-left.png"),
+    url("/images/item-display/magic-right.png"),
+    url("/images/item-display/magic-middle.png");
+  background-position:
+    top left,
+    top right,
+    top center;
+  background-repeat: no-repeat, no-repeat, repeat-x;
+  background-size:
+    29px auto,
+    29px auto,
+    29px auto;
+}
+.Rare-title {
+  @apply text-rare;
+  background-image: url("/images/item-display/rare-double-left.png"),
+    url("/images/item-display/rare-double-right.png"),
+    url("/images/item-display/rare-double-middle.png");
+  background-position:
+    top left,
+    top right,
+    top center;
+  background-repeat: no-repeat, no-repeat, repeat-x;
+  background-size:
+    46px auto,
+    46px auto,
+    46px auto;
+}
+.Unique-title {
+  @apply text-unique;
+  background-image: url("/images/item-display/unique-double-left.png"),
+    url("/images/item-display/unique-double-right.png"),
+    url("/images/item-display/unique-double-middle.png");
+  background-position:
+    top left,
+    top right,
+    top center;
+  background-repeat: no-repeat, no-repeat, repeat-x;
+  background-size:
+    46px auto,
+    46px auto,
+    46px auto;
 }
 
 .number-color-0 {

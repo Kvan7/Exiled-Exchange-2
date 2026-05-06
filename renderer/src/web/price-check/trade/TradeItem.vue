@@ -119,8 +119,6 @@ import {
   PropType,
   ref,
 } from "vue";
-import "tippy.js/dist/tippy.css";
-import "tippy.js/themes/light.css";
 import { PricingResult } from "./pathofexile-trade";
 import { ParsedItem } from "@/parser/ParsedItem";
 import { FilterNumeric } from "../filters/interfaces";
@@ -238,10 +236,14 @@ export default defineComponent({
 
 <style lang="postcss">
 .tippy-box {
-  @apply rounded w-fit h-fit;
+  @apply w-fit h-fit;
 }
 
 .tippy-content {
-  @apply p-1 w-fit h-fit;
+  @apply p-0 w-fit h-fit;
+}
+
+.tippy-arrow {
+  @apply hidden;
 }
 </style>

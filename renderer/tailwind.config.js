@@ -17,6 +17,11 @@ module.exports = {
       // cold: "#234465",
       lightning: "#ffff00",
 
+      normal: "#c8c8c8",
+      magic: "#8888ff",
+      rare: "#ffff77",
+      unique: "#af6025",
+
       gray: {
         100: "#f7fafc",
         200: "#edf2f7",
