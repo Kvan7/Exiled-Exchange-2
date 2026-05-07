@@ -2,16 +2,19 @@
   <div class="flex flex-row items-start">
     <div
       v-if="result.displayItem.icon"
-      class="bg-gray-600 bg-opacity-50 inline-block"
-      :class="$style['icon-w-' + result.displayItem.icon.w]"
+      class="bg-gray-600 bg-opacity-50"
+      :class="[
+        $style['icon-w-' + result.displayItem.icon.w],
+        $style['icon-container'],
+      ]"
     >
       <img :src="result.displayItem.icon.url" />
       <div
         v-if="result.displayItem.sockets"
-        class=""
+        class="block absolute"
         :class="[
-          $style['icon-w-' + result.displayItem.icon.w],
-          $style['icon-h-' + result.displayItem.icon.h],
+          $style['s-w-' + result.displayItem.icon.w],
+          $style['s-h-' + result.displayItem.icon.h],
           $style['sockets-' + result.displayItem.sockets.length],
         ]"
       >
@@ -262,14 +265,50 @@ export default defineComponent({
     46px auto;
 }
 
-.icon-w-1 {
+.i-w-1 {
   @apply w-12;
 }
-.icon-w-2 {
+.i-w-2 {
   @apply w-24;
 }
-.icon-w-3 {
+.i-w-3 {
   @apply w-36;
+}
+
+.icon-container {
+  @apply inline-block relative bg-contain bg-no-repeat align-top;
+}
+
+.s-w-1 {
+  @apply w-12;
+  /* @apply grid grid-cols-1; */
+}
+.s-w-2 {
+  @apply w-24;
+  /* @apply grid grid-cols-2; */
+}
+.s-w-3 {
+  @apply w-36;
+  /* @apply grid grid-cols-3; */
+}
+
+.i-w-1 .sockets-1,
+.i-w-1 .sockets-2,
+.i-w-1 .sockets-3 {
+  @apply grid grid-cols-1;
+}
+.i-w-2 .sockets-1,
+.i-w-2 .sockets-2,
+.i-w-2 .sockets-3,
+.i-w-2 .sockets-4,
+.i-w-2 .sockets-5 {
+  @apply grid grid-cols-2;
+}
+.i-w-3 .sockets-1,
+.i-w-3 .sockets-2,
+.i-w-3 .sockets-3,
+.i-w-3 .sockets-4 {
+  @apply grid grid-cols-3;
 }
 
 .number-color-0 {
