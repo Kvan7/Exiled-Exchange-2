@@ -40,6 +40,7 @@ class CapturePlaceholderClientString(ClientString, RegexClientString):
             override,
         )
         self.capture_str = capture_str
+        self.escape_single_quotes: bool = False
 
     @override
     def string(self, poe_key_lookup: Callable[[str], str], lang: LANG) -> str:

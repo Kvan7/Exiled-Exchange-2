@@ -33,7 +33,8 @@
         "Japanese",
         "German",
         "Spanish",
-        "Portuguese"
+        "Portuguese",
+        "French"
     ],
     "tables": [
         {
@@ -265,6 +266,42 @@
                 "RequiredLevel",
                 "Limit",
                 "Type"
+            ]
+        },
+        {
+            "name": "NPCTextAudio",
+            "columns": [
+                "Id",
+                "Text",
+                "NPCs"
+            ]
+        },
+        {
+            "name": "NPCs",
+            "columns": [
+                "Id",
+                "Name"
+            ]
+        },
+        {
+            "name": "WorldAreas",
+            "columns": [
+                "Id",
+                "Name",
+                "Act",
+                "IsTown",
+                "HasWaypoint",
+                "Connections",
+                "ParentTown",
+                "Bosses",
+                "IsMapArea"
+            ]
+        },
+        {
+            "name": "MonsterVarieties",
+            "columns": [
+                "Id",
+                "Name"
             ]
         }
     ]

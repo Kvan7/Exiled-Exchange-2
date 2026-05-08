@@ -88,6 +88,20 @@ def test_game_store_get_description(lang):
                             == "map_dropped_waystones_are_rare_and_corrupted_chance_%"
                         )
                     )
+                    or (
+                        lang == "fr"
+                        and (
+                            id_ == "expedition_elite_%_to_drop_rare_jewellery"
+                            or id_
+                            == "allies_in_font_of_blood_radius_leech_%_of_my_physical_damage_as_life"
+                            or id_
+                            == "allies_in_font_of_mana_radius_leech_%_of_my_physical_damage_as_mana"
+                            or id_
+                            == "instilling_all_damage_%_to_gain_as_instilling_type"
+                            or id_ == "base_cannot_be_ignited"
+                            or id_ == "cannot_be_poisoned"
+                        )
+                    )
                 ):
                     # assert forbidden_re.search(clean_text) or ("{0%}" in clean_text), (
                     #     f"{filename} - [{id_}]: Translation has been fixed: {text}"

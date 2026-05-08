@@ -30,6 +30,8 @@ export default {
   ARMOUR: 'Armour: ',
   EVASION: 'Evasion Rating: ',
   ENERGY_SHIELD: 'Energy Shield: ',
+  // [Manual]
+  RUNIC_WARD: 'Runic Ward: ',
   BLOCK_CHANCE: 'Block chance: ',
   CORRUPTED: 'Corrupted',
   INFLUENCE_SHAPER: 'Shaper Item',
@@ -120,6 +122,8 @@ export default {
   INCURSION_MODS: ['Guatelitzi\'s', 'Xopec\'s', 'Topotante\'s', 'Tacati\'s', 'Matatl\'s', 'of Matatl', 'Citaqualotl\'s', 'of Citaqualotl', 'of Tacati', 'of Guatelitzi', 'of Puhuarte'],
   ITEM_SUPERIOR: /^Superior (.*)$/,
   ITEM_EXCEPTIONAL: /^Exceptional (.*)$/,
+  // [Manual]
+  ITEM_RUNEFORGED: /^Runeforged (.*)$/,
   MAP_BLIGHTED: /^Blighted (.*)$/,
   MAP_BLIGHT_RAVAGED: /^Blight-ravaged (.*)$/,
   ITEM_SYNTHESISED: /^Synthesised (.*)$/,
@@ -155,7 +159,7 @@ export default {
   CHAT_WHISPER_FROM: /^@From (?:<(?<guild_tag>.+?)> )?(?<char_name>.+?): (?<body>.+)$/,
   // [Manual]
   CHAT_WEBTRADE_GEM: /^level (?<gem_lvl>\d+) (?<gem_qual>\d+)% (?<gem_name>.+)$/,
-  LOG_LEVEL_UP: /^(.*) is now level (?<level>\d+)$/,
+  LOG_LEVEL_UP: /^(?<char_name>.*) \((?<char_class>.*)\) is now level (?<level>\d+)$/,
   // [Manual]
   LOG_ZONE_GEN: /^Generating level (?<area_level>\d+) area "(?<zone>.*)" with seed (?<seed>\d+)$/,
   REQUIRES_LINE: /^Requires: \s*(?:Level[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*(Strength|Str))?\D*(?:(?<dex>\d+)[^\d,]*(Dexterity|Dex))?\D*(?:(?<int>\d+)[^\d,]*(Intelligence|Int))?$/,
