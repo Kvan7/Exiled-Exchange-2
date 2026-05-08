@@ -119,4 +119,16 @@ export default defineComponent({
 .t-rune-wildtalisman {
   @apply bg-[url('/images/augments/wildtalisman.png')];
 }
+.t-jewel-empty {
+  @apply bg-[url('/images/augments/empty-socket.png')];
+}
+.t-jewel-blue {
+  @apply bg-[url('/images/augments/blue.png')];
+}
+.t-jewel-red {
+  @apply bg-[url('/images/augments/red.png')];
+}
+.t-jewel-green {
+  @apply bg-[url('/images/augments/green.png')];
+}
 </style>

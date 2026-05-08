@@ -366,6 +366,7 @@ interface TradeRequest {
           sanctum_gold?: FilterRange;
           unidentified_tier?: FilterRange;
           veiled?: FilterBoolean;
+          fractured_item?: FilterBoolean;
         };
       };
       trade_filters?: {
@@ -420,17 +421,22 @@ interface FetchResult {
         | "sacredtalisman"
         | "primaltalisman"
         | "vividtalisman"
-        | "wildtalisman";
+        | "wildtalisman"
+        | "jewel";
     }>;
+    fractured?: true;
     name: string;
     typeLine: string;
     baseType: string;
     rarity: ItemRarity;
     ilvl?: number;
     identified: boolean;
+    unidentifiedTier?: number;
     note?: string;
+    sanctified?: true;
+    duplicated?: true;
     stackSize?: number;
-    corrupted?: boolean;
+    corrupted?: true;
     gemSockets?: string[];
     properties?: TradeDataRichLine[];
     requirements?: TradeDataRichLine[];

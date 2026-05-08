@@ -666,7 +666,8 @@ export function finalFilterTweaks(ctx: FiltersCreationContext) {
         filter.hidden = "filters.hide_for_crafting";
       }
     } else if (filter.tag === FilterTag.Skill && filter.roll) {
-      filter.disabled = filter.roll.value < 20;
+      // TODO: enable ilvl for these guys if over 80 i think
+      filter.disabled = filter.roll.value < 19;
       if (filter.disabled) {
         filter.hidden = "filters.hide_not_max_level";
       }
