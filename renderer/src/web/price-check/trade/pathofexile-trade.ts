@@ -410,7 +410,18 @@ interface FetchResult {
     w: 2;
     h: 3;
     icon: string;
-    sockets: Array<{ group: number; type: string; item?: string }>;
+    sockets: Array<{
+      group: number;
+      type: string;
+      // sacred:orange, primal:blue,vivid:yellow, wild:purple
+      item?:
+        | "rune"
+        | "soulcore"
+        | "sacredtalisman"
+        | "primaltalisman"
+        | "vividtalisman"
+        | "wildtalisman";
+    }>;
     name: string;
     typeLine: string;
     baseType: string;

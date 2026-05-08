@@ -1,29 +1,12 @@
 <template>
   <div class="flex flex-row items-start">
-    <div
-      v-if="result.displayItem.icon"
-      class="bg-gray-600 bg-opacity-50"
-      :class="[
-        $style['icon-w-' + result.displayItem.icon.w],
-        $style['icon-container'],
-      ]"
-    >
-      <img :src="result.displayItem.icon.url" />
-      <div
-        v-if="result.displayItem.sockets"
-        class="block absolute"
-        :class="[
-          $style['s-w-' + result.displayItem.icon.w],
-          $style['s-h-' + result.displayItem.icon.h],
-          $style['sockets-' + result.displayItem.sockets.length],
-        ]"
-      >
-        <div
-          v-for="socket in result.displayItem.sockets"
-          :key="socket.group"
-          class="w-8 h-8 bg-[url('/images/empty-rune-socket.png')] bg-no-repeat bg-center bg-[size:2rem]"
-        />
-      </div>
+    <div v-if="result.displayItem.icon" class="bg-gray-600 bg-opacity-50">
+      <ui-detailed-item-img
+        :icon="result.displayItem.icon.url"
+        :item-width="result.displayItem.icon.w"
+        :item-height="result.displayItem.icon.h"
+        :sockets="result.displayItem.sockets"
+      />
     </div>
     <div class="flex flex-col bg-black text-center">
       <div
@@ -99,8 +82,12 @@
 import { defineComponent, PropType } from "vue";
 import { PricingResult } from "./pathofexile-trade";
 import { useI18n } from "vue-i18n";
+import UiDetailedItemImg from "@/web/ui/UiDetailedItemImg.vue";
 
 export default defineComponent({
+  components: {
+    UiDetailedItemImg,
+  },
   props: {
     result: {
       type: Object as PropType<PricingResult>,
@@ -273,42 +260,6 @@ export default defineComponent({
 }
 .i-w-3 {
   @apply w-36;
-}
-
-.icon-container {
-  @apply inline-block relative bg-contain bg-no-repeat align-top;
-}
-
-.s-w-1 {
-  @apply w-12;
-  /* @apply grid grid-cols-1; */
-}
-.s-w-2 {
-  @apply w-24;
-  /* @apply grid grid-cols-2; */
-}
-.s-w-3 {
-  @apply w-36;
-  /* @apply grid grid-cols-3; */
-}
-
-.i-w-1 .sockets-1,
-.i-w-1 .sockets-2,
-.i-w-1 .sockets-3 {
-  @apply grid grid-cols-1;
-}
-.i-w-2 .sockets-1,
-.i-w-2 .sockets-2,
-.i-w-2 .sockets-3,
-.i-w-2 .sockets-4,
-.i-w-2 .sockets-5 {
-  @apply grid grid-cols-2;
-}
-.i-w-3 .sockets-1,
-.i-w-3 .sockets-2,
-.i-w-3 .sockets-3,
-.i-w-3 .sockets-4 {
-  @apply grid grid-cols-3;
 }
 
 .number-color-0 {
