@@ -30,6 +30,8 @@ export default {
   ARMOUR: '방어도: ',
   EVASION: '회피: ',
   ENERGY_SHIELD: '에너지 보호막: ',
+  // [Manual]
+  RUNIC_WARD: 'Runic Ward: ',
   BLOCK_CHANCE: '막기 확률: ',
   CORRUPTED: '타락',
   INFLUENCE_SHAPER: '쉐이퍼 아이템',
@@ -120,6 +122,8 @@ export default {
   INCURSION_MODS: ['Guatelitzi\'s', 'Xopec\'s', 'Topotante\'s', 'Tacati\'s', 'Matatl\'s', 'of Matatl', 'Citaqualotl\'s', 'of Citaqualotl', 'of Tacati', 'of Guatelitzi', 'of Puhuarte'],
   ITEM_SUPERIOR: /^상급 (.*)$/,
   ITEM_EXCEPTIONAL: /^특출난 (.*)$/,
+  // [Manual]
+  ITEM_RUNEFORGED: /^Runeforged (.*)$/,
   MAP_BLIGHTED: /^역병 걸린 (.*)$/,
   MAP_BLIGHT_RAVAGED: /^역병에 유린당한 (.*)$/,
   ITEM_SYNTHESISED: /^결합된 (.*)$/,

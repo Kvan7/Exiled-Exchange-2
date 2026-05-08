@@ -143,6 +143,27 @@ function armourProps(ctx: FiltersCreationContext) {
     );
   }
 
+  if (item.armourRW) {
+    const runicWard = calcPropBounds(
+      item.armourRW,
+      { flat: ["# to maximum Runic Ward"], incr: ["#% increased Runic Ward"] },
+      item,
+    );
+
+    ctx.filters.push(
+      propToFilter(
+        {
+          ref: "Runic Ward: #",
+          tradeId: "item.runic_ward",
+          roll: runicWard.roll,
+          sources: runicWard.sources,
+          disabled: true,
+        },
+        ctx,
+      ),
+    );
+  }
+
   if (item.armourAR || item.armourEV || item.armourES || item.armourBLOCK) {
     removeUsedStats(ctx, ARMOUR_STATS);
   }

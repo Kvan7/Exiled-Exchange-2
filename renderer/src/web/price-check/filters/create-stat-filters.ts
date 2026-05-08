@@ -764,8 +764,19 @@ function hideAllAugments(filters: StatFilter[]) {
       filter.tag === FilterTag.Augment ||
       filter.tag === FilterTag.AddedAugment
     ) {
-      filter.hidden = "filters.hide_const_roll";
+      // disable all
       filter.disabled = true;
+
+      // don't hide some specific ones
+      if (
+        filter.statRef ===
+        "Destroys all Augment Sockets on the item to create a Jewel Socket"
+      ) {
+        continue;
+      }
+
+      // hide rest
+      filter.hidden = "filters.hide_const_roll";
     }
   }
 }

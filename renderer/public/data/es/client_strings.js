@@ -30,6 +30,8 @@ export default {
   ARMOUR: 'Armadura: ',
   EVASION: 'Evasión: ',
   ENERGY_SHIELD: 'Escudo de energía: ',
+  // [Manual]
+  RUNIC_WARD: 'Runic Ward: ',
   BLOCK_CHANCE: 'Probabilidad de bloqueo: ',
   CORRUPTED: 'Corrupto',
   INFLUENCE_SHAPER: 'Objeto del Creador',
@@ -120,6 +122,8 @@ export default {
   INCURSION_MODS: ['Guatelitzi\'s', 'Xopec\'s', 'Topotante\'s', 'Tacati\'s', 'Matatl\'s', 'of Matatl', 'Citaqualotl\'s', 'of Citaqualotl', 'of Tacati', 'of Guatelitzi', 'of Puhuarte'],
   ITEM_SUPERIOR: /^(.*) Superior$/,
   ITEM_EXCEPTIONAL: /^(.*) excepcional$/,
+  // [Manual]
+  ITEM_RUNEFORGED: /^Runeforged (.*)$/,
   MAP_BLIGHTED: /^(.*) infestado $/,
   MAP_BLIGHT_RAVAGED: /^(.*) devastado por la plaga$/,
   ITEM_SYNTHESISED: /^(.*) Sintetizado$/,

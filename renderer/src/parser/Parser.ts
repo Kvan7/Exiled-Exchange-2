@@ -58,6 +58,7 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseUnidentified,
   { virtual: parseSuperior },
   { virtual: parseExceptional },
+  { virtual: parseRuneforged },
   parseSynthesised,
   parseCategoryByHelpText,
   { virtual: normalizeName },
@@ -792,6 +793,13 @@ function parseArmour(section: string[], item: ParsedItem) {
       isParsed = "SECTION_PARSED";
       continue;
     }
+
+    // FIXME: Update parser with actual text
+    if (line.startsWith(_$.RUNIC_WARD)) {
+      item.armourRW = parseInt(line.slice(_$.RUNIC_WARD.length), 10);
+      isParsed = "SECTION_PARSED";
+      continue;
+    }
   }
 
   if (isParsed === "SECTION_PARSED") {
@@ -802,6 +810,7 @@ function parseArmour(section: string[], item: ParsedItem) {
     item.armourAR = undefined;
     item.armourEV = undefined;
     item.armourES = undefined;
+    item.armourRW = undefined; // ? maybe not ?
     item.armourBLOCK = undefined;
   }
 
@@ -1346,6 +1355,21 @@ function parseExceptional(item: ParserState) {
   }
 }
 
+function parseRuneforged(item: ParserState) {
+  performance.mark("parseRuneforged");
+  if (
+    item.rarity === ItemRarity.Normal ||
+    item.rarity === ItemRarity.Magic ||
+    item.rarity === ItemRarity.Rare ||
+    item.rarity === ItemRarity.Unique
+  ) {
+    // FIXME: Update when text is available
+    if (_$REF.ITEM_RUNEFORGED.test(item.name)) {
+      item.name = _$REF.ITEM_RUNEFORGED.exec(item.name)![1];
+    }
+  }
+}
+
 function parseCategoryByHelpText(section: string[], item: ParsedItem) {
   performance.mark("parseCategoryByHelpText");
   if (section[0] === _$.BEAST_HELP) {
@@ -1697,6 +1721,13 @@ export function parseAffixStrings(clipboard: string): string {
 export function getMaxSockets(item: ParsedItem) {
   if (item.info.refName === "Darkness Enthroned") {
     return 2;
+  }
+
+  if (
+    item.info.refName === "Grasping Ring" ||
+    item.info.refName === "Corona Amulet"
+  ) {
+    return 1;
   }
 
   const { category } = item;

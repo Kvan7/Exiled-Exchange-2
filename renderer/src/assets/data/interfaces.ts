@@ -131,11 +131,13 @@ export interface TranslationDict {
   ARMOUR: string;
   EVASION: string;
   ENERGY_SHIELD: string;
+  RUNIC_WARD: string;
   BLOCK_CHANCE: string;
   CORRUPTED: string;
   UNIDENTIFIED: RegExp;
   ITEM_SUPERIOR: RegExp;
   ITEM_EXCEPTIONAL: RegExp;
+  ITEM_RUNEFORGED: RegExp;
   MAP_BLIGHTED: RegExp;
   MAP_BLIGHT_RAVAGED: RegExp;
   INFLUENCE_SHAPER: string;
