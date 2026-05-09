@@ -25,13 +25,10 @@ export function magicBasetype(name: string) {
         ITEM_BY_REF("ITEM", name) ??
         ITEM_BY_TRANSLATED("ITEM", name) ??
         TRADE_ITEM_BY_REF({ name }, true);
-      console.log(result);
       return { name, found: result && result[0].craftable };
     })
     .filter((res) => res.found)
     .sort((a, b) => b.name.length - a.name.length);
-
-  console.log(result.length ? result[0].name : undefined);
 
   return result.length ? result[0].name : undefined;
 }

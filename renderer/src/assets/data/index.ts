@@ -10,7 +10,8 @@ import type {
 } from "./interfaces";
 import { loadClientStrings } from "../client-string-loader";
 import { useTradeData } from "@/web/background/TradeData";
-import { ItemCategory, ItemRarity } from "@/parser";
+import { ItemCategory } from "@/parser/meta";
+import { ItemRarity } from "@/parser/ParsedItem";
 
 export * from "./interfaces";
 
