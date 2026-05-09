@@ -6,6 +6,7 @@ import {
   STAT_BY_MATCH_STR,
   BaseType,
   ITEM_BY_TRANSLATED,
+  TRADE_ITEM_BY_REF,
 } from "@/assets/data";
 import { ModifierType, StatCalculated, sumStatsByModType } from "./modifiers";
 import {
@@ -233,6 +234,15 @@ function findInDatabase(item: ParserState) {
     info = ITEM_BY_REF("UNIQUE", item.name);
   } else {
     info = ITEM_BY_REF("ITEM", item.baseType ?? item.name);
+  }
+  if (!info?.length) {
+    // First attempt to find item in trade items data
+    info = TRADE_ITEM_BY_REF({
+      name: item.name,
+      category: item.category,
+      rarity: item.rarity,
+      baseType: item.baseType,
+    });
   }
   if (!info?.length) {
     // BUG[UPSTREAM]: https://www.pathofexile.com/forum/view-thread/3913283

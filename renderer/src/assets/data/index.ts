@@ -9,6 +9,8 @@ import type {
   TranslationDict,
 } from "./interfaces";
 import { loadClientStrings } from "../client-string-loader";
+import { useTradeData } from "@/web/background/TradeData";
+import { ItemCategory, ItemRarity } from "@/parser";
 
 export * from "./interfaces";
 
@@ -54,6 +56,16 @@ let localAugmentFilter: (
   index: number,
   array: BaseType[],
 ) => unknown | undefined = () => undefined;
+
+export let TRADE_ITEM_BY_REF: (
+  itemQuery: {
+    baseType?: string;
+    name?: string;
+    rarity?: ItemRarity;
+    category?: ItemCategory;
+  },
+  forceCraftable?: boolean,
+) => BaseType[] | undefined = () => undefined;
 
 function dataBinarySearch(
   data: Uint32Array,
@@ -290,6 +302,7 @@ export async function loadForLang(lang: string) {
   await loadItems(lang);
   await loadStats(lang);
   loadUltraLateItems(localAugmentFilter);
+  await loadTradeData();
 }
 
 export function loadUltraLateItems(
@@ -361,6 +374,86 @@ function augmentsToLookupTradeId(
   }
 
   return augmentDataByAugment;
+}
+
+async function loadTradeData() {
+  const trade = useTradeData();
+  await trade.load();
+  if (trade.error.value) {
+    console.error("Failed to load trade data:", trade.error.value);
+    return;
+  }
+
+  TRADE_ITEM_BY_REF = function (
+    itemQuery: {
+      baseType?: string;
+      name?: string;
+      rarity?: ItemRarity;
+      category?: ItemCategory;
+    },
+    forceCraftable?: boolean,
+  ): BaseType[] | undefined {
+    const items = trade.tradeItemData.value;
+
+    let base: BaseType | undefined;
+    const { baseType, name, rarity, category } = itemQuery;
+
+    if (category === ItemCategory.Gem) {
+      if (name && items.has(name)) {
+        base = {
+          name: name,
+          refName: name,
+          namespace: "GEM",
+          icon: "%NOT_FOUND%",
+          tags: [],
+          gem: {},
+        };
+      }
+    } else if (rarity === ItemRarity.Unique) {
+      if (name && items.has(`${name} ${baseType}`)) {
+        base = {
+          name: name,
+          refName: name,
+          namespace: "UNIQUE",
+          icon: "%NOT_FOUND%",
+          tags: [],
+          unique: {
+            base: baseType!,
+          },
+        };
+      }
+    } else if (!baseType) {
+      if (name && items.has(name)) {
+        // TODO: currency works without tradeTag, just ninja only, see if that is fine
+        const craftable = category
+          ? { category }
+          : forceCraftable
+            ? { category: name as ItemCategory }
+            : undefined;
+
+        base = {
+          name: name,
+          refName: name,
+          namespace: "ITEM",
+          icon: "%NOT_FOUND%",
+          tags: [],
+          craftable,
+        };
+      }
+    } else {
+      if (items.has(baseType)) {
+        base = {
+          name: baseType,
+          refName: baseType,
+          namespace: "ITEM",
+          icon: "%NOT_FOUND%",
+          tags: [],
+        };
+      }
+    }
+
+    return base ? [base] : undefined;
+  };
 }
 
 // Disable since this is export for tests
