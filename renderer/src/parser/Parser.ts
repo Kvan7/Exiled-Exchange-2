@@ -7,6 +7,7 @@ import {
   BaseType,
   ITEM_BY_TRANSLATED,
   TRADE_ITEM_BY_REF,
+  TRADE_STAT_BY_STAT_ID,
 } from "@/assets/data";
 import { ModifierType, StatCalculated, sumStatsByModType } from "./modifiers";
 import {
@@ -1006,6 +1007,7 @@ function parseLogbookArea(section: string[], item: ParsedItem) {
     const found = tryParseTranslation(
       { string: line, unscalable: false },
       modType,
+      undefined,
     );
     if (found) {
       areaMods.push({
@@ -1547,6 +1549,7 @@ function parseMirroredTablet(section: string[], item: ParsedItem) {
     const found = tryParseTranslation(
       { string: line, unscalable: true },
       ModifierType.Pseudo,
+      undefined,
     );
     if (found) {
       item.newMods.push({
@@ -1614,8 +1617,23 @@ function parseStatsFromMod(
       stat.value.string = stat.value.string.replace("()", "");
     }
 
-    const parsedStat = tryParseTranslation(stat.value, modifier.info.type);
-    if (parsedStat) {
+    const parsedStat = tryParseTranslation(
+      stat.value,
+      modifier.info.type,
+      item.category,
+    );
+    const validTradeIds = parsedStat?.stat.trade.ids[
+      modifier.info.type
+    ]?.filter((id) =>
+      TRADE_STAT_BY_STAT_ID(
+        id +
+          (parsedStat.stat.trade.option
+            ? "|" + parsedStat.translation.value
+            : ""),
+      ),
+    );
+
+    if (parsedStat && validTradeIds && validTradeIds.length) {
       modifier.stats.push(parsedStat);
 
       stat = statIterator.next(true);
@@ -1624,14 +1642,13 @@ function parseStatsFromMod(
     }
   }
 
-  if (item.rarity !== ItemRarity.Unique) {
-    item.unknownModifiers.push(
-      ...stat.value.map((line) => ({
-        text: line,
-        type: modifier.info.type,
-      })),
-    );
-  }
+  item.unknownModifiers.push(
+    ...stat.value.map((line) => ({
+      text: line,
+      type: modifier.info.type,
+    })),
+  );
+
   return true;
 }
 

@@ -498,6 +498,7 @@ export function translatedEffectsPseudos(translated: string): boolean {
   const stat = tryParseTranslation(
     { string: translated, unscalable: false },
     ModifierType.Augment,
+    undefined,
   );
   if (!stat) return false;
   const ref = stat.stat.ref;

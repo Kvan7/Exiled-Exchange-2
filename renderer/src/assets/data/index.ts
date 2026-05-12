@@ -68,6 +68,11 @@ export let TRADE_ITEM_BY_REF: (
   forceCraftable?: boolean,
 ) => BaseType[] | undefined = () => undefined;
 
+export let TRADE_STAT_BY_STAT_ID: (tradeId: string) => boolean = () => false;
+export let TRADE_STAT_BY_MATCH_STR: (
+  name: string,
+) => { [type: string]: string[] } | undefined = () => undefined;
+
 function dataBinarySearch(
   data: Uint32Array,
   value: number,
@@ -454,6 +459,22 @@ async function loadTradeData() {
     }
 
     return base ? [base] : undefined;
+  };
+
+  TRADE_STAT_BY_STAT_ID = function (tradeId: string) {
+    return trade.tradeStatDataSet.value.has(tradeId);
+  };
+
+  TRADE_STAT_BY_MATCH_STR = function (name: string) {
+    const statData = trade.tradeStatData.value;
+
+    const stat = statData.get(name);
+    if (!stat) return;
+
+    // never going to write to these, just need to satisfy type
+    return stat as {
+      [x: string]: string[];
+    };
   };
 }
 
