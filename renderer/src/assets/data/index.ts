@@ -384,7 +384,7 @@ function augmentsToLookupTradeId(
 
 async function loadTradeData() {
   const trade = useTradeData();
-  await trade.load();
+  await trade.load(true);
   if (trade.error.value) {
     console.error("Failed to load trade data:", trade.error.value);
     return;

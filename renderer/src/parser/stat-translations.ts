@@ -364,3 +364,8 @@ function findAndResolveTranslation(
 
   return statOrGroup;
 }
+
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export const __testExports = {
+  tryParseTranslation,
+};

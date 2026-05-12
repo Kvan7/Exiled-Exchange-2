@@ -78,7 +78,6 @@ import { usePoeninja } from "@/web/background/Prices";
 import { useLeagues } from "@/web/background/Leagues";
 import { useClientLog } from "@/web/client-log/client-log";
 import DevWidget from "./DevWidget.vue";
-import { useTradeData } from "../background/TradeData";
 
 type WMID = Widget["wmId"];
 
@@ -90,7 +89,6 @@ export default defineComponent({
   setup() {
     usePoeninja();
     useLeagues().load();
-    useTradeData().load(true);
     const { handleLine } = useClientLog();
 
     const active = shallowRef(!Host.isElectron);

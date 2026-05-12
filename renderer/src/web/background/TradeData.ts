@@ -1,6 +1,6 @@
 import { readonly, shallowRef } from "vue";
 import { createGlobalState } from "@vueuse/core";
-import { Host } from "./IPC";
+import { Host } from "@/web/background/IPC";
 
 const RETRY_INTERVAL_MS = 4 * 60 * 1000;
 const UPDATE_INTERVAL_MS = 2 * 60 * 60 * 1000;

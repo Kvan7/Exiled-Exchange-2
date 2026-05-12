@@ -82,6 +82,36 @@ export const setupFetchMock = () => {
   });
 };
 
+// Mock Host.Proxy calls
+vi.mock("@/web/background/IPC", () => ({
+  Host: {
+    proxy: vi.fn(async (url: string, init?: RequestInit) => {
+      if (
+        url.endsWith("api/trade2/data/stats") ||
+        url.endsWith("api/trade2/data/items")
+      ) {
+        const filePath = path.resolve(__dirname, `data/${url.slice(-5)}.json`);
+        const data = fs.readFileSync(filePath, "utf8");
+        return {
+          ok: true,
+          status: 200,
+          json: async () => JSON.parse(data),
+          text: async () => data,
+        };
+      }
+      return global.fetch(url, init);
+    }),
+    onEvent: vi.fn(() => new AbortController()),
+    sendEvent: vi.fn(),
+    getConfig: vi.fn(async () => null),
+    importFile: vi.fn(async (file: File) => file.name),
+    logs: { value: "" },
+    version: { value: "0.0.00000" },
+    updateInfo: { value: { state: "initial" } },
+    isElectron: true,
+  },
+}));
+
 export const defaultConfigMock = (overrides: Partial<Config> = {}) => {
   const defaultConfig: Config = {
     configVersion: 99999999,
