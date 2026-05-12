@@ -341,11 +341,11 @@ export default defineComponent({
 }
 .number-color-8730 {
   /*fractured*/
-  @apply text-yellow-500;
+  @apply text-orange-300;
 }
 .number-color-8731 {
   /*desecrated*/
-  @apply text-indigo-500 bg-gradient-to-l from-green-900 via-transparent to-transparent w-full;
+  @apply text-green-800;
 }
 .number-color-8732 {
   /*sanctified*/
