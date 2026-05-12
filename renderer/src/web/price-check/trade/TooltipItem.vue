@@ -109,10 +109,15 @@ export default defineComponent({
           ...(item.fracturedMods ?? []),
           ...(item.explicitMods ?? []),
           ...(item.desecratedMods ?? []),
+          ...(item.mutatedMods ?? []),
         ],
       },
       { key: "pseudoMods", content: item.pseudoMods },
     ];
+    // each tag gets its own section, since they are footers
+    for (const tag of item.itemTags ?? []) {
+      sections.push({ key: tag.text, content: [tag] });
+    }
     function isNonEmptyObject(obj: Record<string, string | number>): boolean {
       return Object.values(obj).some((value) => value !== undefined);
     }
@@ -341,5 +346,13 @@ export default defineComponent({
 .number-color-8731 {
   /*desecrated*/
   @apply text-indigo-500 bg-gradient-to-l from-green-900 via-transparent to-transparent w-full;
+}
+.number-color-8732 {
+  /*sanctified*/
+  @apply text-orange-300;
+}
+.number-color-8733 {
+  /*mutated*/
+  @apply text-rose-900;
 }
 </style>

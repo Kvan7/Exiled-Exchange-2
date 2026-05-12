@@ -18,7 +18,7 @@ import {
   RATE_LIMIT_RULES,
   preventQueueCreation,
 } from "./common";
-import { STAT_BY_REF } from "@/assets/data";
+import { STAT_BY_REF, CLIENT_STRINGS as _$ } from "@/assets/data";
 import { RateLimiter } from "./RateLimiter";
 import { ModifierType } from "@/parser/modifiers";
 import { Cache } from "./Cache";
@@ -259,6 +259,8 @@ enum TradeNumberColors {
   Enchant = 8729,
   Fractured = 8730,
   Desecrated = 8731,
+  Sanctified = 8732,
+  Mutated = 8733,
 }
 
 interface FilterBoolean {
@@ -437,12 +439,14 @@ interface FetchResult {
     duplicated?: true;
     stackSize?: number;
     corrupted?: true;
+    doubleCorrupted?: true;
     gemSockets?: string[];
     properties?: TradeDataRichLine[];
     requirements?: TradeDataRichLine[];
     grantedSkills?: TradeDataRichLine[];
     implicitMods?: string[];
     explicitMods?: string[];
+    mutatedMods?: string[];
     enchantMods?: string[];
     runeMods?: string[];
     extended?: {
@@ -497,10 +501,11 @@ export interface DisplayItem {
   implicitMods?: DisplayItemLine[];
   fracturedMods?: DisplayItemLine[];
   explicitMods?: DisplayItemLine[];
+  mutatedMods?: DisplayItemLine[];
   desecratedMods?: DisplayItemLine[];
   pseudoMods?: DisplayItemLine[];
   extended?: Array<{ text: string; value: number }>;
-  itemTags?: string[];
+  itemTags?: DisplayItemLine[];
   sockets: Array<{ group: number; type: string; item?: string }>;
   icon?: {
     url: string;
@@ -1456,6 +1461,39 @@ function parseFetchResult(result: FetchResult): PricingResult["displayItem"] {
     title.push(result.item.typeLine);
   }
 
+  const itemTags = [];
+
+  // Should be exclusive to all other tags(except corrupted)
+  if (result.item.identified === false) {
+    if (result.item.unidentifiedTier) {
+      itemTags.push({
+        text: `Unidentified (Tier ${result.item.unidentifiedTier})`,
+        color: TradeNumberColors.Unmet,
+      });
+    } else {
+      itemTags.push({
+        text: "item.unidentified",
+        color: TradeNumberColors.Unmet,
+      });
+    }
+  }
+
+  // remaining _should_ be exclusive
+  if (result.item.doubleCorrupted) {
+    itemTags.push({
+      text: _$.DOUBLE_CORRUPTED,
+      color: TradeNumberColors.Unmet,
+    });
+  } else if (result.item.corrupted) {
+    itemTags.push({ text: _$.CORRUPTED, color: TradeNumberColors.Unmet });
+  }
+  if (result.item.duplicated) {
+    itemTags.push({ text: _$.MIRRORED, color: TradeNumberColors.Augmented });
+  }
+  if (result.item.sanctified) {
+    itemTags.push({ text: _$.SANCTIFIED, color: TradeNumberColors.Sanctified });
+  }
+
   const displayItem: PricingResult["displayItem"] = {
     title,
     rarity: result.item.rarity,
@@ -1464,6 +1502,7 @@ function parseFetchResult(result: FetchResult): PricingResult["displayItem"] {
     grantSkill: buildGrantSkillBlock(result.item.grantedSkills),
     ...parseMods(result),
     sockets: result.item.sockets,
+    itemTags,
     icon: {
       url: result.item.icon,
       w: result.item.w,
@@ -1480,6 +1519,7 @@ function parseMods(result: FetchResult): {
   implicitMods?: DisplayItemLine[] | undefined;
   explicitMods?: DisplayItemLine[] | undefined;
   desecratedMods?: DisplayItemLine[] | undefined;
+  mutatedMods?: DisplayItemLine[] | undefined;
   fracturedMods?: DisplayItemLine[] | undefined;
   pseudoMods?: DisplayItemLine[] | undefined;
 } {
@@ -1501,6 +1541,10 @@ function parseMods(result: FetchResult): {
     desecratedMods: parseModBlock(
       result.item.desecratedMods,
       TradeNumberColors.Desecrated,
+    ),
+    mutatedMods: parseModBlock(
+      result.item.mutatedMods,
+      TradeNumberColors.Mutated,
     ),
     pseudoMods: parseModBlock(result.item.pseudoMods),
   };
