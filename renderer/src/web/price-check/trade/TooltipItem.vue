@@ -35,20 +35,7 @@
                       ? 'text-gray-400'
                       : $style[`number-color-${mod.color}`]
                   "
-                  >{{
-                    // need to remove builtin %
-                    mod.text === "item.crit" ||
-                    mod.text === "item.map_pack_size" ||
-                    mod.text === "item.map_magic_monsters" ||
-                    mod.text === "item.map_rare_monsters" ||
-                    mod.text === "item.map_drop_chance" ||
-                    mod.text === "item.map_item_rarity" ||
-                    mod.text === "item.map_gold"
-                      ? ((txt) => txt.slice(0, txt.lastIndexOf(" ")))(
-                          t(mod.text),
-                        ) + " "
-                      : t(mod.text)
-                  }}</span
+                  >{{ translateMod(mod.text) }}</span
                 >
                 <span
                   v-if="mod.value"
@@ -58,7 +45,7 @@
               </span>
             </div>
           </div>
-          <template v-if="shouldShowDivider(index)">
+          <template v-if="dividerVisible[index]">
             <div
               v-if="
                 result.displayItem.rarity === 'Rare' ||
@@ -84,6 +71,16 @@ import { PricingResult } from "./pathofexile-trade";
 import { useI18n } from "vue-i18n";
 import UiDetailedItemImg from "@/web/ui/UiDetailedItemImg.vue";
 
+const STRIP_PERCENT_MODS = new Set([
+  "item.crit",
+  "item.map_pack_size",
+  "item.map_magic_monsters",
+  "item.map_rare_monsters",
+  "item.map_drop_chance",
+  "item.map_item_rarity",
+  "item.map_gold",
+]);
+
 export default defineComponent({
   components: {
     UiDetailedItemImg,
@@ -96,6 +93,16 @@ export default defineComponent({
   },
   setup(props) {
     const item = props.result.displayItem;
+    const { t } = useI18n();
+
+    function translateMod(key: string): string {
+      const translated = t(key);
+      if (STRIP_PERCENT_MODS.has(key)) {
+        return translated.slice(0, translated.lastIndexOf(" ")) + " ";
+      }
+      return translated;
+    }
+
     const sections = [
       { key: "nameBlock", content: item.nameBlock },
       { key: "itemProps", content: item.itemProps },
@@ -118,49 +125,34 @@ export default defineComponent({
     for (const tag of item.itemTags ?? []) {
       sections.push({ key: tag.text, content: [tag] });
     }
-    function isNonEmptyObject(obj: Record<string, string | number>): boolean {
-      return Object.values(obj).some((value) => value !== undefined);
-    }
 
-    function shouldShowDivider(currentIndex: number) {
+    const dividerVisible = sections.map((_, index) => {
       return (
-        sections[currentIndex].content &&
-        sections[currentIndex].content.length > 0 &&
-        sections.slice(currentIndex + 1).some((section) => {
+        sections[index].content &&
+        sections[index].content.length > 0 &&
+        sections.slice(index + 1).some((section) => {
           const { content } = section;
           if (!content) {
             return false;
           }
 
-          // Check if the content is an array or object
           if (Array.isArray(content)) {
-            return content.length > 0; // Non-empty array
+            return content.length > 0;
           }
-          if (content && typeof content === "object") {
-            return isNonEmptyObject(content); // Non-empty object
+          if (typeof content === "object") {
+            return Object.values(content).some((v) => v !== undefined);
           }
-          return false; // Otherwise, not valid
+          return false;
         })
       );
-    }
-
-    function isExtendedContent(
-      content: unknown,
-    ): content is { text: string; value: number } {
-      return (
-        typeof content === "object" &&
-        content !== null &&
-        !Array.isArray(content)
-      );
-    }
-    const { t } = useI18n();
+    });
 
     return {
       t,
+      translateMod,
       item,
       sections,
-      shouldShowDivider,
-      isExtendedContent,
+      dividerVisible,
     };
   },
 });
