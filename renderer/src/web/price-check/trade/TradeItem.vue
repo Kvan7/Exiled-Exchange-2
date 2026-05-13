@@ -106,7 +106,8 @@
     </td>
   </tr>
   <div ref="content">
-    <tooltip-item :result="result" />
+    <!-- isHovered is mostly used here to prevent tooltip from rendering on initial load, tooltip is kinda expensive to mount -->
+    <tooltip-item :result="result" v-if="isHovered" />
   </div>
 </template>
 
