@@ -15,6 +15,7 @@ export enum ClientLogInfoType {
   PermanentBonus = "permanent-bonus",
   SkillPoint = "skill-point",
   MapNav = "map-nav",
+  Afk = "afk",
 }
 
 enum LogNamespace {
@@ -43,6 +44,9 @@ const SKILL_POINT_REGEX =
   /You have received (?<points>(\d+|an?)) (?<point_type>.*) Skill Points?\./;
 
 const MAP_NAV_REGEX = /Set Source \[(?<map_name>.+)\]/;
+
+const AFK_MODE_ON = 'AFK mode is now ON. Autoreply "This player is AFK."';
+const AFK_MODE_OFF = "AFK mode is now OFF.";
 
 function parseLogVersion0(
   text: string,
@@ -118,7 +122,15 @@ function parseLogVersion0(
       // we are an info(local??) message shown to the player in chat
       const colonLess = text.slice(1).trim();
 
-      if ((match = colonLess.match(_$.LOG_LEVEL_UP))) {
+      if (colonLess === AFK_MODE_ON || colonLess === AFK_MODE_OFF) {
+        // AFK status
+
+        data = {
+          ...data,
+          type: ClientLogInfoType.Afk,
+          isAfk: colonLess === AFK_MODE_ON,
+        };
+      } else if ((match = colonLess.match(_$.LOG_LEVEL_UP))) {
         // level up
 
         data = {

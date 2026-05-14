@@ -39,6 +39,9 @@
     <div class="italic text-gray-500 mb-4">
       {{ t(":exp_astrict") }}
     </div>
+    <button class="btn" @click="triggerReparseLog" style="min-width: 5rem">
+      {{ t(":reparse") }}
+    </button>
   </div>
 </template>
 <script lang="ts">
@@ -47,6 +50,7 @@ import { useI18nNs } from "@/web/i18n";
 import UiCheckbox from "@/web/ui/UiCheckbox.vue";
 import { configModelValue, configProp, findWidget } from "../settings/utils.js";
 import { XpWidget } from "./widget.js";
+import { Host } from "@/web/background/IPC.js";
 
 export default defineComponent({
   name: "leveling.name",
@@ -64,6 +68,12 @@ export default defineComponent({
       readClientLog: configModelValue(() => props.config, "readClientLog"),
       clientLog: configModelValue(() => props.config, "clientLog"),
       showExp: configModelValue(() => configXpWidget.value, "showExp"),
+      triggerReparseLog: () => {
+        Host.sendEvent({
+          name: "CLIENT->MAIN::re-parse-log",
+          payload: undefined,
+        });
+      },
     };
   },
 });

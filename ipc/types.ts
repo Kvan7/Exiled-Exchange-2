@@ -91,7 +91,8 @@ export type IpcEvent =
   | IpcOcrText
   | IpcConfigChanged
   | IpcUserAction
-  | IpcWriteToFile;
+  | IpcWriteToFile
+  | IpcReparseLog;
 
 export type IpcEventPayload<
   Name extends IpcEvent["name"],
@@ -197,6 +198,8 @@ type IpcGameLog = Event<
   }
 >;
 
+type IpcReparseLog = Event<"CLIENT->MAIN::re-parse-log">;
+
 type IpcUpdaterState = Event<"MAIN->CLIENT::updater-state", UpdateInfo>;
 
 // Hotkeyable actions are defined in `ShortcutAction`.
@@ -242,7 +245,8 @@ export type ClientLogEvent =
   | PassiveTreeEvent
   | PermanentBonusEvent
   | SkillPointEvent
-  | MapNavEvent;
+  | MapNavEvent
+  | AfkEvent;
 
 type BaseLogEvent = {
   ts: number;
@@ -321,6 +325,11 @@ export type SkillPointEvent = BaseLogEvent & {
 export type MapNavEvent = BaseLogEvent & {
   type: "map-nav";
   mapName: string;
+};
+
+export type AfkEvent = BaseLogEvent & {
+  type: "afk";
+  isAfk: boolean;
 };
 
 interface Event<TName extends string, TPayload = undefined> {

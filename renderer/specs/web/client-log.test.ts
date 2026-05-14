@@ -5,6 +5,7 @@ import { useClientLog } from "@/web/client-log/client-log";
 import fs from "fs";
 import { Host } from "@/web/background/IPC";
 import {
+  AfkEvent,
   AltTabEvent,
   GameVersionEvent,
   LevelUpEvent,
@@ -523,6 +524,8 @@ const logStartThroughRedVale = `
 2026/04/26 10:00:24 1787167812 ddd288d2 [INFO Client 443804] [Item Filter] Finished reloading online filter jeOW68UJ. Result: true. Hash: 2c868b25951a2502dbc013547e30f29d. Type: Normal. Message:
 2026/04/26 10:00:32 1787176250 3ef232c2 [INFO Client 443804] Renly: Take a look.
 2026/04/26 10:00:46 1787189750 3ef232c2 [INFO Client 443804] Renly: I'll find some use for that.
+2026/04/26 10:15:46 1788089750 3ef232c2 [INFO Client 443804] : AFK mode is now ON. Autoreply "This player is AFK."
+2026/04/26 10:16:46 1788149750 3ef232c2 [INFO Client 443804] : AFK mode is now OFF.
 2026/04/26 12:55:28 ***** LOG FILE OPENING *****
 2026/04/26 12:55:28 1797671734 84b56f9c [INFO Client 366640] [JOB] Irrecoverable Exception Callback: SET
 2026/04/26 12:55:28 1797671843 44e52699 [INFO Client 366640] [CMD][Unrecognized] --nopatch
@@ -1120,6 +1123,35 @@ describe("clientLog", () => {
     });
     expect(nullCount).toBe(nulls);
     expect(unknownCount).toBe(unknowns);
+  });
+
+  it.each([
+    [log1, 0],
+    [logStartThroughRedVale, 2],
+  ])("Should have afk", (log, count) => {
+    const { handleLine } = useClientLog();
+
+    for (const line of log.split("\n")) {
+      handleLine(line);
+    }
+
+    const calls = vi
+      .mocked(Host.sendEvent)
+      .mock.calls.filter(
+        (c) =>
+          c[0].name === "CLIENT->MAIN::write-data" &&
+          c[0].payload.action === "client-log-event" &&
+          c[0].payload.data.type === "afk",
+      );
+    expect(calls.length).toBe(count);
+    if (count >= 2) {
+      expect(
+        (calls[0][0].payload as unknown as { data: AfkEvent }).data.isAfk,
+      ).toBe(true);
+      expect(
+        (calls[1][0].payload as unknown as { data: AfkEvent }).data.isAfk,
+      ).toBe(false);
+    }
   });
 });
 

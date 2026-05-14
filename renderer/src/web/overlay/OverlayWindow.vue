@@ -152,11 +152,20 @@ export default defineComponent({
       hideUI.value = !e.isVisible;
     });
 
+    const lineQueue: string[] = [];
+    let processing = false;
     Host.onEvent("MAIN->CLIENT::game-log", (e) => {
-      for (const line of e.lines) {
-        handleLine(line);
-      }
+      lineQueue.push(...e.lines);
+      processQueue();
     });
+    function processQueue() {
+      if (processing) return;
+      processing = true;
+      while (lineQueue.length) {
+        handleLine(lineQueue.shift()!);
+      }
+      processing = false;
+    }
 
     onMounted(() => {
       nextTick(() => {

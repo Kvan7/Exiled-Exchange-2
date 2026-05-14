@@ -19,6 +19,8 @@ export const useClientLog = createGlobalState(() => {
   let gameStartMillis = 0;
   let logParseVersion = 0; // UPDATE ME IF GAME LOG FORMAT CHANGES, so the default is correct for current game version
 
+  let currentDateTime = 0;
+
   function handleLine(line: string) {
     const wholeLineMatch = line.match(LogRegex);
     if (!wholeLineMatch) return;
@@ -27,6 +29,10 @@ export const useClientLog = createGlobalState(() => {
 
     const data = parseClientLogText(text, datetime, millisNum, logParseVersion);
     updateRefsFromData(data);
+    if (data.ts < currentDateTime) {
+      console.warn(`time just went backwards: ${data.ts} < ${currentDateTime}`);
+    }
+    currentDateTime = data.ts;
 
     if (data.type !== ClientLogInfoType.Log) {
       // skip everything we dont care about

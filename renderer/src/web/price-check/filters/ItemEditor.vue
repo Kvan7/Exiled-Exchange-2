@@ -47,8 +47,15 @@ import { useI18n } from "vue-i18n";
 import { selectAugmentEffectByItemCategory } from "./fill-augments";
 import { replaceHashWithValues } from "@/parser/Parser";
 import { translatedEffectsPseudos } from "./pseudo";
-import { ItemEditorType } from "@/parser/meta";
+import { ItemCategory, ItemEditorType } from "@/parser/meta";
 import { getItemEditorType } from "./util";
+
+interface EditorItem {
+  name: string;
+  refName: string;
+  icon: string;
+  displayString: string;
+}
 
 export default defineComponent({
   components: { ItemEditorButton },
@@ -83,19 +90,18 @@ export default defineComponent({
         props.itemEditorOptions.editing = false;
       }
     }
+    const augmentCache = new Map<ItemCategory, EditorItem[]>();
 
     const result = computed(() => {
-      if (!props.item) return [];
+      if (!props.item) return { items: [] };
 
-      const items: Array<{
-        name: string;
-        refName: string;
-        icon: string;
-        displayString: string;
-      }> = [];
+      const items: EditorItem[] = [];
 
       const category = props.item.category;
-      if (!category) return items;
+      if (!category) return { items };
+      if (augmentCache.has(category)) {
+        return { items: augmentCache.get(category)! };
+      }
       if (getItemEditorType(props.item) === ItemEditorType.Augment) {
         for (const augment of AUGMENT_LIST) {
           let stat = "";
@@ -129,7 +135,7 @@ export default defineComponent({
 
         items.sort((a, b) => {
           const rank = (s: string) =>
-            s.includes(" Augment")
+            s.includes(" Rune")
               ? 0
               : s.includes("Soul Core of")
                 ? 1
@@ -141,6 +147,8 @@ export default defineComponent({
           return rA - rB || a.refName.localeCompare(b.refName);
         });
       }
+
+      augmentCache.set(category, items);
 
       return {
         items,

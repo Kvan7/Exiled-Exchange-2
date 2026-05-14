@@ -26,6 +26,8 @@ export class FileWriter {
 
   private _enabled = false;
 
+  private _currentDateTime = 0;
+
   constructor(
     private server: ServerEvents,
     private logger: Logger,
@@ -43,6 +45,12 @@ export class FileWriter {
           const filePath = path.join(this.uploadsPath, "client-log.ndjson");
           this.openChannel(filePath, FileChannel.ClientLog, true);
         }
+        if (e.data.ts < this._currentDateTime) {
+          this.logger.write(
+            `warn [FileWriter] time just went backwards: ${e.data.ts} < ${this._currentDateTime}`,
+          );
+        }
+        this._currentDateTime = e.data.ts;
         this.writeLine(JSON.stringify(e.data), FileChannel.ClientLog);
         if (e.close) {
           this.closeChannel(FileChannel.ClientLog);
@@ -76,6 +84,12 @@ export class FileWriter {
     }
   }
 
+  public flushClientLogFile() {
+    if (this._state?.clientLogFile) {
+      this.closeChannel(FileChannel.ClientLog);
+    }
+  }
+
   private async writeSessionStart(name: string, header: string) {
     try {
       if (!existsSync(this.uploadsPath)) {
@@ -97,6 +111,7 @@ export class FileWriter {
           this.logger.write("error [FileWriter] Channel item already closed.");
           return;
         }
+        this.logger.write("info [FileWriter] Channel item closed.");
         this._state.itemFile.close();
         this._state.itemFile = null;
         break;
@@ -107,6 +122,7 @@ export class FileWriter {
           );
           return;
         }
+        this.logger.write("info [FileWriter] Channel client-log closed.");
         this._state.clientLogFile.close();
         this._state.clientLogFile = null;
         break;
