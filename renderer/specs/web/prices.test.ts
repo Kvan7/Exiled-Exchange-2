@@ -1,4 +1,4 @@
-import { __testExports } from "@/web/background/Prices";
+import { __testExports, NinjaSchema } from "@/web/background/Prices";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { setupTests } from "@specs/vitest.setup";
 import { init } from "@/assets/data";
@@ -27,10 +27,21 @@ describe("useTradeApi", () => {
   });
 
   it("splitJsonBlob", () => {
+    const blobSchema: NinjaSchema = {
+      schemaVersion: 1,
+      map: [
+        {
+          ns: "ITEM",
+          cx: true,
+          url: "my-url",
+          type: "Currency",
+        },
+      ],
+    };
     const blob =
       'chaos"},"itemOverviews":[{"type":"Currency","lines":[{"name":"Orb of Alchemy","detailsId":"orb-of-alchemy","id":"alch","primaryValue":0.00003575,"volumePrimaryValue":0.4008,"maxVolumeCurrency":"exalted","maxVolumeRate":12.05,"sparkline":{"totalChange":-40.89,"data":[-9.56,-69.14,-70.07,-20.05,-14.13,18.75,-40.89]}},{"name":"Exalted Orb","detailsId":"exalted-orb","id":"exalted","primaryValue":0.0004308,"volumePrimaryValue":449.7,"maxVolumeCurrency":"divine","maxVolumeRate":2321,"sparkline":{"totalChange":-20.32,"data":[-5.22,-15.82,-13.6,-15.2,-15.99,-21.78,-20.32]}}]}]';
 
-    const result = __testExports.splitJsonBlob(blob);
+    const result = __testExports.splitJsonBlob(blob, blobSchema);
     expect(result).toHaveLength(1);
   });
 });
