@@ -1190,6 +1190,9 @@
 {"ref": "Grants Skill: Level # Valako's Charge", "better": 1, "matchers": [{"string": "Otorga la habilidad: Carga de Valako de nivel # "}], "trade": {"ids": {"skill": ["skill.valakos_charge"]}}}
 {"ref": "Grants Skill: Level # Volatile Dead", "better": 1, "matchers": [{"string": "Otorga la habilidad: Muertos volátiles de nivel # "}], "trade": {"ids": {"skill": ["skill.volatile_dead"]}}}
 {"ref": "Grants Skill: Level # Withering Presence", "better": 1, "matchers": [{"string": "Otorga la habilidad: Presencia marchitante de nivel # "}], "trade": {"ids": {"skill": ["skill.withering_presence"]}}}
+{"ref": "Grants Skill: Parry", "better": 0, "matchers": [{"string": "Otorga la habilidad: Parada"}], "trade": {"ids": null}, "id": "parry"}
+{"ref": "Grants Skill: Raise Shield", "better": 0, "matchers": [{"string": "Otorga la habilidad: Levantar escudo"}], "trade": {"ids": null}, "id": "raise_shield"}
+{"ref": "Grants Skill: Spear Throw", "better": 0, "matchers": [{"string": "Otorga la habilidad: Lanzamiento de lanza"}], "trade": {"ids": null}, "id": "spear_throw"}
 {"ref": "Grants a Frenzy Charge on use", "better": 1, "matchers": [{"string": "Otorga una carga de frenesí al usarse"}], "trade": {"ids": {"explicit": ["explicit.stat_280890192"]}}, "id": "charm_grants_frenzy_charge_when_used"}
 {"ref": "Grants a Power Charge on use", "better": 1, "matchers": [{"string": "Otorga una carga de poder al usarse"}], "trade": {"ids": {"explicit": ["explicit.stat_2566921799"]}}, "id": "charm_grants_power_charge_when_used"}
 {"ref": "Grants effect of Dreaming Gloom Shrine", "better": 1, "matchers": [{"string": "Otorga el efecto de un Santuario de sueño sombrío"}], "trade": {"ids": {"explicit": ["explicit.stat_3742268652"]}}, "id": "has_unique_chaos_shrine_effect"}

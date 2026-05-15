@@ -1,5 +1,6 @@
 import {
   CLIENT_STRINGS as _$,
+  CLIENT_STRINGS_REF as _$REF,
   STAT_BY_MATCH_STR,
   StatBetter,
   TRADE_STAT_BY_MATCH_STR,
@@ -184,8 +185,8 @@ export function tryParseTranslation(
       modType === ModifierType.AddedAugment ? ModifierType.Augment : modType;
     if (
       !found ||
-      !found.stat.trade.ids ||
-      !(realType in found.stat.trade.ids)
+      ((!found.stat.trade.ids || !(realType in found.stat.trade.ids)) &&
+        !found.stat.ref.startsWith(_$REF.GRANTS_SKILL))
     ) {
       if (backupParsedStat) {
         continue;

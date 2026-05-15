@@ -1189,6 +1189,9 @@
 {"ref": "Grants Skill: Level # Valako's Charge", "better": 1, "matchers": [{"string": "Octroie l'Aptitude: Niveau # Charge de Valako"}], "trade": {"ids": {"skill": ["skill.valakos_charge"]}}}
 {"ref": "Grants Skill: Level # Volatile Dead", "better": 1, "matchers": [{"string": "Octroie l'Aptitude: Niveau # Cadavres instables"}], "trade": {"ids": {"skill": ["skill.volatile_dead"]}}}
 {"ref": "Grants Skill: Level # Withering Presence", "better": 1, "matchers": [{"string": "Octroie l'Aptitude: Niveau # Présence flétrissante"}], "trade": {"ids": {"skill": ["skill.withering_presence"]}}}
+{"ref": "Grants Skill: Parry", "better": 0, "matchers": [{"string": "Octroie l\\'Aptitude: Parade"}], "trade": {"ids": null}, "id": "parry"}
+{"ref": "Grants Skill: Raise Shield", "better": 0, "matchers": [{"string": "Octroie l\\'Aptitude: Levée de bouclier"}], "trade": {"ids": null}, "id": "raise_shield"}
+{"ref": "Grants Skill: Spear Throw", "better": 0, "matchers": [{"string": "Octroie l\\'Aptitude: Jet de lance"}], "trade": {"ids": null}, "id": "spear_throw"}
 {"ref": "Grants a Frenzy Charge on use", "better": 1, "matchers": [{"string": "Octroie une Charge de frénésie à l'activation"}], "trade": {"ids": {"explicit": ["explicit.stat_280890192"]}}, "id": "charm_grants_frenzy_charge_when_used"}
 {"ref": "Grants a Power Charge on use", "better": 1, "matchers": [{"string": "Octroie une Charge de pouvoir à l'activation"}], "trade": {"ids": {"explicit": ["explicit.stat_2566921799"]}}, "id": "charm_grants_power_charge_when_used"}
 {"ref": "Grants effect of Dreaming Gloom Shrine", "better": 1, "matchers": [{"string": "Octroie l'Effet de l'Autel de la Morosité onirique"}], "trade": {"ids": {"explicit": ["explicit.stat_3742268652"]}}, "id": "has_unique_chaos_shrine_effect"}

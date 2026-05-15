@@ -1189,6 +1189,9 @@
 {"ref": "Grants Skill: Level # Valako's Charge", "better": 1, "matchers": [{"string": "Дарует умение: Раж Валако # уровня"}], "trade": {"ids": {"skill": ["skill.valakos_charge"]}}}
 {"ref": "Grants Skill: Level # Volatile Dead", "better": 1, "matchers": [{"string": "Дарует умение: Нестабильный труп # уровня"}], "trade": {"ids": {"skill": ["skill.volatile_dead"]}}}
 {"ref": "Grants Skill: Level # Withering Presence", "better": 1, "matchers": [{"string": "Дарует умение: Истощающее присутствие # уровня"}], "trade": {"ids": {"skill": ["skill.withering_presence"]}}}
+{"ref": "Grants Skill: Parry", "better": 0, "matchers": [{"string": "Дарует умение: Парирование"}], "trade": {"ids": null}, "id": "parry"}
+{"ref": "Grants Skill: Raise Shield", "better": 0, "matchers": [{"string": "Дарует умение: Поднять щит"}], "trade": {"ids": null}, "id": "raise_shield"}
+{"ref": "Grants Skill: Spear Throw", "better": 0, "matchers": [{"string": "Дарует умение: Бросок копья"}], "trade": {"ids": null}, "id": "spear_throw"}
 {"ref": "Grants a Frenzy Charge on use", "better": 1, "matchers": [{"string": "Дарует заряд ярости при использовании"}], "trade": {"ids": {"explicit": ["explicit.stat_280890192"]}}, "id": "charm_grants_frenzy_charge_when_used"}
 {"ref": "Grants a Power Charge on use", "better": 1, "matchers": [{"string": "Дарует заряд энергии при использовании"}], "trade": {"ids": {"explicit": ["explicit.stat_2566921799"]}}, "id": "charm_grants_power_charge_when_used"}
 {"ref": "Grants effect of Dreaming Gloom Shrine", "better": 1, "matchers": [{"string": "Дарует эффект алтаря сонного мрака"}], "trade": {"ids": {"explicit": ["explicit.stat_3742268652"]}}, "id": "has_unique_chaos_shrine_effect"}

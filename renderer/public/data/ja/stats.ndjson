@@ -1188,6 +1188,9 @@
 {"ref": "Grants Skill: Level # Valako's Charge", "better": 1, "matchers": [{"string": "スキルを付与: レベル# ヴァラコズチャージ"}], "trade": {"ids": {"skill": ["skill.valakos_charge"]}}}
 {"ref": "Grants Skill: Level # Volatile Dead", "better": 1, "matchers": [{"string": "スキルを付与: レベル# ボラタイルデッド"}], "trade": {"ids": {"skill": ["skill.volatile_dead"]}}}
 {"ref": "Grants Skill: Level # Withering Presence", "better": 1, "matchers": [{"string": "スキルを付与: レベル# ウィザリングプレゼンス"}], "trade": {"ids": {"skill": ["skill.withering_presence"]}}}
+{"ref": "Grants Skill: Parry", "better": 0, "matchers": [{"string": "スキルを付与: パリィ"}], "trade": {"ids": null}, "id": "parry"}
+{"ref": "Grants Skill: Raise Shield", "better": 0, "matchers": [{"string": "スキルを付与: レイズシールド"}], "trade": {"ids": null}, "id": "raise_shield"}
+{"ref": "Grants Skill: Spear Throw", "better": 0, "matchers": [{"string": "スキルを付与: スピアスロー"}], "trade": {"ids": null}, "id": "spear_throw"}
 {"ref": "Grants a Frenzy Charge on use", "better": 1, "matchers": [{"string": "使用時にフレンジーチャージを1個付与する"}], "trade": {"ids": {"explicit": ["explicit.stat_280890192"]}}, "id": "charm_grants_frenzy_charge_when_used"}
 {"ref": "Grants a Power Charge on use", "better": 1, "matchers": [{"string": "使用時にパワーチャージを1個付与する"}], "trade": {"ids": {"explicit": ["explicit.stat_2566921799"]}}, "id": "charm_grants_power_charge_when_used"}
 {"ref": "Grants effect of Dreaming Gloom Shrine", "better": 1, "matchers": [{"string": "夢見る暗闇のシュラインの効果を付与する"}], "trade": {"ids": {"explicit": ["explicit.stat_3742268652"]}}, "id": "has_unique_chaos_shrine_effect"}

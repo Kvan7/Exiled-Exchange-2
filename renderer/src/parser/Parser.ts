@@ -1622,6 +1622,17 @@ function parseStatsFromMod(
       modifier.info.type,
       item.category,
     );
+
+    // fully skip builtin skills
+    if (
+      parsedStat?.stat.ref === "Grants Skill: Parry" ||
+      parsedStat?.stat.ref === "Grants Skill: Raise Shield" ||
+      parsedStat?.stat.ref === "Grants Skill: Spear Throw"
+    ) {
+      stat = statIterator.next(true);
+      continue;
+    }
+
     const validTradeIds = parsedStat?.stat.trade.ids[
       modifier.info.type
     ]?.filter((id) =>

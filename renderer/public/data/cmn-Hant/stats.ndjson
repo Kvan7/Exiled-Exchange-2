@@ -1168,6 +1168,9 @@
 {"ref": "Grants Skill: Level # Valako's Charge", "better": 1, "matchers": [{"string": "賦予技能: 等級 # 瓦拉庫的衝鋒"}], "trade": {"ids": {"skill": ["skill.valakos_charge"]}}}
 {"ref": "Grants Skill: Level # Volatile Dead", "better": 1, "matchers": [{"string": "賦予技能: 等級 # 致命之息"}], "trade": {"ids": {"skill": ["skill.volatile_dead"]}}}
 {"ref": "Grants Skill: Level # Withering Presence", "better": 1, "matchers": [{"string": "賦予技能: 等級 # 凋零光環"}], "trade": {"ids": {"skill": ["skill.withering_presence"]}}}
+{"ref": "Grants Skill: Parry", "better": 0, "matchers": [{"string": "賦予技能: 招架"}], "trade": {"ids": null}, "id": "parry"}
+{"ref": "Grants Skill: Raise Shield", "better": 0, "matchers": [{"string": "賦予技能: 展開護盾"}], "trade": {"ids": null}, "id": "raise_shield"}
+{"ref": "Grants Skill: Spear Throw", "better": 0, "matchers": [{"string": "賦予技能: 長矛投擲"}], "trade": {"ids": null}, "id": "spear_throw"}
 {"ref": "Grants a Frenzy Charge on use", "better": 1, "matchers": [{"string": "使用時賦予一顆狂怒球"}], "trade": {"ids": {"explicit": ["explicit.stat_280890192"]}}, "id": "charm_grants_frenzy_charge_when_used"}
 {"ref": "Grants a Power Charge on use", "better": 1, "matchers": [{"string": "使用時賦予一顆暴擊球"}], "trade": {"ids": {"explicit": ["explicit.stat_2566921799"]}}, "id": "charm_grants_power_charge_when_used"}
 {"ref": "Grants effect of Dreaming Gloom Shrine", "better": 1, "matchers": [{"string": "賦予夢境漆黑神殿的效果"}], "trade": {"ids": {"explicit": ["explicit.stat_3742268652"]}}, "id": "has_unique_chaos_shrine_effect"}
