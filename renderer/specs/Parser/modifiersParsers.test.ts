@@ -148,9 +148,7 @@ describe("[e2e] parseModifiers", () => {
       const res = __testExports.parseModifiers(sections[section], parsedItem);
       expect(res).toBe("SECTION_PARSED");
       expect(parsedItem.newMods.length).toBe(expectedCount);
-      expect(parsedItem.unknownModifiers.length).toBe(
-        testItem.category === ItemCategory.Shield ? 1 : 0,
-      );
+      expect(parsedItem.unknownModifiers.length).toBe(0);
     },
   );
 });
