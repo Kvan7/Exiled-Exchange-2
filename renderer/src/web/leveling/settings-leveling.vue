@@ -39,9 +39,9 @@
     <div class="italic text-gray-500 mb-4">
       {{ t(":exp_astrict") }}
     </div>
-    <button class="btn" @click="triggerReparseLog" style="min-width: 5rem">
+    <!-- <button class="btn" @click="triggerReparseLog" style="min-width: 5rem">
       {{ t(":reparse") }}
-    </button>
+    </button> -->
   </div>
 </template>
 <script lang="ts">
