@@ -108,6 +108,7 @@ export default defineComponent({
       { key: "itemProps", content: item.itemProps },
       { key: "enchantMods", content: item.enchantMods },
       { key: "runeMods", content: item.runeMods },
+      { key: "grantedSkills", content: item.grantSkill },
       { key: "implicitMods", content: item.implicitMods },
       {
         key: "explicitMods",

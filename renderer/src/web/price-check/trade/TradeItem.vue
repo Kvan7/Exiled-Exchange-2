@@ -250,8 +250,4 @@ div[data-tippy-root] {
 .tippy-content {
   @apply p-0 w-fit h-fit;
 }
-
-.tippy-arrow {
-  @apply hidden;
-}
 </style>
