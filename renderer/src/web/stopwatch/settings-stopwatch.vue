@@ -11,7 +11,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { defineProps, computed } from "vue";
+import { computed } from "vue";
 import { configProp, _configModelValue } from "../settings/utils.js";
 import type { StopwatchWidget } from "@/web/overlay/interfaces";
 
