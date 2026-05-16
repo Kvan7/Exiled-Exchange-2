@@ -30,6 +30,8 @@ export default {
   ARMOUR: '방어도: ',
   EVASION: '회피: ',
   ENERGY_SHIELD: '에너지 보호막: ',
+  // [Manual]
+  RUNIC_WARD: 'Runic Ward: ',
   BLOCK_CHANCE: '막기 확률: ',
   CORRUPTED: '타락',
   INFLUENCE_SHAPER: '쉐이퍼 아이템',
@@ -120,6 +122,8 @@ export default {
   INCURSION_MODS: ['Guatelitzi\'s', 'Xopec\'s', 'Topotante\'s', 'Tacati\'s', 'Matatl\'s', 'of Matatl', 'Citaqualotl\'s', 'of Citaqualotl', 'of Tacati', 'of Guatelitzi', 'of Puhuarte'],
   ITEM_SUPERIOR: /^상급 (.*)$/,
   ITEM_EXCEPTIONAL: /^특출난 (.*)$/,
+  // [Manual]
+  ITEM_RUNEFORGED: /^Runeforged (.*)$/,
   MAP_BLIGHTED: /^역병 걸린 (.*)$/,
   MAP_BLIGHT_RAVAGED: /^역병에 유린당한 (.*)$/,
   ITEM_SYNTHESISED: /^결합된 (.*)$/,
@@ -155,7 +159,7 @@ export default {
   CHAT_WHISPER_FROM: /^@수신 (?:<(?<guild_tag>.+?)> )?(?<char_name>.+?): (?<body>.+)$/,
   // [Manual]
   CHAT_WEBTRADE_GEM: /^level (?<gem_lvl>\d+) (?<gem_qual>\d+)% (?<gem_name>.+)$/,
-  LOG_LEVEL_UP: /^(.*)의 레벨이 (?<level>\d+)이(가) 되었습니다$/,
+  LOG_LEVEL_UP: /^(?<char_name>.*) \((?<char_class>.*)\)의 레벨이 (?<level>\d+)이(가) 되었습니다$/,
   // [Manual]
   LOG_ZONE_GEN: /^Generating level (?<area_level>\d+) area "(?<zone>.*)" with seed (?<seed>\d+)$/,
   REQUIRES_LINE: /^요구 사항: \s*(?:레벨[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*(힘|힘))?\D*(?:(?<dex>\d+)[^\d,]*(민첩|민첩))?\D*(?:(?<int>\d+)[^\d,]*(지능|지능))?$/,

@@ -298,16 +298,18 @@ export default defineComponent({
       inputMaxEl,
       sliderValue,
       inputMin: computed({
-        get(): any {
-          return props.filter.roll!.min;
+        // this can be undefined
+        get(): number | "" {
+          return props.filter.roll!.min!;
         },
         set(value: "" | number) {
           props.filter.roll!.min = value;
         },
       }),
       inputMax: computed({
-        get(): any {
-          return props.filter.roll!.max;
+        // this can be undefined
+        get(): number | "" {
+          return props.filter.roll!.max!;
         },
         set(value: "" | number) {
           props.filter.roll!.max = value;

@@ -4,6 +4,7 @@ import { ParsedItem } from "@/parser";
 import { useTradeApi } from "@/web/price-check/trade/trade-api";
 import {
   createTradeRequest,
+  PricingResult,
   requestResults,
   requestTradeResultList,
 } from "@/web/price-check/trade/pathofexile-trade";
@@ -62,7 +63,9 @@ describe("useTradeApi", () => {
         total: resultCount,
         inexact: false,
       });
-      vi.mocked(requestResults).mockResolvedValue([{} as any]);
+      vi.mocked(requestResults).mockResolvedValue([
+        {} as unknown as PricingResult,
+      ]);
 
       expect(composableResult.error.value).toBeNull();
       await composableResult.search(

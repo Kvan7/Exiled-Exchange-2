@@ -666,7 +666,8 @@ export function finalFilterTweaks(ctx: FiltersCreationContext) {
         filter.hidden = "filters.hide_for_crafting";
       }
     } else if (filter.tag === FilterTag.Skill && filter.roll) {
-      filter.disabled = filter.roll.value < 20;
+      // TODO: enable ilvl for these guys if over 80 i think
+      filter.disabled = filter.roll.value < 19;
       if (filter.disabled) {
         filter.hidden = "filters.hide_not_max_level";
       }
@@ -764,8 +765,19 @@ function hideAllAugments(filters: StatFilter[]) {
       filter.tag === FilterTag.Augment ||
       filter.tag === FilterTag.AddedAugment
     ) {
-      filter.hidden = "filters.hide_const_roll";
+      // disable all
       filter.disabled = true;
+
+      // don't hide some specific ones
+      if (
+        filter.statRef ===
+        "Destroys all Augment Sockets on the item to create a Jewel Socket"
+      ) {
+        continue;
+      }
+
+      // hide rest
+      filter.hidden = "filters.hide_const_roll";
     }
   }
 }

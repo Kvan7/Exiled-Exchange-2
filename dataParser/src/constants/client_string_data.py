@@ -1,7 +1,7 @@
 from collections.abc import Sequence
 from typing import Callable
 
-from constants.lang import RUSSIAN
+from constants.lang import FRENCH, RUSSIAN
 from contracts.models.base_client_string import BaseClientString
 from contracts.models.regex_client_string import RegexClientString
 from models.array_client_string import ArrayClientString
@@ -73,6 +73,8 @@ CLIENT_STRING_KEY_VALUES: Sequence[BaseClientString] = [
     ClientString("ARMOUR", ["ItemDisplayArmourArmour"], "{0}: "),
     ClientString("EVASION", ["ItemDisplayArmourEvasionRating"], "{0}: "),
     ClientString("ENERGY_SHIELD", ["ItemDisplayArmourEnergyShield"], "{0}: "),
+    # ClientString("RUNIC_WARD", ["ItemDisplayArmourRunicWard"], "{0}: "),
+    ConstClientString("RUNIC_WARD", "Runic Ward: "),
     ClientString("BLOCK_CHANCE", ["ItemDisplayShieldBlockChance"], "{0}: "),
     ClientString("CORRUPTED", ["ItemPopupCorrupted"]),
     # skip regex ones
@@ -275,6 +277,8 @@ CLIENT_STRING_ARRAYS: list[ArrayClientString] = [
 CLIENT_STRING_REGEX: list[RegexClientString] = [
     CapturePlaceholderClientString("ITEM_SUPERIOR", ["QualityItem"]),
     CapturePlaceholderClientString("ITEM_EXCEPTIONAL", ["ExceptionalItem"]),
+    # CapturePlaceholderClientString("ITEM_RUNEFORGED", ["RuneforgedItem"]),
+    ConstRegexClientString("ITEM_RUNEFORGED", output="Runeforged (.*)"),
     CapturePlaceholderClientString("MAP_BLIGHTED", ["InfectedMap"]),
     CapturePlaceholderClientString("MAP_BLIGHT_RAVAGED", ["UberInfectedMap"]),
     CapturePlaceholderClientString("ITEM_SYNTHESISED", ["SynthesisedItem"], trim=True),
@@ -297,6 +301,9 @@ CLIENT_STRING_REGEX: list[RegexClientString] = [
             (on_character("(", o=1), on_character("(.")),
             (on_character("(", o=1), on_character("(.")),
         ],
+        override={
+            FRENCH: '(?<type>[^"]+)(?:\\s+«(?<name>[^»]*)»)?(?:\\s*\\({0}(?<tier>\\d+)\\))?(?:\\s*\\({1}(?<rank>\\d+)\\))?'
+        },
     ),
     CapturePlaceholderClientString(
         "MODIFIER_INCREASED",
@@ -342,8 +349,10 @@ CLIENT_STRING_REGEX: list[RegexClientString] = [
         "LOG_LEVEL_UP",
         ["HUDContactCharacterLevelChanged"],
         keep_format_option=True,
-        format=["(.*)", "(?<level>\\d+)"],
-        override={RUSSIAN: "(.*) достигает (?<level>\\d+) уровня"},
+        format=["(?<char_name>.*) \\((?<char_class>.*)\\)", "(?<level>\\d+)"],
+        override={
+            RUSSIAN: "(?<char_name>.*) \\((?<char_class>.*)\\) достигает (?<level>\\d+) уровня"
+        },
     ),
     ConstRegexClientString(
         "LOG_ZONE_GEN",

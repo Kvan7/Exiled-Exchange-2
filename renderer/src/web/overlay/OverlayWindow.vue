@@ -47,6 +47,9 @@
         <span class="bg-blue-800 rounded px-1">{{ overlayKey }}</span>
       </i18n-t>
     </div>
+    <!-- <template v-if="isDev">
+      <dev-widget text="DEV" />
+    </template> -->
     <!-- <div v-show="!gameFocused && !active">
       <div style="right: 24px; bottom: 24px; position: absolute;" class="bg-red-500 p-2 rounded">Game window is not active</div>
     </div> -->
@@ -74,12 +77,14 @@ import LoadingAnimation from "./LoadingAnimation.vue";
 import { usePoeninja } from "@/web/background/Prices";
 import { useLeagues } from "@/web/background/Leagues";
 import { useClientLog } from "@/web/client-log/client-log";
+import DevWidget from "./DevWidget.vue";
 
 type WMID = Widget["wmId"];
 
 export default defineComponent({
   components: {
     LoadingAnimation,
+    DevWidget,
   },
   setup() {
     usePoeninja();
@@ -147,11 +152,20 @@ export default defineComponent({
       hideUI.value = !e.isVisible;
     });
 
+    const lineQueue: string[] = [];
+    let processing = false;
     Host.onEvent("MAIN->CLIENT::game-log", (e) => {
-      for (const line of e.lines) {
-        handleLine(line);
-      }
+      lineQueue.push(...e.lines);
+      processQueue();
     });
+    function processQueue() {
+      if (processing) return;
+      processing = true;
+      while (lineQueue.length) {
+        handleLine(lineQueue.shift()!);
+      }
+      processing = false;
+    }
 
     onMounted(() => {
       nextTick(() => {
@@ -370,6 +384,7 @@ export default defineComponent({
         () => !active.value && showEditingNotification.value,
       ),
       registry,
+      isDev: import.meta.env.DEV,
     };
   },
 });

@@ -6,6 +6,17 @@ import { AppConfig } from "../Config";
 import { PriceCheckWidget } from "../overlay/widgets";
 import { ITEM_BY_REF } from "@/assets/data";
 
+export type NinjaSchema = NinjaSchemaV1;
+type NinjaSchemaV1 = {
+  schemaVersion: 1;
+  map: Array<{
+    ns: "ITEM" | "GEM" | "UNIQUE";
+    cx: boolean;
+    url: string;
+    type: string;
+  }>;
+};
+
 interface NinjaDenseExchangeInfo {
   name: string;
   variant?: string;
@@ -171,6 +182,14 @@ export const usePoeninja = createGlobalState(() => {
         selectedCoreCurrencyId.value = "exalted";
       }
 
+      const ninjaSchema: NinjaSchema = JSON.parse(
+        await Host.proxy(
+          "api.exiledexchange2.dev/proxy/data/namespaceMap.json",
+          {
+            signal: downloadController.signal,
+          },
+        ).then((r) => r.text()),
+      );
       const response = await Host.proxy(
         `api.exiledexchange2.dev/proxy/${selectedLeagueToUrl(true)}/overviewData.json`,
         {
@@ -181,7 +200,7 @@ export const usePoeninja = createGlobalState(() => {
 
       const ninjaXchg = parseXchg(jsonBlob);
 
-      PRICES_DB = splitJsonBlob(jsonBlob);
+      PRICES_DB = splitJsonBlob(jsonBlob, ninjaSchema);
 
       // TODO: update to search for requested currency instead of divine
       const divineRates = ninjaXchg.rates;
@@ -371,33 +390,18 @@ function parseXchg(jsonBlob: string): NinjaXchgRates {
   return JSON.parse(jsonBlob.slice(startPos, endPos));
 }
 
-function splitJsonBlob(jsonBlob: string): PriceDatabase {
+function splitJsonBlob(jsonBlob: string, schema: NinjaSchema): PriceDatabase {
   const NINJA_OVERVIEW = '{"type":"';
+  if (schema.schemaVersion !== 1) {
+    console.warn("Unsupported ninja schema version", schema.schemaVersion);
+    return [];
+  }
   const NAMESPACE_MAP: Array<{
     ns: string;
     cx: boolean;
     url: string;
     type: string;
-  }> = [
-    { ns: "ITEM", cx: true, url: "currency", type: "Currency" },
-    { ns: "ITEM", cx: true, url: "fragments", type: "Fragments" },
-    { ns: "ITEM", cx: true, url: "abyssal-bones", type: "Abyss" },
-    { ns: "ITEM", cx: true, url: "uncut-gems", type: "UncutGems" },
-    {
-      ns: "GEM",
-      cx: true,
-      url: "lineage-support-gems",
-      type: "LineageSupportGems",
-    },
-    { ns: "ITEM", cx: true, url: "essences", type: "Essences" },
-    { ns: "ITEM", cx: true, url: "soul-cores", type: "Ultimatum" },
-    { ns: "ITEM", cx: true, url: "idols", type: "Idols" },
-    { ns: "ITEM", cx: true, url: "runes", type: "Runes" },
-    { ns: "ITEM", cx: true, url: "omens", type: "Ritual" },
-    { ns: "ITEM", cx: true, url: "expedition", type: "Expedition" },
-    { ns: "ITEM", cx: true, url: "distilled-emotions", type: "Delirium" },
-    { ns: "ITEM", cx: true, url: "breach-catalyst", type: "Breach" },
-  ];
+  }> = schema.map;
 
   const database: PriceDatabase = [];
   let startPos = jsonBlob.indexOf(NINJA_OVERVIEW);

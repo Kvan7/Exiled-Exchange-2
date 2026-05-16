@@ -13,6 +13,7 @@ logger = logging.getLogger(__name__)
 class ClientString(BaseClientString):
     pattern_full: Pattern[str] = re.compile(r"\[([^\|\]]*?)\|([^\]]+)\]")
     _my_key: str
+    escape_single_quotes: bool = True
 
     def __init__(
         self,
@@ -98,7 +99,8 @@ class ClientString(BaseClientString):
             while out_out.endswith(" "):
                 out_out = out_out[:-1]
 
-        out_out = out_out.replace("'", "\\'")
+        if self.escape_single_quotes:
+            out_out = out_out.replace("'", "\\'")
 
         return out_out
 

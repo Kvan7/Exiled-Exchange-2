@@ -15,7 +15,7 @@ import { ParsedItem } from "@/parser";
 import { Cache } from "./Cache";
 
 interface TradeRequest {
-  /* eslint-disable camelcase */ engine: "new";
+  engine: "new";
   query: {
     status: { option: "online" | "onlineleague" | "any" };
     have: string[];

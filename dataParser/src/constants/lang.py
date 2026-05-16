@@ -1,6 +1,6 @@
 from typing import Literal
 
-LANG = Literal["cmn-Hant", "en", "de", "ja", "ko", "ru", "es", "pt"]
+LANG = Literal["cmn-Hant", "en", "de", "ja", "ko", "ru", "es", "pt", "fr"]
 ALL_LANG = Literal[
     "cmn-Hant", "en", "de", "es", "ja", "ko", "ru", "fr", "pt", "th", "zh-Hans"
 ]
@@ -13,8 +13,8 @@ JAPANESE: LANG = "ja"
 KOREAN: LANG = "ko"
 RUSSIAN: LANG = "ru"
 PORTUGUESE: LANG = "pt"
+FRENCH: LANG = "fr"
 # Extra that are in game, but not used by EE2
-FRENCH: ALL_LANG = "fr"
 THAI: ALL_LANG = "th"
 SIMPLIFIED_CHINESE: ALL_LANG = "zh-Hans"
 
@@ -27,6 +27,7 @@ LANGUAGES: set[LANG] = {
     KOREAN,
     RUSSIAN,
     PORTUGUESE,
+    FRENCH,
 }
 
 

@@ -110,6 +110,8 @@ export function poeWebApi() {
       return "es.pathofexile.com";
     case "pt":
       return "br.pathofexile.com";
+    case "fr":
+      return "fr.pathofexile.com";
   }
 }
 
@@ -140,7 +142,7 @@ export interface Config {
   logKeys: boolean;
   accountName: string;
   stashScroll: boolean;
-  language: "en" | "ru" | "cmn-Hant" | "ko" | "ja" | "de" | "es" | "pt";
+  language: "en" | "ru" | "cmn-Hant" | "ko" | "ja" | "de" | "es" | "pt" | "fr";
   preferredTradeSite: "default" | "www";
   realm: "pc-ggg" | "pc-garena";
   widgets: widget.Widget[];
@@ -154,7 +156,7 @@ export interface Config {
 }
 
 export const defaultConfig = (): Config => ({
-  configVersion: 29,
+  configVersion: 31,
   overlayKey: "Shift + Space",
   overlayBackground: "rgba(129, 139, 149, 0.15)",
   overlayBackgroundClose: true,
@@ -229,6 +231,7 @@ export const defaultConfig = (): Config => ({
 });
 
 function upgradeConfig(_config: Config): Config {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const config = _config as Omit<Config, "widgets"> & {
     widgets: Array<Record<string, any>>;
   };
@@ -633,13 +636,19 @@ function upgradeConfig(_config: Config): Config {
       wmId: Math.max(0, ...config.widgets.map((_) => _.wmId)) + 1,
     });
 
+    config.configVersion = 30;
+  }
+
+  if (config.configVersion < 31) {
+    // NOTE: v0.15.0 || poe0.4.0k
     const priceCheck = config.widgets.find(
       (w) => w.wmType === "price-check",
     ) as widget.PriceCheckWidget;
-    priceCheck.travelButtonEnable = "disabled";
+    priceCheck.rememberListingType = false;
 
-    config.configVersion = 30;
+    config.configVersion = 31;
   }
+  /* eslint-enable */
 
   return config as unknown as Config;
 }

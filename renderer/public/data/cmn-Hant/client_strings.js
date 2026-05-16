@@ -30,6 +30,8 @@ export default {
   ARMOUR: '護甲值: ',
   EVASION: '閃避值: ',
   ENERGY_SHIELD: '能量護盾: ',
+  // [Manual]
+  RUNIC_WARD: 'Runic Ward: ',
   BLOCK_CHANCE: '格擋機率: ',
   CORRUPTED: '已汙染',
   INFLUENCE_SHAPER: '塑者之物',
@@ -120,6 +122,8 @@ export default {
   INCURSION_MODS: ['Guatelitzi\'s', 'Xopec\'s', 'Topotante\'s', 'Tacati\'s', 'Matatl\'s', 'of Matatl', 'Citaqualotl\'s', 'of Citaqualotl', 'of Tacati', 'of Guatelitzi', 'of Puhuarte'],
   ITEM_SUPERIOR: /^精良的 (.*)$/,
   ITEM_EXCEPTIONAL: /^卓越 (.*)$/,
+  // [Manual]
+  ITEM_RUNEFORGED: /^Runeforged (.*)$/,
   MAP_BLIGHTED: /^凋落的 (.*)$/,
   MAP_BLIGHT_RAVAGED: /^凋落蔓延的 (.*)$/,
   ITEM_SYNTHESISED: /^追憶之 (.*)$/,
@@ -155,7 +159,7 @@ export default {
   CHAT_WHISPER_FROM: /^@來自 (?:<(?<guild_tag>.+?)> )?(?<char_name>.+?): (?<body>.+)$/,
   // [Manual]
   CHAT_WEBTRADE_GEM: /^level (?<gem_lvl>\d+) (?<gem_qual>\d+)% (?<gem_name>.+)$/,
-  LOG_LEVEL_UP: /^(.*) 現在等級 (?<level>\d+)$/,
+  LOG_LEVEL_UP: /^(?<char_name>.*) \((?<char_class>.*)\) 現在等級 (?<level>\d+)$/,
   // [Manual]
   LOG_ZONE_GEN: /^Generating level (?<area_level>\d+) area "(?<zone>.*)" with seed (?<seed>\d+)$/,
   REQUIRES_LINE: /^需求: \s*(?:等級[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*(力量|力量))?\D*(?:(?<dex>\d+)[^\d,]*(敏捷|敏捷))?\D*(?:(?<int>\d+)[^\d,]*(智慧|智慧))?$/,

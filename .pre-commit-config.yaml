@@ -6,7 +6,7 @@ repos:
     -   id: end-of-file-fixer
     -   id: check-yaml
     -   id: check-added-large-files
-        args: ['--maxkb=1024']
+        args: ['--maxkb=2048']
 -   repo: local
     hooks:
     -   id: check-version-consistency

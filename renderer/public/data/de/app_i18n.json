@@ -12,7 +12,7 @@
     "leagues_failed": "Laden der Ligen fehlgeschlagen",
     "leagues_failed_help": "Stelle sicher, dass der Realm nicht gewartet wird. Klicke auch auf den Button \"Browser\", dort musst du möglicherweise ein CAPTCHA lösen.",
     "leagues_failed_help_alt": "Führe eine Preisüberprüfung durch und folge den Anweisungen in der Fehlerbeschreibung.",
-    "thanks_3rd_party": "Dieses Tool basiert auf {0} und {1}. Bitte unterstütze diese ebenfalls.",
+    "thanks_3rd_party": "Dieses Tool basiert auf {0} und {1}. Bitte unterstütze diese ebenfalls",
     "toggle_browser_hint": "Drücke {0}, um zwischen Browser und Spiel zu wechseln.",
     "contact_me": "Kontaktiere mich auf einem der PoE-Discords,",
     "version": "Version {0}",
@@ -106,7 +106,21 @@
     "uses_remaining": "Nutzungen übrig: {0}",
     "victorious": "Siegreich",
     "cowardly": "Feige",
-    "deadly": "Tödlich"
+    "deadly": "Tödlich",
+    "has_empty_suffix": "Suffix",
+    "find_same_price": "Filtern nach",
+    "price": "Nur Preis",
+    "price_and_item": "Preis und Gegenstand",
+    "mod_pseudo": "Pseudo",
+    "find_same_price_type": "Filtern nach:",
+    "open_on_craftofexile": "Basisgegenstand auf Craft of Exile öffnen",
+    "mod_desecrated": "Entweiht",
+    "foil_unique": "Foil Unique",
+    "has_elemental_affix": "Beliebig",
+    "has_elemental_cold_affix": "Kälte",
+    "has_elemental_fire_affix": "Feuer",
+    "has_elemental_lightning_affix": "Blitz",
+    "ascendancy_points": "Punkte: {0}"
   },
   "item_category": {
     "prop": "Kategorie: {0}",
@@ -152,7 +166,10 @@
     "armour_focus": "Fokus",
     "weapon_spear": "Speer",
     "weapon_flail": "Flegel",
-    "armour_buckler": "Faustschild"
+    "armour_buckler": "Faustschild",
+    "accessory_ring": "Ring",
+    "map_tablet": "Kartentafel",
+    "weapon_talisman": "Talisman"
   },
   "filters": {
     "selected_some": "{0} von {1}, Werte",
@@ -161,7 +178,7 @@
     "selected_full_runes": "Runen Voll",
     "empty_rune_socket": "Leerer Runen-Sockel",
     "hidden_toggle": "Versteckt",
-    "hidden_explicit_toggle": "explizit",
+    "hidden_explicit_toggle": "Explizit",
     "collapse": "Einklappen",
     "empty": "Keine relevanten Werte gefunden",
     "tier": "Stufe {0}",
@@ -195,7 +212,20 @@
     "tag_added_rune": "Augmentations",
     "tag_desecrated": "Entweihtes",
     "grade": "Grad {0}",
-    "hybrid_note": "Das Tier könnte aufgrund eines potenziellen Hybrid-Mods falsch sein"
+    "hybrid_note": "Das Tier könnte aufgrund eines potenziellen Hybrid-Mods falsch sein",
+    "hide_for_map": "Die meisten Kartenmodifikatoren haben keinen Wert",
+    "tag_eldritch": "eldritch",
+    "mods_toggle": "Mods",
+    "preset_pseudo": "Pseudo",
+    "hide_low_ilvl": "Gegenstand hat eine zu niedrige Gegenstandsstufe, um alle Mods zu rollen",
+    "hide_not_max_level": "Fertigkeiten, die nicht auf maximaler Stufe gewährt werden, haben selten einen Wert",
+    "hide_revives": "Nur auswählen, wenn nicht 0 und du es nicht erhöhen möchtest ?",
+    "tag_pseudo": "Pseudo",
+    "tag_explicit_incursion": "Inkursion",
+    "tag_sanctum": "Heiligtum",
+    "tag_skill": "Fertigkeit",
+    "tag_mutated": "Mutiert",
+    "fill_rune_iron": "Runen (Eisen) füllen"
   },
   "online_filter": {
     "offline_toggle": "Offline & Online",
@@ -303,7 +333,11 @@
     "results_warn_tooltip": "Aktivieren Sie nur 'Exalted' im Online-Filter. Sie können diese Warnung in den Einstellungen deaktivieren.",
     "results_warn_title": "Preis wahrscheinlich zu hoch",
     "results_warn_message": "Handelsseite blendet Ergebnisse zwischen {0} und {1} Ex aus",
-    "fix_complex_query": "Deaktiviere \"Pseudo-Mods verwenden\" in den Einstellungen oder melde dich mit dem integrierten Browser an"
+    "fix_complex_query": "Deaktiviere \"Pseudo-Mods verwenden\" in den Einstellungen oder melde dich mit dem integrierten Browser an",
+    "travel": "Reise",
+    "likely_price_fixed": "Überwiegend nicht standardmäßige Währung ",
+    "filter_exalt_divine": "Filtern nach Erhabener/Göttlicher Kugel",
+    "highest_volume": "Höchstes Volumen:"
   },
   "settings": {
     "title": "Einstellungen - Exiled Exchange 2",
@@ -344,7 +378,12 @@
     "tip_frequency_5": "Sehr selten",
     "tip_frequency_6": "Nie",
     "tips_header": "Alle Tipps durchblättern:",
-    "tip_number_header": "Tipp #{0}"
+    "tip_number_header": "Tipp #{0}",
+    "overlay": "Overlay",
+    "overlay_bg_none": "Transparent",
+    "enable_alphas": "Experimentelle Funktionen aktivieren",
+    "alpha_library": "Gegenstandsdatenerfassung",
+    "read_client_log": "Lesen der Client.txt-Datei erlauben"
   },
   "price_check": {
     "name": "Preisprüfung",
@@ -379,7 +418,13 @@
     "tier_numbering_poe2": "PoE2 (höhere Werte sind besser)",
     "tier_numbering_help": "Um Verwirrung durch widersprüchliche Namenskonventionen im Spiel zu reduzieren, werden PoE1-Tiers als \"Grad\" bezeichnet, anstatt \"Stufe\". ",
     "always_show_tier": "Tier immer anzeigen",
-    "remember_ratio": "Währungs-Verhältnis merken"
+    "remember_ratio": "Währungs-Verhältnis merken",
+    "open_editor_above": "Runen‑Sockel-Auswahl nach oben öffnen",
+    "show_volume": "Währungsumtausch-Volumen pro Stunde anzeigen:",
+    "travel_to_hideout": "Reise zum Versteck für Listings. Erfordert Anmeldung über den eingebauten Browser; bedenke die damit verbundenen Risiken.",
+    "core_currency": "Primäre Basiswährung:",
+    "travel_option_button": "Schaltfläche",
+    "travel_option_row": "Strg-Klick"
   },
   "poe2_new": {
     "beta_warning": "Dies ist eine BETA für POE2, es wird nicht immer wie erwartet funktionieren.",
@@ -420,7 +465,27 @@
     "tip_26": "Der rote Kreis neben dem Preis eines Gegenstands zeigt an, dass der Spielerstatus auf Offline steht.",
     "tip_27": "Logs werden im Tab \"Debug\" in den Einstellungen angezeigt.",
     "tip_28": "Du kannst deine Liga in den Einstellungen ändern.",
-    "tip_29": "Du kannst in den Einstellungen benutzerdefinierte Chat-Befehl-Hotkeys hinzufügen.",
-    "tip_30": "Wir reden nicht über Exiled Exchange 1."
+    "tip_29": "Du kannst in den Einstellungen benutzerdefinierte Chat-Befehl-Hotkeys hinzufügen."
+  },
+  "notepad": {
+    "name": "Notizblock",
+    "placeholder": "Schreibe hier deine Notizen …",
+    "width": "Breite:"
+  },
+  "leveling": {
+    "enable_read_client_logs": "Leveling-Widgets erfordern die Erlaubnis, die Client-Log-Datei zu lesen",
+    "exp_astrict": "Die prozentualen Erfahrungserträge, wenn du über Stufe 95 bist, das Monsterlevel über 70 liegt oder du nicht 100 % Erfahrungszuwachs bekommst, sind möglicherweise nicht vollständig getestet und ungenau.",
+    "exp_inspire": "Basierend auf: ",
+    "exp_tracking": "Erfahrungstracker",
+    "exp_tracking_help_tldr": "TL;DR: Versuche, \"Over\" bei 0 oder 1 zu halten",
+    "name": "Leveln"
+  },
+  "library": {
+    "log_item_key": "Erfahrungszuwachs in Prozent anzeigen",
+    "name": "Bibliothek",
+    "output_file": "Ausgabe-CSV-Pfad",
+    "output_file_help": "Ein paar Informationen",
+    "output_folder": "—Ausgabeordner",
+    "record_count": "Sitzungswürfe:"
   }
 }

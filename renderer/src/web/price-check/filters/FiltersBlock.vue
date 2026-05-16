@@ -279,7 +279,7 @@
           <i class="fas fa-chevron-up pl-1 text-xs text-gray-600"></i>
         </button>
         <ui-toggle
-          v-if="filteredStats.length != stats.length"
+          v-if="filteredStats.length !== stats.length"
           v-model="showHidden"
           class="text-gray-400 pt-2"
           >{{ t(hiddenLabel) }}</ui-toggle

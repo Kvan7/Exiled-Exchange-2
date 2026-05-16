@@ -9,6 +9,9 @@ import type {
   TranslationDict,
 } from "./interfaces";
 import { loadClientStrings } from "../client-string-loader";
+import { useTradeData } from "@/web/background/TradeData";
+import { ItemCategory } from "@/parser/meta";
+import { ItemRarity } from "@/parser/ParsedItem";
 
 export * from "./interfaces";
 
@@ -22,38 +25,53 @@ export let AUGMENT_DATA_BY_TRADE_ID: AugmentDataByTradeId;
 export let AUGMENT_LIST: BaseType[];
 export const HIGH_VALUE_AUGMENTS_HARDCODED = new Set<string>([]);
 
-export let ITEM_BY_TRANSLATED = (
+export let ITEM_BY_TRANSLATED: (
   ns: BaseType["namespace"],
   name: string,
-): BaseType[] | undefined => undefined;
-export let ITEM_BY_REF = (
+) => BaseType[] | undefined = () => undefined;
+export let ITEM_BY_REF: (
   ns: BaseType["namespace"],
   name: string,
-): BaseType[] | undefined => undefined;
-export let ITEMS_ITERATOR = function* (
+) => BaseType[] | undefined = () => undefined;
+export let ITEMS_ITERATOR: (
   includes: string,
   andIncludes?: string[],
-): Generator<BaseType> {};
+) => Generator<BaseType> = function* () {};
 
-export let ALTQ_GEM_NAMES = function* (): Generator<string> {};
-export let REPLICA_UNIQUE_NAMES = function* (): Generator<string> {};
+export let ALTQ_GEM_NAMES: () => Generator<string> = function* () {};
+export let REPLICA_UNIQUE_NAMES: () => Generator<string> = function* () {};
 
 export let TRADE_TAG_TO_REF = new Map<string, string>();
 
-export let STAT_BY_MATCH_STR = (
+export let STAT_BY_MATCH_STR: (
   name: string,
-): { matcher: StatMatcher; stat: Stat } | undefined => undefined;
-export let STAT_BY_REF = (name: string): Stat | undefined => undefined;
-export let STATS_ITERATOR = function* (
+) => { matcher: StatMatcher; stat: Stat } | undefined = () => undefined;
+export let STAT_BY_REF: (name: string) => Stat | undefined = () => undefined;
+export let STATS_ITERATOR: (
   includes: string,
   andIncludes?: string[],
-): Generator<Stat> {};
+) => Generator<Stat> = function* () {};
 
 let localAugmentFilter: (
   value: BaseType,
   index: number,
   array: BaseType[],
-) => unknown = (value: BaseType, index: number, array: BaseType[]) => true;
+) => unknown | undefined = () => undefined;
+
+export let TRADE_ITEM_BY_REF: (
+  itemQuery: {
+    baseType?: string;
+    name?: string;
+    rarity?: ItemRarity;
+    category?: ItemCategory;
+  },
+  forceCraftable?: boolean,
+) => BaseType[] | undefined = () => undefined;
+
+export let TRADE_STAT_BY_STAT_ID: (tradeId: string) => boolean = () => false;
+export let TRADE_STAT_BY_MATCH_STR: (
+  name: string,
+) => { [type: string]: string[] } | undefined = () => undefined;
 
 function dataBinarySearch(
   data: Uint32Array,
@@ -117,7 +135,7 @@ function itemNamesFromLines(items: Generator<BaseType>) {
   };
 }
 
-async function loadItems(language: string, isTest = false) {
+async function loadItems(language: string) {
   const ndjson = await (
     await fetch(`${import.meta.env.BASE_URL}data/${language}/items.ndjson`)
   ).text();
@@ -182,7 +200,7 @@ async function loadItems(language: string, isTest = false) {
   }
 }
 
-async function loadStats(language: string, isTest = false) {
+async function loadStats(language: string) {
   const ndjson = await (
     await fetch(`${import.meta.env.BASE_URL}data/${language}/stats.ndjson`)
   ).text();
@@ -247,7 +265,7 @@ export function stat(text: string) {
   return text;
 }
 
-export async function init(lang: string, isTest = false) {
+export async function init(lang: string) {
   CLIENT_STRINGS_REF = await loadClientStrings("en");
   ITEM_DROP = await (
     await fetch(`${import.meta.env.BASE_URL}data/item-drop.json`)
@@ -256,7 +274,7 @@ export async function init(lang: string, isTest = false) {
     await fetch(`${import.meta.env.BASE_URL}data/patrons.json`)
   ).json();
 
-  await loadForLang(lang, isTest);
+  await loadForLang(lang);
 
   let failed = false;
   const missing = [];
@@ -285,11 +303,12 @@ export function setLocalAugmentFilter(
   localAugmentFilter = filter;
 }
 
-export async function loadForLang(lang: string, isTest = false) {
+export async function loadForLang(lang: string) {
   CLIENT_STRINGS = await loadClientStrings(lang);
   await loadItems(lang);
   await loadStats(lang);
   loadUltraLateItems(localAugmentFilter);
+  await loadTradeData();
 }
 
 export function loadUltraLateItems(
@@ -361,6 +380,102 @@ function augmentsToLookupTradeId(
   }
 
   return augmentDataByAugment;
+}
+
+async function loadTradeData() {
+  const trade = useTradeData();
+  await trade.load(true);
+  if (trade.error.value) {
+    console.error("Failed to load trade data:", trade.error.value);
+    return;
+  }
+
+  TRADE_ITEM_BY_REF = function (
+    itemQuery: {
+      baseType?: string;
+      name?: string;
+      rarity?: ItemRarity;
+      category?: ItemCategory;
+    },
+    forceCraftable?: boolean,
+  ): BaseType[] | undefined {
+    const items = trade.tradeItemData.value;
+
+    let base: BaseType | undefined;
+    const { baseType, name, rarity, category } = itemQuery;
+
+    if (category === ItemCategory.Gem) {
+      if (name && items.has(name)) {
+        base = {
+          name: name,
+          refName: name,
+          namespace: "GEM",
+          icon: "%NOT_FOUND%",
+          tags: [],
+          gem: {},
+        };
+      }
+    } else if (rarity === ItemRarity.Unique) {
+      if (name && items.has(`${name} ${baseType}`)) {
+        base = {
+          name: name,
+          refName: name,
+          namespace: "UNIQUE",
+          icon: "%NOT_FOUND%",
+          tags: [],
+          unique: {
+            base: baseType!,
+          },
+        };
+      }
+    } else if (!baseType) {
+      if (name && items.has(name)) {
+        // TODO: currency works without tradeTag, just ninja only, see if that is fine
+        const craftable = category
+          ? { category }
+          : forceCraftable
+            ? { category: name as ItemCategory }
+            : undefined;
+
+        base = {
+          name: name,
+          refName: name,
+          namespace: "ITEM",
+          icon: "%NOT_FOUND%",
+          tags: [],
+          craftable,
+        };
+      }
+    } else {
+      if (items.has(baseType)) {
+        base = {
+          name: baseType,
+          refName: baseType,
+          namespace: "ITEM",
+          icon: "%NOT_FOUND%",
+          tags: [],
+        };
+      }
+    }
+
+    return base ? [base] : undefined;
+  };
+
+  TRADE_STAT_BY_STAT_ID = function (tradeId: string) {
+    return trade.tradeStatDataSet.value.has(tradeId);
+  };
+
+  TRADE_STAT_BY_MATCH_STR = function (name: string) {
+    const statData = trade.tradeStatData.value;
+
+    const stat = statData.get(name);
+    if (!stat) return;
+
+    // never going to write to these, just need to satisfy type
+    return stat as {
+      [x: string]: string[];
+    };
+  };
 }
 
 // Disable since this is export for tests

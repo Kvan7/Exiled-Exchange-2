@@ -6,6 +6,8 @@ import {
   STAT_BY_MATCH_STR,
   BaseType,
   ITEM_BY_TRANSLATED,
+  TRADE_ITEM_BY_REF,
+  TRADE_STAT_BY_STAT_ID,
 } from "@/assets/data";
 import { ModifierType, StatCalculated, sumStatsByModType } from "./modifiers";
 import {
@@ -58,6 +60,7 @@ const parsers: Array<ParserFn | { virtual: VirtualParserFn }> = [
   parseUnidentified,
   { virtual: parseSuperior },
   { virtual: parseExceptional },
+  { virtual: parseRuneforged },
   parseSynthesised,
   parseCategoryByHelpText,
   { virtual: normalizeName },
@@ -232,6 +235,15 @@ function findInDatabase(item: ParserState) {
     info = ITEM_BY_REF("UNIQUE", item.name);
   } else {
     info = ITEM_BY_REF("ITEM", item.baseType ?? item.name);
+  }
+  if (!info?.length) {
+    // First attempt to find item in trade items data
+    info = TRADE_ITEM_BY_REF({
+      name: item.name,
+      category: item.category,
+      rarity: item.rarity,
+      baseType: item.baseType,
+    });
   }
   if (!info?.length) {
     // BUG[UPSTREAM]: https://www.pathofexile.com/forum/view-thread/3913283
@@ -792,6 +804,13 @@ function parseArmour(section: string[], item: ParsedItem) {
       isParsed = "SECTION_PARSED";
       continue;
     }
+
+    // FIXME: Update parser with actual text
+    if (line.startsWith(_$.RUNIC_WARD)) {
+      item.armourRW = parseInt(line.slice(_$.RUNIC_WARD.length), 10);
+      isParsed = "SECTION_PARSED";
+      continue;
+    }
   }
 
   if (isParsed === "SECTION_PARSED") {
@@ -802,6 +821,7 @@ function parseArmour(section: string[], item: ParsedItem) {
     item.armourAR = undefined;
     item.armourEV = undefined;
     item.armourES = undefined;
+    item.armourRW = undefined; // ? maybe not ?
     item.armourBLOCK = undefined;
   }
 
@@ -987,6 +1007,7 @@ function parseLogbookArea(section: string[], item: ParsedItem) {
     const found = tryParseTranslation(
       { string: line, unscalable: false },
       modType,
+      undefined,
     );
     if (found) {
       areaMods.push({
@@ -1346,6 +1367,21 @@ function parseExceptional(item: ParserState) {
   }
 }
 
+function parseRuneforged(item: ParserState) {
+  performance.mark("parseRuneforged");
+  if (
+    item.rarity === ItemRarity.Normal ||
+    item.rarity === ItemRarity.Magic ||
+    item.rarity === ItemRarity.Rare ||
+    item.rarity === ItemRarity.Unique
+  ) {
+    // FIXME: Update when text is available
+    if (_$REF.ITEM_RUNEFORGED.test(item.name)) {
+      item.name = _$REF.ITEM_RUNEFORGED.exec(item.name)![1];
+    }
+  }
+}
+
 function parseCategoryByHelpText(section: string[], item: ParsedItem) {
   performance.mark("parseCategoryByHelpText");
   if (section[0] === _$.BEAST_HELP) {
@@ -1513,6 +1549,7 @@ function parseMirroredTablet(section: string[], item: ParsedItem) {
     const found = tryParseTranslation(
       { string: line, unscalable: true },
       ModifierType.Pseudo,
+      undefined,
     );
     if (found) {
       item.newMods.push({
@@ -1580,8 +1617,34 @@ function parseStatsFromMod(
       stat.value.string = stat.value.string.replace("()", "");
     }
 
-    const parsedStat = tryParseTranslation(stat.value, modifier.info.type);
-    if (parsedStat) {
+    const parsedStat = tryParseTranslation(
+      stat.value,
+      modifier.info.type,
+      item.category,
+    );
+
+    // fully skip builtin skills
+    if (
+      parsedStat?.stat.ref === "Grants Skill: Parry" ||
+      parsedStat?.stat.ref === "Grants Skill: Raise Shield" ||
+      parsedStat?.stat.ref === "Grants Skill: Spear Throw"
+    ) {
+      stat = statIterator.next(true);
+      continue;
+    }
+
+    const validTradeIds = parsedStat?.stat.trade.ids[
+      modifier.info.type
+    ]?.filter((id) =>
+      TRADE_STAT_BY_STAT_ID(
+        id +
+          (parsedStat.stat.trade.option
+            ? "|" + parsedStat.translation.value
+            : ""),
+      ),
+    );
+
+    if (parsedStat && validTradeIds && validTradeIds.length) {
       modifier.stats.push(parsedStat);
 
       stat = statIterator.next(true);
@@ -1590,14 +1653,13 @@ function parseStatsFromMod(
     }
   }
 
-  if (item.rarity !== ItemRarity.Unique) {
-    item.unknownModifiers.push(
-      ...stat.value.map((line) => ({
-        text: line,
-        type: modifier.info.type,
-      })),
-    );
-  }
+  item.unknownModifiers.push(
+    ...stat.value.map((line) => ({
+      text: line,
+      type: modifier.info.type,
+    })),
+  );
+
   return true;
 }
 
@@ -1699,6 +1761,13 @@ export function getMaxSockets(item: ParsedItem) {
     return 2;
   }
 
+  if (
+    item.info.refName === "Grasping Ring" ||
+    item.info.refName === "Corona Amulet"
+  ) {
+    return 1;
+  }
+
   const { category } = item;
   switch (category) {
     case ItemCategory.BodyArmour:
@@ -1769,6 +1838,7 @@ export function isArmourOrWeaponOrCaster(
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function augmentCount(mod: ParsedModifier, statCalc: StatCalculated): number {
   if (mod.info.type !== ModifierType.Augment) return 0;
   // HACK: fix since I can't detect how many exist due to augment tiers

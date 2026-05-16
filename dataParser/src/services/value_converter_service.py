@@ -1,7 +1,7 @@
 # pyright: basic
-
 import re
 from collections import defaultdict
+from pprint import pformat
 from typing import Any
 
 import pandas as pd
@@ -97,6 +97,7 @@ class ValueConverterService:
         }
         ids = defaultdict(set)
         matchers: list[dict[str, str | int | bool | list[int]]] = []
+        seen = set()
         for row in in_df.itertuples():
             ids[row.type].add(row.id)
             matcher: dict[str, Any] = {"string": row.text, "value": int(row.value)}  # pyright: ignore[reportArgumentType]
@@ -104,7 +105,10 @@ class ValueConverterService:
                 matcher["oils"] = self.blight[int(row.value)]  # pyright: ignore[reportArgumentType]
             if id == UNIQUE_JEWEL_PLUS_LEVEL:
                 matcher["string"] = matcher["string"].replace("+", "")
-            matchers.append(matcher)
+            signature = pformat(matcher)
+            if signature not in seen:
+                seen.add(signature)
+                matchers.append(matcher)
         out["trade"] = {"ids": {k: list(v) for k, v in ids.items()}, "option": True}
         matchers.sort(key=lambda x: x["value"])
         out["matchers"] = matchers

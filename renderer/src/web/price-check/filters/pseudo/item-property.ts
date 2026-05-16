@@ -143,6 +143,27 @@ function armourProps(ctx: FiltersCreationContext) {
     );
   }
 
+  if (item.armourRW) {
+    const runicWard = calcPropBounds(
+      item.armourRW,
+      { flat: ["# to maximum Runic Ward"], incr: ["#% increased Runic Ward"] },
+      item,
+    );
+
+    ctx.filters.push(
+      propToFilter(
+        {
+          ref: "Runic Ward: #",
+          tradeId: "item.runic_ward",
+          roll: runicWard.roll,
+          sources: runicWard.sources,
+          disabled: true,
+        },
+        ctx,
+      ),
+    );
+  }
+
   if (item.armourAR || item.armourEV || item.armourES || item.armourBLOCK) {
     removeUsedStats(ctx, ARMOUR_STATS);
   }
@@ -567,12 +588,15 @@ function removeUsedStats(ctx: FiltersCreationContext, stats: Set<string>) {
 }
 
 function isSingleAttrArmour(item: ParsedItem) {
-  return true;
-  // return (
-  //   [item.armourAR, item.armourEV, item.armourES].filter(
-  //     (value) => value != null,
-  //   ).length === 1
-  // );
+  return (
+    [item.armourAR, item.armourEV, item.armourES].filter(
+      (value) => value != null,
+    ).length === 1 ||
+    // TODO: figure out if people are actually using hybrid in 2
+    // originally this method was for 1 where people don't touch hybrid,
+    // or when they do they only care about one type
+    true
+  );
 }
 
 function isPdpsImportant(item: ParsedItem) {

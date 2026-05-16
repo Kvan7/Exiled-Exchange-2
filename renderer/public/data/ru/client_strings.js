@@ -30,6 +30,8 @@ export default {
   ARMOUR: 'Броня: ',
   EVASION: 'Уклонение: ',
   ENERGY_SHIELD: 'Энергетический щит: ',
+  // [Manual]
+  RUNIC_WARD: 'Runic Ward: ',
   BLOCK_CHANCE: 'Шанс блока: ',
   CORRUPTED: 'Осквернено ',
   INFLUENCE_SHAPER: 'Предмет Создателя',
@@ -120,6 +122,8 @@ export default {
   INCURSION_MODS: ['Guatelitzi\'s', 'Xopec\'s', 'Topotante\'s', 'Tacati\'s', 'Matatl\'s', 'of Matatl', 'Citaqualotl\'s', 'of Citaqualotl', 'of Tacati', 'of Guatelitzi', 'of Puhuarte'],
   ITEM_SUPERIOR: /^(.*) высокого качества$/,
   ITEM_EXCEPTIONAL: /^Образцовое (.*)$/,
+  // [Manual]
+  ITEM_RUNEFORGED: /^Runeforged (.*)$/,
   MAP_BLIGHTED: /^Заражённая (.*)$/,
   MAP_BLIGHT_RAVAGED: /^Разорённая Скверной (.*)$/,
   ITEM_SYNTHESISED: /^Синтезированное (.*)$/,
@@ -156,7 +160,7 @@ export default {
   // [Manual]
   CHAT_WEBTRADE_GEM: /^level (?<gem_lvl>\d+) (?<gem_qual>\d+)% (?<gem_name>.+)$/,
   // [Override]
-  LOG_LEVEL_UP: /^(.*) достигает (?<level>\d+) уровня$/,
+  LOG_LEVEL_UP: /^(?<char_name>.*) \((?<char_class>.*)\) достигает (?<level>\d+) уровня$/,
   // [Manual]
   LOG_ZONE_GEN: /^Generating level (?<area_level>\d+) area "(?<zone>.*)" with seed (?<seed>\d+)$/,
   REQUIRES_LINE: /^Требуется: \s*(?:Уровень[^\d,]*(?<level>\d+))?\D*(?:(?<str>\d+)[^\d,]*(Сила|Сила))?\D*(?:(?<dex>\d+)[^\d,]*(Ловкость|Ловк))?\D*(?:(?<int>\d+)[^\d,]*(Интеллект|Инт))?$/,

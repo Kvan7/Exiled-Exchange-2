@@ -1,0 +1,2920 @@
+{
+  "result": [
+    {
+      "id": "65c7c4e8e6df387c2749f1c7b726b23b52f0400b945175939236711f628111bb",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2026-01-06T18:47:51Z",
+        "stash": {
+          "name": "9",
+          "x": 2,
+          "y": 2
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 2,
+          "currency": "regal"
+        },
+        "fee": 2476,
+        "account": {
+          "name": "joukerone#4206",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 2,
+        "h": 2,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9IZWxtZXRzL0Jhc2V0eXBlcy9IZWxtZXREZXgwNyIsInciOjIsImgiOjIsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/74f4fa374e/HelmetDex07.png",
+        "league": "Fate of the Vaal",
+        "id": "65c7c4e8e6df387c2749f1c7b726b23b52f0400b945175939236711f628111bb",
+        "name": "",
+        "typeLine": "Collector's Corsair Cap of Curvation",
+        "baseType": "Corsair Cap",
+        "rarity": "Magic",
+        "ilvl": 50,
+        "identified": true,
+        "note": "~b/o 2 regal",
+        "properties": [
+          {
+            "name": "Helmet",
+            "values": [],
+            "displayMode": 0
+          },
+          {
+            "name": "[Evasion|Evasion Rating]",
+            "values": [["158", 0]],
+            "displayMode": 0,
+            "type": 17
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [["45", 0]],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Dexterity|Dex]",
+            "values": [["64", 0]],
+            "displayMode": 1,
+            "type": 64
+          }
+        ],
+        "explicitMods": [
+          "14% increased [ItemRarity|Rarity of Items] found",
+          "Gain [Deflect|Deflection Rating] equal to 17% of [Evasion|Evasion Rating]"
+        ],
+        "frameType": 1,
+        "extended": {
+          "ev": 190,
+          "ev_aug": true,
+          "mods": {
+            "explicit": [
+              {
+                "name": "of Curvation",
+                "tier": "S3",
+                "level": 36,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_3033371881",
+                    "min": "15",
+                    "max": "17"
+                  }
+                ]
+              },
+              {
+                "name": "Collector's",
+                "tier": "P2",
+                "level": 29,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_3917489142",
+                    "min": "12",
+                    "max": "15"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [
+              ["explicit.stat_3917489142", [1]],
+              ["explicit.stat_3033371881", [0]]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "00d17082ebd44185326ad4c508c6d64a0705f42df846b3a2132cb96456e3d132",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2025-12-23T23:19:11Z",
+        "stash": {
+          "name": "1 Alchem",
+          "x": 4,
+          "y": 0
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 1,
+          "currency": "alch"
+        },
+        "fee": 5865,
+        "account": {
+          "name": "Yogoort#2002",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 2,
+        "h": 4,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9Ud29IYW5kTWFjZXMvQmFzZXR5cGVzLzJITWFjZTA4IiwidyI6MiwiaCI6NCwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/e76cbc3836/2HMace08.png",
+        "league": "Fate of the Vaal",
+        "id": "00d17082ebd44185326ad4c508c6d64a0705f42df846b3a2132cb96456e3d132",
+        "name": "Phoenix Brand",
+        "typeLine": "Crumbling Maul",
+        "baseType": "Crumbling Maul",
+        "rarity": "Rare",
+        "ilvl": 46,
+        "identified": true,
+        "note": "~b/o 1 alch",
+        "properties": [
+          {
+            "name": "[Mace|Two Hand Mace]",
+            "values": [],
+            "displayMode": 0
+          },
+          {
+            "name": "[Physical] Damage",
+            "values": [["62-75", 0]],
+            "displayMode": 0,
+            "type": 9
+          },
+          {
+            "name": "Cold Damage",
+            "values": [["30-45", 5]],
+            "displayMode": 0,
+            "type": 10
+          },
+          {
+            "name": "[Critical|Critical Hit] Chance",
+            "values": [["8.00%", 0]],
+            "displayMode": 0,
+            "type": 12
+          },
+          {
+            "name": "Attacks per Second",
+            "values": [["1.10", 0]],
+            "displayMode": 0,
+            "type": 13
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [["38", 0]],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [["68", 0]],
+            "displayMode": 1,
+            "type": 63
+          }
+        ],
+        "implicitMods": [
+          "Causes Enemies to Explode on [Critical] kill, for 10% of their Life as [Physical|Physical Damage]"
+        ],
+        "explicitMods": [
+          "Adds 30 to 45 [Cold|Cold] Damage",
+          "+16 to [Strength|Strength]",
+          "[ManaLeech|Leeches] 5.01% of [Physical|Physical] Damage as Mana",
+          "16% increased [Stun|Stun] Duration"
+        ],
+        "frameType": 2,
+        "extended": {
+          "dps": 131.45,
+          "pdps": 90.2,
+          "edps": 41.25,
+          "dps_aug": true,
+          "pdps_aug": true,
+          "mods": {
+            "explicit": [
+              {
+                "name": "Freezing",
+                "tier": "P6",
+                "level": 46,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1037193709",
+                    "min": "25",
+                    "max": "30"
+                  },
+                  {
+                    "hash": "explicit.stat_1037193709",
+                    "min": "38",
+                    "max": "46"
+                  }
+                ]
+              },
+              {
+                "name": "of Dazing",
+                "tier": "S5",
+                "level": 18,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_748522257",
+                    "min": "14",
+                    "max": "16"
+                  }
+                ]
+              },
+              {
+                "name": "of the Parched",
+                "tier": "S4",
+                "level": 38,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_669069897",
+                    "min": "5",
+                    "max": "5.9"
+                  }
+                ]
+              },
+              {
+                "name": "of the Bear",
+                "tier": "S6",
+                "level": 22,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_4080418644",
+                    "min": "13",
+                    "max": "16"
+                  }
+                ]
+              }
+            ],
+            "implicit": [
+              {
+                "name": "",
+                "tier": "",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_1541903247",
+                    "min": "10",
+                    "max": "10"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [
+              ["explicit.stat_1037193709", [0]],
+              ["explicit.stat_4080418644", [3]],
+              ["explicit.stat_669069897", [2]],
+              ["explicit.stat_748522257", [1]]
+            ],
+            "implicit": [["implicit.stat_1541903247", [0]]]
+          }
+        }
+      }
+    },
+    {
+      "id": "288371ebfb40140ffb5269595000b1223c82b61c08620e148e343d0794bf0091",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2025-12-23T14:26:31Z",
+        "stash": {
+          "name": "4",
+          "x": 0,
+          "y": 0
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 1,
+          "currency": "alch"
+        },
+        "fee": 9876,
+        "account": {
+          "name": "shnaider0#1149",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 2,
+        "h": 4,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9Dcm9zc2Jvd3MvMkhDcm9zc2JvdzA1IiwidyI6MiwiaCI6NCwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/28ab8c9744/2HCrossbow05.png",
+        "league": "Fate of the Vaal",
+        "id": "288371ebfb40140ffb5269595000b1223c82b61c08620e148e343d0794bf0091",
+        "name": "Fate Core",
+        "typeLine": "Twin Crossbow",
+        "baseType": "Twin Crossbow",
+        "rarity": "Rare",
+        "ilvl": 54,
+        "identified": true,
+        "note": "~b/o 1 alch",
+        "properties": [
+          {
+            "name": "[Crossbow]",
+            "values": [],
+            "displayMode": 0
+          },
+          {
+            "name": "[Physical] Damage",
+            "values": [["28-102", 1]],
+            "displayMode": 0,
+            "type": 9
+          },
+          {
+            "name": "Cold Damage",
+            "values": [["41-63", 5]],
+            "displayMode": 0,
+            "type": 10
+          },
+          {
+            "name": "[Critical|Critical Hit] Chance",
+            "values": [["5.00%", 0]],
+            "displayMode": 0,
+            "type": 12
+          },
+          {
+            "name": "Attacks per Second",
+            "values": [["1.86", 1]],
+            "displayMode": 0,
+            "type": 13
+          },
+          {
+            "name": "Reload Time",
+            "values": [["0.95", 1]],
+            "displayMode": 0,
+            "type": 97
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [["54", 0]],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [["53", 0]],
+            "displayMode": 1,
+            "type": 63
+          },
+          {
+            "name": "[Dexterity|Dex]",
+            "values": [["53", 0]],
+            "displayMode": 1,
+            "type": 64
+          }
+        ],
+        "implicitMods": ["Loads an additional bolt"],
+        "explicitMods": [
+          "Adds 8 to 20 [Physical|Physical] Damage",
+          "Adds 41 to 63 [Cold|Cold] Damage",
+          "16% increased [Attack] Speed",
+          "+8 to [Strength|Strength]"
+        ],
+        "frameType": 2,
+        "extended": {
+          "dps": 241.8,
+          "pdps": 145.08,
+          "edps": 96.72,
+          "dps_aug": true,
+          "pdps_aug": true,
+          "mods": {
+            "explicit": [
+              {
+                "name": "of the Brute",
+                "tier": "S8",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_4080418644",
+                    "min": "5",
+                    "max": "8"
+                  }
+                ]
+              },
+              {
+                "name": "Frozen",
+                "tier": "P5",
+                "level": 54,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1037193709",
+                    "min": "32",
+                    "max": "43"
+                  },
+                  {
+                    "hash": "explicit.stat_1037193709",
+                    "min": "49",
+                    "max": "66"
+                  }
+                ]
+              },
+              {
+                "name": "Polished",
+                "tier": "P7",
+                "level": 16,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1940865751",
+                    "min": "8",
+                    "max": "12"
+                  },
+                  {
+                    "hash": "explicit.stat_1940865751",
+                    "min": "15",
+                    "max": "22"
+                  }
+                ]
+              },
+              {
+                "name": "of Renown",
+                "tier": "S2",
+                "level": 30,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_210067635",
+                    "min": "14",
+                    "max": "16"
+                  }
+                ]
+              }
+            ],
+            "implicit": [
+              {
+                "name": "",
+                "tier": "",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_1967051901",
+                    "min": "1",
+                    "max": "1"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [
+              ["explicit.stat_1940865751", [2]],
+              ["explicit.stat_1037193709", [1]],
+              ["explicit.stat_210067635", [3]],
+              ["explicit.stat_4080418644", [0]]
+            ],
+            "implicit": [["implicit.stat_1967051901", [0]]]
+          }
+        }
+      }
+    },
+    {
+      "id": "b8505bb6759874df7d0ce3e89883a92eab301990c97e08de89be131f95dfec46",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2025-12-18T15:10:06Z",
+        "stash": {
+          "name": "1",
+          "x": 4,
+          "y": 6
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 1,
+          "currency": "alch"
+        },
+        "fee": 879,
+        "account": {
+          "name": "Michll#7436",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 2,
+        "h": 1,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQmVsdHMvQmFzZXR5cGVzL0JlbHQwNSIsInciOjIsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/510a304252/Belt05.png",
+        "league": "Fate of the Vaal",
+        "id": "b8505bb6759874df7d0ce3e89883a92eab301990c97e08de89be131f95dfec46",
+        "name": "",
+        "typeLine": "Stout Plate Belt",
+        "baseType": "Plate Belt",
+        "rarity": "Magic",
+        "ilvl": 49,
+        "identified": true,
+        "note": "~b/o 1 alch",
+        "properties": [
+          {
+            "name": "Belt",
+            "values": [],
+            "displayMode": 0
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [["26", 0]],
+            "displayMode": 0,
+            "type": 62
+          }
+        ],
+        "implicitMods": ["+101 to [Armour]", "Has 1 [Charm] Slot"],
+        "explicitMods": ["+61 to maximum Life"],
+        "frameType": 1,
+        "extended": {
+          "mods": {
+            "explicit": [
+              {
+                "name": "Stout",
+                "tier": "P6",
+                "level": 33,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_3299347043",
+                    "min": "60",
+                    "max": "69"
+                  }
+                ]
+              }
+            ],
+            "implicit": [
+              {
+                "name": "",
+                "tier": "",
+                "level": 31,
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_809229260",
+                    "min": "100",
+                    "max": "140"
+                  }
+                ]
+              },
+              {
+                "name": "",
+                "tier": "",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_1416292992",
+                    "min": "1",
+                    "max": "2"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [["explicit.stat_3299347043", [0]]],
+            "implicit": [
+              ["implicit.stat_809229260", [0]],
+              ["implicit.stat_1416292992", [1]]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "8882d2873a3b886bba9be506ff3c1f28d4a9f3c467a6da2ba54b0903a17f4c0f",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2025-12-29T21:58:28Z",
+        "stash": {
+          "name": "5",
+          "x": 0,
+          "y": 2
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 1,
+          "currency": "alch"
+        },
+        "fee": 12041,
+        "account": {
+          "name": "Mysteryslaya#3487",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 2,
+        "h": 4,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9Dcm9zc2Jvd3MvMkhDcm9zc2JvdzA3IiwidyI6MiwiaCI6NCwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/7153259b14/2HCrossbow07.png",
+        "league": "Fate of the Vaal",
+        "id": "8882d2873a3b886bba9be506ff3c1f28d4a9f3c467a6da2ba54b0903a17f4c0f",
+        "name": "Hate Core",
+        "typeLine": "Cannonade Crossbow",
+        "baseType": "Cannonade Crossbow",
+        "rarity": "Rare",
+        "ilvl": 68,
+        "identified": true,
+        "note": "~b/o 1 alch",
+        "properties": [
+          {
+            "name": "[Crossbow]",
+            "values": [],
+            "displayMode": 0
+          },
+          {
+            "name": "[Physical] Damage",
+            "values": [["23-90", 0]],
+            "displayMode": 0,
+            "type": 9
+          },
+          {
+            "name": "[ElementalDamage|Elemental] Damage",
+            "values": [
+              ["12-20", 4],
+              ["2-5", 5]
+            ],
+            "displayMode": 0,
+            "type": 10
+          },
+          {
+            "name": "[Critical|Critical Hit] Chance",
+            "values": [["5.00%", 0]],
+            "displayMode": 0,
+            "type": 12
+          },
+          {
+            "name": "Attacks per Second",
+            "values": [["1.65", 0]],
+            "displayMode": 0,
+            "type": 13
+          },
+          {
+            "name": "Reload Time",
+            "values": [["0.75", 0]],
+            "displayMode": 0,
+            "type": 97
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [["59", 0]],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [["58", 0]],
+            "displayMode": 1,
+            "type": 63
+          },
+          {
+            "name": "[Dexterity|Dex]",
+            "values": [["58", 0]],
+            "displayMode": 1,
+            "type": 64
+          }
+        ],
+        "implicitMods": [
+          "[Grenade] Skills Fire an additional [Projectile|Projectile]"
+        ],
+        "explicitMods": [
+          "Adds 12 to 20 [Fire|Fire] Damage",
+          "Adds 2 to 5 [Cold|Cold] Damage",
+          "+42 to [Accuracy|Accuracy] Rating",
+          "[ManaLeech|Leeches] 6.04% of [Physical|Physical] Damage as Mana"
+        ],
+        "frameType": 2,
+        "extended": {
+          "dps": 144.38,
+          "pdps": 112.2,
+          "edps": 32.18,
+          "dps_aug": true,
+          "pdps_aug": true,
+          "mods": {
+            "explicit": [
+              {
+                "name": "Reliable",
+                "tier": "P9",
+                "level": 11,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_691932474",
+                    "min": "33",
+                    "max": "60"
+                  }
+                ]
+              },
+              {
+                "name": "of the Arid",
+                "tier": "S2",
+                "level": 54,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_669069897",
+                    "min": "6",
+                    "max": "6.9"
+                  }
+                ]
+              },
+              {
+                "name": "Smoking",
+                "tier": "P8",
+                "level": 16,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_709508406",
+                    "min": "11",
+                    "max": "17"
+                  },
+                  {
+                    "hash": "explicit.stat_709508406",
+                    "min": "19",
+                    "max": "28"
+                  }
+                ]
+              },
+              {
+                "name": "Frosted",
+                "tier": "P10",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1037193709",
+                    "min": "2",
+                    "max": "3"
+                  },
+                  {
+                    "hash": "explicit.stat_1037193709",
+                    "min": "4",
+                    "max": "6"
+                  }
+                ]
+              }
+            ],
+            "implicit": [
+              {
+                "name": "",
+                "tier": "",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_1980802737",
+                    "min": "1",
+                    "max": "1"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [
+              ["explicit.stat_709508406", [2]],
+              ["explicit.stat_1037193709", [3]],
+              ["explicit.stat_691932474", [0]],
+              ["explicit.stat_669069897", [1]]
+            ],
+            "implicit": [["implicit.stat_1980802737", [0]]]
+          }
+        }
+      }
+    },
+    {
+      "id": "ed1e4577bcbee0f79819f4dd79fcf20ad7336c9a4fe2d9d8fe67fc3ee29115ad",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2025-12-20T12:54:06Z",
+        "stash": {
+          "name": "7",
+          "x": 10,
+          "y": 8
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 1,
+          "currency": "alch"
+        },
+        "fee": 13624,
+        "account": {
+          "name": "HANZOH70#2075",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 2,
+        "h": 4,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9Ud29IYW5kTWFjZXMvQmFzZXR5cGVzLzJITWFjZTA3IiwidyI6MiwiaCI6NCwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/e7ae9f768b/2HMace07.png",
+        "league": "Fate of the Vaal",
+        "id": "ed1e4577bcbee0f79819f4dd79fcf20ad7336c9a4fe2d9d8fe67fc3ee29115ad",
+        "name": "Horror Ram",
+        "typeLine": "Heavy Greathammer",
+        "baseType": "Heavy Greathammer",
+        "rarity": "Rare",
+        "ilvl": 63,
+        "identified": true,
+        "note": "~b/o 1 alch",
+        "properties": [
+          {
+            "name": "[Mace|Two Hand Mace]",
+            "values": [],
+            "displayMode": 0
+          },
+          {
+            "name": "[Physical] Damage",
+            "values": [["115-160", 1]],
+            "displayMode": 0,
+            "type": 9
+          },
+          {
+            "name": "[Critical|Critical Hit] Chance",
+            "values": [["5.00%", 0]],
+            "displayMode": 0,
+            "type": 12
+          },
+          {
+            "name": "Attacks per Second",
+            "values": [["1.16", 1]],
+            "displayMode": 0,
+            "type": 13
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [["59", 0]],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [["104", 0]],
+            "displayMode": 1,
+            "type": 63
+          }
+        ],
+        "explicitMods": [
+          "Adds 21 to 33 [Physical|Physical] Damage",
+          "+13% to [CriticalDamageBonus|Critical Damage Bonus]",
+          "5% increased [Attack] Speed",
+          "+20 to [Strength|Strength]"
+        ],
+        "frameType": 2,
+        "extended": {
+          "dps": 191.4,
+          "pdps": 191.4,
+          "edps": 0,
+          "dps_aug": true,
+          "pdps_aug": true,
+          "mods": {
+            "explicit": [
+              {
+                "name": "of Skill",
+                "tier": "S8",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_210067635",
+                    "min": "5",
+                    "max": "7"
+                  }
+                ]
+              },
+              {
+                "name": "Gleaming",
+                "tier": "P5",
+                "level": 46,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1940865751",
+                    "min": "14",
+                    "max": "21"
+                  },
+                  {
+                    "hash": "explicit.stat_1940865751",
+                    "min": "25",
+                    "max": "37"
+                  }
+                ]
+              },
+              {
+                "name": "of Anger",
+                "tier": "S5",
+                "level": 21,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_2694482655",
+                    "min": "12",
+                    "max": "13"
+                  }
+                ]
+              },
+              {
+                "name": "of the Lion",
+                "tier": "S5",
+                "level": 33,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_4080418644",
+                    "min": "17",
+                    "max": "20"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [
+              ["explicit.stat_1940865751", [1]],
+              ["explicit.stat_2694482655", [2]],
+              ["explicit.stat_210067635", [0]],
+              ["explicit.stat_4080418644", [3]]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "ece06af2da11af250fdaf2ebc01bc9baf78fe9718568551a4c7be6e96ec0136b",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2025-12-14T03:28:31Z",
+        "stash": {
+          "name": "Melee Wp.",
+          "x": 0,
+          "y": 0
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 1,
+          "currency": "alch"
+        },
+        "fee": 8874,
+        "account": {
+          "name": "Easax#3785",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 2,
+        "h": 4,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9XYXJTdGF2ZXMvV2Fyc3RhZmYxMCIsInciOjIsImgiOjQsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/d836b3566d/Warstaff10.png",
+        "league": "Fate of the Vaal",
+        "id": "ece06af2da11af250fdaf2ebc01bc9baf78fe9718568551a4c7be6e96ec0136b",
+        "name": "Phoenix Song",
+        "typeLine": "Smooth Quarterstaff",
+        "baseType": "Smooth Quarterstaff",
+        "rarity": "Rare",
+        "ilvl": 51,
+        "identified": true,
+        "note": "~b/o 1 alch",
+        "properties": [
+          {
+            "name": "[Quarterstaff]",
+            "values": [],
+            "displayMode": 0
+          },
+          {
+            "name": "[Physical] Damage",
+            "values": [["72-96", 1]],
+            "displayMode": 0,
+            "type": 9
+          },
+          {
+            "name": "[Critical|Critical Hit] Chance",
+            "values": [["0.00%", 0]],
+            "displayMode": 0,
+            "type": 12
+          },
+          {
+            "name": "Attacks per Second",
+            "values": [["1.50", 0]],
+            "displayMode": 0,
+            "type": 13
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [["49", 0]],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Dexterity|Dex]",
+            "values": [["68", 0]],
+            "displayMode": 1,
+            "type": 64
+          },
+          {
+            "name": "[Intelligence|Int]",
+            "values": [["28", 0]],
+            "displayMode": 1,
+            "type": 65
+          }
+        ],
+        "explicitMods": [
+          "22% increased [Physical] Damage",
+          "+36 to [Accuracy|Accuracy] Rating",
+          "51% increased [ElementalDamage|Elemental] Damage with [Attack|Attacks]",
+          "+12% to [CriticalDamageBonus|Critical Damage Bonus]",
+          "13% increased [Stun|Stun] Duration"
+        ],
+        "frameType": 2,
+        "extended": {
+          "dps": 151.5,
+          "pdps": 151.5,
+          "edps": 0,
+          "dps_aug": true,
+          "pdps_aug": true,
+          "mods": {
+            "explicit": [
+              {
+                "name": "Infusing",
+                "tier": "P5",
+                "level": 16,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_387439868",
+                    "min": "48",
+                    "max": "71"
+                  }
+                ]
+              },
+              {
+                "name": "of Anger",
+                "tier": "S5",
+                "level": 21,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_2694482655",
+                    "min": "12",
+                    "max": "13"
+                  }
+                ]
+              },
+              {
+                "name": "Journeyman's",
+                "tier": "P7",
+                "level": 11,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1509134228",
+                    "min": "20",
+                    "max": "24"
+                  },
+                  {
+                    "hash": "explicit.stat_691932474",
+                    "min": "21",
+                    "max": "46"
+                  }
+                ]
+              },
+              {
+                "name": "of Impact",
+                "tier": "S6",
+                "level": 5,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_748522257",
+                    "min": "11",
+                    "max": "13"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [
+              ["explicit.stat_1509134228", [2]],
+              ["explicit.stat_691932474", [2]],
+              ["explicit.stat_387439868", [0]],
+              ["explicit.stat_2694482655", [1]],
+              ["explicit.stat_748522257", [3]]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "03d11f820e96e16d195fc6100d841c21ad89800d4137e80f0ac160282a7681c5",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2025-12-23T23:19:11Z",
+        "stash": {
+          "name": "1 Alchem",
+          "x": 6,
+          "y": 0
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 1,
+          "currency": "alch"
+        },
+        "fee": 7765,
+        "account": {
+          "name": "Yogoort#2002",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 2,
+        "h": 4,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9Ud29IYW5kTWFjZXMvQmFzZXR5cGVzLzJITWFjZTA5IiwidyI6MiwiaCI6NCwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/74817e8b14/2HMace09.png",
+        "league": "Fate of the Vaal",
+        "id": "03d11f820e96e16d195fc6100d841c21ad89800d4137e80f0ac160282a7681c5",
+        "name": "Eagle Breaker",
+        "typeLine": "Pointed Maul",
+        "baseType": "Pointed Maul",
+        "rarity": "Rare",
+        "ilvl": 46,
+        "identified": true,
+        "note": "~b/o 1 alch",
+        "properties": [
+          {
+            "name": "[Mace|Two Hand Mace]",
+            "values": [],
+            "displayMode": 0
+          },
+          {
+            "name": "[Physical] Damage",
+            "values": [["82-122", 1]],
+            "displayMode": 0,
+            "type": 9
+          },
+          {
+            "name": "[Critical|Critical Hit] Chance",
+            "values": [["6.50%", 0]],
+            "displayMode": 0,
+            "type": 12
+          },
+          {
+            "name": "Attacks per Second",
+            "values": [["1.24", 1]],
+            "displayMode": 0,
+            "type": 13
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [["45", 0]],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Strength|Str]",
+            "values": [["80", 0]],
+            "displayMode": 1,
+            "type": 63
+          }
+        ],
+        "explicitMods": [
+          "20% increased [Physical] Damage",
+          "+36 to [Accuracy|Accuracy] Rating",
+          "13% increased [Attack] Speed",
+          "Causes 23% increased [Stun|Stun] Buildup",
+          "11% increased [Stun|Stun] Duration"
+        ],
+        "frameType": 2,
+        "extended": {
+          "dps": 151.9,
+          "pdps": 151.9,
+          "edps": 0,
+          "dps_aug": true,
+          "pdps_aug": true,
+          "mods": {
+            "explicit": [
+              {
+                "name": "of Mastery",
+                "tier": "S6",
+                "level": 22,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_210067635",
+                    "min": "11",
+                    "max": "13"
+                  }
+                ]
+              },
+              {
+                "name": "Journeyman's",
+                "tier": "P7",
+                "level": 11,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1509134228",
+                    "min": "20",
+                    "max": "24"
+                  },
+                  {
+                    "hash": "explicit.stat_691932474",
+                    "min": "21",
+                    "max": "46"
+                  }
+                ]
+              },
+              {
+                "name": "of the Pugilist",
+                "tier": "S6",
+                "level": 5,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_791928121",
+                    "min": "21",
+                    "max": "30"
+                  }
+                ]
+              },
+              {
+                "name": "of Impact",
+                "tier": "S6",
+                "level": 5,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_748522257",
+                    "min": "11",
+                    "max": "13"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [
+              ["explicit.stat_1509134228", [1]],
+              ["explicit.stat_691932474", [1]],
+              ["explicit.stat_210067635", [0]],
+              ["explicit.stat_791928121", [2]],
+              ["explicit.stat_748522257", [3]]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "8cf987de8e7875e3217a12f8e4690186effc2c3d63123d5132c45d8ffbbd8e0f",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2026-01-02T00:29:42Z",
+        "stash": {
+          "name": "25",
+          "x": 8,
+          "y": 10
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 1,
+          "currency": "alch"
+        },
+        "fee": 2077,
+        "account": {
+          "name": "nardone311#2696",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 2,
+        "h": 2,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQXJtb3Vycy9HbG92ZXMvQmFzZXR5cGVzL0dsb3Zlc0ludDA1IiwidyI6MiwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/b273510d40/GlovesInt05.png",
+        "league": "Fate of the Vaal",
+        "id": "8cf987de8e7875e3217a12f8e4690186effc2c3d63123d5132c45d8ffbbd8e0f",
+        "sockets": [
+          {
+            "group": 0,
+            "type": "rune"
+          }
+        ],
+        "name": "",
+        "typeLine": "Crackling Gold Gloves of the Lynx",
+        "baseType": "Gold Gloves",
+        "rarity": "Magic",
+        "ilvl": 67,
+        "identified": true,
+        "note": "~b/o 1 alch",
+        "properties": [
+          {
+            "name": "Gloves",
+            "values": [],
+            "displayMode": 0
+          },
+          {
+            "name": "[EnergyShield|Energy Shield]",
+            "values": [["39", 0]],
+            "displayMode": 0,
+            "type": 18
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [["59", 0]],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Intelligence|Int]",
+            "values": [["73", 0]],
+            "displayMode": 1,
+            "type": 65
+          }
+        ],
+        "explicitMods": [
+          "Adds 1 to 26 [Lightning] damage to [Attack|Attacks]",
+          "+11 to [Dexterity|Dexterity]"
+        ],
+        "frameType": 1,
+        "socketedItems": [],
+        "extended": {
+          "es": 47,
+          "es_aug": true,
+          "mods": {
+            "explicit": [
+              {
+                "name": "Crackling",
+                "tier": "P6",
+                "level": 33,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1754445556",
+                    "min": "1",
+                    "max": "1"
+                  },
+                  {
+                    "hash": "explicit.stat_1754445556",
+                    "min": "23",
+                    "max": "27"
+                  }
+                ]
+              },
+              {
+                "name": "of the Lynx",
+                "tier": "S8",
+                "level": 11,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_3261801346",
+                    "min": "9",
+                    "max": "12"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [
+              ["explicit.stat_1754445556", [0]],
+              ["explicit.stat_3261801346", [1]]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "79aebac88476ca53dc5b87e084a3daf56ecae77d88b85835f9ea199476a9c2d4",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2025-12-23T07:50:32Z",
+        "stash": {
+          "name": "Jewelry",
+          "x": 0,
+          "y": 7
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 1,
+          "currency": "alch"
+        },
+        "fee": 4244,
+        "account": {
+          "name": "katerina_1997#9495",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 2,
+        "h": 1,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQmVsdHMvQmFzZXR5cGVzL0JlbHQwMyIsInciOjIsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/3dcd330357/Belt03.png",
+        "league": "Fate of the Vaal",
+        "id": "79aebac88476ca53dc5b87e084a3daf56ecae77d88b85835f9ea199476a9c2d4",
+        "name": "Vortex Tether",
+        "typeLine": "Wide Belt",
+        "baseType": "Wide Belt",
+        "rarity": "Rare",
+        "ilvl": 53,
+        "identified": true,
+        "note": "~b/o 1 alch",
+        "properties": [
+          {
+            "name": "Belt",
+            "values": [],
+            "displayMode": 0
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [["38", 0]],
+            "displayMode": 0,
+            "type": 62
+          }
+        ],
+        "implicitMods": [
+          "Has 1 [Charm] Slot",
+          "20% increased [Flask|Flask] Charges gained"
+        ],
+        "explicitMods": [
+          "8% increased [Flask] Life Recovery rate",
+          "+19 to [Strength|Strength]",
+          "2.3 Life Regeneration per second",
+          "24% increased [Flask|Flask] Charges gained"
+        ],
+        "frameType": 2,
+        "extended": {
+          "mods": {
+            "explicit": [
+              {
+                "name": "of the Lion",
+                "tier": "S6",
+                "level": 33,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_4080418644",
+                    "min": "17",
+                    "max": "20"
+                  }
+                ]
+              },
+              {
+                "name": "of the Lizard",
+                "tier": "S8",
+                "level": 5,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_3325883026",
+                    "min": "2.1",
+                    "max": "3"
+                  }
+                ]
+              },
+              {
+                "name": "Restoring",
+                "tier": "P6",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_51994685",
+                    "min": "5",
+                    "max": "10"
+                  }
+                ]
+              },
+              {
+                "name": "of Pouring",
+                "tier": "S3",
+                "level": 48,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1836676211",
+                    "min": "23",
+                    "max": "28"
+                  }
+                ]
+              }
+            ],
+            "implicit": [
+              {
+                "name": "",
+                "tier": "",
+                "level": 18,
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_1836676211",
+                    "min": "20",
+                    "max": "30"
+                  }
+                ]
+              },
+              {
+                "name": "",
+                "tier": "",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_1416292992",
+                    "min": "1",
+                    "max": "2"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [
+              ["explicit.stat_51994685", [2]],
+              ["explicit.stat_4080418644", [0]],
+              ["explicit.stat_3325883026", [1]],
+              ["explicit.stat_1836676211", [3]]
+            ],
+            "implicit": [
+              ["implicit.stat_1416292992", [1]],
+              ["implicit.stat_1836676211", [0]]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "4ac2e3ccfcb4e5519f8c1b7e38798e0c1101d41372021a6eced96eb7f6b3b396",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2026-01-01T23:35:57Z",
+        "stash": {
+          "name": "5",
+          "x": 0,
+          "y": 4
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 1,
+          "currency": "alch"
+        },
+        "fee": 5523,
+        "account": {
+          "name": "Fritt#8498",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 1,
+        "h": 1,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQW11bGV0cy9VbmlxdWVzL1JldmVyZWRSZXNpbiIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/6139c327c5/ReveredResin.png",
+        "league": "Fate of the Vaal",
+        "id": "4ac2e3ccfcb4e5519f8c1b7e38798e0c1101d41372021a6eced96eb7f6b3b396",
+        "name": "Revered Resin",
+        "typeLine": "Amber Amulet",
+        "baseType": "Amber Amulet",
+        "rarity": "Unique",
+        "ilvl": 79,
+        "identified": true,
+        "note": "~b/o 1 alch",
+        "properties": [
+          {
+            "name": "Amulet",
+            "values": [],
+            "displayMode": 0
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [["8", 0]],
+            "displayMode": 0,
+            "type": 62
+          }
+        ],
+        "implicitMods": ["+15 to [Strength|Strength]"],
+        "explicitMods": [
+          "+53 to maximum Life",
+          "26% increased [Flask] Life Recovery rate",
+          "Life [Flask|Flasks] gain 0.23 charges per Second"
+        ],
+        "flavourText": ["The sacred sap flows slowly, but surely."],
+        "frameType": 3,
+        "extended": {
+          "mods": {
+            "explicit": [
+              {
+                "name": "",
+                "tier": "",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_3299347043",
+                    "min": "40",
+                    "max": "60"
+                  }
+                ]
+              },
+              {
+                "name": "",
+                "tier": "",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_51994685",
+                    "min": "20",
+                    "max": "30"
+                  }
+                ]
+              },
+              {
+                "name": "",
+                "tier": "",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1102738251",
+                    "min": "0.17",
+                    "max": "0.25"
+                  }
+                ]
+              }
+            ],
+            "implicit": [
+              {
+                "name": "",
+                "tier": "",
+                "level": 10,
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_4080418644",
+                    "min": "10",
+                    "max": "15"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [
+              ["explicit.stat_3299347043", [0]],
+              ["explicit.stat_51994685", [1]],
+              ["explicit.stat_1102738251", [2]]
+            ],
+            "implicit": [["implicit.stat_4080418644", [0]]]
+          }
+        }
+      }
+    },
+    {
+      "id": "4ec60fea5bde7aecf563083e8a8eb79171ea32a86bd17a268c1c92123d08a927",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2025-12-24T07:51:31Z",
+        "stash": {
+          "name": "13",
+          "x": 4,
+          "y": 0
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 1,
+          "currency": "exalted"
+        },
+        "fee": 17105,
+        "account": {
+          "name": "Jinivuser#4574",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 2,
+        "h": 3,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9PbmVIYW5kV2VhcG9ucy9TY2VwdGVycy9CYXNldHlwZXMvU2NlcHRyZTEwIiwidyI6MiwiaCI6Mywic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/3b3845420a/Sceptre10.png",
+        "league": "Fate of the Vaal",
+        "id": "4ec60fea5bde7aecf563083e8a8eb79171ea32a86bd17a268c1c92123d08a927",
+        "sockets": [],
+        "name": "Loath Ram",
+        "typeLine": "Wrath Sceptre",
+        "baseType": "Wrath Sceptre",
+        "rarity": "Rare",
+        "ilvl": 74,
+        "identified": true,
+        "note": "~b/o 1 exalted",
+        "properties": [
+          {
+            "name": "[Sceptre]",
+            "values": [],
+            "displayMode": 0
+          },
+          {
+            "name": "[Spirit]",
+            "values": [["100", 0]],
+            "displayMode": 0,
+            "type": 25
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [["66", 0]],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Intelligence|Int]",
+            "values": [["116", 0]],
+            "displayMode": 1,
+            "type": 65
+          }
+        ],
+        "grantedSkills": [
+          {
+            "name": "Grants Skill",
+            "values": [["Level 16 Fulmination", 25]],
+            "displayMode": 0,
+            "icon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1NraWxsSWNvbnMvV3JhdGhBdXJhV2VhcG9uU2tpbGwiLCJyZWFsbSI6InBvZTIifV0/9f5b5481d2/WrathAuraWeaponSkill.png"
+          }
+        ],
+        "explicitMods": [
+          "+120 to maximum Mana",
+          "[Allies|Allies] in your [Presence|Presence] deal 59% increased Damage",
+          "[Allies|Allies] in your [Presence|Presence] deal 2 to 41 added [Attack|Attack] [Lightning|Lightning] Damage",
+          "[Allies|Allies] in your [Presence|Presence] have 13% increased [Attack|Attack] Speed"
+        ],
+        "frameType": 2,
+        "socketedItems": [
+          {
+            "realm": "poe2",
+            "verified": true,
+            "w": 1,
+            "h": 1,
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvR2Vtcy9OZXcvQmxhbmtHZW0iLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/250ec3ed08/BlankGem.png",
+            "support": false,
+            "league": "Fate of the Vaal",
+            "gemSockets": ["W", "W", "W", "W"],
+            "sockets": [
+              {
+                "group": 0,
+                "type": "gem"
+              },
+              {
+                "group": 1,
+                "type": "gem"
+              },
+              {
+                "group": 2,
+                "type": "gem"
+              },
+              {
+                "group": 3,
+                "type": "gem"
+              }
+            ],
+            "name": "",
+            "typeLine": "Fulmination",
+            "baseType": "Fulmination",
+            "ilvl": 0,
+            "identified": true,
+            "properties": [
+              {
+                "name": "[Buff], [Persistent], [Aura], [Lightning]",
+                "values": [],
+                "displayMode": 0
+              },
+              {
+                "name": "Level",
+                "values": [["16", 0]],
+                "displayMode": 0,
+                "type": 5
+              }
+            ],
+            "requirements": [
+              {
+                "name": "Level",
+                "values": [["66", 0]],
+                "displayMode": 0,
+                "type": 62
+              },
+              {
+                "name": "[Intelligence|Int]",
+                "values": [["116", 0]],
+                "displayMode": 1,
+                "type": 65
+              }
+            ],
+            "secDescrText": "While active, the first time any Skill [HitDamage|Hits] a [Shock|Shocked] enemy in your [Presence], that Skill also [HitDamage|Hits] other [Shock|Shocked] enemies in your [Presence], up to a maximum.",
+            "gemTabs": [
+              {
+                "name": "Fulmination",
+                "pages": [
+                  {
+                    "stats": [
+                      "Cannot inflict [Shock|Shock]",
+                      "[HitDamage|Hits] up to 8 enemies",
+                      "Additional [HitDamage|Hits] deal 75% less damage\nAdditional [HitDamage|Hits] convert 100% of [Physical] and\n[ElementalDamage|Elemental] damage to [Lightning]"
+                    ],
+                    "skillName": "Fulmination"
+                  }
+                ]
+              }
+            ],
+            "gemSkill": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1NraWxsSWNvbnMvV3JhdGhBdXJhV2VhcG9uU2tpbGwiLCJyZWFsbSI6InBvZTIifV0/9f5b5481d2/WrathAuraWeaponSkill.png",
+            "descrText": "Skills can be managed in the Skills Panel.",
+            "frameType": 4,
+            "socketedItems": []
+          }
+        ],
+        "extended": {
+          "mods": {
+            "explicit": [
+              {
+                "name": "Shocking",
+                "tier": "P3",
+                "level": 60,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_2854751904",
+                    "min": "1",
+                    "max": "2"
+                  },
+                  {
+                    "hash": "explicit.stat_2854751904",
+                    "min": "41",
+                    "max": "47"
+                  }
+                ]
+              },
+              {
+                "name": "of Mastery",
+                "tier": "S2",
+                "level": 35,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1998951374",
+                    "min": "11",
+                    "max": "13"
+                  }
+                ]
+              },
+              {
+                "name": "Provocative",
+                "tier": "P5",
+                "level": 33,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1798257884",
+                    "min": "55",
+                    "max": "64"
+                  }
+                ]
+              },
+              {
+                "name": "Chalybeous",
+                "tier": "P3",
+                "level": 60,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1050105434",
+                    "min": "105",
+                    "max": "124"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [
+              ["explicit.stat_1050105434", [3]],
+              ["explicit.stat_1798257884", [2]],
+              ["explicit.stat_2854751904", [0]],
+              ["explicit.stat_1998951374", [1]]
+            ],
+            "skill": [["skill.fulmination", null]]
+          }
+        }
+      }
+    },
+    {
+      "id": "42a9dd4276a3b139af99cf0a34350025420593a5d78f6aae0056c9682e26db75",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2026-03-09T17:55:05Z",
+        "stash": {
+          "name": "Maps/Tablets/Relics",
+          "x": 8,
+          "y": 4
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 1,
+          "currency": "regal"
+        },
+        "fee": 1858,
+        "account": {
+          "name": "BizzaroYami#1812",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 1,
+        "h": 4,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUmVsaWNzL1JlbGljQmFzZTF4NCIsInciOjEsImgiOjQsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/9b2fc780e6/RelicBase1x4.png",
+        "league": "Fate of the Vaal",
+        "id": "42a9dd4276a3b139af99cf0a34350025420593a5d78f6aae0056c9682e26db75",
+        "name": "",
+        "typeLine": "Fortified Vase Relic of Dignity",
+        "baseType": "Vase Relic",
+        "rarity": "Magic",
+        "ilvl": 81,
+        "identified": true,
+        "note": "~b/o 1 regal",
+        "properties": [
+          {
+            "name": "Relic",
+            "values": [],
+            "displayMode": 0
+          }
+        ],
+        "explicitMods": [
+          "Monsters deal 7% reduced Damage",
+          "7% chance to Avoid gaining an [Afflictions|Affliction]"
+        ],
+        "descrText": "Place this item on the Relic Altar at the start of the Trial of the Sekhemas",
+        "frameType": 1,
+        "extended": {
+          "mods": {
+            "sanctum": [
+              {
+                "name": "Fortified",
+                "tier": "P2",
+                "level": 56,
+                "magnitudes": [
+                  {
+                    "hash": "sanctum.stat_1890519597",
+                    "min": "-8",
+                    "max": "-7"
+                  }
+                ]
+              },
+              {
+                "name": "of Dignity",
+                "tier": "S4",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "sanctum.stat_1960517795",
+                    "min": "6",
+                    "max": "7"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "sanctum": [
+              ["sanctum.stat_1890519597", [0]],
+              ["sanctum.stat_1960517795", [1]]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "03d44656941a7772508f393fd2e99086c1939b6379fba7691a40427f8fdb7863",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2025-12-28T13:42:13Z",
+        "stash": {
+          "name": "@@선도자@@",
+          "x": 2,
+          "y": 1
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 3,
+          "currency": "exalted"
+        },
+        "fee": 9709,
+        "account": {
+          "name": "울트론#4996",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 1,
+        "h": 1,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUHJlY3Vyc29yVGFibGV0cy9QcmVjdXJzb3JUYWJsZXRHZW5lcmljIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/4fbc73f060/PrecursorTabletGeneric.png",
+        "league": "Fate of the Vaal",
+        "id": "03d44656941a7772508f393fd2e99086c1939b6379fba7691a40427f8fdb7863",
+        "name": "Phoenix Edict",
+        "typeLine": "Precursor Tablet",
+        "baseType": "Precursor Tablet",
+        "rarity": "Rare",
+        "ilvl": 66,
+        "identified": true,
+        "note": "~b/o 3 exalted",
+        "properties": [
+          {
+            "name": "Tablet",
+            "values": [],
+            "displayMode": 0
+          }
+        ],
+        "implicitMods": [
+          "Adds [ContainsIrradiated|Irradiated] to a Map \n10 uses remaining"
+        ],
+        "explicitMods": [
+          "Monsters have 10% increased [MonsterEffectiveness|Effectiveness]",
+          "39% increased Quantity of [Waystone|Waystones] found in Map",
+          "Map has 85% increased chance to contain [Essence|Essences]",
+          "34% increased Gold found in Map"
+        ],
+        "descrText": "Can be used in a personal Map Device to add modifiers to a Map.",
+        "frameType": 2,
+        "extended": {
+          "mods": {
+            "explicit": [
+              {
+                "name": "Challenger's",
+                "tier": "P1",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_2065500219",
+                    "min": "7",
+                    "max": "11"
+                  }
+                ]
+              },
+              {
+                "name": "of the Cartographer",
+                "tier": "S1",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_2777224821",
+                    "min": "30",
+                    "max": "50"
+                  }
+                ]
+              },
+              {
+                "name": "Bountiful",
+                "tier": "P1",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1276056105",
+                    "min": "25",
+                    "max": "40"
+                  }
+                ]
+              },
+              {
+                "name": "of the Essence",
+                "tier": "S1",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1825943485",
+                    "min": "70",
+                    "max": "100"
+                  }
+                ]
+              }
+            ],
+            "implicit": [
+              {
+                "name": "",
+                "tier": "",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_4041853756",
+                    "min": "10",
+                    "max": "10"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [
+              ["explicit.stat_2065500219", [0]],
+              ["explicit.stat_2777224821", [1]],
+              ["explicit.stat_1825943485", [3]],
+              ["explicit.stat_1276056105", [2]]
+            ],
+            "implicit": [["implicit.stat_4041853756", [0]]]
+          }
+        }
+      }
+    },
+    {
+      "id": "91c9f13daee68fea664995d95a51a8bc866bd73b776f596bbfa288c97870a5b6",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2026-05-02T19:07:59Z",
+        "stash": {
+          "name": "14",
+          "x": 1,
+          "y": 3
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 69,
+          "currency": "exalted"
+        },
+        "fee": 1,
+        "account": {
+          "name": "Scynthetic#6747",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 1,
+        "h": 1,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VbHRpbWF0dW1UcmlhbEl0ZW0iLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/ca16daf7d4/UltimatumTrialItem.png",
+        "league": "Fate of the Vaal",
+        "id": "91c9f13daee68fea664995d95a51a8bc866bd73b776f596bbfa288c97870a5b6",
+        "name": "",
+        "typeLine": "Vaal Inscribed Ultimatum of Hexing",
+        "baseType": "Inscribed Ultimatum",
+        "rarity": "Magic",
+        "ilvl": 82,
+        "identified": true,
+        "note": "~b/o 69 exalted",
+        "corrupted": true,
+        "properties": [
+          {
+            "name": "Area Level",
+            "values": [["80", 0]],
+            "displayMode": 0,
+            "type": 34
+          },
+          {
+            "name": "Number of Trials",
+            "values": [["10", 0]],
+            "displayMode": 0,
+            "type": 27
+          },
+          {
+            "name": "",
+            "values": [["Cowardly", 0]],
+            "displayMode": 0
+          }
+        ],
+        "explicitMods": [
+          "Sacrifice up to 10 Vaal Orbs to receive double on Trial completion",
+          "Players are [Curse|Cursed] with Enfeeble",
+          "Players are [Curse|Cursed] with Temporal Chains",
+          "Players are [Curse|Cursed] with Elemental Weakness"
+        ],
+        "descrText": "Take this item to The Temple of Chaos to participate in a Trial of Chaos.",
+        "flavourText": [
+          "Mortals spend their lives wondering which\r",
+          "fate shall be theirs. Chaos takes amusement\r",
+          "in knowing the answer: all of them."
+        ],
+        "frameType": 1,
+        "extended": {
+          "mods": {
+            "explicit": [
+              {
+                "name": "Vaal",
+                "tier": "P19",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_3076483222|64921",
+                    "min": 1,
+                    "max": 1
+                  }
+                ]
+              },
+              {
+                "name": "of Hexing",
+                "tier": "S1",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_4103440490",
+                    "min": "1",
+                    "max": "1"
+                  },
+                  {
+                    "hash": "explicit.stat_2326202293",
+                    "min": "1",
+                    "max": "1"
+                  },
+                  {
+                    "hash": "explicit.stat_558910024",
+                    "min": "1",
+                    "max": "1"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [
+              ["explicit.stat_3076483222|64921", [0]],
+              ["explicit.stat_4103440490", [1]],
+              ["explicit.stat_2326202293", [1]],
+              ["explicit.stat_558910024", [1]]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "11de0eee2f907978bb930f7d803209025f8f262d385fc9da90e99a57dd67ffce",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2026-05-03T00:03:38Z",
+        "stash": {
+          "name": "8",
+          "x": 5,
+          "y": 9
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 1,
+          "currency": "alch"
+        },
+        "fee": 1250,
+        "account": {
+          "name": "PipersDad#9671",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 1,
+        "h": 1,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2FuY3R1bS9CYWxiYWxhQ29pbjEiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/4fe253f6e7/BalbalaCoin1.png",
+        "league": "Fate of the Vaal",
+        "id": "11de0eee2f907978bb930f7d803209025f8f262d385fc9da90e99a57dd67ffce",
+        "name": "",
+        "typeLine": "Djinn Barya",
+        "baseType": "Djinn Barya",
+        "ilvl": 79,
+        "identified": true,
+        "note": "~b/o 1 alch",
+        "properties": [
+          {
+            "name": "Area Level",
+            "values": [["79", 0]],
+            "displayMode": 0,
+            "type": 34
+          },
+          {
+            "name": "Number of Trials",
+            "values": [["4", 0]],
+            "displayMode": 0,
+            "type": 26
+          }
+        ],
+        "descrText": "Take this item to the Relic Altar at the Trial of the Sekhemas.",
+        "flavourText": [
+          "\"Take me to the Trial of the Sekhemas.\r",
+          "I will serve.\""
+        ],
+        "frameType": 5,
+        "extended": []
+      }
+    },
+    {
+      "id": "ae5ce7896b053ecfd6dc4e080fea89ad216d6eeb4af494badddb66b6a1ecf2bf",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2026-05-02T21:04:38Z",
+        "stash": {
+          "name": "1",
+          "x": 9,
+          "y": 5
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 799,
+          "currency": "vaal"
+        },
+        "fee": 3999,
+        "account": {
+          "name": "Wonderboy#4355",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 1,
+        "h": 1,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FeHBlZGl0aW9uQ2hyb25pY2xlMyIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/f9b0f4c115/ExpeditionChronicle3.png",
+        "league": "Fate of the Vaal",
+        "id": "ae5ce7896b053ecfd6dc4e080fea89ad216d6eeb4af494badddb66b6a1ecf2bf",
+        "name": "",
+        "typeLine": "Expedition Logbook",
+        "baseType": "Expedition Logbook",
+        "rarity": "Normal",
+        "ilvl": 80,
+        "identified": true,
+        "note": "~b/o 799 vaal",
+        "properties": [
+          {
+            "name": "Expedition Logbook",
+            "values": [],
+            "displayMode": 0
+          },
+          {
+            "name": "Area Level",
+            "values": [["81", 0]],
+            "displayMode": 0,
+            "type": 34
+          }
+        ],
+        "logbookMods": [
+          {
+            "name": "Frigid Bluffs",
+            "faction": {
+              "id": "Faction1",
+              "name": "Druids of the Broken Circle"
+            },
+            "mods": [
+              "Area contains 12 additional Chest Markers",
+              "Remnants have 40% chance to have an additional Suffix Modifier",
+              "37% increased [ContainsExpedition|Expedition] Explosive Placement Range",
+              "Area contains 35% increased number of Monster Markers"
+            ]
+          },
+          {
+            "name": "Lush Isle",
+            "faction": {
+              "id": "Faction2",
+              "name": "Black Scythe Mercenaries"
+            },
+            "mods": [
+              "Area contains 25% increased number of [Runic] Monster Markers",
+              "24% increased number of Explosives",
+              "Area contains 10% increased number of Monster Markers",
+              "Area contains an additional Underground Area"
+            ]
+          }
+        ],
+        "descrText": "Take this item to Dannig in your Hideout to open portals to an expedition.",
+        "frameType": 0,
+        "extended": {
+          "mods": {
+            "implicit": [
+              {
+                "name": "",
+                "tier": "",
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_1871805225",
+                    "min": "10",
+                    "max": "40"
+                  }
+                ]
+              },
+              {
+                "name": "",
+                "tier": "",
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_4160330571",
+                    "min": "8",
+                    "max": "16"
+                  }
+                ]
+              },
+              {
+                "name": "",
+                "tier": "",
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_1539368271",
+                    "min": "20",
+                    "max": "50"
+                  }
+                ]
+              },
+              {
+                "name": "",
+                "tier": "",
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_1915989164",
+                    "min": "10",
+                    "max": "40"
+                  }
+                ]
+              },
+              {
+                "name": "",
+                "tier": "",
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_3051490307",
+                    "min": "10",
+                    "max": "40"
+                  }
+                ]
+              },
+              {
+                "name": "",
+                "tier": "",
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_1160596338",
+                    "min": "1",
+                    "max": "1"
+                  }
+                ]
+              },
+              {
+                "name": "",
+                "tier": "",
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_1640965354",
+                    "min": "10",
+                    "max": "40"
+                  }
+                ]
+              },
+              {
+                "name": "",
+                "tier": "",
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_1915989164",
+                    "min": "10",
+                    "max": "40"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "implicit": [
+              ["implicit.stat_4160330571", [1]],
+              ["implicit.stat_1871805225", [0]],
+              ["implicit.stat_1539368271", [2]],
+              ["implicit.stat_1915989164", [3]],
+              ["implicit.stat_1640965354", [6]],
+              ["implicit.stat_3051490307", [4]],
+              ["implicit.stat_1915989164", [7]],
+              ["implicit.stat_1160596338", [5]]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "0c8eb03c18823786ca850f71acccce85941da58c673c78fa42e78a0dce685334",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2026-05-02T15:39:02Z",
+        "stash": {
+          "name": "21",
+          "x": 2,
+          "y": 3
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 80,
+          "currency": "vaal"
+        },
+        "fee": 27409,
+        "account": {
+          "name": "binbinkuaipao#9575",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 1,
+        "h": 1,
+        "icon": "https://web.poecdn.com/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9FbmRnYW1lTWFwcy9FbmRnYW1lTWFwMTYiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwicmVhbG0iOiJwb2UyIn1d/c0f4423d40/EndgameMap16.png",
+        "iconTierText": "XVI",
+        "league": "Fate of the Vaal",
+        "id": "0c8eb03c18823786ca850f71acccce85941da58c673c78fa42e78a0dce685334",
+        "name": "Desecrated Navigation",
+        "typeLine": "Waystone (Tier 16)",
+        "baseType": "Waystone (Tier 16)",
+        "rarity": "Rare",
+        "ilvl": 82,
+        "identified": true,
+        "note": "~b/o 80 vaal",
+        "corrupted": true,
+        "properties": [
+          {
+            "name": "Waystone",
+            "values": [],
+            "displayMode": 0
+          },
+          {
+            "name": "Waystone Tier",
+            "values": [["16", 0]],
+            "displayMode": 0,
+            "type": 1
+          },
+          {
+            "name": "[LimitedRespawn|Revives Available]",
+            "values": [["0", 1]],
+            "displayMode": 0,
+            "type": 98
+          },
+          {
+            "name": "Monster Pack Size",
+            "values": [["+19%", 1]],
+            "displayMode": 0,
+            "type": 4
+          },
+          {
+            "name": "Rare Monsters",
+            "values": [["+22%", 1]],
+            "displayMode": 0,
+            "type": 103
+          },
+          {
+            "name": "Item Rarity",
+            "values": [["+53%", 1]],
+            "displayMode": 0,
+            "type": 3
+          },
+          {
+            "name": "Waystone Drop Chance",
+            "values": [["+95%", 1]],
+            "displayMode": 0,
+            "type": 66
+          }
+        ],
+        "explicitMods": [
+          "Area contains 12 additional packs of Faridun Monsters",
+          "22% increased number of [Rarity|Rare] Monsters",
+          "Monsters have 11% increased [Attack], Cast and Movement Speed",
+          "Monsters have 40% increased Accuracy Rating",
+          "Monsters are [MonsterExtraArmour1|Armoured]",
+          "Monsters have 125% increased Freeze Buildup",
+          "Monsters inflict 125% increased [Flammability] [BuffMagnitude|Magnitude]",
+          "Monster Damage Penetrates 14% Elemental Resistances",
+          "Monsters have 125% increased Shock Chance"
+        ],
+        "descrText": "Can be used in a Map Device, allowing you to enter a Map. Waystones can only be used once.",
+        "frameType": 2,
+        "extended": {
+          "mods": {
+            "explicit": [
+              {
+                "name": "Enduring",
+                "tier": "P1",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_3793155082",
+                    "min": "22",
+                    "max": "22"
+                  },
+                  {
+                    "hash": "explicit.stat_2539290279",
+                    "min": "50",
+                    "max": "50"
+                  }
+                ]
+              },
+              {
+                "name": "Precise",
+                "tier": "P1",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1588049749",
+                    "min": "35",
+                    "max": "45"
+                  }
+                ]
+              },
+              {
+                "name": "Faridun's",
+                "tier": "P1",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_4130878258",
+                    "min": "12",
+                    "max": "13"
+                  }
+                ]
+              },
+              {
+                "name": "of Overpowering",
+                "tier": "S1",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_3998863698",
+                    "min": "125",
+                    "max": "125"
+                  },
+                  {
+                    "hash": "explicit.stat_2508044078",
+                    "min": "125",
+                    "max": "125"
+                  },
+                  {
+                    "hash": "explicit.stat_1984618452",
+                    "min": "125",
+                    "max": "125"
+                  }
+                ]
+              },
+              {
+                "name": "of Fleeting",
+                "tier": "S1",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_3909654181",
+                    "min": "10",
+                    "max": "15"
+                  }
+                ]
+              },
+              {
+                "name": "of Penetration",
+                "tier": "S1",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1898978455",
+                    "min": "13",
+                    "max": "15"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [
+              ["explicit.stat_4130878258", [2]],
+              ["explicit.stat_3793155082", [0]],
+              ["explicit.stat_3909654181", [4]],
+              ["explicit.stat_1588049749", [1]],
+              ["explicit.stat_2539290279", [0]],
+              ["explicit.stat_3998863698", [3]],
+              ["explicit.stat_2508044078", [3]],
+              ["explicit.stat_1898978455", [5]],
+              ["explicit.stat_1984618452", [3]]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "65665041b6727dfe4a00ae3a3c1b73d51e9c7216bf42ed133e41c47832907cc6",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2026-01-27T00:41:16Z",
+        "stash": {
+          "name": "7",
+          "x": 6,
+          "y": 2
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 1,
+          "currency": "regal"
+        },
+        "fee": 1135,
+        "account": {
+          "name": "Xerses618#9160",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 1,
+        "h": 1,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ2hhcm1zL0Jhc2V0eXBlcy9TYXBwaGlyZUNoYXJtIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsInJlYWxtIjoicG9lMiJ9XQ/b2d6e7a108/SapphireCharm.png",
+        "league": "Fate of the Vaal",
+        "id": "65665041b6727dfe4a00ae3a3c1b73d51e9c7216bf42ed133e41c47832907cc6",
+        "name": "",
+        "typeLine": "Vibrant Sapphire Charm of the Continuous",
+        "baseType": "Sapphire Charm",
+        "rarity": "Magic",
+        "ilvl": 73,
+        "identified": true,
+        "note": "~b/o 1 regal",
+        "properties": [
+          {
+            "name": "Charm",
+            "values": [],
+            "displayMode": 0
+          },
+          {
+            "name": "Lasts {0} Seconds",
+            "values": [["4", 0]],
+            "displayMode": 3
+          },
+          {
+            "name": "Consumes {0} of {1} Charges on use",
+            "values": [
+              ["20", 0],
+              ["40", 0]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Currently has {0} Charges",
+            "values": [["0", 0]],
+            "displayMode": 3
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [["38", 0]],
+            "displayMode": 0,
+            "type": 62
+          }
+        ],
+        "utilityMods": ["+25% to [Resistances|Cold Resistance]"],
+        "implicitMods": [
+          "Used when you take [Cold] damage from a [HitDamage|Hit]"
+        ],
+        "explicitMods": [
+          "Also grants 240 [Guard]",
+          "31% increased Charges gained"
+        ],
+        "descrText": "Used automatically when condition is met. Can only hold charges while in belt. Refill at [Wells|Wells] or by killing monsters.",
+        "frameType": 1,
+        "extended": {
+          "mods": {
+            "explicit": [
+              {
+                "name": "Vibrant",
+                "tier": "P3",
+                "level": 48,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_2676834156",
+                    "min": "205",
+                    "max": "260"
+                  }
+                ]
+              },
+              {
+                "name": "of the Continuous",
+                "tier": "S5",
+                "level": 13,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_3196823591",
+                    "min": "31",
+                    "max": "38"
+                  }
+                ]
+              }
+            ],
+            "implicit": [
+              {
+                "name": "",
+                "tier": "",
+                "level": 1,
+                "magnitudes": [
+                  {
+                    "hash": "implicit.stat_2994271459",
+                    "min": "1",
+                    "max": "1"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [
+              ["explicit.stat_2676834156", [0]],
+              ["explicit.stat_3196823591", [1]]
+            ],
+            "implicit": [["implicit.stat_2994271459", [0]]]
+          }
+        }
+      }
+    },
+    {
+      "id": "4e84249df7f7742fd2cdb3c8dd43410c5e98c3ade6814869d2f5d872348c7bc8",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2026-02-28T01:11:28Z",
+        "stash": {
+          "name": "4",
+          "x": 2,
+          "y": 0
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 1,
+          "currency": "regal"
+        },
+        "fee": 1151,
+        "account": {
+          "name": "holmesre19#7931",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 1,
+        "h": 2,
+        "icon": "https://web.poecdn.com/gen/image/WzksMTQseyJmIjoiMkRJdGVtcy9GbGFza3MvQmFzZXR5cGVzL0ZsYXNrTGlmZTA4IiwidyI6MSwiaCI6Miwic2NhbGUiOjEsInJlYWxtIjoicG9lMiIsImxldmVsIjoxfV0/7c702cdd32/FlaskLife08.png",
+        "league": "Fate of the Vaal",
+        "id": "4e84249df7f7742fd2cdb3c8dd43410c5e98c3ade6814869d2f5d872348c7bc8",
+        "name": "",
+        "typeLine": "Novice's Transcendent Life Flask",
+        "baseType": "Transcendent Life Flask",
+        "rarity": "Magic",
+        "ilvl": 50,
+        "identified": true,
+        "note": "~b/o 1 regal",
+        "properties": [
+          {
+            "name": "[Flask]",
+            "values": [],
+            "displayMode": 0
+          },
+          {
+            "name": "Recovers {0} Life over {1} Seconds",
+            "values": [
+              ["840", 0],
+              ["4", 0]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Consumes {0} of {1} Charges on use",
+            "values": [
+              ["10", 0],
+              ["75", 0]
+            ],
+            "displayMode": 3
+          },
+          {
+            "name": "Currently has {0} Charges",
+            "values": [["0", 0]],
+            "displayMode": 3
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [["50", 0]],
+            "displayMode": 0,
+            "type": 62
+          }
+        ],
+        "explicitMods": ["Grants 54% of Life Recovery to Minions"],
+        "descrText": "Right click to drink. Can only hold charges while in belt. Refill at [Wells|Wells] or by killing monsters.",
+        "frameType": 1,
+        "extended": {
+          "mods": {
+            "explicit": [
+              {
+                "name": "Novice's",
+                "tier": "P5",
+                "level": 10,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_2416869319",
+                    "min": "51",
+                    "max": "56"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [["explicit.stat_2416869319", [0]]]
+          }
+        }
+      }
+    }
+  ]
+}

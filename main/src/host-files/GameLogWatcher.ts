@@ -4,6 +4,7 @@ import { app } from "electron";
 import { guessFileLocation } from "./utils";
 import { ServerEvents } from "../server";
 import { Logger } from "../RemoteLogger";
+import { FileWriter } from "./FileWriter";
 
 const POSSIBLE_PATH =
   process.platform === "win32"
@@ -48,7 +49,24 @@ export class GameLogWatcher {
   constructor(
     private server: ServerEvents,
     private logger: Logger,
-  ) {}
+    private fileWriter: FileWriter,
+  ) {
+    this.server.onEventAnyClient("CLIENT->MAIN::re-parse-log", async () => {
+      if (this._state) {
+        // so have file and user set allow client-log to true
+        if (!this._state.isReading) {
+          this.fileWriter.flushClientLogFile();
+          this._state.offset = 0;
+          this._state.isReading = true;
+          this.readToEOF();
+        } else {
+          this.logger.write(
+            "warn [GameLogWatcher] Asked to re-parse log but currently reading, skipping",
+          );
+        }
+      }
+    });
+  }
 
   async restart(logFile: string, readLog: boolean) {
     if (!readLog) {

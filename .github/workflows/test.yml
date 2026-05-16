@@ -13,9 +13,11 @@ jobs:
     name: Lint & Format
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-    - uses: actions/setup-python@v3
+    - uses: actions/checkout@v6
+    - uses: actions/setup-node@v6
+      with:
+        node-version: 24
+    - uses: actions/setup-python@v6
     - run: npm ci
       working-directory: ./renderer
     - run: npm ci
@@ -25,8 +27,10 @@ jobs:
     name: Tests
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - uses: actions/checkout@v6
+    - uses: actions/setup-node@v6
+      with:
+        node-version: 24
     - run: npm ci
       working-directory: ./renderer
     - run: npm ci

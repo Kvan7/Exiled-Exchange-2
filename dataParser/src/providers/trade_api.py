@@ -40,7 +40,32 @@ class TradeApiProvider:
             if response.status_code == 200:
                 output_path = os.path.join(self.output_dir, f"{filename}.json")
                 with open(output_path, "w", encoding="utf-8") as file:
-                    json.dump(response.json(), file, ensure_ascii=False, indent=4)
+                    res = response.json()  # pyright: ignore[reportAny]
+                    if filename == "stats":
+                        if not isinstance(res, dict):
+                            raise ValueError(f"Expected dict, got {type(res)}")  # pyright: ignore[reportAny]
+                        sorted_res: dict[
+                            str, list[dict[str, str | list[dict[str, str]]]]
+                        ] = {"result": []}
+                        for mods_of_type in res["result"]:  # pyright: ignore[reportUnknownVariableType]
+                            out_block: dict[str, str | list[dict[str, str]]] = {
+                                "entries": sorted(
+                                    mods_of_type["entries"],  # pyright: ignore[reportUnknownArgumentType]
+                                    key=lambda x: x["id"],
+                                ),
+                                "id": mods_of_type["id"],
+                                "label": mods_of_type["label"],
+                            }
+                            sorted_res["result"].append(out_block)
+                        res = sorted_res
+
+                    json.dump(
+                        res,
+                        file,
+                        ensure_ascii=False,
+                        indent=4,
+                        sort_keys=filename == "stats",
+                    )
                 logging.info(f"Saved JSON to: {output_path}")
             else:
                 logging.error(

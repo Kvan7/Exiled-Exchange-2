@@ -1,5 +1,5 @@
 {
-  "please_wait": "Por favor, espera\u2026",
+  "please_wait": "Por favor, espera…",
   "choose_file": "Seleccionar archivo",
   "app_is_ready": "Listo y funcionando en segundo plano",
   "reopen_settings": "Presiona {0} para continuar editando.",
@@ -8,21 +8,22 @@
   "realm": "Reino",
   "realm_intl": "Internacional",
   "app": {
-    "leagues_loading": "Cargando ligas\u2026",
+    "leagues_loading": "Cargando ligas…",
     "leagues_failed": "Error al cargar ligas",
     "leagues_failed_help": "Asegúrate de que el reino no esté en mantenimiento. También haz clic en el botón \"Navegador\", es posible que debas resolver un CAPTCHA.",
     "leagues_failed_help_alt": "Realiza una comprobación de precios y sigue las instrucciones en la descripción del error.",
-    "thanks_3rd_party": "Esta herramienta se basa en {0} y {1}. Por favor, apóyalos también.",
+    "thanks_3rd_party": "Esta herramienta se basa en {0} y {1}. Por favor, apóyalos también",
     "toggle_browser_hint": "Presiona {0} para alternar entre el navegador y el juego.",
     "contact_me": "Contáctame en uno de los Discords de PoE,",
     "version": "Versión {0}",
     "release_notes": "Notas de la versión",
     "report_bug": "Reportar un error en GitHub",
-    "quit": "Salir"
+    "quit": "Salir",
+    "deprecated": "Esta función está obsoleta y se eliminará en la actualización {0}"
   },
   "map.mods.uber": "T17",
   "map.mods.outdated": "desactualizado",
-  "Support development on": "Apoya el desarrollo\u00A0en",
+  "Support development on": "Apoya el desarrollo en",
   "Blighted": "Infestado",
   "Blight-ravaged": "Devastado por la plaga",
   "Magic": "Mágico",
@@ -59,12 +60,12 @@
     "map_tier": "Nivel del mapa: {0}",
     "area_level": "Nivel del área: {0}",
     "heist_wings_revealed": "Alas reveladas: {0}",
-    "linked_sockets": "Conexiones: {0}",
+    "linked_sockets": "Enlaces: {0}",
     "white_sockets": "Blanco: {0}",
     "quality": "Calidad: {0}",
     "gem_level": "Nivel: {0}",
-    "gem_sockets": "Ranuras: {0}",
-    "augment_sockets": "Ranuras: {0}",
+    "gem_sockets": "Zócalos: {0}",
+    "augment_sockets": "Zócalo: {0}",
     "sentinel_charge": "Carga: {0}",
     "find_in_stash": "Encontrar en el alijo",
     "parse_error": "Se produjo un error al analizar el objeto",
@@ -104,7 +105,18 @@
     "uses_remaining": "Quedan usos: {0}",
     "victorious": "Victorioso",
     "cowardly": "Cobarde",
-    "deadly": "Letal"
+    "deadly": "Letal",
+    "find_same_price": "Filtrar por",
+    "find_same_price_type": "Filtrar por:",
+    "price": "precio solo",
+    "price_and_item": "Precio y artículos",
+    "mod_pseudo": "Mentiroso",
+    "mod_desecrated": "Profanado",
+    "mod_grade": "Grado: {0}",
+    "has_elemental_affix": "Cualquier",
+    "has_elemental_fire_affix": "Fuego",
+    "has_elemental_cold_affix": "Frío",
+    "has_elemental_lightning_affix": "Relampago"
   },
   "item_category": {
     "prop": "Categoría: {0}",
@@ -227,7 +239,7 @@
     "latest": "Tienes la última versión",
     "error": "Error al comprobar actualizaciones",
     "checking": "Comprobando actualizaciones",
-    "downloading": "Descargando\u2026",
+    "downloading": "Descargando…",
     "available": "Actualización disponible: {0}",
     "never_checked": "Última comprobación: nunca",
     "last_checked": "Última comprobación: {0}",
@@ -239,7 +251,7 @@
     "download_disabled": "Has desactivado la descarga automática de actualizaciones"
   },
   "widget_menu": {
-    "add": "agregar widget\u2026",
+    "add": "agregar widget…",
     "always_show": "Mostrar botón para widgets activos",
     "price_check": "Comprobación de precios (Ctrl + V)"
   },
@@ -260,7 +272,7 @@
   },
   "item_search": {
     "name": "Búsqueda de objetos",
-    "input": "Buscar por nombre\u2026",
+    "input": "Buscar por nombre…",
     "reset": "Reiniciar objetos",
     "heist_target": "Objetivo de robo:",
     "target_gem": "Gema de habilidad",
@@ -295,7 +307,7 @@
     "base_item": "Objeto base",
     "graph_7d": "Últimos 7 días",
     "getting_price": "Obteniendo precio {0}",
-    "getting_price_from": "de poe.ninja \u2026",
+    "getting_price_from": "de poe.ninja …",
     "you_have": "Tienes",
     "stack": "Pila",
     "results_warn_tooltip": "Habilitar solo Exaltados en el Filtro en línea. Puedes desactivar esta alerta en configuración.",
@@ -372,5 +384,6 @@
     "parse_error2": "Probablemente tenga un modificador que aún no es compatible.",
     "parse_error3": "(Posiblemente un nuevo término o palabra modificada de poe1)",
     "bulk_exchange": "Las tasas de cambio a granel aún no están implementadas"
-  }
+  },
+  "map.mods.heist": "robo"
 }

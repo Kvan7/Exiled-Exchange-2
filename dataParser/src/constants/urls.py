@@ -1,6 +1,7 @@
 from constants.lang import (
     CHINESE,
     ENGLISH,
+    FRENCH,
     GERMAN,
     JAPANESE,
     KOREAN,
@@ -18,6 +19,7 @@ LANG_URLS = {
     GERMAN: "https://de.pathofexile.com",
     SPANISH: "https://es.pathofexile.com",
     PORTUGUESE: "https://br.pathofexile.com",
+    FRENCH: "https://fr.pathofexile.com",
 }
 
 TRADE_QUERY_URLS = [

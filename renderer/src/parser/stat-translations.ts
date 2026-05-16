@@ -1,6 +1,13 @@
-import { CLIENT_STRINGS as _$, STAT_BY_MATCH_STR } from "@/assets/data";
+import {
+  CLIENT_STRINGS as _$,
+  CLIENT_STRINGS_REF as _$REF,
+  STAT_BY_MATCH_STR,
+  StatBetter,
+  TRADE_STAT_BY_MATCH_STR,
+} from "@/assets/data";
 import type { StatMatcher, Stat, BaseType } from "@/assets/data";
 import { ModifierType } from "./modifiers";
+import { ItemCategory } from "./meta";
 
 // This file is a little messy and scary,
 // but that's how stats translations are parsed :-D
@@ -159,100 +166,41 @@ function* _statPlaceholderGenerator(stat: string) {
 export function tryParseTranslation(
   stat: StatString,
   modType: ModifierType,
+  itemCategory: ItemCategory | undefined,
 ): ParsedStat | undefined {
+  let backupParsedStat: ParsedStat | undefined;
+  let backupParsedCombination;
+
   for (const combination of _statPlaceholderGenerator(stat.string)) {
-    const found = STAT_BY_MATCH_STR(combination.stat);
+    const found = findAndResolveTranslation({
+      matchStr: combination.stat,
+      modType: modType,
+      itemCategory: itemCategory,
+      roll:
+        combination.values.length === 1
+          ? combination.values[0].roll
+          : undefined,
+    });
     const realType =
       modType === ModifierType.AddedAugment ? ModifierType.Augment : modType;
-    if (!found || !found.stat.trade.ids || !found.stat.trade.ids[realType]) {
+    if (
+      !found ||
+      ((!found.stat.trade.ids || !(realType in found.stat.trade.ids)) &&
+        !found.stat.ref.startsWith(_$REF.GRANTS_SKILL))
+    ) {
+      if (backupParsedStat) {
+        continue;
+      }
+
+      backupParsedStat = trySecondaryParseTranslation(combination.stat);
+      if (backupParsedStat) {
+        backupParsedCombination = combination;
+      }
       continue;
     }
 
     // Modifiers must be upgraded to the new values with a Divine Orb
-    let legacyStatRolls = false;
-
-    if (found.matcher.negate) {
-      for (const stat of combination.values) {
-        stat.roll *= -1;
-        if (stat.bounds) {
-          stat.bounds.min *= -1;
-          stat.bounds.max *= -1;
-        }
-      }
-    }
-
-    if (found.stat.ref === "# uses remaining") {
-      const uses = combination.values[0];
-      uses.bounds = {
-        min: 1,
-        max: uses.bounds?.max ?? uses.roll,
-      };
-    }
-
-    for (const stat of combination.values) {
-      if (!stat.bounds) continue;
-
-      if (stat.bounds.min > stat.bounds.max) {
-        // some stats granted by legacy Modifiers (not legacy rolls)
-        // can have same stat translations as granted by new Modifiers
-        // but swapped translation strings for positive and negative rolls
-        stat.bounds = {
-          max: stat.bounds.min,
-          min: stat.bounds.max,
-        };
-        // don't consider them as a legacy rolls
-      }
-
-      if (stat.roll > stat.bounds.max) {
-        stat.bounds.max = stat.roll;
-        legacyStatRolls = true;
-      }
-      if (stat.roll < stat.bounds.min) {
-        stat.bounds.min = stat.roll;
-        legacyStatRolls = true;
-      }
-    }
-
-    if (!combination.values.length && found.matcher.value) {
-      combination.values = [
-        {
-          roll: found.matcher.value,
-          decimal: false,
-          bounds: {
-            min: found.matcher.value,
-            max: found.matcher.value,
-          },
-        },
-      ];
-    }
-
-    const roll:
-      | {
-          unscalable: boolean;
-          legacy: true | undefined;
-          dp: boolean;
-          value: number;
-          min: number;
-          max: number;
-          option?: number;
-        }
-      | undefined = combination.values.length
-      ? {
-          unscalable: stat.unscalable,
-          legacy: legacyStatRolls || undefined,
-          dp: found.stat.dp || combination.values.some((stat) => stat.decimal),
-          value: getRollOrMinmaxAvg(
-            combination.values.map((stat) => stat.roll),
-          ),
-          min: getRollOrMinmaxAvg(
-            combination.values.map((stat) => stat.bounds?.min ?? stat.roll),
-          ),
-          max: getRollOrMinmaxAvg(
-            combination.values.map((stat) => stat.bounds?.max ?? stat.roll),
-          ),
-          option: found.matcher.value,
-        }
-      : undefined;
+    const roll = parseRoll(found, combination, stat);
 
     return {
       stat: found.stat,
@@ -260,6 +208,117 @@ export function tryParseTranslation(
       roll,
     };
   }
+  if (backupParsedStat) {
+    backupParsedStat.roll = parseRoll(
+      { stat: backupParsedStat.stat, matcher: backupParsedStat.translation },
+      backupParsedCombination!,
+      stat,
+    );
+    return backupParsedStat;
+  }
+}
+
+function parseRoll(
+  found: { matcher: StatMatcher; stat: Stat },
+  combination: {
+    stat: string;
+    values: Array<
+      Pick<
+        {
+          roll: number;
+          rollStr: string;
+          decimal: boolean;
+          bounds?: { min: number; max: number };
+        },
+        "roll" | "bounds" | "decimal"
+      >
+    >;
+  },
+  stat: StatString,
+): ParsedStat["roll"] {
+  let legacyStatRolls = false;
+
+  if (found.matcher.negate) {
+    for (const stat of combination.values) {
+      stat.roll *= -1;
+      if (stat.bounds) {
+        stat.bounds.min *= -1;
+        stat.bounds.max *= -1;
+      }
+    }
+  }
+
+  if (found.stat.ref === "# uses remaining") {
+    const uses = combination.values[0];
+    uses.bounds = {
+      min: 1,
+      max: uses.bounds?.max ?? uses.roll,
+    };
+  }
+
+  for (const stat of combination.values) {
+    if (!stat.bounds) continue;
+
+    if (stat.bounds.min > stat.bounds.max) {
+      // some stats granted by legacy Modifiers (not legacy rolls)
+      // can have same stat translations as granted by new Modifiers
+      // but swapped translation strings for positive and negative rolls
+      stat.bounds = {
+        max: stat.bounds.min,
+        min: stat.bounds.max,
+      };
+      // don't consider them as a legacy rolls
+    }
+
+    if (stat.roll > stat.bounds.max) {
+      stat.bounds.max = stat.roll;
+      legacyStatRolls = true;
+    }
+    if (stat.roll < stat.bounds.min) {
+      stat.bounds.min = stat.roll;
+      legacyStatRolls = true;
+    }
+  }
+
+  if (!combination.values.length && found.matcher.value) {
+    combination.values = [
+      {
+        roll: found.matcher.value,
+        decimal: false,
+        bounds: {
+          min: found.matcher.value,
+          max: found.matcher.value,
+        },
+      },
+    ];
+  }
+
+  if (!combination.values.length) {
+    return undefined;
+  }
+
+  const roll: {
+    unscalable: boolean;
+    legacy: true | undefined;
+    dp: boolean;
+    value: number;
+    min: number;
+    max: number;
+    option?: number;
+  } = {
+    unscalable: stat.unscalable,
+    legacy: legacyStatRolls || undefined,
+    dp: found.stat.dp || combination.values.some((stat) => stat.decimal),
+    value: getRollOrMinmaxAvg(combination.values.map((stat) => stat.roll)),
+    min: getRollOrMinmaxAvg(
+      combination.values.map((stat) => stat.bounds?.min ?? stat.roll),
+    ),
+    max: getRollOrMinmaxAvg(
+      combination.values.map((stat) => stat.bounds?.max ?? stat.roll),
+    ),
+    option: found.matcher.value,
+  };
+  return roll;
 }
 
 export function getRollOrMinmaxAvg(values: number[]): number {
@@ -269,3 +328,45 @@ export function getRollOrMinmaxAvg(values: number[]): number {
     return values[0];
   }
 }
+
+function trySecondaryParseTranslation(stat: string): ParsedStat | undefined {
+  const tradeStat = TRADE_STAT_BY_MATCH_STR(stat);
+  if (!tradeStat) return;
+
+  // use naive stat
+  const statLine: Stat = {
+    ref: stat,
+    better: StatBetter.PositiveRoll,
+    matchers: [
+      {
+        string: stat,
+      },
+    ],
+    trade: {
+      ids: tradeStat,
+    },
+  };
+
+  return { stat: statLine, translation: statLine.matchers[0] };
+}
+
+interface FindResolveParams {
+  matchStr: string;
+  modType: ModifierType;
+  itemCategory: ItemCategory | undefined;
+  roll: number | undefined;
+}
+
+function findAndResolveTranslation(
+  params: FindResolveParams,
+): { matcher: StatMatcher; stat: Stat } | undefined {
+  const { matchStr } = params;
+  const statOrGroup = STAT_BY_MATCH_STR(matchStr);
+
+  return statOrGroup;
+}
+
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export const __testExports = {
+  tryParseTranslation,
+};

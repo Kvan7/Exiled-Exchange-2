@@ -34,7 +34,6 @@ class ConstRegexClientString(RegexClientString):
     @override
     def value(self, poe_key_lookup: Callable[[str], str], lang: LANG) -> str:
         val = self.const if not self.need_lookup else self.lookup[lang]
-        val = val.replace("'", "\\'")
         return val
 
     @override

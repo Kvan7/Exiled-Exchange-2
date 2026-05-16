@@ -1,4 +1,8 @@
-import { ITEM_BY_REF, ITEM_BY_TRANSLATED } from "@/assets/data";
+import {
+  ITEM_BY_REF,
+  ITEM_BY_TRANSLATED,
+  TRADE_ITEM_BY_REF,
+} from "@/assets/data";
 import { AppConfig } from "@/web/Config";
 
 export function magicBasetype(name: string) {
@@ -18,7 +22,9 @@ export function magicBasetype(name: string) {
     .map((name) => {
       // BUG[UPSTREAM]: https://www.pathofexile.com/forum/view-thread/3913283
       const result =
-        ITEM_BY_REF("ITEM", name) ?? ITEM_BY_TRANSLATED("ITEM", name);
+        ITEM_BY_REF("ITEM", name) ??
+        ITEM_BY_TRANSLATED("ITEM", name) ??
+        TRADE_ITEM_BY_REF({ name }, true);
       return { name, found: result && result[0].craftable };
     })
     .filter((res) => res.found)

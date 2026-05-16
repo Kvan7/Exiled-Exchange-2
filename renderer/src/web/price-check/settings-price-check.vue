@@ -106,6 +106,9 @@
     <ui-checkbox class="mb-4" v-model="rememberCurrency">{{
       t(":remember_currency")
     }}</ui-checkbox>
+    <ui-checkbox class="mb-4" v-model="rememberListingType">{{
+      t(":remember_listing")
+    }}</ui-checkbox>
     <ui-checkbox class="mb-4" v-model="activateStockFilter">{{
       t(":select_stock")
     }}</ui-checkbox>
@@ -174,21 +177,6 @@
     <ui-checkbox class="mb-4" v-model="alwaysShowTier">{{
       t(":always_show_tier")
     }}</ui-checkbox>
-
-    <div class="mb-4">
-      <select v-model="travelButtonEnable" class="p-1 rounded bg-gray-700 w-24">
-        <option value="disabled">
-          {{ t(":travel_option_disabled") }}
-        </option>
-        <option value="button">
-          {{ t(":travel_option_button") }}
-        </option>
-        <option value="row">
-          {{ t(":travel_option_row") }}
-        </option>
-      </select>
-      {{ t(":travel_to_hideout") }}
-    </div>
 
     <div class="mb-4" :class="{ 'p-2 bg-orange-600 rounded': builtinBrowser }">
       <ui-checkbox v-model="builtinBrowser">{{
@@ -319,6 +307,10 @@ export default defineComponent({
         () => configWidget.value,
         "rememberCurrency",
       ),
+      rememberListingType: configModelValue(
+        () => configWidget.value,
+        "rememberListingType",
+      ),
       coreCurrency: configModelValue(() => configWidget.value, "coreCurrency"),
       currencyVolume: configModelValue(
         () => configWidget.value,
@@ -370,10 +362,6 @@ export default defineComponent({
       openItemEditorAbove: configModelValue(
         () => configWidget.value,
         "openItemEditorAbove",
-      ),
-      travelButtonEnable: configModelValue(
-        () => configWidget.value,
-        "travelButtonEnable",
       ),
       getAugmentNameByRef,
     };

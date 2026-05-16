@@ -16,6 +16,7 @@ export function createTestStatFilter(): StatFilter {
 export function createTestCreateOptions(): {
   league: string;
   currency: string | undefined;
+  listingType: "securable" | undefined;
   collapseListings: "app" | "api";
   activateStockFilter: boolean;
   searchStatRange: number;
@@ -27,6 +28,7 @@ export function createTestCreateOptions(): {
   return {
     league: "Standard",
     currency: undefined,
+    listingType: undefined,
     collapseListings: "app",
     activateStockFilter: false,
     searchStatRange: 10,

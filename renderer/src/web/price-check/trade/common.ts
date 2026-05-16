@@ -52,7 +52,7 @@ export const RATE_LIMIT_RULES = {
   SEARCH: shallowReactive(new Set([new RateLimiter(1, 5)])),
   EXCHANGE: shallowReactive(new Set([new RateLimiter(1, 5)])),
   FETCH: shallowReactive(new Set([new RateLimiter(1, 5)])),
-  WHISPER: shallowReactive(new Set([new RateLimiter(1, 5)])),
+  // WHISPER: shallowReactive(new Set([new RateLimiter(1, 5)])),
   // HISTORY: shallowReactive(new Set([new RateLimiter(1, 5)])),
 };
 
@@ -76,7 +76,7 @@ function _adjustRateLimits(
   limitStr: string,
   stateStr: string,
 ): void {
-  /* eslint-disable no-console */
+  /* eslint-disable @typescript-eslint/no-unused-expressions */
   const DEBUG = false;
   const DESYNC_FIX =
     AppConfig<PriceCheckWidget>("price-check")!.apiLatencySeconds;
@@ -121,7 +121,6 @@ function _adjustRateLimits(
           `Rate limit state on Server is greater by ${Math.abs(delta)}. Bursting to prevent rate limiting.`,
         );
       for (let i = 0; i < Math.min(delta, limit.available); ++i) {
-        // eslint-disable-next-line @typescript-eslint/no-floating-promises
         limit.wait();
       }
     } else if (delta < 0) {
@@ -143,7 +142,6 @@ function _adjustRateLimits(
     DEBUG && console.log("Add", rl.toString());
 
     for (let i = 0; i < serverLimit.state; ++i) {
-      // eslint-disable-next-line @typescript-eslint/no-floating-promises
       rl.wait();
     }
   }
