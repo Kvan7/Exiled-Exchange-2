@@ -156,6 +156,10 @@ export default defineComponent({
         performance.mark("checked-item-item-changed");
         const prevCurrency =
           presets.value != null ? itemFilters.value.trade.currency : undefined;
+        const prevListingType =
+          presets.value != null
+            ? itemFilters.value.trade.listingType
+            : undefined;
 
         presets.value = createPresets(item, {
           league: leagues.selectedId.value!,
@@ -173,6 +177,9 @@ export default defineComponent({
               item.info.refName === prevItem.info.refName)
               ? prevCurrency
               : undefined,
+          listingType: widget.value.rememberListingType
+            ? prevListingType
+            : undefined,
           defaultAllSelected: widget.value.defaultAllSelected,
           autoFillEmptyAugmentSockets: widget.value.autoFillEmptyRuneSockets,
         });

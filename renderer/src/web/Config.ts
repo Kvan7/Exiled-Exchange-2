@@ -156,7 +156,7 @@ export interface Config {
 }
 
 export const defaultConfig = (): Config => ({
-  configVersion: 29,
+  configVersion: 31,
   overlayKey: "Shift + Space",
   overlayBackground: "rgba(129, 139, 149, 0.15)",
   overlayBackgroundClose: true,
@@ -637,6 +637,16 @@ function upgradeConfig(_config: Config): Config {
     });
 
     config.configVersion = 30;
+  }
+
+  if (config.configVersion < 31) {
+    // NOTE: v0.15.0 || poe0.4.0k
+    const priceCheck = config.widgets.find(
+      (w) => w.wmType === "price-check",
+    ) as widget.PriceCheckWidget;
+    priceCheck.rememberListingType = false;
+
+    config.configVersion = 31;
   }
   /* eslint-enable */
 

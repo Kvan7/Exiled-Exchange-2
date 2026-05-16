@@ -1451,8 +1451,6 @@ function parseFetchResult(result: FetchResult): PricingResult["displayItem"] {
   item tags
   */
 
-  // TODO: check on granted skills
-
   const title: string[] = [];
   if (result.item.name && result.item.name.length > 0) {
     title.push(result.item.name);

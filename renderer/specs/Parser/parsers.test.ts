@@ -1,4 +1,4 @@
-import { CLIENT_STRINGS as _$ } from "@/assets/data";
+import { CLIENT_STRINGS as _$, init } from "@/assets/data";
 import { __testExports } from "@/parser/Parser";
 import { beforeEach, describe, expect, it } from "vitest";
 import { setupTests } from "@specs/vitest.setup";
@@ -14,7 +14,6 @@ import {
   UniqueItem,
   WandRareItem,
 } from "./items";
-import { init } from "@/assets/data";
 import { ParsedItem } from "@/parser";
 
 describe("itemTextToSections", () => {

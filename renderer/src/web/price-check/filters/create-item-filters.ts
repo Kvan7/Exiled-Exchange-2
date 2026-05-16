@@ -25,6 +25,13 @@ const CATEGORIES_WITH_USEFUL_QUALITY = new Set([
 interface CreateOptions {
   league: string;
   currency: string | undefined;
+  listingType:
+    | "securable"
+    | "any"
+    | "online"
+    | "available"
+    | "onlineleague"
+    | undefined;
   collapseListings: "app" | "api";
   activateStockFilter: boolean;
   exact: boolean;
@@ -42,7 +49,7 @@ export function createFilters(
     trade: {
       offline: false,
       onlineInLeague: false,
-      listingType: "securable",
+      listingType: opts.listingType ?? "securable",
       listed: undefined,
       currency: opts.currency,
       league: opts.league,
