@@ -446,11 +446,15 @@ function pickCorrectVariant(item: ParserState) {
 function parseNamePlate(section: string[]) {
   performance.mark("parseNamePlate");
   let line = section.shift();
-  if (!line?.startsWith(_$.ITEM_CLASS)) {
+  if (line?.startsWith(_$.ITEM_CLASS)) {
+    line = section.shift();
+  } else if (
+    !line?.startsWith(_$.RARITY) ||
+    line.slice(_$.RARITY.length) !== _$.RARITY_GEM
+  ) {
     return err("item.parse_error");
   }
 
-  line = section.shift();
   let rarityText: string | undefined;
   if (line?.startsWith(_$.RARITY)) {
     rarityText = line.slice(_$.RARITY.length);
