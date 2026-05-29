@@ -437,7 +437,10 @@
     "parse_error": "For some reason this item's stats did not parse.",
     "parse_error2": "It likely has a mod that is not supported yet.",
     "parse_error3": "(Potentially new or changed wording from poe1)",
-    "bulk_exchange": "Bulk exchange rates are not implemented yet"
+    "bulk_exchange": "Bulk exchange rates are not implemented yet",
+    "found_data": "Found {0} items and {1} stats",
+    "no_data": "No new data found",
+    "failed_to_load": "Loading fallback data failed, try again later"
   },
   "tips": {
     "tip_1": "You can add your own images to the cheat sheet widget by hitting \"edit\"",

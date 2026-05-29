@@ -95,6 +95,10 @@ export function createExactStatFilters(
     statsByType: statsByType.filter((calc) => keepByType.includes(calc.type)),
   };
 
+  // want to get "uses remaining" pseudo for tablets
+  if (item.category === ItemCategory.Tablet) {
+    filterPseudo(ctx);
+  }
   // filterBasePercentile(ctx);
 
   ctx.filters.push(

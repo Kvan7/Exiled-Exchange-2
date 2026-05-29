@@ -489,20 +489,6 @@ export function createFilters(
     }
   }
 
-  if (item.category === ItemCategory.Tablet && !item.isUnidentified) {
-    const usesRemaining = item.statsByType.find(
-      (t) => t.type === ModifierType.Implicit,
-    )!.sources[0].contributes!.value;
-    filters.usesRemaining = {
-      value: usesRemaining,
-      disabled: usesRemaining < 10,
-    };
-    // Remove the used stat
-    item.statsByType = item.statsByType.filter(
-      (t) => t.type !== ModifierType.Implicit,
-    );
-  }
-
   if (
     (item.rarity === ItemRarity.Normal ||
       item.rarity === ItemRarity.Magic ||

@@ -578,5 +578,558 @@
       "UNIQUE::Sekhema's Resolve // Ring",
       "ITEM::Zarokh's Reliquary Key: Sekhema's Resolve"
     ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Bramblejack",
+      "UNIQUE::Bramblejack // Rusted Cuirass"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Blackbraid",
+      "UNIQUE::Blackbraid // Fur Plate"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Edyrns Tusks",
+      "UNIQUE::Edyrns Tusks // Iron Cuirass"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Kingsguard",
+      "UNIQUE::Kingsguard // Full Plate"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Bristleboar",
+      "UNIQUE::Bristleboar // Leather Vest"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Foxshade",
+      "UNIQUE::Foxshade // Quilted Vest"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Ashrend",
+      "UNIQUE::Ashrend // Pathfinder Coat"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Briskwrap",
+      "UNIQUE::Briskwrap // Rhoahide Coat"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of The Unleashed",
+      "UNIQUE::The Unleashed // Revered Vestments"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Horns of Bynden",
+      "UNIQUE::Horns of Bynden // Rusted Greathelm"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Wings of Caelyn",
+      "UNIQUE::Wings of Caelyn // Rusted Greathelm"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Ezomyte Peak",
+      "UNIQUE::Ezomyte Peak // Soldier Greathelm"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Deidbell",
+      "UNIQUE::Deidbell // Elite Greathelm"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Elevore",
+      "UNIQUE::Elevore // Hunter Hood"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Starkonja's Head",
+      "UNIQUE::Starkonja's Head // Leatherbound Hood"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Crown of Thorns",
+      "UNIQUE::Crown of Thorns // Twig Circlet"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Greymake",
+      "UNIQUE::Greymake // Brimmed Helm"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Erian's Cobble",
+      "UNIQUE::Erian's Cobble // Guarded Helm"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of The Smiling Knight",
+      "UNIQUE::The Smiling Knight // Cowled Helm"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of The Vile Knight",
+      "UNIQUE::The Vile Knight // Shielded Helm"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Northpaw",
+      "UNIQUE::Northpaw // Suede Bracers"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Candlemaker",
+      "UNIQUE::Candlemaker // Sombre Gloves"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Deathblow",
+      "UNIQUE::Deathblow // Doubled Gauntlets"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Legionstride",
+      "UNIQUE::Legionstride // Rough Greaves"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Trampletoe",
+      "UNIQUE::Trampletoe // Trimmed Greaves"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Briarpatch",
+      "UNIQUE::Briarpatch // Laced Boots"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Bushwhack",
+      "UNIQUE::Bushwhack // Lizardscale Boots"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Wanderlust",
+      "UNIQUE::Wanderlust // Wrapped Sandals"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of The Knight-errant",
+      "UNIQUE::The Knight-errant // Mail Sabatons"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Obern's Bastion",
+      "UNIQUE::Obern's Bastion // Stacked Sabatons"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Dionadair",
+      "UNIQUE::Dionadair // Splintered Tower Shield"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Wulfsbane",
+      "UNIQUE::Wulfsbane // Painted Tower Shield"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Chernobog's Pillar",
+      "UNIQUE::Chernobog's Pillar // Blacksteel Tower Shield"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Alkem Eira",
+      "UNIQUE::Alkem Eira // Blazon Crest Shield"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Oaksworn",
+      "UNIQUE::Oaksworn // Sigil Crest Shield"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Dunkelhalt",
+      "UNIQUE::Dunkelhalt // Leather Buckler"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Rondel de Ezo",
+      "UNIQUE::Rondel de Ezo // Plated Buckler"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Brynhand's Mark",
+      "UNIQUE::Brynhand's Mark // Wooden Club"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Trenchtimbre",
+      "UNIQUE::Trenchtimbre // Spiked Club"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Mjölner",
+      "UNIQUE::Mjölner // Torment Club"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Twisted Empyrean",
+      "UNIQUE::Twisted Empyrean // Aberrant Sledge"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Hoghunt",
+      "UNIQUE::Hoghunt // Felled Greatclub"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Hrimnor's Hymn",
+      "UNIQUE::Hrimnor's Hymn // Oak Greathammer"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Brain Rattler",
+      "UNIQUE::Brain Rattler // Studded Greatclub"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Lifesprig",
+      "UNIQUE::Lifesprig // Attuned Wand"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Duality"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Tyranny's Grip",
+      "UNIQUE::Tyranny's Grip // Ironhead Spear"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of The Sentry",
+      "UNIQUE::The Sentry // Gothic Quarterstaff"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Adonia's Ego",
+      "UNIQUE::Adonia's Ego // Siphoning Wand"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Cursecarver",
+      "UNIQUE::Cursecarver // Acrid Wand"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Dusk Vigil",
+      "UNIQUE::Dusk Vigil // Ashen Staff"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of The Blood Thorn",
+      "UNIQUE::The Blood Thorn // Wrapped Quarterstaff"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Quill Rain",
+      "UNIQUE::Quill Rain // Shortbow"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Ironbound",
+      "UNIQUE::Ironbound // Warden Bow"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Amor Mandragora",
+      "UNIQUE::Amor Mandragora // Changeling Talisman"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Spiteful Floret"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Svalinn",
+      "UNIQUE::Svalinn // Crucible Tower Shield"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Keeper of the Arc",
+      "UNIQUE::Keeper of the Arc // Spiritbone Crown"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Olrovasara",
+      "UNIQUE::Olrovasara // Torment Club"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of A Worthy Foe"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Serle's Grit"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
+  },
+  {
+    "query": [
+      "ITEM::Legacy of Runeseeker's Call"
+    ],
+    "items": [
+      "ITEM::Aldur's Legacy"
+    ]
   }
 ]

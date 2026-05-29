@@ -95,11 +95,12 @@ export default defineComponent({
 </script>
 
 <style lang="postcss">
-.tippy-box {
+.tippy-box[data-theme~="light"] {
   @apply rounded;
 }
 
 .tippy-content {
+  /* technically raised to outside context but doesn't break stuff */
   @apply p-1;
 }
 </style>

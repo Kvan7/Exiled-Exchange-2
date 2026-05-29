@@ -2,9 +2,10 @@ import { readonly, shallowRef } from "vue";
 import { createGlobalState } from "@vueuse/core";
 import { Host } from "@/web/background/IPC";
 
-const RETRY_INTERVAL_MS = 4 * 60 * 1000;
-const UPDATE_INTERVAL_MS = 2 * 60 * 60 * 1000;
-const INTEREST_SPAN_MS = 20 * 60 * 1000;
+// from Prices.ts, but longer periods since maybe would slowdown ui more
+const RETRY_INTERVAL_MS = 30 * 60 * 1000; // 30 min, try to get new stuff
+const UPDATE_INTERVAL_MS = 2 * 60 * 60 * 1000; // 2 hours, only allow every this period
+const INTEREST_SPAN_MS = 60 * 60 * 1000; // 20 min, refuse to get if haven't used for this period
 
 export interface ItemQuery {
   group: string;
@@ -145,6 +146,9 @@ export const useTradeData = createGlobalState(() => {
 
     if (downloadController) downloadController.abort();
 
+    let foundItems: number = 0;
+    let foundStats: number = 0;
+
     try {
       performance.mark("trade-data-load-start");
       isLoading.value = true;
@@ -157,9 +161,14 @@ export const useTradeData = createGlobalState(() => {
         loadStatData(),
       ]);
 
-      itemData.value = outItemData;
-      statData.value = outStatTuple[0];
-      statDataSet.value = outStatTuple[1];
+      foundItems = outItemData.size - itemData.value.size;
+      foundStats = outStatTuple[1].size - statDataSet.value.size;
+      // don't regress
+      if (foundItems > 0 && foundStats > 0) {
+        itemData.value = outItemData;
+        statData.value = outStatTuple[0];
+        statDataSet.value = outStatTuple[1];
+      }
 
       lastUpdateTime = Date.now();
     } catch (e) {
@@ -169,6 +178,12 @@ export const useTradeData = createGlobalState(() => {
       isLoading.value = false;
     }
     performance.mark("trade-data-load-end");
+
+    // give caller some data if they want it
+    return {
+      foundItems,
+      foundStats,
+    };
   }
 
   function expressInterest() {

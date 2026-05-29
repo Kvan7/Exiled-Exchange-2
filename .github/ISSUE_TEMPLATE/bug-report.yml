@@ -58,11 +58,12 @@ body:
       label: Version
       description: What version of EE2 are you running? You can see this in Settings -> About
       options:
+        - 0.15.1
         - 0.15.0
         - 0.14.0
         - 0.13.x
         - Change me
-      default: 4
+      default: 5
     validations:
       required: true
   - type: textarea
