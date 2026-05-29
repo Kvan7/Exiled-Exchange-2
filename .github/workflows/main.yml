@@ -36,11 +36,13 @@ jobs:
     needs: renderer
     strategy:
       matrix:
-        os: [windows-2025, ubuntu-22.04, macos-14]
+        os: [windows-2025, ubuntu-22.04, macos-15]
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v6
     - uses: actions/setup-node@v6
+      with:
+        node-version: 24
     - uses: actions/download-artifact@v8
       with:
         name: renderer-dist
