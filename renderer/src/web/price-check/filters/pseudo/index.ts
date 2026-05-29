@@ -27,15 +27,15 @@ const RESISTANCES_INFO = [
   { ref: stat("#% to Fire Resistance"), elements: ["fire"] },
   { ref: stat("#% to Cold Resistance"), elements: ["cold"] },
   { ref: stat("#% to Lightning Resistance"), elements: ["lightning"] },
-  // {
-  //   ref: stat("#% to Fire and Lightning Resistances"),
-  //   elements: ["fire", "lightning"],
-  // },
-  // { ref: stat("#% to Fire and Cold Resistances"), elements: ["fire", "cold"] },
-  // {
-  //   ref: stat("#% to Cold and Lightning Resistances"),
-  //   elements: ["cold", "lightning"],
-  // },
+  {
+    ref: stat("#% to Fire and Lightning Resistances"),
+    elements: ["fire", "lightning"],
+  },
+  { ref: stat("#% to Fire and Cold Resistances"), elements: ["fire", "cold"] },
+  {
+    ref: stat("#% to Cold and Lightning Resistances"),
+    elements: ["cold", "lightning"],
+  },
   { ref: stat("#% to Chaos Resistance"), elements: [], chaos: true },
   {
     ref: stat("#% to Fire and Chaos Resistances"),
