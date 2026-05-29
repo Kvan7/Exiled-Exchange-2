@@ -27,7 +27,6 @@ mac:
       arch:
         - "universal"
   identity: null
-  x64ArchFiles: "**/electron-overlay-window.node"
 appImage:
   executableArgs:
     - "--sandbox"
