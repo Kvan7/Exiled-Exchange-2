@@ -30,8 +30,7 @@ export default {
   ARMOUR: '護甲值: ',
   EVASION: '閃避值: ',
   ENERGY_SHIELD: '能量護盾: ',
-  // [Manual]
-  RUNIC_WARD: 'Runic Ward: ',
+  RUNIC_WARD: '保護: ',
   BLOCK_CHANCE: '格擋機率: ',
   CORRUPTED: '已汙染',
   INFLUENCE_SHAPER: '塑者之物',

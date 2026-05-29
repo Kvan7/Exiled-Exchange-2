@@ -30,8 +30,7 @@ export default {
   ARMOUR: 'Armadura: ',
   EVASION: 'Evasión: ',
   ENERGY_SHIELD: 'Escudo de energía: ',
-  // [Manual]
-  RUNIC_WARD: 'Runic Ward: ',
+  RUNIC_WARD: 'Barrera rúnica: ',
   BLOCK_CHANCE: 'Probabilidad de bloqueo: ',
   CORRUPTED: 'Corrupto',
   INFLUENCE_SHAPER: 'Objeto del Creador',

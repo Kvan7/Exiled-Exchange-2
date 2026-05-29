@@ -30,8 +30,7 @@ export default {
   ARMOUR: 'アーマー: ',
   EVASION: '回避力: ',
   ENERGY_SHIELD: 'エナジーシールド: ',
-  // [Manual]
-  RUNIC_WARD: 'Runic Ward: ',
+  RUNIC_WARD: 'ルーンワード: ',
   BLOCK_CHANCE: 'ブロック率: ',
   CORRUPTED: 'コラプト状態',
   INFLUENCE_SHAPER: 'シェイパーアイテム',

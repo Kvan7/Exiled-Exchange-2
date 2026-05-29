@@ -30,8 +30,7 @@ export default {
   ARMOUR: '방어도: ',
   EVASION: '회피: ',
   ENERGY_SHIELD: '에너지 보호막: ',
-  // [Manual]
-  RUNIC_WARD: 'Runic Ward: ',
+  RUNIC_WARD: '룬 수호: ',
   BLOCK_CHANCE: '막기 확률: ',
   CORRUPTED: '타락',
   INFLUENCE_SHAPER: '쉐이퍼 아이템',

@@ -30,7 +30,6 @@ export default {
   ARMOUR: 'Armour: ',
   EVASION: 'Evasion Rating: ',
   ENERGY_SHIELD: 'Energy Shield: ',
-  // [Manual]
   RUNIC_WARD: 'Runic Ward: ',
   BLOCK_CHANCE: 'Block chance: ',
   CORRUPTED: 'Corrupted',

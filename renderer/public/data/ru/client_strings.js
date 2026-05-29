@@ -30,8 +30,7 @@ export default {
   ARMOUR: 'Броня: ',
   EVASION: 'Уклонение: ',
   ENERGY_SHIELD: 'Энергетический щит: ',
-  // [Manual]
-  RUNIC_WARD: 'Runic Ward: ',
+  RUNIC_WARD: 'Рунический барьер: ',
   BLOCK_CHANCE: 'Шанс блока: ',
   CORRUPTED: 'Осквернено ',
   INFLUENCE_SHAPER: 'Предмет Создателя',
