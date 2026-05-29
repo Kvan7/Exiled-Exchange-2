@@ -309,9 +309,7 @@ describe("filterPseudo", () => {
 
     expect(ctx.statsByType.length).toBe(0);
     expect(ctx.filters.length).toBe(1);
-    const uses = ctx.filters.find(
-      (f) => f.statRef === "# uses remaining (Tablets)",
-    );
+    const uses = ctx.filters.find((f) => f.statRef === "# uses remaining");
 
     expect(uses).toBeDefined();
     expect(uses?.disabled).toBe(false);
