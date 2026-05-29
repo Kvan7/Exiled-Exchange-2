@@ -456,6 +456,7 @@ async function loadTradeData() {
           namespace: "ITEM",
           icon: "%NOT_FOUND%",
           tags: [],
+          craftable: { category: ItemCategory.Unknown },
         };
       }
     }
