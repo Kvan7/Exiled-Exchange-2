@@ -151,11 +151,7 @@
           :filter="filters.ultimatumHint"
           :text="t(`item.${filters.ultimatumHint.value.toLowerCase()}`)"
         />
-        <filter-btn-numeric
-          v-if="filters.usesRemaining"
-          :filter="filters.usesRemaining"
-          :name="t('item.uses_remaining')"
-        />
+
         <filter-btn-logical
           v-if="hasStats"
           :collapse="statsVisibility.disabled"

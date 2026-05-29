@@ -399,6 +399,8 @@ async function loadTradeData() {
     },
     forceCraftable?: boolean,
   ): BaseType[] | undefined {
+    trade.expressInterest();
+
     const items = trade.tradeItemData.value;
 
     let base: BaseType | undefined;
@@ -462,10 +464,14 @@ async function loadTradeData() {
   };
 
   TRADE_STAT_BY_STAT_ID = function (tradeId: string) {
+    trade.expressInterest();
+
     return trade.tradeStatDataSet.value.has(tradeId);
   };
 
   TRADE_STAT_BY_MATCH_STR = function (name: string) {
+    trade.expressInterest();
+
     const statData = trade.tradeStatData.value;
 
     const stat = statData.get(name);

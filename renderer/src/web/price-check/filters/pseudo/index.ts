@@ -335,6 +335,19 @@ const PSEUDO_RULES: PseudoRule[] = [
   //   pseudo: stat("#% increased Mana Regeneration Rate"),
   //   stats: [{ ref: stat("#% increased Mana Regeneration Rate") }],
   // },
+  {
+    pseudo: stat("# uses remaining"),
+    disabled: false,
+    stats: [
+      { ref: stat("Adds Irradiated to a Map \n# use remaining") },
+      { ref: stat("Adds Ritual Altars to a Map \n# use remaining") },
+      { ref: stat("Adds a Kalguuran Expedition to a Map \n# use remaining") },
+      { ref: stat("Adds a Mirror of Delirium to a Map \n# use remaining") },
+      { ref: stat("Adds an Otherworldy Breach to a Map \n# use remaining") },
+      { ref: stat("Empowers the Map Boss of a Map \n# use remaining") },
+      { ref: stat("Adds Abysses to a Map \n# use remaining") },
+    ],
+  },
 ];
 
 export function filterPseudo(ctx: FiltersCreationContext) {
@@ -505,3 +518,9 @@ export function translatedEffectsPseudos(translated: string): boolean {
   // If it is in these pseudos
   return refEffectsPseudos(ref);
 }
+
+// Disable since this is export for tests
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export const __testExports = {
+  filterPseudoSources,
+};
