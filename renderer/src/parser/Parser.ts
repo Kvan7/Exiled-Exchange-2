@@ -7,7 +7,6 @@ import {
   BaseType,
   ITEM_BY_TRANSLATED,
   TRADE_ITEM_BY_REF,
-  TRADE_STAT_BY_STAT_ID,
 } from "@/assets/data";
 import { ModifierType, StatCalculated, sumStatsByModType } from "./modifiers";
 import {
@@ -1633,18 +1632,19 @@ function parseStatsFromMod(
       continue;
     }
 
-    const validTradeIds = parsedStat?.stat.trade.ids[
-      modifier.info.type
-    ]?.filter((id) =>
-      TRADE_STAT_BY_STAT_ID(
-        id +
-          (parsedStat.stat.trade.option
-            ? "|" + parsedStat.translation.value
-            : ""),
-      ),
-    );
+    // const validTradeIds = parsedStat?.stat.trade.ids[
+    //   modifier.info.type
+    // ]?.filter((id) =>
+    //   TRADE_STAT_BY_STAT_ID(
+    //     id +
+    //       (parsedStat.stat.trade.option
+    //         ? "|" + parsedStat.translation.value
+    //         : ""),
+    //   ),
+    // );
 
-    if (parsedStat && validTradeIds && validTradeIds.length) {
+    // if (parsedStat && validTradeIds && validTradeIds.length) {
+    if (parsedStat) {
       modifier.stats.push(parsedStat);
 
       stat = statIterator.next(true);

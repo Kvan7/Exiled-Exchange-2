@@ -90,6 +90,11 @@
         <template v-if="item?.isErr()">
           <ui-error-box class="m-4">
             <template #name>{{ t(item.error.name) }}</template>
+            <template #actions
+              ><reload-trade-data
+                :item-text="item.error.rawText"
+                :pos="checkPosition"
+            /></template>
             <p>{{ t(item.error.message) }}</p>
           </ui-error-box>
           <pre class="bg-gray-900 rounded m-4 overflow-x-hidden p-2">{{
@@ -189,6 +194,7 @@ import {
 import { translatedEffectsPseudos } from "./filters/pseudo";
 import { ItemEditorType } from "@/parser/meta";
 import { getItemEditorType } from "./filters/util";
+import ReloadTradeData from "./fallback/ReloadTradeData.vue";
 
 type ParseError = {
   name: string;
@@ -247,6 +253,7 @@ export default defineComponent({
     ItemQuickPrice,
     UiErrorBox,
     UiPopover,
+    ReloadTradeData,
   },
   props: {
     config: {

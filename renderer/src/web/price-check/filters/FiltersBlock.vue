@@ -236,6 +236,7 @@
             v-for="stat of item.unknownModifiers"
             :key="stat.type + '/' + stat.text"
             :stat="stat"
+            :item-text="item.rawText"
           />
         </template>
         <template v-if="showMissingFracturedWarning">
