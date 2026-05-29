@@ -127,7 +127,6 @@ import { useI18nNs } from "@/web/i18n";
 import { PriceCheckWidget } from "@/web/overlay/widgets";
 import tippy, { Instance } from "tippy.js";
 import "tippy.js/dist/tippy.css";
-import "tippy.js/themes/light.css";
 import { AppConfig } from "@/web/Config";
 import { ItemCategory } from "@/parser";
 import TooltipItem from "./TooltipItem.vue";
@@ -204,7 +203,7 @@ export default defineComponent({
       instance = tippy(target.value, {
         content: content.value,
         interactive: true,
-        theme: "light",
+        theme: "item-tooltip",
         trigger: "mouseenter",
         placement: "left",
         arrow: true,
@@ -236,18 +235,17 @@ export default defineComponent({
 </script>
 
 <style lang="postcss">
-.tippy-box,
-.tippy-box[data-theme~="light"] {
+.tippy-box[data-theme~="item-tooltip"] {
   @apply w-fit h-fit;
   /* hiding box more */
   @apply shadow-none bg-transparent;
 }
 
-div[data-tippy-root] {
+div[data-tippy-root] .tippy-box[data-theme~="item-tooltip"] {
   @apply bg-transparent;
 }
 
-.tippy-content {
+.tippy-box[data-theme~="item-tooltip"] .tippy-content {
   @apply p-0 w-fit h-fit;
 }
 </style>
