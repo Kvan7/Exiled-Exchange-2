@@ -446,12 +446,14 @@ interface FetchResult {
       ar?: number;
       ev?: number;
       es?: number;
+      ward?: number;
       dps_aug?: boolean;
       pdps_aug?: boolean;
       edps_aug?: boolean;
       ar_aug?: boolean;
       ev_aug?: boolean;
       es_aug?: boolean;
+      ward_aug?: boolean;
       mods?: Record<string, TradeModMetadata[]>;
       hashes?: Record<string, Array<Array<string | number[] | null>>>;
     };
@@ -952,6 +954,18 @@ export function createTradeRequest(
         propSet(
           query.filters,
           "equipment_filters.filters.es.max",
+          typeof input.max === "number" ? input.max : undefined,
+        );
+        break;
+      case "item.runic_ward":
+        propSet(
+          query.filters,
+          "equipment_filters.filters.ward.min",
+          typeof input.min === "number" ? input.min : undefined,
+        );
+        propSet(
+          query.filters,
+          "equipment_filters.filters.ward.max",
           typeof input.max === "number" ? input.max : undefined,
         );
         break;
@@ -1589,6 +1603,14 @@ function buildNameBlock(
             text: "item.energy_shield",
             value: extended.es!,
             color: useColor(extended.es_aug) || values[0][1],
+          });
+          continue;
+
+        case TradePropType.ArmourWard:
+          block.push({
+            text: "item.runic_ward",
+            value: extended.ward!,
+            color: useColor(extended.ward_aug) || values[0][1],
           });
           continue;
 

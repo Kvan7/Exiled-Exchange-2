@@ -44,6 +44,7 @@
     "armour": "護甲：{0}",
     "evasion_rating": "閃避值：{0}",
     "energy_shield": "能量護盾：{0}",
+    "runic_ward": "保護: {0}",
     "block": "格擋機率：{0}%",
     "total_dps": "總 DPS：{0}",
     "physical_dps": "物理 DPS：{0}",

@@ -44,6 +44,7 @@
     "armour": "Rüstung: {0}",
     "evasion_rating": "Ausweichwertung: {0}",
     "energy_shield": "Energieschild: {0}",
+    "runic_ward": "Runenschutz: {0}",
     "block": "Blockchance: {0}%",
     "total_dps": "Gesamter DPS: {0}",
     "physical_dps": "Physischer DPS: {0}",

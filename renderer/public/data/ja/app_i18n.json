@@ -43,6 +43,7 @@
     "armour": "アーマー: {0}",
     "evasion_rating": "回避力: {0}",
     "energy_shield": "エナジーシールド: {0}",
+    "runic_ward": "ルーンワード: {0}",
     "block": "ブロック率: {0}%",
     "total_dps": "DPS: {0}",
     "physical_dps": "物理DPS: {0}",
