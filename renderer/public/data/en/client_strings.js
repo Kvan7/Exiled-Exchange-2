@@ -120,8 +120,6 @@ export default {
   INCURSION_MODS: ['Guatelitzi\'s', 'Xopec\'s', 'Topotante\'s', 'Tacati\'s', 'Matatl\'s', 'of Matatl', 'Citaqualotl\'s', 'of Citaqualotl', 'of Tacati', 'of Guatelitzi', 'of Puhuarte'],
   ITEM_SUPERIOR: /^Superior (.*)$/,
   ITEM_EXCEPTIONAL: /^Exceptional (.*)$/,
-  // [Manual]
-  ITEM_RUNEFORGED: /^Runeforged (.*)$/,
   MAP_BLIGHTED: /^Blighted (.*)$/,
   MAP_BLIGHT_RAVAGED: /^Blight-ravaged (.*)$/,
   ITEM_SYNTHESISED: /^Synthesised (.*)$/,

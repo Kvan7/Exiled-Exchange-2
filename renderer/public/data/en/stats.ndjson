@@ -1212,8 +1212,6 @@
 {"ref": "Grants #% of Life Recovery to Minions", "better": 1, "matchers": [{"string": "Grants #% of Life Recovery to Minions"}], "trade": {"ids": {"explicit": ["explicit.stat_2416869319"]}}, "id": "local_flask_minion_heal_%"}
 {"ref": "Grants 1 additional Skill Slot", "better": 1, "matchers": [{"string": "Grants # additional Skill Slots"}, {"string": "Grants 1 additional Skill Slot", "value": 1}], "trade": {"ids": {"implicit": ["implicit.stat_958696139"]}}, "id": "local_item_additional_skill_slots"}
 {"ref": "Grants Onslaught during effect", "better": 1, "matchers": [{"string": "Grants Onslaught during effect"}], "trade": {"ids": {"explicit": ["explicit.stat_618665892"]}}, "id": "charm_gain_onslaught_during_effect"}
-{"ref": "Grants Skill: Book of Specialisation", "better": 0, "matchers": [{"string": "Grants Skill: Book of Specialisation"}], "trade": {"ids": null}, "id": "book_of_specialisation"}
-{"ref": "Grants Skill: Herbalism II", "better": 0, "matchers": [{"string": "Grants Skill: Herbalism II"}], "trade": {"ids": null}, "id": "herbalism_ii"}
 {"ref": "Grants Skill: Level # Black Powder Blitz", "better": 1, "matchers": [{"string": "Grants Skill: Level # Black Powder Blitz"}], "trade": {"ids": {"skill": ["skill.black_powder_blitz_reservation"]}}}
 {"ref": "Grants Skill: Level # Blink", "better": 1, "matchers": [{"string": "Grants Skill: Level # Blink"}], "trade": {"ids": {"skill": ["skill.blink"]}}}
 {"ref": "Grants Skill: Level # Bone Blast", "better": 1, "matchers": [{"string": "Grants Skill: Level # Bone Blast"}], "trade": {"ids": {"skill": ["skill.bone_blast"]}}}
@@ -1283,7 +1281,9 @@
 {"ref": "Grants Skill: Level # Volatile Dead", "better": 1, "matchers": [{"string": "Grants Skill: Level # Volatile Dead"}], "trade": {"ids": {"skill": ["skill.volatile_dead"]}}}
 {"ref": "Grants Skill: Level # Wildwood's Gifts", "better": 1, "matchers": [{"string": "Grants Skill: Level # Wildwood's Gifts"}], "trade": {"ids": {"skill": ["skill.ancient_gifts"]}}}
 {"ref": "Grants Skill: Level # Withering Presence", "better": 1, "matchers": [{"string": "Grants Skill: Level # Withering Presence"}], "trade": {"ids": {"skill": ["skill.withering_presence"]}}}
-{"ref": "Grants Skill: Runeforged Braced Sabatons", "better": 0, "matchers": [{"string": "Grants Skill: Runeforged Braced Sabatons"}], "trade": {"ids": null}, "id": "runeforged_braced_sabatons"}
+{"ref": "Grants Skill: Parry", "better": 0, "matchers": [{"string": "Grants Skill: Parry"}], "trade": {"ids": null}, "id": "parry"}
+{"ref": "Grants Skill: Raise Shield", "better": 0, "matchers": [{"string": "Grants Skill: Raise Shield"}], "trade": {"ids": null}, "id": "raise_shield"}
+{"ref": "Grants Skill: Spear Throw", "better": 0, "matchers": [{"string": "Grants Skill: Spear Throw"}], "trade": {"ids": null}, "id": "spear_throw"}
 {"ref": "Grants a Frenzy Charge on use", "better": 1, "matchers": [{"string": "Grants a Frenzy Charge on use"}], "trade": {"ids": {"explicit": ["explicit.stat_280890192"]}}, "id": "charm_grants_frenzy_charge_when_used"}
 {"ref": "Grants a Power Charge on use", "better": 1, "matchers": [{"string": "Grants a Power Charge on use"}], "trade": {"ids": {"explicit": ["explicit.stat_2566921799"]}}, "id": "charm_grants_power_charge_when_used"}
 {"ref": "Grants effect of Dreaming Gloom Shrine", "better": 1, "matchers": [{"string": "Grants effect of Dreaming Gloom Shrine"}], "trade": {"ids": {"explicit": ["explicit.stat_3742268652"]}}, "id": "has_unique_chaos_shrine_effect"}

@@ -1209,8 +1209,6 @@
 {"ref": "Grants #% of Life Recovery to Minions", "better": 1, "matchers": [{"string": "Octroie #% de la Récupération de Vie aux Créatures"}], "trade": {"ids": {"explicit": ["explicit.stat_2416869319"]}}, "id": "local_flask_minion_heal_%"}
 {"ref": "Grants 1 additional Skill Slot", "better": 1, "matchers": [{"string": "Octroie # Emplacements d'Aptitude supplémentaires"}, {"string": "Octroie 1 Emplacement d'Aptitude supplémentaire", "value": 1}], "trade": {"ids": {"implicit": ["implicit.stat_958696139"]}}, "id": "local_item_additional_skill_slots"}
 {"ref": "Grants Onslaught during effect", "better": 1, "matchers": [{"string": "Octroie Assaut pendant l'Effet"}], "trade": {"ids": {"explicit": ["explicit.stat_618665892"]}}, "id": "charm_gain_onslaught_during_effect"}
-{"ref": "Grants Skill: Book of Specialisation", "better": 0, "matchers": [{"string": "Octroie l\\'Aptitude: Livre de Spécialisation"}], "trade": {"ids": null}, "id": "book_of_specialisation"}
-{"ref": "Grants Skill: Herbalism II", "better": 0, "matchers": [{"string": "Octroie l\\'Aptitude: Phytothérapie II"}], "trade": {"ids": null}, "id": "herbalism_ii"}
 {"ref": "Grants Skill: Level # Black Powder Blitz", "better": 1, "matchers": [{"string": "Octroie l'Aptitude: Niveau # Explosion de poudre noire"}], "trade": {"ids": {"skill": ["skill.black_powder_blitz_reservation"]}}}
 {"ref": "Grants Skill: Level # Blink", "better": 1, "matchers": [{"string": "Octroie l'Aptitude: Niveau # Transfert"}], "trade": {"ids": {"skill": ["skill.blink"]}}}
 {"ref": "Grants Skill: Level # Bone Blast", "better": 1, "matchers": [{"string": "Octroie l'Aptitude: Niveau # Déflagration d'ossements"}], "trade": {"ids": {"skill": ["skill.bone_blast"]}}}
@@ -1280,7 +1278,9 @@
 {"ref": "Grants Skill: Level # Volatile Dead", "better": 1, "matchers": [{"string": "Octroie l'Aptitude: Niveau # Cadavres instables"}], "trade": {"ids": {"skill": ["skill.volatile_dead"]}}}
 {"ref": "Grants Skill: Level # Wildwood's Gifts", "better": 1, "matchers": [{"string": "Octroie l'Aptitude: Niveau # Dons de la Sylve"}], "trade": {"ids": {"skill": ["skill.ancient_gifts"]}}}
 {"ref": "Grants Skill: Level # Withering Presence", "better": 1, "matchers": [{"string": "Octroie l'Aptitude: Niveau # Présence flétrissante"}], "trade": {"ids": {"skill": ["skill.withering_presence"]}}}
-{"ref": "Grants Skill: Runeforged Braced Sabatons", "better": 0, "matchers": [{"string": "Octroie l\\'Aptitude: Solerets solidifiés runeforgés"}], "trade": {"ids": null}, "id": "runeforged_braced_sabatons"}
+{"ref": "Grants Skill: Parry", "better": 0, "matchers": [{"string": "Octroie l\\'Aptitude: Parade"}], "trade": {"ids": null}, "id": "parry"}
+{"ref": "Grants Skill: Raise Shield", "better": 0, "matchers": [{"string": "Octroie l\\'Aptitude: Levée de bouclier"}], "trade": {"ids": null}, "id": "raise_shield"}
+{"ref": "Grants Skill: Spear Throw", "better": 0, "matchers": [{"string": "Octroie l\\'Aptitude: Jet de lance"}], "trade": {"ids": null}, "id": "spear_throw"}
 {"ref": "Grants a Frenzy Charge on use", "better": 1, "matchers": [{"string": "Octroie une Charge de frénésie à l'activation"}], "trade": {"ids": {"explicit": ["explicit.stat_280890192"]}}, "id": "charm_grants_frenzy_charge_when_used"}
 {"ref": "Grants a Power Charge on use", "better": 1, "matchers": [{"string": "Octroie une Charge de pouvoir à l'activation"}], "trade": {"ids": {"explicit": ["explicit.stat_2566921799"]}}, "id": "charm_grants_power_charge_when_used"}
 {"ref": "Grants effect of Dreaming Gloom Shrine", "better": 1, "matchers": [{"string": "Octroie l'Effet de l'Autel de la Morosité onirique"}], "trade": {"ids": {"explicit": ["explicit.stat_3742268652"]}}, "id": "has_unique_chaos_shrine_effect"}

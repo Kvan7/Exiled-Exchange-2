@@ -1370,9 +1370,11 @@ function parseRuneforged(item: ParserState) {
     item.rarity === ItemRarity.Unique
   ) {
     // FIXME: Update when text is available
-    if (_$REF.ITEM_RUNEFORGED.test(item.name)) {
-      item.name = _$REF.ITEM_RUNEFORGED.exec(item.name)![1];
-    }
+    // if (_$REF.ITEM_RUNEFORGED.test(item.name)) {
+    //   item.name = _$REF.ITEM_RUNEFORGED.exec(item.name)![1];
+    // }
+    // THEY ARE ACTUAL ITEMS????
+    // determine if detection is needed
   }
 }
 

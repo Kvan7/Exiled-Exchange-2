@@ -137,7 +137,6 @@ export interface TranslationDict {
   UNIDENTIFIED: RegExp;
   ITEM_SUPERIOR: RegExp;
   ITEM_EXCEPTIONAL: RegExp;
-  ITEM_RUNEFORGED: RegExp;
   MAP_BLIGHTED: RegExp;
   MAP_BLIGHT_RAVAGED: RegExp;
   INFLUENCE_SHAPER: string;

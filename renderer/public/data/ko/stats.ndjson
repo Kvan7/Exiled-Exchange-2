@@ -1208,8 +1208,6 @@
 {"ref": "Grants #% of Life Recovery to Minions", "better": 1, "matchers": [{"string": "소환수의 생명력 회복 #%"}], "trade": {"ids": {"explicit": ["explicit.stat_2416869319"]}}, "id": "local_flask_minion_heal_%"}
 {"ref": "Grants 1 additional Skill Slot", "better": 1, "matchers": [{"string": "스킬 슬롯 #개 추가"}, {"string": "스킬 슬롯 1개 추가", "value": 1}], "trade": {"ids": {"implicit": ["implicit.stat_958696139"]}}, "id": "local_item_additional_skill_slots"}
 {"ref": "Grants Onslaught during effect", "better": 1, "matchers": [{"string": "효과를 받는 동안 맹공 부여"}], "trade": {"ids": {"explicit": ["explicit.stat_618665892"]}}, "id": "charm_gain_onslaught_during_effect"}
-{"ref": "Grants Skill: Book of Specialisation", "better": 0, "matchers": [{"string": "스킬 부여: 특화의 서"}], "trade": {"ids": null}, "id": "book_of_specialisation"}
-{"ref": "Grants Skill: Herbalism II", "better": 0, "matchers": [{"string": "스킬 부여: 약초학 II"}], "trade": {"ids": null}, "id": "herbalism_ii"}
 {"ref": "Grants Skill: Level # Black Powder Blitz", "better": 1, "matchers": [{"string": "스킬 부여: #레벨 검은 화약 공세"}], "trade": {"ids": {"skill": ["skill.black_powder_blitz_reservation"]}}}
 {"ref": "Grants Skill: Level # Blink", "better": 1, "matchers": [{"string": "스킬 부여: #레벨 점멸"}], "trade": {"ids": {"skill": ["skill.blink"]}}}
 {"ref": "Grants Skill: Level # Bone Blast", "better": 1, "matchers": [{"string": "스킬 부여: #레벨 뼈 폭발"}], "trade": {"ids": {"skill": ["skill.bone_blast"]}}}
@@ -1279,7 +1277,9 @@
 {"ref": "Grants Skill: Level # Volatile Dead", "better": 1, "matchers": [{"string": "스킬 부여: #레벨 시체 불덩이"}], "trade": {"ids": {"skill": ["skill.volatile_dead"]}}}
 {"ref": "Grants Skill: Level # Wildwood's Gifts", "better": 1, "matchers": [{"string": "스킬 부여: #레벨 야생림의 선물"}], "trade": {"ids": {"skill": ["skill.ancient_gifts"]}}}
 {"ref": "Grants Skill: Level # Withering Presence", "better": 1, "matchers": [{"string": "스킬 부여: #레벨 고사시키는 존재"}], "trade": {"ids": {"skill": ["skill.withering_presence"]}}}
-{"ref": "Grants Skill: Runeforged Braced Sabatons", "better": 0, "matchers": [{"string": "스킬 부여: 룬벼림 죔쇠 발 덮개"}], "trade": {"ids": null}, "id": "runeforged_braced_sabatons"}
+{"ref": "Grants Skill: Parry", "better": 0, "matchers": [{"string": "스킬 부여: 흘려보내기"}], "trade": {"ids": null}, "id": "parry"}
+{"ref": "Grants Skill: Raise Shield", "better": 0, "matchers": [{"string": "스킬 부여: 방패 들기"}], "trade": {"ids": null}, "id": "raise_shield"}
+{"ref": "Grants Skill: Spear Throw", "better": 0, "matchers": [{"string": "스킬 부여: 창 투척"}], "trade": {"ids": null}, "id": "spear_throw"}
 {"ref": "Grants a Frenzy Charge on use", "better": 1, "matchers": [{"string": "사용 시 격분 충전 부여"}], "trade": {"ids": {"explicit": ["explicit.stat_280890192"]}}, "id": "charm_grants_frenzy_charge_when_used"}
 {"ref": "Grants a Power Charge on use", "better": 1, "matchers": [{"string": "사용 시 권능 충전 부여"}], "trade": {"ids": {"explicit": ["explicit.stat_2566921799"]}}, "id": "charm_grants_power_charge_when_used"}
 {"ref": "Grants effect of Dreaming Gloom Shrine", "better": 1, "matchers": [{"string": "몽환의 순흑의 성소 효과 부여"}], "trade": {"ids": {"explicit": ["explicit.stat_3742268652"]}}, "id": "has_unique_chaos_shrine_effect"}
