@@ -460,7 +460,7 @@ Gain 28(28-30)% of Damage as Extra Cold Damage
   mods[0].tags = ["Elemental", "Fire", "Chaos", "Resistance"];
 
   mods.unshift(
-    new TestModInfo(`{ Master Crafted Prefix Modifier "Gentian" (Tier: 6) — Mana }
+    new TestModInfo(`{ Crafted Prefix Modifier "Gentian" (Tier: 6) — Mana }
 +90(90-104) to maximum Mana
 `),
   );

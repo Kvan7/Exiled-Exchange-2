@@ -44,6 +44,7 @@
     "armour": "Armour: {0}",
     "evasion_rating": "Evasion Rating: {0}",
     "energy_shield": "Energy Shield: {0}",
+    "runic_ward": "Runic Ward: {0}",
     "block": "Block Chance: {0}%",
     "total_dps": "Total DPS: {0}",
     "physical_dps": "Physical DPS: {0}",

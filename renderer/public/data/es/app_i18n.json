@@ -42,6 +42,7 @@
     "armour": "Armadura: {0}",
     "evasion_rating": "Índice de evasión: {0}",
     "energy_shield": "Escudo de energía: {0}",
+    "runic_ward": "Barrera rúnica: {0}",
     "block": "Probabilidad de bloqueo: {0}%",
     "total_dps": "DPS total: {0}",
     "physical_dps": "DPS físico: {0}",

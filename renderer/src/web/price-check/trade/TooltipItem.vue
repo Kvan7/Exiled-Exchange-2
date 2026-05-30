@@ -11,7 +11,13 @@
     <div class="flex flex-col bg-black text-center">
       <div
         class="flex flex-col items-center justify-center text-base px-8"
-        :class="$style[result.displayItem.rarity + '-title']"
+        :class="
+          result.displayItem.frameType === 12 ||
+          result.displayItem.frameType === 13 ||
+          result.displayItem.frameType === 14
+            ? $style[result.displayItem.rarity + '-runic']
+            : $style[result.displayItem.rarity + '-title']
+        "
       >
         <div v-if="result.displayItem.title.length">
           {{ result.displayItem.title[0] }}
@@ -181,11 +187,15 @@ export default defineComponent({
 }
 
 .Normal-title,
-.Magic-title {
+.Magic-title,
+.Normal-runic,
+.Magic-runic {
   @apply h-[34px];
 }
 .Rare-title,
-.Unique-title {
+.Unique-title,
+.Rare-runic,
+.Unique-runic {
   @apply h-14;
 }
 
@@ -239,6 +249,52 @@ export default defineComponent({
   background-image: url("/images/item-display/unique-double-left.png"),
     url("/images/item-display/unique-double-right.png"),
     url("/images/item-display/unique-double-middle.png");
+  background-position:
+    top left,
+    top right,
+    top center;
+  background-repeat: no-repeat, no-repeat, repeat-x;
+  background-size:
+    46px auto,
+    46px auto,
+    46px auto;
+}
+
+.Magic-runic {
+  @apply text-magic;
+  background-image: url("/images/item-display/runic-magic-left.png"),
+    url("/images/item-display/runic-magic-right.png"),
+    url("/images/item-display/runic-magic-middle.png");
+  background-position:
+    top left,
+    top right,
+    top center;
+  background-repeat: no-repeat, no-repeat, repeat-x;
+  background-size:
+    29px auto,
+    29px auto,
+    29px auto;
+}
+.Rare-runic {
+  @apply text-rare;
+  background-image: url("/images/item-display/runic-rare-double-left.png"),
+    url("/images/item-display/runic-rare-double-right.png"),
+    url("/images/item-display/runic-rare-double-middle.png");
+  background-position:
+    top left,
+    top right,
+    top center;
+  background-repeat: no-repeat, no-repeat, repeat-x;
+  background-size:
+    46px auto,
+    46px auto,
+    46px auto;
+}
+.Unique-runic {
+  @apply text-unique;
+  background-image: url("/images/item-display/runic-unique-double-left.png"),
+    url("/images/item-display/runic-unique-double-right.png"),
+    url("/images/item-display/runic-unique-double-middle.png");
   background-position:
     top left,
     top right,
