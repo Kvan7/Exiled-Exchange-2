@@ -687,7 +687,7 @@ Waystone (Tier 14)
 --------
 Waystone Tier: 14
 Revives Available: 2 (augmented)
-Monster Pack Size: +34% (augmented)
+Pack Size: +34% (augmented)
 Rare Monsters: +28% (augmented)
 Waystone Drop Chance: +75% (augmented)
 --------
@@ -723,7 +723,7 @@ Waystone (Tier 16)
 --------
 Waystone Tier: 16
 Revives Available: 0 (augmented)
-Monster Pack Size: +20% (augmented)
+Pack Size: +20% (augmented)
 Magic Monsters: +30% (augmented)
 Rare Monsters: +71% (augmented)
 Waystone Drop Chance: +90% (augmented)
