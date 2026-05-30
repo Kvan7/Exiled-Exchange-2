@@ -421,6 +421,7 @@ interface FetchResult {
     typeLine: string;
     baseType: string;
     rarity: ItemRarity;
+    frameType?: DisplayFrameType;
     ilvl?: number;
     identified: boolean;
     unidentifiedTier?: number;
@@ -481,10 +482,20 @@ export interface DisplayItemLine {
   value?: string | number;
   color: TradeNumberColors;
 }
+export enum DisplayFrameType {
+  Normal = 0,
+  Magic = 1,
+  Rare = 2,
+  Unique = 3,
+  RunicMagic = 12,
+  RunicRare = 13,
+  RunicUnique = 14,
+}
 
 export interface DisplayItem {
   title: string[];
   rarity: ItemRarity;
+  frameType?: DisplayFrameType;
   nameBlock?: DisplayItemLine[];
   itemProps?: DisplayItemLine[];
   grantSkill?: DisplayItemLine[];
@@ -1482,6 +1493,7 @@ function parseFetchResult(result: FetchResult): PricingResult["displayItem"] {
   const displayItem: PricingResult["displayItem"] = {
     title,
     rarity: result.item.rarity,
+    frameType: result.item.frameType,
     nameBlock: buildNameBlock(result.item.extended, result.item.properties),
     itemProps: buildItemProps(result.item.ilvl, result.item.requirements),
     grantSkill: buildGrantSkillBlock(result.item.grantedSkills),
