@@ -120,8 +120,6 @@ export default {
   INCURSION_MODS: ['Guatelitzi\'s', 'Xopec\'s', 'Topotante\'s', 'Tacati\'s', 'Matatl\'s', 'of Matatl', 'Citaqualotl\'s', 'of Citaqualotl', 'of Tacati', 'of Guatelitzi', 'of Puhuarte'],
   ITEM_SUPERIOR: /^精良的 (.*)$/,
   ITEM_EXCEPTIONAL: /^卓越 (.*)$/,
-  // [Manual]
-  ITEM_RUNEFORGED: /^Runeforged (.*)$/,
   MAP_BLIGHTED: /^凋落的 (.*)$/,
   MAP_BLIGHT_RAVAGED: /^凋落蔓延的 (.*)$/,
   ITEM_SYNTHESISED: /^追憶之 (.*)$/,
