@@ -65,7 +65,7 @@ body:
         - 0.14.0
         - 0.13.x
         - Change me
-      default: 7
+      default: 6
     validations:
       required: true
   - type: textarea
