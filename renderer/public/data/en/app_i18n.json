@@ -298,9 +298,10 @@
     "name": "Item search",
     "input": "Search by name…",
     "reset": "Reset items",
-    "heist_target": "Heist target:",
-    "target_gem": "Skill Gem",
-    "target_replica": "Replicas",
+    "heist_target": "Type of Item:",
+    "target_gem": "Skill Gems",
+    "target_unique": "Uniques",
+    "target_base_item": "Base Items",
     "too_many_": "Too many items found, enter the name more precisely.",
     "not_found": "No items found.",
     "ocr_gems_key": "Perform an OCR for a Skill Gem"
