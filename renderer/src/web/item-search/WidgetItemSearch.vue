@@ -373,10 +373,15 @@ function starredItemClick(e: MouseEvent, item: SelectedItem) {
           info: item.info,
           gemLevel: 1,
         })
-      : createVirtualItem({
-          rarity: ItemRarity.Unique,
-          info: item.info,
-        });
+      : item.info.namespace === "UNIQUE"
+        ? createVirtualItem({
+            rarity: ItemRarity.Unique,
+            info: item.info,
+          })
+        : createVirtualItem({
+            rarity: ItemRarity.Normal,
+            info: item.info,
+          });
 
   Host.selfDispatch({
     name: "MAIN->CLIENT::item-text",
