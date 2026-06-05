@@ -88,7 +88,11 @@
             <div class="flex" :class="$style.itemWrapper">
               <div class="w-8 h-8 flex items-center justify-center">
                 <img
-                  :src="item.icon"
+                  :src="
+                    item.icon === '%NOT_FOUND%' || item.icon === ''
+                      ? '/images/404.png'
+                      : item.icon
+                  "
                   class="max-w-full max-h-full overflow-hidden"
                 />
               </div>
