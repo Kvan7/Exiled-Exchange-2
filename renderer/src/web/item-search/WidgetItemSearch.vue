@@ -68,12 +68,18 @@
               {{ t(":target_gem") }}
             </button>
             <button
-              :class="{ border: typeFilter === 'replica' }"
+              :class="{ border: typeFilter === 'unique' }"
               class="rounded px-2 bg-gray-900"
-              @click="typeFilter = 'replica'"
+              @click="typeFilter = 'unique'"
             >
-              {{ t(":target_replica") }},
-              <span class="line-through text-gray-600">Base items</span>
+              {{ t(":target_unique") }}
+            </button>
+            <button
+              :class="{ border: typeFilter === 'base_item' }"
+              class="rounded px-2 bg-gray-900"
+              @click="typeFilter = 'base_item'"
+            >
+              {{ t(":target_base_item") }}
             </button>
           </div>
         </div>
@@ -87,18 +93,16 @@
                 />
               </div>
               <div>
-                <div class="h-8 flex items-center px-1">{{ item.name }}</div>
-                <div v-if="item.gem" class="flex gap-x-1">
-                  <button
-                    v-for="altQuality in []"
-                    :key="altQuality"
-                    @click="selectItem(item, { altQuality })"
-                  >
-                    {{ t(altQuality) }}
+                <div class="h-8 flex items-center px-1">
+                  {{ item.name }}{{ item.unique ? ` ${item.unique.base}` : "" }}
+                </div>
+                <div v-if="item.unique" class="flex gap-x-1">
+                  <button @click="selectItem(item, { unique: true })">
+                    {{ t("Select") }}
                   </button>
                 </div>
-                <div v-else-if="item.unique" class="flex gap-x-1">
-                  <button @click="selectItem(item, { unique: true })">
+                <div v-else class="flex gap-x-1">
+                  <button @click="selectItem(item)">
                     {{ t("Select") }}
                   </button>
                 </div>
@@ -124,8 +128,9 @@ import {
   BaseType,
   ITEM_BY_TRANSLATED,
   CLIENT_STRINGS as _$,
-  ALTQ_GEM_NAMES,
-  REPLICA_UNIQUE_NAMES,
+  GEM_NS_NAMES,
+  UNIQUE_NS_NAMES,
+  ITEM_NS_NAMES,
 } from "@/assets/data";
 import { AppConfig } from "@/web/Config";
 import { CurrencyValue } from "@/web/background/Prices";
@@ -194,7 +199,7 @@ function useSelectedItems() {
 
 function findItems(opts: {
   search: string;
-  namespace: "GEM" | "UNIQUE";
+  namespace: "GEM" | "UNIQUE" | "ITEM";
   itemNames: () => Generator<string>;
 }): BaseType[] | false {
   const search = opts.search.trim();
@@ -215,6 +220,7 @@ function findItems(opts: {
         lcName.split(/\s+/).some((part) => part.startsWith(lcLongestWord)))
     ) {
       const match = ITEM_BY_TRANSLATED(opts.namespace, itemName);
+      // facebreakers duplicated here cause we get 2 from by translated, then find another from generator
       out.push(...(match ?? []));
       if (out.length > MAX_RESULTS) return false;
     }
@@ -233,7 +239,7 @@ function fuzzyFindHeistGem(badStr: string) {
 
   let bestMatch: { name: string; altQuality: string };
   let minDist = Infinity;
-  for (const name of ALTQ_GEM_NAMES()) {
+  for (const name of GEM_NS_NAMES()) {
     for (const [altQuality, reStr] of qualities) {
       const exactStr = reStr.replace("(.*)", name).toLowerCase();
       if (Math.abs(exactStr.length - badStr.length) > 5) {
@@ -282,7 +288,7 @@ nextTick(() => {
 const searchValue = shallowRef("");
 const { items: starred, addItem, clearItems } = useSelectedItems();
 
-const typeFilter = shallowRef<"gem" | "replica">("gem");
+const typeFilter = shallowRef<"gem" | "unique" | "base_item">("base_item");
 
 Host.onEvent("MAIN->CLIENT::ocr-text", (e) => {
   if (e.target !== "heist-gems") return;
@@ -290,7 +296,6 @@ Host.onEvent("MAIN->CLIENT::ocr-text", (e) => {
   for (const para of e.paragraphs) {
     const res = fuzzyFindHeistGem(para);
     selectItem(ITEM_BY_TRANSLATED("GEM", res.name)![0], {
-      altQuality: res.altQuality,
       withTimeout: true,
     });
   }
@@ -298,31 +303,29 @@ Host.onEvent("MAIN->CLIENT::ocr-text", (e) => {
 
 function selectItem(
   item: BaseType,
-  opts: { altQuality?: string; unique?: true; withTimeout?: true },
+  opts?: { unique?: true; withTimeout?: true },
 ) {
   queuePricesFetch();
 
   let price: ReturnType<typeof findPriceByQuery>;
-  if (opts.altQuality) {
+  if (opts?.unique) {
     price = findPriceByQuery({
       ns: item.namespace,
-      name: `${opts.altQuality} ${item.refName}`,
-      // variant: "1",
+      name: item.refName,
+      variant: item.unique!.base,
     });
   } else {
     price = findPriceByQuery({
       ns: item.namespace,
       name: item.refName,
-      // variant: item.unique!.base,
     });
   }
   const isAdded = addItem({
     info: item,
-    discr: opts.altQuality,
     chaos: price?.primaryValue,
     price: price != null ? autoCurrency(price.primaryValue) : undefined,
   });
-  if (isAdded && opts.withTimeout) {
+  if (isAdded && opts?.withTimeout) {
     showTimeout.value?.reset();
     props.config.wmFlags = [];
   }
@@ -334,13 +337,19 @@ const results = computed(() => {
     return findItems({
       search: searchValue.value,
       namespace: "GEM",
-      itemNames: ALTQ_GEM_NAMES,
+      itemNames: GEM_NS_NAMES,
+    });
+  } else if (typeFilter.value === "unique") {
+    return findItems({
+      search: searchValue.value,
+      namespace: "UNIQUE",
+      itemNames: UNIQUE_NS_NAMES,
     });
   } else {
     return findItems({
       search: searchValue.value,
-      namespace: "UNIQUE",
-      itemNames: REPLICA_UNIQUE_NAMES,
+      namespace: "ITEM",
+      itemNames: ITEM_NS_NAMES,
     });
   }
 });
