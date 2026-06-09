@@ -272,6 +272,26 @@ export default defineComponent({
       }));
     });
 
+    const isNativeOverlayRequired = computed(() => {
+      if (!Host.isElectron) return true;
+      if (active.value) return true;
+      if (showEditingNotification.value) return true;
+      if (AppConfig().logKeys) return true;
+
+      return visibilityState.value.some((w) => w.isVisible);
+    });
+
+    watch(
+      isNativeOverlayRequired,
+      (isRequired) => {
+        Host.sendEvent({
+          name: "OVERLAY->MAIN::render-state",
+          payload: { isRequired },
+        });
+      },
+      { immediate: true },
+    );
+
     const topmostWidget = computed<Widget>(() => {
       // guaranteed to always exist because of the 'widget-menu'
       return AppConfig()

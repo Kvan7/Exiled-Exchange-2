@@ -77,6 +77,7 @@ export type IpcEvent =
   | IpcFocusChange
   | IpcVisibility
   | IpcFocusGame
+  | IpcOverlayRenderState
   | IpcHideExclusiveWidget
   | IpcTrackArea
   // events used by any type of Client:
@@ -118,6 +119,13 @@ type IpcVisibility = Event<
 >;
 
 type IpcFocusGame = Event<"OVERLAY->MAIN::focus-game">;
+
+type IpcOverlayRenderState = Event<
+  "OVERLAY->MAIN::render-state",
+  {
+    isRequired: boolean;
+  }
+>;
 
 type IpcHideExclusiveWidget = Event<"MAIN->OVERLAY::hide-exclusive-widget">;
 

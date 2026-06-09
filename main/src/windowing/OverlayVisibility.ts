@@ -1,4 +1,4 @@
-import { uIOhook, UiohookKey } from "uiohook-napi";
+import { uIOhook, UiohookKey, UiohookMouseEvent } from "uiohook-napi";
 import type { ServerEvents } from "../server";
 import type { GameConfig } from "../host-files/GameConfig";
 import type { OverlayWindow } from "./OverlayWindow";
@@ -6,6 +6,7 @@ import type { OverlayWindow } from "./OverlayWindow";
 export class OverlayVisibility {
   private timerId: NodeJS.Timeout | undefined;
   private isOverlayVisible = true;
+  private isMouseMoveListenerActive = false;
 
   constructor(
     private server: ServerEvents,
@@ -30,15 +31,17 @@ export class OverlayVisibility {
         this.makeVisible();
       }
     });
-
-    uIOhook.on("mousemove", (e) => {
-      if (!e.altKey) {
-        this.makeVisible();
-      }
-    });
   }
 
+  private readonly handleMouseMove = (e: UiohookMouseEvent) => {
+    if (!e.altKey) {
+      this.makeVisible();
+    }
+  };
+
   private makeVisible() {
+    this.removeMouseMoveListener();
+
     if (this.isOverlayVisible && this.timerId === undefined) return;
 
     if (this.timerId !== undefined) {
@@ -56,6 +59,7 @@ export class OverlayVisibility {
   private makeInvisible() {
     if (!this.isOverlayVisible || this.timerId !== undefined) return;
 
+    this.addMouseMoveListener();
     this.timerId = setTimeout(
       () => {
         this.timerId = undefined;
@@ -67,5 +71,19 @@ export class OverlayVisibility {
       },
       this.overlay.isInteractable ? 85 : 275,
     );
+  }
+
+  private addMouseMoveListener() {
+    if (this.isMouseMoveListenerActive) return;
+
+    uIOhook.addListener("mousemove", this.handleMouseMove);
+    this.isMouseMoveListenerActive = true;
+  }
+
+  private removeMouseMoveListener() {
+    if (!this.isMouseMoveListenerActive) return;
+
+    uIOhook.removeListener("mousemove", this.handleMouseMove);
+    this.isMouseMoveListenerActive = false;
   }
 }
