@@ -17,7 +17,9 @@ describe("parseMap", () => {
     "%#. Each mod section is recognized",
     (rawText: string, mapTier: number | undefined) => {
       const sections = __testExports.itemTextToSections(rawText);
-      const parsedItem = {} as ParsedItem;
+      const parsedItem = {
+        info: { map: { tier: mapTier } },
+      } as ParsedItem;
       const res = __testExports.parseWaystone(sections[1], parsedItem);
       expect(res).toBe("SECTION_PARSED");
       expect(parsedItem.mapTier).toBe(mapTier);
@@ -30,7 +32,9 @@ describe("parseMap", () => {
     "%#. Each mod section adds correct count to newMods",
     (rawText: string, testItem: TestItem) => {
       const sections = __testExports.itemTextToSections(rawText);
-      const parsedItem = {} as ParsedItem;
+      const parsedItem = {
+        info: { map: { tier: testItem.mapTier } },
+      } as ParsedItem;
 
       const res = __testExports.parseWaystone(sections[1], parsedItem);
       expect(res).toBe("SECTION_PARSED");

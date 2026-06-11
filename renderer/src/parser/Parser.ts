@@ -388,8 +388,10 @@ function parseMap(section: string[], item: ParsedItem) {
 
 function parseWaystone(section: string[], item: ParsedItem) {
   performance.mark("parseWaystone");
-  if (section[0].startsWith(_$.WAYSTONE_TIER)) {
-    item.mapTier = Number(section.shift()!.slice(_$.WAYSTONE_TIER.length));
+
+  if (section[0].startsWith(_$.WAYSTONE_REVIVES) && item.info.map?.tier) {
+    // we are a map now
+    item.mapTier = item.info.map.tier;
 
     for (const line of section) {
       if (line.startsWith(_$.WAYSTONE_REVIVES)) {

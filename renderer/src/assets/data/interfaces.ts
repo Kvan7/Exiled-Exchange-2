@@ -84,6 +84,7 @@ export interface BaseType {
   };
   map?: {
     screenshot?: string;
+    tier?: number;
   };
   gem?: {
     vaal?: true;
