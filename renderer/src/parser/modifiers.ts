@@ -181,3 +181,12 @@ export enum ModifierType {
   Desecrated = "desecrated",
   Skill = "skill",
 }
+
+export const EXPLICIT_MOD_TYPES = new Set([
+  ModifierType.Explicit,
+  ModifierType.Fractured,
+  ModifierType.Veiled,
+  ModifierType.Desecrated,
+  ModifierType.Crafted,
+  ModifierType.Sanctum,
+]);
