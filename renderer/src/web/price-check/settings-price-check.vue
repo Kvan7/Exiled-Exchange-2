@@ -106,9 +106,16 @@
     <ui-checkbox class="mb-4" v-model="rememberCurrency">{{
       t(":remember_currency")
     }}</ui-checkbox>
-    <ui-checkbox class="mb-4" v-model="rememberListingType">{{
-      t(":remember_listing")
-    }}</ui-checkbox>
+
+    <div class="mb-2">
+      <ui-checkbox class="mb-1" v-model="rememberListingType">{{
+        t(":remember_listing")
+      }}</ui-checkbox>
+      <div class="mb-4 italic text-gray-500">
+        {{ t(":remember_listing_note") }}
+      </div>
+    </div>
+
     <ui-checkbox class="mb-4" v-model="activateStockFilter">{{
       t(":select_stock")
     }}</ui-checkbox>

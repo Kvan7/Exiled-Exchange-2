@@ -427,6 +427,7 @@
     "always_show_tier": "Always show tier",
     "remember_ratio": "Remember currency ratio",
     "remember_listing": "Remember listing type",
+    "remember_listing_note": "You probably don't want to enable listing type, here as an option just for people who know what they are doing.",
     "open_editor_above": "Open rune socket selector upwards",
     "core_currency": "Primary base currency:",
     "show_volume": "Show Currency Exchange volume per hour:"
