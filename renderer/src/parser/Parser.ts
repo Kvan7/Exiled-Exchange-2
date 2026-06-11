@@ -14,7 +14,7 @@ import {
   tryParseTranslation,
   getRollOrMinmaxAvg,
 } from "./stat-translations";
-import { ItemCategory } from "./meta";
+import { GEM, ItemCategory } from "./meta";
 import {
   IncursionRoom,
   ParsedItem,
@@ -232,7 +232,7 @@ function findInDatabase(item: ParserState) {
     info = ITEM_BY_REF("DIVINATION_CARD", item.name);
   } else if (item.category === ItemCategory.CapturedBeast) {
     info = ITEM_BY_REF("CAPTURED_BEAST", item.baseType ?? item.name);
-  } else if (item.category === ItemCategory.Gem) {
+  } else if (item.category && GEM.has(item.category)) {
     info = ITEM_BY_REF("GEM", item.name);
   } else if (item.category === ItemCategory.MetamorphSample) {
     info = ITEM_BY_REF("ITEM", item.name);
@@ -258,7 +258,7 @@ function findInDatabase(item: ParserState) {
       info = ITEM_BY_TRANSLATED("DIVINATION_CARD", item.name);
     } else if (item.category === ItemCategory.CapturedBeast) {
       info = ITEM_BY_TRANSLATED("CAPTURED_BEAST", item.baseType ?? item.name);
-    } else if (item.category === ItemCategory.Gem) {
+    } else if (item.category && GEM.has(item.category)) {
       info = ITEM_BY_TRANSLATED("GEM", item.name);
     } else if (item.category === ItemCategory.MetamorphSample) {
       info = ITEM_BY_TRANSLATED("ITEM", item.name);
@@ -448,8 +448,16 @@ function pickCorrectVariant(item: ParserState) {
 function parseNamePlate(section: string[]) {
   performance.mark("parseNamePlate");
   let line = section.shift();
+
+  let missingItemClass = false;
+
   if (!line?.startsWith(_$.ITEM_CLASS)) {
-    return err("item.parse_error");
+    // HACK: Meta skill gems
+    if (line && section.unshift(line) && isItemMissingItemClass(section)) {
+      missingItemClass = true;
+    } else {
+      return err("item.parse_error");
+    }
   }
 
   line = section.shift();
@@ -508,6 +516,10 @@ function parseNamePlate(section: string[]) {
     case _$.RARITY_UNIQUE:
       item.rarity = ItemRarity.Unique;
       break;
+  }
+
+  if (missingItemClass) {
+    item.category = ItemCategory.Gem;
   }
 
   return ok(item);
@@ -612,6 +624,10 @@ function parseRequirements(section: string[], item: ParsedItem) {
     return "SECTION_SKIPPED";
   }
 
+  if (item.category && GEM.has(item.category)) {
+    return "SECTION_SKIPPED";
+  }
+
   const match = section[0].match(_$.REQUIRES_LINE);
   // TODO: remove once validated in other langs
   if (!match) {
@@ -669,12 +685,16 @@ function parseGem(section: string[], item: ParsedItem) {
   performance.mark("parseGem");
   if (
     item.category !== ItemCategory.Gem &&
+    item.category !== ItemCategory.MetaGem &&
     item.category !== ItemCategory.UncutGem
   ) {
     return "PARSER_SKIPPED";
   }
 
-  const gemLevelLineNumber = item.category === ItemCategory.Gem ? 1 : 0;
+  const gemLevelLineNumber =
+    item.category === ItemCategory.Gem || item.category === ItemCategory.MetaGem
+      ? 1
+      : 0;
 
   if (section[gemLevelLineNumber]?.startsWith(_$.GEM_LEVEL)) {
     // "Level: 20 (Max)"
@@ -756,7 +776,11 @@ function parseAugmentSockets(section: string[], item: ParsedItem) {
 
 function parseSockets(section: string[], item: ParsedItem) {
   performance.mark("parseSockets");
-  if (item.category === ItemCategory.Gem && section[0].startsWith(_$.SOCKETS)) {
+  if (
+    item.category &&
+    GEM.has(item.category) &&
+    section[0].startsWith(_$.SOCKETS)
+  ) {
     let sockets = section[0].slice(_$.SOCKETS.length).trimEnd();
     sockets = sockets.replace(/[^ -]/g, "#");
 
@@ -1887,10 +1911,9 @@ export function replaceHashWithValues(template: string, values: number[]) {
   return result;
 }
 
-function isUncutSkillGem(section: string[]): boolean {
-  if (section.length !== 2) return false;
-  const translated = _$.RARITY + _$.RARITY_CURRENCY;
-  return section[0] === translated && section[1] !== undefined;
+function isItemMissingItemClass(section: string[]): boolean {
+  if (section.length > 3 || section.length < 2) return false;
+  return section[0].startsWith(_$.RARITY) && section[1] !== undefined;
 }
 
 // Disable since this is export for tests
@@ -1899,7 +1922,7 @@ export const __testExports = {
   itemTextToSections,
   findInDatabase,
   parseNamePlate,
-  isUncutSkillGem,
+  isItemMissingItemClass,
   parseWeapon,
   parseArmour,
   parseModifiers,

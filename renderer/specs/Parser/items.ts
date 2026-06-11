@@ -390,6 +390,48 @@ UncutSupportGem.info = {
 UncutSupportGem.sectionCount = 3;
 // #endregion UncutSupportGem
 
+// #region MetaSkillGem
+export const MetaSkillGem = new TestItem(`Rarity: Gem
+Mirage Archer
+--------
+Buff, Persistent, Trigger, Duration, Meta
+Level: 14
+Reservation: 60 Spirit
+--------
+Requires: Level 58, 103 Dex
+Requires: Spear, Bow, Crossbow
+--------
+Sockets: G G G G
+--------
+While active, dodge rolling will create a Mirage that uses socketed ranged Attacks for a short duration, then vanish.
+--------
+Support
+--------
+Mirages deal 30% less Damage
+Socketed Skills cannot consume Charges
+--------
+Mirage
+--------
+Cooldown Time: 10.00s
+--------
+Mirage duration is 5.7 seconds
+--------
+Place one or more Skill Gems into this Meta Gem's sockets in the Skills Panel. The socketed Skills will be incorporated into the Meta Gem's effect.
+`);
+MetaSkillGem.category = ItemCategory.Gem;
+MetaSkillGem.gemLevel = 14;
+MetaSkillGem.info = {
+  name: "Mirage Archer",
+  refName: "Mirage Archer",
+  namespace: "GEM",
+  icon: "test",
+  tags: [],
+  craftable: { category: ItemCategory.Gem },
+};
+
+MetaSkillGem.sectionCount = 11;
+// #endregion MetaSkillGem
+
 // #region HighDamageRareItem
 export const HighDamageRareItem = new TestItem(`Item Class: Crossbows
 Rarity: Rare

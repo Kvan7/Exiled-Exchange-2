@@ -10,7 +10,7 @@ import type {
 } from "./interfaces";
 import { loadClientStrings } from "../client-string-loader";
 import { useTradeData } from "@/web/background/TradeData";
-import { ItemCategory } from "@/parser/meta";
+import { GEM, ItemCategory } from "@/parser/meta";
 import { ItemRarity } from "@/parser/ParsedItem";
 
 export * from "./interfaces";
@@ -404,7 +404,7 @@ async function loadTradeData() {
     let base: BaseType | undefined;
     const { baseType, name, rarity, category } = itemQuery;
 
-    if (category === ItemCategory.Gem) {
+    if (category && GEM.has(category)) {
       if (name && items.has(name)) {
         base = {
           name: name,
