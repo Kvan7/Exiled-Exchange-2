@@ -105,9 +105,12 @@
             <ui-radio v-model="filters.trade.currency" value="divine">{{
               t(":currency_only_div")
             }}</ui-radio>
-            <ui-radio v-model="filters.trade.currency" value="exalted_divine" :default="true">{{
-              t(":currency_exalted_div")
-            }}</ui-radio>
++            <ui-radio
+              v-model="filters.trade.currency"
+              value="exalted_divine"
+              :default="true"
+              >{{ t(":currency_exalted_div") }}</ui-radio
+            >
           </template>
         </div>
       </div>
@@ -153,7 +156,8 @@ export default defineComponent({
         Boolean(
           (props.filters.trade.listed &&
             ["1day", "3days", "1week"].includes(props.filters.trade.listed)) ||
-            (props.filters.trade.currency && props.filters.trade.currency !== "currency_any"),
+            (props.filters.trade.currency &&
+              props.filters.trade.currency !== "currency_any"),
         ),
       onOfflineUpdate(offline: boolean) {
         const { filters } = props;
