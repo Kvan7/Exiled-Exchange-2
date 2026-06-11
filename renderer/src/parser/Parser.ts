@@ -40,6 +40,7 @@ import {
   ADDED_AUGMENT_LINE,
 } from "./advanced-mod-desc";
 import { calcPropPercentile, QUALITY_STATS } from "./calc-q20";
+import { AppConfig } from "@/web/Config";
 
 type SectionParseResult =
   | "SECTION_PARSED"
@@ -48,6 +49,75 @@ type SectionParseResult =
 
 type ParserFn = (section: string[], item: ParserState) => SectionParseResult;
 type VirtualParserFn = (item: ParserState) => Result<never, string> | void;
+
+const LANGUAGE_DETECTOR = [
+  {
+    lang: "en",
+    displayLang: "English",
+    itemClassLine: "Item Class: ",
+    rarityLine: "Rarity: ",
+  },
+  {
+    lang: "ru",
+    displayLang: "Русский",
+    itemClassLine: "Класс предмета: ",
+    rarityLine: "Редкость: ",
+  },
+  {
+    lang: "fr",
+    displayLang: "Français",
+    itemClassLine: "Classe d'objet: ",
+    rarityLine: "Rareté: ",
+  },
+  {
+    lang: "de",
+    displayLang: "Deutsch",
+    itemClassLine: "Gegenstandsklasse: ",
+    rarityLine: "Seltenheit: ",
+  },
+  {
+    lang: "pt",
+    displayLang: "Português (Brasil)",
+    itemClassLine: "Classe do Item: ",
+    rarityLine: "Raridade: ",
+  },
+  {
+    lang: "es",
+    displayLang: "Español",
+    itemClassLine: "Clase de objeto: ",
+    rarityLine: "Rareza: ",
+  },
+  {
+    lang: "th",
+    displayLang: "ไทย",
+    itemClassLine: "ชนิดไอเทม: ",
+    rarityLine: "Rarity: ",
+  },
+  {
+    lang: "ko",
+    displayLang: "한국어",
+    itemClassLine: "아이템 종류: ",
+    rarityLine: "아이템 희귀도: ",
+  },
+  {
+    lang: "cmn-Hant",
+    displayLang: "正體中文",
+    itemClassLine: "物品種類: ",
+    rarityLine: "稀有度: ",
+  },
+  {
+    lang: "cmn-Hans",
+    displayLang: "普通话",
+    itemClassLine: "物品类别: ",
+    rarityLine: "Rarity: ",
+  },
+  {
+    lang: "ja",
+    displayLang: "日本語",
+    itemClassLine: "アイテムクラス: ",
+    rarityLine: "レアリティ: ",
+  },
+];
 
 export interface ParserState extends ParsedItem {
   name: string;
@@ -456,6 +526,17 @@ function parseNamePlate(section: string[]) {
     if (line && section.unshift(line) && isItemMissingItemClass(section)) {
       missingItemClass = true;
     } else {
+      // figure out if this was an issue with wrong language, or a bug
+      console.log(section);
+      const langFound = LANGUAGE_DETECTOR.find(({ rarityLine }) =>
+        section[1].startsWith(rarityLine),
+      );
+      if (langFound) {
+        return err(
+          `item.wrong_language|${langFound.displayLang}|${LANGUAGE_DETECTOR.find(({ lang }) => lang === AppConfig().language)!.displayLang}`,
+        );
+      }
+
       return err("item.parse_error");
     }
   }

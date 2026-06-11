@@ -121,7 +121,9 @@
     "ascendancy_points": "Points: {0}",
     "victorious": "Victorious",
     "cowardly": "Cowardly",
-    "deadly": "Deadly"
+    "deadly": "Deadly",
+    "wrong_language": "POE2 language doesn't match EE2",
+    "wrong_language_help": "POE2 is set to {0} but EE2 is currently set to {1}"
   },
   "item_category": {
     "prop": "Category: {0}",
