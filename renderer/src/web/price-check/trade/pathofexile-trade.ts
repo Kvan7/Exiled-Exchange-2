@@ -568,7 +568,7 @@ export function createTradeRequest(
   };
   const { query } = body;
 
-  if (filters.trade.currency) {
+  if (filters.trade.currency && filters.trade.currency !== "currency_any") {
     propSet(
       query.filters,
       "trade_filters.filters.price.option",

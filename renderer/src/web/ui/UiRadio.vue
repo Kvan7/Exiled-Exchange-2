@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, onMounted } from "vue";
 
 export default defineComponent({
   name: "UiRadio",
@@ -37,8 +37,18 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    default: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props, ctx) {
+    onMounted(() => {
+      if (props.default && props.modelValue === undefined && props.value !== undefined) {
+        ctx.emit("update:modelValue", props.value);
+      }
+    });
+
     return {
       isChecked: computed(() => {
         return props.modelValue === props.value;
