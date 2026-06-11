@@ -57,6 +57,8 @@ export default {
   PREFIX_MODIFIER: '접두어 속성 부여',
   SUFFIX_MODIFIER: '접미어 속성 부여',
   IMPLICIT_MODIFIER: '고정 속성 부여',
+  ENCHANT_MODIFIER: '향상',
+  CORRUPTED_MODIFIER: '타락 향상',
   CRAFTED_MODIFIER: '제작된',
   FRACTURED_MODIFIER: '분열된',
   DESECRATED_MODIFIER: '훼손된',

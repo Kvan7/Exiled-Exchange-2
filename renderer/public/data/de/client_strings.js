@@ -57,6 +57,8 @@ export default {
   PREFIX_MODIFIER: 'Präfix-Modifikator',
   SUFFIX_MODIFIER: 'Suffix-Modifikator',
   IMPLICIT_MODIFIER: 'Impliziter Modifikator',
+  ENCHANT_MODIFIER: 'Verstärkung',
+  CORRUPTED_MODIFIER: 'Verderbnis-Verstärkung',
   CRAFTED_MODIFIER: 'Angefertigt',
   FRACTURED_MODIFIER: 'Brüchig',
   DESECRATED_MODIFIER: 'Entweiht',

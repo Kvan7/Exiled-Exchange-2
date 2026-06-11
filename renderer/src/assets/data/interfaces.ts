@@ -239,6 +239,8 @@ export interface TranslationDict {
   LOG_ZONE_GEN: RegExp;
   DOUBLE_CORRUPTED: string;
   IMPLICIT_MODIFIER: string;
+  ENCHANT_MODIFIER: string;
+  CORRUPTED_MODIFIER: string;
   REQUIRES_LINE: RegExp;
   UNIQUE_MODIFIER: string;
   VAAL_UNIQUE_MODIFIER: string;

@@ -57,6 +57,8 @@ export default {
   PREFIX_MODIFIER: '前綴',
   SUFFIX_MODIFIER: '後綴',
   IMPLICIT_MODIFIER: '固定詞綴',
+  ENCHANT_MODIFIER: '附魔',
+  CORRUPTED_MODIFIER: '汙染附魔',
   CRAFTED_MODIFIER: '已工藝',
   FRACTURED_MODIFIER: '已破裂',
   DESECRATED_MODIFIER: '已褻瀆',
