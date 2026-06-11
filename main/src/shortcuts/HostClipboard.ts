@@ -14,6 +14,7 @@ export class HostClipboard {
   private pollPromise?: Promise<string>;
   private elapsed = 0;
   private shouldRestore = false;
+  private initialDelay = POLL_DELAY;
 
   private isRestored = true;
 
@@ -66,7 +67,7 @@ export class HostClipboard {
           }
         }
       };
-      setTimeout(poll, POLL_DELAY);
+      setTimeout(poll, this.initialDelay);
     });
 
     return await this.pollPromise;
@@ -90,6 +91,10 @@ export class HostClipboard {
       }
       this.isRestored = true;
     }, RESTORE_AFTER);
+  }
+
+  updateDelay(delay: number) {
+    this.initialDelay = delay;
   }
 }
 

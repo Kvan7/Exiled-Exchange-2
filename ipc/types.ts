@@ -11,6 +11,7 @@ export interface HostConfig {
   readClientLog: boolean;
   libraryAlpha: boolean;
   libraryOutputPath: string | null;
+  initialDelay: number;
 }
 
 export interface ShortcutAction {

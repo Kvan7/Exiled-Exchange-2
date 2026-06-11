@@ -112,6 +112,7 @@ let tray: AppTray;
               cfg.restoreClipboard,
               cfg.language,
             );
+            shortcuts.updateDelay(cfg.initialDelay);
             gameLogWatcher.restart(cfg.clientLog ?? "", cfg.readClientLog);
             gameConfig.readConfig(cfg.gameConfig ?? "");
             appUpdater.checkAtStartup();

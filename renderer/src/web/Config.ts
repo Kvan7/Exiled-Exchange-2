@@ -156,7 +156,7 @@ export interface Config {
 }
 
 export const defaultConfig = (): Config => ({
-  configVersion: 31,
+  configVersion: 32,
   overlayKey: "Shift + Space",
   overlayBackground: "rgba(129, 139, 149, 0.15)",
   overlayBackgroundClose: true,
@@ -648,6 +648,16 @@ function upgradeConfig(_config: Config): Config {
 
     config.configVersion = 31;
   }
+
+  if (config.configVersion < 32) {
+    // NOTE: v0.15.0 || poe0.4.0k
+    const priceCheck = config.widgets.find(
+      (w) => w.wmType === "price-check",
+    ) as widget.PriceCheckWidget;
+    priceCheck.initialDelay = 48;
+
+    config.configVersion = 32;
+  }
   /* eslint-enable */
 
   return config as unknown as Config;
@@ -801,5 +811,6 @@ function getConfigForHost(): HostConfig {
     readClientLog: config.readClientLog,
     libraryAlpha: config.enableAlphas && config.alphas.includes("library"),
     libraryOutputPath: library.libraryOutputPath,
+    initialDelay: priceCheck.initialDelay,
   };
 }

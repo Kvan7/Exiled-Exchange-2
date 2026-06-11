@@ -430,7 +430,9 @@
     "remember_listing_note": "You probably don't want to enable listing type, here as an option just for people who know what they are doing.",
     "open_editor_above": "Open rune socket selector upwards",
     "core_currency": "Primary base currency:",
-    "show_volume": "Show Currency Exchange volume per hour:"
+    "show_volume": "Show Currency Exchange volume per hour:",
+    "warn_advanced": "Advanced settings, don't change unless you are experiencing issues",
+    "initial_delay": "Initial clipboard check delay(after copy-item keybind is pressed)"
   },
   "poe2_new": {
     "beta_warning": "This is in BETA for POE2, things will not work always as expected.",
