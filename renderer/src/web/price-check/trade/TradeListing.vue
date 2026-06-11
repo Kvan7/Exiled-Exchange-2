@@ -253,12 +253,13 @@ export default defineComponent({
         const commonCurrencyPrices = groupedResults.value.filter((res) => {
           return (
             // is a common currency
-            /chaos|exalted|divine/i.test(res.priceCurrency)
+            /chaos|exalted|divine/i.test(res.priceCurrency) ||
             // is a common very low value currency (but not enhanced versions)
             // NOTE: BECAUSE WE CANT HAVE NICE THINGS HERE
-            // res.priceCurrency === "aug" ||
-            // res.priceCurrency === "regal" ||
-            // res.priceCurrency === "transmute"
+            ((res.priceCurrency === "aug" ||
+              res.priceCurrency === "regal" ||
+              res.priceCurrency === "transmute") &&
+              res.priceAmount < 30)
           );
         });
         if (commonCurrencyPrices.length < 5) {
