@@ -188,16 +188,24 @@ function normalizeName(item: ParserState) {
 
   if (item.rarity === ItemRarity.Normal || item.rarity === ItemRarity.Rare) {
     if (item.baseType) {
-      if (_$.MAP_BLIGHTED.test(item.baseType)) {
+      if (_$REF.MAP_BLIGHTED.test(item.baseType)) {
         item.baseType = _$REF.MAP_BLIGHTED.exec(item.baseType)![1];
-      } else if (_$.MAP_BLIGHT_RAVAGED.test(item.baseType)) {
+      } else if (_$REF.MAP_BLIGHT_RAVAGED.test(item.baseType)) {
         item.baseType = _$REF.MAP_BLIGHT_RAVAGED.exec(item.baseType)![1];
+      } else if (_$.MAP_BLIGHTED.test(item.baseType)) {
+        item.baseType = _$.MAP_BLIGHTED.exec(item.baseType)![1];
+      } else if (_$.MAP_BLIGHT_RAVAGED.test(item.baseType)) {
+        item.baseType = _$.MAP_BLIGHT_RAVAGED.exec(item.baseType)![1];
       }
     } else {
-      if (_$.MAP_BLIGHTED.test(item.name)) {
+      if (_$REF.MAP_BLIGHTED.test(item.name)) {
         item.name = _$REF.MAP_BLIGHTED.exec(item.name)![1];
-      } else if (_$.MAP_BLIGHT_RAVAGED.test(item.name)) {
+      } else if (_$REF.MAP_BLIGHT_RAVAGED.test(item.name)) {
         item.name = _$REF.MAP_BLIGHT_RAVAGED.exec(item.name)![1];
+      } else if (_$.MAP_BLIGHTED.test(item.name)) {
+        item.name = _$.MAP_BLIGHTED.exec(item.name)![1];
+      } else if (_$.MAP_BLIGHT_RAVAGED.test(item.name)) {
+        item.name = _$.MAP_BLIGHT_RAVAGED.exec(item.name)![1];
       }
     }
   }
@@ -638,9 +646,19 @@ function parseVaalGemName(section: string[], item: ParserState) {
     let gemName: string | undefined;
     if (ITEM_BY_REF("GEM", section[0])) {
       gemName = section[0];
+    } else if (ITEM_BY_TRANSLATED("GEM", section[0])) {
+      gemName = section[0];
     }
     if (gemName) {
-      item.name = ITEM_BY_REF("GEM", gemName)![0].refName;
+      let gemItem = ITEM_BY_REF("GEM", gemName);
+      if (!gemItem || !gemItem.length) {
+        gemItem = ITEM_BY_TRANSLATED("GEM", gemName);
+      }
+      if (!gemItem || !gemItem.length) {
+        return "SECTION_SKIPPED";
+      }
+
+      item.name = gemItem![0].refName;
       return "SECTION_PARSED";
     }
   }
@@ -1322,9 +1340,17 @@ function parseSynthesised(section: string[], item: ParserState) {
     if (section[0] === _$.SECTION_SYNTHESISED) {
       item.isSynthesised = true;
       if (item.baseType) {
-        item.baseType = _$REF.ITEM_SYNTHESISED.exec(item.baseType)![1];
+        let baseTypeReg = _$REF.ITEM_SYNTHESISED.exec(item.baseType);
+        if (!baseTypeReg || baseTypeReg.length < 2) {
+          baseTypeReg = _$.ITEM_SYNTHESISED.exec(item.baseType);
+        }
+        item.baseType = baseTypeReg![1];
       } else {
-        item.name = _$REF.ITEM_SYNTHESISED.exec(item.name)![1];
+        let nameReg = _$REF.ITEM_SYNTHESISED.exec(item.name);
+        if (!nameReg || nameReg.length < 2) {
+          nameReg = _$.ITEM_SYNTHESISED.exec(item.name);
+        }
+        item.name = nameReg![1];
       }
       return "SECTION_PARSED";
     }
@@ -1343,6 +1369,8 @@ function parseSuperior(item: ParserState) {
   ) {
     if (_$REF.ITEM_SUPERIOR.test(item.name)) {
       item.name = _$REF.ITEM_SUPERIOR.exec(item.name)![1];
+    } else if (_$.ITEM_SUPERIOR.test(item.name)) {
+      item.name = _$.ITEM_SUPERIOR.exec(item.name)![1];
     }
   }
 }
@@ -1357,6 +1385,8 @@ function parseExceptional(item: ParserState) {
   ) {
     if (_$REF.ITEM_EXCEPTIONAL.test(item.name)) {
       item.name = _$REF.ITEM_EXCEPTIONAL.exec(item.name)![1];
+    } else if (_$.ITEM_EXCEPTIONAL.test(item.name)) {
+      item.name = _$.ITEM_EXCEPTIONAL.exec(item.name)![1];
     }
   }
 }
@@ -1369,12 +1399,10 @@ function parseRuneforged(item: ParserState) {
     item.rarity === ItemRarity.Rare ||
     item.rarity === ItemRarity.Unique
   ) {
-    // FIXME: Update when text is available
+    // NOTE: don't actually use since they different basetype
     // if (_$REF.ITEM_RUNEFORGED.test(item.name)) {
     //   item.name = _$REF.ITEM_RUNEFORGED.exec(item.name)![1];
     // }
-    // THEY ARE ACTUAL ITEMS????
-    // determine if detection is needed
   }
 }
 
@@ -1707,6 +1735,7 @@ function applyElementalAdded(item: ParsedItem) {
 
 function calcBasePercentile(item: ParsedItem) {
   performance.mark("calcBasePercentile");
+  // use ref since we have ref from unique.base
   const info = item.info.unique
     ? ITEM_BY_REF("ITEM", item.info.unique.base)![0].armour
     : item.info.armour;
