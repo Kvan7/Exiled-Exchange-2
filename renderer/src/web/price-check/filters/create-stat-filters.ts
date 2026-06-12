@@ -551,6 +551,8 @@ function hideNotVariableStat(filter: StatFilter, item: ParsedItem) {
   )
     return;
 
+  if (filter.statRef === "# uses remaining") return;
+
   if (!filter.roll) {
     filter.hidden = "filters.hide_const_roll";
   } else if (!filter.roll.bounds && item.rarity === ItemRarity.Unique) {
@@ -677,6 +679,12 @@ export function finalFilterTweaks(ctx: FiltersCreationContext) {
       ) {
         filter.disabled = true;
         filter.hidden = "filters.hide_for_map";
+      }
+    }
+    if (ctx.item.category === ItemCategory.Tablet) {
+      // never hide uses remaining on tablets, even unique ones
+      if (filter.statRef === "# uses remaining") {
+        filter.hidden = undefined;
       }
     }
   }

@@ -43,20 +43,19 @@ export function createPresets(
   }
 
   if (
-    (!item.info.craftable && item.rarity !== ItemRarity.Unique) ||
     item.isUnidentified ||
     item.rarity === ItemRarity.Normal ||
-    (item.category === ItemCategory.Flask &&
+    (!item.info.craftable && item.rarity !== ItemRarity.Unique) ||
+    ((item.category === ItemCategory.Flask ||
+      item.category === ItemCategory.Relic ||
+      item.category === ItemCategory.Tincture ||
+      item.category === ItemCategory.MemoryLine ||
+      item.category === ItemCategory.Invitation ||
+      item.category === ItemCategory.HeistContract ||
+      item.category === ItemCategory.HeistBlueprint ||
+      item.category === ItemCategory.Sentinel ||
+      item.category === ItemCategory.Tablet) &&
       item.rarity !== ItemRarity.Unique) ||
-    (item.category === ItemCategory.Relic &&
-      item.rarity !== ItemRarity.Unique) ||
-    item.category === ItemCategory.Tincture ||
-    item.category === ItemCategory.MemoryLine ||
-    item.category === ItemCategory.Invitation ||
-    item.category === ItemCategory.HeistContract ||
-    item.category === ItemCategory.HeistBlueprint ||
-    item.category === ItemCategory.Sentinel ||
-    item.category === ItemCategory.Tablet ||
     (item.category === ItemCategory.Currency && item.trials?.numberOfTrials)
   ) {
     return {
