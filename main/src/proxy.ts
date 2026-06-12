@@ -49,7 +49,8 @@ export class HttpProxy {
           ...req.headers,
           "user-agent": app.userAgentFallback,
         },
-        useSessionCookies: true,
+        // no session cookies: echoing the anonymous POESESSID that the API
+        // itself sets triggers Cloudflare bot challenges
         referrerPolicy: "no-referrer-when-downgrade",
       });
       proxyReq.addListener("response", (proxyRes) => {
