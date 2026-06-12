@@ -123,6 +123,19 @@ export const ACCESSORY = new Set([
   // ItemCategory.Quiver
 ]);
 
+export const GRANTS_REAL_SKILL = new Set([
+  ItemCategory.Staff,
+  ItemCategory.Wand,
+  ItemCategory.Sceptre,
+]);
+
+export const GRANTS_SKILL = new Set([
+  ...GRANTS_REAL_SKILL,
+  ItemCategory.Spear,
+  ItemCategory.Shield,
+  ItemCategory.Buckler,
+]);
+
 export const GEM = new Set([
   ItemCategory.Gem,
   ItemCategory.MetaGem,

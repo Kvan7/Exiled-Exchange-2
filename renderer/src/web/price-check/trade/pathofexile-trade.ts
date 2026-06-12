@@ -461,6 +461,7 @@ interface FetchResult {
     pseudoMods?: string[];
     desecratedMods?: string[];
     fracturedMods?: string[];
+    socketedItems?: FetchResult["item"][];
   };
   listing: {
     indexed: string;
@@ -1336,7 +1337,13 @@ export async function requestResults(
         ?.values[0][0],
       level: result.item.properties?.find((prop) => prop.type === 5)
         ?.values[0][0],
-      gemSockets: result.item.gemSockets?.length,
+      gemSockets: result.item.gemSockets?.length
+        ? result.item.gemSockets?.length
+        : result.item.socketedItems
+            ?.filter((s) => s.gemSockets)
+            .map((s) => s.gemSockets!)
+            // sort in descending order
+            .toSorted((a, b) => a!.length - b!.length)[0].length,
       relativeDate:
         DateTime.fromISO(result.listing.indexed).toRelative({
           style: "short",
