@@ -106,9 +106,16 @@
     <ui-checkbox class="mb-4" v-model="rememberCurrency">{{
       t(":remember_currency")
     }}</ui-checkbox>
-    <ui-checkbox class="mb-4" v-model="rememberListingType">{{
-      t(":remember_listing")
-    }}</ui-checkbox>
+
+    <div class="mb-2">
+      <ui-checkbox class="mb-1" v-model="rememberListingType">{{
+        t(":remember_listing")
+      }}</ui-checkbox>
+      <div class="mb-4 italic text-gray-500">
+        {{ t(":remember_listing_note") }}
+      </div>
+    </div>
+
     <ui-checkbox class="mb-4" v-model="activateStockFilter">{{
       t(":select_stock")
     }}</ui-checkbox>
@@ -222,6 +229,23 @@
               class="rounded bg-gray-900 px-1 block w-16 mb-1 font-poe text-center"
             />
             <span class="ml-2">{{ t("seconds") }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-2 rounded border-gray-700 mb-2">
+      <div class="bg-gray-700 p-2 mb-2">{{ t(":warn_advanced") }}</div>
+
+      <div class="mb-2 mx-2">
+        <div class="flex-1 mb-1">{{ t(":initial_delay") }}</div>
+        <div class="flex">
+          <div class="flex mr-6">
+            <input
+              v-model.number="initialDelay"
+              class="rounded bg-gray-900 px-1 block w-16 mb-1 font-poe text-center"
+            />
+            <span class="ml-2">{{ t("milliseconds") }}</span>
           </div>
         </div>
       </div>
@@ -363,6 +387,16 @@ export default defineComponent({
         () => configWidget.value,
         "openItemEditorAbove",
       ),
+      initialDelay: computed<number>({
+        get() {
+          return configWidget.value.initialDelay;
+        },
+        set(value) {
+          if (typeof value !== "number") return;
+
+          configWidget.value.initialDelay = Math.min(Math.max(value, 5), 400);
+        },
+      }),
       getAugmentNameByRef,
     };
   },

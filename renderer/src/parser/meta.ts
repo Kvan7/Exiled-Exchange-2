@@ -123,6 +123,13 @@ export const ACCESSORY = new Set([
   // ItemCategory.Quiver
 ]);
 
+export const GEM = new Set([
+  ItemCategory.Gem,
+  ItemCategory.MetaGem,
+  ItemCategory.SupportGem,
+  // ItemCategory.UncutGem,
+]);
+
 export enum ItemEditorType {
   Augment = "augment",
   Catalyst = "catalyst",

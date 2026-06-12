@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { setupTests } from "@specs/vitest.setup";
 import { __testExports, parseClipboard } from "@/parser/Parser";
 import {
+  MetaSkillGem,
   RareItem,
   UncutSkillGem,
   UncutSpiritGem,
@@ -10,26 +11,19 @@ import {
 import { init } from "@/assets/data";
 import { createFilters } from "@/web/price-check/filters/create-item-filters";
 
-describe("isUncutSkillGem", () => {
+describe("isItemMissingItemClass", () => {
   beforeEach(async () => {
     setupTests();
     await init("en");
   });
-  it("FIXED so should now be false for uncut skill gem", () => {
-    const sections = __testExports.itemTextToSections(UncutSkillGem.rawText);
-    expect(__testExports.isUncutSkillGem(sections[0])).toBeFalsy();
+  it("so should now be false for meta skill gem", () => {
+    const sections = __testExports.itemTextToSections(MetaSkillGem.rawText);
+    expect(__testExports.isItemMissingItemClass(sections[0])).toBeTruthy();
   });
-  it("FIXED so should now be false for uncut spirit gem", () => {
-    const sections = __testExports.itemTextToSections(UncutSpiritGem.rawText);
-    expect(__testExports.isUncutSkillGem(sections[0])).toBeFalsy();
-  });
-  it("FIXED so should now be false for uncut skill gem", () => {
-    const sections = __testExports.itemTextToSections(UncutSupportGem.rawText);
-    expect(__testExports.isUncutSkillGem(sections[0])).toBeFalsy();
-  });
+
   it("should return false for any other item", () => {
     const sections = __testExports.itemTextToSections(RareItem.rawText);
-    expect(__testExports.isUncutSkillGem(sections[0])).toBe(false);
+    expect(__testExports.isItemMissingItemClass(sections[0])).toBe(false);
   });
 });
 
@@ -55,6 +49,26 @@ describe("Uncut gems parse correctly", () => {
     expect(result).not.toBeNull();
     expect(result!.category).toBe(UncutSupportGem.category);
     expect(result!.gemLevel).toBeUndefined();
+  });
+  it("should parse meta skill gem", () => {
+    const result = parseClipboard(MetaSkillGem.rawText).unwrapOr(null);
+    expect(result).not.toBeNull();
+    expect(result!.category).toBe(MetaSkillGem.category);
+    expect(result!.gemLevel).toBe(MetaSkillGem.gemLevel);
+  });
+});
+
+describe("Skill gems parse correctly", () => {
+  beforeEach(async () => {
+    setupTests();
+    await init("en");
+  });
+
+  it("should parse meta skill gem", () => {
+    const result = parseClipboard(MetaSkillGem.rawText).unwrapOr(null);
+    expect(result).not.toBeNull();
+    expect(result!.category).toBe(MetaSkillGem.category);
+    expect(result!.gemLevel).toBe(MetaSkillGem.gemLevel);
   });
 });
 

@@ -34,24 +34,16 @@
       {{ result.itemLevel }}
     </td>
     <td
-      v-if="
-        item.category === ItemCategory.Gem ||
-        item.category === ItemCategory.UncutGem
-      "
+      v-if="isGem || item.category === ItemCategory.UncutGem"
       class="pl-2 whitespace-nowrap"
     >
       {{ result.level }}
     </td>
-    <td
-      v-if="item.category === ItemCategory.Gem"
-      class="pl-2 whitespace-nowrap"
-    >
+    <td v-if="isGem" class="pl-2 whitespace-nowrap">
       {{ result.gemSockets }}
     </td>
     <td
-      v-if="
-        (quality && !quality.disabled) || item.category === ItemCategory.Gem
-      "
+      v-if="(quality && !quality.disabled) || isGem"
       class="px-2 whitespace-nowrap text-blue-400 text-right"
     >
       {{ result.quality }}
@@ -130,6 +122,7 @@ import "tippy.js/dist/tippy.css";
 import { AppConfig } from "@/web/Config";
 import { ItemCategory } from "@/parser";
 import TooltipItem from "./TooltipItem.vue";
+import { GEM } from "@/parser/meta";
 
 export default defineComponent({
   name: "TradeItem",
@@ -161,7 +154,7 @@ export default defineComponent({
     },
   },
 
-  setup() {
+  setup(props) {
     const tooltipOption = computed(
       () => AppConfig<PriceCheckWidget>("price-check")!.itemHoverTooltip,
     );
@@ -229,6 +222,9 @@ export default defineComponent({
       isHovered,
       isShiftPressed,
       ItemCategory,
+      isGem: computed(
+        () => props.item.category && GEM.has(props.item.category),
+      ),
     };
   },
 });

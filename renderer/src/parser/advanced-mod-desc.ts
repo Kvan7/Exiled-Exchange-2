@@ -95,11 +95,16 @@ export function parseModInfoLine(
       case _$.SUFFIX_MODIFIER:
         generation = "suffix";
         break;
+      case _$.CORRUPTED_MODIFIER:
       case _$.CORRUPTED_IMPLICIT:
         generation = "corrupted";
+        type = ModifierType.Enchant;
         break;
       case _$.IMPLICIT_MODIFIER:
         type = ModifierType.Implicit;
+        break;
+      case _$.ENCHANT_MODIFIER:
+        type = ModifierType.Enchant;
         break;
       case _$.VAAL_UNIQUE_MODIFIER:
         generation = "mutated";

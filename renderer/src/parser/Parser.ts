@@ -14,7 +14,7 @@ import {
   tryParseTranslation,
   getRollOrMinmaxAvg,
 } from "./stat-translations";
-import { ItemCategory } from "./meta";
+import { GEM, ItemCategory } from "./meta";
 import {
   IncursionRoom,
   ParsedItem,
@@ -40,6 +40,7 @@ import {
   ADDED_AUGMENT_LINE,
 } from "./advanced-mod-desc";
 import { calcPropPercentile, QUALITY_STATS } from "./calc-q20";
+import { AppConfig } from "@/web/Config";
 
 type SectionParseResult =
   | "SECTION_PARSED"
@@ -48,6 +49,75 @@ type SectionParseResult =
 
 type ParserFn = (section: string[], item: ParserState) => SectionParseResult;
 type VirtualParserFn = (item: ParserState) => Result<never, string> | void;
+
+const LANGUAGE_DETECTOR = [
+  {
+    lang: "en",
+    displayLang: "English",
+    itemClassLine: "Item Class: ",
+    rarityLine: "Rarity: ",
+  },
+  {
+    lang: "ru",
+    displayLang: "Русский",
+    itemClassLine: "Класс предмета: ",
+    rarityLine: "Редкость: ",
+  },
+  {
+    lang: "fr",
+    displayLang: "Français",
+    itemClassLine: "Classe d'objet: ",
+    rarityLine: "Rareté: ",
+  },
+  {
+    lang: "de",
+    displayLang: "Deutsch",
+    itemClassLine: "Gegenstandsklasse: ",
+    rarityLine: "Seltenheit: ",
+  },
+  {
+    lang: "pt",
+    displayLang: "Português (Brasil)",
+    itemClassLine: "Classe do Item: ",
+    rarityLine: "Raridade: ",
+  },
+  {
+    lang: "es",
+    displayLang: "Español",
+    itemClassLine: "Clase de objeto: ",
+    rarityLine: "Rareza: ",
+  },
+  {
+    lang: "th",
+    displayLang: "ไทย",
+    itemClassLine: "ชนิดไอเทม: ",
+    rarityLine: "Rarity: ",
+  },
+  {
+    lang: "ko",
+    displayLang: "한국어",
+    itemClassLine: "아이템 종류: ",
+    rarityLine: "아이템 희귀도: ",
+  },
+  {
+    lang: "cmn-Hant",
+    displayLang: "正體中文",
+    itemClassLine: "物品種類: ",
+    rarityLine: "稀有度: ",
+  },
+  {
+    lang: "cmn-Hans",
+    displayLang: "普通话",
+    itemClassLine: "物品类别: ",
+    rarityLine: "Rarity: ",
+  },
+  {
+    lang: "ja",
+    displayLang: "日本語",
+    itemClassLine: "アイテムクラス: ",
+    rarityLine: "レアリティ: ",
+  },
+];
 
 export interface ParserState extends ParsedItem {
   name: string;
@@ -188,16 +258,24 @@ function normalizeName(item: ParserState) {
 
   if (item.rarity === ItemRarity.Normal || item.rarity === ItemRarity.Rare) {
     if (item.baseType) {
-      if (_$.MAP_BLIGHTED.test(item.baseType)) {
+      if (_$REF.MAP_BLIGHTED.test(item.baseType)) {
         item.baseType = _$REF.MAP_BLIGHTED.exec(item.baseType)![1];
-      } else if (_$.MAP_BLIGHT_RAVAGED.test(item.baseType)) {
+      } else if (_$REF.MAP_BLIGHT_RAVAGED.test(item.baseType)) {
         item.baseType = _$REF.MAP_BLIGHT_RAVAGED.exec(item.baseType)![1];
+      } else if (_$.MAP_BLIGHTED.test(item.baseType)) {
+        item.baseType = _$.MAP_BLIGHTED.exec(item.baseType)![1];
+      } else if (_$.MAP_BLIGHT_RAVAGED.test(item.baseType)) {
+        item.baseType = _$.MAP_BLIGHT_RAVAGED.exec(item.baseType)![1];
       }
     } else {
-      if (_$.MAP_BLIGHTED.test(item.name)) {
+      if (_$REF.MAP_BLIGHTED.test(item.name)) {
         item.name = _$REF.MAP_BLIGHTED.exec(item.name)![1];
-      } else if (_$.MAP_BLIGHT_RAVAGED.test(item.name)) {
+      } else if (_$REF.MAP_BLIGHT_RAVAGED.test(item.name)) {
         item.name = _$REF.MAP_BLIGHT_RAVAGED.exec(item.name)![1];
+      } else if (_$.MAP_BLIGHTED.test(item.name)) {
+        item.name = _$.MAP_BLIGHTED.exec(item.name)![1];
+      } else if (_$.MAP_BLIGHT_RAVAGED.test(item.name)) {
+        item.name = _$.MAP_BLIGHT_RAVAGED.exec(item.name)![1];
       }
     }
   }
@@ -224,7 +302,7 @@ function findInDatabase(item: ParserState) {
     info = ITEM_BY_REF("DIVINATION_CARD", item.name);
   } else if (item.category === ItemCategory.CapturedBeast) {
     info = ITEM_BY_REF("CAPTURED_BEAST", item.baseType ?? item.name);
-  } else if (item.category === ItemCategory.Gem) {
+  } else if (item.category && GEM.has(item.category)) {
     info = ITEM_BY_REF("GEM", item.name);
   } else if (item.category === ItemCategory.MetamorphSample) {
     info = ITEM_BY_REF("ITEM", item.name);
@@ -250,7 +328,7 @@ function findInDatabase(item: ParserState) {
       info = ITEM_BY_TRANSLATED("DIVINATION_CARD", item.name);
     } else if (item.category === ItemCategory.CapturedBeast) {
       info = ITEM_BY_TRANSLATED("CAPTURED_BEAST", item.baseType ?? item.name);
-    } else if (item.category === ItemCategory.Gem) {
+    } else if (item.category && GEM.has(item.category)) {
       info = ITEM_BY_TRANSLATED("GEM", item.name);
     } else if (item.category === ItemCategory.MetamorphSample) {
       info = ITEM_BY_TRANSLATED("ITEM", item.name);
@@ -310,8 +388,10 @@ function parseMap(section: string[], item: ParsedItem) {
 
 function parseWaystone(section: string[], item: ParsedItem) {
   performance.mark("parseWaystone");
-  if (section[0].startsWith(_$.WAYSTONE_TIER)) {
-    item.mapTier = Number(section.shift()!.slice(_$.WAYSTONE_TIER.length));
+
+  if (section[0].startsWith(_$.WAYSTONE_REVIVES) && item.info.map?.tier) {
+    // we are a map now
+    item.mapTier = item.info.map.tier;
 
     for (const line of section) {
       if (line.startsWith(_$.WAYSTONE_REVIVES)) {
@@ -440,8 +520,27 @@ function pickCorrectVariant(item: ParserState) {
 function parseNamePlate(section: string[]) {
   performance.mark("parseNamePlate");
   let line = section.shift();
+
+  let missingItemClass = false;
+
   if (!line?.startsWith(_$.ITEM_CLASS)) {
-    return err("item.parse_error");
+    // HACK: Meta skill gems
+    if (line && section.unshift(line) && isItemMissingItemClass(section)) {
+      missingItemClass = true;
+    } else {
+      // figure out if this was an issue with wrong language, or a bug
+      console.log(section);
+      const langFound = LANGUAGE_DETECTOR.find(({ rarityLine }) =>
+        section[1].startsWith(rarityLine),
+      );
+      if (langFound) {
+        return err(
+          `item.wrong_language|${langFound.displayLang}|${LANGUAGE_DETECTOR.find(({ lang }) => lang === AppConfig().language)!.displayLang}`,
+        );
+      }
+
+      return err("item.parse_error");
+    }
   }
 
   line = section.shift();
@@ -500,6 +599,10 @@ function parseNamePlate(section: string[]) {
     case _$.RARITY_UNIQUE:
       item.rarity = ItemRarity.Unique;
       break;
+  }
+
+  if (missingItemClass) {
+    item.category = ItemCategory.Gem;
   }
 
   return ok(item);
@@ -604,6 +707,10 @@ function parseRequirements(section: string[], item: ParsedItem) {
     return "SECTION_SKIPPED";
   }
 
+  if (item.category && GEM.has(item.category)) {
+    return "SECTION_SKIPPED";
+  }
+
   const match = section[0].match(_$.REQUIRES_LINE);
   // TODO: remove once validated in other langs
   if (!match) {
@@ -638,9 +745,19 @@ function parseVaalGemName(section: string[], item: ParserState) {
     let gemName: string | undefined;
     if (ITEM_BY_REF("GEM", section[0])) {
       gemName = section[0];
+    } else if (ITEM_BY_TRANSLATED("GEM", section[0])) {
+      gemName = section[0];
     }
     if (gemName) {
-      item.name = ITEM_BY_REF("GEM", gemName)![0].refName;
+      let gemItem = ITEM_BY_REF("GEM", gemName);
+      if (!gemItem || !gemItem.length) {
+        gemItem = ITEM_BY_TRANSLATED("GEM", gemName);
+      }
+      if (!gemItem || !gemItem.length) {
+        return "SECTION_SKIPPED";
+      }
+
+      item.name = gemItem![0].refName;
       return "SECTION_PARSED";
     }
   }
@@ -651,12 +768,16 @@ function parseGem(section: string[], item: ParsedItem) {
   performance.mark("parseGem");
   if (
     item.category !== ItemCategory.Gem &&
+    item.category !== ItemCategory.MetaGem &&
     item.category !== ItemCategory.UncutGem
   ) {
     return "PARSER_SKIPPED";
   }
 
-  const gemLevelLineNumber = item.category === ItemCategory.Gem ? 1 : 0;
+  const gemLevelLineNumber =
+    item.category === ItemCategory.Gem || item.category === ItemCategory.MetaGem
+      ? 1
+      : 0;
 
   if (section[gemLevelLineNumber]?.startsWith(_$.GEM_LEVEL)) {
     // "Level: 20 (Max)"
@@ -738,7 +859,11 @@ function parseAugmentSockets(section: string[], item: ParsedItem) {
 
 function parseSockets(section: string[], item: ParsedItem) {
   performance.mark("parseSockets");
-  if (item.category === ItemCategory.Gem && section[0].startsWith(_$.SOCKETS)) {
+  if (
+    item.category &&
+    GEM.has(item.category) &&
+    section[0].startsWith(_$.SOCKETS)
+  ) {
     let sockets = section[0].slice(_$.SOCKETS.length).trimEnd();
     sockets = sockets.replace(/[^ -]/g, "#");
 
@@ -1322,9 +1447,17 @@ function parseSynthesised(section: string[], item: ParserState) {
     if (section[0] === _$.SECTION_SYNTHESISED) {
       item.isSynthesised = true;
       if (item.baseType) {
-        item.baseType = _$REF.ITEM_SYNTHESISED.exec(item.baseType)![1];
+        let baseTypeReg = _$REF.ITEM_SYNTHESISED.exec(item.baseType);
+        if (!baseTypeReg || baseTypeReg.length < 2) {
+          baseTypeReg = _$.ITEM_SYNTHESISED.exec(item.baseType);
+        }
+        item.baseType = baseTypeReg![1];
       } else {
-        item.name = _$REF.ITEM_SYNTHESISED.exec(item.name)![1];
+        let nameReg = _$REF.ITEM_SYNTHESISED.exec(item.name);
+        if (!nameReg || nameReg.length < 2) {
+          nameReg = _$.ITEM_SYNTHESISED.exec(item.name);
+        }
+        item.name = nameReg![1];
       }
       return "SECTION_PARSED";
     }
@@ -1343,6 +1476,8 @@ function parseSuperior(item: ParserState) {
   ) {
     if (_$REF.ITEM_SUPERIOR.test(item.name)) {
       item.name = _$REF.ITEM_SUPERIOR.exec(item.name)![1];
+    } else if (_$.ITEM_SUPERIOR.test(item.name)) {
+      item.name = _$.ITEM_SUPERIOR.exec(item.name)![1];
     }
   }
 }
@@ -1357,6 +1492,8 @@ function parseExceptional(item: ParserState) {
   ) {
     if (_$REF.ITEM_EXCEPTIONAL.test(item.name)) {
       item.name = _$REF.ITEM_EXCEPTIONAL.exec(item.name)![1];
+    } else if (_$.ITEM_EXCEPTIONAL.test(item.name)) {
+      item.name = _$.ITEM_EXCEPTIONAL.exec(item.name)![1];
     }
   }
 }
@@ -1369,12 +1506,10 @@ function parseRuneforged(item: ParserState) {
     item.rarity === ItemRarity.Rare ||
     item.rarity === ItemRarity.Unique
   ) {
-    // FIXME: Update when text is available
+    // NOTE: don't actually use since they different basetype
     // if (_$REF.ITEM_RUNEFORGED.test(item.name)) {
     //   item.name = _$REF.ITEM_RUNEFORGED.exec(item.name)![1];
     // }
-    // THEY ARE ACTUAL ITEMS????
-    // determine if detection is needed
   }
 }
 
@@ -1707,6 +1842,7 @@ function applyElementalAdded(item: ParsedItem) {
 
 function calcBasePercentile(item: ParsedItem) {
   performance.mark("calcBasePercentile");
+  // use ref since we have ref from unique.base
   const info = item.info.unique
     ? ITEM_BY_REF("ITEM", item.info.unique.base)![0].armour
     : item.info.armour;
@@ -1858,10 +1994,9 @@ export function replaceHashWithValues(template: string, values: number[]) {
   return result;
 }
 
-function isUncutSkillGem(section: string[]): boolean {
-  if (section.length !== 2) return false;
-  const translated = _$.RARITY + _$.RARITY_CURRENCY;
-  return section[0] === translated && section[1] !== undefined;
+function isItemMissingItemClass(section: string[]): boolean {
+  if (section.length > 3 || section.length < 2) return false;
+  return section[0].startsWith(_$.RARITY) && section[1] !== undefined;
 }
 
 // Disable since this is export for tests
@@ -1870,7 +2005,7 @@ export const __testExports = {
   itemTextToSections,
   findInDatabase,
   parseNamePlate,
-  isUncutSkillGem,
+  isItemMissingItemClass,
   parseWeapon,
   parseArmour,
   parseModifiers,

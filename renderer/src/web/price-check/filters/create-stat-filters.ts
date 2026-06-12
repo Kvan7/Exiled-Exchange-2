@@ -336,7 +336,7 @@ export function calculatedStatToFilter(
 
   const roll = statSourcesTotal(
     calc.sources,
-    item.info.refName === "Mirrored Tablet" ? "max" : "sum",
+    calc.stat.trade.count ? "count" : "sum",
   );
   const translation = translateStatWithRoll(calc, roll);
 
@@ -416,13 +416,7 @@ export function calculatedStatToFilter(
       filter.tag = FilterTag.Incursion;
     }
   } else if (type === ModifierType.Enchant) {
-    if (
-      (item.isCorrupted &&
-        sources.filter((s) => !s.stat.stat.ref.includes("Allocates")).length &&
-        item.category !== ItemCategory.Map &&
-        item.category !== ItemCategory.Waystone) ||
-      sources.some((s) => s.modifier.info.generation === "corrupted")
-    ) {
+    if (sources.some((s) => s.modifier.info.generation === "corrupted")) {
       filter.tag = FilterTag.Corrupted;
     }
   }
@@ -557,6 +551,8 @@ function hideNotVariableStat(filter: StatFilter, item: ParsedItem) {
   )
     return;
 
+  if (filter.statRef === "# uses remaining") return;
+
   if (!filter.roll) {
     filter.hidden = "filters.hide_const_roll";
   } else if (!filter.roll.bounds && item.rarity === ItemRarity.Unique) {
@@ -685,6 +681,12 @@ export function finalFilterTweaks(ctx: FiltersCreationContext) {
         filter.hidden = "filters.hide_for_map";
       }
     }
+    if (ctx.item.category === ItemCategory.Tablet) {
+      // never hide uses remaining on tablets, even unique ones
+      if (filter.statRef === "# uses remaining") {
+        filter.hidden = undefined;
+      }
+    }
   }
 
   if (
@@ -786,9 +788,6 @@ function hideAllAugments(filters: StatFilter[]) {
   }
 }
 
-// TODO
-// +1 Prefix Modifier allowed
-// -1 Suffix Modifier allowed
 function showHasEmptyModifier(ctx: FiltersCreationContext):
   | {
       empty: ItemHasEmptyModifier;
@@ -801,41 +800,12 @@ function showHasEmptyModifier(ctx: FiltersCreationContext):
     return false;
   }
 
-  if (item.rarity === ItemRarity.Magic) {
-    const { prefixes: magicPrefixes, suffixes: magicSuffixes } =
-      explicitModifierCount(item);
-    if (magicPrefixes && magicSuffixes) {
-      return false;
-    }
-    if (magicPrefixes > 0) {
-      return {
-        empty: ItemHasEmptyModifier.Suffix,
-        counts: {
-          [ItemHasEmptyModifier.Prefix]: 0,
-          [ItemHasEmptyModifier.Suffix]: 1,
-          [ItemHasEmptyModifier.Any]: 1,
-        },
-      };
-    } else if (magicSuffixes > 0) {
-      return {
-        empty: ItemHasEmptyModifier.Prefix,
-        counts: {
-          [ItemHasEmptyModifier.Prefix]: 1,
-          [ItemHasEmptyModifier.Suffix]: 0,
-          [ItemHasEmptyModifier.Any]: 1,
-        },
-      };
-    }
-    // magic but has no explicit mods (annulled to 0)
-    return false;
-  }
-
-  if (item.rarity !== ItemRarity.Rare) {
+  if (item.rarity !== ItemRarity.Rare && item.rarity !== ItemRarity.Magic) {
     return false;
   }
 
   const { prefixes, suffixes, total } = explicitModifierCount(item);
-  const maxAmount = itemMaxModifiersBySlot(item);
+  const maxAmount = itemMaxModifiersBySlot(item, ctx.filters);
 
   if (total !== maxAmount[ItemHasEmptyModifier.Any] && total !== 0) {
     const empty =
@@ -885,47 +855,66 @@ function enableGoodRolledFilters(filters: StatFilter[], abovePct: number) {
   }
 }
 
-function itemMaxModifiersBySlot(item: ParsedItem) {
+function itemBaseMaxModifiersOfType(
+  category: ItemCategory | undefined,
+  rarity: ItemRarity | undefined,
+) {
   let base;
-  switch (item.category) {
-    case ItemCategory.Jewel:
-    case ItemCategory.Tablet:
-    case ItemCategory.Relic:
-    case ItemCategory.SanctumRelic:
-      base = 2;
+  switch (rarity) {
+    case ItemRarity.Normal:
+      base = 0;
       break;
+    case ItemRarity.Magic:
+      base = 1;
+      break;
+
     default:
-      base = 3;
+      switch (category) {
+        case ItemCategory.Jewel:
+        case ItemCategory.Tablet:
+        case ItemCategory.Relic:
+        case ItemCategory.SanctumRelic:
+          base = 2;
+          break;
+        default:
+          base = 3;
+          break;
+      }
       break;
   }
+  return base;
+}
+function itemMaxModifiersBySlot(
+  item: ParsedItem,
+  statsAndRolls: Array<{ statRef: string; roll?: StatFilterRoll }>,
+) {
+  const base = itemBaseMaxModifiersOfType(item.category, item.rarity);
 
   const maxAmount = [2 * base, base, base];
-  // TODO: change this to be programmatic based on implicits
-  if (
-    item.info.refName === "Dusk Amulet" ||
-    item.info.refName === "Dusk Ring"
-  ) {
-    maxAmount[ItemHasEmptyModifier.Prefix] += 1;
-    maxAmount[ItemHasEmptyModifier.Suffix] -= 1;
-  } else if (
-    item.info.refName === "Gloam Amulet" ||
-    item.info.refName === "Gloam Ring"
-  ) {
-    maxAmount[ItemHasEmptyModifier.Prefix] -= 1;
-    maxAmount[ItemHasEmptyModifier.Suffix] += 1;
-  } else if (
-    item.info.refName === "Penumbra Amulet" ||
-    item.info.refName === "Penumbra Ring"
-  ) {
-    maxAmount[ItemHasEmptyModifier.Prefix] += 2;
-    maxAmount[ItemHasEmptyModifier.Suffix] -= 2;
-  } else if (
-    item.info.refName === "Tenebrous Amulet" ||
-    item.info.refName === "Tenebrous Ring"
-  ) {
-    maxAmount[ItemHasEmptyModifier.Prefix] -= 2;
-    maxAmount[ItemHasEmptyModifier.Suffix] += 2;
+  for (const { statRef, roll } of statsAndRolls) {
+    if (statRef === "# Prefix Modifier allowed") {
+      maxAmount[ItemHasEmptyModifier.Prefix] += roll?.value ?? 0;
+    } else if (statRef === "# Suffix Modifier allowed") {
+      maxAmount[ItemHasEmptyModifier.Suffix] += roll?.value ?? 0;
+    }
   }
+
+  if (maxAmount[ItemHasEmptyModifier.Prefix] < 0) {
+    maxAmount[ItemHasEmptyModifier.Prefix] = 0;
+  }
+  if (maxAmount[ItemHasEmptyModifier.Suffix] < 0) {
+    maxAmount[ItemHasEmptyModifier.Suffix] = 0;
+  }
+
+  maxAmount[ItemHasEmptyModifier.Any] =
+    maxAmount[ItemHasEmptyModifier.Prefix] +
+    maxAmount[ItemHasEmptyModifier.Suffix];
 
   return maxAmount;
 }
+
+// Disable since this is export for tests
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export const __testExports = {
+  itemMaxModifiersBySlot,
+};

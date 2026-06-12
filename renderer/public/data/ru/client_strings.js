@@ -57,6 +57,8 @@ export default {
   PREFIX_MODIFIER: 'Префикс',
   SUFFIX_MODIFIER: 'Суффикс',
   IMPLICIT_MODIFIER: 'Собственное свойство',
+  ENCHANT_MODIFIER: 'Улучшение',
+  CORRUPTED_MODIFIER: 'Улучшение от осквернения',
   CRAFTED_MODIFIER: 'Ремесленное',
   FRACTURED_MODIFIER: 'Расколотое',
   DESECRATED_MODIFIER: 'Очернённое',

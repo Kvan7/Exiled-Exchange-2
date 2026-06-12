@@ -43,6 +43,7 @@ export interface Stat {
   trade: {
     inverted?: true;
     option?: true;
+    count?: true;
     ids: {
       [type: string]: string[];
     };
@@ -84,6 +85,7 @@ export interface BaseType {
   };
   map?: {
     screenshot?: string;
+    tier?: number;
   };
   gem?: {
     vaal?: true;
@@ -239,6 +241,8 @@ export interface TranslationDict {
   LOG_ZONE_GEN: RegExp;
   DOUBLE_CORRUPTED: string;
   IMPLICIT_MODIFIER: string;
+  ENCHANT_MODIFIER: string;
+  CORRUPTED_MODIFIER: string;
   REQUIRES_LINE: RegExp;
   UNIQUE_MODIFIER: string;
   VAAL_UNIQUE_MODIFIER: string;

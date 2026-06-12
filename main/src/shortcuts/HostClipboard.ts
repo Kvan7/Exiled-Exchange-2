@@ -14,6 +14,7 @@ export class HostClipboard {
   private pollPromise?: Promise<string>;
   private elapsed = 0;
   private shouldRestore = false;
+  private initialDelay = POLL_DELAY;
 
   private isRestored = true;
 
@@ -66,7 +67,7 @@ export class HostClipboard {
           }
         }
       };
-      setTimeout(poll, POLL_DELAY);
+      setTimeout(poll, this.initialDelay);
     });
 
     return await this.pollPromise;
@@ -91,55 +92,73 @@ export class HostClipboard {
       this.isRestored = true;
     }, RESTORE_AFTER);
   }
+
+  updateDelay(delay: number) {
+    this.initialDelay = delay;
+  }
 }
 
 function isPoeItem(text: string) {
-  return LANGUAGE_DETECTOR.find(({ firstLine }) => text.startsWith(firstLine));
+  return LANGUAGE_DETECTOR.find(
+    ({ firstLine, uncutSkillGemLine }) =>
+      text.startsWith(firstLine) || text.startsWith(uncutSkillGemLine),
+  );
 }
 
 const LANGUAGE_DETECTOR = [
   {
     lang: "en",
     firstLine: "Item Class: ",
+    uncutSkillGemLine: "Rarity: ",
   },
   {
     lang: "ru",
     firstLine: "Класс предмета: ",
+    uncutSkillGemLine: "Редкость: ",
   },
   {
     lang: "fr",
     firstLine: "Classe d'objet: ",
+    uncutSkillGemLine: "Rareté: ",
   },
   {
     lang: "de",
     firstLine: "Gegenstandsklasse: ",
+    uncutSkillGemLine: "Seltenheit: ",
   },
   {
     lang: "pt",
     firstLine: "Classe do Item: ",
+    uncutSkillGemLine: "Raridade: ",
   },
   {
     lang: "es",
     firstLine: "Clase de objeto: ",
+    uncutSkillGemLine: "Rareza: ",
   },
   {
     lang: "th",
     firstLine: "ชนิดไอเทม: ",
+    uncutSkillGemLine: "Rarity: ",
   },
   {
     lang: "ko",
     firstLine: "아이템 종류: ",
+    uncutSkillGemLine: "아이템 희귀도: ",
   },
   {
     lang: "cmn-Hant",
     firstLine: "物品種類: ",
+    uncutSkillGemLine: "稀有度: ",
   },
   {
     lang: "cmn-Hans",
     firstLine: "物品类别: ",
+    uncutSkillGemLine: "Rarity: ",
   },
   {
     lang: "ja",
     firstLine: "アイテムクラス: ",
+    uncutSkillGemLine: "レアリティ: ",
   },
 ];

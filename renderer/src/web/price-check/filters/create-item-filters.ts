@@ -6,7 +6,7 @@ import { BaseType, ITEM_BY_REF } from "@/assets/data";
 import { CATEGORY_TO_TRADE_ID } from "../trade/pathofexile-trade";
 import { PriceCheckWidget } from "@/web/overlay/widgets";
 import { isArmourOrWeaponOrCaster } from "@/parser/Parser";
-import { ARMOUR, WEAPON } from "@/parser/meta";
+import { ARMOUR, GEM, WEAPON } from "@/parser/meta";
 import { maxUsefulItemLevel } from "./common";
 
 export const SPECIAL_SUPPORT_GEM = [
@@ -57,7 +57,7 @@ export function createFilters(
     },
   };
 
-  if (item.category === ItemCategory.Gem && !tradeTag(item)) {
+  if (item.category && GEM.has(item.category) && !tradeTag(item)) {
     return createGemFilters(item, filters, opts);
   }
   if (item.category === ItemCategory.UncutGem) {

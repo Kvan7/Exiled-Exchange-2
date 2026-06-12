@@ -248,9 +248,9 @@ export const usePoeninja = createGlobalState(() => {
         return "hardcore";
     }
     if (league.startsWith("HC ")) {
-      return proxy ? "leaguehc" : "vaalhc";
+      return proxy ? "leaguehc" : "runesofaldurhc";
     }
-    return proxy ? "league" : "vaal";
+    return proxy ? "league" : "runesofaldur";
   }
 
   function findPriceByQuery(query: DbQuery) {

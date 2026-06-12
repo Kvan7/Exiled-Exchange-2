@@ -22,13 +22,26 @@ export function magicBasetype(name: string) {
     .map((name) => {
       // BUG[UPSTREAM]: https://www.pathofexile.com/forum/view-thread/3913283
       const result =
-        ITEM_BY_REF("ITEM", name) ??
-        ITEM_BY_TRANSLATED("ITEM", name) ??
-        TRADE_ITEM_BY_REF({ name }, true);
-      return { name, found: result && result[0].craftable };
+        ITEM_BY_REF("ITEM", name) ?? ITEM_BY_TRANSLATED("ITEM", name);
+      // TRADE_ITEM_BY_REF({ name }, true);
+      if (result) {
+        return { name, found: result && result[0].craftable, tradeItem: false };
+      }
+      const tradeResult = TRADE_ITEM_BY_REF({ name }, true);
+      return {
+        name,
+        found: tradeResult && tradeResult[0].craftable,
+        tradeItem: true,
+      };
     })
     .filter((res) => res.found)
-    .sort((a, b) => b.name.length - a.name.length);
+    .sort(
+      (a, b) =>
+        b.name.length -
+        a.name.length +
+        (b.tradeItem ? 0 : 100_000) -
+        (a.tradeItem ? 0 : 100_000),
+    );
 
   return result.length ? result[0].name : undefined;
 }

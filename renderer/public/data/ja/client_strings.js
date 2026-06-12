@@ -57,6 +57,8 @@ export default {
   PREFIX_MODIFIER: 'プレフィックスモッド',
   SUFFIX_MODIFIER: 'サフィックスモッド',
   IMPLICIT_MODIFIER: '暗黙モッド',
+  ENCHANT_MODIFIER: 'エンハンス',
+  CORRUPTED_MODIFIER: 'コラプトエンハンス',
   CRAFTED_MODIFIER: 'クラフト',
   FRACTURED_MODIFIER: 'フラクチャー',
   DESECRATED_MODIFIER: '冒涜',

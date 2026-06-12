@@ -95,7 +95,13 @@
                 :item-text="item.error.rawText"
                 :pos="checkPosition"
             /></template>
-            <p>{{ t(item.error.message) }}</p>
+            <p>
+              {{
+                item.error.format
+                  ? t(item.error.message, item.error.format)
+                  : t(item.error.message)
+              }}
+            </p>
           </ui-error-box>
           <pre class="bg-gray-900 rounded m-4 overflow-x-hidden p-2">{{
             item.error.rawText
@@ -200,6 +206,7 @@ type ParseError = {
   name: string;
   message: string;
   rawText: ParsedItem["rawText"];
+  format?: string[];
 };
 
 export default defineComponent({
@@ -238,6 +245,7 @@ export default defineComponent({
         coreCurrency: "exalted",
         currencyVolume: "both",
         rememberListingType: false,
+        initialDelay: 48,
       };
     },
   } satisfies WidgetSpec,
@@ -359,11 +367,23 @@ export default defineComponent({
             ? err("item.unknown")
             : ok(item),
         )
-        .mapErr((err) => ({
-          name: `${err}`,
-          message: `${err}_help`,
-          rawText: e.clipboard,
-        }));
+        .mapErr((err) => {
+          if (err.startsWith("item.wrong_language")) {
+            const [errName, gameLang, eeLang] = err.split("|");
+            return {
+              name: `${errName}`,
+              message: `${errName}_help`,
+              rawText: e.clipboard,
+              format: [gameLang, eeLang],
+            };
+          }
+
+          return {
+            name: `${err}`,
+            message: `${err}_help`,
+            rawText: e.clipboard,
+          };
+        });
       performance.mark("price-check-parse-end");
       return newItem;
     }

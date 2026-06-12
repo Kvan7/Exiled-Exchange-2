@@ -30,25 +30,16 @@
               <div class="px-2">{{ t(":item_level") }}</div>
             </th>
             <th
-              v-if="
-                item.category === ItemCategory.Gem ||
-                item.category === ItemCategory.UncutGem
-              "
+              v-if="isGem || item.category === ItemCategory.UncutGem"
               class="trade-table-heading"
             >
               <div class="px-2">{{ t(":gem_level") }}</div>
             </th>
-            <th
-              v-if="item.category === ItemCategory.Gem"
-              class="trade-table-heading"
-            >
+            <th v-if="isGem" class="trade-table-heading">
               <div class="px-2">{{ t(":gem_sockets") }}</div>
             </th>
             <th
-              v-if="
-                (filters.quality && !filters.quality.disabled) ||
-                item.category === ItemCategory.Gem
-              "
+              v-if="(filters.quality && !filters.quality.disabled) || isGem"
               class="trade-table-heading"
             >
               <div class="px-2">{{ t(":quality") }}</div>
@@ -139,6 +130,7 @@ import OnlineFilter from "./OnlineFilter.vue";
 import TradeLinks from "./TradeLinks.vue";
 import TradeItem from "./TradeItem.vue";
 import { useTradeApi } from "./trade-api";
+import { GEM } from "@/parser/meta";
 
 const slowdown = artificialSlowdown(900);
 
@@ -245,6 +237,9 @@ export default defineComponent({
       // Shift key state and methods
       isShiftPressed,
       ItemCategory,
+      isGem: computed(
+        () => props.item.category && GEM.has(props.item.category),
+      ),
       isLikelyPriceFixed: computed(() => {
         // if it isn't filling listings it probably is fine
         if (groupedResults.value.length <= 15) {
@@ -255,9 +250,11 @@ export default defineComponent({
             // is a common currency
             /chaos|exalted|divine/i.test(res.priceCurrency) ||
             // is a common very low value currency (but not enhanced versions)
-            res.priceCurrency === "aug" ||
-            res.priceCurrency === "regal" ||
-            res.priceCurrency === "transmute"
+            // NOTE: BECAUSE WE CANT HAVE NICE THINGS HERE
+            ((res.priceCurrency === "aug" ||
+              res.priceCurrency === "regal" ||
+              res.priceCurrency === "transmute") &&
+              res.priceAmount < 30)
           );
         });
         if (commonCurrencyPrices.length < 5) {
