@@ -92,6 +92,15 @@ describe("item mod count tests", () => {
       0,
       5,
     ],
+    [
+      ItemRarity.Rare,
+      [
+        { ref: "# Suffix Modifier allowed", roll: 2 },
+        { ref: "# Suffix Modifier allowed", roll: 2 },
+      ],
+      3,
+      7,
+    ],
   ])(
     "%#. should change amount for items with stats that modify max mods",
     (
