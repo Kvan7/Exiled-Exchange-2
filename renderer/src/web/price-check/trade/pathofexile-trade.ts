@@ -1343,7 +1343,7 @@ export async function requestResults(
             ?.filter((s) => s.gemSockets)
             .map((s) => s.gemSockets!)
             // sort in descending order
-            .toSorted((a, b) => a!.length - b!.length)[0].length,
+            .toSorted((a, b) => a!.length - b!.length)[0]?.length,
       relativeDate:
         DateTime.fromISO(result.listing.indexed).toRelative({
           style: "short",
