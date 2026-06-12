@@ -43,6 +43,7 @@ export interface Stat {
   trade: {
     inverted?: true;
     option?: true;
+    count?: true;
     ids: {
       [type: string]: string[];
     };
