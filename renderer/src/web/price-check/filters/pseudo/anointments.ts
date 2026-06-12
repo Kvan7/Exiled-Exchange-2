@@ -13,7 +13,16 @@ const EMOTIONS = [
   "Concentrated Liquid Fear",
   "Concentrated Liquid Suffering",
   "Concentrated Liquid Isolation",
+  "Potent Liquid Melancholy",
+  "Potent Liquid Ferocity",
+  "Potent Liquid Contempt",
 ];
+
+const HARDCODED_HIGH_VALUE_OILS = new Set([
+  "Concentrated Liquid Isolation",
+  "Potent Liquid Ferocity",
+  "Potent Liquid Contempt",
+]);
 
 export function decodeOils(calc: StatCalculated): string[] | undefined {
   if (calc.type !== ModifierType.Enchant) return;
@@ -49,7 +58,7 @@ export function applyAnointmentRules(filters: StatFilter[], item: ParsedItem) {
     anointment.disabled = false;
   } else if (itemIsModifiable(item)) {
     const oils = anointment.oils!;
-    if (!oils.includes("Concentrated Liquid Isolation")) {
+    if (!oils.some((oil) => HARDCODED_HIGH_VALUE_OILS.has(oil))) {
       anointment.hidden = "filters.hide_anointment";
       anointment.disabled = true;
     }
