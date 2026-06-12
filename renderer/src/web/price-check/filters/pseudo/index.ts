@@ -13,8 +13,13 @@ import {
 import { type StatFilter } from "../interfaces";
 import { ARMOUR_STATS, WEAPON_STATS } from "./item-property";
 import { tryParseTranslation } from "@/parser/stat-translations";
+import { percentRoll, roundRoll } from "../util";
 
-const RESISTANCES_INFO = [
+const RESISTANCES_INFO: Array<{
+  ref: string;
+  elements: Array<"fire" | "cold" | "lightning">;
+  chaos?: true;
+}> = [
   {
     ref: stat("#% to All Resistances"),
     elements: ["fire", "cold", "lightning"],
@@ -78,6 +83,17 @@ interface PseudoRule {
 }
 
 const PSEUDO_RULES: PseudoRule[] = [
+  {
+    pseudo: stat("#% total to all Elemental Resistances"),
+    disabled: true,
+    group: "to_all_res",
+    stats: RESISTANCES_INFO.filter((info) => info.elements.length).map(
+      (info) => ({ ref: info.ref }),
+    ),
+    mutate(filter) {
+      filter.hidden = "filters.hide_total_all_res";
+    },
+  },
   {
     pseudo: stat("#% total Elemental Resistance"),
     disabled: false,
@@ -469,6 +485,104 @@ export function filterPseudo(ctx: FiltersCreationContext) {
         }
       }
     }
+  }
+
+  if (filterByGroup.has("to_all_res")) {
+    const filters = filterByGroup.get("to_all_res")!;
+    if (filters.length > 1) {
+      throw new Error("Multiple to_all_res filters");
+    }
+    const filter = filters[0];
+
+    const all = {
+      value: 0,
+      min: 0,
+      max: 0,
+    };
+    const elements = {
+      fire: {
+        value: 0,
+        min: 0,
+        max: 0,
+      },
+      cold: {
+        value: 0,
+        min: 0,
+        max: 0,
+      },
+      lightning: {
+        value: 0,
+        min: 0,
+        max: 0,
+      },
+    };
+
+    for (const source of filter.sources) {
+      const info = RESISTANCES_INFO.find(
+        (info) => info.ref === source.stat.stat.ref,
+      );
+      // shouldn't skip any
+      if (!info) continue;
+
+      if (info.elements.length === 3) {
+        all.value += source.contributes!.value;
+        all.min += source.contributes!.min;
+        all.max += source.contributes!.max;
+      } else {
+        for (const element of info.elements) {
+          elements[element].value += source.contributes!.value;
+          elements[element].min += source.contributes!.min;
+          elements[element].max += source.contributes!.max;
+        }
+      }
+    }
+
+    let minRoll: "fire" | "cold" | "lightning" = "fire";
+
+    if (elements.cold.value < elements[minRoll].value) {
+      minRoll = "cold";
+    }
+
+    if (elements.lightning.value < elements[minRoll].value) {
+      minRoll = "lightning";
+    }
+
+    const totalRoll = {
+      value: all.value + elements[minRoll].value,
+      min: all.min + elements[minRoll].min,
+      max: all.max + elements[minRoll].max,
+    };
+
+    if (totalRoll.value === 0) {
+      // dont even bother if have none
+      ctx.filters = ctx.filters.filter((f) => f !== filter);
+      return;
+    }
+
+    const dp = false;
+
+    const filterBounds = {
+      min: percentRoll(totalRoll.min, -0, Math.floor, dp),
+      max: percentRoll(totalRoll.max, +0, Math.ceil, dp),
+    };
+
+    const filterDefault = {
+      min: percentRoll(totalRoll.value, -ctx.searchInRange, Math.floor, dp),
+      max: percentRoll(totalRoll.value, +ctx.searchInRange, Math.ceil, dp),
+    };
+
+    filterDefault.min = Math.max(filterDefault.min, filterBounds.min);
+    filterDefault.max = Math.min(filterDefault.max, filterBounds.max);
+
+    filter.roll = {
+      value: roundRoll(totalRoll.value, dp),
+      min: filterDefault.min,
+      max: undefined,
+      default: filterDefault,
+      bounds: undefined,
+      dp,
+      isNegated: false,
+    };
   }
 }
 

@@ -200,6 +200,7 @@
     "hide_not_max_level": "Non max level granted skills rarely add value",
     "hide_for_map": "Most map modifiers have no value",
     "hide_revives": "Select only if not 0 and don't want to exalt it?",
+    "hide_total_all_res": "Only adds small value compared to total res, unless high roll",
     "tag_implicit": "implicit",
     "tag_fractured": "fractured",
     "tag_crafted": "crafted",
