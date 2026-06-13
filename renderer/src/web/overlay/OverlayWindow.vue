@@ -95,6 +95,7 @@ export default defineComponent({
     const gameFocused = shallowRef(false);
     const hideUI = shallowRef(false);
     const showEditingNotification = shallowRef(false);
+    const pendingOpenSettings = shallowRef(false);
 
     watch(active, (active) => {
       if (active) {
@@ -110,6 +111,7 @@ export default defineComponent({
         AppConfig().widgets = value;
       },
     });
+    watch(widgets, () => openSettingsIfReady(), { deep: true });
 
     window.addEventListener("blur", () => {
       nextTick(() => {
@@ -126,6 +128,17 @@ export default defineComponent({
     Host.onEvent("MAIN->CLIENT::config-changed", () => {
       const widget = topmostOrExclusiveWidget.value;
       if (widget.wmType === "settings") {
+        hide(widget.wmId);
+      }
+    });
+    Host.onEvent("MAIN->CLIENT::open-settings", () => {
+      pendingOpenSettings.value = true;
+      openSettingsIfReady();
+      nextTick(openSettingsIfReady);
+    });
+    Host.onEvent("MAIN->OVERLAY::hide-exclusive-widget", () => {
+      const widget = topmostOrExclusiveWidget.value;
+      if (widget.wmZorder === "exclusive") {
         hide(widget.wmId);
       }
     });
@@ -174,6 +187,7 @@ export default defineComponent({
           payload: { isOverlay: Host.isElectron },
         });
         pushHostConfig();
+        openSettingsIfReady();
       });
     });
 
@@ -198,6 +212,16 @@ export default defineComponent({
         hide(topmostWidget.wmId);
       }
       widgets.value.find((_) => _.wmId === wmId)!.wmWants = "show";
+    }
+
+    function openSettingsIfReady() {
+      if (!pendingOpenSettings.value) return;
+      const settings = widgets.value.find((w) => w.wmType === "settings");
+      if (!settings) return;
+
+      active.value = true;
+      show(settings.wmId);
+      pendingOpenSettings.value = false;
     }
 
     function hide(wmId: WMID) {

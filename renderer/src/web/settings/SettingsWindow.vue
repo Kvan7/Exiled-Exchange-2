@@ -373,19 +373,21 @@ function flatJoin<T, J>(arr: T[][], joinEl: () => J) {
 <style lang="postcss" module>
 .window {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 50%;
+  bottom: auto;
   left: 0;
   right: 0;
   margin: 0 auto;
+  transform: translateY(-50%);
+  flex-grow: 0;
   max-width: 50rem;
-  max-height: 38rem;
+  height: min(38rem, calc(100% - 4rem)) !important;
   overflow: hidden;
   @apply bg-gray-800;
-  @apply rounded-b;
+  @apply rounded;
 
   &:global {
-    animation-name: slideInDown;
+    animation-name: fadeIn;
     animation-duration: 1s;
   }
 }
@@ -421,7 +423,7 @@ function flatJoin<T, J>(arr: T[][], joinEl: () => J) {
 .patronsHorizontal {
   @apply bg-gray-900 p-1 rounded gap-1;
   position: absolute;
-  top: 40rem;
+  top: calc(50% + min(19rem, calc((100% - 4rem) / 2)) + 1.25rem);
   left: 0;
   right: 0;
   margin: 0 auto;

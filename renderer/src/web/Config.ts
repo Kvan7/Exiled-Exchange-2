@@ -128,6 +128,7 @@ export interface Config {
   configVersion: number;
   leagueId?: string;
   overlayKey: string;
+  linuxShortcutBackend?: HostConfig["linuxShortcutBackend"];
   overlayBackground: string;
   overlayBackgroundClose: boolean;
   restoreClipboard: boolean;
@@ -800,6 +801,9 @@ function getConfigForHost(): HostConfig {
 
   return {
     shortcuts: actions,
+    linuxShortcutBackend:
+      config.linuxShortcutBackend ??
+      linuxShortcutBackendFromEnv(),
     restoreClipboard: config.restoreClipboard,
     clientLog: config.clientLog,
     gameConfig: config.gameConfig,
@@ -812,5 +816,30 @@ function getConfigForHost(): HostConfig {
     libraryAlpha: config.enableAlphas && config.alphas.includes("library"),
     libraryOutputPath: library.libraryOutputPath,
     initialDelay: priceCheck.initialDelay,
+  };
+}
+
+function linuxShortcutBackendFromEnv(): HostConfig["linuxShortcutBackend"] {
+  const backend = import.meta.env.VITE_LINUX_HOTKEY_BACKEND;
+  if (backend !== "linux-evdev-helper") return undefined;
+
+  return {
+    backend,
+    mode:
+      import.meta.env.VITE_LINUX_HOTKEY_BACKEND_MODE === "fallback"
+        ? "fallback"
+        : "enabled",
+    elevation:
+      import.meta.env.VITE_LINUX_HOTKEY_ELEVATION === "none" ||
+      import.meta.env.VITE_LINUX_HOTKEY_ELEVATION === "sudo"
+        ? import.meta.env.VITE_LINUX_HOTKEY_ELEVATION
+        : "pkexec",
+    helperPath: import.meta.env.VITE_LINUX_HOTKEY_HELPER || undefined,
+    devices: import.meta.env.VITE_LINUX_HOTKEY_DEVICES
+      ? import.meta.env.VITE_LINUX_HOTKEY_DEVICES.split(",")
+          .map((device: string) => device.trim())
+          .filter(Boolean)
+      : undefined,
+    enableUinput: false,
   };
 }

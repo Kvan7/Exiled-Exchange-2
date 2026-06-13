@@ -1,6 +1,7 @@
 import type {
   IpcEvent,
   IpcEventPayload,
+  LinuxHotkeyHelperDebugEvent,
   UpdateInfo,
   HostState,
 } from "@ipc/types";
@@ -13,6 +14,16 @@ class HostTransport {
   logs = shallowRef("");
   version = shallowRef("0.0.00000");
   updateInfo = shallowRef<UpdateInfo>({ state: "initial" });
+  linuxHotkeyHelperEventLog = shallowRef("");
+  linuxHotkeyHelper = shallowRef<HostState["linuxHotkeyHelper"]>({
+    isWayland: false,
+    configured: false,
+    running: false,
+    elevation: "pkexec",
+    command: null,
+    capturing: [],
+    error: null,
+  });
 
   async init() {
     this.onEvent("MAIN->CLIENT::log-entry", (entry) => {
@@ -20,6 +31,12 @@ class HostTransport {
     });
     this.onEvent("MAIN->CLIENT::updater-state", (info) => {
       this.updateInfo.value = info;
+    });
+    this.onEvent("MAIN->CLIENT::linux-hotkey-helper-state", (state) => {
+      this.linuxHotkeyHelper.value = state;
+    });
+    this.onEvent("MAIN->CLIENT::linux-hotkey-helper-debug-event", (event) => {
+      this.appendLinuxHotkeyHelperEvent(event);
     });
     await new Promise((resolve) => {
       this.socket = new Sockette(`ws://${window.location.host}/events`, {
@@ -29,6 +46,25 @@ class HostTransport {
         onopen: resolve,
       });
     });
+  }
+
+  private appendLinuxHotkeyHelperEvent(event: LinuxHotkeyHelperDebugEvent) {
+    const time = new Date(event.at).toLocaleTimeString();
+    const fields = [
+      event.kind,
+      event.id ? `id=${event.id}` : null,
+      event.accelerator ? `accelerator=${event.accelerator}` : null,
+      event.code ? `code=${event.code}` : null,
+      event.device ? `device=${event.device}` : null,
+      event.exitCode !== undefined ? `exitCode=${event.exitCode}` : null,
+      event.signal ? `signal=${event.signal}` : null,
+      event.helperTs !== undefined ? `helperTs=${event.helperTs}` : null,
+      event.message,
+    ].filter(Boolean);
+    const lines = `${this.linuxHotkeyHelperEventLog.value}${time} ${fields.join(
+      " ",
+    )}\n`.split("\n");
+    this.linuxHotkeyHelperEventLog.value = lines.slice(-200).join("\n");
   }
 
   selfDispatch(event: IpcEvent) {
@@ -68,6 +104,7 @@ class HostTransport {
     // TODO: refactor this
     this.version.value = config.version;
     this.updateInfo.value = config.updater;
+    this.linuxHotkeyHelper.value = config.linuxHotkeyHelper;
     return config.contents;
   }
 

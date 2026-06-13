@@ -5,6 +5,7 @@ import type { ServerEvents } from "./server";
 export class AppTray {
   public overlayKey = "Shift + Space";
   private tray: Tray;
+  private openSettings?: () => void;
   serverPort = 0;
 
   constructor(server: ServerEvents) {
@@ -33,11 +34,24 @@ export class AppTray {
     });
   }
 
+  setOpenSettingsHandler(handler: () => void) {
+    this.openSettings = handler;
+    this.rebuildMenu();
+  }
+
   rebuildMenu() {
     const contextMenu = Menu.buildFromTemplate([
       {
         label: "Settings/League",
         click: () => {
+          if (
+            this.openSettings &&
+            (process.env.WAYLAND_DISPLAY || process.env.VITE_DEV_SERVER_URL)
+          ) {
+            this.openSettings();
+            return;
+          }
+
           dialog.showMessageBox({
             title: "Settings",
             message: `Open Path of Exile 2 and press "${this.overlayKey}". Click on the button with cog icon there.`,
@@ -47,7 +61,7 @@ export class AppTray {
       {
         label: "Open in Browser",
         click: () => {
-          shell.openExternal(`http://localhost:${this.serverPort}`);
+          shell.openExternal(`http://127.0.0.1:${this.serverPort}`);
         },
       },
       { type: "separator" },

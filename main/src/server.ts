@@ -5,7 +5,12 @@ import { EventEmitter } from "events";
 import * as fs from "fs";
 import * as path from "path";
 import { app } from "electron";
-import { IpcEvent, IpcEventPayload, HostState } from "../../ipc/types";
+import {
+  IpcEvent,
+  IpcEventPayload,
+  HostState,
+  LinuxHotkeyHelperStatus,
+} from "../../ipc/types";
 import { ConfigStore } from "./host-files/ConfigStore";
 import { addFileUploadRoutes } from "./host-files/file-uploads";
 import type { AppUpdater } from "./AppUpdater";
@@ -14,6 +19,21 @@ import type { Logger } from "./RemoteLogger";
 export const server = createServer();
 const websocketServer = new WebSocketServer({ noServer: true });
 let lastActiveClient: WebSocket;
+let debugOverlayCaptureProvider:
+  | (() => Promise<Buffer | null>)
+  | undefined;
+let debugOverlayStateProvider:
+  | (() => Promise<unknown>)
+  | undefined;
+let linuxHotkeyHelperStatusProvider = (): LinuxHotkeyHelperStatus => ({
+  isWayland: Boolean(process.env.WAYLAND_DISPLAY),
+  configured: false,
+  running: false,
+  elevation: "pkexec",
+  command: null,
+  capturing: [],
+  error: null,
+});
 
 addFileUploadRoutes(server);
 
@@ -60,11 +80,11 @@ export function sendEventTo(
   event: IpcEvent,
 ) {
   const msg = JSON.stringify(event);
-  if (target === "broadcast") {
+  if (target === "broadcast" || target === "any") {
     for (const client of websocketServer.clients) {
       client.send(msg);
     }
-  } else {
+  } else if (lastActiveClient) {
     lastActiveClient.send(msg);
   }
 }
@@ -77,6 +97,22 @@ export const eventPipe = {
   onEventAnyClient,
   sendEventTo,
 };
+
+export function setLinuxHotkeyHelperStatusProvider(
+  provider: () => LinuxHotkeyHelperStatus,
+) {
+  linuxHotkeyHelperStatusProvider = provider;
+}
+
+export function setDebugOverlayCaptureProvider(
+  provider: () => Promise<Buffer | null>,
+) {
+  debugOverlayCaptureProvider = provider;
+}
+
+export function setDebugOverlayStateProvider(provider: () => Promise<unknown>) {
+  debugOverlayStateProvider = provider;
+}
 
 server.on("upgrade", (req, socket, head) => {
   if (req.url !== "/events") {
@@ -114,14 +150,38 @@ export async function startServer(
       name: "MAIN->CLIENT::log-entry",
       payload: { message: logger.history },
     });
+    sendEventTo("last-active", {
+      name: "MAIN->CLIENT::linux-hotkey-helper-state",
+      payload: linuxHotkeyHelperStatusProvider(),
+    });
   });
 
   server.addListener("request", async (req, res) => {
+    if (req.url === "/debug/overlay-screenshot" && process.env.VITE_DEV_SERVER_URL) {
+      const image = await debugOverlayCaptureProvider?.();
+      if (!image) {
+        res.statusCode = 404;
+        res.end("overlay window unavailable");
+        return;
+      }
+      res.setHeader("content-type", "image/png");
+      res.end(image);
+      return;
+    }
+
+    if (req.url === "/debug/overlay-state" && process.env.VITE_DEV_SERVER_URL) {
+      const state = await debugOverlayStateProvider?.();
+      res.setHeader("content-type", "application/json");
+      res.end(JSON.stringify(state ?? null));
+      return;
+    }
+
     if (req.url === "/config") {
       res.setHeader("content-type", "application/json");
       const resBody: HostState = {
         version: app.getVersion(),
         updater: appUpdater.info,
+        linuxHotkeyHelper: linuxHotkeyHelperStatusProvider(),
         contents: await configStore.load(),
       };
       res.end(JSON.stringify(resBody));
