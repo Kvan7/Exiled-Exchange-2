@@ -35,6 +35,9 @@
               class="flex items-center justify-between"
             >
               <span class="flex-grow text-center">
+                <span v-if="mod.affixTier" :class="$style['mod-tier']">{{
+                  mod.affixTier
+                }}</span>
                 <span
                   :class="
                     mod.value
@@ -168,6 +171,10 @@ export default defineComponent({
 <style lang="postcss" module>
 .mod {
   @apply text-sm;
+}
+
+.mod-tier {
+  @apply inline-block mr-1 align-middle font-sans text-xs text-gray-500;
 }
 
 .Rare-separator,
