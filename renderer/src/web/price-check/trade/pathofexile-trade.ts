@@ -439,6 +439,7 @@ interface FetchResult {
     grantedSkills?: TradeDataRichLine[];
     implicitMods?: string[];
     explicitMods?: string[];
+    craftedMods?: string[];
     mutatedMods?: string[];
     enchantMods?: string[];
     runeMods?: string[];
@@ -1527,6 +1528,7 @@ function parseMods(result: FetchResult): {
   runeMods?: DisplayItemLine[] | undefined;
   implicitMods?: DisplayItemLine[] | undefined;
   explicitMods?: DisplayItemLine[] | undefined;
+  craftedMods?: DisplayItemLine[] | undefined;
   desecratedMods?: DisplayItemLine[] | undefined;
   mutatedMods?: DisplayItemLine[] | undefined;
   fracturedMods?: DisplayItemLine[] | undefined;
@@ -1565,6 +1567,12 @@ function parseMods(result: FetchResult): {
       undefined,
       modMetadata?.explicit,
       modHashes?.explicit,
+    ),
+    craftedMods: parseModBlock(
+      result.item.craftedMods,
+      undefined,
+      modMetadata?.crafted,
+      modHashes?.crafted,
     ),
     desecratedMods: parseModBlock(
       result.item.desecratedMods,
