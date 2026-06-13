@@ -389,6 +389,8 @@ interface TradeModMetadata {
   magnitudes: Array<{ hash: string; min: string; max: string }>;
 }
 
+export type TradeModHashes = [string, number[] | null];
+
 interface TradeDataRichLine {
   name: string;
   values: Array<[string, TradeNumberColors]>;
@@ -477,8 +479,6 @@ export interface FetchResultExtended {
   mods?: Record<string, TradeModMetadata[]>;
   hashes?: Record<string, TradeModHashes[]>;
 }
-
-export type TradeModHashes = Array<string | number[] | null>;
 
 export interface DisplayItemLine {
   // text should include colon if required...
@@ -1599,28 +1599,18 @@ function getTier(
   mods?: TradeModMetadata[],
   hashes?: TradeModHashes[],
 ): string | undefined {
-  if (!mods?.length) return undefined;
+  if (!mods?.length) return;
 
   const hashEntry = hashes?.[displayIndex];
-  if (hashEntry) {
-    const modIndexes = hashEntry.find(
-      (part): part is number[] =>
-        Array.isArray(part) && part.every((value) => typeof value === "number"),
-    );
+  if (!hashEntry) return;
 
-    return modIndexes
-      ?.map((modIndex) => normalizeAffixTier(mods[modIndex]?.tier))
-      .find((tier) => tier != null);
-  }
+  const modIndexes = hashEntry[1];
+  if (!modIndexes) return;
 
-  if (hashes?.length) return undefined;
-
-  return normalizeAffixTier(mods[displayIndex]?.tier);
-}
-
-function normalizeAffixTier(tier: string | undefined): string | undefined {
-  const normalized = tier?.trim().toUpperCase();
-  return normalized && /^[PS]\d+$/.test(normalized) ? normalized : undefined;
+  return modIndexes
+    .map((modIndex) => mods[modIndex]?.tier)
+    .filter((tier) => tier != null)
+    .join(" + ");
 }
 
 function buildNameBlock(
