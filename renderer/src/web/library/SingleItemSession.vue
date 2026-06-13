@@ -30,34 +30,20 @@
 </template>
 
 <script lang="ts">
-import {
-  computed,
-  defineComponent,
-  PropType,
-  ref,
-  shallowRef,
-  watch,
-} from "vue";
+import { computed, defineComponent, ref, shallowRef, watch } from "vue";
 import { useI18nNs } from "@/web/i18n";
 import { ParsedModifier } from "@/parser/advanced-mod-desc";
 import { parseClipboard, ParsedItem } from "@/parser";
-import { buildCsvString, ColumnOpts, diffItem } from "./widget";
+import { buildCsvString, diffItem, LibraryWidget } from "./widget";
 import { ok } from "neverthrow";
 import { Host, MainProcess } from "@/web/background/IPC";
+import { AppConfig } from "../Config";
 
 export default defineComponent({
   name: "SingleItemSession",
   props: {
     libEnabled: {
       type: Boolean,
-      required: true,
-    },
-    sessionType: {
-      type: String as PropType<"chaos">,
-      required: true,
-    },
-    currentOpts: {
-      type: Object as PropType<ColumnOpts>,
       required: true,
     },
     inSession: {
@@ -73,6 +59,7 @@ export default defineComponent({
     }>({ added: [], removed: [] });
     const rollCount = shallowRef<number>(0);
     const errMessage = ref<string | null>(null);
+    const widget = computed(() => AppConfig<LibraryWidget>("library")!);
 
     watch(
       () => props.inSession,
@@ -94,11 +81,11 @@ export default defineComponent({
 
         buildCsvString(
           curr,
-          props.sessionType,
+          widget.value.selectedProfile,
           itemModsDiff.value.added,
           itemModsDiff.value.removed,
           {
-            columnOpts: props.currentOpts,
+            columnOpts: widget.value.profiles[widget.value.selectedProfile],
           },
         )
           .andThen((text) => {

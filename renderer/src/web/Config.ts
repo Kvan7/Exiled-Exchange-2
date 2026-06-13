@@ -156,7 +156,7 @@ export interface Config {
 }
 
 export const defaultConfig = (): Config => ({
-  configVersion: 32,
+  configVersion: 34,
   overlayKey: "Shift + Space",
   overlayBackground: "rgba(129, 139, 149, 0.15)",
   overlayBackgroundClose: true,
@@ -650,13 +650,23 @@ function upgradeConfig(_config: Config): Config {
   }
 
   if (config.configVersion < 32) {
-    // NOTE: v0.15.0 || poe0.4.0k
+    // NOTE: v0.15.0 || poe0.5.1
     const priceCheck = config.widgets.find(
       (w) => w.wmType === "price-check",
     ) as widget.PriceCheckWidget;
     priceCheck.initialDelay = 48;
 
     config.configVersion = 32;
+  }
+
+  if (config.configVersion < 33) {
+    // NOTE: v0.15.0 || poe0.5.1
+    const libraryWidget = config.widgets.find(
+      (w) => w.wmType === "library",
+    ) as LibraryWidget;
+    libraryWidget.selectedProfile = "chaos";
+
+    config.configVersion = 34;
   }
   /* eslint-enable */
 

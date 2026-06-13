@@ -8,6 +8,7 @@ export interface LibraryWidget extends Widget {
   anchor: Anchor;
   logItemKey: string | null;
   libraryOutputPath: string | null;
+  selectedProfile: string;
   profiles: Record<string, ColumnOpts>;
 }
 
@@ -71,7 +72,7 @@ function modFilter(mod: ParsedModifier, keep: ColumnOpts["keep"]) {
 
 export function buildCsvString(
   item: ParsedItem,
-  sessionType: "chaos",
+  sessionType: string,
   addedMods: ParsedModifier[],
   removedMods: ParsedModifier[],
   opts: { columnOpts: ColumnOpts },
@@ -127,7 +128,7 @@ export function buildCsvString(
   return err("sessionType not supported");
 }
 
-export function getHeader(sessionType: "chaos") {
+export function getHeader(sessionType: string) {
   switch (sessionType) {
     case "chaos":
       return ok("base,ilvl,rarity,sockets,mods,addedMods,removedMods");

@@ -12,6 +12,7 @@
         placeholder="...?/AppData/Roaming/exiled-exchange-2/apt-data/csv-data"
       />
     </div>
+    <profile-settings selected-profile="chaos" :profiles="profiles" />
   </div>
 </template>
 
@@ -21,10 +22,11 @@ import { useI18nNs } from "@/web/i18n";
 import { configModelValue, configProp, findWidget } from "../settings/utils.js";
 import { LibraryWidget } from "./widget.js";
 import HotkeyInput from "../settings/HotkeyInput.vue";
+import ProfileSettings from "./ProfileSettings.vue";
 
 export default defineComponent({
   name: "library.name",
-  components: { HotkeyInput },
+  components: { HotkeyInput, ProfileSettings },
   props: configProp(),
   setup(props) {
     const configLibraryWidget = computed(
@@ -43,6 +45,7 @@ export default defineComponent({
         () => configLibraryWidget.value,
         "libraryOutputPath",
       ),
+      profiles: computed(() => configLibraryWidget.value.profiles),
     };
   },
 });

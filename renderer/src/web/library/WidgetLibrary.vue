@@ -27,12 +27,7 @@
           <i class="fas fa-stop"></i>
         </button>
       </div>
-      <single-item-session
-        :session-type="sessionType"
-        :current-opts="currentOpts"
-        :in-session="inSession"
-        :lib-enabled="libEnabled"
-      />
+      <single-item-session :in-session="inSession" :lib-enabled="libEnabled" />
       <div
         v-if="errMessage && errMessage !== ''"
         class="flex-row bg-orange-700 mt-1"
@@ -52,7 +47,14 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, PropType, shallowRef, watch } from "vue";
+import {
+  computed,
+  defineComponent,
+  PropType,
+  ref,
+  shallowRef,
+  watch,
+} from "vue";
 
 import Widget from "@/web/overlay/Widget.vue";
 import { WidgetSpec } from "@/web/overlay/interfaces";
@@ -102,6 +104,7 @@ export default defineComponent({
         },
         logItemKey: null,
         libraryOutputPath: null,
+        selectedProfile: "chaos",
         profiles: {
           chaos: {
             refName: true,
@@ -144,8 +147,8 @@ export default defineComponent({
     const inSession = shallowRef<boolean>(false);
 
     const sessionName = shallowRef<string>("mySession");
-    const sessionType = shallowRef<"chaos">("chaos");
-    const currentOpts = shallowRef<ColumnOpts>(props.config.profiles.chaos);
+    const sessionType = shallowRef<string>(props.config.selectedProfile);
+    const currentOpts = ref<ColumnOpts>(props.config.profiles.chaos);
     const errMessage = shallowRef<string | null>();
 
     watch(libEnabled, (curr) => {
