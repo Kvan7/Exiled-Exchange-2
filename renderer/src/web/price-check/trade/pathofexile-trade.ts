@@ -71,7 +71,7 @@ export const CATEGORY_TO_TRADE_ID = new Map([
   [ItemCategory.Trinket, "accessory.trinket"],
   [ItemCategory.SanctumRelic, "sanctum.relic"],
   [ItemCategory.Tincture, "tincture"],
-  [ItemCategory.Charm, "azmeri.charm"],
+  [ItemCategory.Charm, "flask.charm"],
   [ItemCategory.Crossbow, "weapon.crossbow"],
   [ItemCategory.SkillGem, "gem.activegem"],
   [ItemCategory.SupportGem, "gem.supportgem"],

@@ -370,11 +370,6 @@ function findInDatabase(item: ParserState) {
       )![0].craftable!.category;
     }
   }
-
-  // Override charm since its flask in trade
-  if (item.category === ItemCategory.Charm) {
-    item.category = ItemCategory.Flask;
-  }
 }
 
 function parseMap(section: string[], item: ParsedItem) {

@@ -3,7 +3,7 @@
  */
 
 import { parseClipboard } from "@/parser";
-import { NormalItem, RareItem, SpectreIncSpirit } from "./items";
+import { CharmQuality, NormalItem, RareItem, SpectreIncSpirit } from "./items";
 import { beforeEach, describe, expect, it } from "vitest";
 import { setupTests } from "@specs/vitest.setup";
 import { init } from "@/assets/data";
@@ -63,5 +63,22 @@ describe("Parse Item Properties", () => {
     expect(parsedItem.requires?.str).toBe(NormalItem.requires?.str);
     expect(parsedItem.requires?.dex).toBe(NormalItem.requires?.dex);
     expect(parsedItem.requires?.int).toBe(NormalItem.requires?.int);
+  });
+});
+
+describe("Parse Charm Properties", () => {
+  beforeEach(async () => {
+    setupTests();
+    await init("en");
+  });
+
+  it("parses charm quality", () => {
+    const item = parseClipboard(CharmQuality.rawText);
+
+    expect(item.isOk()).toBe(true);
+
+    const parsedItem = item._unsafeUnwrap();
+
+    expect(parsedItem.quality).toBe(CharmQuality.quality);
   });
 });

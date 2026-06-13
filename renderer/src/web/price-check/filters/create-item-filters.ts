@@ -17,6 +17,7 @@ export const SPECIAL_SUPPORT_GEM = [
 
 const CATEGORIES_WITH_USEFUL_QUALITY = new Set([
   ItemCategory.Flask,
+  ItemCategory.Charm,
   ItemCategory.Tincture,
   ...WEAPON,
   ...ARMOUR,
@@ -245,6 +246,11 @@ export function createFilters(
         value: item.quality,
         // Not by default if rare, since most of craft is likely already done (and don't care about it on finished items)
         disabled: item.rarity === ItemRarity.Rare,
+      };
+    } else if (item.category === ItemCategory.Charm) {
+      filters.quality = {
+        value: item.quality,
+        disabled: item.quality < 10,
       };
     }
   }
