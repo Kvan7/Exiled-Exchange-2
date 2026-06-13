@@ -244,4 +244,8 @@ div[data-tippy-root] .tippy-box[data-theme~="item-tooltip"] {
 .tippy-box[data-theme~="item-tooltip"] .tippy-content {
   @apply p-0 w-fit h-fit;
 }
+
+.tippy-box[data-theme~="item-tooltip"] > .tippy-arrow::before {
+  @apply text-white;
+}
 </style>

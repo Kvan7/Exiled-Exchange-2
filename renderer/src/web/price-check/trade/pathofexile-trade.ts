@@ -389,8 +389,6 @@ interface TradeModMetadata {
   magnitudes: Array<{ hash: string; min: string; max: string }>;
 }
 
-type TradeModHashes = Record<string, Array<Array<string | number[] | null>>>;
-
 interface TradeDataRichLine {
   name: string;
   values: Array<[string, TradeNumberColors]>;
@@ -442,24 +440,7 @@ interface FetchResult {
     mutatedMods?: string[];
     enchantMods?: string[];
     runeMods?: string[];
-    extended?: {
-      dps?: number;
-      pdps?: number;
-      edps?: number;
-      ar?: number;
-      ev?: number;
-      es?: number;
-      ward?: number;
-      dps_aug?: boolean;
-      pdps_aug?: boolean;
-      edps_aug?: boolean;
-      ar_aug?: boolean;
-      ev_aug?: boolean;
-      es_aug?: boolean;
-      ward_aug?: boolean;
-      mods?: Record<string, TradeModMetadata[]>;
-      hashes?: Record<string, Array<Array<string | number[] | null>>>;
-    };
+    extended?: FetchResultExtended;
     pseudoMods?: string[];
     desecratedMods?: string[];
     fracturedMods?: string[];
@@ -478,12 +459,33 @@ interface FetchResult {
   gone?: boolean;
 }
 
+export interface FetchResultExtended {
+  dps?: number;
+  pdps?: number;
+  edps?: number;
+  ar?: number;
+  ev?: number;
+  es?: number;
+  ward?: number;
+  dps_aug?: boolean;
+  pdps_aug?: boolean;
+  edps_aug?: boolean;
+  ar_aug?: boolean;
+  ev_aug?: boolean;
+  es_aug?: boolean;
+  ward_aug?: boolean;
+  mods?: Record<string, TradeModMetadata[]>;
+  hashes?: Record<string, TradeModHashes[]>;
+}
+
+export type TradeModHashes = Array<string | number[] | null>;
+
 export interface DisplayItemLine {
   // text should include colon if required...
   text: string;
+  tier?: string;
   value?: string | number;
   color: TradeNumberColors;
-  affixTier?: string;
 }
 export enum DisplayFrameType {
   Normal = 0,
@@ -1582,19 +1584,20 @@ function parseModBlock(
   translated: string[] | undefined,
   color: TradeNumberColors = TradeNumberColors.Augmented,
   mods?: TradeModMetadata[],
-  hashes?: TradeModHashes[string],
+  hashes?: TradeModHashes[],
 ): DisplayItemLine[] | undefined {
+  // separate function, allow doing complex parsing later if needed
   if (!translated) return undefined;
   return translated.map((s, index) => {
-    const affixTier = getAffixTier(index, mods, hashes);
-    return { text: parseAffixStrings(s), color, affixTier };
+    const tier = getTier(index, mods, hashes);
+    return { text: parseAffixStrings(s), color, tier };
   });
 }
 
-function getAffixTier(
+function getTier(
   displayIndex: number,
   mods?: TradeModMetadata[],
-  hashes?: TradeModHashes[string],
+  hashes?: TradeModHashes[],
 ): string | undefined {
   if (!mods?.length) return undefined;
 

@@ -32,12 +32,9 @@
             <div
               v-for="mod in section.content"
               :key="mod.text"
-              class="flex items-center justify-between"
+              class="flex items-center justify-between gap-1"
             >
               <span class="flex-grow text-center">
-                <span v-if="mod.affixTier" :class="$style['mod-tier']">{{
-                  mod.affixTier
-                }}</span>
                 <span
                   :class="
                     mod.value
@@ -52,6 +49,15 @@
                   >{{ mod.value }}</span
                 >
               </span>
+              <span
+                v-if="mod.tier"
+                :class="{
+                  'text-blue-300': mod.tier.startsWith('S'),
+                  'text-red-300': mod.tier.startsWith('P'),
+                }"
+              >
+                {{ mod.tier }}</span
+              >
             </div>
           </div>
           <template v-if="dividerVisible[index]">
@@ -171,10 +177,6 @@ export default defineComponent({
 <style lang="postcss" module>
 .mod {
   @apply text-sm;
-}
-
-.mod-tier {
-  @apply inline-block mr-1 align-middle font-sans text-xs text-gray-500;
 }
 
 .Rare-separator,

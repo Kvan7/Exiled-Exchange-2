@@ -24,7 +24,7 @@ describe("pathofexile-trade tooltip parsing", () => {
       getFetchResult("65c7c4e8"),
     );
 
-    expect(displayItem.explicitMods?.map((mod) => mod.affixTier)).toEqual([
+    expect(displayItem.explicitMods?.map((mod) => mod.tier)).toEqual([
       "P2",
       "S3",
     ]);
@@ -35,7 +35,7 @@ describe("pathofexile-trade tooltip parsing", () => {
       getFetchResult("ece06af2"),
     );
 
-    expect(displayItem.explicitMods?.map((mod) => mod.affixTier)).toEqual([
+    expect(displayItem.explicitMods?.map((mod) => mod.tier)).toEqual([
       "P7",
       "P7",
       "P5",
