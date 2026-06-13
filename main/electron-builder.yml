@@ -2,11 +2,13 @@ publish:
   - "github"
 productName: "Exiled Exchange 2"
 npmRebuild: false
+asarUnpack:
+  - "linux-evdev-helper"
 files:
   - "package.json"
   - from: "dist"
     to: "."
-    filter: ["main.js", "vision.js"]
+    filter: ["main.js", "vision.js", "linux-evdev-helper"]
   - from: "../renderer/dist"
     to: "."
 extraMetadata:

@@ -2,8 +2,17 @@
 
 import { app, systemPreferences } from "electron";
 import { uIOhook } from "uiohook-napi";
+import fs from "node:fs";
 import os from "node:os";
-import { startServer, eventPipe, server } from "./server";
+import path from "node:path";
+import {
+  startServer,
+  eventPipe,
+  server,
+  setDebugOverlayCaptureProvider,
+  setDebugOverlayStateProvider,
+  setLinuxHotkeyHelperStatusProvider,
+} from "./server";
 import { Logger } from "./RemoteLogger";
 import { GameWindow } from "./windowing/GameWindow";
 import { OverlayWindow } from "./windowing/OverlayWindow";
@@ -24,7 +33,9 @@ if (!app.requestSingleInstanceLock()) {
 if (process.platform !== "darwin") {
   app.disableHardwareAcceleration();
 }
-app.enableSandbox();
+if (!process.env.VITE_DEV_SERVER_URL) {
+  app.enableSandbox();
+}
 let tray: AppTray;
 
 (async () => {
@@ -92,6 +103,11 @@ let tray: AppTray;
     setTimeout(
       async () => {
         const overlay = new OverlayWindow(eventPipe, logger, poeWindow);
+        setDebugOverlayCaptureProvider(() => overlay.captureDebugPng());
+        setDebugOverlayStateProvider(() => overlay.debugState());
+        tray.setOpenSettingsHandler(() => {
+          overlay.openSettings();
+        });
         // eslint-disable-next-line no-new
         new OverlayVisibility(eventPipe, overlay, gameConfig);
         const shortcuts = await Shortcuts.create(
@@ -101,9 +117,16 @@ let tray: AppTray;
           gameConfig,
           eventPipe,
         );
+        setLinuxHotkeyHelperStatusProvider(() => shortcuts.helperStatus);
         eventPipe.onEventAnyClient(
           "CLIENT->MAIN::update-host-config",
           (cfg) => {
+            cfg.linuxShortcutBackend ??= defaultWaylandShortcutBackend();
+            if (cfg.linuxShortcutBackend?.backend === "linux-evdev-helper") {
+              cfg.linuxShortcutBackend.devices = mergeDiscoveredInputDevices(
+                cfg.linuxShortcutBackend.devices,
+              );
+            }
             overlay.updateOpts(cfg.overlayKey, cfg.windowTitle);
             shortcuts.updateActions(
               cfg.shortcuts,
@@ -111,6 +134,7 @@ let tray: AppTray;
               cfg.logKeys,
               cfg.restoreClipboard,
               cfg.language,
+              cfg.linuxShortcutBackend,
             );
             shortcuts.updateDelay(cfg.initialDelay);
             gameLogWatcher.restart(cfg.clientLog ?? "", cfg.readClientLog);
@@ -133,3 +157,54 @@ let tray: AppTray;
     );
   });
 })();
+
+function defaultWaylandShortcutBackend() {
+  if (process.platform !== "linux" || !process.env.WAYLAND_DISPLAY) {
+    return undefined;
+  }
+
+  const devices = process.env.EXILED_EXCHANGE_LINUX_HOTKEY_DEVICES
+    ? process.env.EXILED_EXCHANGE_LINUX_HOTKEY_DEVICES.split(",")
+        .map((device) => device.trim())
+        .filter(Boolean)
+    : discoverKeyboardEventDevices();
+
+  return {
+    backend: "linux-evdev-helper" as const,
+    mode: "enabled" as const,
+    elevation: "pkexec" as const,
+    devices: mergeDiscoveredInputDevices(devices),
+    enableUinput: false as const,
+  };
+}
+
+function mergeDiscoveredInputDevices(configured: string[] | undefined) {
+  return Array.from(
+    new Set([...(configured ?? []), ...discoverKeyboardEventDevices()]),
+  ).sort();
+}
+
+function discoverKeyboardEventDevices() {
+  const devices = new Set<string>();
+  for (const dir of ["/dev/input/by-path", "/dev/input/by-id"]) {
+    try {
+      for (const entry of fs.readdirSync(dir)) {
+        if (!entry.endsWith("-event-kbd")) continue;
+        const device = fs.realpathSync(path.join(dir, entry));
+        if (/^\/dev\/input\/event[0-9]+$/.test(device)) {
+          devices.add(device);
+        }
+      }
+    } catch {}
+  }
+
+  try {
+    for (const entry of fs.readdirSync("/dev/input")) {
+      if (/^event[0-9]+$/.test(entry)) {
+        devices.add(path.join("/dev/input", entry));
+      }
+    }
+  } catch {}
+
+  return Array.from(devices).sort();
+}

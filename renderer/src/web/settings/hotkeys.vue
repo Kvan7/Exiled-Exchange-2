@@ -17,6 +17,58 @@
         }}</ui-radio>
       </div>
     </div>
+    <div
+      v-if="linuxHotkeyHelper.isWayland"
+      class="mt-8 border-t border-gray-600 pt-4"
+    >
+      <div class="mb-2 flex items-center justify-between gap-3">
+        <div class="font-fontin text-lg">Wayland hotkey helper</div>
+        <button
+          class="rounded bg-gray-700 px-3 py-1 hover:bg-gray-600"
+          type="button"
+          @click="restartLinuxHotkeyHelper"
+        >
+          Restart
+        </button>
+      </div>
+      <div class="space-y-2 text-sm">
+        <div>
+          Helper running as root:
+          <span
+            :class="
+              linuxHotkeyHelper.running ? 'text-green-400' : 'text-red-400'
+            "
+          >
+            {{ linuxHotkeyHelper.running ? "yes" : "no" }}
+          </span>
+        </div>
+        <div class="break-all">
+          Command:
+          <code class="rounded bg-gray-900 px-1 py-0.5">{{
+            linuxHotkeyHelper.command ?? "not configured"
+          }}</code>
+        </div>
+        <div v-if="linuxHotkeyHelper.error" class="text-red-300">
+          {{ linuxHotkeyHelper.error }}
+        </div>
+        <div>
+          Capturing:
+          <span v-if="linuxHotkeyHelper.capturing.length">
+            {{ linuxHotkeyHelper.capturing.join(", ") }}
+          </span>
+          <span v-else>no app hotkeys configured</span>
+        </div>
+      </div>
+      <div class="mt-4">
+        <div class="mb-1 font-fontin text-base">Helper event log</div>
+        <textarea
+          id="linux-hotkey-helper-event-log"
+          class="h-32 w-full resize-y rounded bg-gray-900 p-2 font-mono text-xs text-gray-200"
+          readonly
+          :value="linuxHotkeyHelperEventLog"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -29,6 +81,7 @@ export default {
 <script setup lang="ts">
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
+import { MainProcess } from "@/web/background/IPC";
 import {
   configProp,
   configModelValue,
@@ -94,6 +147,17 @@ const hotkeys = computed<HotkeySchema[]>(() => {
 });
 
 const stashScroll = configModelValue(() => props.config, "stashScroll");
+const linuxHotkeyHelper = computed(() => MainProcess.linuxHotkeyHelper.value);
+const linuxHotkeyHelperEventLog = computed(
+  () => MainProcess.linuxHotkeyHelperEventLog.value,
+);
+
+function restartLinuxHotkeyHelper() {
+  MainProcess.sendEvent({
+    name: "CLIENT->MAIN::user-action",
+    payload: { action: "restart-linux-hotkey-helper" },
+  });
+}
 
 const { t } = useI18n();
 </script>

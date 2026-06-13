@@ -1,5 +1,6 @@
 export interface HostConfig {
   shortcuts: ShortcutAction[];
+  linuxShortcutBackend?: LinuxShortcutBackendConfig;
   restoreClipboard: boolean;
   clientLog: string | null;
   gameConfig: string | null;
@@ -12,6 +13,43 @@ export interface HostConfig {
   libraryAlpha: boolean;
   libraryOutputPath: string | null;
   initialDelay: number;
+}
+
+export interface LinuxShortcutBackendConfig {
+  backend: "linux-evdev-helper";
+  mode?: "enabled" | "fallback";
+  elevation?: "pkexec" | "sudo" | "none";
+  helperPath?: string;
+  devices?: string[];
+  hotkeys?: Array<{
+    id: string;
+    accelerator: string;
+    passthrough?: boolean;
+  }>;
+  enableUinput?: false;
+}
+
+export interface LinuxHotkeyHelperStatus {
+  isWayland: boolean;
+  configured: boolean;
+  running: boolean;
+  elevation: "pkexec" | "sudo" | "none";
+  command: string | null;
+  capturing: string[];
+  error: string | null;
+}
+
+export interface LinuxHotkeyHelperDebugEvent {
+  kind: "start" | "ready" | "hotkey" | "error" | "exit";
+  at: number;
+  message: string;
+  id?: string;
+  accelerator?: string;
+  helperTs?: number;
+  code?: string;
+  device?: string;
+  exitCode?: number | null;
+  signal?: string | null;
 }
 
 export interface ShortcutAction {
@@ -70,6 +108,7 @@ export interface HostState {
   contents: string | null;
   version: string;
   updater: UpdateInfo;
+  linuxHotkeyHelper: LinuxHotkeyHelperStatus;
 }
 
 export type IpcEvent =
@@ -86,8 +125,11 @@ export type IpcEvent =
   | IpcGameLog
   | IpcClientIsActive
   | IpcLogEntry
+  | IpcLinuxHotkeyHelperState
+  | IpcLinuxHotkeyHelperDebugEvent
   | IpcHostConfig
   | IpcWidgetAction
+  | IpcOpenSettings
   | IpcItemText
   | IpcOcrText
   | IpcConfigChanged
@@ -171,6 +213,8 @@ type IpcWidgetAction = Event<
   }
 >;
 
+type IpcOpenSettings = Event<"MAIN->CLIENT::open-settings">;
+
 type IpcItemText = Event<
   "MAIN->CLIENT::item-text",
   {
@@ -203,12 +247,26 @@ type IpcReparseLog = Event<"CLIENT->MAIN::re-parse-log">;
 
 type IpcUpdaterState = Event<"MAIN->CLIENT::updater-state", UpdateInfo>;
 
+type IpcLinuxHotkeyHelperState = Event<
+  "MAIN->CLIENT::linux-hotkey-helper-state",
+  LinuxHotkeyHelperStatus
+>;
+
+type IpcLinuxHotkeyHelperDebugEvent = Event<
+  "MAIN->CLIENT::linux-hotkey-helper-debug-event",
+  LinuxHotkeyHelperDebugEvent
+>;
+
 // Hotkeyable actions are defined in `ShortcutAction`.
 // Actions below are triggered by user interaction with the UI.
 type IpcUserAction = Event<
   "CLIENT->MAIN::user-action",
   | {
-      action: "check-for-update" | "update-and-restart" | "quit";
+      action:
+        | "check-for-update"
+        | "update-and-restart"
+        | "quit"
+        | "restart-linux-hotkey-helper";
     }
   | {
       action: "stash-search";

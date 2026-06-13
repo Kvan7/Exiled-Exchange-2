@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "node build/script.mjs",
     "build": "tsc --noEmit && node build/script.mjs --prod",
+    "build:linux-evdev-helper": "make -C ../native/linux-evdev-helper",
+    "test:linux-evdev-helper": "node scripts/test-linux-evdev-helper.mjs",
     "package": "electron-builder build",
     "lint": "eslint src",
     "fix": "eslint src --fix",
