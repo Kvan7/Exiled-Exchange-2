@@ -14,6 +14,7 @@ export class OverlayWindow {
   private window?: BrowserWindow;
   private overlayKey: string = "Shift + Space";
   private isOverlayKeyUsed = false;
+  private isRenderRequired = true;
 
   constructor(
     private server: ServerEvents,
@@ -30,6 +31,11 @@ export class OverlayWindow {
     this.server.onEventAnyClient("CLIENT->MAIN::used-recently", (e) => {
       this.wasUsedRecently = e.isOverlay;
     });
+    this.server.onEventAnyClient("OVERLAY->MAIN::render-state", (e) => {
+      this.isRenderRequired = e.isRequired;
+      this.syncWindowVisibility();
+    });
+    OverlayController.events.on("focus", this.queueWindowVisibilitySync);
 
     if (process.argv.includes("--no-overlay")) return;
 
@@ -87,6 +93,7 @@ export class OverlayWindow {
   assertOverlayActive = () => {
     if (!this.isInteractable) {
       this.isInteractable = true;
+      this.showInactive();
       OverlayController.activateOverlay();
       this.poeWindow.isActive = false;
     }
@@ -97,6 +104,7 @@ export class OverlayWindow {
       this.isInteractable = false;
       OverlayController.focusTarget();
       this.poeWindow.isActive = true;
+      this.syncWindowVisibility();
     }
   };
 
@@ -169,6 +177,7 @@ export class OverlayWindow {
         payload: undefined,
       });
     }
+    this.syncWindowVisibility();
   };
 
   private handlePoeWindowActiveChange = (isActive: boolean) => {
@@ -184,5 +193,35 @@ export class OverlayWindow {
       },
     });
     this.isOverlayKeyUsed = false;
+    this.syncWindowVisibility();
+  };
+
+  private syncWindowVisibility() {
+    if (!this.window) return;
+
+    if (
+      this.isInteractable ||
+      (this.isRenderRequired && this.poeWindow.isActive)
+    ) {
+      this.showInactive();
+    } else if (this.window.isVisible()) {
+      this.window.hide();
+    }
+  }
+
+  private showInactive() {
+    if (!this.window || this.window.isVisible()) return;
+
+    this.window.showInactive();
+    this.window.setAlwaysOnTop(true, "screen-saver");
+  }
+
+  private queueWindowVisibilitySync = () => {
+    process.nextTick(() => {
+      this.syncWindowVisibility();
+    });
+    setTimeout(() => {
+      this.syncWindowVisibility();
+    }, 50);
   };
 }
