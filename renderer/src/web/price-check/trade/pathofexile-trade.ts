@@ -384,10 +384,12 @@ export interface SearchResult {
 
 interface TradeModMetadata {
   name: string;
-  tier: number;
+  tier: string;
   level: number;
   magnitudes: Array<{ hash: string; min: string; max: string }>;
 }
+
+export type TradeModHashes = [string, number[] | null];
 
 interface TradeDataRichLine {
   name: string;
@@ -440,24 +442,7 @@ interface FetchResult {
     mutatedMods?: string[];
     enchantMods?: string[];
     runeMods?: string[];
-    extended?: {
-      dps?: number;
-      pdps?: number;
-      edps?: number;
-      ar?: number;
-      ev?: number;
-      es?: number;
-      ward?: number;
-      dps_aug?: boolean;
-      pdps_aug?: boolean;
-      edps_aug?: boolean;
-      ar_aug?: boolean;
-      ev_aug?: boolean;
-      es_aug?: boolean;
-      ward_aug?: boolean;
-      mods?: Record<string, TradeModMetadata[]>;
-      hashes?: Record<string, Array<Array<string | number[] | null>>>;
-    };
+    extended?: FetchResultExtended;
     pseudoMods?: string[];
     desecratedMods?: string[];
     fracturedMods?: string[];
@@ -477,9 +462,29 @@ interface FetchResult {
   gone?: boolean;
 }
 
+export interface FetchResultExtended {
+  dps?: number;
+  pdps?: number;
+  edps?: number;
+  ar?: number;
+  ev?: number;
+  es?: number;
+  ward?: number;
+  dps_aug?: boolean;
+  pdps_aug?: boolean;
+  edps_aug?: boolean;
+  ar_aug?: boolean;
+  ev_aug?: boolean;
+  es_aug?: boolean;
+  ward_aug?: boolean;
+  mods?: Record<string, TradeModMetadata[]>;
+  hashes?: Record<string, TradeModHashes[]>;
+}
+
 export interface DisplayItemLine {
   // text should include colon if required...
   text: string;
+  tier?: string;
   value?: string | number;
   color: TradeNumberColors;
 }
@@ -1527,44 +1532,92 @@ function parseMods(result: FetchResult): {
   fracturedMods?: DisplayItemLine[] | undefined;
   pseudoMods?: DisplayItemLine[] | undefined;
 } {
-  /*
+  const modMetadata = result.item.extended?.mods;
+  const modHashes = result.item.extended?.hashes;
 
-  */
   return {
     enchantMods: parseModBlock(
       result.item.enchantMods,
       TradeNumberColors.Enchant,
+      modMetadata?.enchant,
+      modHashes?.enchant,
     ),
-    runeMods: parseModBlock(result.item.runeMods, TradeNumberColors.Enchant),
-    implicitMods: parseModBlock(result.item.implicitMods),
+    runeMods: parseModBlock(
+      result.item.runeMods,
+      TradeNumberColors.Enchant,
+      modMetadata?.rune,
+      modHashes?.rune,
+    ),
+    implicitMods: parseModBlock(
+      result.item.implicitMods,
+      undefined,
+      modMetadata?.implicit,
+      modHashes?.implicit,
+    ),
     fracturedMods: parseModBlock(
       result.item.fracturedMods,
       TradeNumberColors.Fractured,
+      modMetadata?.fractured,
+      modHashes?.fractured,
     ),
-    explicitMods: parseModBlock(result.item.explicitMods),
+    explicitMods: parseModBlock(
+      result.item.explicitMods,
+      undefined,
+      modMetadata?.explicit,
+      modHashes?.explicit,
+    ),
     desecratedMods: parseModBlock(
       result.item.desecratedMods,
       TradeNumberColors.Desecrated,
+      modMetadata?.desecrated,
+      modHashes?.desecrated,
     ),
     mutatedMods: parseModBlock(
       result.item.mutatedMods,
       TradeNumberColors.Mutated,
+      modMetadata?.mutated,
+      modHashes?.mutated,
     ),
-    pseudoMods: parseModBlock(result.item.pseudoMods),
+    pseudoMods: parseModBlock(
+      result.item.pseudoMods,
+      undefined,
+      modMetadata?.pseudo,
+      modHashes?.pseudo,
+    ),
   };
 }
 
 function parseModBlock(
   translated: string[] | undefined,
   color: TradeNumberColors = TradeNumberColors.Augmented,
-  // mods: TradeModMetadata[] | undefined,
-  // hashes: Array<Array<string | number[] | null>> | undefined,
+  mods?: TradeModMetadata[],
+  hashes?: TradeModHashes[],
 ): DisplayItemLine[] | undefined {
   // separate function, allow doing complex parsing later if needed
   if (!translated) return undefined;
-  return translated.map((s) => {
-    return { text: parseAffixStrings(s), color };
+  return translated.map((s, index) => {
+    const tier = getTier(index, mods, hashes);
+    return { text: parseAffixStrings(s), color, tier };
   });
+}
+
+function getTier(
+  displayIndex: number,
+  mods?: TradeModMetadata[],
+  hashes?: TradeModHashes[],
+): string | undefined {
+  if (!mods?.length) return;
+
+  const hashEntry = hashes?.[displayIndex];
+  if (!hashEntry) return;
+
+  const modIndexes = hashEntry[1];
+  if (!modIndexes) return;
+
+  return modIndexes
+    .map((modIndex) => mods[modIndex]?.tier)
+    .filter((tier) => tier != null)
+    .join(" + ");
 }
 
 function buildNameBlock(

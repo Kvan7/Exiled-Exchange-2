@@ -32,7 +32,7 @@
             <div
               v-for="mod in section.content"
               :key="mod.text"
-              class="flex items-center justify-between"
+              class="flex items-center justify-between gap-1"
             >
               <span class="flex-grow text-center">
                 <span
@@ -49,6 +49,15 @@
                   >{{ mod.value }}</span
                 >
               </span>
+              <span
+                v-if="mod.tier"
+                :class="{
+                  'text-blue-300': mod.tier.startsWith('S'),
+                  'text-red-300': mod.tier.startsWith('P'),
+                }"
+              >
+                {{ mod.tier }}</span
+              >
             </div>
           </div>
           <template v-if="dividerVisible[index]">

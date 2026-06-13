@@ -2915,6 +2915,337 @@
           }
         }
       }
+    },
+    {
+      "id": "2fa2f1ee71c3ed3e396180c3b5ef60a8948e1d09a76dbb3e3a7d85651a88cc43",
+      "listing": {
+        "method": "psapi",
+        "indexed": "2026-06-13T19:42:46Z",
+        "stash": {
+          "name": "5",
+          "x": 10,
+          "y": 8
+        },
+        "price": {
+          "type": "~b/o",
+          "amount": 3,
+          "currency": "divine"
+        },
+        "fee": 75269,
+        "account": {
+          "name": "Claazy#1164",
+          "online": null
+        }
+      },
+      "item": {
+        "realm": "poe2",
+        "verified": true,
+        "w": 2,
+        "h": 4,
+        "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvV2VhcG9ucy9Ud29IYW5kV2VhcG9ucy9XYXJTdGF2ZXMvV2Fyc3RhZmYxMCIsInciOjIsImgiOjQsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/d836b3566d/Warstaff10.png",
+        "league": "Runes of Aldur",
+        "id": "2fa2f1ee71c3ed3e396180c3b5ef60a8948e1d09a76dbb3e3a7d85651a88cc43",
+        "sockets": [
+          {
+            "group": 0,
+            "type": "rune"
+          },
+          {
+            "group": 1,
+            "type": "rune"
+          }
+        ],
+        "name": "Brood Pillar",
+        "typeLine": "Dreaming Quarterstaff",
+        "baseType": "Dreaming Quarterstaff",
+        "rarity": "Rare",
+        "ilvl": 81,
+        "identified": true,
+        "note": "~b/o 3 divine",
+        "properties": [
+          {
+            "name": "[Quarterstaff]",
+            "values": [],
+            "displayMode": 0,
+            "type": 109
+          },
+          {
+            "name": "[Quality]",
+            "values": [["+20%", 1]],
+            "displayMode": 0,
+            "type": 6
+          },
+          {
+            "name": "[Physical] Damage",
+            "values": [["454-639", 1]],
+            "displayMode": 0,
+            "type": 9
+          },
+          {
+            "name": "[Critical|Critical Hit] Chance",
+            "values": [["0.00%", 0]],
+            "displayMode": 0,
+            "type": 12
+          },
+          {
+            "name": "Attacks per Second",
+            "values": [["1.50", 0]],
+            "displayMode": 0,
+            "type": 13
+          }
+        ],
+        "requirements": [
+          {
+            "name": "Level",
+            "values": [["78", 0]],
+            "displayMode": 0,
+            "type": 62
+          },
+          {
+            "name": "[Dexterity|Dex]",
+            "values": [["127", 0]],
+            "displayMode": 1,
+            "type": 64
+          },
+          {
+            "name": "[Intelligence|Int]",
+            "values": [["50", 0]],
+            "displayMode": 1,
+            "type": 65
+          }
+        ],
+        "runeMods": [
+          "36% increased [Physical] Damage",
+          "[ShamanOnlyMods|Bonded]: 40% increased effect of [ArmourBreak|Fully Broken Armour]"
+        ],
+        "explicitMods": [
+          "199% increased [Physical] Damage",
+          "Adds 14 to 26 [Physical|Physical] Damage",
+          "+77 to [Accuracy|Accuracy] Rating",
+          "Gain 35 Life per enemy killed",
+          "Causes 43% increased [Stun|Stun] Buildup",
+          "18% increased [Stun|Stun] Duration"
+        ],
+        "frameType": 2,
+        "frameTypeId": "Rare",
+        "socketedItems": [
+          {
+            "realm": "poe2",
+            "verified": true,
+            "w": 1,
+            "h": 1,
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvRW5oYW5jZVJ1bmVUaWVyMiIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/6b729ab5a0/EnhanceRuneTier2.png",
+            "stackSize": 1,
+            "maxStackSize": 10,
+            "league": "Runes of Aldur",
+            "id": "a25757280cf791009331bead1986fa1ac037246a0705ca75ccffd20d2acd6a4b",
+            "name": "",
+            "typeLine": "Greater Iron Rune",
+            "baseType": "Greater Iron Rune",
+            "ilvl": 0,
+            "identified": true,
+            "properties": [
+              {
+                "name": "Stack Size",
+                "values": [["1/10", 0]],
+                "displayMode": 0,
+                "type": 32
+              },
+              {
+                "name": "[Rune|Rune]",
+                "values": [],
+                "displayMode": 0
+              }
+            ],
+            "requirements": [
+              {
+                "name": "Level",
+                "values": [["30", 0]],
+                "displayMode": 0,
+                "type": 62
+              }
+            ],
+            "explicitMods": [
+              "[MartialWeapon|Martial Weapon]: 18% increased [Physical] Damage",
+              "Wand or Staff: 30% increased [Spell] Damage",
+              "Armour: 18% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]"
+            ],
+            "bondedMods": [
+              "[ShamanOnlyMods|Bonded]:",
+              "[MartialWeapon|Martial Weapon]: 20% increased effect of [ArmourBreak|Fully Broken Armour]",
+              "Wand or Staff: [ArmourBreak|Break] [Armour] on [Critical|Critical Hit] with [Spell|Spells] equal to 12% of [Physical|Physical] Damage dealt",
+              "Armour:",
+              "+20 to maximum Life",
+              "+20 to maximum Mana"
+            ],
+            "descrText": "Place into an empty [Augment] Socket in a Weapon or Armour to apply its effect to that item. Once socketed it cannot be retrieved but can be replaced by other [Augment] items.",
+            "frameType": 5,
+            "frameTypeId": "Currency",
+            "socket": 0,
+            "socketedIcon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1VJSW1hZ2VzL0luR2FtZS9SdW5lU29ja2V0RmlsbGVkIiwicmVhbG0iOiJwb2UyIn1d/d02d26cbf0/RuneSocketFilled.png"
+          },
+          {
+            "realm": "poe2",
+            "verified": true,
+            "w": 1,
+            "h": 1,
+            "icon": "https://web.poecdn.com/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvUnVuZXMvRW5oYW5jZVJ1bmVUaWVyMiIsInciOjEsImgiOjEsInNjYWxlIjoxLCJyZWFsbSI6InBvZTIifV0/6b729ab5a0/EnhanceRuneTier2.png",
+            "stackSize": 1,
+            "maxStackSize": 10,
+            "league": "Runes of Aldur",
+            "id": "73a09aff72ac3ba7fd15a7686a6415c07092600704b31e8992b0aab7defb2201",
+            "name": "",
+            "typeLine": "Greater Iron Rune",
+            "baseType": "Greater Iron Rune",
+            "ilvl": 0,
+            "identified": true,
+            "properties": [
+              {
+                "name": "Stack Size",
+                "values": [["1/10", 0]],
+                "displayMode": 0,
+                "type": 32
+              },
+              {
+                "name": "[Rune|Rune]",
+                "values": [],
+                "displayMode": 0
+              }
+            ],
+            "requirements": [
+              {
+                "name": "Level",
+                "values": [["30", 0]],
+                "displayMode": 0,
+                "type": 62
+              }
+            ],
+            "explicitMods": [
+              "[MartialWeapon|Martial Weapon]: 18% increased [Physical] Damage",
+              "Wand or Staff: 30% increased [Spell] Damage",
+              "Armour: 18% increased [Armour|Armour], [Evasion|Evasion] and [EnergyShield|Energy Shield]"
+            ],
+            "bondedMods": [
+              "[ShamanOnlyMods|Bonded]:",
+              "[MartialWeapon|Martial Weapon]: 20% increased effect of [ArmourBreak|Fully Broken Armour]",
+              "Wand or Staff: [ArmourBreak|Break] [Armour] on [Critical|Critical Hit] with [Spell|Spells] equal to 12% of [Physical|Physical] Damage dealt",
+              "Armour:",
+              "+20 to maximum Life",
+              "+20 to maximum Mana"
+            ],
+            "descrText": "Place into an empty [Augment] Socket in a Weapon or Armour to apply its effect to that item. Once socketed it cannot be retrieved but can be replaced by other [Augment] items.",
+            "frameType": 5,
+            "frameTypeId": "Currency",
+            "socket": 1,
+            "socketedIcon": "https://web.poecdn.com/gen/image/WzIxLDE0LHsiayI6IjJEQXJ0L1VJSW1hZ2VzL0luR2FtZS9SdW5lU29ja2V0RmlsbGVkIiwicmVhbG0iOiJwb2UyIn1d/d02d26cbf0/RuneSocketFilled.png"
+          }
+        ],
+        "extended": {
+          "dps": 819.75,
+          "pdps": 819.75,
+          "edps": 0,
+          "mods": {
+            "explicit": [
+              {
+                "name": "Honed",
+                "tier": "P6",
+                "level": 33,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1940865751",
+                    "min": "11",
+                    "max": "17"
+                  },
+                  {
+                    "hash": "explicit.stat_1940865751",
+                    "min": "20",
+                    "max": "30"
+                  }
+                ]
+              },
+              {
+                "name": "Tyrannical",
+                "tier": "P2",
+                "level": 75,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1509134228",
+                    "min": "155",
+                    "max": "169"
+                  }
+                ]
+              },
+              {
+                "name": "Mercenary's",
+                "tier": "P5",
+                "level": 38,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_1509134228",
+                    "min": "35",
+                    "max": "44"
+                  },
+                  {
+                    "hash": "explicit.stat_691932474",
+                    "min": "73",
+                    "max": "97"
+                  }
+                ]
+              },
+              {
+                "name": "of Vanquishing",
+                "tier": "S4",
+                "level": 44,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_3695891184",
+                    "min": "29",
+                    "max": "40"
+                  }
+                ]
+              },
+              {
+                "name": "of the Boxer",
+                "tier": "S4",
+                "level": 30,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_791928121",
+                    "min": "41",
+                    "max": "50"
+                  }
+                ]
+              },
+              {
+                "name": "of Stunning",
+                "tier": "S4",
+                "level": 30,
+                "magnitudes": [
+                  {
+                    "hash": "explicit.stat_748522257",
+                    "min": "17",
+                    "max": "19"
+                  }
+                ]
+              }
+            ]
+          },
+          "hashes": {
+            "explicit": [
+              ["explicit.stat_1509134228", [1, 2]],
+              ["explicit.stat_1940865751", [0]],
+              ["explicit.stat_691932474", [2]],
+              ["explicit.stat_3695891184", [3]],
+              ["explicit.stat_791928121", [4]],
+              ["explicit.stat_748522257", [5]]
+            ],
+            "rune": [
+              ["rune.stat_1509134228", null],
+              ["rune.stat_1039491398", null]
+            ]
+          }
+        }
+      }
     }
   ]
 }
