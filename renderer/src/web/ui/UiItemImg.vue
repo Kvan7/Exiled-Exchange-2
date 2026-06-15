@@ -1,7 +1,7 @@
 <template>
   <img
     :src="icon === '%NOT_FOUND%' || icon === '' ? '/images/404.png' : icon"
-    class="max-w-full max-h-full"
+    class="max-w-full max-h-full mx-auto"
     :class="{ 'overflow-hidden': overflowHidden }"
   />
 </template>
