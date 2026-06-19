@@ -1681,7 +1681,7 @@ function getTier(
 }
 
 function getTierV2(mods: FetchModInfo[]): string | undefined {
-  if (!mods.length) return;
+  if (!mods || !mods.length) return;
 
   return mods.map((mod) => mod.tier).join(" + ");
 }
