@@ -193,8 +193,22 @@
             class="max-w-full max-h-full overflow-hidden"
           />
         </div>
-      </button>
-    --></div>
+      </button>-->
+      <div
+        class="flex items-center bg-gray-900 rounded border border-gray-500 justify-center shrink-0 w-8 h-8"
+      >
+        <popover :delay="0" placement="right">
+          <template #target
+            ><img
+              :src="getAugmentImage('Greater Resolve Rune')"
+              class="max-w-full max-h-full overflow-hidden"
+          /></template>
+          <template #content>
+            <item-editor-v2 :item="fakeItem" />
+          </template>
+        </popover>
+      </div>
+    </div>
     <!-- Handled parse error -->
     <div
       v-if="!statsVisibility.disabled && hasStats"
@@ -302,6 +316,7 @@ import {
 } from "vue";
 import { useI18n } from "vue-i18n";
 import UiToggle from "@/web/ui/UiToggle.vue";
+import ItemEditorV2 from "@/web/price-check/item-editor/ItemEditorV2.vue";
 import FilterModifier from "./FilterModifier.vue";
 import FilterBtnNumeric from "./FilterBtnNumeric.vue";
 import FilterBtnLogical from "./FilterBtnLogical.vue";
@@ -309,9 +324,11 @@ import UnknownModifier from "./UnknownModifier.vue";
 import { ItemFilters, StatFilter } from "./interfaces";
 import { ParsedItem, ItemRarity, ItemCategory } from "@/parser";
 import FilterBtnDropdown from "./FilterBtnDropdown.vue";
-import { AUGMENT_DATA_BY_AUGMENT } from "@/assets/data";
+import { AUGMENT_DATA_BY_AUGMENT, ITEM_BY_REF } from "@/assets/data";
 import { ARMOUR, MARTIAL_WEAPON } from "@/parser/meta";
 import { ModifierType } from "@/parser/modifiers";
+import Popover from "@/web/ui/Popover.vue";
+import { createVirtualItem } from "@/parser/ParsedItem";
 
 export default defineComponent({
   name: "FiltersBlock",
@@ -321,7 +338,9 @@ export default defineComponent({
     FilterBtnNumeric,
     FilterBtnLogical,
     FilterBtnDropdown,
+    ItemEditorV2,
     UnknownModifier,
+    Popover,
     UiToggle,
   },
   props: {
@@ -399,8 +418,18 @@ export default defineComponent({
 
     const { t } = useI18n();
 
+    const fakeItem = createVirtualItem({
+      info: ITEM_BY_REF("ITEM", "Artillery Bow")![0],
+      augmentSockets: {
+        empty: 1,
+        current: 2,
+        normal: 2,
+        augments: ["Greater Resolve Rune"],
+      },
+    });
     return {
       t,
+      fakeItem,
       statsVisibility,
       showHidden,
       showFilterSources,

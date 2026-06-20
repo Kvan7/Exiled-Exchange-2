@@ -163,7 +163,6 @@ import {
   WidgetManager,
   WidgetSpec,
 } from "../overlay/interfaces";
-import ItemEditor from "./filters/ItemEditor.vue";
 import {
   BaseType,
   HIGH_VALUE_AUGMENTS_HARDCODED,
@@ -226,7 +225,6 @@ export default defineComponent({
     UnidentifiedResolver,
     BackgroundInfo,
     RelatedItems,
-    ItemEditor,
     RateLimiterState,
     CheckPositionCircle,
     ItemQuickPrice,

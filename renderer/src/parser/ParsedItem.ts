@@ -70,6 +70,7 @@ export interface ParsedItem {
     empty: number;
     current: number;
     normal: number;
+    augments?: string[];
   };
   gemSockets?: {
     number: number;
