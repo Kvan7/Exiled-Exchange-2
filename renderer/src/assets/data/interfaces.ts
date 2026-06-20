@@ -301,6 +301,7 @@ export interface AugmentDataByAugment {
 }
 export interface AugmentDataByTradeId {
   [tradeId: string]: Array<{
+    refName: string;
     augment: string;
     baseStat: string;
     values: number[];

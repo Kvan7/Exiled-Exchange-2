@@ -1305,22 +1305,33 @@ function applyAugmentSockets(item: ParsedItem) {
     const augmentStats = item.statsByType.filter(
       (calc) => calc.type === ModifierType.Augment,
     );
-    const augments = augmentMods
+    const augments: Array<BaseType | null> = augmentMods
       .map((mod) => {
         const stat = augmentStats.find(
           (stat) => stat.sources[0].stat === mod.stats[0],
         );
         if (!stat) return [];
-        return augmentCount(mod, stat);
+        return determineAugments(mod, stat);
       })
       .flat();
 
-    // HACK: fix since I can't detect how many exist due to augment tiers
-    const tempFix = augments.reduce((x, y) => x + y, 0) > 0;
-    const potentialEmptySockets = tempFix
-      ? 0
-      : Math.max(item.augmentSockets.normal, item.augmentSockets.current);
-    item.augmentSockets.empty = potentialEmptySockets;
+    if (augments.length < item.augmentSockets.current) {
+      // have possible empty sockets
+
+      const emptyAugments = item.augmentSockets.current - augments.length;
+      for (let i = 0; i < emptyAugments; i++) {
+        augments.push(null);
+      }
+    }
+
+    // set all the stuff
+    item.augmentSockets.current = augments.filter(
+      (augment) => augment !== null,
+    ).length;
+    item.augmentSockets.empty = augments.filter(
+      (augment) => augment === null,
+    ).length;
+    item.augmentSockets.augments = augments;
   }
 }
 
@@ -2008,33 +2019,93 @@ export function isArmourOrWeaponOrCaster(
   }
 }
 
-function augmentCount(mod: ParsedModifier, statCalc: StatCalculated): number {
-  if (mod.info.type !== ModifierType.Augment) return 0;
+// TODO: add unit tests for this bfs
+function modifiedBfs(
+  remaining: number,
+  combo: number[],
+  available: number[],
+): number[] | null {
+  if (remaining === 0) return [...combo];
+
+  let best: number[] | null = null;
+  for (const augValue of available) {
+    if (augValue > remaining) {
+      // overflow
+      continue;
+    }
+    combo.push(augValue);
+    const result = modifiedBfs(remaining - augValue, combo, available);
+    combo.pop();
+    if (result) {
+      if (!best || result.length < best.length) {
+        best = result;
+      } else if (result.length === best.length) {
+        const resultMax = Math.max(
+          ...result.map((v) => result.filter((x) => x === v).length),
+        );
+        const bestMax = Math.max(
+          ...best.map((v) => best!.filter((x) => x === v).length),
+        );
+        if (resultMax > bestMax) {
+          best = result;
+        } else if (resultMax === bestMax) {
+          const resultSet = new Set(result);
+          const bestSet = new Set(best);
+          if (resultSet.size < bestSet.size) {
+            // use one with more duplicates
+            best = result;
+          }
+        }
+      }
+    }
+  }
+  return best?.toSorted((a, b) => b - a) ?? null;
+}
+
+function determineAugments(
+  mod: ParsedModifier,
+  statCalc: StatCalculated,
+): BaseType[] {
+  if (mod.info.type !== ModifierType.Augment) return [];
   const augmentAppliedValue = statCalc.sources[0].contributes?.value;
-  // something like "Raven-Touched"
-  if (!augmentAppliedValue) return 1;
 
   const augmentTradeId = statCalc.stat.trade.ids[ModifierType.Augment][0];
   const possibleAugments = AUGMENT_DATA_BY_TRADE_ID[augmentTradeId];
+  if (!possibleAugments) return [];
+
+  // something like "Raven-Touched"
+  if (!augmentAppliedValue) {
+    const singleAugment = possibleAugments[0];
+    // TODO: double check this
+    return [ITEM_BY_REF("ITEM", singleAugment.refName)![0]];
+  }
 
   // // Calculate how many of this augment are in the item
-  const availableAugmentValues = possibleAugments.map((augment) => {
-    if (augment.values.length === 1) return augment.values[0];
+  const availableAugmentValues = possibleAugments
+    .map((augment) => {
+      if (augment.values.length === 1) return augment.values[0];
 
-    // # to # added Lightning Damage
-    if ((augment.baseStat.match(/#/) || []).length > 1) {
-      const sum = augment.values.reduce((a, b) => a + b, 0);
-      return sum / augment.values.length || 0;
-    }
+      // stats like "# to # added Lightning Damage"
+      if ((augment.baseStat.match(/#/) || []).length > 1) {
+        const sum = augment.values.reduce((a, b) => a + b, 0);
+        return sum / augment.values.length || 0;
+      }
 
-    // everything else
-    return augment.values[0];
+      // everything else
+      return augment.values[0];
+    })
+    .toSorted((a, b) => b - a);
+
+  // BFS to find all combinations with minimum count
+  const likelyValues =
+    modifiedBfs(augmentAppliedValue, [], availableAugmentValues) ?? [];
+
+  return likelyValues.map((v) => {
+    const augment = possibleAugments.find((aug) =>
+      aug.values.some((augVal) => augVal === v),
+    )!;
+    return ITEM_BY_REF("ITEM", augment.refName)![0];
   });
-  console.log(availableAugmentValues);
-  // const augmentSingleValue = augmentSingle.values[0];
-  // const totalAugments = Math.floor(augmentAppliedValue / augmentSingleValue);
-
-  return 1;
 }
 
 export function replaceHashWithValues(template: string, values: number[]) {
@@ -2065,4 +2136,6 @@ export const __testExports = {
   parseFractured,
   parseUnidentified,
   parseTrials,
+  determineAugments,
+  modifiedBfs,
 };

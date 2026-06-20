@@ -386,6 +386,7 @@ function augmentsToLookupTradeId(
         augmentDataByAugment[tradeId[0]] = [];
       }
       augmentDataByAugment[tradeId[0]].push({
+        refName: augment.refName,
         augment: augment.name,
         baseStat: text,
         values,

@@ -249,6 +249,7 @@ export default defineComponent({
           Object.values(item.augment!).some((augmentStat) =>
             translatedEffectsPseudos(augmentStat.string),
           ) || HIGH_VALUE_AUGMENTS_HARDCODED.has(item.refName);
+        // const augmentFilter = () => true;
         setLocalAugmentFilter(augmentFilter);
         loadUltraLateItems(augmentFilter);
       },
