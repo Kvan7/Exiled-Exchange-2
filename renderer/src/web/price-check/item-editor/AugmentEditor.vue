@@ -179,8 +179,6 @@ export default defineComponent({
         const augment = augmentCache.get(curr);
         if (augment) {
           displayGroups.value = augment;
-          console.log(`cache hit - c: ${curr}, p: ${prev}`);
-          console.log(augment);
           return;
         }
 
@@ -188,8 +186,6 @@ export default defineComponent({
         const augmentData = getCategoryGroups(GROUPED_AUGMENTS, curr);
         augmentCache.set(curr, augmentData);
         displayGroups.value = augmentData;
-        console.log(`cache miss - c: ${curr}, p: ${prev}`);
-        console.log(augmentData);
       },
       { immediate: true },
     );

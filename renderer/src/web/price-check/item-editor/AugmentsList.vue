@@ -1,24 +1,12 @@
 <template>
-  <!-- <item-editor-item
+  <item-editor-item
     v-for="augment in augments"
     :key="augment.displayString"
     :item="augment"
-    :selected="augment.refName === selectedAugment.refName"
+    :selected="augment.refName === selectedAugment?.refName"
     @click="$emit('update:selectedAugment', augment)"
     class="m-1"
-  /> -->
-
-  <div
-    v-for="augment in augments"
-    :key="augment.displayString"
-    @click="$emit('update:selectedAugment', augment)"
-    class="m-1"
-  >
-    <item-editor-item
-      :item="augment"
-      :selected="augment.refName === selectedAugment?.refName"
-    />
-  </div>
+  />
 </template>
 
 <script lang="ts">

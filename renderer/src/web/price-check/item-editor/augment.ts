@@ -21,7 +21,6 @@ export function selectAugmentEffectByItemCategory(
 }
 
 export function buildEditorItems(augments: BaseType[], category: ItemCategory) {
-  console.log(`Augments: ${augments.length}, Category: ${category}`);
   return augments
     .map((augment) => {
       const effect = selectAugmentEffectByItemCategory(
