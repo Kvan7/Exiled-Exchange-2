@@ -181,7 +181,6 @@ export default defineComponent({
             ? prevListingType
             : undefined,
           defaultAllSelected: widget.value.defaultAllSelected,
-          autoFillEmptyAugmentSockets: widget.value.autoFillEmptyRuneSockets,
         });
 
         if (

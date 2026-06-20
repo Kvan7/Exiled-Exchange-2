@@ -1,11 +1,17 @@
 <template>
   <div>
-    <div class="flex gap-2">
+    <div class="flex mb-2 gap-px">
       <button
-        v-for="tab in tabs"
+        v-for="(tab, index) in tabs"
         :key="tab"
         @click="updateTab(tab)"
-        :class="{ active: modelValue === tab }"
+        class="px-2 py-1 text-gray-400 leading-none"
+        :class="{
+          'bg-gray-900': modelValue === tab,
+          'bg-gray-700': modelValue !== tab,
+          'rounded-l': index === 0,
+          'rounded-r': index === tabs.length - 1,
+        }"
       >
         {{ tab }}
       </button>
@@ -40,3 +46,5 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="postcss" module></style>
