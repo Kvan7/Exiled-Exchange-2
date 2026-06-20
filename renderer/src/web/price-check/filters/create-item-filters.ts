@@ -4,8 +4,6 @@ import { tradeTag } from "../trade/common";
 import { ModifierType } from "@/parser/modifiers";
 import { BaseType, ITEM_BY_REF } from "@/assets/data";
 import { CATEGORY_TO_TRADE_ID } from "../trade/pathofexile-trade";
-import { PriceCheckWidget } from "@/web/overlay/widgets";
-import { isArmourOrWeaponOrCaster } from "@/parser/Parser";
 import { ARMOUR, GEM, WEAPON } from "@/parser/meta";
 import { maxUsefulItemLevel } from "./common";
 
@@ -37,7 +35,6 @@ interface CreateOptions {
   activateStockFilter: boolean;
   exact: boolean;
   useEn: boolean;
-  autoFillEmptyAugmentSockets: PriceCheckWidget["autoFillEmptyRuneSockets"];
 }
 
 export function createFilters(
@@ -278,28 +275,28 @@ export function createFilters(
           !item.isCorrupted,
       };
     }
-    if (item.augmentSockets.empty > 0 && item.rarity !== ItemRarity.Unique) {
-      const type = isArmourOrWeaponOrCaster(item.category);
-      if (
-        opts.autoFillEmptyAugmentSockets &&
-        (item.rarity === ItemRarity.Magic || item.rarity === ItemRarity.Rare) &&
-        (type === "armour" || type === "weapon")
-      ) {
-        filters.itemEditorSelection = {
-          disabled: false,
-          editing: false,
-          value: opts.autoFillEmptyAugmentSockets
-            ? opts.autoFillEmptyAugmentSockets
-            : "None",
-        };
-      } else {
-        filters.itemEditorSelection = {
-          disabled: false,
-          editing: false,
-          value: "None",
-        };
-      }
-    }
+    // if (item.augmentSockets.empty > 0 && item.rarity !== ItemRarity.Unique) {
+    //   const type = isArmourOrWeaponOrCaster(item.category);
+    //   if (
+    //     opts.autoFillEmptyAugmentSockets &&
+    //     (item.rarity === ItemRarity.Magic || item.rarity === ItemRarity.Rare) &&
+    //     (type === "armour" || type === "weapon")
+    //   ) {
+    //     filters.itemEditorSelection = {
+    //       disabled: false,
+    //       editing: false,
+    //       value: opts.autoFillEmptyAugmentSockets
+    //         ? opts.autoFillEmptyAugmentSockets
+    //         : "None",
+    //     };
+    //   } else {
+    //     filters.itemEditorSelection = {
+    //       disabled: false,
+    //       editing: false,
+    //       value: "None",
+    //     };
+    //   }
+    // }
   }
   if (!filters.itemEditorSelection) {
     filters.itemEditorSelection = {

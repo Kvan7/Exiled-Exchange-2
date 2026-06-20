@@ -11,39 +11,12 @@
       v-if="!isBrowserShown"
       class="layout-column shrink-0"
       style="width: var(--game-panel)"
-    >
-      <div
-        class="flex"
-        :class="{
-          'flex-row': clickPosition === 'inventory',
-          'flex-row-reverse': clickPosition === 'stash',
-        }"
-      >
-        <item-editor
-          v-if="itemEditorAvailable && !openItemEditorAbove && item?.isOk()"
-          class="pointer-events-auto"
-          :item="item.value"
-          :click-position="clickPosition"
-          :item-editor-options="itemEditorOptions"
-        />
-      </div>
-    </div>
+    ></div>
     <div
       id="price-window"
       class="layout-column shrink-0 text-gray-200 pointer-events-auto"
       style="width: 28.75rem"
     >
-      <item-editor
-        v-if="
-          itemEditorAvailable &&
-          (isBrowserShown || openItemEditorAbove) &&
-          item?.isOk()
-        "
-        class="pointer-events-auto"
-        :item="item.value"
-        :click-position="clickPosition"
-        :item-editor-options="itemEditorOptions"
-      />
       <AppTitleBar
         @close="closePriceCheck"
         @click="openLeagueSelection"
@@ -239,9 +212,7 @@ export default defineComponent({
         // New Settings EE2
         defaultAllSelected: false,
         itemHoverTooltip: "keybind",
-        autoFillEmptyRuneSockets: false,
         alwaysShowTier: false,
-        openItemEditorAbove: false,
         coreCurrency: "exalted",
         currencyVolume: "both",
         rememberListingType: false,
@@ -513,7 +484,6 @@ export default defineComponent({
           | undefined,
       ) => (itemEditorOptions.value = val),
       itemEditorOptions,
-      openItemEditorAbove: computed(() => props.config.openItemEditorAbove),
     };
   },
 });
