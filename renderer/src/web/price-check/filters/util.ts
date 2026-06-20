@@ -1,6 +1,7 @@
 import { ItemRarity, ParsedItem } from "@/parser";
 import {
   ARMOUR,
+  CASTER,
   ItemCategory,
   ItemEditorType,
   MARTIAL_WEAPON,
@@ -46,15 +47,23 @@ export function percentRollDelta(
 
 export function getItemEditorType(item: ParsedItem): ItemEditorType {
   if (!item.category) return ItemEditorType.None;
+
+  // TODO: add uniques where this should be allowed here
+  // should probably have a set and check it, so we can not hide the augments
+
+  if (item.rarity === ItemRarity.Unique) return ItemEditorType.None;
+
+  // TODO: add special cases here
+
   if (
     item.category === ItemCategory.Ring ||
     item.category === ItemCategory.Amulet
   ) {
     return ItemEditorType.Catalyst;
   } else if (
-    (MARTIAL_WEAPON.has(item.category) || ARMOUR.has(item.category)) &&
-    item.rarity &&
-    item.rarity !== ItemRarity.Unique
+    MARTIAL_WEAPON.has(item.category) ||
+    ARMOUR.has(item.category) ||
+    CASTER.has(item.category)
   ) {
     return ItemEditorType.Augment;
   } else {

@@ -124,6 +124,12 @@ export const ACCESSORY = new Set([
   // ItemCategory.Quiver
 ]);
 
+export const CASTER = new Set([
+  ItemCategory.Wand,
+  ItemCategory.Sceptre,
+  ItemCategory.Staff,
+]);
+
 export const GRANTS_REAL_SKILL = new Set([
   ItemCategory.Staff,
   ItemCategory.Wand,
@@ -145,6 +151,7 @@ export const GEM = new Set([
 ]);
 
 export enum ItemEditorType {
+  AugmentAndCatalyst = "augment-and-catalyst",
   Augment = "augment",
   Catalyst = "catalyst",
   None = "none",
