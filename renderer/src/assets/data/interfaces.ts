@@ -307,3 +307,20 @@ export interface AugmentDataByTradeId {
     icon: string;
   }>;
 }
+
+export interface AugmentGroup {
+  Rune: {
+    Lesser: BaseType[];
+    Base: BaseType[];
+    Greater: BaseType[];
+    Perfect: BaseType[];
+    Other: BaseType[];
+  };
+  Legacy: BaseType[];
+  SoulCore: {
+    Base: BaseType[];
+    Special: BaseType[];
+  };
+  Idol: BaseType[];
+  Other: BaseType[];
+}

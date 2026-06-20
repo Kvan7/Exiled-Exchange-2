@@ -7,6 +7,7 @@ import type {
   Stat,
   StatMatcher,
   TranslationDict,
+  AugmentGroup,
 } from "./interfaces";
 import { loadClientStrings } from "../client-string-loader";
 import { useTradeData } from "@/web/background/TradeData";
@@ -24,6 +25,22 @@ export let AUGMENT_DATA_BY_TRADE_ID: AugmentDataByTradeId;
 
 export let AUGMENT_LIST: BaseType[];
 export const HIGH_VALUE_AUGMENTS_HARDCODED = new Set<string>([]);
+export let GROUPED_AUGMENTS: AugmentGroup = {
+  Rune: {
+    Lesser: [],
+    Base: [],
+    Greater: [],
+    Perfect: [],
+    Other: [],
+  },
+  Legacy: [],
+  SoulCore: {
+    Base: [],
+    Special: [],
+  },
+  Idol: [],
+  Other: [],
+};
 
 export let ITEM_BY_TRANSLATED: (
   ns: BaseType["namespace"],
@@ -325,6 +342,8 @@ export function loadUltraLateItems(
   AUGMENT_DATA_BY_AUGMENT = augmentsToLookup(AUGMENT_LIST);
 
   AUGMENT_DATA_BY_TRADE_ID = augmentsToLookupTradeId(AUGMENT_LIST);
+
+  GROUPED_AUGMENTS = groupAugments(AUGMENT_LIST);
 }
 
 function augmentsToLookup(augmentList: BaseType[]): AugmentDataByAugment {
@@ -378,6 +397,60 @@ function augmentsToLookupTradeId(
   }
 
   return augmentDataByAugment;
+}
+
+function groupAugments(augmentList: BaseType[]): AugmentGroup {
+  const grouped: AugmentGroup = {
+    Rune: {
+      Lesser: [],
+      Base: [],
+      Greater: [],
+      Perfect: [],
+      Other: [],
+    },
+    Legacy: [],
+    SoulCore: {
+      Base: [],
+      Special: [],
+    },
+    Idol: [],
+    Other: [],
+  };
+  for (const augment of augmentList) {
+    const ref = augment.refName;
+    if (ref.includes("Rune")) {
+      if (ref.startsWith("Greater")) {
+        grouped.Rune.Greater.push(augment);
+      } else if (ref.startsWith("Perfect")) {
+        grouped.Rune.Perfect.push(augment);
+      } else if (ref.startsWith("Lesser")) {
+        grouped.Rune.Lesser.push(augment);
+      } else {
+        const split = ref.split(" ");
+        if (split.length === 2 && split[1] === "Rune") {
+          grouped.Rune.Base.push(augment);
+        } else {
+          grouped.Rune.Other.push(augment);
+        }
+      }
+    } else if (ref.startsWith("Legacy")) {
+      grouped.Legacy.push(augment);
+    } else if (ref.includes("Soul Core")) {
+      if (ref.startsWith("Soul Core")) {
+        grouped.SoulCore.Base.push(augment);
+      } else {
+        grouped.SoulCore.Special.push(augment);
+      }
+    } else if (ref.includes("Thesis")) {
+      grouped.SoulCore.Special.push(augment);
+    } else if (ref.includes("Idol")) {
+      grouped.Idol.push(augment);
+    } else {
+      grouped.Other.push(augment);
+    }
+  }
+
+  return grouped;
 }
 
 async function loadTradeData() {

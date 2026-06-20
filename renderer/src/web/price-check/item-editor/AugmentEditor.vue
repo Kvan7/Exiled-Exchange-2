@@ -46,7 +46,12 @@
 </template>
 
 <script lang="ts">
-import { BaseType, ITEM_BY_REF } from "@/assets/data";
+import {
+  AUGMENT_LIST,
+  BaseType,
+  GROUPED_AUGMENTS,
+  ITEM_BY_REF,
+} from "@/assets/data";
 import { ParsedItem } from "@/parser";
 import { defineComponent, PropType, shallowRef } from "vue";
 import ItemSumPrice from "@/web/ui/ItemSumPrice.vue";
@@ -66,6 +71,8 @@ export default defineComponent({
       ITEM_BY_REF("ITEM", "Iron Rune")![0],
     );
 
+    console.log(AUGMENT_LIST);
+    console.log(GROUPED_AUGMENTS);
     console.log(props.item.augmentSockets?.augments);
     return {
       selectedAugment,
