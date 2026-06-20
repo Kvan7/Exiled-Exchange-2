@@ -11,7 +11,8 @@
             class="rounded-full bg-opacity-50 border-2 border-transparent"
             :class="{
               'hover:bg-gray-700 hover:border-gray-500 cursor-pointer':
-                selectedAugment,
+                selectedAugment && (augment === null || !augment.socketBound),
+              'border-red-900 cursor-not-allowed': augment?.socketBound,
             }"
           >
             <img
@@ -215,7 +216,8 @@ export default defineComponent({
         if (
           !props.item?.augmentSockets ||
           !selectedAugment.value ||
-          !props.stats
+          !props.stats ||
+          props.item.augmentSockets.augments[index]?.socketBound
         )
           return;
 

@@ -30,6 +30,7 @@ export enum ItemInfluence {
 // }
 export interface EditorItem {
   existing?: true;
+  socketBound?: boolean;
   name: string;
   refName: string;
   icon: string;
