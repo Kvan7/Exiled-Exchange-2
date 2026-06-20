@@ -204,7 +204,7 @@
               class="max-w-full max-h-full overflow-hidden"
           /></template>
           <template #content>
-            <item-editor-v2 :item="item" />
+            <item-editor-v2 :item="item" :filters="filters" :stats="stats" />
           </template>
         </popover>
       </div>

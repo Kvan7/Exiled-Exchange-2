@@ -171,7 +171,7 @@ import {
 } from "@/assets/data";
 import { translatedEffectsPseudos } from "./filters/pseudo";
 import { ItemEditorType } from "@/parser/meta";
-import { getItemEditorType } from "./filters/util";
+import { getItemEditorType } from "./item-editor/item-editor";
 import ReloadTradeData from "./fallback/ReloadTradeData.vue";
 
 type ParseError = {

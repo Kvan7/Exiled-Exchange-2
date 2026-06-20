@@ -22,6 +22,7 @@ import {
   ItemInfluence,
   ItemRarity,
   itemIsModifiable,
+  EditorItem,
 } from "./ParsedItem";
 import { magicBasetype } from "./magic-name";
 import {
@@ -42,6 +43,7 @@ import {
 } from "./advanced-mod-desc";
 import { calcPropPercentile, QUALITY_STATS } from "./calc-q20";
 import { AppConfig } from "@/web/Config";
+import { buildEditorItems } from "./augment-builder";
 
 type SectionParseResult =
   | "SECTION_PARSED"
@@ -1305,13 +1307,17 @@ function applyAugmentSockets(item: ParsedItem) {
     const augmentStats = item.statsByType.filter(
       (calc) => calc.type === ModifierType.Augment,
     );
-    const augments: Array<BaseType | null> = augmentMods
+    const augments: Array<EditorItem | null> = augmentMods
       .map((mod) => {
         const stat = augmentStats.find(
           (stat) => stat.sources[0].stat === mod.stats[0],
         );
         if (!stat) return [];
-        return determineAugments(mod, stat);
+        return buildEditorItems(
+          determineAugments(mod, stat),
+          item.category ?? ItemCategory.Unknown,
+          true,
+        );
       })
       .flat();
 
@@ -1761,7 +1767,7 @@ function markupConditionParser(text: string) {
   return text;
 }
 
-function parseStatsFromMod(
+export function parseStatsFromMod(
   lines: string[],
   item: ParsedItem,
   modifier: ParsedModifier,

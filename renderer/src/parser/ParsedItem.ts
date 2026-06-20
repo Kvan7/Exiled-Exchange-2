@@ -1,6 +1,6 @@
 import type { ModifierType, StatCalculated } from "./modifiers";
 import type { ParsedModifier } from "./advanced-mod-desc";
-import type { BaseType } from "@/assets/data";
+import type { AugmentLineData, BaseType } from "@/assets/data";
 import { ItemCategory } from "./meta";
 
 export enum ItemRarity {
@@ -28,6 +28,15 @@ export enum ItemInfluence {
 //   modifier?: ParsedModifier; // @deprecated
 //   statCalculated?: StatCalculated; // @deprecated
 // }
+export interface EditorItem {
+  existing?: true;
+  name: string;
+  refName: string;
+  icon: string;
+  displayString: string;
+  stat: AugmentLineData;
+  baseItem: BaseType;
+}
 
 export interface ParsedItem {
   rarity?: ItemRarity;
@@ -70,7 +79,7 @@ export interface ParsedItem {
     empty: number;
     current: number;
     normal: number;
-    augments: Array<BaseType | null>;
+    augments: Array<EditorItem | null>;
   };
   gemSockets?: {
     number: number;

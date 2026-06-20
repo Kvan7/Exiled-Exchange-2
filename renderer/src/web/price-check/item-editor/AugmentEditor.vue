@@ -33,7 +33,13 @@
       <div class="flex items-center gap-x-1">
         <!-- price of augments -->
         <i class="fas fa-arrow-right text-gray-600 px-1 text-sm" />
-        <item-sum-price :items="item.augmentSockets.augments" />
+        <item-sum-price
+          :items="
+            item.augmentSockets.augments.map((augment) =>
+              augment ? augment.baseItem : null,
+            )
+          "
+        />
       </div>
     </div>
     <div>
@@ -126,18 +132,22 @@ import { defineComponent, PropType, ref, shallowRef, watch } from "vue";
 import ItemSumPrice from "@/web/ui/ItemSumPrice.vue";
 import UiTabs from "@/web/ui/UiTabs.vue";
 import AugmentsList from "./AugmentsList.vue";
-import {
-  useAugment,
-  buildEditorItems,
-  EditorItem,
-  getCategoryGroups,
-} from "./augment";
+import { useAugment, getCategoryGroups } from "./augment";
 import { AppConfig } from "@/web/Config";
+import { ItemFilters, StatFilter } from "@/web/price-check/filters/interfaces";
+import { EditorItem } from "@/parser/ParsedItem";
+import { buildEditorItems } from "@/parser/augment-builder";
 
 export default defineComponent({
   props: {
     item: {
       type: Object as PropType<ParsedItem>,
+    },
+    filters: {
+      type: Object as PropType<ItemFilters>,
+    },
+    stats: {
+      type: Array as PropType<StatFilter[]>,
     },
   },
   components: {
@@ -202,13 +212,17 @@ export default defineComponent({
       selectedAugment,
       displayGroups,
       replaceAugment: (index: number) => {
-        if (!props.item?.augmentSockets || !selectedAugment.value) return;
+        if (
+          !props.item?.augmentSockets ||
+          !selectedAugment.value ||
+          !props.stats
+        )
+          return;
 
         // replace augment
-        useAugment(props.item, selectedAugment.value, index);
+        useAugment(props.item, selectedAugment.value, index, props.stats);
         // TODO: remove this later
-        props.item.augmentSockets.augments![index] =
-          selectedAugment.value.baseItem;
+        props.item.augmentSockets.augments![index] = selectedAugment.value;
       },
       selectAugment: (augment: EditorItem) => {
         selectedAugment.value = augment;
