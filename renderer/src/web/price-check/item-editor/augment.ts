@@ -8,7 +8,10 @@ import {
 } from "@/parser/modifiers";
 import { EditorItem } from "@/parser/ParsedItem";
 import { parseStatsFromMod } from "@/parser/Parser";
+import { AppConfig } from "@/web/Config";
+import { PriceCheckWidget } from "@/web/overlay/widgets";
 import { StatFilter } from "@/web/price-check/filters/interfaces";
+import { initUiModFilters } from "../filters/create-stat-filters";
 
 export function getCategoryGroups(
   augments: AugmentGroup<BaseType>,
@@ -72,4 +75,11 @@ export function useAugment(
   // augment now added to item, yay
   // need to fix the filters now
   console.log(stats);
+
+  const config = AppConfig<PriceCheckWidget>("price-check")!;
+
+  stats = initUiModFilters(item, {
+    searchStatRange: config.searchStatRange,
+    defaultAllSelected: config.defaultAllSelected,
+  });
 }
