@@ -311,14 +311,14 @@ export interface AugmentDataByTradeId {
 export interface AugmentGroup {
   Rune: {
     Lesser: BaseType[];
-    Base: BaseType[];
+    Normal: BaseType[];
     Greater: BaseType[];
     Perfect: BaseType[];
     Other: BaseType[];
   };
   Legacy: BaseType[];
   SoulCore: {
-    Base: BaseType[];
+    Normal: BaseType[];
     Special: BaseType[];
   };
   Idol: BaseType[];

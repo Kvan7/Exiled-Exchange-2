@@ -28,14 +28,14 @@ export const HIGH_VALUE_AUGMENTS_HARDCODED = new Set<string>([]);
 export let GROUPED_AUGMENTS: AugmentGroup = {
   Rune: {
     Lesser: [],
-    Base: [],
+    Normal: [],
     Greater: [],
     Perfect: [],
     Other: [],
   },
   Legacy: [],
   SoulCore: {
-    Base: [],
+    Normal: [],
     Special: [],
   },
   Idol: [],
@@ -403,14 +403,14 @@ function groupAugments(augmentList: BaseType[]): AugmentGroup {
   const grouped: AugmentGroup = {
     Rune: {
       Lesser: [],
-      Base: [],
+      Normal: [],
       Greater: [],
       Perfect: [],
       Other: [],
     },
     Legacy: [],
     SoulCore: {
-      Base: [],
+      Normal: [],
       Special: [],
     },
     Idol: [],
@@ -428,7 +428,7 @@ function groupAugments(augmentList: BaseType[]): AugmentGroup {
       } else {
         const split = ref.split(" ");
         if (split.length === 2 && split[1] === "Rune") {
-          grouped.Rune.Base.push(augment);
+          grouped.Rune.Normal.push(augment);
         } else {
           grouped.Rune.Other.push(augment);
         }
@@ -437,7 +437,7 @@ function groupAugments(augmentList: BaseType[]): AugmentGroup {
       grouped.Legacy.push(augment);
     } else if (ref.includes("Soul Core")) {
       if (ref.startsWith("Soul Core")) {
-        grouped.SoulCore.Base.push(augment);
+        grouped.SoulCore.Normal.push(augment);
       } else {
         grouped.SoulCore.Special.push(augment);
       }
