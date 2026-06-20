@@ -25,7 +25,7 @@ export let AUGMENT_DATA_BY_TRADE_ID: AugmentDataByTradeId;
 
 export let AUGMENT_LIST: BaseType[];
 export const HIGH_VALUE_AUGMENTS_HARDCODED = new Set<string>([]);
-export let GROUPED_AUGMENTS: AugmentGroup = {
+export let GROUPED_AUGMENTS: AugmentGroup<BaseType> = {
   Rune: {
     Lesser: [],
     Normal: [],
@@ -399,8 +399,8 @@ function augmentsToLookupTradeId(
   return augmentDataByAugment;
 }
 
-function groupAugments(augmentList: BaseType[]): AugmentGroup {
-  const grouped: AugmentGroup = {
+function groupAugments(augmentList: BaseType[]): AugmentGroup<BaseType> {
+  const grouped: AugmentGroup<BaseType> = {
     Rune: {
       Lesser: [],
       Normal: [],

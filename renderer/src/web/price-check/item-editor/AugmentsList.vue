@@ -14,17 +14,17 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { BaseType } from "@/assets/data";
+import { EditorItem } from "./augment";
 
 export default defineComponent({
   emits: ["update:selectedAugment"],
   props: {
     augments: {
-      type: Array as PropType<BaseType[]>,
+      type: Array as PropType<EditorItem[]>,
       required: true,
     },
     selectedAugment: {
-      type: Object as PropType<BaseType | null>,
+      type: Object as PropType<EditorItem | undefined>,
       required: true,
     },
   },

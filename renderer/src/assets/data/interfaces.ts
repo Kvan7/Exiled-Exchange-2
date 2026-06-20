@@ -98,13 +98,15 @@ export interface BaseType {
     ev?: [min: number, max: number];
     es?: [min: number, max: number];
   };
-  augment?: Array<{
-    categories: ItemCategory[];
-    string: string;
-    values: number[];
-    tradeId?: string[];
-  }>;
+  augment?: AugmentLineData[];
   tags: string[];
+}
+
+export interface AugmentLineData {
+  categories: ItemCategory[];
+  string: string;
+  values: number[];
+  tradeId?: string[];
 }
 
 export interface TranslationDict {
@@ -308,19 +310,19 @@ export interface AugmentDataByTradeId {
   }>;
 }
 
-export interface AugmentGroup {
+export interface AugmentGroup<T> {
   Rune: {
-    Lesser: BaseType[];
-    Normal: BaseType[];
-    Greater: BaseType[];
-    Perfect: BaseType[];
-    Other: BaseType[];
+    Lesser: T[];
+    Normal: T[];
+    Greater: T[];
+    Perfect: T[];
+    Other: T[];
   };
-  Legacy: BaseType[];
+  Legacy: T[];
   SoulCore: {
-    Normal: BaseType[];
-    Special: BaseType[];
+    Normal: T[];
+    Special: T[];
   };
-  Idol: BaseType[];
-  Other: BaseType[];
+  Idol: T[];
+  Other: T[];
 }

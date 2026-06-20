@@ -39,6 +39,7 @@
     <div>
       <!-- augment adding section -->
       <ui-tabs
+        v-if="displayGroups"
         v-model="mainTab"
         :tabs="['Rune', 'Soul Core', 'Idol', 'Legacy', 'Other']"
       >
@@ -51,27 +52,27 @@
             <template #default="{ selected }">
               <augments-list
                 v-if="selected === 'Lesser'"
-                :augments="GROUPED_AUGMENTS.Rune.Lesser"
+                :augments="displayGroups.Rune.Lesser"
                 v-model:selectedAugment="selectedAugment"
               />
               <augments-list
                 v-else-if="selected === 'Normal'"
-                :augments="GROUPED_AUGMENTS.Rune.Normal"
+                :augments="displayGroups.Rune.Normal"
                 v-model:selectedAugment="selectedAugment"
               />
               <augments-list
                 v-else-if="selected === 'Greater'"
-                :augments="GROUPED_AUGMENTS.Rune.Greater"
+                :augments="displayGroups.Rune.Greater"
                 v-model:selectedAugment="selectedAugment"
               />
               <augments-list
                 v-else-if="selected === 'Perfect'"
-                :augments="GROUPED_AUGMENTS.Rune.Perfect"
+                :augments="displayGroups.Rune.Perfect"
                 v-model:selectedAugment="selectedAugment"
               />
               <augments-list
                 v-else-if="selected === 'Other'"
-                :augments="GROUPED_AUGMENTS.Rune.Other"
+                :augments="displayGroups.Rune.Other"
                 v-model:selectedAugment="selectedAugment"
               />
             </template>
@@ -84,29 +85,29 @@
             <template #default="{ selected }">
               <augments-list
                 v-if="selected === 'Normal'"
-                :augments="GROUPED_AUGMENTS.SoulCore.Normal"
+                :augments="displayGroups.SoulCore.Normal"
                 v-model:selectedAugment="selectedAugment"
               />
               <augments-list
                 v-else-if="selected === 'Special'"
-                :augments="GROUPED_AUGMENTS.SoulCore.Special"
+                :augments="displayGroups.SoulCore.Special"
                 v-model:selectedAugment="selectedAugment"
               />
             </template>
           </ui-tabs>
           <augments-list
             v-else-if="selected === 'Idol'"
-            :augments="GROUPED_AUGMENTS.Idol"
+            :augments="displayGroups.Idol"
             v-model:selectedAugment="selectedAugment"
           />
           <augments-list
             v-else-if="selected === 'Legacy'"
-            :augments="GROUPED_AUGMENTS.Legacy"
+            :augments="displayGroups.Legacy"
             v-model:selectedAugment="selectedAugment"
           />
           <augments-list
             v-else-if="selected === 'Other'"
-            :augments="GROUPED_AUGMENTS.Other"
+            :augments="displayGroups.Other"
             v-model:selectedAugment="selectedAugment"
           />
         </template>
@@ -119,17 +120,14 @@
 </template>
 
 <script lang="ts">
-import {
-  AUGMENT_LIST,
-  BaseType,
-  GROUPED_AUGMENTS,
-  ITEM_BY_REF,
-} from "@/assets/data";
-import { ParsedItem } from "@/parser";
-import { defineComponent, PropType, shallowRef } from "vue";
+import { AugmentGroup, GROUPED_AUGMENTS } from "@/assets/data";
+import { ItemCategory, ParsedItem } from "@/parser";
+import { defineComponent, PropType, ref, shallowRef, watch } from "vue";
 import ItemSumPrice from "@/web/ui/ItemSumPrice.vue";
 import UiTabs from "@/web/ui/UiTabs.vue";
 import AugmentsList from "./AugmentsList.vue";
+import { EditorItem, getCategoryGroups } from "./augment";
+import { AppConfig } from "@/web/Config";
 
 export default defineComponent({
   props: {
@@ -148,25 +146,66 @@ export default defineComponent({
     const runeTab = shallowRef("Greater");
     const soulCoreTab = shallowRef("Normal");
 
-    const selectedAugment = shallowRef<BaseType | null>(
-      ITEM_BY_REF("ITEM", "Iron Rune")![0],
+    const selectedAugment = shallowRef<EditorItem | undefined>(undefined);
+
+    const augmentCache = new Map<ItemCategory, AugmentGroup<EditorItem>>();
+    const displayGroups = ref<AugmentGroup<EditorItem> | null>(null);
+
+    watch(
+      () => AppConfig().language,
+      (curr, prev) => {
+        if (curr === prev) return;
+        // clear cache
+        augmentCache.clear();
+        displayGroups.value = null;
+      },
+      { immediate: true },
     );
 
-    console.log(AUGMENT_LIST);
+    watch(
+      () => props.item.category,
+      (curr, prev) => {
+        if (curr === prev && displayGroups.value) return;
+        if (!curr) {
+          displayGroups.value = null;
+          return;
+        }
+
+        const augment = augmentCache.get(curr);
+        if (augment) {
+          displayGroups.value = augment;
+          console.log("cache hit");
+          console.log(augment);
+          return;
+        }
+
+        // have category, cache miss => load data
+        const augmentData = getCategoryGroups(GROUPED_AUGMENTS, curr);
+        augmentCache.set(curr, augmentData);
+        displayGroups.value = augmentData;
+        console.log("cache miss");
+        console.log(augmentData);
+      },
+      { immediate: true },
+    );
+
+    console.log("base all grouped");
     console.log(GROUPED_AUGMENTS);
+    console.log("item augments");
     console.log(props.item.augmentSockets?.augments);
     return {
       mainTab,
       runeTab,
       soulCoreTab,
       selectedAugment,
-      GROUPED_AUGMENTS,
+      displayGroups,
       replaceAugment: (index: number) => {
-        if (!props.item.augmentSockets) return;
-        props.item.augmentSockets.augments![index] = selectedAugment.value;
+        if (!props.item.augmentSockets || !selectedAugment.value) return;
+        props.item.augmentSockets.augments![index] =
+          selectedAugment.value.baseItem;
         console.log(props.item.augmentSockets.augments);
       },
-      selectAugment: (augment: BaseType) => {
+      selectAugment: (augment: EditorItem | undefined) => {
         selectedAugment.value = augment;
       },
     };

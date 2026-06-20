@@ -47,9 +47,9 @@
         <span class="bg-blue-800 rounded px-1">{{ overlayKey }}</span>
       </i18n-t>
     </div>
-    <template v-if="isDev">
+    <!-- <template v-if="isDev">
       <dev-widget text="DEV" />
-    </template>
+    </template> -->
     <!-- <div v-show="!gameFocused && !active">
       <div style="right: 24px; bottom: 24px; position: absolute;" class="bg-red-500 p-2 rounded">Game window is not active</div>
     </div> -->
