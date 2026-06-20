@@ -1300,7 +1300,6 @@ function applyAugmentSockets(item: ParsedItem) {
   // If we have any augment sockets
   if (item.augmentSockets) {
     // Count current mods that are of type Augment
-
     const augmentMods = item.newMods.filter(
       (mod) => mod.info.type === ModifierType.Augment,
     );
@@ -1321,10 +1320,16 @@ function applyAugmentSockets(item: ParsedItem) {
       })
       .flat();
 
-    if (augments.length < item.augmentSockets.current) {
+    if (
+      augments.length <
+      Math.max(item.augmentSockets.current, item.augmentSockets.normal)
+    ) {
       // have possible empty sockets
 
-      const emptyAugments = item.augmentSockets.current - augments.length;
+      const emptyAugments = item.isCorrupted
+        ? item.augmentSockets.current - augments.length
+        : Math.max(item.augmentSockets.current, item.augmentSockets.normal) -
+          augments.length;
       for (let i = 0; i < emptyAugments; i++) {
         augments.push(null);
       }

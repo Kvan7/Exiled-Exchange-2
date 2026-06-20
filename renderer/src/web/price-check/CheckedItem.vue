@@ -38,13 +38,6 @@
       </div>
     </div>
     <stack-value :filters="itemFilters" :item="item" />
-    <div v-if="augmentList" class="p-2 border-2 border-gray-600 rounded mt-2">
-      <div class="flex text-gray-400 leading-none flex-col">
-        <p v-for="(augment, index) in augmentList" :key="`${augment}-${index}`">
-          {{ augment }}
-        </p>
-      </div>
-    </div>
     <div v-if="showSupportLinks" class="mt-auto border border-dashed p-2">
       <!-- <div class="mb-1">
         {{ t("Support development on") }}
@@ -367,11 +360,6 @@ export default defineComponent({
       makeTradeLink() {
         return `https://${getTradeEndpoint()}/trade2/search/poe2/${itemFilters.value.trade.league}?q=${JSON.stringify(createTradeRequest(itemFilters.value, itemStats.value, props.item))}`;
       },
-      augmentList: computed(() => {
-        return props.item.augmentSockets?.augments.map(
-          (augment) => augment?.refName,
-        );
-      }),
     };
   },
 });
