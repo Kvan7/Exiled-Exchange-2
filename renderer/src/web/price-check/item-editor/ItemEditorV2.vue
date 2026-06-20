@@ -2,11 +2,11 @@
   <div class="bg-gray-800">
     <augment-editor
       v-if="itemEditorType === ItemEditorType.Augment"
-      :item="item"
+      :item="actualItem"
     />
     <quality-editor
       v-else-if="itemEditorType === ItemEditorType.Catalyst"
-      :item="item"
+      :item="actualItem"
     />
     <div v-else-if="itemEditorType === ItemEditorType.AugmentAndCatalyst">
       AAAAA DO BOTH NEED TO ADD IT STILL
@@ -20,13 +20,14 @@ import { computed, defineComponent, PropType } from "vue";
 import AugmentEditor from "./AugmentEditor.vue";
 import QualityEditor from "./QualityEditor.vue";
 import { getItemEditorType } from "../filters/util";
-import { ItemEditorType } from "@/parser/meta";
+import { ItemCategory, ItemEditorType } from "@/parser/meta";
+import { createVirtualItem } from "@/parser/ParsedItem";
+import { ITEM_BY_REF } from "@/assets/data";
 
 export default defineComponent({
   props: {
     item: {
       type: Object as PropType<ParsedItem>,
-      required: true,
     },
   },
   components: {
@@ -35,9 +36,25 @@ export default defineComponent({
   },
 
   setup(props) {
-    const itemEditorType = computed(() => getItemEditorType(props.item));
+    const actualItem = computed(
+      () =>
+        props.item ??
+        createVirtualItem({
+          info: ITEM_BY_REF("ITEM", "Artillery Bow")![0],
+          augmentSockets: {
+            empty: 1,
+            current: 2,
+            normal: 2,
+            augments: ["Greater Resolve Rune"],
+          },
+          category: ItemCategory.Bow,
+        }),
+    );
+
+    const itemEditorType = computed(() => getItemEditorType(actualItem.value));
 
     return {
+      actualItem,
       itemEditorType,
       ItemEditorType,
     };

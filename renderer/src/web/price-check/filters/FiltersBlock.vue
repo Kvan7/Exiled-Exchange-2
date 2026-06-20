@@ -204,7 +204,7 @@
               class="max-w-full max-h-full overflow-hidden"
           /></template>
           <template #content>
-            <item-editor-v2 :item="fakeItem" />
+            <item-editor-v2 />
           </template>
         </popover>
       </div>
@@ -324,11 +324,10 @@ import UnknownModifier from "./UnknownModifier.vue";
 import { ItemFilters, StatFilter } from "./interfaces";
 import { ParsedItem, ItemRarity, ItemCategory } from "@/parser";
 import FilterBtnDropdown from "./FilterBtnDropdown.vue";
-import { AUGMENT_DATA_BY_AUGMENT, ITEM_BY_REF } from "@/assets/data";
+import { AUGMENT_DATA_BY_AUGMENT } from "@/assets/data";
 import { ARMOUR, MARTIAL_WEAPON } from "@/parser/meta";
 import { ModifierType } from "@/parser/modifiers";
 import Popover from "@/web/ui/Popover.vue";
-import { createVirtualItem } from "@/parser/ParsedItem";
 
 export default defineComponent({
   name: "FiltersBlock",
@@ -418,18 +417,8 @@ export default defineComponent({
 
     const { t } = useI18n();
 
-    const fakeItem = createVirtualItem({
-      info: ITEM_BY_REF("ITEM", "Artillery Bow")![0],
-      augmentSockets: {
-        empty: 1,
-        current: 2,
-        normal: 2,
-        augments: ["Greater Resolve Rune"],
-      },
-    });
     return {
       t,
-      fakeItem,
       statsVisibility,
       showHidden,
       showFilterSources,

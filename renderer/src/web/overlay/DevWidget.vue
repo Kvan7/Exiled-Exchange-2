@@ -14,7 +14,7 @@
     />
   </div> -->
   <div v-if="isDev" class="w-1/4 h-1/2 bg-purple-900">
-    <item-editor-v2 :item="item" />
+    <item-editor-v2 />
   </div>
 </template>
 
@@ -22,8 +22,6 @@
 import { defineComponent } from "vue";
 import UiDetailedItemImg from "@/web/ui/UiDetailedItemImg.vue";
 import ItemEditorV2 from "@/web/price-check/item-editor/ItemEditorV2.vue";
-import { createVirtualItem } from "@/parser/ParsedItem";
-import { ITEM_BY_REF } from "@/assets/data";
 
 export default defineComponent({
   components: {
@@ -125,16 +123,7 @@ export default defineComponent({
   // #endregion Image stuff
   // #region item editor
   setup() {
-    const item = createVirtualItem({
-      info: ITEM_BY_REF("ITEM", "Artillery Bow")![0],
-      augmentSockets: {
-        empty: 1,
-        current: 2,
-        normal: 2,
-        augments: ["Greater Resolve Rune"],
-      },
-    });
-    return { isDev: import.meta.env.DEV, item };
+    return { isDev: import.meta.env.DEV };
   },
   // #endregion item editor
 });

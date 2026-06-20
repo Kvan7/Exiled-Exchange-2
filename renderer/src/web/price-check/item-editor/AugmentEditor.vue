@@ -11,8 +11,10 @@
           :onclick="() => print(augment)"
         />
       </div>
-      <div>
+      <div class="flex items-center gap-x-1">
         <!-- price of augments -->
+        <i class="fas fa-arrow-right text-gray-600 px-1 text-sm" />
+        <item-sum-price :items="currentAugments" />
       </div>
     </div>
     <div>
@@ -25,6 +27,7 @@
 import { BaseType, ITEM_BY_REF } from "@/assets/data";
 import { ParsedItem } from "@/parser";
 import { computed, defineComponent, PropType } from "vue";
+import ItemSumPrice from "@/web/ui/ItemSumPrice.vue";
 
 export default defineComponent({
   props: {
@@ -32,6 +35,9 @@ export default defineComponent({
       type: Object as PropType<ParsedItem>,
       required: true,
     },
+  },
+  components: {
+    ItemSumPrice,
   },
   setup(props) {
     const currentAugments = computed(() => {
@@ -51,4 +57,8 @@ export default defineComponent({
 });
 </script>
 
-<style lang="postcss" module></style>
+<style lang="postcss" module>
+.golden {
+  color: #e4c29a;
+}
+</style>
