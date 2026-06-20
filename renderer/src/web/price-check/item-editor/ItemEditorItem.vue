@@ -1,0 +1,42 @@
+<template>
+  <div
+    class="hover:bg-gray-700 rounded flex items-center overflow-hidden px-1"
+    :class="[selected ? 'border bg-gray-900' : '']"
+  >
+    <div class="flex items-center justify-center shrink-0 w-8 h-8">
+      <slot>
+        <img
+          :src="item.icon === '%NOT_FOUND%' ? '/images/404.png' : item.icon"
+          class="max-w-full max-h-full"
+        />
+      </slot>
+    </div>
+    <div class="mb-1 cursor-pointer pl-1">
+      <div class="text-left text-gray-600 whitespace-nowrap">
+        {{ item.name }}
+      </div>
+      <div class="text-left whitespace-nowrap">
+        {{ item.displayString }}
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, PropType } from "vue";
+import { EditorItem } from "./augment";
+
+export default defineComponent({
+  emits: ["update:modelValue"],
+  props: {
+    item: {
+      type: Object as PropType<EditorItem>,
+      required: true,
+    },
+    selected: {
+      type: Boolean,
+      default: false,
+    },
+  },
+});
+</script>

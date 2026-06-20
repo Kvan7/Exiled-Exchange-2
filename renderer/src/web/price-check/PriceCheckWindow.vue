@@ -268,7 +268,7 @@ export default defineComponent({
       props.config.wmFlags = ["hide-on-blur", "menu::skip"];
     });
 
-    const item = shallowRef<null | Result<ParsedItem, ParseError>>(null);
+    const item = ref<null | Result<ParsedItem, ParseError>>(null);
     const rebuildKey = shallowRef(2);
     const advancedCheck = shallowRef(false);
     const checkPosition = shallowRef({ x: 1, y: 1 });

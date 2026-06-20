@@ -1,10 +1,10 @@
 <template>
-  <div v-if="item.augmentSockets">
+  <div v-if="item?.augmentSockets">
     <div class="flex flex-row justify-between p-2">
       <div class="grid grid-cols-6 gap-2">
         <!-- List of current augments -->
         <template
-          v-for="(augment, index) of item.augmentSockets?.augments"
+          v-for="(augment, index) of item.augmentSockets.augments"
           :key="`${index}+${augment?.refName}`"
         >
           <div
@@ -33,7 +33,7 @@
       <div class="flex items-center gap-x-1">
         <!-- price of augments -->
         <i class="fas fa-arrow-right text-gray-600 px-1 text-sm" />
-        <item-sum-price :items="item.augmentSockets?.augments" />
+        <item-sum-price :items="item.augmentSockets.augments" />
       </div>
     </div>
     <div>
@@ -133,7 +133,6 @@ export default defineComponent({
   props: {
     item: {
       type: Object as PropType<ParsedItem>,
-      required: true,
     },
   },
   components: {
@@ -146,11 +145,11 @@ export default defineComponent({
     const runeTab = shallowRef("Greater");
     const soulCoreTab = shallowRef("Normal");
 
-    const selectedAugment = shallowRef<EditorItem>(
+    const selectedAugment = shallowRef<EditorItem | undefined>(
       // TODO: see if this can be better
       buildEditorItems(
         [ITEM_BY_REF("ITEM", "Greater Iron Rune")![0]],
-        props.item.category ?? ItemCategory.Unknown,
+        props.item?.category ?? ItemCategory.Unknown,
       )[0],
     );
 
@@ -169,7 +168,7 @@ export default defineComponent({
     );
 
     watch(
-      () => props.item.category,
+      () => props.item?.category,
       (curr, prev) => {
         if (curr === prev && displayGroups.value) return;
         if (!curr) {
@@ -180,7 +179,7 @@ export default defineComponent({
         const augment = augmentCache.get(curr);
         if (augment) {
           displayGroups.value = augment;
-          console.log("cache hit");
+          console.log(`cache hit - c: ${curr}, p: ${prev}`);
           console.log(augment);
           return;
         }
@@ -189,16 +188,12 @@ export default defineComponent({
         const augmentData = getCategoryGroups(GROUPED_AUGMENTS, curr);
         augmentCache.set(curr, augmentData);
         displayGroups.value = augmentData;
-        console.log("cache miss");
+        console.log(`cache miss - c: ${curr}, p: ${prev}`);
         console.log(augmentData);
       },
       { immediate: true },
     );
 
-    console.log("base all grouped");
-    console.log(GROUPED_AUGMENTS);
-    console.log("item augments");
-    console.log(props.item.augmentSockets?.augments);
     return {
       mainTab,
       runeTab,
@@ -206,10 +201,9 @@ export default defineComponent({
       selectedAugment,
       displayGroups,
       replaceAugment: (index: number) => {
-        if (!props.item.augmentSockets || !selectedAugment.value) return;
+        if (!props.item?.augmentSockets || !selectedAugment.value) return;
         props.item.augmentSockets.augments![index] =
           selectedAugment.value.baseItem;
-        console.log(props.item.augmentSockets.augments);
       },
       selectAugment: (augment: EditorItem) => {
         selectedAugment.value = augment;
