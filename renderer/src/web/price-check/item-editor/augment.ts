@@ -12,6 +12,7 @@ import { AppConfig } from "@/web/Config";
 import { PriceCheckWidget } from "@/web/overlay/widgets";
 import { StatFilter } from "@/web/price-check/filters/interfaces";
 import { initUiModFilters } from "../filters/create-stat-filters";
+import { recalculateItemProperties } from "@/parser/calc-base";
 
 export function getCategoryGroups(
   augments: AugmentGroup<BaseType>,
@@ -45,6 +46,9 @@ export function useAugment(
     throw new Error("Augment index out of bounds");
   }
 
+  // deep copy
+  const oldItem = JSON.parse(JSON.stringify(item)) as ParsedItem;
+
   // remove old augment stats from item
   item.newMods = item.newMods.filter(
     (mod) => !INTERNAL_AUGMENT_TYPES.has(mod.info.type),
@@ -54,9 +58,9 @@ export function useAugment(
   );
 
   // add augment
-  item.augmentSockets.augments[index] = augment;
+  item.augmentSockets!.augments[index] = augment;
   // add augment stat to item
-  for (const thisAugment of item.augmentSockets.augments) {
+  for (const thisAugment of item.augmentSockets!.augments) {
     if (!thisAugment) continue;
     const modInfo = {
       // need to keep pre-existing ones marked as non-added
@@ -75,6 +79,8 @@ export function useAugment(
   // augment now added to item, yay
   // need to fix the filters now
   console.log(stats);
+
+  recalculateItemProperties(item, oldItem);
 
   const config = AppConfig<PriceCheckWidget>("price-check")!;
 

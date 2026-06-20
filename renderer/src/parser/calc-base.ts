@@ -7,14 +7,22 @@ import {
   OTHER_PSEUDO_STATS,
   QUALITY_STATS,
 } from "./calc-q20";
+import { ARMOUR, WEAPON } from "./meta";
 
 export function recalculateItemProperties(
   newItem: ParsedItem,
   oldItem: ParsedItem,
 ) {
-  const { category } = newItem;
-  const weaponOrArmour = isArmourOrWeaponOrCaster(category);
-  if (weaponOrArmour === undefined || weaponOrArmour === "caster") return;
+  if (newItem.category !== oldItem.category || !newItem.category) return;
+
+  if (ARMOUR.has(newItem.category)) {
+    recalculateArmourProperties(newItem, oldItem);
+  }
+  if (WEAPON.has(newItem.category)) {
+    recalculateWeaponProperties(newItem, oldItem);
+  }
+}
+function recalculateWeaponProperties(newItem: ParsedItem, oldItem: ParsedItem) {
   if (newItem.weaponPHYSICAL) {
     const base = calcBase(
       oldItem,
@@ -24,6 +32,7 @@ export function recalculateItemProperties(
     const total = calcTotal(base, newItem, QUALITY_STATS.PHYSICAL_DAMAGE);
     newItem.weaponPHYSICAL = total;
   }
+
   if (newItem.weaponAS) {
     const base = calcBase(
       oldItem,
@@ -39,6 +48,9 @@ export function recalculateItemProperties(
     );
     newItem.weaponAS = total;
   }
+}
+
+function recalculateArmourProperties(newItem: ParsedItem, oldItem: ParsedItem) {
   if (newItem.armourAR) {
     const base = calcBase(oldItem, oldItem.armourAR, QUALITY_STATS.ARMOUR);
     const total = calcTotal(base, newItem, QUALITY_STATS.ARMOUR);
@@ -57,6 +69,24 @@ export function recalculateItemProperties(
     );
     const total = calcTotal(base, newItem, QUALITY_STATS.ENERGY_SHIELD);
     newItem.armourES = total;
+  }
+  if (newItem.armourRW) {
+    const base = calcBase(
+      oldItem,
+      oldItem.armourRW,
+      QUALITY_STATS.ENERGY_SHIELD,
+    );
+    const total = calcTotal(base, newItem, QUALITY_STATS.ENERGY_SHIELD);
+    newItem.armourRW = total;
+  }
+  if (newItem.armourBLOCK) {
+    const base = calcBase(
+      oldItem,
+      oldItem.armourBLOCK,
+      QUALITY_STATS.ENERGY_SHIELD,
+    );
+    const total = calcTotal(base, newItem, QUALITY_STATS.ENERGY_SHIELD);
+    newItem.armourBLOCK = total;
   }
 }
 
