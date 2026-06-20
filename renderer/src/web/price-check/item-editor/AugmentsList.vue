@@ -24,7 +24,7 @@ export default defineComponent({
       required: true,
     },
     selectedAugment: {
-      type: Object as PropType<EditorItem | undefined>,
+      type: Object as PropType<EditorItem | undefined> | undefined,
       required: true,
     },
   },
