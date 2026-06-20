@@ -41,6 +41,7 @@ export class TestItem implements ParsedItem {
         empty: number;
         current: number;
         normal: number;
+        augments: Array<BaseType | null>;
       }
     | undefined;
 
@@ -498,6 +499,22 @@ HighDamageRareItem.augmentSockets = {
   empty: 0,
   current: 2,
   normal: 2,
+  augments: [
+    {
+      name: "Greater Iron Rune",
+      refName: "Greater Iron Rune",
+      namespace: "ITEM",
+      icon: "%NOT_FOUND%",
+      tags: [],
+    },
+    {
+      name: "Greater Iron Rune",
+      refName: "Greater Iron Rune",
+      namespace: "ITEM",
+      icon: "%NOT_FOUND%",
+      tags: [],
+    },
+  ],
 };
 // #endregion HighDamageRareItem
 
@@ -555,6 +572,29 @@ ArmourHighValueRareItem.augmentSockets = {
   empty: 0,
   current: 3,
   normal: 2,
+  augments: [
+    {
+      name: "Greater Iron Rune",
+      refName: "Greater Iron Rune",
+      namespace: "ITEM",
+      icon: "%NOT_FOUND%",
+      tags: [],
+    },
+    {
+      name: "Greater Iron Rune",
+      refName: "Greater Iron Rune",
+      namespace: "ITEM",
+      icon: "%NOT_FOUND%",
+      tags: [],
+    },
+    {
+      name: "Greater Iron Rune",
+      refName: "Greater Iron Rune",
+      namespace: "ITEM",
+      icon: "%NOT_FOUND%",
+      tags: [],
+    },
+  ],
 };
 ArmourHighValueRareItem.note = "~b/o 10 divine";
 // #endregion ArmourHighValueRareItem
@@ -882,6 +922,22 @@ FracturedItem.augmentSockets = {
   empty: 0,
   current: 2,
   normal: 2,
+  augments: [
+    {
+      name: "Greater Iron Rune",
+      refName: "Greater Iron Rune",
+      namespace: "ITEM",
+      icon: "%NOT_FOUND%",
+      tags: [],
+    },
+    {
+      name: "Greater Iron Rune",
+      refName: "Greater Iron Rune",
+      namespace: "ITEM",
+      icon: "%NOT_FOUND%",
+      tags: [],
+    },
+  ],
 };
 // #endregion FracturedItem
 
@@ -953,6 +1009,22 @@ FracturedItemNoModMarked.augmentSockets = {
   empty: 0,
   current: 2,
   normal: 2,
+  augments: [
+    {
+      name: "Greater Iron Rune",
+      refName: "Greater Iron Rune",
+      namespace: "ITEM",
+      icon: "%NOT_FOUND%",
+      tags: [],
+    },
+    {
+      name: "Greater Iron Rune",
+      refName: "Greater Iron Rune",
+      namespace: "ITEM",
+      icon: "%NOT_FOUND%",
+      tags: [],
+    },
+  ],
 };
 // #endregion FracturedItemNoModMarked
 
@@ -1058,7 +1130,7 @@ Item Level: 80
 45% increased Elemental Damage with Attacks (enchant)
 --------
 18% increased Physical Damage (rune)
-Gain 24 Mana per enemy killed (rune)
+Gain 30 Mana per enemy killed (rune)
 --------
 { Implicit Modifier — Attack }
 Loads an additional bolt
@@ -1112,6 +1184,22 @@ ItemAllTheModifierTypes.augmentSockets = {
   empty: 0,
   current: 2,
   normal: 2,
+  augments: [
+    {
+      name: "Greater Iron Rune",
+      refName: "Greater Iron Rune",
+      namespace: "ITEM",
+      icon: "%NOT_FOUND%",
+      tags: [],
+    },
+    {
+      name: "Greater Inspiration Rune",
+      refName: "Greater Inspiration Rune",
+      namespace: "ITEM",
+      icon: "%NOT_FOUND%",
+      tags: [],
+    },
+  ],
 };
 ItemAllTheModifierTypes.isCorrupted = true;
 ItemAllTheModifierTypes.isFractured = true;
@@ -1168,6 +1256,7 @@ SpectreIncSpirit.augmentSockets = {
   empty: 0,
   current: 1,
   normal: 1,
+  augments: [null],
 };
 
 // #endregion SpectreIncSpirit

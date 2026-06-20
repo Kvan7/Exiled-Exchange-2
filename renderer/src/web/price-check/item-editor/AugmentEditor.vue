@@ -1,32 +1,54 @@
 <template>
-  <div>
-    <div>
-      <div>
+  <div v-if="item.augmentSockets">
+    <div class="flex flex-row justify-between p-2">
+      <div class="grid grid-cols-6 gap-2">
         <!-- List of current augments -->
-        <img
-          v-for="(augment, index) of currentAugments"
-          :src="augment.icon"
-          :key="index + augment.refName"
-          :title="augment.name"
-          :onclick="() => print(augment)"
-        />
+        <template
+          v-for="(augment, index) of item.augmentSockets?.augments"
+          :key="index + augment?.refName"
+        >
+          <div
+            class="rounded-full bg-opacity-50 border-2 border-transparent"
+            :class="{
+              'hover:bg-gray-700 hover:border-gray-500 cursor-pointer':
+                selectedAugment,
+            }"
+          >
+            <img
+              v-if="augment"
+              class="w-8 h-8"
+              :src="augment.icon"
+              :title="augment.name"
+              :onclick="() => replaceAugment(index)"
+            />
+            <img
+              v-else
+              src="/images/augments/empty-socket.png"
+              class="w-8 h-8"
+              :onclick="() => replaceAugment(index)"
+            />
+          </div>
+        </template>
       </div>
       <div class="flex items-center gap-x-1">
         <!-- price of augments -->
         <i class="fas fa-arrow-right text-gray-600 px-1 text-sm" />
-        <item-sum-price :items="currentAugments" />
+        <item-sum-price :items="item.augmentSockets?.augments" />
       </div>
     </div>
     <div>
       <!-- augment adding section -->
     </div>
   </div>
+  <div v-else class="bg-purple-700 text-green-600 border border-green-600">
+    no augments available for item
+  </div>
 </template>
 
 <script lang="ts">
 import { BaseType, ITEM_BY_REF } from "@/assets/data";
 import { ParsedItem } from "@/parser";
-import { computed, defineComponent, PropType } from "vue";
+import { defineComponent, PropType, shallowRef } from "vue";
 import ItemSumPrice from "@/web/ui/ItemSumPrice.vue";
 
 export default defineComponent({
@@ -40,18 +62,18 @@ export default defineComponent({
     ItemSumPrice,
   },
   setup(props) {
-    const currentAugments = computed(() => {
-      const socketed = props.item.augmentSockets?.augments ?? [];
-      return socketed.map((aug) => {
-        // swap item_by_ref for augment specific one
-        return ITEM_BY_REF("ITEM", aug)![0];
-      });
-    });
+    const selectedAugment = shallowRef<BaseType | null>(
+      ITEM_BY_REF("ITEM", "Iron Rune")![0],
+    );
 
-    console.log(currentAugments.value);
+    console.log(props.item.augmentSockets?.augments);
     return {
-      currentAugments,
-      print: (augment: BaseType) => console.log(augment),
+      selectedAugment,
+      replaceAugment: (index: number) => {
+        if (!props.item.augmentSockets) return;
+        props.item.augmentSockets.augments![index] = selectedAugment.value;
+        console.log(props.item.augmentSockets.augments);
+      },
     };
   },
 });

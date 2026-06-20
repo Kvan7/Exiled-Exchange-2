@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-800">
+  <div class="bg-gray-800 text-gray-200">
     <augment-editor
       v-if="itemEditorType === ItemEditorType.Augment"
       :item="actualItem"
@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { ParsedItem } from "@/parser";
-import { computed, defineComponent, PropType } from "vue";
+import { computed, defineComponent, PropType, ref } from "vue";
 import AugmentEditor from "./AugmentEditor.vue";
 import QualityEditor from "./QualityEditor.vue";
 import { getItemEditorType } from "../filters/util";
@@ -36,16 +36,15 @@ export default defineComponent({
   },
 
   setup(props) {
-    const actualItem = computed(
-      () =>
-        props.item ??
+    const actualItem = ref(
+      props.item ??
         createVirtualItem({
           info: ITEM_BY_REF("ITEM", "Artillery Bow")![0],
           augmentSockets: {
             empty: 1,
             current: 2,
             normal: 2,
-            augments: ["Greater Resolve Rune"],
+            augments: [ITEM_BY_REF("ITEM", "Greater Resolve Rune")![0], null],
           },
           category: ItemCategory.Bow,
         }),

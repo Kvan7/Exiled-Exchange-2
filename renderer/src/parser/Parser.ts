@@ -854,12 +854,14 @@ function parseAugmentSockets(section: string[], item: ParsedItem) {
         empty: 0,
         current,
         normal: categoryMax,
+        augments: Array(categoryMax).fill(null),
       };
     } else {
       item.augmentSockets = {
         empty: 0,
         current,
         normal: categoryMax,
+        augments: Array(categoryMax).fill(null),
       };
     }
 
@@ -870,6 +872,7 @@ function parseAugmentSockets(section: string[], item: ParsedItem) {
       empty: categoryMax,
       current: 0,
       normal: categoryMax,
+      augments: Array(categoryMax).fill(null),
     };
   }
   return "SECTION_SKIPPED";

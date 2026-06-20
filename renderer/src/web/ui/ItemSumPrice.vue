@@ -53,11 +53,11 @@ export default defineComponent({
       default: false,
     },
     items: {
-      type: Object as PropType<BaseType[]>,
+      type: Object as PropType<Array<BaseType | null>>,
       required: true,
     },
     items2: {
-      type: Object as PropType<BaseType[]>,
+      type: Object as PropType<Array<BaseType | null>>,
       default: undefined,
     },
   },
@@ -66,6 +66,7 @@ export default defineComponent({
 
     const sumPriceMin = computed(() => {
       const primary = props.items.reduce((sum, augment) => {
+        if (!augment) return sum;
         const price = findPriceByQuery({
           ns: "ITEM",
           name: augment.refName,
@@ -80,6 +81,7 @@ export default defineComponent({
       if (!props.items2) return sumPriceMin.value;
 
       const primary = props.items2.reduce((sum, augment) => {
+        if (!augment) return sum;
         const price = findPriceByQuery({
           ns: "ITEM",
           name: augment.refName,
