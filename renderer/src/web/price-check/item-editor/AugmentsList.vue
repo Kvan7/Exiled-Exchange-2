@@ -5,7 +5,7 @@
     @click="$emit('update:selectedAugment', augment)"
     class="m-2 border"
     :class="{
-      'bg-red-400': augment.refName === selectedAugment?.refName,
+      'bg-red-400': augment.refName === selectedAugment.refName,
     }"
   >
     {{ augment.name }}
@@ -24,7 +24,7 @@ export default defineComponent({
       required: true,
     },
     selectedAugment: {
-      type: Object as PropType<EditorItem | undefined> | undefined,
+      type: Object as PropType<EditorItem>,
       required: true,
     },
   },

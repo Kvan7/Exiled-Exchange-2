@@ -20,7 +20,7 @@ export function selectAugmentEffectByItemCategory(
   return rune.find((rune) => rune.categories.includes(category));
 }
 
-function filterByCategory(augments: BaseType[], category: ItemCategory) {
+export function buildEditorItems(augments: BaseType[], category: ItemCategory) {
   return augments
     .map((augment) => {
       const effect = selectAugmentEffectByItemCategory(
@@ -50,18 +50,18 @@ export function getCategoryGroups(
 ): AugmentGroup<EditorItem> {
   return {
     Rune: {
-      Lesser: filterByCategory(augments.Rune.Lesser, category),
-      Normal: filterByCategory(augments.Rune.Normal, category),
-      Greater: filterByCategory(augments.Rune.Greater, category),
-      Perfect: filterByCategory(augments.Rune.Perfect, category),
-      Other: filterByCategory(augments.Rune.Other, category),
+      Lesser: buildEditorItems(augments.Rune.Lesser, category),
+      Normal: buildEditorItems(augments.Rune.Normal, category),
+      Greater: buildEditorItems(augments.Rune.Greater, category),
+      Perfect: buildEditorItems(augments.Rune.Perfect, category),
+      Other: buildEditorItems(augments.Rune.Other, category),
     },
     SoulCore: {
-      Normal: filterByCategory(augments.SoulCore.Normal, category),
-      Special: filterByCategory(augments.SoulCore.Special, category),
+      Normal: buildEditorItems(augments.SoulCore.Normal, category),
+      Special: buildEditorItems(augments.SoulCore.Special, category),
     },
-    Idol: filterByCategory(augments.Idol, category),
-    Legacy: filterByCategory(augments.Legacy, category),
-    Other: filterByCategory(augments.Other, category),
+    Idol: buildEditorItems(augments.Idol, category),
+    Legacy: buildEditorItems(augments.Legacy, category),
+    Other: buildEditorItems(augments.Other, category),
   };
 }

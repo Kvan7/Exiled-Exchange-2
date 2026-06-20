@@ -120,13 +120,13 @@
 </template>
 
 <script lang="ts">
-import { AugmentGroup, GROUPED_AUGMENTS } from "@/assets/data";
+import { AugmentGroup, GROUPED_AUGMENTS, ITEM_BY_REF } from "@/assets/data";
 import { ItemCategory, ParsedItem } from "@/parser";
 import { defineComponent, PropType, ref, shallowRef, watch } from "vue";
 import ItemSumPrice from "@/web/ui/ItemSumPrice.vue";
 import UiTabs from "@/web/ui/UiTabs.vue";
 import AugmentsList from "./AugmentsList.vue";
-import { EditorItem, getCategoryGroups } from "./augment";
+import { buildEditorItems, EditorItem, getCategoryGroups } from "./augment";
 import { AppConfig } from "@/web/Config";
 
 export default defineComponent({
@@ -146,7 +146,13 @@ export default defineComponent({
     const runeTab = shallowRef("Greater");
     const soulCoreTab = shallowRef("Normal");
 
-    const selectedAugment = shallowRef<EditorItem | undefined>(undefined);
+    const selectedAugment = shallowRef<EditorItem>(
+      // TODO: see if this can be better
+      buildEditorItems(
+        [ITEM_BY_REF("ITEM", "Greater Iron Rune")![0]],
+        props.item.category ?? ItemCategory.Unknown,
+      )[0],
+    );
 
     const augmentCache = new Map<ItemCategory, AugmentGroup<EditorItem>>();
     const displayGroups = ref<AugmentGroup<EditorItem> | null>(null);
@@ -205,7 +211,7 @@ export default defineComponent({
           selectedAugment.value.baseItem;
         console.log(props.item.augmentSockets.augments);
       },
-      selectAugment: (augment: EditorItem | undefined) => {
+      selectAugment: (augment: EditorItem) => {
         selectedAugment.value = augment;
       },
     };
