@@ -126,7 +126,12 @@ import { defineComponent, PropType, ref, shallowRef, watch } from "vue";
 import ItemSumPrice from "@/web/ui/ItemSumPrice.vue";
 import UiTabs from "@/web/ui/UiTabs.vue";
 import AugmentsList from "./AugmentsList.vue";
-import { buildEditorItems, EditorItem, getCategoryGroups } from "./augment";
+import {
+  useAugment,
+  buildEditorItems,
+  EditorItem,
+  getCategoryGroups,
+} from "./augment";
 import { AppConfig } from "@/web/Config";
 
 export default defineComponent({
@@ -198,6 +203,10 @@ export default defineComponent({
       displayGroups,
       replaceAugment: (index: number) => {
         if (!props.item?.augmentSockets || !selectedAugment.value) return;
+
+        // replace augment
+        useAugment(props.item, selectedAugment.value, index);
+        // TODO: remove this later
         props.item.augmentSockets.augments![index] =
           selectedAugment.value.baseItem;
       },

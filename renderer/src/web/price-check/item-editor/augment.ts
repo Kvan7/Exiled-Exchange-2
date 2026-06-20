@@ -1,5 +1,6 @@
 import { AugmentGroup, AugmentLineData, BaseType } from "@/assets/data";
-import { ItemCategory } from "@/parser";
+import { ItemCategory, ParsedItem } from "@/parser";
+import { INTERNAL_AUGMENT_TYPES } from "@/parser/modifiers";
 import { replaceHashWithValues } from "@/parser/Parser";
 
 export interface EditorItem {
@@ -64,4 +65,27 @@ export function getCategoryGroups(
     Legacy: buildEditorItems(augments.Legacy, category),
     Other: buildEditorItems(augments.Other, category),
   };
+}
+
+export function useAugment(
+  item: ParsedItem,
+  augment: EditorItem,
+  index: number,
+) {
+  if (!item.augmentSockets || item.augmentSockets.augments.length < index) {
+    throw new Error("Augment index out of bounds");
+  }
+
+  // remove old augment stats from item
+
+  item.statsByType = item.statsByType.filter(
+    (stat) => !INTERNAL_AUGMENT_TYPES.has(stat.type),
+  );
+  item.newMods = item.newMods.filter(
+    (mod) => !INTERNAL_AUGMENT_TYPES.has(mod.info.type),
+  );
+
+  // add augment
+  item.augmentSockets.augments[index] = augment.baseItem;
+  // add augment stat to item
 }
