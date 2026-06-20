@@ -7,6 +7,7 @@ import {
   BaseType,
   ITEM_BY_TRANSLATED,
   TRADE_ITEM_BY_REF,
+  AUGMENT_DATA_BY_TRADE_ID,
 } from "@/assets/data";
 import { ModifierType, StatCalculated, sumStatsByModType } from "./modifiers";
 import {
@@ -841,11 +842,9 @@ function parseStackSize(section: string[], item: ParsedItem) {
 function parseAugmentSockets(section: string[], item: ParsedItem) {
   performance.mark("parseAugmentSockets");
   const categoryMax = getMaxSockets(item);
-  const armourOrWeapon =
-    categoryMax &&
-    (isArmourOrWeaponOrCaster(item.category) ||
-      item.info.refName === "Darkness Enthroned");
-  if (!armourOrWeapon) return "PARSER_SKIPPED";
+
+  if (!categoryMax) return "PARSER_SKIPPED";
+
   if (section[0].startsWith(_$.SOCKETS)) {
     const sockets = section[0].slice(_$.SOCKETS.length).trimEnd();
     const current = sockets.split("S").length - 1;
@@ -867,6 +866,7 @@ function parseAugmentSockets(section: string[], item: ParsedItem) {
 
     return "SECTION_PARSED";
   }
+  // don't have any....possibly "yet"....
   if (categoryMax && itemIsModifiable(item)) {
     item.augmentSockets = {
       empty: categoryMax,
@@ -945,7 +945,6 @@ function parseArmour(section: string[], item: ParsedItem) {
       continue;
     }
 
-    // FIXME: Update parser with actual text
     if (line.startsWith(_$.RUNIC_WARD)) {
       item.armourRW = parseInt(line.slice(_$.RUNIC_WARD.length), 10);
       isParsed = "SECTION_PARSED";
@@ -1911,15 +1910,32 @@ export function parseAffixStrings(text: string): string {
   });
 }
 export function getMaxSockets(item: ParsedItem) {
-  if (item.info.refName === "Darkness Enthroned") {
-    return 2;
-  }
+  switch (item.info.refName) {
+    case "Atziri's Splendour":
+      return 6;
 
-  if (
-    item.info.refName === "Grasping Ring" ||
-    item.info.refName === "Corona Amulet"
-  ) {
-    return 1;
+    case "Runeseeker's Call":
+      return 5;
+
+    case "Greymake":
+    case "Morior Invictus":
+    case "The Bringer of Rain":
+      return 4;
+
+    case "Serle's Grit":
+      return 3;
+
+    case "Darkness Enthroned":
+    case "Mahuxotl's Machination":
+      return 2;
+
+    case "Grasping Ring":
+    case "Corona Amulet":
+    case "Stalking Belt":
+      return 1;
+
+    default:
+    // fall through to below
   }
 
   const { category } = item;
@@ -1992,15 +2008,29 @@ export function isArmourOrWeaponOrCaster(
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function augmentCount(mod: ParsedModifier, statCalc: StatCalculated): number {
   if (mod.info.type !== ModifierType.Augment) return 0;
-  // HACK: fix since I can't detect how many exist due to augment tiers
-  // const augmentTradeId = statCalc.stat.trade.ids[ModifierType.Augment][0];
-  // const augmentSingle = AUGMENT_SINGLE_VALUE[augmentTradeId];
+  const augmentAppliedValue = statCalc.sources[0].contributes?.value;
+  // something like "Raven-Touched"
+  if (!augmentAppliedValue) return 1;
+
+  const augmentTradeId = statCalc.stat.trade.ids[ModifierType.Augment][0];
+  const possibleAugments = AUGMENT_DATA_BY_TRADE_ID[augmentTradeId];
 
   // // Calculate how many of this augment are in the item
-  // const augmentAppliedValue = statCalc.sources[0].contributes!.value;
+  const availableAugmentValues = possibleAugments.map((augment) => {
+    if (augment.values.length === 1) return augment.values[0];
+
+    // # to # added Lightning Damage
+    if ((augment.baseStat.match(/#/) || []).length > 1) {
+      const sum = augment.values.reduce((a, b) => a + b, 0);
+      return sum / augment.values.length || 0;
+    }
+
+    // everything else
+    return augment.values[0];
+  });
+  console.log(availableAugmentValues);
   // const augmentSingleValue = augmentSingle.values[0];
   // const totalAugments = Math.floor(augmentAppliedValue / augmentSingleValue);
 
