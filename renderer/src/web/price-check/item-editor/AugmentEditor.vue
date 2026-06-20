@@ -8,7 +8,7 @@
           :src="augment.icon"
           :key="index + augment.refName"
           :title="augment.name"
-          @click="console.log(augment)"
+          :onclick="() => print(augment)"
         />
       </div>
       <div>
@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { ITEM_BY_REF } from "@/assets/data";
+import { BaseType, ITEM_BY_REF } from "@/assets/data";
 import { ParsedItem } from "@/parser";
 import { computed, defineComponent, PropType } from "vue";
 
@@ -43,7 +43,10 @@ export default defineComponent({
     });
 
     console.log(currentAugments.value);
-    return { currentAugments };
+    return {
+      currentAugments,
+      print: (augment: BaseType) => console.log(augment),
+    };
   },
 });
 </script>
