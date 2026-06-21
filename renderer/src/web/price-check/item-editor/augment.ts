@@ -78,14 +78,28 @@ export function useAugment(
 
   // augment now added to item, yay
   // need to fix the filters now
-  console.log(stats);
 
   recalculateItemProperties(item, oldItem);
 
   const config = AppConfig<PriceCheckWidget>("price-check")!;
 
-  stats = initUiModFilters(item, {
+  const newStats = initUiModFilters(item, {
     searchStatRange: config.searchStatRange,
     defaultAllSelected: config.defaultAllSelected,
   });
+  newStats.forEach((newStat) => {
+    const oldStat = stats.find((s) => s.statRef === newStat.statRef);
+    if (oldStat) {
+      newStat.disabled = oldStat.disabled;
+    }
+    if (
+      newStat.sources.some(
+        (s) => s.modifier.info.type === ModifierType.AddedAugment,
+      )
+    ) {
+      newStat.disabled = false;
+    }
+  });
+
+  stats = newStats;
 }
