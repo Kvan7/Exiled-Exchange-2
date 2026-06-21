@@ -23,8 +23,8 @@
 </template>
 
 <script lang="ts">
+import { EditorItem } from "@/parser/ParsedItem";
 import { defineComponent, PropType } from "vue";
-import { EditorItem } from "./augment";
 
 export default defineComponent({
   emits: ["update:modelValue"],

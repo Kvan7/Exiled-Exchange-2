@@ -11,8 +11,9 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
-import { EditorItem } from "./augment";
+
 import ItemEditorItem from "./ItemEditorItem.vue";
+import { EditorItem } from "@/parser/ParsedItem";
 
 export default defineComponent({
   emits: ["update:selectedAugment"],

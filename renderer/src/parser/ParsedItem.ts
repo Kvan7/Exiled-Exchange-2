@@ -35,7 +35,7 @@ export interface EditorItem {
   refName: string;
   icon: string;
   displayString: string;
-  stat: AugmentLineData;
+  stats: AugmentLineData[];
   baseItem: BaseType;
 }
 

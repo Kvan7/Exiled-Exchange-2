@@ -132,11 +132,13 @@ function createEditorItem(
     refName,
     icon: "%NOT_FOUND%",
     displayString,
-    stat: {
-      categories: [],
-      string: displayString,
-      values: [value],
-    },
+    stats: [
+      {
+        categories: [],
+        string: displayString,
+        values: [value],
+      },
+    ],
     baseItem: {
       name: refName,
       refName,

@@ -69,7 +69,7 @@ export function useAugment(
         : ModifierType.AddedAugment,
       tags: [],
     };
-    parseStatsFromMod([thisAugment.displayString], item, {
+    parseStatsFromMod(thisAugment.displayString.split("\n"), item, {
       info: modInfo,
       stats: [],
     });
