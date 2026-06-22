@@ -195,12 +195,17 @@
         </div>
       </button>-->
       <div
+        v-if="item.augmentSockets?.augments.some((a) => a)"
         class="flex items-center bg-gray-900 rounded border border-gray-500 justify-center shrink-0 w-8 h-8"
       >
         <popover :delay="0" placement="right">
           <template #target
             ><img
-              :src="getAugmentImage('Greater Resolve Rune')"
+              :src="
+                item.augmentSockets?.augments.some((a) => a)
+                  ? '/images/augments/rune.png'
+                  : '/images/augments/empty-socket.png'
+              "
               class="max-w-full max-h-full overflow-hidden"
           /></template>
           <template #content>
