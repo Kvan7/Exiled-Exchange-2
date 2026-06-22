@@ -90,6 +90,23 @@
           </div>
         </div>
       </div>
+      <div
+        v-if="isLikelyPriceFixed"
+        class="p-2 border-2 border-gray-600 rounded mt-2"
+      >
+        <div class="flex text-gray-400 leading-none">
+          <div class="mt-1">
+            {{ t(":likely_price_fixed") }}
+          </div>
+          <div class="flex-1" />
+          <div class="pl-2">
+            <button class="btn" @click="execFilterExaltDivine">
+              {{ t(":filter_exalt_divine") }}
+              <i class="fas fa-history text-xs" />
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <ui-error-box v-else>
