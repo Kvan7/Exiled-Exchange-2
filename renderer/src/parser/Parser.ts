@@ -1336,9 +1336,7 @@ function applyAugmentSockets(item: ParsedItem) {
     }
 
     // set all the stuff
-    item.augmentSockets.current = augments.filter(
-      (augment) => augment !== null,
-    ).length;
+
     item.augmentSockets.empty = augments.filter(
       (augment) => augment === null,
     ).length;
@@ -1776,6 +1774,7 @@ export function parseStatsFromMod(
   lines: string[],
   item: ParsedItem,
   modifier: ParsedModifier,
+  addedAugment?: BaseType,
 ): boolean {
   item.newMods.push(modifier);
 
@@ -1819,6 +1818,10 @@ export function parseStatsFromMod(
 
     // if (parsedStat && validTradeIds && validTradeIds.length) {
     if (parsedStat) {
+      // keep augment basetype on the stat
+      if (modifier.info.type === ModifierType.AddedAugment) {
+        parsedStat.fromAddedAugment = addedAugment;
+      }
       modifier.stats.push(parsedStat);
 
       stat = statIterator.next(true);

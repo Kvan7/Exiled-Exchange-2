@@ -417,22 +417,41 @@ function groupAugments(augmentList: BaseType[]): AugmentGroup<BaseType> {
     Idol: [],
     Other: [],
   };
+
+  const normalRunes = new Set(
+    augmentList
+      .map((a) => a.refName)
+      .filter((ref) => {
+        if (!ref.includes("Rune")) return false;
+        if (
+          ref.startsWith("Greater") ||
+          ref.startsWith("Perfect") ||
+          ref.startsWith("Lesser")
+        ) {
+          return false;
+        }
+        const split = ref.split(" ");
+        return split.length === 2 && split[1] === "Rune";
+      }),
+  );
+
   for (const augment of augmentList) {
     const ref = augment.refName;
     if (ref.includes("Rune")) {
-      if (ref.startsWith("Greater")) {
-        grouped.Rune.Greater.push(augment);
-      } else if (ref.startsWith("Perfect")) {
-        grouped.Rune.Perfect.push(augment);
-      } else if (ref.startsWith("Lesser")) {
-        grouped.Rune.Lesser.push(augment);
-      } else {
-        const split = ref.split(" ");
-        if (split.length === 2 && split[1] === "Rune") {
-          grouped.Rune.Normal.push(augment);
+      const split = ref.split(" ");
+      const notFirst = split.slice(1).join(" ");
+      if (normalRunes.has(notFirst) || normalRunes.has(ref)) {
+        if (ref.startsWith("Greater")) {
+          grouped.Rune.Greater.push(augment);
+        } else if (ref.startsWith("Perfect")) {
+          grouped.Rune.Perfect.push(augment);
+        } else if (ref.startsWith("Lesser")) {
+          grouped.Rune.Lesser.push(augment);
         } else {
-          grouped.Rune.Other.push(augment);
+          grouped.Rune.Normal.push(augment);
         }
+      } else {
+        grouped.Rune.Other.push(augment);
       }
     } else if (ref.startsWith("Legacy")) {
       grouped.Legacy.push(augment);

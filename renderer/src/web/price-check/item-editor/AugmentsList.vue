@@ -1,12 +1,14 @@
 <template>
-  <item-editor-item
-    v-for="augment in augments"
-    :key="augment.displayString"
-    :item="augment"
-    :selected="augment.refName === selectedAugment?.refName"
-    @click="$emit('update:selectedAugment', augment)"
-    class="m-1"
-  />
+  <div class="overflow-y-auto max-h-96">
+    <item-editor-item
+      v-for="augment in augments"
+      :key="augment.displayString"
+      :item="augment"
+      :selected="augment.refName === selectedAugment?.refName"
+      @click="$emit('update:selectedAugment', augment)"
+      class="m-1"
+    />
+  </div>
 </template>
 
 <script lang="ts">

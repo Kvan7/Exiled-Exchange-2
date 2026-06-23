@@ -720,6 +720,11 @@ export function finalFilterTweaks(ctx: FiltersCreationContext) {
         filter.hidden = undefined;
       }
     }
+    if (filter.sources.some((s) => s.stat.fromAddedAugment)) {
+      filter.editorAdded = filter.sources.find(
+        (s) => s.stat.fromAddedAugment,
+      )?.stat.fromAddedAugment;
+    }
   }
 
   if (

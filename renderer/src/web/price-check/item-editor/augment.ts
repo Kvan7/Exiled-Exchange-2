@@ -8,10 +8,6 @@ import {
 } from "@/parser/modifiers";
 import { EditorItem } from "@/parser/ParsedItem";
 import { parseStatsFromMod } from "@/parser/Parser";
-import { AppConfig } from "@/web/Config";
-import { PriceCheckWidget } from "@/web/overlay/widgets";
-import { StatFilter } from "@/web/price-check/filters/interfaces";
-import { initUiModFilters } from "../filters/create-stat-filters";
 import { recalculateItemProperties } from "@/parser/calc-base";
 
 export function getCategoryGroups(
@@ -40,7 +36,6 @@ export function useAugment(
   item: ParsedItem,
   augment: EditorItem,
   index: number,
-  stats: StatFilter[],
 ) {
   if (!item.augmentSockets || item.augmentSockets.augments.length < index) {
     throw new Error("Augment index out of bounds");
@@ -69,10 +64,15 @@ export function useAugment(
         : ModifierType.AddedAugment,
       tags: [],
     };
-    parseStatsFromMod(thisAugment.displayString.split("\n"), item, {
-      info: modInfo,
-      stats: [],
-    });
+    parseStatsFromMod(
+      thisAugment.displayString.split("\n"),
+      item,
+      {
+        info: modInfo,
+        stats: [],
+      },
+      thisAugment.existing ? undefined : thisAugment.baseItem,
+    );
   }
   item.statsByType = sumStatsByModType(item.newMods);
 
@@ -80,26 +80,4 @@ export function useAugment(
   // need to fix the filters now
 
   recalculateItemProperties(item, oldItem);
-
-  const config = AppConfig<PriceCheckWidget>("price-check")!;
-
-  const newStats = initUiModFilters(item, {
-    searchStatRange: config.searchStatRange,
-    defaultAllSelected: config.defaultAllSelected,
-  });
-  newStats.forEach((newStat) => {
-    const oldStat = stats.find((s) => s.statRef === newStat.statRef);
-    if (oldStat) {
-      newStat.disabled = oldStat.disabled;
-    }
-    if (
-      newStat.sources.some(
-        (s) => s.modifier.info.type === ModifierType.AddedAugment,
-      )
-    ) {
-      newStat.disabled = false;
-    }
-  });
-
-  stats = newStats;
 }

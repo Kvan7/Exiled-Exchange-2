@@ -15,7 +15,7 @@
       <div class="text-left text-gray-600 whitespace-nowrap">
         {{ item.name }}
       </div>
-      <div class="text-left whitespace-nowrap">
+      <div class="text-left whitespace-pre-line text-wrap break-words">
         {{ item.displayString }}
       </div>
     </div>

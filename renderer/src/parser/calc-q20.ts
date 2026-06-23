@@ -2,7 +2,16 @@ import { itemIsModifiable, ParsedItem } from "./ParsedItem";
 import { stat } from "@/assets/data";
 import { StatRoll, StatSource, statSourcesTotal } from "./modifiers";
 
-export const QUALITY_STATS = {
+interface FlatAndIncreased {
+  flat: string[];
+  incr: string[];
+}
+
+interface InternalStatGroup {
+  [itemType: string]: FlatAndIncreased;
+}
+
+export const QUALITY_STATS: InternalStatGroup = {
   ARMOUR: {
     flat: [stat("# to Armour")],
     incr: [
@@ -35,10 +44,42 @@ export const QUALITY_STATS = {
     incr: [stat("#% increased Physical Damage")],
   },
 };
-export const OTHER_PSEUDO_STATS = {
+export const OTHER_PSEUDO_STATS: InternalStatGroup = {
   ATTACK_SPEED: {
     flat: [],
     incr: [stat("#% increased Attack Speed")],
+  },
+  FIRE_DAMAGE: {
+    flat: [stat("Adds # to # Fire Damage")],
+    incr: [],
+  },
+  COLD_DAMAGE: {
+    flat: [stat("Adds # to # Cold Damage")],
+    incr: [],
+  },
+  LIGHTNING_DAMAGE: {
+    flat: [stat("Adds # to # Lightning Damage")],
+    incr: [],
+  },
+  ELEMENTAL_DAMAGE: {
+    flat: [
+      stat("Adds # to # Fire Damage"),
+      stat("Adds # to # Cold Damage"),
+      stat("Adds # to # Lightning Damage"),
+    ],
+    incr: [],
+  },
+  CRIT_CHANCE: {
+    flat: [],
+    incr: [stat("#% increased Critical Hit Chance")],
+  },
+  RELOAD_SPEED: {
+    flat: [],
+    incr: [stat("#% increased Reload Speed")],
+  },
+  SPIRIT: {
+    flat: [stat("# to Spirit")],
+    incr: [stat("#% increased Spirit")],
   },
 };
 

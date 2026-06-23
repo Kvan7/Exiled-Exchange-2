@@ -164,41 +164,11 @@
           "
         />
       </div>
-      <!--
-      <button
-        v-if="
-          hasEmptyAugmentSockets &&
-          filters.itemEditorSelection &&
-          !filters.itemEditorSelection.disabled
-        "
-        @click="
-          filters.itemEditorSelection.editing =
-            !filters.itemEditorSelection.editing
-        "
-        class="flex items-center bg-gray-900 rounded border"
-        :class="[
-          filters.itemEditorSelection.value !== 'None'
-            ? 'border-gray-500'
-            : 'border-transparent',
-        ]"
-      >
-        <div class="flex items-center justify-center shrink-0 w-8 h-8">
-          <div
-            v-if="filters.itemEditorSelection.value === 'None'"
-            class="flex items-center justify-center shrink-0 w-8 h-8 border-2 border-dashed border-gray-400 rounded-full"
-          />
-          <img
-            v-else
-            :src="getAugmentImage(filters.itemEditorSelection.value)"
-            class="max-w-full max-h-full overflow-hidden"
-          />
-        </div>
-      </button>-->
       <div
-        v-if="item.augmentSockets?.augments.some((a) => a)"
+        v-if="item.augmentSockets?.augments.length"
         class="flex items-center bg-gray-900 rounded border border-gray-500 justify-center shrink-0 w-8 h-8"
       >
-        <popover :delay="0" placement="right">
+        <popover :delay="[0, 500]" placement="right">
           <template #target
             ><img
               :src="
@@ -209,7 +179,7 @@
               class="max-w-full max-h-full overflow-hidden"
           /></template>
           <template #content>
-            <item-editor-v2 :item="item" :filters="filters" :stats="stats" />
+            <item-editor-v2 :item="item" />
           </template>
         </popover>
       </div>

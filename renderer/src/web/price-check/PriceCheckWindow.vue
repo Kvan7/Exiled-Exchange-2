@@ -89,8 +89,6 @@
             v-if="isLeagueSelected"
             :item="item.value"
             :advanced-check="advancedCheck"
-            :rebuild-key="rebuildKey"
-            @item-editor-selection="handleItemEditorSelection"
           />
         </template>
         <div v-if="isBrowserShown" class="bg-gray-900 px-6 py-2 truncate">
@@ -163,15 +161,7 @@ import {
   WidgetManager,
   WidgetSpec,
 } from "../overlay/interfaces";
-import {
-  BaseType,
-  HIGH_VALUE_AUGMENTS_HARDCODED,
-  loadUltraLateItems,
-  setLocalAugmentFilter,
-} from "@/assets/data";
-import { translatedEffectsPseudos } from "./filters/pseudo";
-import { ItemEditorType } from "@/parser/meta";
-import { getItemEditorType } from "./item-editor/item-editor";
+import { loadUltraLateItems, setLocalAugmentFilter } from "@/assets/data";
 import ReloadTradeData from "./fallback/ReloadTradeData.vue";
 
 type ParseError = {
@@ -245,11 +235,11 @@ export default defineComponent({
       // FIXME: check if this is working as intended
       () => leagueId.value,
       () => {
-        const augmentFilter = (item: BaseType) =>
-          Object.values(item.augment!).some((augmentStat) =>
-            translatedEffectsPseudos(augmentStat.string),
-          ) || HIGH_VALUE_AUGMENTS_HARDCODED.has(item.refName);
-        // const augmentFilter = () => true;
+        // const augmentFilter = (item: BaseType) =>
+        //   Object.values(item.augment!).some((augmentStat) =>
+        //     translatedEffectsPseudos(augmentStat.string),
+        //   ) || HIGH_VALUE_AUGMENTS_HARDCODED.has(item.refName);
+        const augmentFilter = () => true;
         setLocalAugmentFilter(augmentFilter);
         loadUltraLateItems(augmentFilter);
       },
@@ -270,16 +260,8 @@ export default defineComponent({
     });
 
     const item = ref<null | Result<ParsedItem, ParseError>>(null);
-    const rebuildKey = shallowRef(2);
     const advancedCheck = shallowRef(false);
     const checkPosition = shallowRef({ x: 1, y: 1 });
-    const itemEditorOptions = ref<
-      { editing: boolean; value: string; disabled: boolean } | undefined
-    >({
-      editing: false,
-      value: "None",
-      disabled: true,
-    });
 
     MainProcess.onEvent("MAIN->CLIENT::item-text", (e) => {
       if (e.target !== "price-check") return;
@@ -468,21 +450,6 @@ export default defineComponent({
       overlayKey,
       isLeagueSelected,
       openLeagueSelection,
-      rebuildKey,
-      itemEditorAvailable: computed(() => {
-        if (!item.value?.isOk()) return false;
-        return getItemEditorType(item.value.value) !== ItemEditorType.None;
-      }),
-      handleItemEditorSelection: (
-        val:
-          | {
-              editing: boolean;
-              value: string;
-              disabled: boolean;
-            }
-          | undefined,
-      ) => (itemEditorOptions.value = val),
-      itemEditorOptions,
     };
   },
 });

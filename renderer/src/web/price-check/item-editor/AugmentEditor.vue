@@ -1,6 +1,6 @@
 <template>
-  <div v-if="item?.augmentSockets">
-    <div class="flex flex-row justify-between p-2">
+  <div v-if="item?.augmentSockets" class="p-2">
+    <div class="flex flex-row justify-between mb-4">
       <div class="grid grid-cols-6 gap-2">
         <!-- List of current augments -->
         <template
@@ -120,6 +120,7 @@
         </template>
       </ui-tabs>
     </div>
+    <!-- <div>hey do something</div> -->
   </div>
   <div v-else class="bg-purple-700 text-green-600 border border-green-600">
     no augments available for item
@@ -135,7 +136,6 @@ import UiTabs from "@/web/ui/UiTabs.vue";
 import AugmentsList from "./AugmentsList.vue";
 import { useAugment, getCategoryGroups } from "./augment";
 import { AppConfig } from "@/web/Config";
-import { ItemFilters, StatFilter } from "@/web/price-check/filters/interfaces";
 import { EditorItem } from "@/parser/ParsedItem";
 import { buildEditorItems } from "@/parser/augment-builder";
 
@@ -143,12 +143,6 @@ export default defineComponent({
   props: {
     item: {
       type: Object as PropType<ParsedItem>,
-    },
-    filters: {
-      type: Object as PropType<ItemFilters>,
-    },
-    stats: {
-      type: Array as PropType<StatFilter[]>,
     },
   },
   components: {
@@ -216,15 +210,12 @@ export default defineComponent({
         if (
           !props.item?.augmentSockets ||
           !selectedAugment.value ||
-          !props.stats ||
           props.item.augmentSockets.augments[index]?.socketBound
         )
           return;
 
         // replace augment
-        useAugment(props.item, selectedAugment.value, index, props.stats);
-        // TODO: remove this later
-        props.item.augmentSockets.augments![index] = selectedAugment.value;
+        useAugment(props.item, selectedAugment.value, index);
       },
       selectAugment: (augment: EditorItem) => {
         selectedAugment.value = augment;

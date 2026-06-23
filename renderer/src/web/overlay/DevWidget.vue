@@ -13,16 +13,19 @@
       class="w-fit h-fit"
     />
   </div> -->
-  <div v-if="isDev" class="w-1/4 h-1/2 bg-purple-900">
-    <item-editor-v2 />
+  <div v-if="isDev" class="bg-purple-900 w-fit h-fit">
+    <item-editor-v2 :item="item" :filters="itemFilters" :stats="itemStats" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent, ref, watch } from "vue";
 import UiDetailedItemImg from "@/web/ui/UiDetailedItemImg.vue";
 import ItemEditorV2 from "@/web/price-check/item-editor/ItemEditorV2.vue";
-
+import { createVirtualItem, ItemRarity } from "@/parser/ParsedItem";
+import { FilterPreset } from "../price-check/filters/interfaces";
+import { createPresets } from "../price-check/filters/create-presets";
+import { ItemCategory } from "@/parser";
 export default defineComponent({
   components: {
     UiDetailedItemImg,
@@ -123,7 +126,70 @@ export default defineComponent({
   // #endregion Image stuff
   // #region item editor
   setup() {
-    return { isDev: import.meta.env.DEV };
+    const item = ref(
+      createVirtualItem({
+        category: ItemCategory.Bow,
+        info: {
+          name: "Obliterator Bow",
+          refName: "Obliterator Bow",
+          namespace: "ITEM",
+          icon: "",
+          tags: [],
+        },
+        rarity: ItemRarity.Magic,
+        itemLevel: 75,
+        weaponCRIT: 5,
+        weaponAS: 1.1,
+        weaponPHYSICAL: 108.5,
+        quality: 20,
+        augmentSockets: {
+          empty: 2,
+          current: 0,
+          normal: 2,
+          augments: [null, null],
+        },
+        isCorrupted: false,
+        isUnidentified: false,
+        statsByType: [],
+        newMods: [],
+      }),
+    );
+
+    const presets = ref<{ active: string; presets: FilterPreset[] }>(null!);
+    const itemFilters = computed(
+      () =>
+        presets.value.presets.find(
+          (preset) => preset.id === presets.value.active,
+        )!.filters,
+    );
+    const itemStats = computed(
+      () =>
+        presets.value.presets.find(
+          (preset) => preset.id === presets.value.active,
+        )!.stats,
+    );
+
+    watch(
+      () => item,
+      (item) => {
+        performance.mark("checked-item-item-changed");
+        presets.value = createPresets(item.value, {
+          league: "Standard",
+          collapseListings: "app",
+          activateStockFilter: true,
+          searchStatRange: 10,
+          useEn: true,
+          currency: undefined,
+          listingType: undefined,
+          defaultAllSelected: false,
+        });
+
+        performance.mark("checked-item-switch-item-end");
+      },
+      { immediate: true, deep: true },
+    );
+
+    return { isDev: import.meta.env.DEV, item, itemFilters, itemStats };
   },
   // #endregion item editor
 });

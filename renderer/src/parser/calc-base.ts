@@ -23,31 +23,114 @@ export function recalculateItemProperties(
   }
 }
 function recalculateWeaponProperties(newItem: ParsedItem, oldItem: ParsedItem) {
-  if (newItem.weaponPHYSICAL) {
-    const base = calcBase(
-      oldItem,
-      oldItem.weaponPHYSICAL,
-      QUALITY_STATS.PHYSICAL_DAMAGE,
-    );
-    const total = calcTotal(base, newItem, QUALITY_STATS.PHYSICAL_DAMAGE);
-    newItem.weaponPHYSICAL = total;
-  }
+  // phys
+  const basePHYSICAL = calcBase(
+    oldItem,
+    oldItem.weaponPHYSICAL,
+    QUALITY_STATS.PHYSICAL_DAMAGE,
+  );
+  const totalPHYSICAL = calcTotal(
+    basePHYSICAL,
+    newItem,
+    QUALITY_STATS.PHYSICAL_DAMAGE,
+  );
+  newItem.weaponPHYSICAL = totalPHYSICAL;
 
-  if (newItem.weaponAS) {
-    const base = calcBase(
-      oldItem,
-      oldItem.weaponAS,
-      OTHER_PSEUDO_STATS.ATTACK_SPEED,
-      false,
-    );
-    const total = calcTotal(
-      base,
-      newItem,
-      OTHER_PSEUDO_STATS.ATTACK_SPEED,
-      false,
-    );
-    newItem.weaponAS = total;
-  }
+  // attack speed
+  const baseAS = calcBase(
+    oldItem,
+    oldItem.weaponAS,
+    OTHER_PSEUDO_STATS.ATTACK_SPEED,
+    false,
+  );
+  const totalAS = calcTotal(
+    baseAS,
+    newItem,
+    OTHER_PSEUDO_STATS.ATTACK_SPEED,
+    false,
+  );
+  newItem.weaponAS = totalAS;
+
+  // fire damage
+  const baseFIRE = calcBase(
+    oldItem,
+    oldItem.weaponFIRE,
+    OTHER_PSEUDO_STATS.FIRE_DAMAGE,
+    false,
+  );
+  const totalFIRE = calcTotal(
+    baseFIRE,
+    newItem,
+    OTHER_PSEUDO_STATS.FIRE_DAMAGE,
+    false,
+  );
+  newItem.weaponFIRE = totalFIRE;
+
+  // cold damage
+  const baseCOLD = calcBase(
+    oldItem,
+    oldItem.weaponCOLD,
+    OTHER_PSEUDO_STATS.COLD_DAMAGE,
+    false,
+  );
+  const totalCOLD = calcTotal(
+    baseCOLD,
+    newItem,
+    OTHER_PSEUDO_STATS.COLD_DAMAGE,
+    false,
+  );
+  newItem.weaponCOLD = totalCOLD;
+
+  // lightning damage
+  const baseLIGHTNING = calcBase(
+    oldItem,
+    oldItem.weaponLIGHTNING,
+    OTHER_PSEUDO_STATS.LIGHTNING_DAMAGE,
+    false,
+  );
+  const totalLIGHTNING = calcTotal(
+    baseLIGHTNING,
+    newItem,
+    OTHER_PSEUDO_STATS.LIGHTNING_DAMAGE,
+    false,
+  );
+  newItem.weaponLIGHTNING = totalLIGHTNING;
+
+  // elemental damage
+  const baseELEMENTAL = calcBase(
+    oldItem,
+    oldItem.weaponELEMENTAL,
+    OTHER_PSEUDO_STATS.ELEMENTAL_DAMAGE,
+    false,
+  );
+  const totalELEMENTAL = calcTotal(
+    baseELEMENTAL,
+    newItem,
+    OTHER_PSEUDO_STATS.ELEMENTAL_DAMAGE,
+    false,
+  );
+  newItem.weaponELEMENTAL = totalELEMENTAL;
+
+  // other properties
+  const baseCRIT = calcBase(
+    oldItem,
+    oldItem.weaponCRIT,
+    OTHER_PSEUDO_STATS.CRIT_CHANCE,
+  );
+  const totalCRIT = calcTotal(
+    baseCRIT,
+    newItem,
+    OTHER_PSEUDO_STATS.CRIT_CHANCE,
+  );
+  newItem.weaponCRIT = totalCRIT;
+
+  const baseSPIRIT = calcBase(
+    oldItem,
+    oldItem.weaponSPIRIT,
+    OTHER_PSEUDO_STATS.SPIRIT,
+  );
+  const totalSPIRIT = calcTotal(baseSPIRIT, newItem, OTHER_PSEUDO_STATS.SPIRIT);
+  newItem.weaponSPIRIT = totalSPIRIT;
 }
 
 function recalculateArmourProperties(newItem: ParsedItem, oldItem: ParsedItem) {

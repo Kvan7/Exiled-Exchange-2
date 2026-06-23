@@ -12,7 +12,6 @@
       :presets="presets"
       @preset="selectPreset"
       @submit="doSearch = true"
-      :rebuild-key="rebuildKey"
     />
     <trade-listing
       v-if="tradeAPI === 'trade' && doSearch"
@@ -118,10 +117,6 @@ export default defineComponent({
     },
     advancedCheck: {
       type: Boolean,
-      required: true,
-    },
-    rebuildKey: {
-      type: Number,
       required: true,
     },
   },
