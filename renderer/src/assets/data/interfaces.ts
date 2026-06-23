@@ -209,6 +209,21 @@ export interface TranslationDict {
   REQUIRES: string;
   CHARM_SLOTS: string;
   BASE_SPIRIT: string;
+  LIFE_TAG: string;
+  MANA_TAG: string;
+  ARMOUR_TAG: string;
+  EVASION_TAG: string;
+  ENERGY_SHIELD_TAG: string;
+  PHYSICAL_TAG: string;
+  FIRE_TAG: string;
+  COLD_TAG: string;
+  LIGHTNING_TAG: string;
+  CHAOS_TAG: string;
+  ATTACK_TAG: string;
+  CASTER_TAG: string;
+  SPEED_TAG: string;
+  ATTRIBUTE_TAG: string;
+  MINION_TAG: string;
   // ---
   CHAT_SYSTEM: RegExp;
   CHAT_TRADE: RegExp;
