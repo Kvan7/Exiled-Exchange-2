@@ -8,6 +8,8 @@ import {
   ITEM_BY_TRANSLATED,
   TRADE_ITEM_BY_REF,
   AUGMENT_DATA_BY_TRADE_ID,
+  CATALYST_TYPES,
+  CATALYST_TO_TAG,
 } from "@/assets/data";
 import { ModifierType, StatCalculated, sumStatsByModType } from "./modifiers";
 import {
@@ -26,9 +28,6 @@ import {
 } from "./ParsedItem";
 import { magicBasetype } from "./magic-name";
 import {
-  // isModInfoLine,
-  // groupLinesByMod,
-  // parseModInfoLine,
   parseModType,
   ModifierInfo,
   ParsedModifier,
@@ -916,7 +915,26 @@ function parseQualityNested(section: string[], item: ParsedItem) {
     if (line.startsWith(_$.QUALITY)) {
       // "Quality: +20% (augmented)"
       item.quality = parseInt(line.slice(_$.QUALITY.length), 10);
-      break;
+
+      if (
+        item.category === ItemCategory.Ring ||
+        item.category === ItemCategory.Amulet ||
+        item.category === ItemCategory.Jewel
+      ) {
+        const catalysts =
+          item.category === ItemCategory.Jewel
+            ? CATALYST_TYPES.Refined
+            : CATALYST_TYPES.Normal;
+        for (const catalyst of catalysts) {
+          for (const tag of CATALYST_TO_TAG[catalyst.tags[1]]) {
+            if (line.includes(tag)) {
+              item.qualityType = catalyst.tags[1];
+              return;
+            }
+          }
+        }
+      }
+      return;
     }
   }
 }

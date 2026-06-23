@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex mb-2 gap-px">
+    <div class="flex mb-1 gap-px">
       <button
         v-for="(tab, index) in tabs"
         :key="tab"

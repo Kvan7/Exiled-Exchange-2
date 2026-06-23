@@ -8,6 +8,7 @@ import type {
   StatMatcher,
   TranslationDict,
   AugmentGroup,
+  CatalystGroup,
 } from "./interfaces";
 import { loadClientStrings } from "../client-string-loader";
 import { useTradeData } from "@/web/background/TradeData";
@@ -41,6 +42,13 @@ export let GROUPED_AUGMENTS: AugmentGroup<BaseType> = {
   Idol: [],
   Other: [],
 };
+export let CATALYST_TYPES: CatalystGroup<BaseType[]> = {
+  Normal: [],
+  Refined: [],
+};
+
+export let CATALYST_TO_TAG: Record<string, string[]> = {};
+export let TAG_TO_CATALYST: Record<string, string> = {};
 
 export let ITEM_BY_TRANSLATED: (
   ns: BaseType["namespace"],
@@ -329,6 +337,7 @@ export async function loadForLang(lang: string) {
 export function loadUltraLateItems(
   augmentFilter: (value: BaseType, index: number, array: BaseType[]) => unknown,
 ) {
+  // Augments
   const a = Array.from(ITEMS_ITERATOR('"craftable": {"category": "SoulCore"}'));
   const b = a.filter((r) => r.augment && r.augment.some((s) => s.tradeId));
   const c = b.map((r) => ({
@@ -344,6 +353,54 @@ export function loadUltraLateItems(
   AUGMENT_DATA_BY_TRADE_ID = augmentsToLookupTradeId(AUGMENT_LIST);
 
   GROUPED_AUGMENTS = groupAugments(AUGMENT_LIST);
+
+  // Catalysts
+  const normalCatalysts = Array.from(ITEMS_ITERATOR('"tags": ["catalyst"'));
+  const refinedCatalysts = Array.from(
+    ITEMS_ITERATOR('"tags": ["jewel_catalyst"'),
+  );
+
+  CATALYST_TYPES = {
+    Normal: normalCatalysts,
+    Refined: refinedCatalysts,
+  };
+
+  CATALYST_TO_TAG = {
+    life_catalyst: [CLIENT_STRINGS.LIFE_TAG],
+    mana_catalyst: [CLIENT_STRINGS.MANA_TAG],
+    defences_catalyst: [
+      CLIENT_STRINGS.ARMOUR_TAG,
+      CLIENT_STRINGS.EVASION_TAG,
+      CLIENT_STRINGS.ENERGY_SHIELD_TAG,
+    ],
+    physical_catalyst: [CLIENT_STRINGS.PHYSICAL_TAG],
+    fire_catalyst: [CLIENT_STRINGS.FIRE_TAG],
+    cold_catalyst: [CLIENT_STRINGS.COLD_TAG],
+    lightning_catalyst: [CLIENT_STRINGS.LIGHTNING_TAG],
+    chaos_catalyst: [CLIENT_STRINGS.CHAOS_TAG],
+    attack_catalyst: [CLIENT_STRINGS.ATTACK_TAG],
+    caster_catalyst: [CLIENT_STRINGS.CASTER_TAG],
+    speed_catalyst: [CLIENT_STRINGS.SPEED_TAG],
+    attribute_catalyst: [CLIENT_STRINGS.ATTRIBUTE_TAG],
+    minion_catalyst: [CLIENT_STRINGS.MINION_TAG],
+  };
+  TAG_TO_CATALYST = {
+    [CLIENT_STRINGS.LIFE_TAG]: "life_catalyst",
+    [CLIENT_STRINGS.MANA_TAG]: "mana_catalyst",
+    [CLIENT_STRINGS.ARMOUR_TAG]: "defences_catalyst",
+    [CLIENT_STRINGS.EVASION_TAG]: "defences_catalyst",
+    [CLIENT_STRINGS.ENERGY_SHIELD_TAG]: "defences_catalyst",
+    [CLIENT_STRINGS.PHYSICAL_TAG]: "physical_catalyst",
+    [CLIENT_STRINGS.FIRE_TAG]: "fire_catalyst",
+    [CLIENT_STRINGS.COLD_TAG]: "cold_catalyst",
+    [CLIENT_STRINGS.LIGHTNING_TAG]: "lightning_catalyst",
+    [CLIENT_STRINGS.CHAOS_TAG]: "chaos_catalyst",
+    [CLIENT_STRINGS.ATTACK_TAG]: "attack_catalyst",
+    [CLIENT_STRINGS.CASTER_TAG]: "caster_catalyst",
+    [CLIENT_STRINGS.SPEED_TAG]: "speed_catalyst",
+    [CLIENT_STRINGS.ATTRIBUTE_TAG]: "attribute_catalyst",
+    [CLIENT_STRINGS.MINION_TAG]: "minion_catalyst",
+  };
 }
 
 function augmentsToLookup(augmentList: BaseType[]): AugmentDataByAugment {

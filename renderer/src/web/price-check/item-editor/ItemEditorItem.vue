@@ -1,7 +1,7 @@
 <template>
   <div
-    class="hover:bg-gray-700 rounded flex items-center overflow-hidden px-1"
-    :class="[selected ? 'border bg-gray-900' : '']"
+    class="hover:bg-gray-700 rounded flex items-center overflow-hidden px-1 cursor-pointer"
+    :class="[selected ? ' bg-gray-900' : '']"
   >
     <div class="flex items-center justify-center shrink-0 w-8 h-8">
       <slot>
@@ -11,8 +11,8 @@
         />
       </slot>
     </div>
-    <div class="mb-1 cursor-pointer pl-1">
-      <div class="text-left text-gray-600 whitespace-nowrap">
+    <div class="mb-1 pl-1">
+      <div class="text-left text-gray-500 whitespace-nowrap">
         {{ item.name }}
       </div>
       <div class="text-left whitespace-pre-line text-wrap break-words">

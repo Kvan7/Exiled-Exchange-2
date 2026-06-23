@@ -342,3 +342,8 @@ export interface AugmentGroup<T> {
   Idol: T[];
   Other: T[];
 }
+
+export interface CatalystGroup<T> {
+  Normal: T;
+  Refined: T;
+}

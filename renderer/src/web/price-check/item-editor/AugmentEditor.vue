@@ -1,6 +1,6 @@
 <template>
   <div v-if="item?.augmentSockets" class="p-2">
-    <div class="flex flex-row justify-between mb-4">
+    <div class="flex flex-row justify-between">
       <div class="grid grid-cols-6 gap-2">
         <!-- List of current augments -->
         <template
@@ -43,6 +43,7 @@
         />
       </div>
     </div>
+    <hr class="my-2 border-gray-700" />
     <div>
       <!-- augment adding section -->
       <ui-tabs

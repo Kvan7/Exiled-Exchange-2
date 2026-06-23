@@ -1,4 +1,5 @@
 <template>
+  <hr class="my-1 border-gray-700" />
   <div class="overflow-y-auto max-h-96">
     <item-editor-item
       v-for="augment in augments"

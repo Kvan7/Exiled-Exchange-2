@@ -76,6 +76,7 @@ export interface ParsedItem {
   areaLevel?: number;
   talismanTier?: number;
   quality?: number;
+  qualityType?: string;
   augmentSockets?: {
     empty: number;
     current: number;
