@@ -671,6 +671,11 @@ function upgradeConfig(_config: Config): Config {
   }
   /* eslint-enable */
 
+  const menuWidget = config.widgets.find((w) => w.wmType === "menu");
+  if (menuWidget) {
+    menuWidget.wmWants = "show";
+  }
+
   return config as unknown as Config;
 }
 

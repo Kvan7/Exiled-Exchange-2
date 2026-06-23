@@ -1,14 +1,19 @@
 <template>
-  <div @mousedown="handleMouseDown">
+  <div
+    @mousedown="handleWidgetMouseDown"
+    @contextmenu.prevent="showContextMenu"
+  >
     <div
       :class="[$style.widget, { 'opacity-75': isMoving }]"
       :style="widgetPosition"
     >
       <slot :isEditing="isEditing" :isMoving="isMoving" />
       <div
+        v-if="showMenu"
         class="absolute px-1"
         :style="actionsPosition"
-        style="background: rgba(0, 0, 0, 0.01)"
+        style="background: rgba(0, 0, 0, 0.01); z-index: 9999"
+        @mousedown.stop
       >
         <div :class="$style.actionsPanel">
           <button v-if="hideable" @click="hide" :class="$style.action">
@@ -20,13 +25,6 @@
             :class="[$style.action, { [$style.active]: isEditing }]"
           >
             {{ t("widget.edit") }}
-          </button>
-          <button
-            v-if="moveHandles !== 'none'"
-            @click="toggleMove"
-            :class="[$style.action, { [$style.active]: isMoving }]"
-          >
-            {{ t("widget.move") }}
           </button>
           <button
             v-if="removable"
@@ -269,12 +267,14 @@ export default defineComponent({
     });
 
     function startMove(pos: string, e: MouseEvent) {
+      isMoving.value = true;
       props.config.anchor.pos = pos;
       updatePosition(e);
       document.addEventListener("mousemove", updatePosition);
       document.addEventListener("mouseup", endMove);
 
       function endMove() {
+        isMoving.value = false;
         document.removeEventListener("mousemove", updatePosition);
         document.removeEventListener("mouseup", endMove);
       }
@@ -289,6 +289,73 @@ export default defineComponent({
 
     const isEditing = ref(false);
     const isMoving = ref(false);
+    const showMenu = ref(false);
+
+    function showContextMenu() {
+      showMenu.value = true;
+      setTimeout(() => {
+        document.addEventListener("mousedown", closeMenu);
+      }, 0);
+    }
+
+    function closeMenu() {
+      showMenu.value = false;
+      document.removeEventListener("mousedown", closeMenu);
+    }
+
+    let startX = 0;
+    let startY = 0;
+    let startAnchorX = 0;
+    let startAnchorY = 0;
+
+    function handleWidgetMouseDown(e: MouseEvent) {
+      if (props.config.wmId != null) {
+        wm.bringToTop(props.config.wmId);
+      }
+
+      if (e.button !== 0) return; // Only drag with left click
+
+      const target = e.target as HTMLElement;
+      if (
+        target.closest("button") ||
+        target.closest("a") ||
+        target.closest("input") ||
+        target.closest("textarea")
+      ) {
+        return;
+      }
+
+      startX = e.clientX;
+      startY = e.clientY;
+      startAnchorX = props.config.anchor.x;
+      startAnchorY = props.config.anchor.y;
+
+      isMoving.value = true;
+      document.addEventListener("mousemove", handleMouseMove);
+      document.addEventListener("mouseup", handleMouseUp);
+    }
+
+    function handleMouseMove(e: MouseEvent) {
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      const dxPercent = (dx / window.innerWidth) * 100;
+      const dyPercent = (dy / window.innerHeight) * 100;
+
+      props.config.anchor.x = Math.min(
+        Math.max(startAnchorX + dxPercent, 0),
+        100,
+      );
+      props.config.anchor.y = Math.min(
+        Math.max(startAnchorY + dyPercent, 0),
+        100,
+      );
+    }
+
+    function handleMouseUp() {
+      isMoving.value = false;
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    }
 
     const { t } = useI18n();
 
@@ -297,12 +364,9 @@ export default defineComponent({
       moverPosition,
       widgetPosition,
       actionsPosition,
-      handleMouseDown() {
-        // @TODO: why null check?
-        if (props.config.wmId != null) {
-          wm.bringToTop(props.config.wmId);
-        }
-      },
+      handleWidgetMouseDown,
+      showContextMenu,
+      showMenu,
       startMove,
       isMoving,
       isEditing,
@@ -330,10 +394,6 @@ export default defineComponent({
           wm.show(settings.wmId);
         }
       },
-      toggleMove() {
-        isMoving.value = !isMoving.value;
-        isEditing.value = false;
-      },
       ...useRemovable(() => {
         wm.remove(props.config.wmId);
       }),
@@ -346,12 +406,6 @@ export default defineComponent({
 .widget {
   position: absolute;
   display: flex;
-
-  &:not(:hover) {
-    .actionsPanel {
-      display: none;
-    }
-  }
 }
 
 .actionsPanel {
