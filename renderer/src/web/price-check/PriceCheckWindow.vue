@@ -161,7 +161,7 @@ import {
   WidgetManager,
   WidgetSpec,
 } from "../overlay/interfaces";
-import { loadUltraLateItems, setLocalAugmentFilter } from "@/assets/data";
+import { loadUltraLateItems } from "@/assets/data";
 import ReloadTradeData from "./fallback/ReloadTradeData.vue";
 
 type ParseError = {
@@ -232,16 +232,10 @@ export default defineComponent({
     const leagueId = computed(() => AppConfig().leagueId);
 
     watch(
-      // FIXME: check if this is working as intended
       () => leagueId.value,
       () => {
-        // const augmentFilter = (item: BaseType) =>
-        //   Object.values(item.augment!).some((augmentStat) =>
-        //     translatedEffectsPseudos(augmentStat.string),
-        //   ) || HIGH_VALUE_AUGMENTS_HARDCODED.has(item.refName);
-        const augmentFilter = () => true;
-        setLocalAugmentFilter(augmentFilter);
-        loadUltraLateItems(augmentFilter);
+        // still need this for when leagueId changes
+        loadUltraLateItems();
       },
       { immediate: true },
     );

@@ -16,15 +16,10 @@
             }"
           >
             <img
-              v-if="augment"
-              class="w-8 h-8"
-              :src="augment.icon"
-              :title="augment.name"
-              :onclick="() => replaceAugment(index)"
-            />
-            <img
-              v-else
-              src="/images/augments/empty-socket.png"
+              :src="
+                augment ? augment.icon : '/images/augments/empty-socket.png'
+              "
+              :title="augment?.name"
               class="w-8 h-8"
               :onclick="() => replaceAugment(index)"
             />

@@ -6,7 +6,7 @@ import { EditorItem } from "./ParsedItem";
 export function selectAugmentEffectByItemCategory(
   category: ItemCategory,
   rune: BaseType["augment"],
-) {
+): AugmentLineData[] | undefined {
   if (!rune) return;
 
   return rune.filter((rune) => rune.categories.includes(category));
@@ -16,7 +16,7 @@ export function buildEditorItems(
   augments: BaseType[],
   category: ItemCategory,
   existing?: true,
-) {
+): EditorItem[] {
   return augments
     .map((augment) => {
       const effect = selectAugmentEffectByItemCategory(
@@ -30,7 +30,7 @@ export function buildEditorItems(
 }
 
 function zipHashAndValues(strings?: string[], values?: number[][]): string {
-  if (!strings || !values) return "";
+  if (!strings || !values) return "ns(shouldn't see this)";
 
   // if each value array is not the same, return empty
   if (
@@ -39,7 +39,7 @@ function zipHashAndValues(strings?: string[], values?: number[][]): string {
         v.length === values[0].length && v.every((v, i) => v === values[0][i]),
     )
   )
-    return "";
+    return "ve(shouldn't see this)";
 
   const valueGenerator = values[0].values();
 

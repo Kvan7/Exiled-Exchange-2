@@ -129,6 +129,7 @@ function recalculateWeaponProperties(newItem: ParsedItem, oldItem: ParsedItem) {
     oldItem.weaponSPIRIT,
     OTHER_PSEUDO_STATS.SPIRIT,
   );
+
   const totalSPIRIT = calcTotal(baseSPIRIT, newItem, OTHER_PSEUDO_STATS.SPIRIT);
   newItem.weaponSPIRIT = totalSPIRIT;
 }
@@ -154,21 +155,17 @@ function recalculateArmourProperties(newItem: ParsedItem, oldItem: ParsedItem) {
     newItem.armourES = total;
   }
   if (newItem.armourRW) {
-    const base = calcBase(
-      oldItem,
-      oldItem.armourRW,
-      QUALITY_STATS.ENERGY_SHIELD,
-    );
-    const total = calcTotal(base, newItem, QUALITY_STATS.ENERGY_SHIELD);
+    const base = calcBase(oldItem, oldItem.armourRW, QUALITY_STATS.WARD);
+    const total = calcTotal(base, newItem, QUALITY_STATS.WARD);
     newItem.armourRW = total;
   }
   if (newItem.armourBLOCK) {
     const base = calcBase(
       oldItem,
       oldItem.armourBLOCK,
-      QUALITY_STATS.ENERGY_SHIELD,
+      OTHER_PSEUDO_STATS.BLOCK,
     );
-    const total = calcTotal(base, newItem, QUALITY_STATS.ENERGY_SHIELD);
+    const total = calcTotal(base, newItem, OTHER_PSEUDO_STATS.BLOCK);
     newItem.armourBLOCK = total;
   }
 }
@@ -245,6 +242,7 @@ export function calcTotal(
   item: ParsedItem,
   statRefs: { flat: string[]; incr: string[] },
   useQuality = true,
+  inverted = false,
 ) {
   const { incr, flat } = calcPropBase(statRefs, item);
 
@@ -252,6 +250,7 @@ export function calcTotal(
     base + flat.value,
     incr.value,
     useQuality ? (item.quality ?? 0) : 0,
+    inverted,
   );
 
   return damage;

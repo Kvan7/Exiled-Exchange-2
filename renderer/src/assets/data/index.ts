@@ -24,7 +24,6 @@ export let APP_PATRONS: Array<{ from: string; months: number; style: number }>;
 export let AUGMENT_DATA_BY_AUGMENT: AugmentDataByAugment;
 export let AUGMENT_DATA_BY_TRADE_ID: AugmentDataByTradeId;
 
-export let AUGMENT_LIST: BaseType[];
 export const HIGH_VALUE_AUGMENTS_HARDCODED = new Set<string>([]);
 export let GROUPED_AUGMENTS: AugmentGroup<BaseType> = {
   Rune: {
@@ -77,12 +76,6 @@ export let STATS_ITERATOR: (
   includes: string,
   andIncludes?: string[],
 ) => Generator<Stat> = function* () {};
-
-let localAugmentFilter: (
-  value: BaseType,
-  index: number,
-  array: BaseType[],
-) => unknown | undefined = () => undefined;
 
 export let TRADE_ITEM_BY_REF: (
   itemQuery: {
@@ -320,39 +313,28 @@ export async function init(lang: string) {
   DELAYED_STAT_VALIDATION.clear();
 }
 
-export function setLocalAugmentFilter(
-  filter: (value: BaseType, index: number, array: BaseType[]) => unknown,
-) {
-  localAugmentFilter = filter;
-}
-
 export async function loadForLang(lang: string) {
   CLIENT_STRINGS = await loadClientStrings(lang);
   await loadItems(lang);
   await loadStats(lang);
-  loadUltraLateItems(localAugmentFilter);
+  loadUltraLateItems();
   await loadTradeData();
 }
 
-export function loadUltraLateItems(
-  augmentFilter: (value: BaseType, index: number, array: BaseType[]) => unknown,
-) {
+export function loadUltraLateItems() {
   // Augments
   const a = Array.from(ITEMS_ITERATOR('"craftable": {"category": "SoulCore"}'));
   const b = a.filter((r) => r.augment && r.augment.some((s) => s.tradeId));
-  const c = b.map((r) => ({
+  const augmentList = b.map((r) => ({
     ...r,
     augment: r.augment!.filter((s) => s.tradeId),
   }));
-  const d = c.filter(augmentFilter);
 
-  AUGMENT_LIST = d;
+  AUGMENT_DATA_BY_AUGMENT = augmentsToLookup(augmentList);
 
-  AUGMENT_DATA_BY_AUGMENT = augmentsToLookup(AUGMENT_LIST);
+  AUGMENT_DATA_BY_TRADE_ID = augmentsToLookupTradeId(augmentList);
 
-  AUGMENT_DATA_BY_TRADE_ID = augmentsToLookupTradeId(AUGMENT_LIST);
-
-  GROUPED_AUGMENTS = groupAugments(AUGMENT_LIST);
+  GROUPED_AUGMENTS = groupAugments(augmentList);
 
   // Catalysts
   const normalCatalysts = Array.from(ITEMS_ITERATOR('"tags": ["catalyst"'));

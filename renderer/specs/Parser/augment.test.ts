@@ -1,13 +1,7 @@
-import {
-  BaseType,
-  init,
-  setLocalAugmentFilter,
-  STAT_BY_REF,
-} from "@/assets/data";
+import { init, STAT_BY_REF } from "@/assets/data";
 import { ParsedModifier } from "@/parser/advanced-mod-desc";
 import { ModifierType, StatCalculated } from "@/parser/modifiers";
 import { __testExports } from "@/parser/Parser";
-import { translatedEffectsPseudos } from "@/web/price-check/filters/pseudo";
 import { setupTests } from "@specs/vitest.setup";
 import { beforeEach, describe, expect, it } from "vitest";
 
@@ -40,11 +34,6 @@ function makeCalcStat(ref: string, value: number): StatCalculated {
 describe("determineAugments", () => {
   beforeEach(async () => {
     setupTests();
-    const augmentFilter = (item: BaseType) =>
-      Object.values(item.augment!).some((augmentStat) =>
-        translatedEffectsPseudos(augmentStat.string),
-      );
-    setLocalAugmentFilter(augmentFilter);
     await init("en");
   });
 

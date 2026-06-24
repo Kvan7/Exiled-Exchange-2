@@ -43,6 +43,10 @@ export const QUALITY_STATS: InternalStatGroup = {
     flat: [stat("Adds # to # Physical Damage")],
     incr: [stat("#% increased Physical Damage")],
   },
+  WARD: {
+    flat: [stat("# to maximum Runic Ward")],
+    incr: [stat("#% increased Runic Ward")],
+  },
 };
 export const OTHER_PSEUDO_STATS: InternalStatGroup = {
   ATTACK_SPEED: {
@@ -70,16 +74,20 @@ export const OTHER_PSEUDO_STATS: InternalStatGroup = {
     incr: [],
   },
   CRIT_CHANCE: {
-    flat: [],
+    flat: ["#% to Critical Hit Chance"],
     incr: [stat("#% increased Critical Hit Chance")],
   },
   RELOAD_SPEED: {
     flat: [],
-    incr: [stat("#% increased Reload Speed")],
+    incr: [stat("#% increased Attack Speed")],
   },
   SPIRIT: {
     flat: [stat("# to Spirit")],
     incr: [stat("#% increased Spirit")],
+  },
+  BLOCK: {
+    flat: [],
+    incr: [stat("#% increased Block chance")],
   },
 };
 

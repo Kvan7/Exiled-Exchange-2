@@ -275,28 +275,6 @@ export function createFilters(
           !item.isCorrupted,
       };
     }
-    // if (item.augmentSockets.empty > 0 && item.rarity !== ItemRarity.Unique) {
-    //   const type = isArmourOrWeaponOrCaster(item.category);
-    //   if (
-    //     opts.autoFillEmptyAugmentSockets &&
-    //     (item.rarity === ItemRarity.Magic || item.rarity === ItemRarity.Rare) &&
-    //     (type === "armour" || type === "weapon")
-    //   ) {
-    //     filters.itemEditorSelection = {
-    //       disabled: false,
-    //       editing: false,
-    //       value: opts.autoFillEmptyAugmentSockets
-    //         ? opts.autoFillEmptyAugmentSockets
-    //         : "None",
-    //     };
-    //   } else {
-    //     filters.itemEditorSelection = {
-    //       disabled: false,
-    //       editing: false,
-    //       value: "None",
-    //     };
-    //   }
-    // }
   }
   if (!filters.itemEditorSelection) {
     filters.itemEditorSelection = {

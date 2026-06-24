@@ -685,15 +685,15 @@ export function finalFilterTweaks(ctx: FiltersCreationContext) {
     applyAnointmentRules(ctx.filters, ctx.item);
   }
 
-  // dont like this
-  const possibleCatalyst = (
-    item.category === ItemCategory.Jewel
-      ? CATALYST_TYPES.Refined
-      : item.category === ItemCategory.Ring ||
-          item.category === ItemCategory.Amulet
-        ? CATALYST_TYPES.Normal
-        : undefined
-  )?.find((c) => c.tags[1] === item.qualityType);
+  const possibleCatalyst = item.qualityType
+    ? (item.category === ItemCategory.Jewel
+        ? CATALYST_TYPES.Refined
+        : item.category === ItemCategory.Ring ||
+            item.category === ItemCategory.Amulet
+          ? CATALYST_TYPES.Normal
+          : undefined
+      )?.find((c) => c.tags[1] === item.qualityType)
+    : undefined;
 
   for (const filter of ctx.filters) {
     if (

@@ -1936,6 +1936,7 @@ function calcBasePercentile(item: ParsedItem) {
       item,
     );
   }
+  // no ward since base percent isn't used anymore
 }
 
 export function removeLinesEnding(
@@ -2051,7 +2052,6 @@ export function isArmourOrWeaponOrCaster(
   }
 }
 
-// TODO: add unit tests for this bfs
 function modifiedBfs(
   remaining: number,
   combo: number[],
@@ -2108,7 +2108,6 @@ function determineAugments(
   // something like "Raven-Touched"
   if (!augmentAppliedValue) {
     const singleAugment = possibleAugments[0];
-    // TODO: double check this
     return [ITEM_BY_REF("ITEM", singleAugment.refName)![0]];
   }
 
