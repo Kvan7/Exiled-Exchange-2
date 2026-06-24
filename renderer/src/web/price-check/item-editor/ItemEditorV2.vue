@@ -45,5 +45,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="postcss" module></style>

@@ -129,10 +129,14 @@ export default defineComponent({
       (newItem) => {
         if (newItem) {
           selectedCatalyst.value = undefined;
+          totalPrice.value = { min: 0, max: 0, currency: "ex" };
 
           if (newItem.info.refName === "Breach Ring") {
             selectedAmount.value = 40;
             amountOptions.value = [0, 20, 30, 40, 50, 60, 70];
+          } else if (newItem.category === ItemCategory.Jewel) {
+            selectedAmount.value = 20;
+            amountOptions.value = [0, 20];
           } else {
             selectedAmount.value = 20;
             amountOptions.value = [0, 20, 30, 40, 50];

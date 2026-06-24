@@ -169,14 +169,19 @@
         class="flex items-center bg-gray-900 rounded border border-gray-500 justify-center shrink-0 w-8 h-8"
       >
         <popover :delay="[0, 500]" placement="right">
-          <template #target
-            ><img
+          <template #target>
+            <i
+              v-if="canHaveCatalyst && !currentCatalyst"
+              class="fas fa-question-circle text-gray-400 text-xl" />
+            <img
+              v-else-if="currentCatalyst"
+              :src="currentCatalyst.icon"
+              class="max-w-full max-h-full overflow-hidden" /><img
+              v-else
               :src="
-                currentCatalyst
-                  ? currentCatalyst.icon
-                  : item.augmentSockets?.augments.some((a) => a)
-                    ? '/images/augments/rune.png'
-                    : '/images/augments/empty-socket.png'
+                item.augmentSockets?.augments.some((a) => a)
+                  ? '/images/augments/rune.png'
+                  : '/images/augments/empty-socket.png'
               "
               class="max-w-full max-h-full overflow-hidden"
           /></template>
@@ -464,6 +469,13 @@ export default defineComponent({
         );
       }),
       showItemEditor,
+      canHaveCatalyst: computed(() => {
+        return (
+          props.item.category === ItemCategory.Ring ||
+          props.item.category === ItemCategory.Amulet ||
+          props.item.category === ItemCategory.Jewel
+        );
+      }),
       currentCatalyst: computed(() => {
         if (
           !props.item.qualityType ||
