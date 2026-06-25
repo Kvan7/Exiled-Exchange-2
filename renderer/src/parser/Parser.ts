@@ -7,6 +7,9 @@ import {
   BaseType,
   ITEM_BY_TRANSLATED,
   TRADE_ITEM_BY_REF,
+  AUGMENT_DATA_BY_TRADE_ID,
+  CATALYST_TYPES,
+  CATALYST_TO_TAG,
 } from "@/assets/data";
 import { ModifierType, StatCalculated, sumStatsByModType } from "./modifiers";
 import {
@@ -21,12 +24,10 @@ import {
   ItemInfluence,
   ItemRarity,
   itemIsModifiable,
+  EditorItem,
 } from "./ParsedItem";
 import { magicBasetype } from "./magic-name";
 import {
-  // isModInfoLine,
-  // groupLinesByMod,
-  // parseModInfoLine,
   parseModType,
   ModifierInfo,
   ParsedModifier,
@@ -41,6 +42,7 @@ import {
 } from "./advanced-mod-desc";
 import { calcPropPercentile, QUALITY_STATS } from "./calc-q20";
 import { AppConfig } from "@/web/Config";
+import { buildEditorItems } from "./augment-builder";
 
 type SectionParseResult =
   | "SECTION_PARSED"
@@ -841,11 +843,9 @@ function parseStackSize(section: string[], item: ParsedItem) {
 function parseAugmentSockets(section: string[], item: ParsedItem) {
   performance.mark("parseAugmentSockets");
   const categoryMax = getMaxSockets(item);
-  const armourOrWeapon =
-    categoryMax &&
-    (isArmourOrWeaponOrCaster(item.category) ||
-      item.info.refName === "Darkness Enthroned");
-  if (!armourOrWeapon) return "PARSER_SKIPPED";
+
+  if (!categoryMax) return "PARSER_SKIPPED";
+
   if (section[0].startsWith(_$.SOCKETS)) {
     const sockets = section[0].slice(_$.SOCKETS.length).trimEnd();
     const current = sockets.split("S").length - 1;
@@ -854,22 +854,26 @@ function parseAugmentSockets(section: string[], item: ParsedItem) {
         empty: 0,
         current,
         normal: categoryMax,
+        augments: Array(categoryMax).fill(null),
       };
     } else {
       item.augmentSockets = {
         empty: 0,
         current,
         normal: categoryMax,
+        augments: Array(categoryMax).fill(null),
       };
     }
 
     return "SECTION_PARSED";
   }
+  // don't have any....possibly "yet"....
   if (categoryMax && itemIsModifiable(item)) {
     item.augmentSockets = {
       empty: categoryMax,
       current: 0,
       normal: categoryMax,
+      augments: Array(categoryMax).fill(null),
     };
   }
   return "SECTION_SKIPPED";
@@ -911,7 +915,26 @@ function parseQualityNested(section: string[], item: ParsedItem) {
     if (line.startsWith(_$.QUALITY)) {
       // "Quality: +20% (augmented)"
       item.quality = parseInt(line.slice(_$.QUALITY.length), 10);
-      break;
+
+      if (
+        item.category === ItemCategory.Ring ||
+        item.category === ItemCategory.Amulet ||
+        item.category === ItemCategory.Jewel
+      ) {
+        const catalysts =
+          item.category === ItemCategory.Jewel
+            ? CATALYST_TYPES.Refined
+            : CATALYST_TYPES.Normal;
+        for (const catalyst of catalysts) {
+          for (const tag of CATALYST_TO_TAG[catalyst.tags[1]]) {
+            if (line.includes(tag)) {
+              item.qualityType = catalyst.tags[1];
+              return;
+            }
+          }
+        }
+      }
+      return;
     }
   }
 }
@@ -942,7 +965,6 @@ function parseArmour(section: string[], item: ParsedItem) {
       continue;
     }
 
-    // FIXME: Update parser with actual text
     if (line.startsWith(_$.RUNIC_WARD)) {
       item.armourRW = parseInt(line.slice(_$.RUNIC_WARD.length), 10);
       isParsed = "SECTION_PARSED";
@@ -1296,29 +1318,47 @@ function applyAugmentSockets(item: ParsedItem) {
   // If we have any augment sockets
   if (item.augmentSockets) {
     // Count current mods that are of type Augment
-
     const augmentMods = item.newMods.filter(
       (mod) => mod.info.type === ModifierType.Augment,
     );
     const augmentStats = item.statsByType.filter(
       (calc) => calc.type === ModifierType.Augment,
     );
-    const augments = augmentMods
+    const augments: Array<EditorItem | null> = augmentMods
       .map((mod) => {
         const stat = augmentStats.find(
           (stat) => stat.sources[0].stat === mod.stats[0],
         );
         if (!stat) return [];
-        return augmentCount(mod, stat);
+        return buildEditorItems(
+          determineAugments(mod, stat),
+          item.category ?? ItemCategory.Unknown,
+          true,
+        );
       })
       .flat();
 
-    // HACK: fix since I can't detect how many exist due to augment tiers
-    const tempFix = augments.reduce((x, y) => x + y, 0) > 0;
-    const potentialEmptySockets = tempFix
-      ? 0
-      : Math.max(item.augmentSockets.normal, item.augmentSockets.current);
-    item.augmentSockets.empty = potentialEmptySockets;
+    if (
+      augments.length <
+      Math.max(item.augmentSockets.current, item.augmentSockets.normal)
+    ) {
+      // have possible empty sockets
+
+      const emptyAugments = item.isCorrupted
+        ? item.augmentSockets.current - augments.length
+        : Math.max(item.augmentSockets.current, item.augmentSockets.normal) -
+          augments.length;
+      for (let i = 0; i < emptyAugments; i++) {
+        augments.push(null);
+      }
+    }
+
+    // set all the stuff
+
+    item.augmentSockets.empty = augments.filter(
+      (augment) => augment === null,
+    ).length;
+    item.augmentSockets.augments = augments;
   }
 }
 
@@ -1748,10 +1788,11 @@ function markupConditionParser(text: string) {
   return text;
 }
 
-function parseStatsFromMod(
+export function parseStatsFromMod(
   lines: string[],
   item: ParsedItem,
   modifier: ParsedModifier,
+  addedAugment?: BaseType,
 ): boolean {
   item.newMods.push(modifier);
 
@@ -1795,6 +1836,10 @@ function parseStatsFromMod(
 
     // if (parsedStat && validTradeIds && validTradeIds.length) {
     if (parsedStat) {
+      // keep augment basetype on the stat
+      if (modifier.info.type === ModifierType.AddedAugment) {
+        parsedStat.fromAddedAugment = addedAugment;
+      }
       modifier.stats.push(parsedStat);
 
       stat = statIterator.next(true);
@@ -1891,6 +1936,7 @@ function calcBasePercentile(item: ParsedItem) {
       item,
     );
   }
+  // no ward since base percent isn't used anymore
 }
 
 export function removeLinesEnding(
@@ -1908,15 +1954,32 @@ export function parseAffixStrings(text: string): string {
   });
 }
 export function getMaxSockets(item: ParsedItem) {
-  if (item.info.refName === "Darkness Enthroned") {
-    return 2;
-  }
+  switch (item.info.refName) {
+    case "Atziri's Splendour":
+      return 6;
 
-  if (
-    item.info.refName === "Grasping Ring" ||
-    item.info.refName === "Corona Amulet"
-  ) {
-    return 1;
+    case "Runeseeker's Call":
+      return 5;
+
+    case "Greymake":
+    case "Morior Invictus":
+    case "The Bringer of Rain":
+      return 4;
+
+    case "Serle's Grit":
+      return 3;
+
+    case "Darkness Enthroned":
+    case "Mahuxotl's Machination":
+      return 2;
+
+    case "Grasping Ring":
+    case "Corona Amulet":
+    case "Stalking Belt":
+      return 1;
+
+    default:
+    // fall through to below
   }
 
   const { category } = item;
@@ -1989,19 +2052,91 @@ export function isArmourOrWeaponOrCaster(
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function augmentCount(mod: ParsedModifier, statCalc: StatCalculated): number {
-  if (mod.info.type !== ModifierType.Augment) return 0;
-  // HACK: fix since I can't detect how many exist due to augment tiers
-  // const augmentTradeId = statCalc.stat.trade.ids[ModifierType.Augment][0];
-  // const augmentSingle = AUGMENT_SINGLE_VALUE[augmentTradeId];
+function modifiedBfs(
+  remaining: number,
+  combo: number[],
+  available: number[],
+): number[] | null {
+  if (remaining === 0) return [...combo];
+
+  let best: number[] | null = null;
+  for (const augValue of available) {
+    if (augValue > remaining) {
+      // overflow
+      continue;
+    }
+    combo.push(augValue);
+    const result = modifiedBfs(remaining - augValue, combo, available);
+    combo.pop();
+    if (result) {
+      if (!best || result.length < best.length) {
+        best = result;
+      } else if (result.length === best.length) {
+        const resultMax = Math.max(
+          ...result.map((v) => result.filter((x) => x === v).length),
+        );
+        const bestMax = Math.max(
+          ...best.map((v) => best!.filter((x) => x === v).length),
+        );
+        if (resultMax > bestMax) {
+          best = result;
+        } else if (resultMax === bestMax) {
+          const resultSet = new Set(result);
+          const bestSet = new Set(best);
+          if (resultSet.size < bestSet.size) {
+            // use one with more duplicates
+            best = result;
+          }
+        }
+      }
+    }
+  }
+  return best?.toSorted((a, b) => b - a) ?? null;
+}
+
+function determineAugments(
+  mod: ParsedModifier,
+  statCalc: StatCalculated,
+): BaseType[] {
+  if (mod.info.type !== ModifierType.Augment) return [];
+  const augmentAppliedValue = statCalc.sources[0].contributes?.value;
+
+  const augmentTradeId = statCalc.stat.trade.ids[ModifierType.Augment][0];
+  const possibleAugments = AUGMENT_DATA_BY_TRADE_ID[augmentTradeId];
+  if (!possibleAugments) return [];
+
+  // something like "Raven-Touched"
+  if (!augmentAppliedValue) {
+    const singleAugment = possibleAugments[0];
+    return [ITEM_BY_REF("ITEM", singleAugment.refName)![0]];
+  }
 
   // // Calculate how many of this augment are in the item
-  // const augmentAppliedValue = statCalc.sources[0].contributes!.value;
-  // const augmentSingleValue = augmentSingle.values[0];
-  // const totalAugments = Math.floor(augmentAppliedValue / augmentSingleValue);
+  const availableAugmentValues = possibleAugments
+    .map((augment) => {
+      if (augment.values.length === 1) return augment.values[0];
 
-  return 1;
+      // stats like "# to # added Lightning Damage"
+      if ((augment.baseStat.match(/#/) || []).length > 1) {
+        const sum = augment.values.reduce((a, b) => a + b, 0);
+        return sum / augment.values.length || 0;
+      }
+
+      // everything else
+      return augment.values[0];
+    })
+    .toSorted((a, b) => b - a);
+
+  // BFS to find all combinations with minimum count
+  const likelyValues =
+    modifiedBfs(augmentAppliedValue, [], availableAugmentValues) ?? [];
+
+  return likelyValues.map((v) => {
+    const augment = possibleAugments.find((aug) =>
+      aug.values.some((augVal) => augVal === v),
+    )!;
+    return ITEM_BY_REF("ITEM", augment.refName)![0];
+  });
 }
 
 export function replaceHashWithValues(template: string, values: number[]) {
@@ -2032,4 +2167,6 @@ export const __testExports = {
   parseFractured,
   parseUnidentified,
   parseTrials,
+  determineAugments,
+  modifiedBfs,
 };

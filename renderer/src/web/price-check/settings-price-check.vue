@@ -147,23 +147,6 @@
     }}</ui-checkbox>
 
     <div class="mb-4">
-      <select
-        v-model="autoFillEmptyRuneSockets"
-        class="p-1 rounded bg-gray-700 w-24"
-      >
-        <!-- This is true since it will be assigned to "disabled" in the code -->
-        <option :value="false">No</option>
-        <option value="Iron Rune">
-          {{ getAugmentNameByRef("Iron Rune") }}
-        </option>
-      </select>
-      Automatically fill empty augment sockets
-    </div>
-    <ui-checkbox class="mb-4" v-model="openItemEditorAbove">{{
-      t(":open_editor_above")
-    }}</ui-checkbox>
-
-    <div class="mb-4">
       <div class="flex-1 mb-1">{{ t(":use_tooltip_hover") }}</div>
       <div class="mb-1 flex">
         <ui-radio v-model="tooltipHover" value="off" class="mr-4">{{
@@ -375,17 +358,9 @@ export default defineComponent({
         () => configWidget.value,
         "itemHoverTooltip",
       ),
-      autoFillEmptyRuneSockets: configModelValue(
-        () => configWidget.value,
-        "autoFillEmptyRuneSockets",
-      ),
       alwaysShowTier: configModelValue(
         () => configWidget.value,
         "alwaysShowTier",
-      ),
-      openItemEditorAbove: configModelValue(
-        () => configWidget.value,
-        "openItemEditorAbove",
       ),
       initialDelay: computed<number>({
         get() {

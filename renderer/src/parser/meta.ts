@@ -145,6 +145,7 @@ export const GEM = new Set([
 ]);
 
 export enum ItemEditorType {
+  AugmentAndCatalyst = "augment-and-catalyst",
   Augment = "augment",
   Catalyst = "catalyst",
   None = "none",

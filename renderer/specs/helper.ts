@@ -1,5 +1,4 @@
 import { createVirtualItem, ParsedItem } from "@/parser/ParsedItem";
-import { PriceCheckWidget } from "@/web/overlay/widgets";
 import { FilterTag, StatFilter } from "@/web/price-check/filters/interfaces";
 
 export function createTestStatFilter(): StatFilter {
@@ -23,7 +22,6 @@ export function createTestCreateOptions(): {
   exact: boolean;
   useEn: boolean;
   defaultAllSelected: boolean;
-  autoFillEmptyAugmentSockets: PriceCheckWidget["autoFillEmptyRuneSockets"];
 } {
   return {
     league: "Standard",
@@ -35,7 +33,6 @@ export function createTestCreateOptions(): {
     exact: false,
     useEn: true,
     defaultAllSelected: false,
-    autoFillEmptyAugmentSockets: false,
   };
 }
 

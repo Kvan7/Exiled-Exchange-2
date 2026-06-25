@@ -2,6 +2,7 @@ import { BaseType } from "@/assets/data";
 import { ItemCategory, ItemInfluence, ItemRarity, ParsedItem } from "@/parser";
 import { ParsedModifier } from "@/parser/advanced-mod-desc";
 import { StatCalculated, ModifierType } from "@/parser/modifiers";
+import { EditorItem } from "@/parser/ParsedItem";
 
 export class TestItem implements ParsedItem {
   // #region ParsedItem
@@ -41,6 +42,7 @@ export class TestItem implements ParsedItem {
         empty: number;
         current: number;
         normal: number;
+        augments: Array<EditorItem | null>;
       }
     | undefined;
 
@@ -118,6 +120,33 @@ export class TestItem implements ParsedItem {
   constructor(text: string) {
     this.rawText = text;
   }
+}
+
+function createEditorItem(
+  refName: string,
+  displayString: string,
+  value: number,
+): EditorItem {
+  return {
+    name: refName,
+    refName,
+    icon: "%NOT_FOUND%",
+    displayString,
+    stats: [
+      {
+        categories: [],
+        string: displayString,
+        values: [value],
+      },
+    ],
+    baseItem: {
+      name: refName,
+      refName,
+      namespace: "ITEM",
+      icon: "%NOT_FOUND%",
+      tags: [],
+    },
+  };
 }
 
 // #region NormalItem
@@ -498,6 +527,10 @@ HighDamageRareItem.augmentSockets = {
   empty: 0,
   current: 2,
   normal: 2,
+  augments: [
+    createEditorItem("Greater Iron Rune", "18% increased Physical Damage", 18),
+    createEditorItem("Greater Iron Rune", "18% increased Physical Damage", 18),
+  ],
 };
 // #endregion HighDamageRareItem
 
@@ -555,6 +588,23 @@ ArmourHighValueRareItem.augmentSockets = {
   empty: 0,
   current: 3,
   normal: 2,
+  augments: [
+    createEditorItem(
+      "Greater Iron Rune",
+      "18% increased Armour, Evasion and Energy Shield",
+      18,
+    ),
+    createEditorItem(
+      "Greater Iron Rune",
+      "18% increased Armour, Evasion and Energy Shield",
+      18,
+    ),
+    createEditorItem(
+      "Greater Iron Rune",
+      "18% increased Armour, Evasion and Energy Shield",
+      18,
+    ),
+  ],
 };
 ArmourHighValueRareItem.note = "~b/o 10 divine";
 // #endregion ArmourHighValueRareItem
@@ -882,6 +932,10 @@ FracturedItem.augmentSockets = {
   empty: 0,
   current: 2,
   normal: 2,
+  augments: [
+    createEditorItem("Greater Iron Rune", "18% increased Physical Damage", 18),
+    createEditorItem("Greater Iron Rune", "18% increased Physical Damage", 18),
+  ],
 };
 // #endregion FracturedItem
 
@@ -953,6 +1007,10 @@ FracturedItemNoModMarked.augmentSockets = {
   empty: 0,
   current: 2,
   normal: 2,
+  augments: [
+    createEditorItem("Greater Iron Rune", "18% increased Physical Damage", 18),
+    createEditorItem("Greater Iron Rune", "18% increased Physical Damage", 18),
+  ],
 };
 // #endregion FracturedItemNoModMarked
 
@@ -1058,7 +1116,7 @@ Item Level: 80
 45% increased Elemental Damage with Attacks (enchant)
 --------
 18% increased Physical Damage (rune)
-Gain 24 Mana per enemy killed (rune)
+Gain 30 Mana per enemy killed (rune)
 --------
 { Implicit Modifier — Attack }
 Loads an additional bolt
@@ -1112,6 +1170,14 @@ ItemAllTheModifierTypes.augmentSockets = {
   empty: 0,
   current: 2,
   normal: 2,
+  augments: [
+    createEditorItem("Greater Iron Rune", "18% increased Physical Damage", 18),
+    createEditorItem(
+      "Greater Inspiration Rune",
+      "Gain 30 Mana per enemy killed",
+      30,
+    ),
+  ],
 };
 ItemAllTheModifierTypes.isCorrupted = true;
 ItemAllTheModifierTypes.isFractured = true;
@@ -1168,6 +1234,7 @@ SpectreIncSpirit.augmentSockets = {
   empty: 0,
   current: 1,
   normal: 1,
+  augments: [null],
 };
 
 // #endregion SpectreIncSpirit

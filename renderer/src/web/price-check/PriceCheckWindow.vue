@@ -11,39 +11,12 @@
       v-if="!isBrowserShown"
       class="layout-column shrink-0"
       style="width: var(--game-panel)"
-    >
-      <div
-        class="flex"
-        :class="{
-          'flex-row': clickPosition === 'inventory',
-          'flex-row-reverse': clickPosition === 'stash',
-        }"
-      >
-        <item-editor
-          v-if="itemEditorAvailable && !openItemEditorAbove && item?.isOk()"
-          class="pointer-events-auto"
-          :item="item.value"
-          :click-position="clickPosition"
-          :item-editor-options="itemEditorOptions"
-        />
-      </div>
-    </div>
+    ></div>
     <div
       id="price-window"
       class="layout-column shrink-0 text-gray-200 pointer-events-auto"
       style="width: 28.75rem"
     >
-      <item-editor
-        v-if="
-          itemEditorAvailable &&
-          (isBrowserShown || openItemEditorAbove) &&
-          item?.isOk()
-        "
-        class="pointer-events-auto"
-        :item="item.value"
-        :click-position="clickPosition"
-        :item-editor-options="itemEditorOptions"
-      />
       <AppTitleBar
         @close="closePriceCheck"
         @click="openLeagueSelection"
@@ -116,8 +89,6 @@
             v-if="isLeagueSelected"
             :item="item.value"
             :advanced-check="advancedCheck"
-            :rebuild-key="rebuildKey"
-            @item-editor-selection="handleItemEditorSelection"
           />
         </template>
         <div v-if="isBrowserShown" class="bg-gray-900 px-6 py-2 truncate">
@@ -190,16 +161,7 @@ import {
   WidgetManager,
   WidgetSpec,
 } from "../overlay/interfaces";
-import ItemEditor from "./filters/ItemEditor.vue";
-import {
-  BaseType,
-  HIGH_VALUE_AUGMENTS_HARDCODED,
-  loadUltraLateItems,
-  setLocalAugmentFilter,
-} from "@/assets/data";
-import { translatedEffectsPseudos } from "./filters/pseudo";
-import { ItemEditorType } from "@/parser/meta";
-import { getItemEditorType } from "./filters/util";
+import { loadUltraLateItems } from "@/assets/data";
 import ReloadTradeData from "./fallback/ReloadTradeData.vue";
 
 type ParseError = {
@@ -239,9 +201,7 @@ export default defineComponent({
         // New Settings EE2
         defaultAllSelected: false,
         itemHoverTooltip: "keybind",
-        autoFillEmptyRuneSockets: false,
         alwaysShowTier: false,
-        openItemEditorAbove: false,
         coreCurrency: "exalted",
         currencyVolume: "both",
         rememberListingType: false,
@@ -255,7 +215,6 @@ export default defineComponent({
     UnidentifiedResolver,
     BackgroundInfo,
     RelatedItems,
-    ItemEditor,
     RateLimiterState,
     CheckPositionCircle,
     ItemQuickPrice,
@@ -273,15 +232,10 @@ export default defineComponent({
     const leagueId = computed(() => AppConfig().leagueId);
 
     watch(
-      // FIXME: check if this is working as intended
       () => leagueId.value,
       () => {
-        const augmentFilter = (item: BaseType) =>
-          Object.values(item.augment!).some((augmentStat) =>
-            translatedEffectsPseudos(augmentStat.string),
-          ) || HIGH_VALUE_AUGMENTS_HARDCODED.has(item.refName);
-        setLocalAugmentFilter(augmentFilter);
-        loadUltraLateItems(augmentFilter);
+        // still need this for when leagueId changes
+        loadUltraLateItems();
       },
       { immediate: true },
     );
@@ -299,17 +253,9 @@ export default defineComponent({
       props.config.wmFlags = ["hide-on-blur", "menu::skip"];
     });
 
-    const item = shallowRef<null | Result<ParsedItem, ParseError>>(null);
-    const rebuildKey = shallowRef(2);
+    const item = ref<null | Result<ParsedItem, ParseError>>(null);
     const advancedCheck = shallowRef(false);
     const checkPosition = shallowRef({ x: 1, y: 1 });
-    const itemEditorOptions = ref<
-      { editing: boolean; value: string; disabled: boolean } | undefined
-    >({
-      editing: false,
-      value: "None",
-      disabled: true,
-    });
 
     MainProcess.onEvent("MAIN->CLIENT::item-text", (e) => {
       if (e.target !== "price-check") return;
@@ -498,22 +444,6 @@ export default defineComponent({
       overlayKey,
       isLeagueSelected,
       openLeagueSelection,
-      rebuildKey,
-      itemEditorAvailable: computed(() => {
-        if (!item.value?.isOk()) return false;
-        return getItemEditorType(item.value.value) !== ItemEditorType.None;
-      }),
-      handleItemEditorSelection: (
-        val:
-          | {
-              editing: boolean;
-              value: string;
-              disabled: boolean;
-            }
-          | undefined,
-      ) => (itemEditorOptions.value = val),
-      itemEditorOptions,
-      openItemEditorAbove: computed(() => props.config.openItemEditorAbove),
     };
   },
 });

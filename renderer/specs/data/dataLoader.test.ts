@@ -1,18 +1,12 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { setupTests } from "../vitest.setup";
-import {
-  __testExports,
-  init,
-  setLocalAugmentFilter,
-  STAT_BY_REF,
-} from "@/assets/data";
+import { __testExports, init, STAT_BY_REF } from "@/assets/data";
 
 describe("augmentsToLookup", () => {
   setupTests();
 
   beforeEach(async () => {
     // Set a filter that allows all augments to pass through.
-    setLocalAugmentFilter((value, index, array) => true);
     // Load the language data required for the tests.
     await init("en");
   });

@@ -7,6 +7,8 @@ import type {
   Stat,
   StatMatcher,
   TranslationDict,
+  AugmentGroup,
+  CatalystGroup,
 } from "./interfaces";
 import { loadClientStrings } from "../client-string-loader";
 import { useTradeData } from "@/web/background/TradeData";
@@ -22,8 +24,30 @@ export let APP_PATRONS: Array<{ from: string; months: number; style: number }>;
 export let AUGMENT_DATA_BY_AUGMENT: AugmentDataByAugment;
 export let AUGMENT_DATA_BY_TRADE_ID: AugmentDataByTradeId;
 
-export let AUGMENT_LIST: BaseType[];
 export const HIGH_VALUE_AUGMENTS_HARDCODED = new Set<string>([]);
+export let GROUPED_AUGMENTS: AugmentGroup<BaseType> = {
+  Rune: {
+    Lesser: [],
+    Normal: [],
+    Greater: [],
+    Perfect: [],
+    Other: [],
+  },
+  Legacy: [],
+  SoulCore: {
+    Normal: [],
+    Special: [],
+  },
+  Idol: [],
+  Other: [],
+};
+export let CATALYST_TYPES: CatalystGroup<BaseType[]> = {
+  Normal: [],
+  Refined: [],
+};
+
+export let CATALYST_TO_TAG: Record<string, string[]> = {};
+export let TAG_TO_CATALYST: Record<string, string> = {};
 
 export let ITEM_BY_TRANSLATED: (
   ns: BaseType["namespace"],
@@ -52,12 +76,6 @@ export let STATS_ITERATOR: (
   includes: string,
   andIncludes?: string[],
 ) => Generator<Stat> = function* () {};
-
-let localAugmentFilter: (
-  value: BaseType,
-  index: number,
-  array: BaseType[],
-) => unknown | undefined = () => undefined;
 
 export let TRADE_ITEM_BY_REF: (
   itemQuery: {
@@ -295,36 +313,76 @@ export async function init(lang: string) {
   DELAYED_STAT_VALIDATION.clear();
 }
 
-export function setLocalAugmentFilter(
-  filter: (value: BaseType, index: number, array: BaseType[]) => unknown,
-) {
-  localAugmentFilter = filter;
-}
-
 export async function loadForLang(lang: string) {
   CLIENT_STRINGS = await loadClientStrings(lang);
   await loadItems(lang);
   await loadStats(lang);
-  loadUltraLateItems(localAugmentFilter);
+  loadUltraLateItems();
   await loadTradeData();
 }
 
-export function loadUltraLateItems(
-  augmentFilter: (value: BaseType, index: number, array: BaseType[]) => unknown,
-) {
+export function loadUltraLateItems() {
+  // Augments
   const a = Array.from(ITEMS_ITERATOR('"craftable": {"category": "SoulCore"}'));
   const b = a.filter((r) => r.augment && r.augment.some((s) => s.tradeId));
-  const c = b.map((r) => ({
+  const augmentList = b.map((r) => ({
     ...r,
     augment: r.augment!.filter((s) => s.tradeId),
   }));
-  const d = c.filter(augmentFilter);
 
-  AUGMENT_LIST = d;
+  AUGMENT_DATA_BY_AUGMENT = augmentsToLookup(augmentList);
 
-  AUGMENT_DATA_BY_AUGMENT = augmentsToLookup(AUGMENT_LIST);
+  AUGMENT_DATA_BY_TRADE_ID = augmentsToLookupTradeId(augmentList);
 
-  AUGMENT_DATA_BY_TRADE_ID = augmentsToLookupTradeId(AUGMENT_LIST);
+  GROUPED_AUGMENTS = groupAugments(augmentList);
+
+  // Catalysts
+  const normalCatalysts = Array.from(ITEMS_ITERATOR('"tags": ["catalyst"'));
+  const refinedCatalysts = Array.from(
+    ITEMS_ITERATOR('"tags": ["jewel_catalyst"'),
+  );
+
+  CATALYST_TYPES = {
+    Normal: normalCatalysts,
+    Refined: refinedCatalysts,
+  };
+
+  CATALYST_TO_TAG = {
+    life_catalyst: [CLIENT_STRINGS.LIFE_TAG],
+    mana_catalyst: [CLIENT_STRINGS.MANA_TAG],
+    defences_catalyst: [
+      CLIENT_STRINGS.ARMOUR_TAG,
+      CLIENT_STRINGS.EVASION_TAG,
+      CLIENT_STRINGS.ENERGY_SHIELD_TAG,
+    ],
+    physical_catalyst: [CLIENT_STRINGS.PHYSICAL_TAG],
+    fire_catalyst: [CLIENT_STRINGS.FIRE_TAG],
+    cold_catalyst: [CLIENT_STRINGS.COLD_TAG],
+    lightning_catalyst: [CLIENT_STRINGS.LIGHTNING_TAG],
+    chaos_catalyst: [CLIENT_STRINGS.CHAOS_TAG],
+    attack_catalyst: [CLIENT_STRINGS.ATTACK_TAG],
+    caster_catalyst: [CLIENT_STRINGS.CASTER_TAG],
+    speed_catalyst: [CLIENT_STRINGS.SPEED_TAG],
+    attribute_catalyst: [CLIENT_STRINGS.ATTRIBUTE_TAG],
+    minion_catalyst: [CLIENT_STRINGS.MINION_TAG],
+  };
+  TAG_TO_CATALYST = {
+    [CLIENT_STRINGS.LIFE_TAG]: "life_catalyst",
+    [CLIENT_STRINGS.MANA_TAG]: "mana_catalyst",
+    [CLIENT_STRINGS.ARMOUR_TAG]: "defences_catalyst",
+    [CLIENT_STRINGS.EVASION_TAG]: "defences_catalyst",
+    [CLIENT_STRINGS.ENERGY_SHIELD_TAG]: "defences_catalyst",
+    [CLIENT_STRINGS.PHYSICAL_TAG]: "physical_catalyst",
+    [CLIENT_STRINGS.FIRE_TAG]: "fire_catalyst",
+    [CLIENT_STRINGS.COLD_TAG]: "cold_catalyst",
+    [CLIENT_STRINGS.LIGHTNING_TAG]: "lightning_catalyst",
+    [CLIENT_STRINGS.CHAOS_TAG]: "chaos_catalyst",
+    [CLIENT_STRINGS.ATTACK_TAG]: "attack_catalyst",
+    [CLIENT_STRINGS.CASTER_TAG]: "caster_catalyst",
+    [CLIENT_STRINGS.SPEED_TAG]: "speed_catalyst",
+    [CLIENT_STRINGS.ATTRIBUTE_TAG]: "attribute_catalyst",
+    [CLIENT_STRINGS.MINION_TAG]: "minion_catalyst",
+  };
 }
 
 function augmentsToLookup(augmentList: BaseType[]): AugmentDataByAugment {
@@ -367,6 +425,7 @@ function augmentsToLookupTradeId(
         augmentDataByAugment[tradeId[0]] = [];
       }
       augmentDataByAugment[tradeId[0]].push({
+        refName: augment.refName,
         augment: augment.name,
         baseStat: text,
         values,
@@ -378,6 +437,79 @@ function augmentsToLookupTradeId(
   }
 
   return augmentDataByAugment;
+}
+
+function groupAugments(augmentList: BaseType[]): AugmentGroup<BaseType> {
+  const grouped: AugmentGroup<BaseType> = {
+    Rune: {
+      Lesser: [],
+      Normal: [],
+      Greater: [],
+      Perfect: [],
+      Other: [],
+    },
+    Legacy: [],
+    SoulCore: {
+      Normal: [],
+      Special: [],
+    },
+    Idol: [],
+    Other: [],
+  };
+
+  const normalRunes = new Set(
+    augmentList
+      .map((a) => a.refName)
+      .filter((ref) => {
+        if (!ref.includes("Rune")) return false;
+        if (
+          ref.startsWith("Greater") ||
+          ref.startsWith("Perfect") ||
+          ref.startsWith("Lesser")
+        ) {
+          return false;
+        }
+        const split = ref.split(" ");
+        return split.length === 2 && split[1] === "Rune";
+      }),
+  );
+
+  for (const augment of augmentList) {
+    const ref = augment.refName;
+    if (ref.includes("Rune")) {
+      const split = ref.split(" ");
+      const notFirst = split.slice(1).join(" ");
+      if (normalRunes.has(notFirst) || normalRunes.has(ref)) {
+        if (ref.startsWith("Greater")) {
+          grouped.Rune.Greater.push(augment);
+        } else if (ref.startsWith("Perfect")) {
+          grouped.Rune.Perfect.push(augment);
+        } else if (ref.startsWith("Lesser")) {
+          grouped.Rune.Lesser.push(augment);
+        } else {
+          grouped.Rune.Normal.push(augment);
+        }
+      } else {
+        grouped.Rune.Other.push(augment);
+      }
+    } else if (ref.startsWith("Legacy")) {
+      grouped.Legacy.push(augment);
+    } else if (ref.includes("Soul Core")) {
+      if (ref.startsWith("Soul Core")) {
+        grouped.SoulCore.Normal.push(augment);
+      } else {
+        grouped.SoulCore.Special.push(augment);
+      }
+    } else if (ref.includes("Thesis")) {
+      grouped.SoulCore.Special.push(augment);
+    } else if (ref.includes("Idol")) {
+      grouped.Idol.push(augment);
+    } else {
+      grouped.Other.push(augment);
+    }
+  }
+
+  return grouped;
 }
 
 async function loadTradeData() {
