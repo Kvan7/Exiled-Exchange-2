@@ -156,7 +156,7 @@ export interface Config {
 }
 
 export const defaultConfig = (): Config => ({
-  configVersion: 34,
+  configVersion: 35,
   overlayKey: "Shift + Space",
   overlayBackground: "rgba(129, 139, 149, 0.15)",
   overlayBackgroundClose: true,
@@ -423,11 +423,6 @@ function upgradeConfig(_config: Config): Config {
     ) as widget.PriceCheckWidget;
     priceCheck.builtinBrowser = false;
 
-    const itemSearch = config.widgets.find(
-      (w) => w.wmType === "item-search",
-    ) as ItemSearchWidget;
-    itemSearch.ocrGemsKey = null;
-
     const itemCheck = config.widgets.find(
       (w) => w.wmType === "item-check",
     ) as ItemCheckWidget;
@@ -667,8 +662,28 @@ function upgradeConfig(_config: Config): Config {
     libraryWidget.selectedProfile = "chaos";
     libraryWidget.profiles.chaos!.modOpts.generation = true;
 
-    config.configVersion = 34;
+    config.configVersion = 34; // this should have been 33
   }
+  // mistake so need to skip 34
+
+  if (config.configVersion < 35) {
+    // NOTE: v0.16.0 || poe0.5.4
+    const itemSearch = config.widgets.find(
+      (w) => w.wmType === "item-search",
+    ) as ItemSearchWidget;
+    itemSearch.remnantsCvKey = null;
+    itemSearch.boundingBoxes = {
+      remnants: {
+        x: null,
+        y: null,
+        width: null,
+        height: null,
+      },
+    };
+
+    config.configVersion = 35;
+  }
+
   /* eslint-enable */
 
   return config as unknown as Config;
@@ -799,11 +814,15 @@ function getConfigForHost(): HostConfig {
       }
     } else if (widget.wmType === "item-search") {
       const itemSearch = widget as ItemSearchWidget;
-      if (itemSearch.ocrGemsKey) {
+      if (itemSearch.remnantsCvKey) {
         actions.push({
-          shortcut: itemSearch.ocrGemsKey,
+          shortcut: itemSearch.remnantsCvKey,
           keepModKeys: true,
-          action: { type: "ocr-text", target: "heist-gems" },
+          action: {
+            type: "computer-vision",
+            target: "remnants",
+            bbox: itemSearch.boundingBoxes.remnants,
+          },
         });
       }
     }

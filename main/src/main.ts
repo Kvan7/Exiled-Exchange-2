@@ -16,6 +16,7 @@ import { GameLogWatcher } from "./host-files/GameLogWatcher";
 import { HttpProxy } from "./proxy";
 import { installExtension, VUEJS_DEVTOOLS } from "electron-devtools-installer";
 import { FileWriter } from "./host-files/FileWriter";
+import { CvWorker } from "./vision/CvWorker";
 
 if (!app.requestSingleInstanceLock()) {
   app.exit();
@@ -72,6 +73,7 @@ let tray: AppTray;
     const _httpProxy = new HttpProxy(server, logger);
     const fileWriter = new FileWriter(eventPipe, logger);
     const gameLogWatcher = new GameLogWatcher(eventPipe, logger, fileWriter);
+    const cvWorker = new CvWorker(eventPipe, logger);
 
     if (process.env.VITE_DEV_SERVER_URL) {
       try {
@@ -100,6 +102,7 @@ let tray: AppTray;
           poeWindow,
           gameConfig,
           eventPipe,
+          cvWorker,
         );
         eventPipe.onEventAnyClient(
           "CLIENT->MAIN::update-host-config",

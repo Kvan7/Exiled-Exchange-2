@@ -127,11 +127,9 @@
 
 <script lang="ts">
 import { ref } from "vue";
-import { distance } from "fastest-levenshtein";
 import {
   BaseType,
   ITEM_BY_TRANSLATED,
-  CLIENT_STRINGS as _$,
   GEM_NS_NAMES,
   UNIQUE_NS_NAMES,
   ITEM_NS_NAMES,
@@ -158,7 +156,15 @@ export default {
           x: 10,
           y: 20,
         },
-        ocrGemsKey: null,
+        remnantsCvKey: null,
+        boundingBoxes: {
+          remnants: {
+            x: null,
+            y: null,
+            width: null,
+            height: null,
+          },
+        },
       };
     },
   } satisfies WidgetSpec,
@@ -231,35 +237,6 @@ function findItems(opts: {
   }
   return out;
 }
-
-function fuzzyFindHeistGem(badStr: string) {
-  badStr = badStr.toLowerCase();
-
-  const qualities = [
-    ["Anomalous", _$.QUALITY_ANOMALOUS.toString().slice(2, -2)],
-    ["Divergent", _$.QUALITY_DIVERGENT.toString().slice(2, -2)],
-    ["Phantasmal", _$.QUALITY_PHANTASMAL.toString().slice(2, -2)],
-  ];
-
-  let bestMatch: { name: string; altQuality: string };
-  let minDist = Infinity;
-  for (const name of GEM_NS_NAMES()) {
-    for (const [altQuality, reStr] of qualities) {
-      const exactStr = reStr.replace("(.*)", name).toLowerCase();
-      if (Math.abs(exactStr.length - badStr.length) > 5) {
-        continue;
-      }
-
-      const dist = distance(badStr, exactStr);
-      if (dist < minDist) {
-        bestMatch = { name, altQuality };
-        if (dist === 0) return bestMatch;
-        minDist = dist;
-      }
-    }
-  }
-  return bestMatch!;
-}
 </script>
 
 <script setup lang="ts">
@@ -294,15 +271,11 @@ const { items: starred, addItem, clearItems } = useSelectedItems();
 
 const typeFilter = shallowRef<"gem" | "unique" | "base_item">("base_item");
 
-Host.onEvent("MAIN->CLIENT::ocr-text", (e) => {
-  if (e.target !== "heist-gems") return;
+Host.onEvent("MAIN->CLIENT::computer-vision", (e) => {
+  if (e.target !== "remnants") return;
 
-  for (const para of e.paragraphs) {
-    const res = fuzzyFindHeistGem(para);
-    selectItem(ITEM_BY_TRANSLATED("GEM", res.name)![0], {
-      withTimeout: true,
-    });
-  }
+  console.log(`Duration: ${e.pressTime - e.cvTime}`);
+  console.log(e.data);
 });
 
 function selectItem(

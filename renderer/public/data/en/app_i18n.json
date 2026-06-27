@@ -308,7 +308,14 @@
     "target_base_item": "Base Items",
     "too_many_": "Too many items found, enter the name more precisely.",
     "not_found": "No items found.",
-    "ocr_gems_key": "Perform an OCR for a Skill Gem"
+    "remnants_cv_key": "Search Runeshape Combinations",
+    "x": "X:",
+    "y": "Y:",
+    "width": "Width:",
+    "height": "Height:",
+    "remnants_bounding_box": "Bounding Box for Runeshape Combinations",
+    "remnants_bounding_box_help": "Should encompass the top row recipe. To auto-calibrate, have the reward window open, click \"Calibrate\", click off of the settings menu(don't click save or cancel yet), after 5 seconds open settings again and the values should be filled in.",
+    "calibrate": "Calibrate"
   },
   "map_check": {
     "name": "Map check",

@@ -6,6 +6,13 @@ export interface ImageData {
   data: Uint8Array;
 }
 
+export interface BoundingBox {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
 export interface WeightedPoint {
   x: number;
   y: number;

@@ -24,8 +24,14 @@ export interface ShortcutAction {
         target: string;
       }
     | {
-        type: "ocr-text";
-        target: "heist-gems";
+        type: "computer-vision";
+        target: string;
+        bbox: {
+          x: number | null;
+          y: number | null;
+          width: number | null;
+          height: number | null;
+        };
       }
     | {
         type: "trigger-event";
@@ -89,7 +95,9 @@ export type IpcEvent =
   | IpcHostConfig
   | IpcWidgetAction
   | IpcItemText
-  | IpcOcrText
+  | IpcCvCalibration
+  | IpcCvCalibrationResult
+  | IpcCvSearch
   | IpcConfigChanged
   | IpcUserAction
   | IpcWriteToFile
@@ -182,13 +190,39 @@ type IpcItemText = Event<
   }
 >;
 
-type IpcOcrText = Event<
-  "MAIN->CLIENT::ocr-text",
+type IpcCvCalibration = Event<
+  "CLIENT->MAIN::cv-calibration",
+  {
+    target: string;
+  }
+>;
+
+type IpcCvCalibrationResult = Event<
+  "MAIN->CLIENT::cv-calibration-result",
   {
     target: string;
     pressTime: number;
-    ocrTime: number;
-    paragraphs: string[];
+    cvTime: number;
+    data: {
+      x: number;
+      y: number;
+      width: number;
+      height: number;
+    };
+  }
+>;
+
+type IpcCvSearch = Event<
+  "MAIN->CLIENT::computer-vision",
+  {
+    target: "remnants";
+    pressTime: number;
+    cvTime: number;
+    data: {
+      tomeCount: number;
+      highlightedSlot: number;
+      highlightedTome: string;
+    };
   }
 >;
 
