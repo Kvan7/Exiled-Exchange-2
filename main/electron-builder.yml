@@ -15,6 +15,11 @@ nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
 win:
+  extraFiles:
+    - from: "C:\\tools\\opencv\\build\\x64\\vc16\\bin"
+      to: "."
+      filter:
+        - "opencv_world*.dll"
   target:
     - "nsis"
     - "portable"
