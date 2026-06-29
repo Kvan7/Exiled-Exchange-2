@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'master'
+      - 'features/CvRemnants'
     tags-ignore:
       - '**'
     paths-ignore:
@@ -47,6 +48,33 @@ jobs:
       with:
         name: renderer-dist
         path: ./renderer/dist
+
+    # test adding opencv
+    - name: Install OpenCV (Windows)
+      if: ${{ startsWith(matrix.os, 'windows') }}
+      run: choco install opencv -y
+    - name: Set OpenCV env (Windows)
+      if: ${{ startsWith(matrix.os, 'windows') }}
+      run: |
+        echo "OPENCV_INCLUDE_DIR=C:\tools\opencv\build\include" >> $env:GITHUB_ENV
+        echo "OPENCV_LIB_DIR=C:\tools\opencv\build\x64\vc16\lib" >> $env:GITHUB_ENV
+        echo "OPENCV_BIN_DIR=C:\tools\opencv\build\x64\vc16\bin" >> $env:GITHUB_ENV
+        echo "OPENCV4NODEJS_DISABLE_AUTOBUILD=1" >> $env:GITHUB_ENV
+
+    - name: Install OpenCV (Linux)
+      if: ${{ startsWith(matrix.os, 'ubuntu') }}
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libopencv-dev
+        echo "OPENCV4NODEJS_DISABLE_AUTOBUILD=1" >> $GITHUB_ENV
+
+    - name: Install OpenCV (macOS)
+      if: ${{ startsWith(matrix.os, 'macos') }}
+      run: |
+        brew install opencv
+        echo "OPENCV4NODEJS_DISABLE_AUTOBUILD=1" >> $GITHUB_ENV
+
+    # contiue with actual build
     - run: npm ci
       working-directory: ./main
     - run: npm run build
