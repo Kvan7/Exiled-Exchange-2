@@ -181,6 +181,7 @@ export default defineComponent({
             ? prevListingType
             : undefined,
           defaultAllSelected: widget.value.defaultAllSelected,
+          defaultBaseItemOnMagic: widget.value.defaultBaseItemOnMagic,
           autoFillEmptyAugmentSockets: widget.value.autoFillEmptyRuneSockets,
         });
 
