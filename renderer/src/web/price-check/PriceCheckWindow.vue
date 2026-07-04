@@ -238,6 +238,7 @@ export default defineComponent({
         rememberCurrency: false,
         // New Settings EE2
         defaultAllSelected: false,
+        defaultBaseItemOnMagic: false,
         itemHoverTooltip: "keybind",
         autoFillEmptyRuneSockets: false,
         alwaysShowTier: false,

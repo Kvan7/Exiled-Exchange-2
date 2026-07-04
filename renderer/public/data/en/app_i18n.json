@@ -420,6 +420,7 @@
     "show_suggest_warning_warn": "Show alert",
     "show_suggest_warning_help": "Show alert and help",
     "default_all_selected": "Default all filters to enabled",
+    "default_base_item_on_magic": "Default to \"Base item\" filter for magic items",
     "use_tooltip_hover": "Show item when hovering over price",
     "use_tooltip_keybind": "SHIFT + hover",
     "use_tooltip_always": "hover",

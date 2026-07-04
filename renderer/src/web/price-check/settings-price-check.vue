@@ -181,6 +181,9 @@
     <ui-checkbox class="mb-4" v-model="defaultAllSelected">{{
       t(":default_all_selected")
     }}</ui-checkbox>
+    <ui-checkbox class="mb-4" v-model="defaultBaseItemOnMagic">{{
+      t(":default_base_item_on_magic")
+    }}</ui-checkbox>
     <ui-checkbox class="mb-4" v-model="alwaysShowTier">{{
       t(":always_show_tier")
     }}</ui-checkbox>
@@ -368,6 +371,10 @@ export default defineComponent({
       defaultAllSelected: configModelValue(
         () => configWidget.value,
         "defaultAllSelected",
+      ),
+      defaultBaseItemOnMagic: configModelValue(
+        () => configWidget.value,
+        "defaultBaseItemOnMagic",
       ),
       leagues,
       availableCoreCurrencies,

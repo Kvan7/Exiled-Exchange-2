@@ -29,6 +29,7 @@ export function createPresets(
     searchStatRange: number;
     useEn: boolean;
     defaultAllSelected: boolean;
+    defaultBaseItemOnMagic: boolean;
     autoFillEmptyAugmentSockets: PriceCheckWidget["autoFillEmptyRuneSockets"];
   },
 ): { presets: FilterPreset[]; active: string } {
@@ -84,6 +85,9 @@ export function createPresets(
     stats: initUiModFilters(item, opts),
   };
 
+  const shouldDefaultBaseItemOnMagic =
+    opts.defaultBaseItemOnMagic && item.rarity === ItemRarity.Magic;
+
   // Apply augments if we should
   // if (
   //   (item.rarity === ItemRarity.Magic || item.rarity === ItemRarity.Rare) &&
@@ -99,7 +103,10 @@ export function createPresets(
   //   );
   // }
 
-  if (likelyFinishedItem(item) || !hasCraftingValue(item)) {
+  if (
+    (likelyFinishedItem(item) || !hasCraftingValue(item)) &&
+    !shouldDefaultBaseItemOnMagic
+  ) {
     return { active: pseudoPreset.id, presets: [pseudoPreset] };
   }
 
@@ -109,8 +116,12 @@ export function createPresets(
     stats: createExactStatFilters(item, item.statsByType, opts),
   };
 
+  const activePreset = shouldDefaultBaseItemOnMagic
+    ? baseItemPreset.id
+    : pseudoPreset.id;
+
   return {
-    active: pseudoPreset.id,
+    active: activePreset,
     presets: [pseudoPreset, baseItemPreset],
   };
 }

@@ -54,7 +54,15 @@ export const setupFetchMock = () => {
       bodyUsed: false,
       json: async () => JSON.parse(body as string),
       text: async () => body,
-      arrayBuffer: async () => Buffer.from(body as string).buffer,
+      arrayBuffer: async () => {
+        const buffer = Buffer.isBuffer(body)
+          ? body
+          : Buffer.from(body as string);
+        return buffer.buffer.slice(
+          buffer.byteOffset,
+          buffer.byteOffset + buffer.byteLength,
+        );
+      },
       blob: async () => new Blob([body as string]),
       formData: async () => {
         throw new Error("formData not implemented");
