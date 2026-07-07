@@ -1,5 +1,6 @@
 import type { Logger } from "../RemoteLogger";
 import type { ServerEvents } from "../server";
+import type { GameWindow } from "../windowing/GameWindow";
 import { RuneRecipeFinder } from "./RuneRecipeFinder";
 import type { BoundingBox, ImageData } from "./utils";
 
@@ -9,24 +10,33 @@ export class CvWorker {
   constructor(
     private server: ServerEvents,
     private logger: Logger,
+    private poeWindow: GameWindow,
   ) {
     this.runeFinder = RuneRecipeFinder.create();
 
-    this.server.onEventAnyClient("CLIENT->MAIN::cv-calibration", async (e) => {
-      if (e.target !== "remnants") return;
-      const pressTime = Date.now();
+    this.server.onEventAnyClient("CLIENT->MAIN::cv-calibration", (e) => {
+      (async () => {
+        if (e.target !== "remnants") return;
+        const pressTime = Date.now();
+        const imageData = this.poeWindow.screenshot();
 
-      const runeBBox = await this.runeFinder.calibrate();
-      const cvTime = Date.now() - pressTime;
-      this.server.sendEventTo("last-active", {
-        name: "MAIN->CLIENT::cv-calibration-result",
-        payload: {
-          target: "remnants",
-          pressTime,
-          cvTime,
-          data: runeBBox,
-        },
-      });
+        const runeBBox = await this.runeFinder.calibrate({
+          width: this.poeWindow.bounds.width,
+          height: this.poeWindow.bounds.height,
+          data: imageData,
+        });
+
+        const cvTime = Date.now() - pressTime;
+        this.server.sendEventTo("last-active", {
+          name: "MAIN->CLIENT::cv-calibration-result",
+          payload: {
+            target: "remnants",
+            pressTime,
+            cvTime,
+            data: runeBBox,
+          },
+        });
+      })().catch(console.error);
     });
   }
 
@@ -47,15 +57,15 @@ export class CvWorker {
     ) {
       this.logger.write("info [CvWorker] Bounding box Calibrating");
 
-      bbox = await this.runeFinder.calibrate();
+      bbox = await this.runeFinder.calibrate(screenshot);
       this.logger.write(
         `info [CvWorker] Bounding box calibrated to (${bbox.x}, ${bbox.y}), (${bbox.width}, ${bbox.height})`,
       );
     }
 
-    const result = await this.runeFinder.ocrScreenshot(
+    const result = await this.runeFinder.findRecipeId(
       screenshot,
-      // cast is safe, checked if any null above
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- cast is safe, checked if any null above
       bbox as BoundingBox,
     );
     return result;
