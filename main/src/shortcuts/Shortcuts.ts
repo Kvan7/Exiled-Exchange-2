@@ -1,5 +1,5 @@
 import { screen, globalShortcut } from "electron";
-import { uIOhook, UiohookKey, UiohookWheelEvent } from "uiohook-napi";
+import { uIOhook, UiohookKey, type UiohookWheelEvent } from "uiohook-napi";
 import {
   isModKey,
   KeyToElectron,
@@ -8,7 +8,7 @@ import {
 import { typeInChat, stashSearch } from "./text-box";
 import { WidgetAreaTracker } from "../windowing/WidgetAreaTracker";
 import { HostClipboard } from "./HostClipboard";
-import { CvWorker } from "../vision/CvWorker";
+import type { CvWorker } from "../vision/CvWorker";
 import type { ShortcutAction } from "../../../ipc/types";
 import type { Logger } from "../RemoteLogger";
 import type { OverlayWindow } from "../windowing/OverlayWindow";

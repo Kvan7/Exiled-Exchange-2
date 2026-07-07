@@ -1,7 +1,7 @@
-import { Logger } from "../RemoteLogger";
-import { ServerEvents } from "../server";
+import type { Logger } from "../RemoteLogger";
+import type { ServerEvents } from "../server";
 import { RuneRecipeFinder } from "./RuneRecipeFinder";
-import { BoundingBox, ImageData } from "./utils";
+import type { BoundingBox, ImageData } from "./utils";
 
 export class CvWorker {
   private runeFinder: RuneRecipeFinder;

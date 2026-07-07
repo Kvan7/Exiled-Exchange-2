@@ -1,5 +1,5 @@
-import fs from "fs/promises";
-import path from "path";
+import fs from "node:fs/promises";
+import path from "node:path";
 import ini from "ini";
 import { app } from "electron";
 import { hotkeyToString, CodeToKey } from "../../../ipc/KeyToCode";

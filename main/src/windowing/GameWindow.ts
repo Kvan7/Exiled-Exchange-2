@@ -1,6 +1,6 @@
 import type { BrowserWindow } from "electron";
-import { EventEmitter } from "events";
-import { OverlayController, AttachEvent } from "electron-overlay-window";
+import { EventEmitter } from "node:events";
+import { OverlayController, type AttachEvent } from "electron-overlay-window";
 
 export interface GameWindow {
   on: (event: "active-change", listener: (isActive: boolean) => void) => this;

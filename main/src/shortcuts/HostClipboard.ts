@@ -1,4 +1,4 @@
-import { clipboard, Clipboard } from "electron";
+import { clipboard, type Clipboard } from "electron";
 import type { Logger } from "../RemoteLogger";
 
 const POLL_DELAY = 48;

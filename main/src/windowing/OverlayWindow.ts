@@ -1,4 +1,4 @@
-import path from "path";
+import path from "node:path";
 import { BrowserWindow, dialog, shell, Menu } from "electron";
 import {
   OverlayController,
@@ -12,7 +12,7 @@ export class OverlayWindow {
   public isInteractable = false;
   public wasUsedRecently = true;
   private window?: BrowserWindow;
-  private overlayKey: string = "Shift + Space";
+  private overlayKey = "Shift + Space";
   private isOverlayKeyUsed = false;
 
   constructor(

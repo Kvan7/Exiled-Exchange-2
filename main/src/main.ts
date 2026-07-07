@@ -1,5 +1,3 @@
-"use strict";
-
 import { app, systemPreferences } from "electron";
 import { uIOhook } from "uiohook-napi";
 import os from "node:os";

@@ -1,4 +1,4 @@
-import type { Server } from "http";
+import type { Server } from "node:http";
 import { app, net } from "electron";
 import type { Logger } from "./RemoteLogger";
 
@@ -43,7 +43,7 @@ export class HttpProxy {
       }
 
       const proxyReq = net.request({
-        url: "https://" + req.url.slice("/proxy/".length),
+        url: `https://${req.url.slice("/proxy/".length)}`,
         method: req.method,
         headers: {
           ...req.headers,

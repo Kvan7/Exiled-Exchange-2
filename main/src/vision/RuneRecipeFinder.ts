@@ -1,15 +1,26 @@
-import { BoundingBox, ImageData } from "./utils";
+import { cvWrapper } from "./opencv/cvWrapper";
+import type { ICvAdapter } from "./opencv/ICvAdapter";
+import type { BoundingBox, ImageData } from "./utils";
 
 interface OcrResult {
   elapsed: number;
+  data: {
+    highlightedTome: string;
+    highlightedSlot: number;
+    tomeCount: number;
+  };
 }
 
 export class RuneRecipeFinder {
+  private cv: ICvAdapter;
+
   private constructor(
     private readonly needleMat: any,
     private readonly hsvMin: any,
     private readonly hsvMax: any,
-  ) {}
+  ) {
+    this.cv = cvWrapper.cv;
+  }
 
   static create() {
     return new RuneRecipeFinder(0, 0, 0);
@@ -34,12 +45,6 @@ export class RuneRecipeFinder {
     screenshot: ImageData,
     bbox: BoundingBox,
   ): Promise<OcrResult> {
-    const result = new Promise<OcrResult>((resolve) => {
-      setTimeout(() => {
-        resolve({ elapsed: bbox.x });
-      }, 4000);
-    });
-
-    return await result;
+    throw new Error("Method not implemented.");
   }
 }

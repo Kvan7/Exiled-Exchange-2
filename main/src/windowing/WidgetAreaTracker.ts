@@ -1,5 +1,5 @@
-import { Rectangle, Point, screen } from "electron";
-import { uIOhook, UiohookMouseEvent } from "uiohook-napi";
+import { type Rectangle, type Point, screen } from "electron";
+import { uIOhook, type UiohookMouseEvent } from "uiohook-napi";
 import type { OverlayWindow } from "./OverlayWindow";
 import type { ServerEvents } from "../server";
 

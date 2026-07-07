@@ -1,8 +1,8 @@
-import path from "path";
+import path from "node:path";
 import { app } from "electron";
-import { ServerEvents } from "../server";
-import { promises as fs, existsSync } from "fs";
-import { Logger } from "../RemoteLogger";
+import type { ServerEvents } from "../server";
+import { promises as fs, existsSync } from "node:fs";
+import type { Logger } from "../RemoteLogger";
 
 enum FileChannel {
   Item = "item",
@@ -95,7 +95,7 @@ export class FileWriter {
       if (!existsSync(this.uploadsPath)) {
         await fs.mkdir(this.uploadsPath, { recursive: true });
       }
-      const filePath = path.join(this.uploadsPath, name + ".csv");
+      const filePath = path.join(this.uploadsPath, `${name}.csv`);
       if (await this.openChannel(filePath, FileChannel.Item)) {
         this.writeLine(header, FileChannel.Item);
       }
@@ -142,7 +142,7 @@ export class FileWriter {
           );
           return;
         }
-        this._state.itemFile.write(line + "\n");
+        this._state.itemFile.write(`${line}\n`);
         break;
       case FileChannel.ClientLog:
         if (!this._state.clientLogFile) {
@@ -151,7 +151,7 @@ export class FileWriter {
           );
           return;
         }
-        this._state.clientLogFile.write(line + "\n");
+        this._state.clientLogFile.write(`${line}\n`);
         break;
 
       default:
@@ -170,7 +170,7 @@ export class FileWriter {
   private async openChannel(
     filePath: string,
     channel: FileChannel,
-    overwrite: boolean = false,
+    overwrite = false,
   ): Promise<boolean> {
     const mode = overwrite || !existsSync(filePath) ? "w" : "a";
 

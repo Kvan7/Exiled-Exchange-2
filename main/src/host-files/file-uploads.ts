@@ -1,8 +1,8 @@
-import path from "path";
-import crypto from "crypto";
-import fs from "fs";
+import path from "node:path";
+import crypto from "node:crypto";
+import fs from "node:fs";
 import { app } from "electron";
-import type { Server } from "http";
+import type { Server } from "node:http";
 
 export function addFileUploadRoutes(server: Server) {
   const uploadsPath = path.join(app.getPath("userData"), "apt-data", "files");

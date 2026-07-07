@@ -1,7 +1,7 @@
 import type { ServerEvents } from "../server";
 import { app } from "electron";
-import fs from "fs/promises";
-import path from "path";
+import fs from "node:fs/promises";
+import path from "node:path";
 
 export class ConfigStore {
   private isTmpFile = false;

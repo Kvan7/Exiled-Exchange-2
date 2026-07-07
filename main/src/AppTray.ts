@@ -1,4 +1,4 @@
-import path from "path";
+import path from "node:path";
 import { app, Tray, Menu, shell, nativeImage, dialog } from "electron";
 import type { ServerEvents } from "./server";
 

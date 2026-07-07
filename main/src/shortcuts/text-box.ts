@@ -1,5 +1,5 @@
 import { uIOhook, UiohookKey as Key } from "uiohook-napi";
-import process from "process";
+import process from "node:process";
 import type { HostClipboard } from "./HostClipboard";
 import type { OverlayWindow } from "../windowing/OverlayWindow";
 

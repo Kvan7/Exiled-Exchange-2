@@ -1,10 +1,10 @@
-import { promises as fs, watchFile, unwatchFile } from "fs";
-import path from "path";
+import { promises as fs, watchFile, unwatchFile } from "node:fs";
+import path from "node:path";
 import { app } from "electron";
 import { guessFileLocation } from "./utils";
-import { ServerEvents } from "../server";
-import { Logger } from "../RemoteLogger";
-import { FileWriter } from "./FileWriter";
+import type { ServerEvents } from "../server";
+import type { Logger } from "../RemoteLogger";
+import type { FileWriter } from "./FileWriter";
 
 const POSSIBLE_PATH =
   process.platform === "win32"

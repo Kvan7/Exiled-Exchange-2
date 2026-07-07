@@ -20,8 +20,12 @@
   },
   "main": "dist/main.js",
   "dependencies": {
-    "electron-overlay-window": "4.0.2",
-    "uiohook-napi": "1.5.x"
+    "@techstark/opencv-js": "^4.12.0-release.1",
+    "@u4/opencv4nodejs": "^7.1.2",
+    "canvas": "^3.2.3",
+    "electron-overlay-window": "4.1.0",
+    "jsdom": "^29.1.1",
+    "uiohook-napi": "1.5.5"
   },
   "devDependencies": {
     "@types/ini": "^4.1.0",
@@ -30,26 +34,28 @@
     "@wokwi/bmp-ts": "^3.0.0",
     "comlink": "^4.3.1",
     "electron": "^40.9.1",
-    "electron-builder": "^26.8.1",
+    "electron-builder": "^26.15.3",
     "electron-devtools-installer": "^4.0.0",
     "electron-updater": "^6.8.3",
     "esbuild": "^0.28.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.6",
     "ini": "^6.0.0",
-    "eslint-config-prettier": "^9.1.0",
     "prettier": "3.4.2",
     "typescript": "5.9.x",
     "ws": "^8.16.0"
   },
   "optionalDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@typescript-eslint/parser": "^5.0.0",
-    "eslint": "^8.21.0",
-    "eslint-config-standard-with-typescript": "^31.0.0",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-n": "^15.0.0",
-    "eslint-plugin-promise": "^6.0.0"
+    "@typescript-eslint/eslint-plugin": "^8.63.0",
+    "@typescript-eslint/parser": "^8.63.0",
+    "eslint": "^9.39.4",
+    "eslint-config-love": "^154.0.0"
   },
   "overrides": {
-    "yauzl": "^3.3.1"
+    "yauzl": "^3.3.1",
+    "glob": "^13.0.6"
+  },
+  "opencv4nodejs": {
+    "disableAutoBuild": "1"
   }
 }

@@ -1,11 +1,11 @@
 import { WebSocketServer, type WebSocket } from "ws";
-import { type AddressInfo } from "net";
-import { createServer } from "http";
-import { EventEmitter } from "events";
-import * as fs from "fs";
-import * as path from "path";
+import type { AddressInfo } from "node:net";
+import { createServer } from "node:http";
+import { EventEmitter } from "node:events";
+import * as fs from "node:fs";
+import * as path from "node:path";
 import { app } from "electron";
-import { IpcEvent, IpcEventPayload, HostState } from "../../ipc/types";
+import type { IpcEvent, IpcEventPayload, HostState } from "../../ipc/types";
 import { ConfigStore } from "./host-files/ConfigStore";
 import { addFileUploadRoutes } from "./host-files/file-uploads";
 import type { AppUpdater } from "./AppUpdater";
@@ -104,7 +104,7 @@ export async function startServer(
       evBus.emit(event.name, event.payload);
     });
     socket.on("close", () => {
-      const clients = websocketServer.clients;
+      const { clients } = websocketServer;
       if (clients.size === 1) {
         lastActiveClient = clients.values().next().value!;
         evBus.emit("CLIENT->MAIN::used-recently", { isOverlay: true });
