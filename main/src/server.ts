@@ -96,7 +96,7 @@ export async function startServer(
   websocketServer.on("connection", (socket) => {
     lastActiveClient = socket;
     socket.on("message", (bytes) => {
-      // eslint-disable-next-line @typescript-eslint/no-base-to-string
+      // eslint-disable-next-line @typescript-eslint/no-base-to-string -- updating eslint config
       const event = JSON.parse(bytes.toString("utf-8")) as IpcEvent;
       if (event.name === "CLIENT->MAIN::used-recently") {
         lastActiveClient = socket;

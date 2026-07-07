@@ -10,6 +10,7 @@ export class OverlayVisibility {
   constructor(
     private server: ServerEvents,
     private overlay: OverlayWindow,
+    // eslint-disable-next-line @typescript-eslint/no-unused-private-class-members -- updating eslint config
     private gameConfig: GameConfig,
   ) {
     uIOhook.on("keydown", (e) => {
@@ -41,15 +42,15 @@ export class OverlayVisibility {
   private makeVisible() {
     if (this.isOverlayVisible && this.timerId === undefined) return;
 
-    if (this.timerId !== undefined) {
-      clearTimeout(this.timerId);
-      this.timerId = undefined;
-    } else {
+    if (this.timerId) {
       this.isOverlayVisible = true;
       this.server.sendEventTo("broadcast", {
         name: "MAIN->OVERLAY::visibility",
         payload: { isVisible: this.isOverlayVisible },
       });
+    } else {
+      clearTimeout(this.timerId);
+      this.timerId = undefined;
     }
   }
 

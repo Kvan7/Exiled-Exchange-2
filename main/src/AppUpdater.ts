@@ -24,6 +24,7 @@ export class AppUpdater {
   }
 
   constructor(private server: ServerEvents) {
+    // eslint-disable-next-line @typescript-eslint/strict-void-return -- updating eslint config
     setInterval(this.check, 16 * 60 * 60 * 1000);
 
     this.server.onEventAnyClient("CLIENT->MAIN::user-action", ({ action }) => {

@@ -67,7 +67,7 @@ let tray: AppTray;
     const gameConfig = new GameConfig(eventPipe, logger);
     const poeWindow = new GameWindow();
     const appUpdater = new AppUpdater(eventPipe);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars -- updating eslint config
     const _httpProxy = new HttpProxy(server, logger);
     const fileWriter = new FileWriter(eventPipe, logger);
     const gameLogWatcher = new GameLogWatcher(eventPipe, logger, fileWriter);
@@ -92,7 +92,7 @@ let tray: AppTray;
     setTimeout(
       async () => {
         const overlay = new OverlayWindow(eventPipe, logger, poeWindow);
-        // eslint-disable-next-line no-new
+        // eslint-disable-next-line no-new -- updating eslint config
         new OverlayVisibility(eventPipe, overlay, gameConfig);
         const shortcuts = await Shortcuts.create(
           logger,

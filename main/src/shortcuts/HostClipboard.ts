@@ -19,6 +19,7 @@ export class HostClipboard {
   private isRestored = true;
 
   get isPolling() {
+    // eslint-disable-next-line eqeqeq -- updating eslint config
     return this.pollPromise != null;
   }
 
@@ -37,6 +38,7 @@ export class HostClipboard {
     let textBefore = clipboard.readText();
     if (isPoeItem(textBefore)) {
       textBefore = "";
+      // eslint-disable-next-line no-negated-condition -- don't care
       if (process.platform !== "linux") {
         clipboard.writeText("");
       } else {

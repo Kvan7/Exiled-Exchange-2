@@ -2,9 +2,11 @@ import type { BrowserWindow } from "electron";
 import { EventEmitter } from "node:events";
 import { OverlayController, type AttachEvent } from "electron-overlay-window";
 
+// eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging -- updating eslint config
 export interface GameWindow {
   on: (event: "active-change", listener: (isActive: boolean) => void) => this;
 }
+// eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging -- updating eslint config
 export class GameWindow extends EventEmitter {
   private _isActive = false;
   private _isTracking = false;

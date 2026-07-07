@@ -55,6 +55,7 @@ export class CvWrapper {
 
   private async _loadJs(): Promise<typeof cvModule> {
     if (cvModule instanceof Promise) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return -- should be fine
       return await cvModule;
     }
     if (cvModule.Mat) {

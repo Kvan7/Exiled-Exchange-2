@@ -32,6 +32,7 @@ export class FileWriter {
     private server: ServerEvents,
     private logger: Logger,
   ) {
+    // eslint-disable-next-line @typescript-eslint/strict-void-return -- updating eslint config
     this.server.onEventAnyClient("CLIENT->MAIN::write-data", async (e) => {
       if (!this._enabled) return;
       if (

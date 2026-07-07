@@ -57,23 +57,21 @@ export class GameConfig {
   ) {}
 
   async readConfig(filePath: string) {
-    if (this._wantedPath !== filePath) {
-      this._wantedPath = filePath;
-      this._actualPath = null;
-    } else {
+    if (this._wantedPath === filePath) {
       return;
     }
+    this._wantedPath = filePath;
+    this._actualPath = null;
 
     if (!filePath.length) {
       const guessedPath = await guessFileLocation(POSSIBLE_PATH);
-      if (guessedPath != null) {
-        filePath = guessedPath;
-      } else {
+      if (!guessedPath) {
         this.logger.write(
           "error [GameConfig] Failed to find game configuration file in the default location.",
         );
         return;
       }
+      filePath = guessedPath;
     }
 
     try {
@@ -85,6 +83,7 @@ export class GameConfig {
       const parsed = ini.parse(contents);
 
       this._showModsKey = this.parseConfigHotkey(
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access -- user config, must be any
         parsed.ACTION_KEYS?.show_advanced_item_descriptions,
       );
 
@@ -101,15 +100,13 @@ export class GameConfig {
 
     const [keyMain, keyMod] = cfgKey.split(" ");
 
-    let key1: string;
-    if (CodeToKey[keyMain]) {
-      key1 = CodeToKey[keyMain];
-    } else {
+    if (!CodeToKey[keyMain]) {
       this.logger.write(`error [GameConfig] Failed to read key: ${cfgKey}.`);
       return null;
     }
+    const key1 = CodeToKey[keyMain];
 
-    let key2: string | undefined;
+    let key2: string | undefined = undefined;
     if (keyMod) {
       if (keyMod === "1") {
         key2 = "Shift";

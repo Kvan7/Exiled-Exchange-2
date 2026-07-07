@@ -68,10 +68,22 @@ export default defineConfig([
       // TODO: refactor IPC and enable
       "@typescript-eslint/consistent-type-assertions": "off",
       // TODO: maybe re-enable
-      "@typescript-eslint/no-magic-numbers": "off",
+      "@typescript-eslint/no-magic-numbers": "warn",
       "complexity": ["error", 20],
       "@typescript-eslint/prefer-destructuring": "off",
       "promise/avoid-new": "off",
+      "no-param-reassign": "off",
+      "@typescript-eslint/class-methods-use-this": "off",
+      "@typescript-eslint/max-params": "warn",
+      "@typescript-eslint/switch-exhaustiveness-check": "off",
+      "@typescript-eslint/no-unnecessary-condition": "warn",
+      "@typescript-eslint/require-await": "warn",
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-unused-private-class-members": "warn",
+      "@typescript-eslint/strict-void-return": "warn",
+      "@typescript-eslint/no-unsafe-type-assertion": "warn",
+      "init-declarations": "off",
+      "@typescript-eslint/init-declarations": "off",
     },
   },
   {

@@ -54,15 +54,15 @@ export class GameLogWatcher {
     this.server.onEventAnyClient("CLIENT->MAIN::re-parse-log", async () => {
       if (this._state) {
         // so have file and user set allow client-log to true
-        if (!this._state.isReading) {
+        if (this._state.isReading) {
+          this.logger.write(
+            "warn [GameLogWatcher] Asked to re-parse log but currently reading, skipping",
+          );
+        } else {
           this.fileWriter.flushClientLogFile();
           this._state.offset = 0;
           this._state.isReading = true;
           this.readToEOF();
-        } else {
-          this.logger.write(
-            "warn [GameLogWatcher] Asked to re-parse log but currently reading, skipping",
-          );
         }
       }
     });
@@ -79,15 +79,14 @@ export class GameLogWatcher {
       return;
     }
 
-    if (this._wantedPath !== logFile) {
-      this._wantedPath = logFile;
-      if (this._state) {
-        unwatchFile(this._state.path);
-        await this._state.file.close();
-        this._state = null;
-      }
-    } else {
+    if (this._wantedPath === logFile) {
       return;
+    }
+    this._wantedPath = logFile;
+    if (this._state) {
+      unwatchFile(this._state.path);
+      await this._state.file.close();
+      this._state = null;
     }
 
     if (!logFile.length) {

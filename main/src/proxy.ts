@@ -18,7 +18,7 @@ const PROXY_HOSTS = [
   { host: "api.exiledexchange2.dev", official: false },
 ];
 
-// eslint-disable-next-line @typescript-eslint/no-extraneous-class
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class -- updating eslint config
 export class HttpProxy {
   constructor(server: Server, logger: Logger) {
     server.addListener("request", (req, res) => {
@@ -37,7 +37,7 @@ export class HttpProxy {
           key === "origin" ||
           key === "content-length"
         ) {
-          // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+          // eslint-disable-next-line @typescript-eslint/no-dynamic-delete -- updating eslint config
           delete req.headers[key];
         }
       }

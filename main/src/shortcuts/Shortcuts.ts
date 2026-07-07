@@ -188,13 +188,15 @@ export class Shortcuts {
           if (entry.keepModKeys) {
             const nonModKey = entry.shortcut
               .split(" + ")
-              .filter((key) => !isModKey(key))[0];
+              .find((key) => !isModKey(key));
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- updating eslint config
             uIOhook.keyToggle(UiohookKey[nonModKey as UiohookKeyT], "up");
           } else {
             entry.shortcut
               .split(" + ")
               .reverse()
               .forEach((key) => {
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- updating eslint config
                 uIOhook.keyToggle(UiohookKey[key as UiohookKeyT], "up");
               });
           }
@@ -233,7 +235,9 @@ export class Shortcuts {
                   this.overlay.assertOverlayActive();
                 }
               })
-              .catch(() => {});
+              .catch(() => {
+                /* empty */
+              });
 
             pressKeysToCopyItemText(
               entry.keepModKeys
@@ -275,7 +279,7 @@ export class Shortcuts {
                   },
                 });
               })
-              .catch((err) => {
+              .catch((err: unknown) => {
                 this.logger.write(`error [Shortcuts] ${err}`);
               });
           }
@@ -316,6 +320,7 @@ function pressKeysToCopyItemText(
   }
 
   for (const key of keys) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- updating eslint config
     uIOhook.keyToggle(UiohookKey[key as UiohookKeyT], "down");
   }
 
@@ -327,6 +332,7 @@ function pressKeysToCopyItemText(
   setTimeout(() => {
     keys.reverse();
     for (const key of keys) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- updating eslint config
       uIOhook.keyToggle(UiohookKey[key as UiohookKeyT], "up");
     }
   }, 10);
@@ -370,8 +376,11 @@ function eventToString(e: {
 }
 
 function shortcutToElectron(shortcut: string) {
-  return shortcut
-    .split(" + ")
-    .map((k) => KeyToElectron[k as keyof typeof KeyToElectron])
-    .join("+");
+  return (
+    shortcut
+      .split(" + ")
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- updating eslint config
+      .map((k) => KeyToElectron[k as keyof typeof KeyToElectron])
+      .join("+")
+  );
 }
