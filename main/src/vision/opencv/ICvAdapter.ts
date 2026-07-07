@@ -1,7 +1,13 @@
-export interface ICvAdapter {
-  loadImage: ((filePath: string) => Promise<ICvMat>) &
-    ((buffer: Buffer) => Promise<ICvMat>);
-}
+import type { BoundingBox, ImageData } from "../utils";
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type -- temp
-export interface ICvMat {}
+export interface ICvAdapter {
+  calibrate: (screenshot: ImageData) => Promise<BoundingBox>;
+  findRecipeId: (
+    screenshot: ImageData,
+    bbox: BoundingBox,
+  ) => Promise<{
+    highlightedTome: string;
+    highlightedSlot: number;
+    tomeCount: number;
+  }>;
+}
