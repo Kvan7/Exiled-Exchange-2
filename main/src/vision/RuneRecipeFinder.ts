@@ -2,7 +2,7 @@ import { cvWrapper } from "./opencv/cvWrapper";
 import type { ICvAdapter } from "./opencv/ICvAdapter";
 import type { BoundingBox, ImageData } from "./utils";
 
-interface OcrResult {
+interface RecipeResult {
   elapsed: number;
   data: {
     highlightedTome: string;
@@ -14,37 +14,22 @@ interface OcrResult {
 export class RuneRecipeFinder {
   private cv: ICvAdapter;
 
-  private constructor(
-    private readonly needleMat: any,
-    private readonly hsvMin: any,
-    private readonly hsvMax: any,
-  ) {
+  private constructor() {
     this.cv = cvWrapper.cv;
   }
 
   static create() {
-    return new RuneRecipeFinder(0, 0, 0);
+    return new RuneRecipeFinder();
   }
 
-  async calibrate(): Promise<BoundingBox> {
-    const result = new Promise<BoundingBox>((resolve) => {
-      setTimeout(() => {
-        resolve({
-          x: 102,
-          y: 304,
-          width: 985,
-          height: 81,
-        });
-      }, 2000);
-    });
-
-    return await result;
+  async calibrate(screenshot: ImageData): Promise<BoundingBox> {
+    throw new Error("Method not implemented.");
   }
 
-  async ocrScreenshot(
+  async findRecipeId(
     screenshot: ImageData,
     bbox: BoundingBox,
-  ): Promise<OcrResult> {
+  ): Promise<RecipeResult> {
     throw new Error("Method not implemented.");
   }
 }
