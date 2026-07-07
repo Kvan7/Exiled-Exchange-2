@@ -74,7 +74,6 @@ export default defineConfig([
       "promise/avoid-new": "off",
       "no-param-reassign": "off",
       "@typescript-eslint/class-methods-use-this": "off",
-      "@typescript-eslint/max-params": "warn",
       "@typescript-eslint/switch-exhaustiveness-check": "off",
       "@typescript-eslint/no-unnecessary-condition": "warn",
       "@typescript-eslint/require-await": "warn",
@@ -84,6 +83,8 @@ export default defineConfig([
       "@typescript-eslint/no-unsafe-type-assertion": "warn",
       "init-declarations": "off",
       "@typescript-eslint/init-declarations": "off",
+      "max-params": "off",
+      "@typescript-eslint/max-params": "off",
     },
   },
   {
@@ -119,6 +120,22 @@ export default defineConfig([
       "require-atomic-updates": "off",
       "@typescript-eslint/consistent-type-imports": "off",
       "@eslint-community/eslint-comments/require-description": "off",
+    },
+  },
+  {
+    files: [
+      "src/vision/opencv/CppAdapter.ts",
+      "src/vision/opencv/JsAdapter.ts",
+    ],
+    rules: {
+      "@typescript-eslint/no-unsafe-type-assertion": "off",
+      "@typescript-eslint/require-await": "off",
+    },
+  },
+  {
+    files: ["src/vision/**/*.ts"],
+    rules: {
+      "@typescript-eslint/no-magic-numbers": "off",
     },
   },
 
