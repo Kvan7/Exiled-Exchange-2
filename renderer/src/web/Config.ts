@@ -680,6 +680,7 @@ function upgradeConfig(_config: Config): Config {
         height: null,
       },
     };
+    itemSearch.scale = null;
 
     config.configVersion = 35;
   }
@@ -822,6 +823,7 @@ function getConfigForHost(): HostConfig {
             type: "computer-vision",
             target: "remnants",
             bbox: itemSearch.boundingBoxes.remnants,
+            scale: itemSearch.scale,
           },
         });
       }

@@ -11,4 +11,5 @@ export interface ItemSearchWidget extends Widget {
       height: number | null;
     };
   };
+  scale: number | null;
 }

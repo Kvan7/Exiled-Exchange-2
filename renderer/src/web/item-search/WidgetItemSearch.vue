@@ -165,6 +165,7 @@ export default {
             height: null,
           },
         },
+        scale: null,
       };
     },
   } satisfies WidgetSpec,
