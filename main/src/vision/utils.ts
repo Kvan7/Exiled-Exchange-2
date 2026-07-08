@@ -13,6 +13,11 @@ export interface BoundingBox {
   height: number;
 }
 
+export interface CalibrationResult {
+  bbox: BoundingBox;
+  scale: number;
+}
+
 export interface WeightedPoint {
   x: number;
   y: number;

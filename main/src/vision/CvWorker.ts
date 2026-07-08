@@ -2,7 +2,7 @@ import type { Logger } from "../RemoteLogger";
 import type { ServerEvents } from "../server";
 import type { GameWindow } from "../windowing/GameWindow";
 import { RuneRecipeFinder } from "./RuneRecipeFinder";
-import type { BoundingBox, ImageData } from "./utils";
+import type { CalibrationResult, ImageData } from "./utils";
 
 export class CvWorker {
   private runeFinder: RuneRecipeFinder;
@@ -42,31 +42,34 @@ export class CvWorker {
 
   async findRuneRecipe(
     screenshot: ImageData,
-    bbox: {
-      x: number | null;
-      y: number | null;
-      width: number | null;
-      height: number | null;
+    calibration: {
+      bbox: {
+        x: number | null;
+        y: number | null;
+        width: number | null;
+        height: number | null;
+      };
+      scale: number | null;
     },
   ) {
     if (
-      bbox.x === null ||
-      bbox.y === null ||
-      bbox.width === null ||
-      bbox.height === null
+      calibration.bbox.x === null ||
+      calibration.bbox.y === null ||
+      calibration.bbox.width === null ||
+      calibration.bbox.height === null
     ) {
       this.logger.write("info [CvWorker] Bounding box Calibrating");
 
-      bbox = await this.runeFinder.calibrate(screenshot);
+      calibration = await this.runeFinder.calibrate(screenshot);
       this.logger.write(
-        `info [CvWorker] Bounding box calibrated to (${bbox.x}, ${bbox.y}), (${bbox.width}, ${bbox.height})`,
+        `info [CvWorker] Bounding box calibrated to (${calibration.bbox.x}, ${calibration.bbox.y}), (${calibration.bbox.width}, ${calibration.bbox.height}), scale: ${calibration.scale}`,
       );
     }
 
     const result = await this.runeFinder.findRecipeId(
       screenshot,
       // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- cast is safe, checked if any null above
-      bbox as BoundingBox,
+      calibration as CalibrationResult,
     );
     return result;
   }

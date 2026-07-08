@@ -71,7 +71,7 @@ let tray: AppTray;
     const _httpProxy = new HttpProxy(server, logger);
     const fileWriter = new FileWriter(eventPipe, logger);
     const gameLogWatcher = new GameLogWatcher(eventPipe, logger, fileWriter);
-    const cvWorker = new CvWorker(eventPipe, logger);
+    const cvWorker = new CvWorker(eventPipe, logger, poeWindow);
 
     if (process.env.VITE_DEV_SERVER_URL) {
       try {

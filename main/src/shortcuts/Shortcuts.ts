@@ -262,7 +262,7 @@ export class Shortcuts {
                   height: this.poeWindow.bounds.height,
                   data: imageData,
                 },
-                entry.action.bbox,
+                { bbox: entry.action.bbox, scale: entry.action.scale },
               )
               .then((result) => {
                 this.server.sendEventTo("last-active", {

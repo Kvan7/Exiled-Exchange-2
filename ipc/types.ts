@@ -32,6 +32,7 @@ export interface ShortcutAction {
           width: number | null;
           height: number | null;
         };
+        scale: number | null;
       }
     | {
         type: "trigger-event";
@@ -204,10 +205,13 @@ type IpcCvCalibrationResult = Event<
     pressTime: number;
     cvTime: number;
     data: {
-      x: number;
-      y: number;
-      width: number;
-      height: number;
+      bbox: {
+        x: number;
+        y: number;
+        width: number;
+        height: number;
+      };
+      scale: number;
     };
   }
 >;

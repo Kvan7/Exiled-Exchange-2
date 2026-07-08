@@ -1,14 +1,5 @@
 import * as cv from "@u4/opencv4nodejs";
-import {
-  countTomes,
-  createBgMask,
-  cropToTopLeft,
-  filterMultiple,
-  getActiveTomeBg,
-  getTomeBg,
-  getTomePxSize,
-  preprocess,
-} from "./utils";
+import { createBgMask, cropToTopLeft, filterMultiple } from "./utils";
 import assert from "node:assert";
 import {
   EXPECTED_SLOP_X,
@@ -19,20 +10,27 @@ import {
   RECIPE_LEFT_RATIO,
   RECIPE_TOP_RATIO,
   RECIPE_WIDTH_RATIO,
-  ROW_TOLERANCE,
   TOMES,
 } from "../constants";
 import { getImageScale } from "./scale";
+import { getFirstRealXY, getTomePxSize } from "../common";
+import { getActiveTomeBg, getTomeBg, preprocess } from "./image";
 
 function getXY(needle: cv.Mat, haystack: cv.Mat) {
+  const rects = filterRectsWithMask(needle, haystack);
+
+  return getFirstRealXY(rects);
+}
+
+function filterRectsWithMask(needle: cv.Mat, haystack: cv.Mat) {
   const [needleH, needleW] = needle.sizes;
   assert(needleH === needleW);
-  const [haystackW] = haystack.sizes;
+  const [haystackH] = haystack.sizes;
 
   const bgMask = createBgMask(needleH);
 
   const resizedHaystack = haystack.getRegion(
-    new cv.Rect(0, 0, Math.floor(needleH * 7), haystackW),
+    new cv.Rect(0, 0, Math.floor(needleH * 7), haystackH),
   );
 
   const rects = filterMultiple(
@@ -43,76 +41,7 @@ function getXY(needle: cv.Mat, haystack: cv.Mat) {
     needleH,
     bgMask,
   );
-
-  const sortedRects = rects.toSorted((a, b) => a.y - b.y);
-
-  const rows: Array<{ ySum: number; rects: cv.Rect[] }> = [];
-  let likelyFirstRowIndex = 0;
-  let withThreeIndex = -1;
-  let withThreeAvgY = Number.MAX_SAFE_INTEGER;
-
-  for (const p of sortedRects) {
-    const y = p.y;
-    let matched = false;
-    for (const [index, row] of rows.entries()) {
-      if (Math.abs(y - row.ySum / row.rects.length) <= ROW_TOLERANCE) {
-        row.rects.push(p);
-        row.ySum += p.y;
-        matched = true;
-        if (row.rects.length > rows[likelyFirstRowIndex].rects.length) {
-          likelyFirstRowIndex = index;
-        }
-        if (
-          row.rects.length >= 3 &&
-          row.ySum / row.rects.length < withThreeAvgY
-        ) {
-          withThreeIndex = index;
-          withThreeAvgY = row.ySum / row.rects.length;
-        }
-        break;
-      }
-    }
-
-    if (!matched) {
-      rows.push({ ySum: p.y, rects: [p] });
-    }
-  }
-
-  // find a possible first row
-  if (
-    withThreeIndex > -1 &&
-    withThreeAvgY <
-      rows[likelyFirstRowIndex].ySum / rows[likelyFirstRowIndex].rects.length
-  ) {
-    likelyFirstRowIndex = withThreeIndex;
-  }
-
-  const recountedRows = rows.map((row) => {
-    return {
-      ...row,
-      len: row.rects.length,
-      count: countTomes(row.rects).tomeCount,
-    };
-  });
-
-  // find this index, another possible first row
-  let maxI = 0;
-  for (let i = 0; i < recountedRows.length; i++) {
-    if (recountedRows[i].count > recountedRows[maxI].count) {
-      maxI = i;
-    }
-  }
-  if (
-    recountedRows[maxI].ySum / recountedRows[maxI].len >
-    rows[likelyFirstRowIndex].ySum / rows[likelyFirstRowIndex].rects.length
-  ) {
-    likelyFirstRowIndex = maxI;
-  }
-
-  const firstRow = rows[likelyFirstRowIndex].rects;
-  const firstElement = firstRow.toSorted((a, b) => a.x - b.x)[0];
-
-  return { minX: firstElement.x, minY: firstElement.y };
+  return rects;
 }
 
 export function findBBox(
@@ -186,14 +115,7 @@ export function calibrateBBox(img: cv.Mat): {
     console.log(error);
   }
 
-  let firstRecipeBBox = new cv.Rect(
-    0,
-    originalSizes.h / RECIPE_TOP_RATIO - EXPECTED_SLOP_Y,
-    originalSizes.h / RECIPE_WIDTH_RATIO +
-      originalSizes.h / RECIPE_LEFT_RATIO +
-      EXPECTED_SLOP_X,
-    originalSizes.h / RECIPE_HEIGHT_RATIO + EXPECTED_SLOP_Y * 4,
-  );
+  let firstRecipeBBox = defaultRecipeBox(originalSizes.h);
   try {
     firstRecipeBBox = findBBox(processedScreenshot, scale, originalSizes);
   } catch (error) {
@@ -210,6 +132,17 @@ export function calibrateBBox(img: cv.Mat): {
       firstRecipeBBox.height,
     ),
   };
+}
+
+function defaultRecipeBox(originalHeight: number) {
+  return new cv.Rect(
+    0,
+    originalHeight / RECIPE_TOP_RATIO - EXPECTED_SLOP_Y,
+    originalHeight / RECIPE_WIDTH_RATIO +
+      originalHeight / RECIPE_LEFT_RATIO +
+      EXPECTED_SLOP_X,
+    originalHeight / RECIPE_HEIGHT_RATIO + EXPECTED_SLOP_Y * 4,
+  );
 }
 
 export function determineTomeType(

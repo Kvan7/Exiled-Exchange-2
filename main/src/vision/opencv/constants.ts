@@ -1,3 +1,5 @@
+import path from "node:path";
+
 export const TOMES = [
   "Fire",
   "Cold",
@@ -42,18 +44,26 @@ export const RECIPE_LEFT_RATIO = 21.1;
 export const RECIPE_WIDTH_RATIO = 2.19;
 export const RECIPE_HEIGHT_RATIO = 26.6;
 
-export const GENERATED_DIR = "./data/generated/";
+export const GENERATED_DIR = "./generated/";
 
-export const BG_IMG_NAME =
-  "Art@2DArt@UIImages@InGame@Expedition@Tome@TomeRuneBgRegular.png";
-export const ACTIVE_BG_IMG_NAME =
-  "Art@2DArt@UIImages@InGame@Expedition@Tome@TomeRuneBgActive.png";
-export const TOME_IMG_NAME =
-  "Art@2DArt@UIImages@InGame@Expedition@Tome@TomeRune{0}.png";
-export const ACTIVE_BG_JOINED_NAME = "together.png";
-export const PREPROCESSED_TOME_BG = `${GENERATED_DIR}bg.png`;
-export const PREPROCESSED_ACTIVE_TOME_BG = `${GENERATED_DIR}active_bg.png`;
-export const PREPROCESSED_MATCH_LIST = `${GENERATED_DIR}match_list.png`;
+export const PREPROCESSED_TOME_BG = path.join(
+  __dirname,
+  process.env.STATIC!,
+  GENERATED_DIR,
+  "bg.png",
+);
+export const PREPROCESSED_ACTIVE_TOME_BG = path.join(
+  __dirname,
+  process.env.STATIC!,
+  GENERATED_DIR,
+  "active_bg.png",
+);
+export const PREPROCESSED_MATCH_LIST = path.join(
+  __dirname,
+  process.env.STATIC!,
+  GENERATED_DIR,
+  "match_list.png",
+);
 
 export const NORMAL_TOME_FILTER = {
   hueMax: 120,

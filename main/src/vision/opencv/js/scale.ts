@@ -1,4 +1,3 @@
-import type * as cv from "@u4/opencv4nodejs";
 import { createBgMask, filterMultiple } from "./utils";
 import {
   FINE_TUNE_SCALES,
@@ -6,23 +5,26 @@ import {
   USUAL_SCALES,
 } from "../constants";
 import { getTomePxSize } from "../common";
+import { Mat, type Rect } from "@techstark/opencv-js";
 import { getTomeBg } from "./image";
 
 function bestScale(
-  img: cv.Mat,
-  needle: cv.Mat,
+  img: Mat,
+  needle: Mat,
   originalH: number,
   scales: number[],
   threshold: number,
   startingScale = 1,
 ) {
+  // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
   let bestScale = startingScale;
-  let bestFound: cv.Rect[] = [];
+  let bestFound: Rect[] = [];
   for (const testScale of scales) {
     const size = getTomePxSize(testScale, originalH);
 
-    const scaledNeedle = needle.resize(size, size);
-    const mask = createBgMask(size);
+    const scaledNeedle = new Mat(); // deleted, in loop
+    cv.resize(needle, scaledNeedle, new cv.Size(size, size));
+    const mask = createBgMask(size); // deleted, in loop
     const found = filterMultiple(
       img,
       scaledNeedle,
@@ -35,12 +37,19 @@ function bestScale(
       bestScale = testScale;
       bestFound = found;
     }
+
+    mask.delete();
+    scaledNeedle.delete();
   }
   return { scale: bestScale, rects: bestFound };
 }
 
-export function getImageScale(img: cv.Mat, original: { w: number; h: number }) {
-  const needle = getTomeBg();
+export async function getImageScale(
+  img: Mat,
+  original: { w: number; h: number },
+) {
+  // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
+  const needle = await getTomeBg(); // deleted
   const { scale: firstScale, rects: firstRects } = bestScale(
     img,
     needle,
@@ -70,5 +79,6 @@ export function getImageScale(img: cv.Mat, original: { w: number; h: number }) {
   );
   console.log(`Third scale guess: ${thirdScale} [${thirdRects.length}]`);
 
+  needle.delete();
   return thirdScale;
 }

@@ -1,6 +1,6 @@
 import { cvWrapper } from "./opencv/cvWrapper";
 import type { ICvAdapter } from "./opencv/ICvAdapter";
-import type { BoundingBox, ImageData } from "./utils";
+import type { CalibrationResult, ImageData } from "./utils";
 
 interface RecipeResult {
   elapsed: number;
@@ -22,14 +22,17 @@ export class RuneRecipeFinder {
     return new RuneRecipeFinder();
   }
 
-  async calibrate(screenshot: ImageData): Promise<BoundingBox> {
-    throw new Error("Method not implemented.");
+  async calibrate(screenshot: ImageData): Promise<CalibrationResult> {
+    return await this.cv.calibrate(screenshot);
   }
 
   async findRecipeId(
     screenshot: ImageData,
-    bbox: BoundingBox,
+    calibration: CalibrationResult,
   ): Promise<RecipeResult> {
-    throw new Error("Method not implemented.");
+    const start = performance.now();
+    const res = await this.cv.findRecipeId(screenshot, calibration);
+    const elapsed = performance.now() - start;
+    return { elapsed, data: res };
   }
 }

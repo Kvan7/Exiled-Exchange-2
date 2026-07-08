@@ -1,30 +1,66 @@
 import type openCv from "@u4/opencv4nodejs";
-import type { Mat } from "@u4/opencv4nodejs";
+import type { Mat, Rect } from "@u4/opencv4nodejs";
 import type { ICvAdapter } from "./ICvAdapter";
-import type { ImageData, BoundingBox } from "../utils";
-
-const ZERO = 0;
-const NO_BORDER = ZERO;
-const HALF_CIRCLE_DEG = 180;
-const UINT8_MAX = 255;
-const IDENTITY = 1;
+import type { ImageData, CalibrationResult } from "../utils";
+import {
+  calibrateBBox,
+  determineTomeType,
+  findHighlightedTome,
+  getNormalRects,
+} from "./cpp/detect";
+import { ACTIVE_TOME_FILTER, NORMAL_TOME_FILTER } from "./constants";
+import { closestRectPos1, filterRecipeRects, getTomePxSize } from "./common";
+import { preprocess } from "./cpp/image";
 
 export class CppCvAdapter implements ICvAdapter {
   constructor(private _cv: typeof openCv) {}
 
   //#region Interface Methods
-  async calibrate(screenshot: ImageData): Promise<BoundingBox> {
-    throw new Error("Method not implemented.");
+  async calibrate(screenshot: ImageData): Promise<CalibrationResult> {
+    const img = await this.loadImage(Buffer.from(screenshot.data));
+    const { scale, recipeBBox } = calibrateBBox(img);
+    return {
+      bbox: recipeBBox,
+      scale,
+    };
   }
   async findRecipeId(
     screenshot: ImageData,
-    bbox: BoundingBox,
+    calibration: CalibrationResult,
   ): Promise<{
     highlightedTome: string;
     highlightedSlot: number;
     tomeCount: number;
   }> {
-    throw new Error("Method not implemented.");
+    const img = await this.loadImage(Buffer.from(screenshot.data));
+    const { bbox, scale } = calibration;
+    const tomeSize = getTomePxSize(scale, img.rows);
+    const firstRecipe = img.getRegion(
+      new this._cv.Rect(bbox.x, bbox.y, bbox.width, bbox.height),
+    );
+    const { highlightedRect, highlightedTomeType } = this.getHighlighted(
+      firstRecipe,
+      tomeSize,
+    );
+
+    const normalRects = this.getNormalRects(firstRecipe, tomeSize);
+
+    const recipe = filterRecipeRects(
+      [...normalRects, highlightedRect],
+      img.rows,
+    );
+
+    const highlightedSlot = closestRectPos1(
+      recipe.realRects,
+      highlightedRect.x,
+      highlightedRect.y,
+    );
+
+    return {
+      highlightedTome: highlightedTomeType,
+      highlightedSlot,
+      tomeCount: recipe.tomeCount,
+    };
   }
   //#endregion Interface Methods
 
@@ -38,59 +74,43 @@ export class CppCvAdapter implements ICvAdapter {
     }
     return mat;
   }
-  private preprocessImage(
-    mat: Mat,
-    {
-      blur = ZERO,
-      hueMin = ZERO,
-      hueMax = HALF_CIRCLE_DEG,
-      saturationMin = ZERO,
-      saturationMax = UINT8_MAX,
-      valueMin = ZERO,
-      valueMax = UINT8_MAX,
-      hueAdd = ZERO,
-      saturationAdd = ZERO,
-      valueAdd = ZERO,
-    }: {
-      blur?: number;
-      hueMin?: number;
-      hueMax?: number;
-      saturationMin?: number;
-      saturationMax?: number;
-      valueMin?: number;
-      valueMax?: number;
-      hueAdd?: number;
-      saturationAdd?: number;
-      valueAdd?: number;
-    },
-  ): Mat {
-    const hsv = mat.cvtColor(this._cv.COLOR_BGR2HSV);
 
-    const [h, s, v] = hsv.split();
-    const nh = this.shiftChannel(h, hueAdd);
-    const ns = this.shiftChannel(s, saturationAdd);
-    const nv = this.shiftChannel(v, valueAdd);
-    const hsv2 = new this._cv.Mat([nh, ns, nv]);
+  private getHighlighted(
+    firstRecipe: Mat,
+    tomeSize: number,
+  ): {
+    highlightedRect: Rect;
+    highlightedTomeType: string;
+  } {
+    const recipeProcessedForHighlight = preprocess(
+      firstRecipe,
+      ACTIVE_TOME_FILTER,
+    );
 
-    const lower = new this._cv.Vec3(hueMin, saturationMin, valueMin);
-    const upper = new this._cv.Vec3(hueMax, saturationMax, valueMax);
+    const highlightedMatch = findHighlightedTome(
+      recipeProcessedForHighlight,
+      tomeSize,
+    );
 
-    const mask = hsv2.inRange(lower, upper);
-    const result = new this._cv.Mat(hsv2.rows, hsv2.cols, hsv2.type);
-    hsv2.copyTo(result, mask);
+    const highlightedTome =
+      recipeProcessedForHighlight.getRegion(highlightedMatch);
 
-    const img2 = result.cvtColor(this._cv.COLOR_HSV2BGR);
+    const tomeType = determineTomeType(highlightedTome, tomeSize);
 
-    if (blur) {
-      img2.gaussianBlur(new this._cv.Size(blur, blur), NO_BORDER);
-    }
-
-    return img2;
+    return {
+      highlightedRect: highlightedMatch,
+      highlightedTomeType: tomeType,
+    };
   }
-  private shiftChannel(c: Mat, amount: number) {
-    // mat * alpha + beta
-    // mat * 1     + amount
-    return c.convertTo(this._cv.CV_8UC1, IDENTITY, amount);
+
+  private getNormalRects(firstRecipe: Mat, tomeSize: number) {
+    const recipeProcessedForNormal = preprocess(
+      firstRecipe,
+      NORMAL_TOME_FILTER,
+    );
+    const normalMatches = getNormalRects(recipeProcessedForNormal, tomeSize);
+    return normalMatches;
   }
+
   //#endregion Private Methods
 }

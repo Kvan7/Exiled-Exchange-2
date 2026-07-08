@@ -1,10 +1,10 @@
-import type { BoundingBox, ImageData } from "../utils";
+import type { ImageData, CalibrationResult } from "../utils";
 
 export interface ICvAdapter {
-  calibrate: (screenshot: ImageData) => Promise<BoundingBox>;
+  calibrate: (screenshot: ImageData) => Promise<CalibrationResult>;
   findRecipeId: (
     screenshot: ImageData,
-    bbox: BoundingBox,
+    bbox: CalibrationResult,
   ) => Promise<{
     highlightedTome: string;
     highlightedSlot: number;
