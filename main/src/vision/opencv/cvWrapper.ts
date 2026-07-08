@@ -21,7 +21,8 @@ export class CvWrapper {
   }
 
   constructor() {
-    this._ready = this.reload();
+    this._cv = undefined;
+    this._ready = this._load();
   }
 
   async reload(): Promise<void> {
@@ -36,7 +37,7 @@ export class CvWrapper {
       this._cv = new CppCvAdapter(cpp);
       return;
     }
-    this._cv = new JsCvAdapter(await this._loadJs());
+    this._cv = new JsCvAdapter((await this._loadJs()).cv);
   }
 
   private async _tryCpp(): Promise<typeof openCv | undefined> {
@@ -53,21 +54,24 @@ export class CvWrapper {
     }
   }
 
-  private async _loadJs(): Promise<typeof cvModule> {
+  private async _loadJs(): Promise<{ cv: typeof cvModule }> {
+    let cv: typeof cvModule;
     if (cvModule instanceof Promise) {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-return -- should be fine
-      return await cvModule;
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment -- is of correct type
+      cv = await cvModule;
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- actually not always true
+    } else if (cvModule.Mat) {
+      cv = cvModule;
+    } else {
+      await new Promise<void>((resolve) => {
+        cvModule.onRuntimeInitialized = () => {
+          resolve();
+        };
+      });
+      cv = cvModule;
     }
-    if (cvModule.Mat) {
-      return cvModule;
-    }
-    await new Promise<void>((resolve) => {
-      cvModule.onRuntimeInitialized = () => {
-        console.log("OpenCV JS is ready");
-        resolve();
-      };
-    });
-    return cvModule;
+
+    return { cv };
   }
 }
 

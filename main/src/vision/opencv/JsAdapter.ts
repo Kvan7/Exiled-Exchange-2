@@ -17,6 +17,7 @@ export class JsCvAdapter implements ICvAdapter {
   //#region Interface Methods
   async calibrate(screenshot: ImageData): Promise<CalibrationResult> {
     // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
+    console.log("calibrate js");
     const img = await getImage(Buffer.from(screenshot.data));
     try {
       const { scale, recipeBBox } = await calibrateBBox(img);
@@ -37,6 +38,7 @@ export class JsCvAdapter implements ICvAdapter {
     tomeCount: number;
   }> {
     // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
+    console.log("findRecipeId js");
     const img = await getImage(Buffer.from(screenshot.data));
     const { bbox, scale } = calibration;
     const firstRecipe = img.roi(

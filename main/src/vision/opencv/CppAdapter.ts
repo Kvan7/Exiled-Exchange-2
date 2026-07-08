@@ -17,6 +17,7 @@ export class CppCvAdapter implements ICvAdapter {
 
   //#region Interface Methods
   async calibrate(screenshot: ImageData): Promise<CalibrationResult> {
+    console.log("calibrate cpp");
     const img = await this.loadImage(Buffer.from(screenshot.data));
     const { scale, recipeBBox } = calibrateBBox(img);
     return {
@@ -32,6 +33,7 @@ export class CppCvAdapter implements ICvAdapter {
     highlightedSlot: number;
     tomeCount: number;
   }> {
+    console.log("findRecipeId cpp");
     const img = await this.loadImage(Buffer.from(screenshot.data));
     const { bbox, scale } = calibration;
     const tomeSize = getTomePxSize(scale, img.rows);

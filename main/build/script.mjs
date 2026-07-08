@@ -18,22 +18,23 @@ const electronRunner = (() => {
   }
 })()
 
-const visionBuild = await esbuild.build({
-  entryPoints: ['src/vision/link-worker.ts'],
-  bundle: true,
-  platform: 'node',
-  outfile: 'dist/vision.js'
-})
+// const visionBuild = await esbuild.build({
+//   entryPoints: ['src/vision/link-worker.ts'],
+//   bundle: true,
+//   platform: 'node',
+//   outfile: 'dist/vision.js'
+// })
 
 const mainContext = await esbuild.context({
   entryPoints: ['src/main.ts'],
   bundle: true,
   minify: !isDev,
   platform: 'node',
-  external: ['electron', 'uiohook-napi', 'electron-overlay-window', 'canvas', "@u4/opencv-build", "@u4/opencv4nodejs",],
+  external: ['electron', 'uiohook-napi', 'electron-overlay-window', 'canvas', '@u4/opencv-build', '@u4/opencv4nodejs'],
   outfile: 'dist/main.js',
   define: {
     'process.env.STATIC': (isDev) ? '"../build/icons"' : '"."',
+    'process.env.GENERATED': (isDev) ? '"../build/generated"' : '"."',
     'process.env.VITE_DEV_SERVER_URL': (isDev) ? '"http://localhost:5173"' : 'null'
   },
   plugins: (isDev) ? [{

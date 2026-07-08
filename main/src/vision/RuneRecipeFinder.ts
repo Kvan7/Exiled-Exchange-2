@@ -23,6 +23,7 @@ export class RuneRecipeFinder {
   }
 
   async calibrate(screenshot: ImageData): Promise<CalibrationResult> {
+    console.log("calibrate");
     return await this.cv.calibrate(screenshot);
   }
 
@@ -30,6 +31,7 @@ export class RuneRecipeFinder {
     screenshot: ImageData,
     calibration: CalibrationResult,
   ): Promise<RecipeResult> {
+    console.log("findRecipeId");
     const start = performance.now();
     const res = await this.cv.findRecipeId(screenshot, calibration);
     const elapsed = performance.now() - start;

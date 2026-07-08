@@ -25,7 +25,8 @@ if (process.platform !== "darwin") {
 }
 app.enableSandbox();
 let tray: AppTray;
-
+process.on("uncaughtException", console.error);
+process.on("unhandledRejection", console.error);
 (async () => {
   if (process.platform === "darwin") {
     async function ensureAccessibilityPermission(): Promise<boolean> {

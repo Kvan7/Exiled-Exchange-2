@@ -48,19 +48,19 @@ export const GENERATED_DIR = "./generated/";
 
 export const PREPROCESSED_TOME_BG = path.join(
   __dirname,
-  process.env.STATIC!,
+  process.env.GENERATED!,
   GENERATED_DIR,
   "bg.png",
 );
 export const PREPROCESSED_ACTIVE_TOME_BG = path.join(
   __dirname,
-  process.env.STATIC!,
+  process.env.GENERATED!,
   GENERATED_DIR,
   "active_bg.png",
 );
 export const PREPROCESSED_MATCH_LIST = path.join(
   __dirname,
-  process.env.STATIC!,
+  process.env.GENERATED!,
   GENERATED_DIR,
   "match_list.png",
 );
