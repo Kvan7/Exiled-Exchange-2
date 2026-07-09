@@ -263,6 +263,7 @@ export class Shortcuts {
                   data: imageData,
                 },
                 { bbox: entry.action.bbox, scale: entry.action.scale },
+                entry.action.debug,
               )
               .then((result) => {
                 this.server.sendEventTo("last-active", {

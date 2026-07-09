@@ -83,8 +83,8 @@ export class CppCvAdapter implements ICvAdapter {
       // mat = this._cv.imdecode(input, this._cv.IMREAD_UNCHANGED);
       mat = new this._cv.Mat(
         Buffer.from(input.data),
-        input.width,
         input.height,
+        input.width,
         this._cv.CV_8UC4,
       );
     }

@@ -33,6 +33,7 @@ export interface ShortcutAction {
           height: number | null;
         };
         scale: number | null;
+        debug: boolean;
       }
     | {
         type: "trigger-event";
@@ -98,7 +99,7 @@ export type IpcEvent =
   | IpcItemText
   | IpcCvCalibration
   | IpcCvCalibrationResult
-  | IpcCvSearch
+  | IpcCvSearchResult
   | IpcConfigChanged
   | IpcUserAction
   | IpcWriteToFile
@@ -195,6 +196,7 @@ type IpcCvCalibration = Event<
   "CLIENT->MAIN::cv-calibration",
   {
     target: string;
+    debug: boolean;
   }
 >;
 
@@ -216,7 +218,7 @@ type IpcCvCalibrationResult = Event<
   }
 >;
 
-type IpcCvSearch = Event<
+type IpcCvSearchResult = Event<
   "MAIN->CLIENT::computer-vision",
   {
     target: "remnants";

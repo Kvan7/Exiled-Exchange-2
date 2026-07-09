@@ -1,6 +1,7 @@
 import type { Logger } from "../RemoteLogger";
 import type { ServerEvents } from "../server";
 import type { GameWindow } from "../windowing/GameWindow";
+import { visionConfig } from "./config";
 import { RuneRecipeFinder } from "./RuneRecipeFinder";
 import type { CalibrationResult, ImageData } from "./utils";
 
@@ -19,6 +20,7 @@ export class CvWorker {
         if (e.target !== "remnants") return;
         const pressTime = Date.now();
         const imageData = this.poeWindow.screenshot();
+        visionConfig.debug = e.debug;
 
         const runeBBox = await this.runeFinder.calibrate({
           width: this.poeWindow.bounds.width,
@@ -51,7 +53,9 @@ export class CvWorker {
       };
       scale: number | null;
     },
+    debug?: boolean,
   ) {
+    visionConfig.debug = debug;
     if (
       calibration.bbox.x === null ||
       calibration.bbox.y === null ||
