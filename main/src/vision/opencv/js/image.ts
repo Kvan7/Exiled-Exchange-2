@@ -4,7 +4,7 @@ import {
   PREPROCESSED_ACTIVE_TOME_BG,
   PREPROCESSED_TOME_BG,
 } from "../constants";
-import { Mat, MatVector } from "@techstark/opencv-js";
+import cv from "@techstark/opencv-js";
 
 export async function getActiveTomeBg(requestedSize?: number) {
   return await getFixedSize(PREPROCESSED_ACTIVE_TOME_BG, requestedSize);
@@ -26,7 +26,7 @@ async function getFixedSize(path: string, requestedSize?: number) {
   const img = await getImage(path);
 
   if (requestedSize) {
-    const resized = new Mat();
+    const resized = new cv.Mat();
     cv.resize(img, resized, new cv.Size(requestedSize, requestedSize));
     // clean since returning different one
     img.delete();
@@ -36,7 +36,7 @@ async function getFixedSize(path: string, requestedSize?: number) {
 }
 
 export function preprocess(
-  img: Mat,
+  img: cv.Mat,
   {
     blur = 0,
     hueMin = 0,
@@ -62,9 +62,9 @@ export function preprocess(
   },
 ) {
   // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
-  const hsv = new Mat(); // deleted
+  const hsv = new cv.Mat(); // deleted
   cv.cvtColor(img, hsv, cv.COLOR_BGR2HSV as number);
-  const hsvPlanes = new MatVector(); // deleted
+  const hsvPlanes = new cv.MatVector(); // deleted
   cv.split(hsv, hsvPlanes);
   const h = hsvPlanes.get(0);
   const s = hsvPlanes.get(1);
@@ -74,28 +74,28 @@ export function preprocess(
   s.convertTo(s, s.type(), 1, saturationAdd);
   v.convertTo(v, v.type(), 1, valueAdd);
 
-  const hsv2 = new Mat(); // deleted
+  const hsv2 = new cv.Mat(); // deleted
   cv.merge(hsvPlanes, hsv2);
 
-  const lower = new Mat(hsv2.rows, hsv2.cols, hsv2.type(), [
+  const lower = new cv.Mat(hsv2.rows, hsv2.cols, hsv2.type(), [
     hueMin,
     saturationMin,
     valueMin,
   ]); // deleted
-  const upper = new Mat(hsv2.rows, hsv2.cols, hsv2.type(), [
+  const upper = new cv.Mat(hsv2.rows, hsv2.cols, hsv2.type(), [
     hueMax,
     saturationMax,
     valueMax,
   ]); // deleted
 
-  const mask = new Mat(); // deleted
+  const mask = new cv.Mat(); // deleted
   cv.inRange(hsv2, lower, upper, mask);
 
-  let result = new Mat(); // returned
+  let result = new cv.Mat(); // returned
   cv.copyTo(hsv2, result, mask);
 
   if (blur) {
-    const temp = new Mat(); // deleted
+    const temp = new cv.Mat(); // deleted
     cv.GaussianBlur(result, temp, new cv.Size(blur, blur), 0, 0);
     result.delete();
     result = temp;

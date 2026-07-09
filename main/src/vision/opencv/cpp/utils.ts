@@ -82,6 +82,6 @@ export function createBgMask(num: number) {
     border,
     border,
     cv.BORDER_CONSTANT,
-    1,
+    255,
   );
 }

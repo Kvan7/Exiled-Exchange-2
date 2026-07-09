@@ -7,7 +7,7 @@ const isDev = !process.argv.includes('--prod')
 const electronRunner = (() => {
   let handle = null
   return {
-    restart () {
+    restart() {
       console.info('Restarting Electron process.')
 
       if (handle) handle.kill()
@@ -30,7 +30,7 @@ const mainContext = await esbuild.context({
   bundle: true,
   minify: !isDev,
   platform: 'node',
-  external: ['electron', 'uiohook-napi', 'electron-overlay-window', 'canvas', '@u4/opencv-build', '@u4/opencv4nodejs'],
+  external: ['electron', 'uiohook-napi', 'electron-overlay-window', 'canvas', 'stream', 'jsdom', '@u4/opencv-build', '@u4/opencv4nodejs', '@techstark/opencv-js'],
   outfile: 'dist/main.js',
   define: {
     'process.env.STATIC': (isDev) ? '"../build/icons"' : '"."',
@@ -39,7 +39,7 @@ const mainContext = await esbuild.context({
   },
   plugins: (isDev) ? [{
     name: 'electron-runner',
-    setup (build) {
+    setup(build) {
       build.onEnd((result) => {
         if (!result.errors.length) electronRunner.restart()
       })

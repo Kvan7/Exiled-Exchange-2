@@ -5,12 +5,12 @@ import {
   USUAL_SCALES,
 } from "../constants";
 import { getTomePxSize } from "../common";
-import { Mat, type Rect } from "@techstark/opencv-js";
+import cv from "@techstark/opencv-js";
 import { getTomeBg } from "./image";
 
 function bestScale(
-  img: Mat,
-  needle: Mat,
+  img: cv.Mat,
+  needle: cv.Mat,
   originalH: number,
   scales: number[],
   threshold: number,
@@ -18,11 +18,11 @@ function bestScale(
 ) {
   // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
   let bestScale = startingScale;
-  let bestFound: Rect[] = [];
+  let bestFound: cv.Rect[] = [];
   for (const testScale of scales) {
     const size = getTomePxSize(testScale, originalH);
 
-    const scaledNeedle = new Mat(); // deleted, in loop
+    const scaledNeedle = new cv.Mat(); // deleted, in loop
     cv.resize(needle, scaledNeedle, new cv.Size(size, size));
     const mask = createBgMask(size); // deleted, in loop
     const found = filterMultiple(
@@ -45,7 +45,7 @@ function bestScale(
 }
 
 export async function getImageScale(
-  img: Mat,
+  img: cv.Mat,
   original: { w: number; h: number },
 ) {
   // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE

@@ -35,9 +35,11 @@ export class CvWrapper {
     const cpp = await this._tryCpp();
     if (cpp) {
       this._cv = new CppCvAdapter(cpp);
+      console.log("Using C++ OpenCV adapter");
       return;
     }
     this._cv = new JsCvAdapter((await this._loadJs()).cv);
+    console.log("Using JS OpenCV adapter");
   }
 
   private async _tryCpp(): Promise<typeof openCv | undefined> {

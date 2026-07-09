@@ -37,4 +37,9 @@ export class RuneRecipeFinder {
     const elapsed = performance.now() - start;
     return { elapsed, data: res };
   }
+
+  async doTest(num: number): Promise<number> {
+    console.log("doTest");
+    return await this.cv.testLoaded(num);
+  }
 }

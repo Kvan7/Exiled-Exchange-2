@@ -11,6 +11,7 @@ import {
 import { ACTIVE_TOME_FILTER, NORMAL_TOME_FILTER } from "./constants";
 import { closestRectPos1, filterRecipeRects, getTomePxSize } from "./common";
 import { preprocess } from "./cpp/image";
+import { createBgMask } from "./cpp/utils";
 
 export class CppCvAdapter implements ICvAdapter {
   constructor(private _cv: typeof openCv) {}
@@ -63,6 +64,12 @@ export class CppCvAdapter implements ICvAdapter {
       highlightedSlot,
       tomeCount: recipe.tomeCount,
     };
+  }
+  async testLoaded(num: number): Promise<number> {
+    console.log("testLoaded cpp");
+    const box = createBgMask(num);
+    this._cv.imshow("bgMask", box);
+    return num;
   }
   //#endregion Interface Methods
 

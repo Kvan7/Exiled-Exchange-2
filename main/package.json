@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "node build/script.mjs",
+    "postinstall": "electron-rebuild -f -w @u4/opencv4nodejs",
     "build": "tsc --noEmit && node build/script.mjs --prod",
     "package": "electron-builder build",
     "lint": "eslint src",
@@ -28,6 +29,7 @@
     "uiohook-napi": "1.5.5"
   },
   "devDependencies": {
+    "@electron/rebuild": "^4.1.0",
     "@types/ini": "^4.1.0",
     "@types/node": "22.x.x",
     "@types/ws": "^8.5.3",
@@ -53,7 +55,8 @@
   },
   "overrides": {
     "yauzl": "^3.3.1",
-    "glob": "^13.0.6"
+    "glob": "^13.0.6",
+    "rimraf": "^4.4.1"
   },
   "opencv4nodejs": {
     "disableAutoBuild": "1"

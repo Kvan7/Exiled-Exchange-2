@@ -15,9 +15,9 @@ import {
 import { getImageScale } from "./scale";
 import { getFirstRealXY, getTomePxSize } from "../common";
 import { getActiveTomeBg, getImage, getTomeBg, preprocess } from "./image";
-import { Mat, Rect } from "@techstark/opencv-js";
+import cv from "@techstark/opencv-js";
 
-function filterRectsWithMask(needle: Mat, haystack: Mat) {
+function filterRectsWithMask(needle: cv.Mat, haystack: cv.Mat) {
   // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
   const needleH = needle.rows;
   const needleW = needle.cols;
@@ -44,7 +44,7 @@ function filterRectsWithMask(needle: Mat, haystack: Mat) {
   return rects;
 }
 
-function getXY(needle: Mat, haystack: Mat) {
+function getXY(needle: cv.Mat, haystack: cv.Mat) {
   // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
   const rects = filterRectsWithMask(needle, haystack);
 
@@ -52,10 +52,10 @@ function getXY(needle: Mat, haystack: Mat) {
 }
 
 export async function findBBox(
-  haystack: Mat,
+  haystack: cv.Mat,
   scale: number,
   original: { w: number; h: number },
-): Promise<Rect> {
+): Promise<cv.Rect> {
   // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
   const needle = await getTomeBg(getTomePxSize(scale, original.h)); // deleted
   const { minX, minY } = getXY(needle, haystack);
@@ -91,18 +91,18 @@ export async function findBBox(
 
   needle.delete();
 
-  return new Rect(leftRecipe, topRecipe, recipeWidth, recipeHeight);
+  return new cv.Rect(leftRecipe, topRecipe, recipeWidth, recipeHeight);
 }
 
 export async function findHighlightedTome(
-  haystack: Mat,
+  haystack: cv.Mat,
   tomeSize: number,
-): Promise<Rect> {
+): Promise<cv.Rect> {
   // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
   const needle = await getActiveTomeBg(tomeSize);
   const needleMask = createBgMask(tomeSize);
 
-  const matched = new Mat();
+  const matched = new cv.Mat();
   cv.matchTemplate(
     haystack,
     needle,
@@ -119,9 +119,9 @@ export async function findHighlightedTome(
   return new cv.Rect(topLeft.x, topLeft.y, tomeSize, tomeSize);
 }
 
-export async function calibrateBBox(img: Mat): Promise<{
+export async function calibrateBBox(img: cv.Mat): Promise<{
   scale: number;
-  recipeBBox: Rect;
+  recipeBBox: cv.Rect;
 }> {
   // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
   const originalSizes = { w: img.cols, h: img.rows };
@@ -149,7 +149,7 @@ export async function calibrateBBox(img: Mat): Promise<{
   // just go all the way to left border, since no real reason to crop it out
   return {
     scale,
-    recipeBBox: new Rect(
+    recipeBBox: new cv.Rect(
       0,
       firstRecipeBBox.y,
       firstRecipeBBox.width + firstRecipeBBox.x,
@@ -159,7 +159,7 @@ export async function calibrateBBox(img: Mat): Promise<{
 }
 
 function defaultRecipeBox(originalHeight: number) {
-  return new Rect(
+  return new cv.Rect(
     0,
     originalHeight / RECIPE_TOP_RATIO - EXPECTED_SLOP_Y,
     originalHeight / RECIPE_WIDTH_RATIO +
@@ -170,18 +170,18 @@ function defaultRecipeBox(originalHeight: number) {
 }
 
 export async function determineTomeType(
-  highlightedTomeImg: Mat,
+  highlightedTomeImg: cv.Mat,
   tomeSize: number,
 ) {
   const imgStrip = await getImage(PREPROCESSED_MATCH_LIST);
-  const imgStripResized = new Mat();
+  const imgStripResized = new cv.Mat();
   cv.resize(
     imgStrip,
     imgStripResized,
     new cv.Size(tomeSize * TOMES.length, tomeSize),
   );
 
-  const matched = new Mat();
+  const matched = new cv.Mat();
   cv.matchTemplate(
     imgStripResized,
     highlightedTomeImg,
@@ -199,9 +199,9 @@ export async function determineTomeType(
 }
 
 export async function getNormalRects(
-  haystack: Mat,
+  haystack: cv.Mat,
   tomeSize: number,
-): Promise<Rect[]> {
+): Promise<cv.Rect[]> {
   // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
   const bgImg = await getTomeBg(tomeSize); // deleted
   const bgMask = createBgMask(tomeSize); // deleted

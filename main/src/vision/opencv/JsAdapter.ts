@@ -1,6 +1,5 @@
 import type openCv from "@techstark/opencv-js";
 import type { ICvAdapter } from "./ICvAdapter";
-import type { Mat, Rect } from "@techstark/opencv-js";
 import type { ImageData, CalibrationResult } from "../utils";
 import { getImage, preprocess } from "./js/image";
 import {
@@ -10,6 +9,7 @@ import {
 } from "./js/detects";
 import { filterRecipeRects, getTomePxSize } from "./common";
 import { ACTIVE_TOME_FILTER } from "./constants";
+import { createBgMask } from "./js/utils";
 
 export class JsCvAdapter implements ICvAdapter {
   constructor(private _cv: typeof openCv) {}
@@ -67,13 +67,22 @@ export class JsCvAdapter implements ICvAdapter {
       firstRecipe.delete();
     }
   }
+  async testLoaded(num: number): Promise<number> {
+    console.log("testLoaded js");
+    const box = createBgMask(num);
+    console.log(box.rows, box.cols);
+    console.log(box.data);
 
+    box.delete();
+    return num;
+  }
   //#endregion Interface Methods
+
   //#region Private Methods
   private async getHighlighted(
-    firstRecipe: Mat,
+    firstRecipe: openCv.Mat,
     tomeSize: number,
-  ): Promise<{ highlightedRect: Rect; highlightedTomeType: string }> {
+  ): Promise<{ highlightedRect: openCv.Rect; highlightedTomeType: string }> {
     // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
     const recipeProcessedForHighlight = preprocess(
       firstRecipe,
@@ -98,7 +107,10 @@ export class JsCvAdapter implements ICvAdapter {
     };
   }
 
-  private getNormalRects(firstRecipe: Mat, tomeSize: number): Rect[] {
+  private getNormalRects(
+    firstRecipe: openCv.Mat,
+    tomeSize: number,
+  ): openCv.Rect[] {
     // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
     throw new Error("Method not implemented.");
   }

@@ -1,15 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unsafe-type-assertion -- a */
-import * as cv from "@techstark/opencv-js";
-import { Rect, Mat } from "@techstark/opencv-js";
+import cv from "@techstark/opencv-js";
 import assert from "node:assert";
 
-export function cropToTopLeft(img: Mat) {
+export function cropToTopLeft(img: cv.Mat) {
   // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
   // caller owns both img and result
   const screenshotH = img.rows;
   const screenshotW = img.cols;
   return img.roi(
-    new Rect(
+    new cv.Rect(
       0,
       0,
       Math.floor(screenshotW * 0.25),
@@ -19,7 +18,7 @@ export function cropToTopLeft(img: Mat) {
 }
 
 function thresholdResults(
-  results: Mat,
+  results: cv.Mat,
   threshold: number,
   needleWidth: number,
   needleHeight: number,
@@ -32,8 +31,8 @@ function thresholdResults(
     for (let x = 0; x < results.cols; x++) {
       const match = results.ucharAt(y, x);
       if (match >= threshold) {
-        matches.push(new Rect(x, y, needleWidth, needleHeight));
-        matches.push(new Rect(x, y, needleWidth, needleHeight));
+        matches.push(new cv.Rect(x, y, needleWidth, needleHeight));
+        matches.push(new cv.Rect(x, y, needleWidth, needleHeight));
       }
     }
   }
@@ -42,15 +41,15 @@ function thresholdResults(
 }
 
 export function filterMultiple(
-  haystack: Mat,
-  needle: Mat,
+  haystack: cv.Mat,
+  needle: cv.Mat,
   threshold: number,
   needleWidth: number,
   needleHeight: number,
-  mask?: Mat,
+  mask?: cv.Mat,
 ) {
   // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
-  const matched = new Mat(); // deleted
+  const matched = new cv.Mat(); // deleted
   if (mask) {
     cv.matchTemplate(
       haystack,
@@ -81,7 +80,7 @@ export function createBgMask(num: number) {
   const border = Math.round(num * 0.15);
   const innerSize = num - border * 2;
   const zeros = cv.Mat.zeros(innerSize, innerSize, cv.CV_8UC1 as number); // deleted
-  const res = new Mat(); // returned
+  const res = new cv.Mat(); // returned
   cv.copyMakeBorder(
     zeros,
     res,
@@ -90,7 +89,7 @@ export function createBgMask(num: number) {
     border,
     border,
     cv.BORDER_CONSTANT as number,
-    1,
+    [255, 255, 255, 255],
   );
 
   zeros.delete();

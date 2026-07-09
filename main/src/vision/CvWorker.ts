@@ -73,4 +73,8 @@ export class CvWorker {
     );
     return result;
   }
+
+  async doTest(num: number): Promise<number> {
+    return await this.runeFinder.doTest(num);
+  }
 }
