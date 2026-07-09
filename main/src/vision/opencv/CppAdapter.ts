@@ -19,7 +19,7 @@ export class CppCvAdapter implements ICvAdapter {
   //#region Interface Methods
   async calibrate(screenshot: ImageData): Promise<CalibrationResult> {
     console.log("calibrate cpp");
-    const img = await this.loadImage(Buffer.from(screenshot.data));
+    const img = await this.loadImage(screenshot);
     const { scale, recipeBBox } = calibrateBBox(img);
     return {
       bbox: recipeBBox,
@@ -35,7 +35,7 @@ export class CppCvAdapter implements ICvAdapter {
     tomeCount: number;
   }> {
     console.log("findRecipeId cpp");
-    const img = await this.loadImage(Buffer.from(screenshot.data));
+    const img = await this.loadImage(screenshot);
     const { bbox, scale } = calibration;
     const tomeSize = getTomePxSize(scale, img.rows);
     const firstRecipe = img.getRegion(
@@ -74,12 +74,19 @@ export class CppCvAdapter implements ICvAdapter {
   //#endregion Interface Methods
 
   //#region Private Methods
-  private async loadImage(input: string | Buffer): Promise<Mat> {
+  private async loadImage(input: string | ImageData): Promise<Mat> {
     let mat: Mat;
+    console.log(input);
     if (typeof input === "string") {
       mat = this._cv.imread(input, this._cv.IMREAD_UNCHANGED);
     } else {
-      mat = this._cv.imdecode(input, this._cv.IMREAD_UNCHANGED);
+      // mat = this._cv.imdecode(input, this._cv.IMREAD_UNCHANGED);
+      mat = new this._cv.Mat(
+        Buffer.from(input.data),
+        input.width,
+        input.height,
+        this._cv.CV_8UC4,
+      );
     }
     return mat;
   }

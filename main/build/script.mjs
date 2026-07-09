@@ -37,6 +37,7 @@ const mainContext = await esbuild.context({
     'process.env.GENERATED': (isDev) ? '"../build/generated"' : '"."',
     'process.env.VITE_DEV_SERVER_URL': (isDev) ? '"http://localhost:5173"' : 'null'
   },
+  sourcemap: isDev,
   plugins: (isDev) ? [{
     name: 'electron-runner',
     setup(build) {
