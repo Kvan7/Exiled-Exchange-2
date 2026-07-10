@@ -315,7 +315,8 @@
     "height": "Height:",
     "remnants_bounding_box": "Bounding Box for Runeshape Combinations",
     "remnants_bounding_box_help": "Should encompass the top row recipe. To auto-calibrate, have the reward window open, click \"Calibrate\", click off of the settings menu(don't click save or cancel yet), after 5 seconds open settings again and the values should be filled in.",
-    "calibrate": "Calibrate"
+    "calibrate": "Calibrate",
+    "scale": "Scale"
   },
   "map_check": {
     "name": "Map check",

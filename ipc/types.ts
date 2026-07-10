@@ -203,7 +203,7 @@ type IpcCvCalibration = Event<
 type IpcCvCalibrationResult = Event<
   "MAIN->CLIENT::cv-calibration-result",
   | {
-      target: "success";
+      target: "remnants";
       pressTime: number;
       cvTime: number;
       data: {

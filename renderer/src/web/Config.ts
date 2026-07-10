@@ -824,6 +824,7 @@ function getConfigForHost(): HostConfig {
             target: "remnants",
             bbox: itemSearch.boundingBoxes.remnants,
             scale: itemSearch.scale,
+            debug: false,
           },
         });
       }

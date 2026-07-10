@@ -259,6 +259,17 @@ export class Shortcuts {
                 entry.action.debug,
               )
               .then((result) => {
+                if (typeof result === "string") {
+                  this.server.sendEventTo("last-active", {
+                    name: "MAIN->CLIENT::computer-vision",
+                    payload: {
+                      target: "error",
+                      error: result,
+                    },
+                  });
+                  return;
+                }
+
                 this.server.sendEventTo("last-active", {
                   name: "MAIN->CLIENT::computer-vision",
                   payload: {

@@ -4,15 +4,11 @@ import type { CalibrationResult, ImageData } from "./utils";
 
 interface RecipeResult {
   elapsed: number;
-  data:
-    | {
-        highlightedTome: string;
-        highlightedSlot: number;
-        tomeCount: number;
-      }
-    | {
-        error: string;
-      };
+  data: {
+    highlightedTome: string;
+    highlightedSlot: number;
+    tomeCount: number;
+  };
 }
 
 export class RuneRecipeFinder {

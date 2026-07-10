@@ -273,7 +273,12 @@ const { items: starred, addItem, clearItems } = useSelectedItems();
 const typeFilter = shallowRef<"gem" | "unique" | "base_item">("base_item");
 
 Host.onEvent("MAIN->CLIENT::computer-vision", (e) => {
-  if (e.target !== "remnants") return;
+  if (e.target !== "remnants" && e.target !== "error") return;
+  if (e.target === "error") {
+    showTimeout.value?.reset();
+    props.config.wmFlags = [];
+    return;
+  }
 
   console.log(`Duration: ${e.pressTime - e.cvTime}`);
   console.log(e.data);

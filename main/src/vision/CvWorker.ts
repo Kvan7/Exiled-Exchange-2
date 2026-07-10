@@ -24,12 +24,8 @@ export class CvWorker {
           this.server.sendEventTo("last-active", {
             name: "MAIN->CLIENT::cv-calibration-result",
             payload: {
-              target: "remnants",
-              pressTime,
-              cvTime: 0,
-              data: {
-                error: "no image found",
-              },
+              target: "error",
+              error: "no image found",
             },
           });
           return;
@@ -50,7 +46,10 @@ export class CvWorker {
             target: "remnants",
             pressTime,
             cvTime,
-            data: runeBBox,
+            data: {
+              bbox: runeBBox.bbox,
+              scale: runeBBox.scale,
+            },
           },
         });
       })().catch(console.error);
@@ -69,15 +68,11 @@ export class CvWorker {
     },
     debug?: boolean,
   ) {
+    console.log(calibration);
     const screenshot = await this.poeWindow.screenshot();
     if (!screenshot) {
       this.logger.write("info [CvWorker] No screenshot found");
-      return {
-        elapsed: 0,
-        data: {
-          error: "no screenshot found",
-        },
-      };
+      return "no screenshot found";
     }
     const image = {
       width: this.poeWindow.bounds.width,

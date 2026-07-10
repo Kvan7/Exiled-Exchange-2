@@ -3,6 +3,15 @@
     <HotkeysGeneric :hotkeys="hotkeys" />
     <div class="flex flex-col mb-4">
       <div class="flex-1 flex gap-2 mb-2">
+        <label class="flex-1">{{ t(":scale") }}</label>
+        <input
+          v-model.number="cvScale"
+          class="rounded bg-gray-900 px-1 block w-12 font-sans"
+          placeholder="0"
+        />
+      </div>
+
+      <div class="flex-1 flex gap-2 mb-2">
         <label class="flex-1">{{ t(":remnants_bounding_box") }}</label>
         <svg
           v-if="calibrating !== null && calibrating === 0"
@@ -58,9 +67,10 @@
           placeholder="0"
         />
       </div>
-      <div class="italic text-gray-500 mb-4">
+
+      <!-- <div class="italic text-gray-500 mb-4">
         {{ t(":remnants_bounding_box_help") }}
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -71,6 +81,7 @@ import {
   configProp,
   _configModelValue,
   findWidget,
+  configModelValue,
 } from "../settings/utils.js";
 import { ItemSearchWidget } from "./widget.js";
 import HotkeysGeneric from "../settings/HotkeysGeneric.vue";
@@ -92,18 +103,18 @@ export default defineComponent({
     );
 
     MainProcess.onEvent("MAIN->CLIENT::cv-calibration-result", (e) => {
-      if (e.target !== "success") {
+      if (e.target !== "remnants") {
         console.log(e.error);
         return;
       }
 
       configItemSearchWidget.value.boundingBoxes.remnants = {
-        x: e.data.bbox.x,
-        y: e.data.bbox.y,
-        width: e.data.bbox.width,
-        height: e.data.bbox.height,
+        x: Math.round(e.data.bbox.x),
+        y: Math.round(e.data.bbox.y),
+        width: Math.round(e.data.bbox.width),
+        height: Math.round(e.data.bbox.height),
       };
-      configItemSearchWidget.value.scale = e.data.scale;
+      configItemSearchWidget.value.scale = Math.round(e.data.scale * 100) / 100;
       console.log(e);
 
       calibrating.value = null;
@@ -124,18 +135,23 @@ export default defineComponent({
     return {
       t,
       hotkeys,
-      remnantsCvX: computed(
-        () => configItemSearchWidget.value.boundingBoxes.remnants.x,
+      remnantsCvX: configModelValue(
+        () => configItemSearchWidget.value.boundingBoxes.remnants,
+        "x",
       ),
-      remnantsCvY: computed(
-        () => configItemSearchWidget.value.boundingBoxes.remnants.y,
+      remnantsCvY: configModelValue(
+        () => configItemSearchWidget.value.boundingBoxes.remnants,
+        "y",
       ),
-      remnantsCvWidth: computed(
-        () => configItemSearchWidget.value.boundingBoxes.remnants.width,
+      remnantsCvWidth: configModelValue(
+        () => configItemSearchWidget.value.boundingBoxes.remnants,
+        "width",
       ),
-      remnantsCvHeight: computed(
-        () => configItemSearchWidget.value.boundingBoxes.remnants.height,
+      remnantsCvHeight: configModelValue(
+        () => configItemSearchWidget.value.boundingBoxes.remnants,
+        "height",
       ),
+      cvScale: configModelValue(() => configItemSearchWidget.value, "scale"),
       calibrating,
       calibrate: (target: string) => {
         if (calibrating.value !== null) return;
