@@ -44,24 +44,19 @@ export const RECIPE_LEFT_RATIO = 21.1;
 export const RECIPE_WIDTH_RATIO = 2.19;
 export const RECIPE_HEIGHT_RATIO = 26.6;
 
-export const GENERATED_DIR = "./generated/";
-
 export const PREPROCESSED_TOME_BG = path.join(
   __dirname,
   process.env.GENERATED!,
-  GENERATED_DIR,
   "bg.png",
 );
 export const PREPROCESSED_ACTIVE_TOME_BG = path.join(
   __dirname,
   process.env.GENERATED!,
-  GENERATED_DIR,
   "active_bg.png",
 );
 export const PREPROCESSED_MATCH_LIST = path.join(
   __dirname,
   process.env.GENERATED!,
-  GENERATED_DIR,
   "match_list.png",
 );
 

@@ -46,7 +46,7 @@ export function getImageScale(img: cv.Mat, original: { w: number; h: number }) {
     needle,
     original.h,
     USUAL_SCALES,
-    0.65,
+    0.7,
   );
   console.log(`First scale guess: ${firstScale} [${firstRects.length}]`);
 

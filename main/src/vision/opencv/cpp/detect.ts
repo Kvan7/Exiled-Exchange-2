@@ -1,5 +1,10 @@
 import * as cv from "@u4/opencv4nodejs";
-import { createBgMask, cropToTopLeft, filterMultiple } from "./utils";
+import {
+  createBgMask,
+  cropToTopLeft,
+  drawRects,
+  filterMultiple,
+} from "./utils";
 import assert from "node:assert";
 import {
   EXPECTED_SLOP_X,
@@ -109,18 +114,30 @@ export function calibrateBBox(img: cv.Mat): {
   const processedScreenshot = preprocess(cropped, NORMAL_TOME_FILTER);
 
   let scale = 1;
+  let hasError = false;
   try {
     scale = getImageScale(processedScreenshot, originalSizes);
   } catch (error) {
     console.log(error);
+    hasError = true;
   }
 
   let firstRecipeBBox = defaultRecipeBox(originalSizes.h);
   try {
-    firstRecipeBBox = findBBox(processedScreenshot, scale, originalSizes);
+    if (!hasError) {
+      firstRecipeBBox = findBBox(processedScreenshot, scale, originalSizes);
+    }
   } catch (error) {
     console.log(error);
+    hasError = true;
   }
+  if (hasError) {
+    console.log("error");
+  }
+  const withBox = drawRects(processedScreenshot, [firstRecipeBBox]);
+  cv.imshow("withBox", withBox);
+  cv.waitKey(0);
+  cv.destroyAllWindows();
 
   // just go all the way to left border, since no real reason to crop it out
   return {
