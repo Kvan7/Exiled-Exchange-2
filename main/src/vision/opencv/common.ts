@@ -80,7 +80,7 @@ export function getFirstRealXY(rects: IRect[]) {
     }
   }
   if (
-    recountedRows[maxI].ySum / recountedRows[maxI].len >
+    recountedRows[maxI].ySum / recountedRows[maxI].len <
     rows[likelyFirstRowIndex].ySum / rows[likelyFirstRowIndex].rects.length
   ) {
     likelyFirstRowIndex = maxI;

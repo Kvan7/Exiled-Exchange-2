@@ -18,7 +18,6 @@ export class CppCvAdapter implements ICvAdapter {
 
   //#region Interface Methods
   async calibrate(screenshot: ImageData): Promise<CalibrationResult> {
-    console.log("calibrate cpp");
     const img = await this.loadImage(screenshot);
     const { scale, recipeBBox } = calibrateBBox(img);
     return {
@@ -34,7 +33,6 @@ export class CppCvAdapter implements ICvAdapter {
     highlightedSlot: number;
     tomeCount: number;
   }> {
-    console.log("findRecipeId cpp");
     const img = await this.loadImage(screenshot);
     const { bbox, scale } = calibration;
     const tomeSize = getTomePxSize(scale, img.rows);
@@ -66,7 +64,6 @@ export class CppCvAdapter implements ICvAdapter {
     };
   }
   async testLoaded(num: number, data?: ImageData): Promise<number> {
-    console.log("testLoaded cpp");
     if (data) {
       const img = await this.loadImage(data);
       this._cv.imshow("testLoaded", img);
@@ -80,7 +77,6 @@ export class CppCvAdapter implements ICvAdapter {
   //#region Private Methods
   private async loadImage(input: string | ImageData): Promise<Mat> {
     let mat: Mat;
-    console.log(input);
     if (typeof input === "string") {
       mat = this._cv.imread(input, this._cv.IMREAD_UNCHANGED);
     } else {

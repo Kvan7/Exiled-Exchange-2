@@ -1,4 +1,14 @@
 <template>
+  <Teleport to="body">
+    <div
+      class="fixed border border-red-600 box-border"
+      :style="{
+        left: `${(remnantsCvX ?? 0) / electronScale}px`,
+        top: `${(remnantsCvY ?? 0) / electronScale}px`,
+        width: `${(remnantsCvWidth ?? 0) / electronScale}px`,
+        height: `${(remnantsCvHeight ?? 0) / electronScale}px`,
+      }"
+  /></Teleport>
   <div class="flex flex-col gap-4 p-2 max-w-md">
     <HotkeysGeneric :hotkeys="hotkeys" />
     <div class="flex flex-col mb-4">
@@ -97,6 +107,7 @@ export default defineComponent({
   props: configProp(),
   setup(props) {
     const calibrating = shallowRef<number | null>(null);
+    const electronScale = window.devicePixelRatio;
 
     const configItemSearchWidget = computed(
       () => findWidget<ItemSearchWidget>("item-search", props.config)!,
@@ -135,6 +146,7 @@ export default defineComponent({
     return {
       t,
       hotkeys,
+      electronScale,
       remnantsCvX: configModelValue(
         () => configItemSearchWidget.value.boundingBoxes.remnants,
         "x",
