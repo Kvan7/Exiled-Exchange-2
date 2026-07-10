@@ -65,8 +65,12 @@ export class CppCvAdapter implements ICvAdapter {
       tomeCount: recipe.tomeCount,
     };
   }
-  async testLoaded(num: number): Promise<number> {
+  async testLoaded(num: number, data?: ImageData): Promise<number> {
     console.log("testLoaded cpp");
+    if (data) {
+      const img = await this.loadImage(data);
+      this._cv.imshow("testLoaded", img);
+    }
     const box = createBgMask(num);
     this._cv.imshow("bgMask", box);
     return num;

@@ -252,16 +252,9 @@ export class Shortcuts {
             if (process.platform !== "win32") return;
 
             const pressTime = Date.now();
-            const imageData = this.poeWindow.screenshot();
-            console.log(imageData);
 
             this.cvWorker
               .findRuneRecipe(
-                {
-                  width: this.poeWindow.bounds.width,
-                  height: this.poeWindow.bounds.height,
-                  data: imageData,
-                },
                 { bbox: entry.action.bbox, scale: entry.action.scale },
                 entry.action.debug,
               )
@@ -272,11 +265,7 @@ export class Shortcuts {
                     target: "remnants",
                     pressTime,
                     cvTime: result.elapsed,
-                    data: {
-                      tomeCount: 0,
-                      highlightedSlot: 0,
-                      highlightedTome: "",
-                    },
+                    data: result.data,
                   },
                 });
               })

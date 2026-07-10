@@ -10,5 +10,5 @@ export interface ICvAdapter {
     highlightedSlot: number;
     tomeCount: number;
   }>;
-  testLoaded: (num: number) => Promise<number>;
+  testLoaded: (num: number, data?: ImageData) => Promise<number>;
 }

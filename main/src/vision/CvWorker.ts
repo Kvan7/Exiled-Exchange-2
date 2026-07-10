@@ -3,7 +3,7 @@ import type { ServerEvents } from "../server";
 import type { GameWindow } from "../windowing/GameWindow";
 import { visionConfig } from "./config";
 import { RuneRecipeFinder } from "./RuneRecipeFinder";
-import type { CalibrationResult, ImageData } from "./utils";
+import type { CalibrationResult } from "./utils";
 
 export class CvWorker {
   private runeFinder: RuneRecipeFinder;
@@ -19,7 +19,22 @@ export class CvWorker {
       (async () => {
         if (e.target !== "remnants") return;
         const pressTime = Date.now();
-        const imageData = this.poeWindow.screenshot();
+        const imageData = await this.poeWindow.screenshot();
+        if (!imageData) {
+          this.server.sendEventTo("last-active", {
+            name: "MAIN->CLIENT::cv-calibration-result",
+            payload: {
+              target: "remnants",
+              pressTime,
+              cvTime: 0,
+              data: {
+                error: "no image found",
+              },
+            },
+          });
+          return;
+        }
+
         visionConfig.debug = e.debug;
 
         const runeBBox = await this.runeFinder.calibrate({
@@ -43,7 +58,6 @@ export class CvWorker {
   }
 
   async findRuneRecipe(
-    screenshot: ImageData,
     calibration: {
       bbox: {
         x: number | null;
@@ -55,6 +69,22 @@ export class CvWorker {
     },
     debug?: boolean,
   ) {
+    const screenshot = await this.poeWindow.screenshot();
+    if (!screenshot) {
+      this.logger.write("info [CvWorker] No screenshot found");
+      return {
+        elapsed: 0,
+        data: {
+          error: "no screenshot found",
+        },
+      };
+    }
+    const image = {
+      width: this.poeWindow.bounds.width,
+      height: this.poeWindow.bounds.height,
+      data: screenshot,
+    };
+
     visionConfig.debug = debug;
     if (
       calibration.bbox.x === null ||
@@ -64,14 +94,14 @@ export class CvWorker {
     ) {
       this.logger.write("info [CvWorker] Bounding box Calibrating");
 
-      calibration = await this.runeFinder.calibrate(screenshot);
+      calibration = await this.runeFinder.calibrate(image);
       this.logger.write(
         `info [CvWorker] Bounding box calibrated to (${calibration.bbox.x}, ${calibration.bbox.y}), (${calibration.bbox.width}, ${calibration.bbox.height}), scale: ${calibration.scale}`,
       );
     }
 
     const result = await this.runeFinder.findRecipeId(
-      screenshot,
+      image,
       // eslint-disable-next-line @typescript-eslint/no-unsafe-type-assertion -- cast is safe, checked if any null above
       calibration as CalibrationResult,
     );
@@ -79,6 +109,12 @@ export class CvWorker {
   }
 
   async doTest(num: number): Promise<number> {
-    return await this.runeFinder.doTest(num);
+    console.log("doTest - taking screenshot");
+    const img = await this.poeWindow.screenshot();
+    return await this.runeFinder.doTest(num, {
+      width: 3840,
+      height: 2108,
+      data: img!,
+    });
   }
 }

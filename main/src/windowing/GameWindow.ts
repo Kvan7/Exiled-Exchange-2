@@ -1,4 +1,4 @@
-import type { BrowserWindow } from "electron";
+import { desktopCapturer, type BrowserWindow } from "electron";
 import { EventEmitter } from "node:events";
 import { OverlayController, type AttachEvent } from "electron-overlay-window";
 
@@ -10,6 +10,7 @@ export interface GameWindow {
 export class GameWindow extends EventEmitter {
   private _isActive = false;
   private _isTracking = false;
+  private _title: string | undefined = undefined;
 
   get bounds() {
     return OverlayController.targetBounds;
@@ -33,6 +34,7 @@ export class GameWindow extends EventEmitter {
   }
 
   attach(window: BrowserWindow | undefined, title: string) {
+    this._title = title;
     if (!this._isTracking) {
       OverlayController.events.on("focus", () => {
         this.isActive = true;
@@ -53,7 +55,24 @@ export class GameWindow extends EventEmitter {
     });
   }
 
-  screenshot() {
-    return OverlayController.screenshot();
+  async screenshot() {
+    if (process.platform === "win32") {
+      return OverlayController.screenshot();
+    }
+
+    const b = OverlayController.targetBounds;
+
+    console.log(b);
+
+    const sources = await desktopCapturer.getSources({
+      types: ["window"],
+      thumbnailSize: b,
+      fetchWindowIcons: false,
+    });
+    const windowSource = sources.find((s) => s.name === this._title);
+    console.log(windowSource);
+    console.log(windowSource?.thumbnail.getSize());
+
+    return windowSource?.thumbnail.toBitmap();
   }
 }

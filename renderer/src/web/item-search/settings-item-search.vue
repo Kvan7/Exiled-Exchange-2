@@ -92,13 +92,18 @@ export default defineComponent({
     );
 
     MainProcess.onEvent("MAIN->CLIENT::cv-calibration-result", (e) => {
-      if (e.target !== "remnants") return;
+      if (e.target !== "success") {
+        console.log(e.error);
+        return;
+      }
+
       configItemSearchWidget.value.boundingBoxes.remnants = {
-        x: e.data.x,
-        y: e.data.y,
-        width: e.data.width,
-        height: e.data.height,
+        x: e.data.bbox.x,
+        y: e.data.bbox.y,
+        width: e.data.bbox.width,
+        height: e.data.bbox.height,
       };
+      configItemSearchWidget.value.scale = e.data.scale;
       console.log(e);
 
       calibrating.value = null;
@@ -152,6 +157,7 @@ export default defineComponent({
               name: "CLIENT->MAIN::cv-calibration",
               payload: {
                 target,
+                debug: false,
               },
             });
           }

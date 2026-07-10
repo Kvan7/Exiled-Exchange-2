@@ -4,11 +4,15 @@ import type { CalibrationResult, ImageData } from "./utils";
 
 interface RecipeResult {
   elapsed: number;
-  data: {
-    highlightedTome: string;
-    highlightedSlot: number;
-    tomeCount: number;
-  };
+  data:
+    | {
+        highlightedTome: string;
+        highlightedSlot: number;
+        tomeCount: number;
+      }
+    | {
+        error: string;
+      };
 }
 
 export class RuneRecipeFinder {
@@ -38,8 +42,8 @@ export class RuneRecipeFinder {
     return { elapsed, data: res };
   }
 
-  async doTest(num: number): Promise<number> {
+  async doTest(num: number, data?: ImageData): Promise<number> {
     console.log("doTest");
-    return await this.cv.testLoaded(num);
+    return await this.cv.testLoaded(num, data);
   }
 }

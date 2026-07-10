@@ -202,34 +202,42 @@ type IpcCvCalibration = Event<
 
 type IpcCvCalibrationResult = Event<
   "MAIN->CLIENT::cv-calibration-result",
-  {
-    target: string;
-    pressTime: number;
-    cvTime: number;
-    data: {
-      bbox: {
-        x: number;
-        y: number;
-        width: number;
-        height: number;
+  | {
+      target: "success";
+      pressTime: number;
+      cvTime: number;
+      data: {
+        bbox: {
+          x: number;
+          y: number;
+          width: number;
+          height: number;
+        };
+        scale: number;
       };
-      scale: number;
-    };
-  }
+    }
+  | {
+      target: "error";
+      error: string;
+    }
 >;
 
 type IpcCvSearchResult = Event<
   "MAIN->CLIENT::computer-vision",
-  {
-    target: "remnants";
-    pressTime: number;
-    cvTime: number;
-    data: {
-      tomeCount: number;
-      highlightedSlot: number;
-      highlightedTome: string;
-    };
-  }
+  | {
+      target: "remnants";
+      pressTime: number;
+      cvTime: number;
+      data: {
+        tomeCount: number;
+        highlightedSlot: number;
+        highlightedTome: string;
+      };
+    }
+  | {
+      target: "error";
+      error: string;
+    }
 >;
 
 type IpcGameLog = Event<
