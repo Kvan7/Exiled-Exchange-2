@@ -1,7 +1,7 @@
 import type openCv from "@techstark/opencv-js";
 import type { ICvAdapter } from "./ICvAdapter";
 import type { ImageData, CalibrationResult } from "../utils";
-import { getImage, preprocess, saveImage } from "./js/image";
+import { getImage, preprocess } from "./js/image";
 import {
   calibrateBBox,
   determineTomeType,

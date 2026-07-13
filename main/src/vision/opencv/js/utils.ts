@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-type-assertion -- a */
 import cv from "@techstark/opencv-js";
 import assert from "node:assert";
-import { saveImage } from "./image";
 
 export function cropToTopLeft(img: cv.Mat) {
   // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
@@ -67,12 +66,9 @@ export function filterMultiple(
   const matched = new cv.Mat(); // deleted
 
   // dumpMat("haystack", haystack);
-  // saveImage(haystack, "./haystack.png");
   // dumpMat("needle", needle);
-  // saveImage(needle, "./needle.png");
   if (mask) {
     // dumpMat("mask", mask);
-    // saveImage(mask, "./mask.png");
 
     cv.matchTemplate(
       haystack,

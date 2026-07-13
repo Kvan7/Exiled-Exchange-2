@@ -14,13 +14,7 @@ import {
 } from "../constants";
 import { getImageScale } from "./scale";
 import { getFirstRealXY, getTomePxSize } from "../common";
-import {
-  getActiveTomeBg,
-  getImage,
-  getTomeBg,
-  preprocess,
-  saveImage,
-} from "./image";
+import { getActiveTomeBg, getImage, getTomeBg, preprocess } from "./image";
 import cv from "@techstark/opencv-js";
 
 function filterRectsWithMask(needle: cv.Mat, haystack: cv.Mat) {
@@ -117,7 +111,8 @@ export async function findHighlightedTome(
     needleMask,
   );
 
-  const { maxLoc: topLeft } = cv.minMaxLoc(matched, needleMask);
+  // @ts-expect-error OpenCV typings are incorrect
+  const { maxLoc: topLeft } = cv.minMaxLoc(matched);
 
   needle.delete();
   needleMask.delete();
@@ -198,7 +193,9 @@ export async function determineTomeType(
     matched,
     cv.TM_CCOEFF_NORMED as number,
   );
-  const { maxLoc } = cv.minMaxLoc(matched, null);
+
+  // @ts-expect-error OpenCV typings are incorrect
+  const { maxLoc } = cv.minMaxLoc(matched);
   const foundIndex = Math.floor(maxLoc.x / tomeSize);
 
   imgStrip.delete();

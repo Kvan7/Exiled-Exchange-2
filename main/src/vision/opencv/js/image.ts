@@ -6,7 +6,7 @@ import {
 import cv from "@techstark/opencv-js";
 import fs from "node:fs/promises";
 import { Jimp } from "jimp";
-import { dumpMat, matTypeToString } from "./utils";
+import { matTypeToString } from "./utils";
 
 export async function getActiveTomeBg(requestedSize?: number) {
   return await getFixedSize(PREPROCESSED_ACTIVE_TOME_BG, requestedSize);
