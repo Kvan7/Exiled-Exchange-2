@@ -65,11 +65,7 @@ export function filterMultiple(
   // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
   const matched = new cv.Mat(); // deleted
 
-  // dumpMat("haystack", haystack);
-  // dumpMat("needle", needle);
   if (mask) {
-    // dumpMat("mask", mask);
-
     cv.matchTemplate(
       haystack,
       needle,
@@ -80,7 +76,6 @@ export function filterMultiple(
   } else {
     cv.matchTemplate(haystack, needle, matched, cv.TM_CCOEFF_NORMED as number);
   }
-  // dumpMat("matched", matched);
 
   const { matches, weights } = thresholdResults(
     matched,

@@ -127,10 +127,8 @@ export async function calibrateBBox(img: cv.Mat): Promise<{
   // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
   const originalSizes = { w: img.cols, h: img.rows };
   const cropped = cropToTopLeft(img); // deleted
-  // saveImage(cropped, "./cropped.png");
 
   const processedScreenshot = preprocess(cropped, NORMAL_TOME_FILTER); // deleted
-  // saveImage(processedScreenshot, "./processed.png");
 
   let scale = 1;
   try {

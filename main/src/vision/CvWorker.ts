@@ -68,7 +68,6 @@ export class CvWorker {
     },
     debug?: boolean,
   ) {
-    console.log(calibration);
     const screenshot = await this.poeWindow.screenshot();
     if (!screenshot) {
       this.logger.write("info [CvWorker] No screenshot found");

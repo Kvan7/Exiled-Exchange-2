@@ -29,26 +29,15 @@ export async function getImage(
       image.bitmap.data,
     );
     cv.cvtColor(img, img, cv.COLOR_RGBA2BGR as number);
-    // if (input.includes("bg.png")) {
-    //   saveImage(img, "./BGBGBG.png");
-    // }
-    // console.log(`DATA FOR ${input} at x0y0`);
-    // console.log(img.ucharPtr(0, 0));
   } else {
     img = cv.matFromArray(input.height, input.width, cv.CV_8UC4, input.data);
   }
-
-  // const rgb = new cv.Mat();
-  // cv.cvtColor(img, rgb, cv.COLOR_BGRA2BGR as number);
-  // img.delete();
-  // dumpMat("img", img);
 
   return img;
 }
 
 export async function saveImage(img: cv.Mat, path: string) {
   const rgba = new cv.Mat(); // deleted
-  // console.log(`${path} as ${matTypeToString(img)}`);
 
   if (img.channels() === 4) {
     cv.cvtColor(img, rgba, cv.COLOR_BGRA2RGBA as number);
@@ -71,8 +60,6 @@ export async function saveImage(img: cv.Mat, path: string) {
 async function getFixedSize(path: string, requestedSize?: number) {
   // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
   const img = await getImage(path);
-  // drop alpha channel
-  // cv.cvtColor(img, img, cv.COLOR_BGRA2BGR as number);
 
   if (requestedSize) {
     const resized = new cv.Mat();
