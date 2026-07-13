@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-type-assertion -- dont care */
-import { loadImage } from "canvas";
 import {
   PREPROCESSED_ACTIVE_TOME_BG,
   PREPROCESSED_TOME_BG,
 } from "../constants";
 import cv from "@techstark/opencv-js";
+import fs from "node:fs/promises";
+import { Jimp } from "jimp";
+import { dumpMat, matTypeToString } from "./utils";
 
 export async function getActiveTomeBg(requestedSize?: number) {
   return await getFixedSize(PREPROCESSED_ACTIVE_TOME_BG, requestedSize);
@@ -14,16 +16,64 @@ export async function getTomeBg(requestedSize?: number) {
   return await getFixedSize(PREPROCESSED_TOME_BG, requestedSize);
 }
 
-export async function getImage(input: string | Buffer) {
-  const image = await loadImage(input);
+export async function getImage(
+  input: string | { data: Buffer; width: number; height: number },
+) {
+  let img: cv.Mat;
 
-  const img = cv.imread(image as unknown as HTMLImageElement);
+  if (typeof input === "string") {
+    const image = await Jimp.read(input);
+    img = cv.matFromArray(
+      image.height,
+      image.width,
+      cv.CV_8UC4,
+      image.bitmap.data,
+    );
+    cv.cvtColor(img, img, cv.COLOR_RGBA2BGR as number);
+    // if (input.includes("bg.png")) {
+    //   saveImage(img, "./BGBGBG.png");
+    // }
+    // console.log(`DATA FOR ${input} at x0y0`);
+    // console.log(img.ucharPtr(0, 0));
+  } else {
+    img = cv.matFromArray(input.height, input.width, cv.CV_8UC4, input.data);
+  }
+
+  // const rgb = new cv.Mat();
+  // cv.cvtColor(img, rgb, cv.COLOR_BGRA2BGR as number);
+  // img.delete();
+  // dumpMat("img", img);
+
   return img;
+}
+
+export async function saveImage(img: cv.Mat, path: string) {
+  const rgba = new cv.Mat(); // deleted
+  // console.log(`${path} as ${matTypeToString(img)}`);
+
+  if (img.channels() === 4) {
+    cv.cvtColor(img, rgba, cv.COLOR_BGRA2RGBA as number);
+  } else {
+    cv.cvtColor(img, rgba, cv.COLOR_BGR2RGBA as number);
+  }
+
+  const image = new Jimp({
+    width: rgba.cols,
+    height: rgba.rows,
+    data: Buffer.from(rgba.data),
+  });
+
+  rgba.delete();
+
+  const buffer = await image.getBuffer("image/png");
+  await fs.writeFile(path, buffer);
 }
 
 async function getFixedSize(path: string, requestedSize?: number) {
   // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
   const img = await getImage(path);
+  // drop alpha channel
+  // cv.cvtColor(img, img, cv.COLOR_BGRA2BGR as number);
 
   if (requestedSize) {
     const resized = new cv.Mat();
@@ -69,6 +119,9 @@ export function preprocess(
   const h = hsvPlanes.get(0);
   const s = hsvPlanes.get(1);
   const v = hsvPlanes.get(2);
+  console.log(
+    `h: ${matTypeToString(h)}, s: ${matTypeToString(s)}, v: ${matTypeToString(v)}`,
+  );
 
   h.convertTo(h, h.type(), 1, hueAdd);
   s.convertTo(s, s.type(), 1, saturationAdd);
@@ -81,18 +134,22 @@ export function preprocess(
     hueMin,
     saturationMin,
     valueMin,
+    1,
   ]); // deleted
   const upper = new cv.Mat(hsv2.rows, hsv2.cols, hsv2.type(), [
     hueMax,
     saturationMax,
     valueMax,
+    1,
   ]); // deleted
 
   const mask = new cv.Mat(); // deleted
   cv.inRange(hsv2, lower, upper, mask);
 
   let result = new cv.Mat(); // returned
-  cv.copyTo(hsv2, result, mask);
+
+  hsv2.copyTo(result, mask);
+  cv.cvtColor(result, result, cv.COLOR_HSV2BGR as number);
 
   if (blur) {
     const temp = new cv.Mat(); // deleted

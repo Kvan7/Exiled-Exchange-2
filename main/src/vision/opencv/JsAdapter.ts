@@ -1,7 +1,7 @@
 import type openCv from "@techstark/opencv-js";
 import type { ICvAdapter } from "./ICvAdapter";
 import type { ImageData, CalibrationResult } from "../utils";
-import { getImage, preprocess } from "./js/image";
+import { getImage, preprocess, saveImage } from "./js/image";
 import {
   calibrateBBox,
   determineTomeType,
@@ -18,9 +18,14 @@ export class JsCvAdapter implements ICvAdapter {
   async calibrate(screenshot: ImageData): Promise<CalibrationResult> {
     // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
     console.log("calibrate js");
-    const img = await getImage(Buffer.from(screenshot.data));
+    const img = await getImage({
+      ...screenshot,
+      data: Buffer.from(screenshot.data),
+    });
+    // saveImage(img, "./inputImage.png");
     try {
       const { scale, recipeBBox } = await calibrateBBox(img);
+      console.log({ scale, recipeBBox });
       return {
         bbox: recipeBBox,
         scale,
@@ -39,7 +44,10 @@ export class JsCvAdapter implements ICvAdapter {
   }> {
     // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
     console.log("findRecipeId js");
-    const img = await getImage(Buffer.from(screenshot.data));
+    const img = await getImage({
+      ...screenshot,
+      data: Buffer.from(screenshot.data),
+    });
     const { bbox, scale } = calibration;
     const firstRecipe = img.roi(
       new this._cv.Rect(bbox.x, bbox.y, bbox.width, bbox.height),
@@ -62,6 +70,9 @@ export class JsCvAdapter implements ICvAdapter {
         highlightedSlot: 1,
         tomeCount: recipe.tomeCount,
       };
+    } catch (error) {
+      console.log(error);
+      throw error;
     } finally {
       img.delete();
       firstRecipe.delete();

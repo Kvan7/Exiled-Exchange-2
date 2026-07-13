@@ -14,7 +14,13 @@ import {
 } from "../constants";
 import { getImageScale } from "./scale";
 import { getFirstRealXY, getTomePxSize } from "../common";
-import { getActiveTomeBg, getImage, getTomeBg, preprocess } from "./image";
+import {
+  getActiveTomeBg,
+  getImage,
+  getTomeBg,
+  preprocess,
+  saveImage,
+} from "./image";
 import cv from "@techstark/opencv-js";
 
 function filterRectsWithMask(needle: cv.Mat, haystack: cv.Mat) {
@@ -126,13 +132,16 @@ export async function calibrateBBox(img: cv.Mat): Promise<{
   // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
   const originalSizes = { w: img.cols, h: img.rows };
   const cropped = cropToTopLeft(img); // deleted
+  // saveImage(cropped, "./cropped.png");
 
   const processedScreenshot = preprocess(cropped, NORMAL_TOME_FILTER); // deleted
+  // saveImage(processedScreenshot, "./processed.png");
 
   let scale = 1;
   try {
     scale = await getImageScale(processedScreenshot, originalSizes);
   } catch (error) {
+    console.log("error in getImageScale");
     console.log(error);
   }
 
@@ -140,6 +149,7 @@ export async function calibrateBBox(img: cv.Mat): Promise<{
   try {
     firstRecipeBBox = await findBBox(processedScreenshot, scale, originalSizes);
   } catch (error) {
+    console.log("error in findBBox");
     console.log(error);
   }
 

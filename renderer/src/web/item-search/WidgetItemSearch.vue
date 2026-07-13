@@ -277,10 +277,12 @@ Host.onEvent("MAIN->CLIENT::computer-vision", (e) => {
   if (e.target === "error") {
     showTimeout.value?.reset();
     props.config.wmFlags = [];
+    console.log(e.error);
     return;
   }
 
-  console.log(`Duration: ${e.pressTime - e.cvTime}`);
+  console.log(`Duration: ${e.cvTime.toFixed(2)}`);
+  console.log(`Total duration: ${Date.now() - e.pressTime}`);
   console.log(e.data);
 });
 
