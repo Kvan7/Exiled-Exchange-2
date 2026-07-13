@@ -6,9 +6,10 @@ import {
   calibrateBBox,
   determineTomeType,
   findHighlightedTome,
+  getNormalRects,
 } from "./js/detects";
-import { filterRecipeRects, getTomePxSize } from "./common";
-import { ACTIVE_TOME_FILTER } from "./constants";
+import { closestRectPos1, filterRecipeRects, getTomePxSize } from "./common";
+import { ACTIVE_TOME_FILTER, NORMAL_TOME_FILTER } from "./constants";
 import { createBgMask } from "./js/utils";
 
 export class JsCvAdapter implements ICvAdapter {
@@ -25,7 +26,7 @@ export class JsCvAdapter implements ICvAdapter {
     // saveImage(img, "./inputImage.png");
     try {
       const { scale, recipeBBox } = await calibrateBBox(img);
-      console.log({ scale, recipeBBox });
+
       return {
         bbox: recipeBBox,
         scale,
@@ -58,16 +59,22 @@ export class JsCvAdapter implements ICvAdapter {
       const { highlightedRect, highlightedTomeType } =
         await this.getHighlighted(firstRecipe, tomeSize);
 
-      const normalRects = this.getNormalRects(firstRecipe, tomeSize);
+      const normalRects = await this.getNormalRects(firstRecipe, tomeSize);
 
       const recipe = filterRecipeRects(
         [...normalRects, highlightedRect],
         img.rows,
       );
 
+      const highlightedSlot = closestRectPos1(
+        recipe.realRects,
+        highlightedRect.x,
+        highlightedRect.y,
+      );
+
       return {
         highlightedTome: highlightedTomeType,
-        highlightedSlot: 1,
+        highlightedSlot,
         tomeCount: recipe.tomeCount,
       };
     } catch (error) {
@@ -118,12 +125,23 @@ export class JsCvAdapter implements ICvAdapter {
     };
   }
 
-  private getNormalRects(
+  private async getNormalRects(
     firstRecipe: openCv.Mat,
     tomeSize: number,
-  ): openCv.Rect[] {
+  ): Promise<openCv.Rect[]> {
     // REVIEW: ALL ALLOCATIONS MUST BE DELETED AFTER USE
-    throw new Error("Method not implemented.");
+    const recipeProcessedForNormal = preprocess(
+      firstRecipe,
+      NORMAL_TOME_FILTER,
+    ); // deleted
+    const normalMatches = await getNormalRects(
+      recipeProcessedForNormal,
+      tomeSize,
+    );
+
+    recipeProcessedForNormal.delete();
+
+    return normalMatches;
   }
   //#endregion Private Methods
 }

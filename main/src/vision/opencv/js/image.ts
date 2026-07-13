@@ -6,7 +6,6 @@ import {
 import cv from "@techstark/opencv-js";
 import fs from "node:fs/promises";
 import { Jimp } from "jimp";
-import { matTypeToString } from "./utils";
 
 export async function getActiveTomeBg(requestedSize?: number) {
   return await getFixedSize(PREPROCESSED_ACTIVE_TOME_BG, requestedSize);
@@ -119,9 +118,6 @@ export function preprocess(
   const h = hsvPlanes.get(0);
   const s = hsvPlanes.get(1);
   const v = hsvPlanes.get(2);
-  console.log(
-    `h: ${matTypeToString(h)}, s: ${matTypeToString(s)}, v: ${matTypeToString(v)}`,
-  );
 
   h.convertTo(h, h.type(), 1, hueAdd);
   s.convertTo(s, s.type(), 1, saturationAdd);
