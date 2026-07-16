@@ -62,7 +62,7 @@ export default {
   CRAFTED_MODIFIER: '已工藝',
   FRACTURED_MODIFIER: '已破裂',
   DESECRATED_MODIFIER: '已褻瀆',
-  UNSCALABLE_VALUE: ' — 無法使用的值',
+  UNSCALABLE_VALUE: ' — 無法變動的值',
   CORRUPTED_IMPLICIT: '汙染附魔',
   INCURSION_OPEN: '開啟房間：',
   INCURSION_OBSTRUCTED: '受阻的房間：',

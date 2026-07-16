@@ -1,0 +1,3770 @@
+{
+    "recipes": {
+        "Adaptive|1|2": [
+            43,
+            9,
+            6
+        ],
+        "Adaptive|1|3": [
+            117,
+            73,
+            72,
+            43,
+            9,
+            6
+        ],
+        "Adaptive|1|4": [
+            151,
+            148,
+            147,
+            138,
+            117,
+            73,
+            72,
+            43,
+            9,
+            6
+        ],
+        "Adaptive|1|5": [
+            229,
+            228,
+            213,
+            212,
+            188,
+            151,
+            148,
+            147,
+            138,
+            117,
+            73,
+            72,
+            43,
+            9,
+            6
+        ],
+        "Adaptive|1|6": [
+            266,
+            265,
+            260,
+            229,
+            228,
+            213,
+            212,
+            188,
+            151,
+            148,
+            147,
+            138,
+            117,
+            73,
+            72,
+            43,
+            9,
+            6
+        ],
+        "Adaptive|1|8": [
+            289,
+            288,
+            266,
+            265,
+            260,
+            229,
+            228,
+            213,
+            212,
+            188,
+            151,
+            148,
+            147,
+            138,
+            117,
+            73,
+            72,
+            43,
+            9,
+            6
+        ],
+        "Adaptive|1|9": [
+            296,
+            295,
+            289,
+            288,
+            266,
+            265,
+            260,
+            229,
+            228,
+            213,
+            212,
+            188,
+            151,
+            148,
+            147,
+            138,
+            117,
+            73,
+            72,
+            43,
+            9,
+            6
+        ],
+        "Adaptive|2|2": [
+            50,
+            49,
+            48
+        ],
+        "Adaptive|2|3": [
+            81,
+            79,
+            78,
+            50,
+            49,
+            48
+        ],
+        "Adaptive|4|7": [
+            276,
+            271,
+            195,
+            194,
+            153,
+            129
+        ],
+        "Arcane|1|2": [
+            24,
+            23,
+            5
+        ],
+        "Arcane|1|4": [
+            178,
+            163,
+            159,
+            157,
+            108,
+            102,
+            96,
+            24,
+            23,
+            5
+        ],
+        "Arcane|2|3": [
+            77,
+            74,
+            72,
+            8
+        ],
+        "Arcane|2|5": [
+            194,
+            186,
+            183,
+            137,
+            134,
+            77,
+            74,
+            72,
+            8
+        ],
+        "Arcane|3|6": [
+            258,
+            177,
+            174,
+            141
+        ],
+        "Arcane|4|5": [
+            212,
+            211,
+            131,
+            128,
+            127
+        ],
+        "Bloodletting|2|5": [
+            227,
+            216,
+            178,
+            172,
+            165
+        ],
+        "Bloodletting|3|3": [
+            81,
+            80,
+            73
+        ],
+        "Bloodletting|4|5": [
+            319,
+            207,
+            135
+        ],
+        "Bloodletting|7|8": [
+            288,
+            279,
+            278
+        ],
+        "Bond|2|5": [
+            233,
+            230,
+            222,
+            220,
+            180
+        ],
+        "Bond|2|8": [
+            286,
+            285,
+            284,
+            283,
+            282,
+            281,
+            233,
+            230,
+            222,
+            220,
+            180
+        ],
+        "Bond|3|6": [
+            246,
+            241,
+            216,
+            189,
+            183,
+            109
+        ],
+        "Bond|5|5": [
+            210,
+            208,
+            195,
+            194
+        ],
+        "Celestial|1|3": [
+            70,
+            69,
+            68,
+            67
+        ],
+        "Celestial|1|5": [
+            208,
+            207,
+            181,
+            180,
+            179,
+            137,
+            136,
+            135,
+            134,
+            133,
+            132,
+            131,
+            130,
+            129,
+            128,
+            127,
+            126,
+            125,
+            70,
+            69,
+            68,
+            67
+        ],
+        "Celestial|1|6": [
+            267,
+            208,
+            207,
+            181,
+            180,
+            179,
+            137,
+            136,
+            135,
+            134,
+            133,
+            132,
+            131,
+            130,
+            129,
+            128,
+            127,
+            126,
+            125,
+            70,
+            69,
+            68,
+            67
+        ],
+        "Celestial|1|9": [
+            292,
+            291,
+            267,
+            208,
+            207,
+            181,
+            180,
+            179,
+            137,
+            136,
+            135,
+            134,
+            133,
+            132,
+            131,
+            130,
+            129,
+            128,
+            127,
+            126,
+            125,
+            70,
+            69,
+            68,
+            67
+        ],
+        "Celestial|2|2": [
+            47,
+            46,
+            45,
+            44
+        ],
+        "Cold|1|2": [
+            13,
+            12,
+            7
+        ],
+        "Cold|1|6": [
+            254,
+            141,
+            122,
+            115,
+            113,
+            101,
+            100,
+            13,
+            12,
+            7
+        ],
+        "Cold|2|2": [
+            21,
+            19,
+            2
+        ],
+        "Cold|2|5": [
+            232,
+            221,
+            179,
+            94,
+            93,
+            89,
+            87,
+            86,
+            21,
+            19,
+            2
+        ],
+        "Cold|2|7": [
+            273,
+            232,
+            221,
+            179,
+            94,
+            93,
+            89,
+            87,
+            86,
+            21,
+            19,
+            2
+        ],
+        "Cold|8|8": [
+            289,
+            286
+        ],
+        "Cyclonic|1|2": [
+            47,
+            25
+        ],
+        "Cyclonic|1|3": [
+            110,
+            92,
+            91,
+            90,
+            89,
+            88,
+            87,
+            86,
+            47,
+            25
+        ],
+        "Cyclonic|1|5": [
+            201,
+            200,
+            199,
+            198,
+            197,
+            196,
+            145,
+            118,
+            110,
+            92,
+            91,
+            90,
+            89,
+            88,
+            87,
+            86,
+            47,
+            25
+        ],
+        "Cyclonic|1|6": [
+            268,
+            201,
+            200,
+            199,
+            198,
+            197,
+            196,
+            145,
+            118,
+            110,
+            92,
+            91,
+            90,
+            89,
+            88,
+            87,
+            86,
+            47,
+            25
+        ],
+        "Cyclonic|1|7": [
+            270,
+            268,
+            201,
+            200,
+            199,
+            198,
+            197,
+            196,
+            145,
+            118,
+            110,
+            92,
+            91,
+            90,
+            89,
+            88,
+            87,
+            86,
+            47,
+            25
+        ],
+        "Cyclonic|1|9": [
+            293,
+            270,
+            268,
+            201,
+            200,
+            199,
+            198,
+            197,
+            196,
+            145,
+            118,
+            110,
+            92,
+            91,
+            90,
+            89,
+            88,
+            87,
+            86,
+            47,
+            25
+        ],
+        "Cyclonic|2|2": [
+            34,
+            30,
+            29,
+            27
+        ],
+        "Cyclonic|2|3": [
+            60,
+            56,
+            55,
+            53,
+            34,
+            30,
+            29,
+            27
+        ],
+        "Cyclonic|3|6": [
+            259,
+            221,
+            106,
+            104,
+            77
+        ],
+        "Cyclonic|4|4": [
+            152,
+            150,
+            149,
+            138
+        ],
+        "Death|3|5": [
+            213,
+            209,
+            188
+        ],
+        "Earth|1|3": [
+            318,
+            317,
+            316,
+            315,
+            314,
+            313,
+            312,
+            311,
+            310,
+            309,
+            308,
+            307,
+            306,
+            305,
+            76,
+            74,
+            45
+        ],
+        "Earth|1|4": [
+            318,
+            317,
+            316,
+            315,
+            314,
+            313,
+            312,
+            311,
+            310,
+            309,
+            308,
+            307,
+            306,
+            305,
+            175,
+            158,
+            155,
+            154,
+            76,
+            74,
+            45
+        ],
+        "Electrocuting|2|2": [
+            23,
+            22,
+            11
+        ],
+        "Electrocuting|3|3": [
+            116,
+            115,
+            114,
+            113,
+            112,
+            111
+        ],
+        "Electrocuting|3|5": [
+            194,
+            187,
+            171,
+            144,
+            118,
+            116,
+            115,
+            114,
+            113,
+            112,
+            111
+        ],
+        "Fire|1|2": [
+            20,
+            15,
+            10
+        ],
+        "Fire|1|6": [
+            255,
+            220,
+            20,
+            15,
+            10
+        ],
+        "Fire|2|2": [
+            39,
+            35,
+            3
+        ],
+        "Fire|2|5": [
+            195,
+            187,
+            99,
+            61,
+            39,
+            35,
+            3
+        ],
+        "Fire|2|7": [
+            274,
+            263,
+            195,
+            187,
+            99,
+            61,
+            39,
+            35,
+            3
+        ],
+        "Fire|4|8": [
+            288,
+            281,
+            196
+        ],
+        "Gasp|1|2": [
+            40,
+            39,
+            35
+        ],
+        "Gasp|1|4": [
+            170,
+            169,
+            168,
+            166,
+            165,
+            99,
+            98,
+            94,
+            85,
+            61,
+            40,
+            39,
+            35
+        ],
+        "Life|6|8": [
+            289,
+            285,
+            236
+        ],
+        "Lightning|1|2": [
+            18,
+            16,
+            8
+        ],
+        "Lightning|1|6": [
+            256,
+            222,
+            119,
+            111,
+            18,
+            16,
+            8
+        ],
+        "Lightning|2|7": [
+            275,
+            206,
+            201,
+            199,
+            193,
+            170,
+            91,
+            69,
+            68,
+            1
+        ],
+        "Lightning|8|8": [
+            304
+        ],
+        "Momentum|1|2": [
+            4,
+            3
+        ],
+        "Momentum|1|3": [
+            84,
+            82,
+            4,
+            3
+        ],
+        "Momentum|1|6": [
+            320,
+            319,
+            263,
+            262,
+            227,
+            218,
+            187,
+            186,
+            84,
+            82,
+            4,
+            3
+        ],
+        "Momentum|2|2": [
+            18,
+            15,
+            14,
+            12
+        ],
+        "Momentum|3|7": [
+            272,
+            243,
+            223,
+            168,
+            165,
+            162
+        ],
+        "Momentum|4|4": [
+            137,
+            134,
+            133,
+            126,
+            125
+        ],
+        "Moon|1|2": [
+            48,
+            28,
+            27
+        ],
+        "Moon|1|3": [
+            78,
+            54,
+            53,
+            48,
+            28,
+            27
+        ],
+        "Moon|1|4": [
+            164,
+            161,
+            156,
+            153,
+            78,
+            54,
+            53,
+            48,
+            28,
+            27
+        ],
+        "Moon|2|2": [
+            42,
+            24,
+            17,
+            9
+        ],
+        "Moon|2|4": [
+            152,
+            147,
+            138,
+            42,
+            24,
+            17,
+            9
+        ],
+        "Moon|4|6": [
+            244,
+            243,
+            182,
+            158
+        ],
+        "Moon|4|8": [
+            290,
+            287,
+            244,
+            243,
+            182,
+            158
+        ],
+        "Moon|7|8": [
+            289,
+            280
+        ],
+        "Oath|1|4": [
+            184,
+            183,
+            182
+        ],
+        "Oath|1|6": [
+            243,
+            242,
+            241,
+            184,
+            183,
+            182
+        ],
+        "Oath|2|4": [
+            150,
+            148
+        ],
+        "Power|1|9": [
+            298
+        ],
+        "Power|2|9": [
+            297
+        ],
+        "Power|3|10": [
+            303,
+            302,
+            301,
+            300,
+            299,
+            294,
+            264,
+            234,
+            185
+        ],
+        "Power|3|4": [
+            185
+        ],
+        "Power|3|5": [
+            234,
+            185
+        ],
+        "Power|3|6": [
+            264,
+            234,
+            185
+        ],
+        "Power|3|9": [
+            294,
+            264,
+            234,
+            185
+        ],
+        "Power|4|6": [
+            265,
+            260
+        ],
+        "Power|4|9": [
+            291,
+            265,
+            260
+        ],
+        "Power|5|6": [
+            266,
+            261
+        ],
+        "Power|6|6": [
+            247
+        ],
+        "Power|6|9": [
+            296,
+            247
+        ],
+        "Power|7|9": [
+            295,
+            270
+        ],
+        "Power|8|8": [
+            290
+        ],
+        "Power|9|9": [
+            293
+        ],
+        "Prismatic|1|2": [
+            44,
+            42,
+            41
+        ],
+        "Prismatic|1|3": [
+            109,
+            83,
+            77,
+            44,
+            42,
+            41
+        ],
+        "Prismatic|1|4": [
+            150,
+            140,
+            139,
+            109,
+            83,
+            77,
+            44,
+            42,
+            41
+        ],
+        "Prismatic|1|5": [
+            211,
+            210,
+            209,
+            150,
+            140,
+            139,
+            109,
+            83,
+            77,
+            44,
+            42,
+            41
+        ],
+        "Prismatic|3|3": [
+            117,
+            75,
+            71
+        ],
+        "Prismatic|3|6": [
+            256,
+            255,
+            254,
+            186,
+            117,
+            75,
+            71
+        ],
+        "Protective|1|2": [
+            38,
+            32,
+            29
+        ],
+        "Protective|1|3": [
+            66,
+            65,
+            64,
+            58,
+            55,
+            38,
+            32,
+            29
+        ],
+        "Protective|2|2": [
+            36,
+            33,
+            26,
+            6
+        ],
+        "Protective|2|3": [
+            112,
+            62,
+            59,
+            52,
+            36,
+            33,
+            26,
+            6
+        ],
+        "Protective|2|4": [
+            132,
+            131,
+            130,
+            127,
+            112,
+            62,
+            59,
+            52,
+            36,
+            33,
+            26,
+            6
+        ],
+        "Rage|1|2": [
+            50,
+            37,
+            30
+        ],
+        "Rage|1|3": [
+            81,
+            63,
+            56,
+            50,
+            37,
+            30
+        ],
+        "Rage|2|4": [
+            136,
+            135,
+            133,
+            129,
+            128,
+            97
+        ],
+        "Rage|2|5": [
+            224,
+            223,
+            136,
+            135,
+            133,
+            129,
+            128,
+            97
+        ],
+        "Rebirth|1|2": [
+            19,
+            17,
+            11
+        ],
+        "Rebirth|2|3": [
+            117,
+            85,
+            80,
+            76,
+            75,
+            43
+        ],
+        "Rebirth|2|4": [
+            151,
+            149,
+            117,
+            85,
+            80,
+            76,
+            75,
+            43
+        ],
+        "Rebirth|2|5": [
+            212,
+            210,
+            151,
+            149,
+            117,
+            85,
+            80,
+            76,
+            75,
+            43
+        ],
+        "Rebirth|2|6": [
+            266,
+            212,
+            210,
+            151,
+            149,
+            117,
+            85,
+            80,
+            76,
+            75,
+            43
+        ],
+        "Rebirth|2|7": [
+            272,
+            271,
+            266,
+            212,
+            210,
+            151,
+            149,
+            117,
+            85,
+            80,
+            76,
+            75,
+            43
+        ],
+        "Rebirth|2|8": [
+            280,
+            279,
+            272,
+            271,
+            266,
+            212,
+            210,
+            151,
+            149,
+            117,
+            85,
+            80,
+            76,
+            75,
+            43
+        ],
+        "Rebirth|3|3": [
+            62,
+            61,
+            59
+        ],
+        "Rebirth|8|8": [
+            288,
+            283
+        ],
+        "Sky|1|4": [
+            174,
+            171,
+            162,
+            160,
+            95,
+            80,
+            51,
+            46
+        ],
+        "Sky|2|3": [
+            110,
+            108,
+            107,
+            106,
+            105,
+            104,
+            103,
+            102,
+            101,
+            100
+        ],
+        "Sky|2|5": [
+            231,
+            225,
+            215,
+            181,
+            168,
+            110,
+            108,
+            107,
+            106,
+            105,
+            104,
+            103,
+            102,
+            101,
+            100
+        ],
+        "Sky|2|6": [
+            253,
+            252,
+            251,
+            250,
+            249,
+            248,
+            231,
+            225,
+            215,
+            181,
+            168,
+            110,
+            108,
+            107,
+            106,
+            105,
+            104,
+            103,
+            102,
+            101,
+            100
+        ],
+        "Sky|3|5": [
+            229,
+            228,
+            211,
+            176
+        ],
+        "Sky|3|6": [
+            257,
+            229,
+            228,
+            211,
+            176
+        ],
+        "Soul|1|7": [
+            277,
+            275,
+            274,
+            273
+        ],
+        "Soul|3|4": [
+            151,
+            138
+        ],
+        "Soul|6|7": [
+            278,
+            271,
+            263,
+            237
+        ],
+        "Stone|1|2": [
+            22,
+            21,
+            14
+        ],
+        "Stone|1|3": [
+            71,
+            22,
+            21,
+            14
+        ],
+        "Stone|2|2": [
+            10,
+            7,
+            4
+        ],
+        "Stone|2|3": [
+            116,
+            114,
+            113,
+            10,
+            7,
+            4
+        ],
+        "Stone|3|3": [
+            318,
+            317,
+            316,
+            315,
+            314,
+            313,
+            312,
+            311,
+            310,
+            309,
+            308,
+            307,
+            306,
+            305,
+            76,
+            58,
+            51
+        ],
+        "Stone|4|4": [
+            146,
+            145,
+            144,
+            143,
+            142,
+            141
+        ],
+        "Stone|4|5": [
+            193,
+            192,
+            191,
+            190,
+            189,
+            146,
+            145,
+            144,
+            143,
+            142,
+            141
+        ],
+        "Tempest|1|2": [
+            2,
+            1
+        ],
+        "Tempest|2|2": [
+            20,
+            16,
+            13,
+            5
+        ],
+        "Tempest|4|8": [
+            289,
+            284,
+            188,
+            171,
+            170
+        ],
+        "Tidal|1|2": [
+            49,
+            34,
+            31
+        ],
+        "Tidal|1|3": [
+            79,
+            60,
+            57,
+            49,
+            34,
+            31
+        ],
+        "Tidal|2|5": [
+            217,
+            214,
+            173,
+            171,
+            95,
+            88,
+            73,
+            64,
+            51,
+            41,
+            38,
+            25
+        ],
+        "Tidal|3|3": [
+            85,
+            83,
+            74,
+            72
+        ],
+        "Tidal|3|4": [
+            149,
+            147,
+            139,
+            85,
+            83,
+            74,
+            72
+        ],
+        "Tidal|5|5": [
+            188,
+            186
+        ],
+        "Time|1|6": [
+            259,
+            258,
+            257
+        ],
+        "Time|6|6": [
+            245,
+            242
+        ],
+        "Toxic|1|4": [
+            177,
+            176,
+            173,
+            172,
+            167,
+            152
+        ],
+        "Toxic|1|6": [
+            261,
+            177,
+            176,
+            173,
+            172,
+            167,
+            152
+        ],
+        "Toxic|2|5": [
+            226,
+            219,
+            218,
+            139,
+            83
+        ],
+        "Toxic|2|7": [
+            277,
+            226,
+            219,
+            218,
+            139,
+            83
+        ],
+        "Vision|2|2": [
+            40,
+            37,
+            31,
+            28
+        ],
+        "Vision|2|3": [
+            71,
+            63,
+            57,
+            54,
+            40,
+            37,
+            31,
+            28
+        ],
+        "Vision|2|6": [
+            247,
+            246,
+            245,
+            244,
+            125,
+            71,
+            63,
+            57,
+            54,
+            40,
+            37,
+            31,
+            28
+        ],
+        "Vision|2|7": [
+            269,
+            247,
+            246,
+            245,
+            244,
+            125,
+            71,
+            63,
+            57,
+            54,
+            40,
+            37,
+            31,
+            28
+        ],
+        "Vision|6|8": [
+            288,
+            282,
+            268
+        ],
+        "Ward|2|3": [
+            318,
+            317,
+            316,
+            315,
+            314,
+            313,
+            312,
+            311,
+            310,
+            309,
+            308,
+            307,
+            306,
+            305,
+            115,
+            111,
+            66,
+            65
+        ],
+        "Ward|2|4": [
+            318,
+            317,
+            316,
+            315,
+            314,
+            313,
+            312,
+            311,
+            310,
+            309,
+            308,
+            307,
+            306,
+            305,
+            146,
+            145,
+            144,
+            143,
+            142,
+            141,
+            115,
+            111,
+            66,
+            65
+        ],
+        "Ward|3|3": [
+            110,
+            99,
+            98,
+            97,
+            96,
+            95,
+            94,
+            93
+        ],
+        "Ward|3|5": [
+            319,
+            206,
+            205,
+            204,
+            203,
+            202,
+            180,
+            110,
+            99,
+            98,
+            97,
+            96,
+            95,
+            94,
+            93
+        ],
+        "Ward|4|4": [
+            124,
+            123,
+            122,
+            121,
+            120,
+            119,
+            118
+        ],
+        "Ward|4|6": [
+            240,
+            239,
+            238,
+            237,
+            236,
+            235,
+            124,
+            123,
+            122,
+            121,
+            120,
+            119,
+            118
+        ],
+        "Wisdom|1|7": [
+            278,
+            276,
+            269
+        ],
+        "Wisdom|4|4": [
+            181,
+            180,
+            179
+        ]
+    },
+    "rewards": [
+        {
+            "count": 1,
+            "id": "10SlotBait",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Krillson's Bay Key"
+        },
+        {
+            "count": 1,
+            "id": "2SlotOrbofAugmentation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Augmentation"
+        },
+        {
+            "count": 1,
+            "id": "2SlotOrbofTransmutation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Transmutation"
+        },
+        {
+            "count": 1,
+            "id": "2SlotUncutSkillGem1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uncut Skill Gem"
+        },
+        {
+            "count": 1,
+            "id": "2SlotUncutSupportGem1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uncut Support Gem"
+        },
+        {
+            "count": 1,
+            "id": "2SlotArtificersOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Artificer's Orb"
+        },
+        {
+            "count": 1,
+            "id": "2SlotExaltedOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Exalted Orb"
+        },
+        {
+            "count": 2,
+            "id": "2SlotArmourersScrap2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Armourer's Scrap"
+        },
+        {
+            "count": 2,
+            "id": "2SlotArcanistsEtcher2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Arcanist's Etcher"
+        },
+        {
+            "count": 1,
+            "id": "2SlotRegalOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Regal Orb"
+        },
+        {
+            "count": 2,
+            "id": "2SlotBlacksmithsWhetstone2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Blacksmith's Whetstone"
+        },
+        {
+            "count": 1,
+            "id": "2SlotLesserVisionRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Vision Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotLesserGlacialRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Glacial Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotLesserAdeptRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Adept Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotLesserIronRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Iron Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotLesserDesertRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Desert Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotLesserResolveRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Resolve Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotLesserRebirthRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Rebirth Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotLesserStormRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Storm Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotLesserInspirationRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Inspiration Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotLesserRobustRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Robust Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotLesserStoneRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Stone Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotLesserBodyRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Body Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotLesserMindRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Mind Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotLesserWardRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Ward Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotLesserChargingRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Charging Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotVisionRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Vision Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotGlacialRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Glacial Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotAdeptRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Adept Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotIronRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Iron Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotDesertRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Desert Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotResolveRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Resolve Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotBodyRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Body Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotRebirthRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rebirth Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotStormRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Storm Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotMindRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Mind Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotInspirationRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Inspiration Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotRobustRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Robust Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotStoneRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Stone Rune"
+        },
+        {
+            "count": 1,
+            "id": "2SlotWardRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ward Rune"
+        },
+        {
+            "count": 2,
+            "id": "2SlotArtificersOrb2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Artificer's Orb"
+        },
+        {
+            "count": 2,
+            "id": "2SlotOrbofAugmentation2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Augmentation"
+        },
+        {
+            "count": 2,
+            "id": "2SlotOrbofTransmutation2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Transmutation"
+        },
+        {
+            "count": 1,
+            "id": "2SlotRunicAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Runic Alloy"
+        },
+        {
+            "count": 1,
+            "id": "2SlotUncutSpiritGem1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uncut Spirit Gem"
+        },
+        {
+            "count": 1,
+            "id": "2SlotGlassblowersBauble1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Glassblower's Bauble"
+        },
+        {
+            "count": 1,
+            "id": "2SlotGemcuttersPrism1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Gemcutter's Prism"
+        },
+        {
+            "count": 2,
+            "id": "2SlotRegalOrb2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Regal Orb"
+        },
+        {
+            "count": 4,
+            "id": "2SlotArmourersScrap4",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Armourer's Scrap"
+        },
+        {
+            "count": 4,
+            "id": "2SlotArcanistsEtcher4",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Arcanist's Etcher"
+        },
+        {
+            "count": 4,
+            "id": "2SlotBlacksmithsWhetstone4",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Blacksmith's Whetstone"
+        },
+        {
+            "count": 1,
+            "id": "3SlotChargingRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Charging Rune"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGreaterVisionRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Vision Rune"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGreaterGlacialRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Glacial Rune"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGreaterAdeptRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Adept Rune"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGreaterIronRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Iron Rune"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGreaterDesertRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Desert Rune"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGreaterResolveRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Resolve Rune"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGreaterBodyRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Body Rune"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGreaterRebirthRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Rebirth Rune"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGreaterStormRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Storm Rune"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGreaterMindRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Mind Rune"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGreaterInspirationRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Inspiration Rune"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGreaterRobustRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Robust Rune"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGreaterStoneRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Stone Rune"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGreaterWardRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Ward Rune"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGreaterChargingRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Charging Rune"
+        },
+        {
+            "count": 1,
+            "id": "3SlotUniqueBodyArmour1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Body Armour"
+        },
+        {
+            "count": 1,
+            "id": "3SlotUniqueBoots1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Boots"
+        },
+        {
+            "count": 1,
+            "id": "3SlotUniqueGloves1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Gloves"
+        },
+        {
+            "count": 1,
+            "id": "3SlotUniqueHelmet1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Helmet"
+        },
+        {
+            "count": 3,
+            "id": "3SlotArtificersOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Artificer's Orb"
+        },
+        {
+            "count": 2,
+            "id": "3SlotExaltedOrb2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Exalted Orb"
+        },
+        {
+            "count": 1,
+            "id": "3SlotChaosOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Chaos Orb"
+        },
+        {
+            "count": 3,
+            "id": "3SlotRegalOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Regal Orb"
+        },
+        {
+            "count": 2,
+            "id": "3SlotRunicAlloy2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Runic Alloy"
+        },
+        {
+            "count": 1,
+            "id": "3SlotAdaptiveAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Adaptive Alloy"
+        },
+        {
+            "count": 1,
+            "id": "3SlotLesserJewellersOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Jeweller's Orb"
+        },
+        {
+            "count": 6,
+            "id": "3SlotArmourersScrap6",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Armourer's Scrap"
+        },
+        {
+            "count": 6,
+            "id": "3SlotArcanistsEtcher6",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Arcanist's Etcher"
+        },
+        {
+            "count": 1,
+            "id": "3SlotProtectiveAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Protective Alloy"
+        },
+        {
+            "count": 6,
+            "id": "3SlotBlacksmithsWhetstone6",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Blacksmith's Whetstone"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGreaterOrbofAugmentation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Orb of Augmentation"
+        },
+        {
+            "count": 2,
+            "id": "3SlotGlassblowersBauble2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Glassblower's Bauble"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGreaterOrbofTransmutation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Orb of Transmutation"
+        },
+        {
+            "count": 1,
+            "id": "3SlotExpansiveAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Expansive Alloy"
+        },
+        {
+            "count": 1,
+            "id": "3SlotDetonateLiving1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Detonate Living"
+        },
+        {
+            "count": 1,
+            "id": "3SlotEternalMarch1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Eternal March"
+        },
+        {
+            "count": 1,
+            "id": "3SlotFragmentsofthePast1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Fragments Of The Past"
+        },
+        {
+            "count": 1,
+            "id": "3SlotFrostFlameNova1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Frostflame Nova"
+        },
+        {
+            "count": 1,
+            "id": "3SlotRepulsion1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Repulsion"
+        },
+        {
+            "count": 1,
+            "id": "3SlotRuneHazard1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Conductive Runes"
+        },
+        {
+            "count": 1,
+            "id": "3SlotConcussiveRunes1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Concussive Runes"
+        },
+        {
+            "count": 1,
+            "id": "3SlotBitterDead1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Bitter Dead"
+        },
+        {
+            "count": 1,
+            "id": "3SlotGrimPillars1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Grim Pillars"
+        },
+        {
+            "count": 1,
+            "id": "3SlotRemnantsofKalguur1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Remnants of Kalguur"
+        },
+        {
+            "count": 1,
+            "id": "3SlotVerisiumInfusion1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Powered by Verisium"
+        },
+        {
+            "count": 1,
+            "id": "3SlotVerisiumManifestation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Verisium Manifestations"
+        },
+        {
+            "count": 1,
+            "id": "3SlotRuneforgedBlades1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Runeforged Blades"
+        },
+        {
+            "count": 1,
+            "id": "3SlotScouringFlame1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Scouring Flame"
+        },
+        {
+            "count": 1,
+            "id": "3SlotAnimusSplinters1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Animus Splinters"
+        },
+        {
+            "count": 1,
+            "id": "3SlotExplosiveTransmutation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Explosive Transmutation"
+        },
+        {
+            "count": 1,
+            "id": "3SlotHollowShell1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Hollow Shell"
+        },
+        {
+            "count": 1,
+            "id": "3SlotVoltaicBarrier1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Voltaic Barrier"
+        },
+        {
+            "count": 1,
+            "id": "3SlotWardboundMinions1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Wardbound Minions"
+        },
+        {
+            "count": 1,
+            "id": "3SlotFistofKalguur1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Fist Of Kalguur"
+        },
+        {
+            "count": 1,
+            "id": "3SlotRunicExtraction1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Runic Extraction"
+        },
+        {
+            "count": 1,
+            "id": "3SlotRunicInfusion1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Runic Infusion"
+        },
+        {
+            "count": 1,
+            "id": "3SlotRainOfBlades",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rain of Blades"
+        },
+        {
+            "count": 2,
+            "id": "3SlotGemcuttersPrism2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Gemcutter's Prism"
+        },
+        {
+            "count": 1,
+            "id": "3SlotPileofVerisium1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Verisium Pile"
+        },
+        {
+            "count": 1,
+            "id": "3SlotWardingRuneofReinforcement1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Reinforcement"
+        },
+        {
+            "count": 1,
+            "id": "3SlotWardingRuneofProtection1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Protection"
+        },
+        {
+            "count": 1,
+            "id": "3SlotWardingRuneofDisintegration1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Disintegration"
+        },
+        {
+            "count": 1,
+            "id": "3SlotWardingRuneofDesperation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Desperation"
+        },
+        {
+            "count": 1,
+            "id": "3SlotWardingRuneofCourage1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Courage"
+        },
+        {
+            "count": 1,
+            "id": "3SlotWardingRuneofNourishment1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Nourishment"
+        },
+        {
+            "count": 1,
+            "id": "3SlotOrbofAlchemy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Alchemy"
+        },
+        {
+            "count": 1,
+            "id": "4SlotAnimusExchange1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Animus Exchange"
+        },
+        {
+            "count": 1,
+            "id": "4SlotLeylines1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Leylines"
+        },
+        {
+            "count": 1,
+            "id": "4SlotRuneWard1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Runic Reprieve"
+        },
+        {
+            "count": 1,
+            "id": "4SlotRunicFortress1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Refutation"
+        },
+        {
+            "count": 1,
+            "id": "4SlotTriskelionCascade1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Triskelion Cascade"
+        },
+        {
+            "count": 1,
+            "id": "4SlotVerisiumComet1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Skyfall"
+        },
+        {
+            "count": 1,
+            "id": "4SlotHealingRunes1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Healing Runes"
+        },
+        {
+            "count": 1,
+            "id": "4SlotUniqueBow1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Bow"
+        },
+        {
+            "count": 1,
+            "id": "4SlotUniqueCrossbow1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Crossbow"
+        },
+        {
+            "count": 1,
+            "id": "4SlotUniqueFocus1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Focus"
+        },
+        {
+            "count": 1,
+            "id": "4SlotUniqueOneHandMace1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] One Hand Mace"
+        },
+        {
+            "count": 1,
+            "id": "4SlotUniqueQuarterstaff1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Quarterstaff"
+        },
+        {
+            "count": 1,
+            "id": "4SlotUniqueQuiver1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Quiver"
+        },
+        {
+            "count": 1,
+            "id": "4SlotUniqueSceptre1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Sceptre"
+        },
+        {
+            "count": 1,
+            "id": "4SlotUniqueShield1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Shield"
+        },
+        {
+            "count": 1,
+            "id": "4SlotUniqueSpear1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Spear"
+        },
+        {
+            "count": 1,
+            "id": "4SlotUniqueStaff1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Staff"
+        },
+        {
+            "count": 1,
+            "id": "4SlotUniqueTalisman1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Talisman"
+        },
+        {
+            "count": 1,
+            "id": "4SlotUniqueTwoHandMace1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Two Hand Mace"
+        },
+        {
+            "count": 1,
+            "id": "4SlotUniqueWand1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Wand"
+        },
+        {
+            "count": 3,
+            "id": "4SlotExaltedOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Exalted Orb"
+        },
+        {
+            "count": 3,
+            "id": "4SlotGlassblowersBauble3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Glassblower's Bauble"
+        },
+        {
+            "count": 3,
+            "id": "4SlotGemcuttersPrism3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Gemcutter's Prism"
+        },
+        {
+            "count": 1,
+            "id": "4SlotWardingRuneofStability1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Stability"
+        },
+        {
+            "count": 1,
+            "id": "4SlotWardingRuneofGlancing1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Glancing"
+        },
+        {
+            "count": 1,
+            "id": "4SlotWardingRuneoftheHeart1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Heart"
+        },
+        {
+            "count": 1,
+            "id": "4SlotWardingRuneofAnnihilation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Annihilation"
+        },
+        {
+            "count": 1,
+            "id": "4SlotWardingRuneofSalvaging1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Salvaging"
+        },
+        {
+            "count": 1,
+            "id": "4SlotWardingRuneofSymbiosis1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Symbiosis"
+        },
+        {
+            "count": 3,
+            "id": "4SlotOrbofAlchemy3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Alchemy"
+        },
+        {
+            "count": 2,
+            "id": "4SlotChaosOrb2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Chaos Orb"
+        },
+        {
+            "count": 1,
+            "id": "4SlotCyclonicAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Cyclonic Alloy"
+        },
+        {
+            "count": 1,
+            "id": "4SlotGreaterJewellersOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Jeweller's Orb"
+        },
+        {
+            "count": 1,
+            "id": "4SlotSwiftAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Swift Alloy"
+        },
+        {
+            "count": 1,
+            "id": "4SlotUniqueJewellery1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Jewellery"
+        },
+        {
+            "count": 1,
+            "id": "4SlotRuneofConsistency1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Vitality"
+        },
+        {
+            "count": 1,
+            "id": "4SlotRuneofReach1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of the Hunt"
+        },
+        {
+            "count": 1,
+            "id": "4SlotRuneofFoundations1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Acrobatics"
+        },
+        {
+            "count": 1,
+            "id": "4SlotRuneofthePrism1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Culmination"
+        },
+        {
+            "count": 1,
+            "id": "4SlotRuneoftheSoul1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Renown"
+        },
+        {
+            "count": 1,
+            "id": "4SlotRuneofCulmination1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Accumulation"
+        },
+        {
+            "count": 1,
+            "id": "4SlotRuneofRenown1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Foundations"
+        },
+        {
+            "count": 1,
+            "id": "4SlotRuneofAccumulation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of the Prism"
+        },
+        {
+            "count": 1,
+            "id": "4SlotRuneoftheAdept1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of the Blossom"
+        },
+        {
+            "count": 1,
+            "id": "4SlotRuneofDashing1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Consistency"
+        },
+        {
+            "count": 1,
+            "id": "4SlotRuneofAcrobatics1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Reach"
+        },
+        {
+            "count": 1,
+            "id": "4SlotArchaicRuneofSplinters1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Splinters"
+        },
+        {
+            "count": 1,
+            "id": "4SlotArchaicRuneoftheHorde1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of the Horde"
+        },
+        {
+            "count": 1,
+            "id": "4SlotArchaicRuneofAnimosity1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Animosity"
+        },
+        {
+            "count": 1,
+            "id": "4SlotArchaicRuneofDetonation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Detonation"
+        },
+        {
+            "count": 1,
+            "id": "4SlotArchaicRuneofRetaliation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Retaliation"
+        },
+        {
+            "count": 1,
+            "id": "4SlotArchaicRuneofDueling1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Dueling"
+        },
+        {
+            "count": 1,
+            "id": "4SlotRuneofVitalFlame1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Vital Flame"
+        },
+        {
+            "count": 1,
+            "id": "4SlotRuneofConfrontation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Confrontation"
+        },
+        {
+            "count": 1,
+            "id": "4SlotArchaicRuneoftheTitan1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of the Titan"
+        },
+        {
+            "count": 1,
+            "id": "4SlotArchaicRuneofShattering1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Shattering"
+        },
+        {
+            "count": 1,
+            "id": "4SlotArchaicRuneofProwess1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Prowess"
+        },
+        {
+            "count": 1,
+            "id": "4SlotArchaicRuneofControl1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Control"
+        },
+        {
+            "count": 1,
+            "id": "4SlotArchaicRuneofDiscovery1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Discovery"
+        },
+        {
+            "count": 1,
+            "id": "4SlotArchaicRuneofDecay1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Decay"
+        },
+        {
+            "count": 1,
+            "id": "4SlotArchaicRuneofWitchcraft1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Witchcraft"
+        },
+        {
+            "count": 1,
+            "id": "4SlotUniqueAmulet1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Amulet"
+        },
+        {
+            "count": 1,
+            "id": "4SlotUniqueBelt1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Belt"
+        },
+        {
+            "count": 1,
+            "id": "4SlotUniqueRing1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "[Rarity|Unique] Ring"
+        },
+        {
+            "count": 1,
+            "id": "4SlotGreaterRegalOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Regal Orb"
+        },
+        {
+            "count": 1,
+            "id": "4SlotGreaterExaltedOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Exalted Orb"
+        },
+        {
+            "count": 1,
+            "id": "4SlotGreaterChaosOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Chaos Orb"
+        },
+        {
+            "count": 1,
+            "id": "4SlotDivineOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Divine Orb"
+        },
+        {
+            "count": 1,
+            "id": "5SlotUncutSpiritGem(Level19)1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uncut Spirit Gem (Level 19)"
+        },
+        {
+            "count": 1,
+            "id": "5SlotUncutSkillGem(Level19)1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uncut Skill Gem (Level 19)"
+        },
+        {
+            "count": 1,
+            "id": "5SlotAstackofrandomcurrency1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "5x Random Currency"
+        },
+        {
+            "count": 1,
+            "id": "5SlotWardingRuneofArmature1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Armature"
+        },
+        {
+            "count": 1,
+            "id": "5SlotWardingRuneofObsession1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Obsession"
+        },
+        {
+            "count": 1,
+            "id": "5SlotWardingRuneofEquinox1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Equinox"
+        },
+        {
+            "count": 1,
+            "id": "5SlotWardingRuneofBodyguards1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Bodyguards"
+        },
+        {
+            "count": 1,
+            "id": "5SlotWardingRuneofHollowing1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Hollowing"
+        },
+        {
+            "count": 3,
+            "id": "5SlotGreaterOrbofAugmentation3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Orb of Augmentation"
+        },
+        {
+            "count": 3,
+            "id": "5SlotGreaterOrbofTransmutation3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Orb of Transmutation"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20DetonateLiving1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Detonate Living"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20EternalMarch1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Eternal March"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20FragmentsofthePast1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Fragments Of The Past"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20FrostFlameNova1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Frostflame Nova"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20Repulsion1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Repulsion"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20RuneHazard1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Conductive Runes"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20BitterDead1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Bitter Dead"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20GrimPillars1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Grim Pillars"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20RemnantsofKalguur1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Remnants of Kalguur"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20VerisiumInfusion1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Powered by Verisium"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20VerisiumManifestation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Verisium Manifestations"
+        },
+        {
+            "count": 1,
+            "id": "5SlotOrbofChance1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Chance"
+        },
+        {
+            "count": 1,
+            "id": "5SlotRareUnique1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rare [Rarity|Unique] Item"
+        },
+        {
+            "count": 1,
+            "id": "5SlotPerfectJewellersOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Jeweller's Orb"
+        },
+        {
+            "count": 1,
+            "id": "5SlotPrismaticAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Prismatic Alloy"
+        },
+        {
+            "count": 1,
+            "id": "5SlotMasterworkRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Masterwork Rune"
+        },
+        {
+            "count": 1,
+            "id": "5SlotMysticAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Mystic Alloy"
+        },
+        {
+            "count": 3,
+            "id": "5SlotChaosOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Chaos Orb"
+        },
+        {
+            "count": 1,
+            "id": "5SlotCraiceannsRuneofWarding1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Craiceann's Rune of Warding"
+        },
+        {
+            "count": 1,
+            "id": "5SlotSaqawalsRuneofErosion1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Saqawal's Rune of Erosion"
+        },
+        {
+            "count": 1,
+            "id": "5SlotFarrulsRuneoftheHunt1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Farrul's Rune of the Hunt"
+        },
+        {
+            "count": 1,
+            "id": "5SlotCraiceannsRuneofRecovery1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Craiceann's Rune of Recovery"
+        },
+        {
+            "count": 1,
+            "id": "5SlotFenumusRuneofSpinning1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Fenumus' Rune of Spinning"
+        },
+        {
+            "count": 1,
+            "id": "5SlotFenumusRuneofDraining1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Fenumus' Rune of Draining"
+        },
+        {
+            "count": 1,
+            "id": "5SlotThaneMyrksRuneofSummer1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Thane Myrk's Rune of Summer"
+        },
+        {
+            "count": 1,
+            "id": "5SlotLadyHestrasRuneofWinter1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lady Hestra's Rune of Winter"
+        },
+        {
+            "count": 1,
+            "id": "5SlotThaneLeldsRuneofSpring1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Thane Leld's Rune of Spring"
+        },
+        {
+            "count": 1,
+            "id": "5SlotTheGreatwolfsRuneofClaws1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "The Greatwolf's Rune of Claws"
+        },
+        {
+            "count": 1,
+            "id": "5SlotTheGreatwolfsRuneofWillpower1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "The Greatwolf's Rune of Willpower"
+        },
+        {
+            "count": 1,
+            "id": "5SlotSaqawalsRuneoftheSky1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Saqawal's Rune of the Sky"
+        },
+        {
+            "count": 1,
+            "id": "5SlotFenumusRuneofAgony1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Fenumus' Rune of Agony"
+        },
+        {
+            "count": 1,
+            "id": "5SlotFarrulsRuneofGrace1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Farrul's Rune of Grace"
+        },
+        {
+            "count": 1,
+            "id": "5SlotPerfectOrbofAugmentation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Orb of Augmentation"
+        },
+        {
+            "count": 1,
+            "id": "5SlotPerfectOrbofTransmutation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Orb of Transmutation"
+        },
+        {
+            "count": 1,
+            "id": "5SlotThaneGrannellsRuneofMastery1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Thane Grannell's Rune of Mastery"
+        },
+        {
+            "count": 1,
+            "id": "5SlotSaqawalsRuneofMemory1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Saqawal's Rune of Memory"
+        },
+        {
+            "count": 1,
+            "id": "5SlotCourtesanMannansRuneofCruelty1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Courtesan Mannan's Rune of Cruelty"
+        },
+        {
+            "count": 1,
+            "id": "5SlotThaneGirtsRuneofWildness1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Thane Girt's Rune of Wildness"
+        },
+        {
+            "count": 2,
+            "id": "5SlotDivineOrb2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Divine Orb"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20AnimusExchange1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Animus Exchange"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20Leylines1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Leylines"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20RuneWard1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Runic Reprieve"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20RunicFortress1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Refutation"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20TriskelionCascade1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Triskelion Cascade"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20VerisiumComet1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Skyfall"
+        },
+        {
+            "count": 3,
+            "gemLevel": 20,
+            "id": "6SlotGreaterExaltedOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Exalted Orb"
+        },
+        {
+            "count": 3,
+            "id": "6SlotGreaterChaosOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Chaos Orb"
+        },
+        {
+            "count": 3,
+            "id": "6SlotGreaterRegalOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Regal Orb"
+        },
+        {
+            "count": 1,
+            "id": "6SlotMedvedsLogbook1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Medved's Saga"
+        },
+        {
+            "count": 1,
+            "id": "6SlotUhtredsLogbook1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uhtred's Saga"
+        },
+        {
+            "count": 1,
+            "id": "6SlotVoranasLogbook1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Vorana's Saga"
+        },
+        {
+            "count": 1,
+            "id": "6SlotOlrothsLogbook1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Olroth's Saga"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20AnimusSplinters1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Animus Splinters"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20ExplosiveTransmutation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Explosive Transmutation"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20HollowShell1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Hollow Shell"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20VoltaicBarrier1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Voltaic Barrier"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20WardboundMinions1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Wardbound Minions"
+        },
+        {
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20RainOfBlades",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rain of Blades"
+        },
+        {
+            "count": 1,
+            "id": "6SlotChillingFlux1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Chilling Flux"
+        },
+        {
+            "count": 1,
+            "id": "6SlotBlazingFlux1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Blazing Flux"
+        },
+        {
+            "count": 1,
+            "id": "6SlotCracklingFlux1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Crackling Flux"
+        },
+        {
+            "count": 1,
+            "id": "6SlotCountessSeskesRuneofArchery1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Countess Seske's Rune of Archery"
+        },
+        {
+            "count": 1,
+            "id": "6SlotHedgewitchAssandrasRuneofWisdom1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Hedgewitch Assandra's Rune of Wisdom"
+        },
+        {
+            "count": 1,
+            "id": "6SlotFarrulsRuneoftheChase1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Farrul's Rune of the Chase"
+        },
+        {
+            "count": 1,
+            "id": "6SlotPerfectExaltedOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Exalted Orb"
+        },
+        {
+            "count": 1,
+            "id": "6SlotVoidFlux1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Void Flux"
+        },
+        {
+            "count": 1,
+            "id": "6SlotUncutSpiritGemLevel201",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uncut Spirit Gem (Level 20)"
+        },
+        {
+            "count": 1,
+            "id": "6SlotUncutSkillGemLevel201",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uncut Skill Gem (Level 20)"
+        },
+        {
+            "count": 3,
+            "id": "6SlotDivineOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Divine Orb"
+        },
+        {
+            "count": 1,
+            "id": "6SlotPerfectChaosOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Chaos Orb"
+        },
+        {
+            "count": 1,
+            "id": "6SlotSovereignAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Sovereign Alloy"
+        },
+        {
+            "count": 2,
+            "id": "6SlotOrbofChance2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Chance"
+        },
+        {
+            "count": 1,
+            "id": "6SlotOrbofAnnulment1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Annulment"
+        },
+        {
+            "count": 1,
+            "id": "7SlotAldursLogbook1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Aldur's Saga"
+        },
+        {
+            "count": 2,
+            "id": "7SlotOrbofAnnulment2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Annulment"
+        },
+        {
+            "count": 1,
+            "id": "7SlotCelestialAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Celestial Alloy"
+        },
+        {
+            "count": 1,
+            "id": "7SlotKalguuranAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Transcendent Alloy"
+        },
+        {
+            "count": 1,
+            "id": "7SlotBreathofAldur1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Breath of Aldur"
+        },
+        {
+            "count": 1,
+            "id": "7SlotPassionofAldur1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Passion of Aldur"
+        },
+        {
+            "count": 1,
+            "id": "7SlotIreofAldur1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ire of Aldur"
+        },
+        {
+            "count": 1,
+            "id": "7SlotAstridsCreativity1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Astrid's Creativity"
+        },
+        {
+            "count": 1,
+            "id": "7SlotBetrayalofAldur1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Betrayal of Aldur"
+        },
+        {
+            "count": 1,
+            "id": "7SlotCadigansEpiphany1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Cadigan's Epiphany"
+        },
+        {
+            "count": 1,
+            "id": "8SlotAldurAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "The Runebinder's Alloy"
+        },
+        {
+            "count": 1,
+            "id": "8SlotAncientAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "The Runefather's Alloy"
+        },
+        {
+            "count": 1,
+            "id": "8SlotVoranasCarnage1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Vorana's Carnage"
+        },
+        {
+            "count": 1,
+            "id": "8SlotKatlasGloom1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Katla's Gloom"
+        },
+        {
+            "count": 1,
+            "id": "8SlotThrudsMight1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Thrud's Might"
+        },
+        {
+            "count": 1,
+            "id": "8SlotKolrsHunt1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Kolr's Hunt"
+        },
+        {
+            "count": 1,
+            "id": "8SlotMedvedsTending1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Medved's Tending"
+        },
+        {
+            "count": 1,
+            "id": "8SlotUhtredsSidereus1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uhtred's Sidereus"
+        },
+        {
+            "count": 1,
+            "id": "8SlotSerlesTriumph1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Serle's Triumph"
+        },
+        {
+            "count": 3,
+            "id": "8SlotPerfectOrbofAugmentation3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Orb of Augmentation"
+        },
+        {
+            "count": 3,
+            "id": "8SlotPerfectOrbofTransmutation3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Orb of Transmutation"
+        },
+        {
+            "count": 3,
+            "id": "8SlotPerfectRegalOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Regal Orb"
+        },
+        {
+            "count": 1,
+            "id": "9SlotExtremelyRareUnique1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Very Rare [Rarity|Unique] item"
+        },
+        {
+            "count": 3,
+            "id": "9SlotOrbofChance3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Chance"
+        },
+        {
+            "count": 3,
+            "id": "9SlotOrbofAnnulment3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Annulment"
+        },
+        {
+            "count": 10,
+            "id": "9SlotDivineOrb10",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Divine Orb"
+        },
+        {
+            "count": 3,
+            "id": "9SlotPerfectExaltedOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Exalted Orb"
+        },
+        {
+            "count": 3,
+            "id": "9SlotPerfectChaosOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Chaos Orb"
+        },
+        {
+            "count": 1,
+            "id": "9SlotHinekorasLock1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Hinekora's Lock"
+        },
+        {
+            "count": 1,
+            "id": "9SlotMirrorofKalandra1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Mirror of Kalandra"
+        },
+        {
+            "count": 1,
+            "id": "10SlotOlrothsBoon1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Olroth's Boon"
+        },
+        {
+            "count": 1,
+            "id": "10SlotVoranasBoon1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Vorana's Boon"
+        },
+        {
+            "count": 1,
+            "id": "10SlotUhtredsBoon1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uhtred's Boon"
+        },
+        {
+            "count": 1,
+            "id": "10SlotMedvedsBoon1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Medved's Boon"
+        },
+        {
+            "count": 1,
+            "id": "10SlotOlrothsLegacyRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Aldur's Legacy"
+        },
+        {
+            "count": 1,
+            "id": "8SlotCurrencyPerfectFlux1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Flux"
+        },
+        {
+            "count": 1,
+            "id": "3SlotLevel5Flux1",
+            "maxLevel": 18,
+            "minLevel": 13,
+            "refReward": "Thaumaturgic Flux (Level 5)"
+        },
+        {
+            "count": 1,
+            "id": "3SlotLevel6Flux1",
+            "maxLevel": 22,
+            "minLevel": 19,
+            "refReward": "Thaumaturgic Flux (Level 6)"
+        },
+        {
+            "count": 1,
+            "id": "3SlotLevel7Flux1",
+            "maxLevel": 26,
+            "minLevel": 23,
+            "refReward": "Thaumaturgic Flux (Level 7)"
+        },
+        {
+            "count": 1,
+            "id": "3SlotLevel8Flux1",
+            "maxLevel": 31,
+            "minLevel": 27,
+            "refReward": "Thaumaturgic Flux (Level 8)"
+        },
+        {
+            "count": 1,
+            "id": "3SlotLevel9Flux1",
+            "maxLevel": 36,
+            "minLevel": 32,
+            "refReward": "Thaumaturgic Flux (Level 9)"
+        },
+        {
+            "count": 1,
+            "id": "3SlotLevel10Flux1",
+            "maxLevel": 41,
+            "minLevel": 37,
+            "refReward": "Thaumaturgic Flux (Level 10)"
+        },
+        {
+            "count": 1,
+            "id": "3SlotLevel11Flux1",
+            "maxLevel": 46,
+            "minLevel": 42,
+            "refReward": "Thaumaturgic Flux (Level 11)"
+        },
+        {
+            "count": 1,
+            "id": "3SlotLevel12Flux1",
+            "maxLevel": 52,
+            "minLevel": 47,
+            "refReward": "Thaumaturgic Flux (Level 12)"
+        },
+        {
+            "count": 1,
+            "id": "3SlotLevel13Flux1",
+            "maxLevel": 58,
+            "minLevel": 53,
+            "refReward": "Thaumaturgic Flux (Level 13)"
+        },
+        {
+            "count": 1,
+            "id": "3SlotLevel14Flux1",
+            "maxLevel": 61,
+            "minLevel": 59,
+            "refReward": "Thaumaturgic Flux (Level 14)"
+        },
+        {
+            "count": 1,
+            "id": "3SlotLevel15Flux1",
+            "maxLevel": 65,
+            "minLevel": 62,
+            "refReward": "Thaumaturgic Flux (Level 15)"
+        },
+        {
+            "count": 1,
+            "id": "3SlotLevel16Flux1",
+            "maxLevel": 70,
+            "minLevel": 66,
+            "refReward": "Thaumaturgic Flux (Level 16)"
+        },
+        {
+            "count": 1,
+            "id": "3SlotLevel17Flux1",
+            "maxLevel": 76,
+            "minLevel": 71,
+            "refReward": "Thaumaturgic Flux (Level 17)"
+        },
+        {
+            "count": 1,
+            "id": "3SlotLevel18Flux1",
+            "maxLevel": 100,
+            "minLevel": 77,
+            "refReward": "Thaumaturgic Flux (Level 18)"
+        },
+        {
+            "count": 1,
+            "id": "5SlotLevel19Flux1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Thaumaturgic Flux (Level 19)"
+        },
+        {
+            "count": 1,
+            "id": "6SlotLevel20Flux1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Thaumaturgic Flux (Level 20)"
+        }
+    ]
+}
