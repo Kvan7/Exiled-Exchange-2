@@ -1,4 +1,11 @@
-import { screen, globalShortcut } from "electron";
+import { app, screen, globalShortcut } from "electron";
+import path from "node:path";
+import fs from "node:fs/promises";
+import os from "node:os";
+import {
+  LinuxEvdevHelper,
+  type LinuxEvdevHelperEvent,
+} from "linux-evdev-wayland-helper";
 import { uIOhook, UiohookKey, UiohookWheelEvent } from "uiohook-napi";
 import {
   isModKey,
@@ -27,6 +34,10 @@ export class Shortcuts {
   private logKeys = false;
   private areaTracker: WidgetAreaTracker;
   private clipboard: HostClipboard;
+  private linuxHelper?: LinuxEvdevHelper;
+  private linuxHelperRunning = false;
+  private linuxHelperHotkeysKey: string | null = null;
+  private linuxHelperActions = new Map<string, ShortcutAction>();
 
   static async create(
     logger: Logger,
@@ -173,19 +184,23 @@ export class Shortcuts {
         !duplicates.has(action.shortcut) ||
         action.action.type === "toggle-overlay",
     );
+    this.syncLinuxHelper();
+    if (this.poeWindow.isActive) {
+      this.unregister();
+      this.register();
+    }
   }
 
   private register() {
+    // On Wayland, globalShortcut uses XGrabKey via XWayland. This double-fires
+    // every action already handled by the evdev helper, and the XGrabKey grabs
+    // interfere with PoE2's own input handling. The evdev helper is the sole
+    // hotkey mechanism on Wayland.
+    if (isWayland()) return;
     for (const entry of this.actions) {
       const isOk = globalShortcut.register(
         shortcutToElectron(entry.shortcut),
         () => {
-          if (this.logKeys) {
-            this.logger.write(
-              `debug [Shortcuts] Action type: ${entry.action.type}`,
-            );
-          }
-
           if (entry.keepModKeys) {
             const nonModKey = entry.shortcut
               .split(" + ")
@@ -199,77 +214,7 @@ export class Shortcuts {
                 uIOhook.keyToggle(UiohookKey[key as UiohookKeyT], "up");
               });
           }
-
-          if (entry.action.type === "toggle-overlay") {
-            this.areaTracker.removeListeners();
-            this.overlay.toggleActiveState();
-          } else if (entry.action.type === "paste-in-chat") {
-            typeInChat(entry.action.text, entry.action.send, this.clipboard);
-          } else if (entry.action.type === "trigger-event") {
-            this.server.sendEventTo("broadcast", {
-              name: "MAIN->CLIENT::widget-action",
-              payload: { target: entry.action.target },
-            });
-          } else if (entry.action.type === "stash-search") {
-            stashSearch(entry.action.text, this.clipboard, this.overlay);
-          } else if (entry.action.type === "copy-item") {
-            const { action } = entry;
-
-            const pressPosition = screen.getCursorScreenPoint();
-
-            this.clipboard
-              .readItemText()
-              .then((clipboard) => {
-                this.areaTracker.removeListeners();
-                this.server.sendEventTo("last-active", {
-                  name: "MAIN->CLIENT::item-text",
-                  payload: {
-                    target: action.target,
-                    clipboard,
-                    position: pressPosition,
-                    focusOverlay: Boolean(action.focusOverlay),
-                  },
-                });
-                if (action.focusOverlay && this.overlay.wasUsedRecently) {
-                  this.overlay.assertOverlayActive();
-                }
-              })
-              .catch(() => {});
-
-            pressKeysToCopyItemText(
-              entry.keepModKeys
-                ? entry.shortcut.split(" + ").filter((key) => isModKey(key))
-                : undefined,
-              this.gameConfig.showModsKey,
-            );
-          } else if (
-            entry.action.type === "ocr-text" &&
-            entry.action.target === "heist-gems"
-          ) {
-            if (process.platform !== "win32") return;
-
-            const { action } = entry;
-            const pressTime = Date.now();
-            const imageData = this.poeWindow.screenshot();
-            this.ocrWorker
-              .findHeistGems({
-                width: this.poeWindow.bounds.width,
-                height: this.poeWindow.bounds.height,
-                data: imageData,
-              })
-              .then((result) => {
-                this.server.sendEventTo("last-active", {
-                  name: "MAIN->CLIENT::ocr-text",
-                  payload: {
-                    target: action.target,
-                    pressTime,
-                    ocrTime: result.elapsed,
-                    paragraphs: result.recognized.map((p) => p.text),
-                  },
-                });
-              })
-              .catch(() => {});
-          }
+          this.runAction(entry);
         },
       );
 
@@ -286,8 +231,197 @@ export class Shortcuts {
   }
 
   private unregister() {
+    if (isWayland()) return;
     globalShortcut.unregisterAll();
   }
+
+  private syncLinuxHelper() {
+    if (!isWayland()) return;
+
+    // Register all configured hotkeys except test-only conflict-detection entries.
+    // The helper runs while PoE has focus; once the overlay is shown poeWindow.isActive
+    // becomes false and handleLinuxHelperEvent ignores events, leaving Electron's own
+    // keyboard handling (handleExtraCommands in OverlayWindow) in charge.
+    const eligible = this.actions.filter((a) => a.action.type !== "test-only");
+    const hotkeys = eligible.map((action, i) => ({
+      id: `action-${i}`,
+      accelerator: action.shortcut,
+    }));
+
+    const hotkeysKey = JSON.stringify(hotkeys);
+    if (hotkeysKey === this.linuxHelperHotkeysKey && this.linuxHelperRunning)
+      return;
+    this.linuxHelperHotkeysKey = hotkeysKey;
+    this.linuxHelperActions = new Map(
+      eligible.map((action, i) => [`action-${i}`, action]),
+    );
+
+    if (!this.linuxHelper) {
+      this.linuxHelper = new LinuxEvdevHelper();
+      this.linuxHelper.on("event", (event) => {
+        this.handleLinuxHelperEvent(event);
+      });
+    }
+
+    const isStarting = !this.linuxHelperRunning;
+    this.logger.write(
+      `info [linux-evdev-helper] ${isStarting ? "starting" : "updating"} ${hotkeys.length} hotkeys`,
+    );
+
+    const doWork = async () => {
+      const helperPath = await stageHelperBinary(getLinuxEvdevHelperPath());
+      if (this.linuxHelperRunning) {
+        await this.linuxHelper!.setHotkeys(hotkeys);
+      } else {
+        await this.linuxHelper!.start({
+          helperPath,
+          hotkeys,
+          allDevices: true,
+          elevation: "pkexec",
+          enableUinput: false,
+          parentPid: process.pid,
+        });
+      }
+    };
+
+    doWork()
+      .then(() => {
+        this.linuxHelperRunning = true;
+      })
+      .catch((error) => {
+        this.linuxHelperRunning = false;
+        this.linuxHelperHotkeysKey = null;
+        this.logger.write(
+          `error [linux-evdev-helper] ${(error as Error).message}`,
+        );
+      });
+  }
+
+  private handleLinuxHelperEvent(event: LinuxEvdevHelperEvent) {
+    if (event.type === "hotkey") {
+      const entry = this.linuxHelperActions.get(event.id);
+      if (!entry) return;
+      // When the overlay is shown without keyboard focus (e.g. --ozone-platform=x11
+      // or any compositor that ignores the activation request), poeWindow.isActive
+      // stays false and blur never fires. Allow toggle-overlay through so the
+      // hotkey can close the overlay it opened. All other actions require PoE focus.
+      if (!this.poeWindow.isActive && entry.action.type !== "toggle-overlay") return;
+      this.runAction(entry);
+    } else if (event.type === "exit") {
+      this.linuxHelperRunning = false;
+      this.linuxHelperHotkeysKey = null;
+    } else if (event.type === "error") {
+      this.logger.write(`error [linux-evdev-helper] ${event.message}`);
+    }
+  }
+
+  private runAction(entry: ShortcutAction) {
+    if (this.logKeys) {
+      this.logger.write(`debug [Shortcuts] Action type: ${entry.action.type}`);
+    }
+    if (entry.action.type === "toggle-overlay") {
+      this.areaTracker.removeListeners();
+      this.overlay.toggleActiveState();
+    } else if (entry.action.type === "paste-in-chat") {
+      typeInChat(entry.action.text, entry.action.send, this.clipboard);
+    } else if (entry.action.type === "trigger-event") {
+      this.server.sendEventTo("broadcast", {
+        name: "MAIN->CLIENT::widget-action",
+        payload: { target: entry.action.target },
+      });
+    } else if (entry.action.type === "stash-search") {
+      stashSearch(entry.action.text, this.clipboard, this.overlay);
+    } else if (entry.action.type === "copy-item") {
+      const { action } = entry;
+      const pressPosition = screen.getCursorScreenPoint();
+      this.clipboard
+        .readItemText()
+        .then((clipboard) => {
+          this.areaTracker.removeListeners();
+          this.server.sendEventTo("last-active", {
+            name: "MAIN->CLIENT::item-text",
+            payload: {
+              target: action.target,
+              clipboard,
+              position: pressPosition,
+              focusOverlay: Boolean(action.focusOverlay),
+            },
+          });
+          if (action.focusOverlay && this.overlay.wasUsedRecently) {
+            this.overlay.assertOverlayActive();
+          }
+        })
+        .catch(() => {});
+      pressKeysToCopyItemText(
+        entry.keepModKeys
+          ? entry.shortcut.split(" + ").filter((key) => isModKey(key))
+          : undefined,
+        this.gameConfig.showModsKey,
+      );
+    } else if (
+      entry.action.type === "ocr-text" &&
+      entry.action.target === "heist-gems"
+    ) {
+      if (process.platform !== "win32") return;
+      const { action } = entry;
+      const pressTime = Date.now();
+      const imageData = this.poeWindow.screenshot();
+      this.ocrWorker
+        .findHeistGems({
+          width: this.poeWindow.bounds.width,
+          height: this.poeWindow.bounds.height,
+          data: imageData,
+        })
+        .then((result) => {
+          this.server.sendEventTo("last-active", {
+            name: "MAIN->CLIENT::ocr-text",
+            payload: {
+              target: action.target,
+              pressTime,
+              ocrTime: result.elapsed,
+              paragraphs: result.recognized.map((p) => p.text),
+            },
+          });
+        })
+        .catch(() => {});
+    }
+  }
+}
+
+function isWayland(): boolean {
+  return (
+    process.platform === "linux" &&
+    (process.env.XDG_SESSION_TYPE === "wayland" ||
+      Boolean(process.env.WAYLAND_DISPLAY))
+  );
+}
+
+function getLinuxEvdevHelperPath(): string | undefined {
+  if (!app.isPackaged) return undefined;
+
+  return path.join(
+    process.resourcesPath,
+    "app.asar.unpacked",
+    "node_modules",
+    "linux-evdev-wayland-helper",
+    "native",
+    "linux-evdev-helper",
+    "linux-evdev-helper",
+  );
+}
+
+// When running from an AppImage the helper binary lives inside a FUSE mount
+// that is private to the mounting user. pkexec runs as root and cannot read
+// files from that mount (FUSE does not honour root's DAC bypass without
+// allow_other). Copy the binary to a world-accessible tmp path before exec-ing.
+async function stageHelperBinary(
+  sourcePath: string | undefined,
+): Promise<string | undefined> {
+  if (!sourcePath) return undefined;
+  const dest = path.join(os.tmpdir(), "linux-evdev-helper");
+  await fs.copyFile(sourcePath, dest);
+  await fs.chmod(dest, 0o755);
+  return dest;
 }
 
 function pressKeysToCopyItemText(

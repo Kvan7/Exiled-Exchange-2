@@ -4,6 +4,8 @@ import type { ServerEvents } from "./server";
 
 export class AppTray {
   public overlayKey = "Shift + Space";
+  public suppressOverlayHide?: () => void;
+  public openSettings?: () => void;
   private tray: Tray;
   serverPort = 0;
 
@@ -24,6 +26,9 @@ export class AppTray {
 
     this.tray = new Tray(trayImage);
     this.tray.setToolTip(`Exiled Exchange 2 v${app.getVersion()}`);
+    this.tray.on("right-click", () => {
+      this.suppressOverlayHide?.();
+    });
     this.rebuildMenu();
 
     server.onEventAnyClient("CLIENT->MAIN::user-action", ({ action }) => {
@@ -38,6 +43,11 @@ export class AppTray {
       {
         label: "Settings/League",
         click: () => {
+          if (isWayland()) {
+            this.openSettings?.();
+            return;
+          }
+
           dialog.showMessageBox({
             title: "Settings",
             message: `Open Path of Exile 2 and press "${this.overlayKey}". Click on the button with cog icon there.`,
@@ -67,4 +77,12 @@ export class AppTray {
 
     this.tray.setContextMenu(contextMenu);
   }
+}
+
+function isWayland(): boolean {
+  return (
+    process.platform === "linux" &&
+    (process.env.XDG_SESSION_TYPE === "wayland" ||
+      Boolean(process.env.WAYLAND_DISPLAY))
+  );
 }

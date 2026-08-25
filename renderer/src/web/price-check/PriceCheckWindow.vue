@@ -138,6 +138,7 @@ import {
   nextTick,
   provide,
   ref,
+  onBeforeUnmount,
 } from "vue";
 import { Result, ok, err } from "neverthrow";
 import { useI18n } from "vue-i18n";
@@ -338,8 +339,19 @@ export default defineComponent({
       item.value = ok(identified);
     }
 
-    MainProcess.onEvent("MAIN->OVERLAY::hide-exclusive-widget", () => {
+    function resetPriceCheck() {
+      closeBrowser();
+      item.value = null;
+      itemEditorOptions.value = {
+        editing: false,
+        value: "None",
+        disabled: true,
+      };
       wm.hide(props.config.wmId);
+    }
+
+    MainProcess.onEvent("MAIN->OVERLAY::hide-exclusive-widget", () => {
+      resetPriceCheck();
     });
 
     watch(
@@ -388,20 +400,34 @@ export default defineComponent({
     });
 
     function closePriceCheck() {
-      if (AppConfig().overlayAlwaysClose) {
-        Host.sendEvent({
-          name: "OVERLAY->MAIN::focus-game",
-          payload: undefined,
-        });
-      } else if (isBrowserShown.value || !Host.isElectron) {
-        wm.hide(props.config.wmId);
-      } else {
+      const wasBrowserShown = isBrowserShown.value;
+      resetPriceCheck();
+
+      if (
+        Host.isElectron &&
+        (AppConfig().overlayAlwaysClose || !wasBrowserShown)
+      ) {
         Host.sendEvent({
           name: "OVERLAY->MAIN::focus-game",
           payload: undefined,
         });
       }
     }
+
+    function handleKeydown(e: KeyboardEvent) {
+      if (props.config.wmWants !== "show") return;
+      if (e.key !== "Escape" && !(e.ctrlKey && e.key.toLowerCase() === "w")) {
+        return;
+      }
+
+      e.preventDefault();
+      closePriceCheck();
+    }
+
+    window.addEventListener("keydown", handleKeydown);
+    onBeforeUnmount(() => {
+      window.removeEventListener("keydown", handleKeydown);
+    });
 
     function openLeagueSelection() {
       const settings = wm.widgets.value.find((w) => w.wmType === "settings")!;

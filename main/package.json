@@ -21,6 +21,7 @@
   "main": "dist/main.js",
   "dependencies": {
     "electron-overlay-window": "4.0.2",
+    "linux-evdev-wayland-helper": "^0.2.1",
     "uiohook-napi": "1.5.x"
   },
   "devDependencies": {

@@ -27,9 +27,10 @@ export function updateConfig(updates: Config) {
   document.documentElement.style.fontSize = `${_config.value!.fontSize}px`;
 }
 
-export function saveConfig(opts?: { isTemporary: boolean }) {
+export function saveConfig(opts?: { isTemporary?: boolean; force?: boolean }) {
   const rawConfig = toRaw(_config.value!);
   if (
+    !opts?.force &&
     rawConfig.widgets.some(
       (w) => w.wmZorder === "exclusive" && w.wmWants === "show",
     )

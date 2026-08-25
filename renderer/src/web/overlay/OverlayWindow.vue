@@ -93,6 +93,7 @@ export default defineComponent({
 
     const active = shallowRef(!Host.isElectron);
     const gameFocused = shallowRef(false);
+    const isWayland = shallowRef(false);
     const hideUI = shallowRef(false);
     const showEditingNotification = shallowRef(false);
 
@@ -133,6 +134,9 @@ export default defineComponent({
     Host.onEvent("MAIN->OVERLAY::focus-change", (state) => {
       active.value = state.overlay;
       gameFocused.value = state.game;
+      isWayland.value = state.isWayland;
+
+      if (state.isWayland) return;
 
       if (active.value === false) {
         for (const w of widgets.value) {
@@ -157,6 +161,12 @@ export default defineComponent({
     Host.onEvent("MAIN->CLIENT::game-log", (e) => {
       lineQueue.push(...e.lines);
       processQueue();
+    });
+    Host.onEvent("MAIN->CLIENT::show-settings", () => {
+      const settings = widgets.value.find((w) => w.wmType === "settings");
+      if (settings) {
+        show(settings.wmId);
+      }
     });
     function processQueue() {
       if (processing) return;
@@ -324,7 +334,12 @@ export default defineComponent({
     });
 
     function handleBackgroundClick() {
-      if (AppConfig().overlayAlwaysClose) {
+      if (Host.isElectron && isWayland.value) {
+        Host.sendEvent({
+          name: "OVERLAY->MAIN::focus-game",
+          payload: undefined,
+        });
+      } else if (AppConfig().overlayAlwaysClose) {
         Host.sendEvent({
           name: "OVERLAY->MAIN::focus-game",
           payload: undefined,

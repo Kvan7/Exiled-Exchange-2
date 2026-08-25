@@ -813,9 +813,9 @@ describe("clientLog", () => {
 
       const d = new Date(arg.payload.data.ts);
 
-      expect(d.getUTCFullYear()).toBe(2025);
-      expect(d.getUTCMonth()).toBe(8); // because zero indexed for some reason
-      expect(d.getUTCDate()).toBe(11);
+      expect(d.getFullYear()).toBe(2025);
+      expect(d.getMonth()).toBe(8); // because zero indexed for some reason
+      expect(d.getDate()).toBe(11);
     });
   });
 
@@ -1087,7 +1087,7 @@ describe("clientLog", () => {
     calls.forEach((call) => {
       const arg = call[0].payload as unknown as { data: SkillPointEvent };
       expect(arg.data.points).toBe(2);
-      expect(arg.data.pointType).toBeOneOf(["passive", "weapon-set"]);
+      expect(["passive", "weapon-set"]).toContain(arg.data.pointType);
     });
   });
 

@@ -82,7 +82,47 @@ class HostTransport {
   }
 
   proxy: (typeof window)["fetch"] = async (url, init) => {
-    return await window.fetch(`/proxy/${url as string}`, init);
+    const fullUrl = `/proxy/${url as string}`;
+    let lastError: unknown;
+
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        const response = await window.fetch(fullUrl, init);
+        if (response.ok) return response;
+
+        const ct = response.headers.get("content-type") ?? "?";
+        const preview = await response.text().then(
+          (t) => t.slice(0, 120).replace(/\s+/g, " "),
+          () => "(unreadable)",
+        );
+        console.error(
+          `[proxy] ${String(url)} attempt ${attempt}/3: ${response.status} ${response.statusText} ct=${ct} body="${preview}"`,
+        );
+        lastError = new Error(`${response.status} ${response.statusText}`);
+      } catch (e) {
+        console.error(
+          `[proxy] ${String(url)} attempt ${attempt}/3: network error: ${String(e)}`,
+        );
+        lastError = e;
+      }
+
+      if (attempt < 3) {
+        const signal = (init as RequestInit | undefined)?.signal;
+        await new Promise<void>((resolve, reject) => {
+          const id = setTimeout(resolve, 1000);
+          signal?.addEventListener(
+            "abort",
+            () => {
+              clearTimeout(id);
+              reject(lastError);
+            },
+            { once: true },
+          );
+        });
+      }
+    }
+
+    throw lastError;
   };
 
   get isElectron() {

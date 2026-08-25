@@ -35,9 +35,38 @@ const props = defineProps<{
 }>();
 
 const relativePos = computed(() => {
+  const localX = clampToViewport(
+    props.position.x - screenOffsetX(),
+    window.innerWidth,
+  );
+  const localY = clampToViewport(
+    props.position.y - screenOffsetY(),
+    window.innerHeight,
+  );
+
   return {
-    top: `calc(${props.position.y - window.screenY}px - 2.5rem)`,
-    left: `calc(${props.position.x - window.screenX}px - 2.5rem)`,
+    top: `calc(${localY}px - 2.5rem)`,
+    left: `calc(${localX}px - 2.5rem)`,
   };
 });
+
+function screenOffsetX() {
+  return isUsableScreenOffset(window.screenX, window.innerWidth)
+    ? window.screenX
+    : 0;
+}
+
+function screenOffsetY() {
+  return isUsableScreenOffset(window.screenY, window.innerHeight)
+    ? window.screenY
+    : 0;
+}
+
+function isUsableScreenOffset(offset: number, viewportSize: number) {
+  return Number.isFinite(offset) && offset >= 0 && offset <= viewportSize;
+}
+
+function clampToViewport(value: number, viewportSize: number) {
+  return Math.min(Math.max(value, 0), viewportSize);
+}
 </script>

@@ -4,11 +4,14 @@ productName: "Exiled Exchange 2"
 npmRebuild: false
 files:
   - "package.json"
+  - "node_modules/linux-evdev-wayland-helper/**/*"
   - from: "dist"
     to: "."
     filter: ["main.js", "vision.js"]
   - from: "../renderer/dist"
     to: "."
+asarUnpack:
+  - "node_modules/linux-evdev-wayland-helper/native/linux-evdev-helper/linux-evdev-helper"
 extraMetadata:
   main: "main.js"
 nsis:

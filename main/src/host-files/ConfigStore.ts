@@ -4,7 +4,6 @@ import fs from "fs/promises";
 import path from "path";
 
 export class ConfigStore {
-  private isTmpFile = false;
   private cfgPath = path.join(
     app.getPath("userData"),
     "apt-data",
@@ -30,15 +29,10 @@ export class ConfigStore {
   }
 
   private async save(contents: string, tmp: boolean) {
-    if (process.env.VITE_DEV_SERVER_URL) return;
-
-    if (tmp && !this.isTmpFile) {
-      this.cfgPath += ".tmp";
-      this.isTmpFile = true;
-    }
+    const cfgPath = tmp ? `${this.cfgPath}.tmp` : this.cfgPath;
     try {
-      await fs.mkdir(path.dirname(this.cfgPath), { recursive: true });
-      await fs.writeFile(this.cfgPath, contents);
+      await fs.mkdir(path.dirname(cfgPath), { recursive: true });
+      await fs.writeFile(cfgPath, contents);
     } catch {
       app.exit(1);
     }

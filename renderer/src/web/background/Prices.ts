@@ -43,22 +43,26 @@ interface NinjaDenseStashInfo {
   };
 }
 
-interface NinjaXchgRates {
-  rates: Record<string, number>;
-  primary: string;
-  secondary: string;
+interface OverviewBlob {
+  core: {
+    rates: Record<string, number>;
+    primary: string;
+    secondary: string;
+  };
+  itemOverviews: Array<{
+    type: string;
+    lines: Array<NinjaDenseExchangeInfo | NinjaDenseStashInfo>;
+  }>;
 }
 
-type PriceDatabase = Array<{
-  // My namespace for searching
-  ns: string;
-  // If db is from the currency exchange (cx)
-  cx: boolean;
-  // base url on ninja
-  url: string;
-  // json blob data
-  lines: string;
-}>;
+type PriceIndex = Map<
+  string,
+  {
+    entry: NinjaDenseExchangeInfo | NinjaDenseStashInfo;
+    cx: boolean;
+    url: string;
+  }
+>;
 const RETRY_INTERVAL_MS = 4 * 60 * 1000;
 const UPDATE_INTERVAL_MS = 31 * 60 * 1000;
 const INTEREST_SPAN_MS = 20 * 60 * 1000;
@@ -148,7 +152,7 @@ export const usePoeninja = createGlobalState(() => {
   );
 
   const isLoading = shallowRef(false);
-  let PRICES_DB: PriceDatabase = [];
+  let priceIndex: PriceIndex = new Map();
   let lastUpdateTime = 0;
   let downloadController: AbortController | undefined;
   let lastInterestTime = 0;
@@ -202,14 +206,24 @@ export const usePoeninja = createGlobalState(() => {
           signal: downloadController.signal,
         },
       );
-      const jsonBlob = await response.text();
+      const overview: OverviewBlob = JSON.parse(await response.text());
 
-      const ninjaXchg = parseXchg(jsonBlob);
-
-      PRICES_DB = splitJsonBlob(jsonBlob, ninjaSchema);
+      priceIndex = new Map();
+      for (const section of overview.itemOverviews) {
+        const mapping = ninjaSchema.map.find((m) => m.type === section.type);
+        if (!mapping) continue;
+        for (const item of section.lines) {
+          const key = `${mapping.ns}:${item.name}:${item.variant ?? ""}`;
+          priceIndex.set(key, {
+            entry: item,
+            cx: mapping.cx,
+            url: mapping.url,
+          });
+        }
+      }
 
       // TODO: update to search for requested currency instead of divine
-      const divineRates = ninjaXchg.rates;
+      const divineRates = overview.core.rates;
       const preferred = selectedCoreCurrency.value;
 
       if (divineRates && Object.values(divineRates).some((v) => v >= 10)) {
@@ -257,32 +271,14 @@ export const usePoeninja = createGlobalState(() => {
   }
 
   function findPriceByQuery(query: DbQuery) {
-    // NOTE: order of keys is important
-    const searchString = JSON.stringify({
-      name: query.name,
-      variant: query.variant,
-      primaryValue: 0,
-    }).replace(":0}", ":");
-    const endSearchString = "}}";
-
-    for (const { ns, cx, url, lines } of PRICES_DB) {
-      if (ns !== query.ns) continue;
-
-      const startPos = lines.indexOf(searchString);
-      if (startPos === -1) continue;
-      const endPos = lines.indexOf(endSearchString, startPos);
-
-      const info: NinjaDenseExchangeInfo | NinjaDenseStashInfo = JSON.parse(
-        lines.slice(startPos, endPos + endSearchString.length),
-      );
-
-      return {
-        ...info,
-        cx,
-        url: `https://poe.ninja/poe2/economy/${selectedLeagueToUrl(false)}/${url}/${info.detailsId}`,
-      };
-    }
-    return null;
+    const key = `${query.ns}:${query.name}:${query.variant ?? ""}`;
+    const hit = priceIndex.get(key);
+    if (!hit) return null;
+    return {
+      ...hit.entry,
+      cx: hit.cx,
+      url: `https://poe.ninja/poe2/economy/${selectedLeagueToUrl(false)}/${hit.url}/${hit.entry.detailsId}`,
+    };
   }
 
   /**
@@ -362,7 +358,7 @@ export const usePoeninja = createGlobalState(() => {
 
   watch(leagues.selectedId, () => {
     xchgRate.value = undefined;
-    PRICES_DB = [];
+    priceIndex = new Map();
     load(true);
   });
 
@@ -370,7 +366,7 @@ export const usePoeninja = createGlobalState(() => {
     if (curr === prev) return;
     xchgRateCurrency.value = curr ?? "exalted";
     xchgRate.value = undefined;
-    PRICES_DB = [];
+    priceIndex = new Map();
     load(true);
   });
 
@@ -381,64 +377,11 @@ export const usePoeninja = createGlobalState(() => {
     autoCurrency,
     queuePricesFetch,
     cachedCurrencyByQuery,
-    initialLoading: () => isLoading.value && !PRICES_DB.length,
+    initialLoading: () => isLoading.value && !priceIndex.size,
     availableCoreCurrencies: readonly(availableCoreCurrencies),
     ITEM_DROP,
   };
 });
-
-function parseXchg(jsonBlob: string): NinjaXchgRates {
-  const RATES = '{"rates":';
-  const END_RATES = '"}';
-  const startPos = jsonBlob.indexOf(RATES);
-  const endPos = jsonBlob.indexOf(END_RATES, startPos) + END_RATES.length;
-  return JSON.parse(jsonBlob.slice(startPos, endPos));
-}
-
-function splitJsonBlob(jsonBlob: string, schema: NinjaSchema): PriceDatabase {
-  const NINJA_OVERVIEW = '{"type":"';
-  if (schema.schemaVersion !== 1) {
-    console.warn("Unsupported ninja schema version", schema.schemaVersion);
-    return [];
-  }
-  const NAMESPACE_MAP: Array<{
-    ns: string;
-    cx: boolean;
-    url: string;
-    type: string;
-  }> = schema.map;
-
-  const database: PriceDatabase = [];
-  let startPos = jsonBlob.indexOf(NINJA_OVERVIEW);
-  if (startPos === -1) return [];
-
-  while (true) {
-    const endPos = jsonBlob.indexOf(NINJA_OVERVIEW, startPos + 1);
-
-    const type = jsonBlob.slice(
-      startPos + NINJA_OVERVIEW.length,
-      jsonBlob.indexOf('"', startPos + NINJA_OVERVIEW.length),
-    );
-    const lines = jsonBlob.slice(
-      startPos,
-      endPos === -1 ? jsonBlob.length : endPos,
-    );
-
-    const isSupported = NAMESPACE_MAP.find((entry) => entry.type === type);
-    if (isSupported) {
-      database.push({
-        ns: isSupported.ns,
-        cx: isSupported.cx,
-        url: isSupported.url,
-        lines,
-      });
-    }
-
-    if (endPos === -1) break;
-    startPos = endPos;
-  }
-  return database;
-}
 
 export function displayRounding(
   value: number,
@@ -484,10 +427,3 @@ export function displayRounding(
   }
   return Math.round(value).toString();
 }
-
-// Disable since this is export for tests
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export const __testExports = {
-  parseXchg,
-  splitJsonBlob,
-};

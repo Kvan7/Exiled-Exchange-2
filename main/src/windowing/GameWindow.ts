@@ -6,7 +6,7 @@ export interface GameWindow {
   on: (event: "active-change", listener: (isActive: boolean) => void) => this;
 }
 export class GameWindow extends EventEmitter {
-  private _isActive = false;
+  private _isActive = isWayland();
   private _isTracking = false;
 
   get bounds() {
@@ -33,14 +33,16 @@ export class GameWindow extends EventEmitter {
   attach(window: BrowserWindow | undefined, title: string) {
     if (!this._isTracking) {
       OverlayController.events.on("focus", () => {
-        this.isActive = true;
+        if (!isWayland()) this.isActive = true;
       });
       OverlayController.events.on("blur", () => {
-        this.isActive = false;
+        if (!isWayland()) this.isActive = false;
       });
-      OverlayController.attachByTitle(window, title, {
-        hasTitleBarOnMac: true,
-      });
+      if (!isWayland()) {
+        OverlayController.attachByTitle(window, title, {
+          hasTitleBarOnMac: true,
+        });
+      }
       this._isTracking = true;
     }
   }
@@ -54,4 +56,12 @@ export class GameWindow extends EventEmitter {
   screenshot() {
     return OverlayController.screenshot();
   }
+}
+
+function isWayland(): boolean {
+  return (
+    process.platform === "linux" &&
+    (process.env.XDG_SESSION_TYPE === "wayland" ||
+      Boolean(process.env.WAYLAND_DISPLAY))
+  );
 }

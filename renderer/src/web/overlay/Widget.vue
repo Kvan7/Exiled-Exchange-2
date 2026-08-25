@@ -1,6 +1,7 @@
 <template>
   <div @mousedown="handleMouseDown">
     <div
+      ref="widgetEl"
       :class="[$style.widget, { 'opacity-75': isMoving }]"
       :style="widgetPosition"
     >
@@ -110,7 +111,17 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed, inject, ref } from "vue";
+import {
+  defineComponent,
+  PropType,
+  computed,
+  inject,
+  ref,
+  nextTick,
+  onMounted,
+  onUnmounted,
+  watch,
+} from "vue";
 import { Widget, Anchor, WidgetManager } from "./interfaces";
 import { useI18n } from "vue-i18n";
 
@@ -162,6 +173,9 @@ export default defineComponent({
   },
   setup(props) {
     const wm = inject<WidgetManager>("wm")!;
+    const widgetEl = ref<HTMLElement | null>(null);
+    const clampOffset = ref({ x: 0, y: 0 });
+    let resizeObserver: ResizeObserver | undefined;
 
     const moverPosition = computed(() => {
       const { anchor, wmZorder } = props.config;
@@ -215,7 +229,12 @@ export default defineComponent({
         "left": `${anchor.x}%`,
         "max-width": `${max.w}%`,
         "max-height": `${max.h}%`,
-        "transform": translate,
+        "transform": [
+          translate,
+          `translate(${clampOffset.value.x}px, ${clampOffset.value.y}px)`,
+        ]
+          .filter(Boolean)
+          .join(" "),
         "z-index": typeof wmZorder === "number" ? wmZorder : undefined,
       };
     });
@@ -292,8 +311,61 @@ export default defineComponent({
 
     const { t } = useI18n();
 
+    function updateClampOffset() {
+      const el = widgetEl.value;
+      if (!el) return;
+
+      clampOffset.value = { x: 0, y: 0 };
+      nextTick(() => {
+        const rect = el.getBoundingClientRect();
+        let x = 0;
+        let y = 0;
+
+        if (rect.left < 0) {
+          x = -rect.left;
+        } else if (rect.right > window.innerWidth) {
+          x = window.innerWidth - rect.right;
+        }
+
+        if (rect.top < 0) {
+          y = -rect.top;
+        } else if (rect.bottom > window.innerHeight) {
+          y = window.innerHeight - rect.bottom;
+        }
+
+        clampOffset.value = { x, y };
+      });
+    }
+
+    onMounted(() => {
+      resizeObserver = new ResizeObserver(updateClampOffset);
+      if (widgetEl.value) {
+        resizeObserver.observe(widgetEl.value);
+      }
+      window.addEventListener("resize", updateClampOffset);
+      updateClampOffset();
+    });
+
+    onUnmounted(() => {
+      resizeObserver?.disconnect();
+      window.removeEventListener("resize", updateClampOffset);
+    });
+
+    watch(
+      () => [
+        props.config.anchor.x,
+        props.config.anchor.y,
+        props.config.anchor.pos,
+        props.config.wmWants,
+        wm.size.value.width,
+        wm.size.value.height,
+      ],
+      () => nextTick(updateClampOffset),
+    );
+
     return {
       t,
+      widgetEl,
       moverPosition,
       widgetPosition,
       actionsPosition,

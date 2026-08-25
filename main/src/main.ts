@@ -92,6 +92,16 @@ let tray: AppTray;
     setTimeout(
       async () => {
         const overlay = new OverlayWindow(eventPipe, logger, poeWindow);
+        tray.suppressOverlayHide = () => {
+          overlay.suppressNextDeactivate();
+        };
+        tray.openSettings = () => {
+          overlay.assertOverlayActive({ force: true });
+          eventPipe.sendEventTo("broadcast", {
+            name: "MAIN->CLIENT::show-settings",
+            payload: undefined,
+          });
+        };
         // eslint-disable-next-line no-new
         new OverlayVisibility(eventPipe, overlay, gameConfig);
         const shortcuts = await Shortcuts.create(
