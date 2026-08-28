@@ -130,6 +130,7 @@ export interface Config {
   overlayKey: string;
   overlayBackground: string;
   overlayBackgroundClose: boolean;
+  hideOverlayOnBlur: boolean;
   restoreClipboard: boolean;
   commands: Array<{
     text: string;
@@ -156,11 +157,12 @@ export interface Config {
 }
 
 export const defaultConfig = (): Config => ({
-  configVersion: 34,
+  configVersion: 35,
   overlayKey: "Shift + Space",
   overlayBackground: "rgba(129, 139, 149, 0.15)",
   overlayBackgroundClose: true,
   overlayAlwaysClose: false,
+  hideOverlayOnBlur: false,
   restoreClipboard: false,
   showAttachNotification: true,
   commands: [
@@ -667,7 +669,14 @@ function upgradeConfig(_config: Config): Config {
     libraryWidget.selectedProfile = "chaos";
     libraryWidget.profiles.chaos!.modOpts.generation = true;
 
+    // why is this one higher?
     config.configVersion = 34;
+  }
+
+  if (config.configVersion < 35) {
+    // NOTE: v0.16.0 || poe0.5.5
+    config.hideOverlayOnBlur = false;
+    config.configVersion = 35;
   }
   /* eslint-enable */
 
@@ -823,5 +832,6 @@ function getConfigForHost(): HostConfig {
     libraryAlpha: config.enableAlphas && config.alphas.includes("library"),
     libraryOutputPath: library.libraryOutputPath,
     initialDelay: priceCheck.initialDelay,
+    hideOverlayOnBlur: config.hideOverlayOnBlur,
   };
 }

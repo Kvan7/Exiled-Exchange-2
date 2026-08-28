@@ -15,6 +15,7 @@ export class OverlayWindow {
   private overlayKey: string = "Shift + Space";
   private isOverlayKeyUsed = false;
   private shouldShowOverlay = true;
+  private hideOverlayOnBlur = false;
 
   constructor(
     private server: ServerEvents,
@@ -120,9 +121,14 @@ export class OverlayWindow {
     }
   };
 
-  updateOpts(overlayKey: string, windowTitle: string) {
+  updateOpts(
+    overlayKey: string,
+    windowTitle: string,
+    hideOverlayOnBlur: boolean,
+  ) {
     this.overlayKey = overlayKey;
     this.poeWindow.attach(this.window, windowTitle);
+    this.hideOverlayOnBlur = hideOverlayOnBlur;
   }
 
   private handleExtraCommands = (
@@ -200,7 +206,7 @@ export class OverlayWindow {
   };
 
   private syncWindowVisibility() {
-    if (!this.window) return;
+    if (!this.window || !this.hideOverlayOnBlur) return;
 
     if (
       this.isInteractable ||
@@ -213,7 +219,8 @@ export class OverlayWindow {
   }
 
   private showOverlay() {
-    if (!this.window || this.window.isVisible()) return;
+    if (!this.window || this.window.isVisible() || !this.hideOverlayOnBlur)
+      return;
 
     this.window.showInactive();
     this.window.setAlwaysOnTop(true, "screen-saver");

@@ -86,6 +86,12 @@
     <ui-checkbox class="mb-4" v-model="overlayAlwaysClose">{{
       t(":overlay_always_close")
     }}</ui-checkbox>
+    <ui-checkbox class="mb-1" v-model="hideOverlayOnBlur">{{
+      t(":hide_overlay_on_blur")
+    }}</ui-checkbox>
+    <div class="italic text-gray-500 mb-4">
+      {{ t(":hide_overlay_on_blur_hint") }}
+    </div>
     <div class="mb-4">
       <div class="flex-1 mb-1">
         {{ t(":window_title") }}
@@ -217,6 +223,10 @@ export default defineComponent({
       overlayAlwaysClose: configModelValue(
         () => props.config,
         "overlayAlwaysClose",
+      ),
+      hideOverlayOnBlur: configModelValue(
+        () => props.config,
+        "hideOverlayOnBlur",
       ),
       windowTitle: configModelValue(() => props.config, "windowTitle"),
       enableAlphas: configModelValue(() => props.config, "enableAlphas"),

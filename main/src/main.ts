@@ -104,7 +104,11 @@ let tray: AppTray;
         eventPipe.onEventAnyClient(
           "CLIENT->MAIN::update-host-config",
           (cfg) => {
-            overlay.updateOpts(cfg.overlayKey, cfg.windowTitle);
+            overlay.updateOpts(
+              cfg.overlayKey,
+              cfg.windowTitle,
+              cfg.hideOverlayOnBlur,
+            );
             shortcuts.updateActions(
               cfg.shortcuts,
               cfg.stashScroll,
