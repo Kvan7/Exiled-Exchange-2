@@ -123,7 +123,7 @@ type IpcFocusGame = Event<"OVERLAY->MAIN::focus-game">;
 type IpcOverlayRenderState = Event<
   "OVERLAY->MAIN::render-state",
   {
-    isRequired: boolean;
+    shouldShow: boolean;
   }
 >;
 

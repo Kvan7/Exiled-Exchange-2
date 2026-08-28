@@ -272,7 +272,7 @@ export default defineComponent({
       }));
     });
 
-    const isNativeOverlayRequired = computed(() => {
+    const isOverlayVisible = computed(() => {
       if (!Host.isElectron) return true;
       if (active.value) return true;
       if (showEditingNotification.value) return true;
@@ -282,11 +282,13 @@ export default defineComponent({
     });
 
     watch(
-      isNativeOverlayRequired,
-      (isRequired) => {
+      isOverlayVisible,
+      (curr, prev) => {
+        if (curr === prev) return;
+
         Host.sendEvent({
           name: "OVERLAY->MAIN::render-state",
-          payload: { isRequired },
+          payload: { shouldShow: curr },
         });
       },
       { immediate: true },

@@ -14,7 +14,7 @@ export class OverlayWindow {
   private window?: BrowserWindow;
   private overlayKey: string = "Shift + Space";
   private isOverlayKeyUsed = false;
-  private isRenderRequired = true;
+  private shouldShowOverlay = true;
 
   constructor(
     private server: ServerEvents,
@@ -31,13 +31,13 @@ export class OverlayWindow {
     this.server.onEventAnyClient("CLIENT->MAIN::used-recently", (e) => {
       this.wasUsedRecently = e.isOverlay;
     });
-    this.server.onEventAnyClient("OVERLAY->MAIN::render-state", (e) => {
-      this.isRenderRequired = e.isRequired;
-      this.syncWindowVisibility();
-    });
-    OverlayController.events.on("focus", this.queueWindowVisibilitySync);
 
     if (process.argv.includes("--no-overlay")) return;
+
+    this.server.onEventAnyClient("OVERLAY->MAIN::render-state", (e) => {
+      this.shouldShowOverlay = e.shouldShow;
+      this.syncWindowVisibility();
+    });
 
     this.window = new BrowserWindow({
       icon: path.join(__dirname, process.env.STATIC!, "icon.png"),
@@ -93,7 +93,9 @@ export class OverlayWindow {
   assertOverlayActive = () => {
     if (!this.isInteractable) {
       this.isInteractable = true;
-      this.showInactive();
+
+      this.onOverlayActive();
+
       OverlayController.activateOverlay();
       this.poeWindow.isActive = false;
     }
@@ -104,7 +106,8 @@ export class OverlayWindow {
       this.isInteractable = false;
       OverlayController.focusTarget();
       this.poeWindow.isActive = true;
-      this.syncWindowVisibility();
+
+      this.onGameActive();
     }
   };
 
@@ -201,27 +204,26 @@ export class OverlayWindow {
 
     if (
       this.isInteractable ||
-      (this.isRenderRequired && this.poeWindow.isActive)
+      (this.shouldShowOverlay && this.poeWindow.isActive)
     ) {
-      this.showInactive();
+      this.showOverlay();
     } else if (this.window.isVisible()) {
       this.window.hide();
     }
   }
 
-  private showInactive() {
+  private showOverlay() {
     if (!this.window || this.window.isVisible()) return;
 
     this.window.showInactive();
     this.window.setAlwaysOnTop(true, "screen-saver");
   }
 
-  private queueWindowVisibilitySync = () => {
-    process.nextTick(() => {
-      this.syncWindowVisibility();
-    });
-    setTimeout(() => {
-      this.syncWindowVisibility();
-    }, 50);
-  };
+  private onGameActive() {
+    this.syncWindowVisibility();
+  }
+
+  private onOverlayActive() {
+    this.showOverlay();
+  }
 }
