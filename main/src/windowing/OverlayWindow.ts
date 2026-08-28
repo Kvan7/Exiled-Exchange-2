@@ -14,6 +14,7 @@ export class OverlayWindow {
   private window?: BrowserWindow;
   private overlayKey: string = "Shift + Space";
   private isOverlayKeyUsed = false;
+  private shouldShowOverlay = true;
 
   constructor(
     private server: ServerEvents,
@@ -32,6 +33,11 @@ export class OverlayWindow {
     });
 
     if (process.argv.includes("--no-overlay")) return;
+
+    this.server.onEventAnyClient("OVERLAY->MAIN::render-state", (e) => {
+      this.shouldShowOverlay = e.shouldShow;
+      this.syncWindowVisibility();
+    });
 
     this.window = new BrowserWindow({
       icon: path.join(__dirname, process.env.STATIC!, "icon.png"),
@@ -87,6 +93,9 @@ export class OverlayWindow {
   assertOverlayActive = () => {
     if (!this.isInteractable) {
       this.isInteractable = true;
+
+      this.onOverlayActive();
+
       OverlayController.activateOverlay();
       this.poeWindow.isActive = false;
     }
@@ -97,6 +106,8 @@ export class OverlayWindow {
       this.isInteractable = false;
       OverlayController.focusTarget();
       this.poeWindow.isActive = true;
+
+      this.onGameActive();
     }
   };
 
@@ -169,6 +180,7 @@ export class OverlayWindow {
         payload: undefined,
       });
     }
+    this.syncWindowVisibility();
   };
 
   private handlePoeWindowActiveChange = (isActive: boolean) => {
@@ -184,5 +196,34 @@ export class OverlayWindow {
       },
     });
     this.isOverlayKeyUsed = false;
+    this.syncWindowVisibility();
   };
+
+  private syncWindowVisibility() {
+    if (!this.window) return;
+
+    if (
+      this.isInteractable ||
+      (this.shouldShowOverlay && this.poeWindow.isActive)
+    ) {
+      this.showOverlay();
+    } else if (this.window.isVisible()) {
+      this.window.hide();
+    }
+  }
+
+  private showOverlay() {
+    if (!this.window || this.window.isVisible()) return;
+
+    this.window.showInactive();
+    this.window.setAlwaysOnTop(true, "screen-saver");
+  }
+
+  private onGameActive() {
+    this.syncWindowVisibility();
+  }
+
+  private onOverlayActive() {
+    this.showOverlay();
+  }
 }
