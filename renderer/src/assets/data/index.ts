@@ -14,6 +14,8 @@ import { loadClientStrings } from "../client-string-loader";
 import { useTradeData } from "@/web/background/TradeData";
 import { GEM, ItemCategory } from "@/parser/meta";
 import { ItemRarity } from "@/parser/ParsedItem";
+import path from "path";
+import fs from "fs";
 
 export * from "./interfaces";
 
@@ -309,6 +311,22 @@ export async function init(lang: string) {
     console.log(
       "Cannot find stat" + (missing.length > 1 ? "s" : "") + missing.join("\n"),
     );
+    const url = `${import.meta.env.BASE_URL}data/${lang}/stats.ndjson`;
+    console.log(`should have fetched : ${url}`);
+    const basePath = path.resolve(__dirname, "../../../public/");
+    console.log(`basePath : ${basePath}`);
+    const repl = url.replace(import.meta.env.BASE_URL, "");
+    console.log(`repl : ${repl}`);
+    const filePath = path.join(basePath, repl);
+    console.log(`filePath(where the file actually should be) : ${filePath}`);
+    // just check if the file exists
+    if (fs.existsSync(filePath)) {
+      console.log(`file exists`);
+    } else {
+      console.log(`file does not exist`);
+      const ls = fs.readdirSync(basePath);
+      console.log(`ls : ${ls}`);
+    }
   }
   DELAYED_STAT_VALIDATION.clear();
 }
