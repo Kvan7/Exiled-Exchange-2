@@ -137,6 +137,7 @@ export const defaultConfigMock = (overrides: Partial<Config> = {}) => {
     alphas: [],
     tipsFrequency: TipsFrequency.Always,
     readClientLog: false,
+    hideOverlayOnBlur: false,
   };
 
   mockConfig = { ...defaultConfig, ...overrides };
