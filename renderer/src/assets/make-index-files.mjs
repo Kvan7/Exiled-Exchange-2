@@ -41,6 +41,11 @@ for (const lang of LANGUAGES) {
       }
       start = end + 1;
     }
+    if (lang === "en") {
+      console.log(`char in stats: ${ndjson.length}`);
+      console.log(`ref count: ${lineStarts.statsByRef.length}`);
+      console.log(`matcher count: ${lineStarts.matchers.length}`);
+    }
   }
 
   {
@@ -99,6 +104,10 @@ for (const lang of LANGUAGES) {
       start = end + 1;
     }
     lineStarts = Array.from(startsByName.values());
+    if (lang === "en") {
+      console.log(`char in items: ${ndjson.length}`);
+      console.log(`item count: ${lineStarts.length}`);
+    }
   }
 
   {

@@ -160,6 +160,8 @@ async function loadItems(language: string) {
   const ndjson = await (
     await fetch(`${import.meta.env.BASE_URL}data/${language}/items.ndjson`)
   ).text();
+  console.log(`char in items: ${ndjson.length}`);
+
   const INDEX_WIDTH = 2;
   const indexNames = new Uint32Array(
     await (
@@ -216,6 +218,13 @@ async function loadItems(language: string) {
   for (const item of ITEMS_ITERATOR('"tradeTag":')) {
     TRADE_TAG_TO_REF.set(item.tradeTag!, item.refName);
   }
+
+  const bow = ITEMS_ITERATOR("Obliterator Bow").toArray();
+  console.log(`w/ Obliterator Bow ${bow.length}`);
+  console.log(bow);
+
+  const bow2 = ITEM_BY_REF("ITEM", "Obliterator Bow");
+  console.log(bow2);
 }
 
 async function loadStats(language: string) {
