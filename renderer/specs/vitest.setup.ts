@@ -40,6 +40,11 @@ export const setupFetchMock = () => {
       basePath,
       url.replace(import.meta.env.BASE_URL, ""),
     );
+    if (fs.existsSync(filePath)) {
+      console.log(`file exists ${filePath}`);
+    } else {
+      console.error(`file does not exist ${filePath}`);
+    }
 
     const createResponse = (body: unknown, status = 200) => ({
       ok: status >= 200 && status < 300,

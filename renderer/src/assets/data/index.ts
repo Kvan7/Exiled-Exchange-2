@@ -249,6 +249,9 @@ async function loadStats(language: string) {
     ).arrayBuffer(),
   );
 
+  console.log(`indexRef.length: ${indexRef.length}`);
+  console.log(`indexMatcher.length: ${indexMatcher.length}`);
+
   STAT_BY_REF = function (ref: string) {
     let start = dataBinarySearch(
       indexRef,
