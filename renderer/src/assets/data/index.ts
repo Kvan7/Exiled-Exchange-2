@@ -222,6 +222,8 @@ async function loadStats(language: string) {
   const ndjson = await (
     await fetch(`${import.meta.env.BASE_URL}data/${language}/stats.ndjson`)
   ).text();
+
+  console.log(`char in stats: ${ndjson.length}`);
   const INDEX_WIDTH = 2;
   const indexRef = new Uint32Array(
     await (

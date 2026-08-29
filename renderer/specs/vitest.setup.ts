@@ -80,6 +80,7 @@ export const setupFetchMock = () => {
 
     throw new Error(`Unhandled fetch request: ${url}`);
   });
+  console.log("setup mock (kinda)");
 };
 
 // Mock Host.Proxy calls
