@@ -40,10 +40,6 @@ export const setupFetchMock = () => {
       basePath,
       url.replace(import.meta.env.BASE_URL, ""),
     );
-    console.warn("fetching", url);
-    console.warn("filePath", filePath);
-    console.warn("basePath", basePath);
-    console.warn("import.meta.env.BASE_URL", import.meta.env.BASE_URL);
 
     const createResponse = (body: unknown, status = 200) => ({
       ok: status >= 200 && status < 300,
@@ -94,7 +90,6 @@ vi.mock("@/web/background/IPC", () => ({
         url.endsWith("api/trade2/data/stats") ||
         url.endsWith("api/trade2/data/items")
       ) {
-        console.warn("Mocking fetch", url);
         const filePath = path.resolve(__dirname, `data/${url.slice(-5)}.json`);
         const data = fs.readFileSync(filePath, "utf8");
         return {
@@ -104,7 +99,6 @@ vi.mock("@/web/background/IPC", () => ({
           text: async () => data,
         };
       }
-      console.warn("actually fetching", url);
       return global.fetch(url, init);
     }),
     onEvent: vi.fn(() => new AbortController()),
