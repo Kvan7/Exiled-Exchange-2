@@ -34,7 +34,7 @@ export const setupClientStringLoaderMock = () => {
 // Mock fetch
 export const setupFetchMock = () => {
   // @ts-expect-error - fetch is not defined in vitest
-  global.fetch = vi.fn(async (url: string) => {
+  global.fetch = vi.fn(async (url) => {
     const basePath = path.resolve(__dirname, "../public/");
     const filePath = path.join(
       basePath,

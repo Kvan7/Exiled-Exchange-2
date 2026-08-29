@@ -158,7 +158,6 @@ async function loadItems(language: string) {
   const ndjson = await (
     await fetch(`${import.meta.env.BASE_URL}data/${language}/items.ndjson`)
   ).text();
-  console.warn("ndjson: ", ndjson.length);
   const INDEX_WIDTH = 2;
   const indexNames = new Uint32Array(
     await (
