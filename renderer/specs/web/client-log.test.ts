@@ -811,9 +811,9 @@ describe("clientLog", () => {
 
       const d = new Date(arg.payload.data.ts);
 
-      expect(d.getUTCFullYear()).toBe(2025);
-      expect(d.getUTCMonth()).toBe(8); // because zero indexed for some reason
-      expect(d.getUTCDate()).toBe(11);
+      expect(d.getFullYear()).toBe(2025);
+      expect(d.getMonth()).toBe(8); // because zero indexed for some reason
+      expect(d.getDate()).toBe(11);
     });
   });
 
