@@ -284,6 +284,12 @@ async function loadStats(language: string) {
   const light = STATS_ITERATOR("Adds # to # Lightning Damage").toArray();
   console.log(`w/ lightning ${light.length}`);
   console.log(light);
+
+  const res2 = STAT_BY_REF("#% to Fire Resistance");
+  console.log(res2);
+
+  const light2 = STAT_BY_REF("Adds # to # Lightning Damage");
+  console.log(light2);
 }
 
 // assertion, to avoid regressions in stats.ndjson
