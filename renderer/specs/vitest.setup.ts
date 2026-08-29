@@ -90,7 +90,6 @@ vi.mock("@/web/background/IPC", () => ({
         url.endsWith("api/trade2/data/stats") ||
         url.endsWith("api/trade2/data/items")
       ) {
-        console.warn("proxying", url);
         const filePath = path.resolve(__dirname, `data/${url.slice(-5)}.json`);
         const data = fs.readFileSync(filePath, "utf8");
         return {

@@ -748,13 +748,11 @@ const logStartThroughRedVale = `
 2026/04/26 12:56:41 1797745406 f4ab5a9a [INFO Client 366640] Successfully allocated passive skill id: elemental8_, name: Elemental Damage
 `;
 
-vi.mock("@/web/background/IPC");
-
 describe("clientLog", () => {
   beforeEach(async () => {
+    vi.clearAllMocks();
     setupTests();
     await init("en");
-    vi.clearAllMocks();
     useClientLog().testOnlyResetGameMillis();
   });
 
