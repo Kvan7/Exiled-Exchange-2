@@ -1158,7 +1158,10 @@ describe("clientLog", () => {
 describe("local performance tests", () => {
   let lines: string[] = [];
 
-  beforeEach(() => {
+  beforeEach(async () => {
+    setupTests();
+    await init("en");
+    vi.clearAllMocks();
     const blob = fs.readFileSync(
       "C:/Program Files (x86)/Steam/steamapps/common/Path of Exile 2/logs/Client.txt",
     );
