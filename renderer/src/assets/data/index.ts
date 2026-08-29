@@ -276,6 +276,14 @@ async function loadStats(language: string) {
   };
 
   STATS_ITERATOR = ndjsonFindLines<Stat>(ndjson);
+
+  const res = STATS_ITERATOR("#% to Fire Resistance").toArray();
+  console.log(`w/ fire res ${res.length}`);
+  console.log(res);
+
+  const light = STATS_ITERATOR("Adds # to # Lightning Damage").toArray();
+  console.log(`w/ lightning ${light.length}`);
+  console.log(light);
 }
 
 // assertion, to avoid regressions in stats.ndjson
