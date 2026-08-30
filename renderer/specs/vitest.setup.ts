@@ -42,6 +42,8 @@ export const setupFetchMock = () => {
     );
     if (fs.existsSync(filePath)) {
       console.log(`file exists ${filePath}`);
+      const stat = fs.statSync(filePath);
+      console.log(`file size ${stat.size}`);
     } else {
       console.error(`file does not exist ${filePath}`);
     }
