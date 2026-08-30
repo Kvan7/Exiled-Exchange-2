@@ -178,6 +178,9 @@ async function loadItems(language: string) {
     ).arrayBuffer(),
   );
 
+  console.log(`indexNames.length: ${indexNames.length}`);
+  console.log(`indexRefNames.length: ${indexRefNames.length}`);
+
   function commonFind(index: Uint32Array, prop: "name" | "refName") {
     return function (
       ns: BaseType["namespace"],

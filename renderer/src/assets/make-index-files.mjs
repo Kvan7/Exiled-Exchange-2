@@ -55,6 +55,9 @@ for (const lang of LANGUAGES) {
       indexData[i * 2 + 0] = lineStarts.statsByRef[i].hash;
       indexData[i * 2 + 1] = lineStarts.statsByRef[i].start;
     }
+    if (lang === "en") {
+      console.log("stats-ref initial length", indexData.length);
+    }
     fs.writeFileSync(
       path.join("./public/data", lang, "stats-ref.index.bin"),
       indexData,
@@ -67,6 +70,9 @@ for (const lang of LANGUAGES) {
     for (let i = 0; i < lineStarts.matchers.length; i += 1) {
       indexData[i * 2 + 0] = lineStarts.matchers[i].hash;
       indexData[i * 2 + 1] = lineStarts.matchers[i].start;
+    }
+    if (lang === "en") {
+      console.log("stats-matchers initial length", indexData.length);
     }
     fs.writeFileSync(
       path.join("./public/data", lang, "stats-matcher.index.bin"),
@@ -117,6 +123,9 @@ for (const lang of LANGUAGES) {
       indexData[i * 2 + 0] = lineStarts[i].hashName;
       indexData[i * 2 + 1] = lineStarts[i].start;
     }
+    if (lang === "en") {
+      console.log("item-name initial length", indexData.length);
+    }
     fs.writeFileSync(
       path.join("./public/data", lang, "items-name.index.bin"),
       indexData,
@@ -129,6 +138,9 @@ for (const lang of LANGUAGES) {
     for (let i = 0; i < lineStarts.length; i += 1) {
       indexData[i * 2 + 0] = lineStarts[i].hashRefName;
       indexData[i * 2 + 1] = lineStarts[i].start;
+    }
+    if (lang === "en") {
+      console.log("item-ref initial length", indexData.length);
     }
     fs.writeFileSync(
       path.join("./public/data", lang, "items-ref.index.bin"),
