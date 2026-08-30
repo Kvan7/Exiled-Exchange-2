@@ -4,7 +4,7 @@ import fnv1a from "@sindresorhus/fnv1a";
 import fs from "fs";
 import path from "path";
 
-const LANGUAGES = ["en", "ru", "cmn-Hant", "ko", "ja", "de", "es", "pt", "fr"];
+const LANGUAGES = ["en", "ru", "cmn-Hant", "ko"];
 
 for (const lang of LANGUAGES) {
   const lineStarts = {
@@ -41,11 +41,6 @@ for (const lang of LANGUAGES) {
       }
       start = end + 1;
     }
-    if (lang === "en") {
-      console.log(`char in stats: ${ndjson.length}`);
-      console.log(`ref count: ${lineStarts.statsByRef.length}`);
-      console.log(`matcher count: ${lineStarts.matchers.length}`);
-    }
   }
 
   {
@@ -55,19 +50,10 @@ for (const lang of LANGUAGES) {
       indexData[i * 2 + 0] = lineStarts.statsByRef[i].hash;
       indexData[i * 2 + 1] = lineStarts.statsByRef[i].start;
     }
-    if (lang === "en") {
-      console.log("stats-ref initial length", indexData.length);
-    }
     fs.writeFileSync(
       path.join("./public/data", lang, "stats-ref.index.bin"),
       indexData,
     );
-    if (lang === "en") {
-      const stats = fs.statSync(
-        path.join("./public/data", lang, "stats-ref.index.bin"),
-      );
-      console.log(`stats-ref.index.bin size: ${stats.size}`);
-    }
   }
 
   {
@@ -77,19 +63,10 @@ for (const lang of LANGUAGES) {
       indexData[i * 2 + 0] = lineStarts.matchers[i].hash;
       indexData[i * 2 + 1] = lineStarts.matchers[i].start;
     }
-    if (lang === "en") {
-      console.log("stats-matchers initial length", indexData.length);
-    }
     fs.writeFileSync(
       path.join("./public/data", lang, "stats-matcher.index.bin"),
       indexData,
     );
-    if (lang === "en") {
-      const stats = fs.statSync(
-        path.join("./public/data", lang, "stats-matcher.index.bin"),
-      );
-      console.log(`stats-matcher.index.bin size: ${stats.size}`);
-    }
   }
 }
 
@@ -122,10 +99,6 @@ for (const lang of LANGUAGES) {
       start = end + 1;
     }
     lineStarts = Array.from(startsByName.values());
-    if (lang === "en") {
-      console.log(`char in items: ${ndjson.length}`);
-      console.log(`item count: ${lineStarts.length}`);
-    }
   }
 
   {
@@ -135,19 +108,10 @@ for (const lang of LANGUAGES) {
       indexData[i * 2 + 0] = lineStarts[i].hashName;
       indexData[i * 2 + 1] = lineStarts[i].start;
     }
-    if (lang === "en") {
-      console.log("item-name initial length", indexData.length);
-    }
     fs.writeFileSync(
       path.join("./public/data", lang, "items-name.index.bin"),
       indexData,
     );
-    if (lang === "en") {
-      const stats = fs.statSync(
-        path.join("./public/data", lang, "items-name.index.bin"),
-      );
-      console.log(`items-name.index.bin size: ${stats.size}`);
-    }
   }
 
   {
@@ -157,18 +121,9 @@ for (const lang of LANGUAGES) {
       indexData[i * 2 + 0] = lineStarts[i].hashRefName;
       indexData[i * 2 + 1] = lineStarts[i].start;
     }
-    if (lang === "en") {
-      console.log("item-ref initial length", indexData.length);
-    }
     fs.writeFileSync(
       path.join("./public/data", lang, "items-ref.index.bin"),
       indexData,
     );
-    if (lang === "en") {
-      const stats = fs.statSync(
-        path.join("./public/data", lang, "items-ref.index.bin"),
-      );
-      console.log(`items-ref.index.bin size: ${stats.size}`);
-    }
   }
 }

@@ -14,8 +14,6 @@ import { loadClientStrings } from "../client-string-loader";
 import { useTradeData } from "@/web/background/TradeData";
 import { GEM, ItemCategory } from "@/parser/meta";
 import { ItemRarity } from "@/parser/ParsedItem";
-import path from "path";
-import fs from "fs";
 
 export * from "./interfaces";
 
@@ -221,13 +219,6 @@ async function loadItems(language: string) {
   for (const item of ITEMS_ITERATOR('"tradeTag":')) {
     TRADE_TAG_TO_REF.set(item.tradeTag!, item.refName);
   }
-
-  const bow = ITEMS_ITERATOR("Obliterator Bow").toArray();
-  console.log(`w/ Obliterator Bow ${bow.length}`);
-  console.log(bow);
-
-  const bow2 = ITEM_BY_REF("ITEM", "Obliterator Bow");
-  console.log(bow2);
 }
 
 async function loadStats(language: string) {
@@ -291,20 +282,6 @@ async function loadStats(language: string) {
   };
 
   STATS_ITERATOR = ndjsonFindLines<Stat>(ndjson);
-
-  const res = STATS_ITERATOR("#% to Fire Resistance").toArray();
-  console.log(`w/ fire res ${res.length}`);
-  console.log(res);
-
-  const light = STATS_ITERATOR("Adds # to # Lightning Damage").toArray();
-  console.log(`w/ lightning ${light.length}`);
-  console.log(light);
-
-  const res2 = STAT_BY_REF("#% to Fire Resistance");
-  console.log(res2);
-
-  const light2 = STAT_BY_REF("Adds # to # Lightning Damage");
-  console.log(light2);
 }
 
 // assertion, to avoid regressions in stats.ndjson
@@ -342,22 +319,6 @@ export async function init(lang: string) {
     console.log(
       "Cannot find stat" + (missing.length > 1 ? "s" : "") + missing.join("\n"),
     );
-    const url = `${import.meta.env.BASE_URL}data/${lang}/stats.ndjson`;
-    console.log(`should have fetched : ${url}`);
-    const basePath = path.resolve(__dirname, "../../../public/");
-    console.log(`basePath : ${basePath}`);
-    const repl = url.replace(import.meta.env.BASE_URL, "");
-    console.log(`repl : ${repl}`);
-    const filePath = path.join(basePath, repl);
-    console.log(`filePath(where the file actually should be) : ${filePath}`);
-    // just check if the file exists
-    if (fs.existsSync(filePath)) {
-      console.log(`file exists`);
-    } else {
-      console.log(`file does not exist`);
-      const ls = fs.readdirSync(basePath);
-      console.log(`ls : ${ls}`);
-    }
   }
   DELAYED_STAT_VALIDATION.clear();
 }

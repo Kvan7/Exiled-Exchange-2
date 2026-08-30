@@ -40,13 +40,6 @@ export const setupFetchMock = () => {
       basePath,
       url.replace(import.meta.env.BASE_URL, ""),
     );
-    if (fs.existsSync(filePath)) {
-      console.log(`file exists ${filePath}`);
-      const stat = fs.statSync(filePath);
-      console.log(`file size ${stat.size}`);
-    } else {
-      console.error(`file does not exist ${filePath}`);
-    }
 
     const createResponse = (body: unknown, status = 200) => ({
       ok: status >= 200 && status < 300,
@@ -61,7 +54,7 @@ export const setupFetchMock = () => {
       bodyUsed: false,
       json: async () => JSON.parse(body as string),
       text: async () => body,
-      arrayBuffer: async () => Buffer.from(body as string).buffer,
+      arrayBuffer: async () => body as ArrayBuffer,
       blob: async () => new Blob([body as string]),
       formData: async () => {
         throw new Error("formData not implemented");
@@ -75,7 +68,10 @@ export const setupFetchMock = () => {
       }
       if (filePath.endsWith(".bin")) {
         const data = fs.readFileSync(filePath);
-        return createResponse(data, 200);
+        return createResponse(
+          data.buffer.slice(data.byteOffset, data.byteOffset + data.byteLength),
+          200,
+        );
       }
       if (filePath.endsWith(".json")) {
         const data = fs.readFileSync(filePath, "utf8");
@@ -87,7 +83,6 @@ export const setupFetchMock = () => {
 
     throw new Error(`Unhandled fetch request: ${url}`);
   });
-  console.log("setup mock (kinda)");
 };
 
 // Mock Host.Proxy calls
