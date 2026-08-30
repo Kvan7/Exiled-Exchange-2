@@ -62,6 +62,12 @@ for (const lang of LANGUAGES) {
       path.join("./public/data", lang, "stats-ref.index.bin"),
       indexData,
     );
+    if (lang === "en") {
+      const stats = fs.statSync(
+        path.join("./public/data", lang, "stats-ref.index.bin"),
+      );
+      console.log(`stats-ref.index.bin size: ${stats.size}`);
+    }
   }
 
   {
@@ -78,6 +84,12 @@ for (const lang of LANGUAGES) {
       path.join("./public/data", lang, "stats-matcher.index.bin"),
       indexData,
     );
+    if (lang === "en") {
+      const stats = fs.statSync(
+        path.join("./public/data", lang, "stats-matcher.index.bin"),
+      );
+      console.log(`stats-matcher.index.bin size: ${stats.size}`);
+    }
   }
 }
 
@@ -130,6 +142,12 @@ for (const lang of LANGUAGES) {
       path.join("./public/data", lang, "items-name.index.bin"),
       indexData,
     );
+    if (lang === "en") {
+      const stats = fs.statSync(
+        path.join("./public/data", lang, "items-name.index.bin"),
+      );
+      console.log(`items-name.index.bin size: ${stats.size}`);
+    }
   }
 
   {
@@ -146,5 +164,11 @@ for (const lang of LANGUAGES) {
       path.join("./public/data", lang, "items-ref.index.bin"),
       indexData,
     );
+    if (lang === "en") {
+      const stats = fs.statSync(
+        path.join("./public/data", lang, "items-ref.index.bin"),
+      );
+      console.log(`items-ref.index.bin size: ${stats.size}`);
+    }
   }
 }
