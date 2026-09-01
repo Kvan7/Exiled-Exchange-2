@@ -131,9 +131,26 @@
           <option value="all">{{ t(":all") }}</option>
         </select>
       </div>
-      <div>
-        <button class="btn active:bg-gray-900">
+      <div class="flex flex-row gap-1">
+        <button
+          @click="handleClear"
+          class="btn border-red-700 border-2 active:bg-gray-900"
+        >
+          {{ t(":clear") }}
+        </button>
+
+        <button
+          v-if="saveButtonState === 'save'"
+          @click="handleSave"
+          class="btn active:bg-gray-900"
+        >
           {{ t(":save") }}
+        </button>
+        <button
+          v-else-if="saveButtonState === 'confirm'"
+          class="btn bg-green-500 active:bg-green-900"
+        >
+          {{ t(":confirm") }}
         </button>
       </div>
     </div>
@@ -146,7 +163,14 @@
 <script lang="ts">
 import { AugmentGroup, GROUPED_AUGMENTS, ITEM_BY_REF } from "@/assets/data";
 import { ItemCategory, ParsedItem } from "@/parser";
-import { defineComponent, PropType, ref, shallowRef, watch } from "vue";
+import {
+  computed,
+  defineComponent,
+  PropType,
+  ref,
+  shallowRef,
+  watch,
+} from "vue";
 import ItemSumPrice from "@/web/ui/ItemSumPrice.vue";
 import UiTabs from "@/web/ui/UiTabs.vue";
 import AugmentsList from "./AugmentsList.vue";
@@ -156,6 +180,7 @@ import { EditorItem } from "@/parser/ParsedItem";
 import { buildEditorItems } from "@/parser/augment-builder";
 import { AugmentSaveType } from "./item-editor";
 import { useI18nNs } from "@/web/i18n";
+import { PriceCheckWidget } from "@/web/overlay/widgets";
 
 export default defineComponent({
   props: {
@@ -174,6 +199,7 @@ export default defineComponent({
     const soulCoreTab = shallowRef("Normal");
 
     const saveType = shallowRef<AugmentSaveType>(AugmentSaveType.Class);
+    const saveButtonState = shallowRef<"save" | "confirm">("save");
 
     const selectedAugment = shallowRef<EditorItem | undefined>(
       // TODO: see if this can be better
@@ -219,6 +245,39 @@ export default defineComponent({
       },
       { immediate: true },
     );
+    const savedConfig = computed(
+      () => AppConfig<PriceCheckWidget>("PriceCheckWidget")!.savedAugments,
+    );
+
+    function getSaveType() {
+      switch (saveType.value) {
+        case AugmentSaveType.Class:
+          return props.item?.info.craftable?.category ?? "Unknown";
+        case AugmentSaveType.CasterWeapon:
+          return "casterWeapon";
+        case AugmentSaveType.MaritalWeapon:
+          return "maritalWeapon";
+        case AugmentSaveType.Spectre:
+          return "spectre";
+        case AugmentSaveType.Armour:
+          return "armour";
+        case AugmentSaveType.All:
+          return "all";
+        default:
+          return props.item?.info.craftable?.category ?? "Unknown";
+      }
+    }
+
+    function handleSave() {
+      const s = getSaveType();
+      savedConfig.value[s] =
+        props.item?.augmentSockets?.augments.map((a) => a?.refName ?? null) ??
+        [];
+    }
+    function handleClear() {
+      const s = getSaveType();
+      savedConfig.value[s] = [];
+    }
 
     const { t } = useI18nNs("item_editor");
 
@@ -230,6 +289,7 @@ export default defineComponent({
       selectedAugment,
       displayGroups,
       saveType,
+      saveButtonState,
       replaceAugment: (index: number) => {
         if (
           !props.item?.augmentSockets ||
@@ -244,6 +304,8 @@ export default defineComponent({
       selectAugment: (augment: EditorItem) => {
         selectedAugment.value = augment;
       },
+      handleSave,
+      handleClear,
     };
   },
 });

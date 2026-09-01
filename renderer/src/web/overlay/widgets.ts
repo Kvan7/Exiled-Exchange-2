@@ -58,6 +58,9 @@ export interface PriceCheckWidget extends Widget {
   currencyVolume: "none" | "value" | "item" | "both";
   rememberListingType: boolean;
   initialDelay: number;
+  savedAugments: {
+    [key: string]: Array<string | null>;
+  };
 }
 
 export interface StopwatchWidget extends Widget {

@@ -675,7 +675,13 @@ function upgradeConfig(_config: Config): Config {
 
   if (config.configVersion < 35) {
     // NOTE: v0.16.0 || poe0.5.5
+    const priceCheck = config.widgets.find(
+      (w) => w.wmType === "price-check",
+    ) as widget.PriceCheckWidget;
+    priceCheck.savedAugments = {};
+
     config.hideOverlayOnBlur = false;
+
     config.configVersion = 35;
   }
   /* eslint-enable */

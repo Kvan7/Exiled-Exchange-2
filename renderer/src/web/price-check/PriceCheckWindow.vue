@@ -206,6 +206,7 @@ export default defineComponent({
         currencyVolume: "both",
         rememberListingType: false,
         initialDelay: 48,
+        savedAugments: {},
       };
     },
   } satisfies WidgetSpec,
