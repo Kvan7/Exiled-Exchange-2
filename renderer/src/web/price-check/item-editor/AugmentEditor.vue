@@ -116,7 +116,27 @@
         </template>
       </ui-tabs>
     </div>
-    <!-- <div>hey do something</div> -->
+    <hr class="my-2 border-gray-700" />
+    <div class="flex flex-row justify-between">
+      <div class="flex flex-row gap-1">
+        <div>{{ t(":save_type") }}</div>
+        <select v-model="saveType" class="p-1 rounded bg-gray-700 w-32">
+          <option value="class">
+            {{ item.info.craftable?.category ?? "Unknown" }}
+          </option>
+          <option value="casterWeapon">{{ t(":caster_weapon") }}</option>
+          <option value="maritalWeapon">{{ t(":marital_weapon") }}</option>
+          <option value="spectre">{{ t(":spectre") }}</option>
+          <option value="armour">{{ t(":armour") }}</option>
+          <option value="all">{{ t(":all") }}</option>
+        </select>
+      </div>
+      <div>
+        <button class="btn active:bg-gray-900">
+          {{ t(":save") }}
+        </button>
+      </div>
+    </div>
   </div>
   <div v-else class="bg-purple-700 text-green-600 border border-green-600">
     no augments available for item
@@ -134,6 +154,8 @@ import { useAugment, getCategoryGroups } from "./augment";
 import { AppConfig } from "@/web/Config";
 import { EditorItem } from "@/parser/ParsedItem";
 import { buildEditorItems } from "@/parser/augment-builder";
+import { AugmentSaveType } from "./item-editor";
+import { useI18nNs } from "@/web/i18n";
 
 export default defineComponent({
   props: {
@@ -150,6 +172,8 @@ export default defineComponent({
     const mainTab = shallowRef("Rune");
     const runeTab = shallowRef("Greater");
     const soulCoreTab = shallowRef("Normal");
+
+    const saveType = shallowRef<AugmentSaveType>(AugmentSaveType.Class);
 
     const selectedAugment = shallowRef<EditorItem | undefined>(
       // TODO: see if this can be better
@@ -196,12 +220,16 @@ export default defineComponent({
       { immediate: true },
     );
 
+    const { t } = useI18nNs("item_editor");
+
     return {
+      t,
       mainTab,
       runeTab,
       soulCoreTab,
       selectedAugment,
       displayGroups,
+      saveType,
       replaceAugment: (index: number) => {
         if (
           !props.item?.augmentSockets ||

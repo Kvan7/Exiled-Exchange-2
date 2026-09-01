@@ -1,14 +1,14 @@
 <template>
   <div class="bg-gray-800 text-gray-200 min-w-96 max-w-96">
     <augment-editor
-      v-if="itemEditorType === ItemEditorType.Augment"
+      v-if="actualItemType === ItemEditorType.Augment"
       :item="item"
     />
     <quality-editor
-      v-else-if="itemEditorType === ItemEditorType.Catalyst"
+      v-else-if="actualItemType === ItemEditorType.Catalyst"
       :item="item"
     />
-    <div v-else-if="itemEditorType === ItemEditorType.AugmentAndCatalyst">
+    <div v-else-if="actualItemType === ItemEditorType.AugmentAndCatalyst">
       AAAAA DO BOTH NEED TO ADD IT STILL
     </div>
   </div>
@@ -34,12 +34,12 @@ export default defineComponent({
   },
 
   setup(props) {
-    const itemEditorType = computed(() =>
+    const actualItemType = computed(() =>
       props.item ? getItemEditorType(props.item) : undefined,
     );
 
     return {
-      itemEditorType,
+      actualItemType,
       ItemEditorType,
     };
   },

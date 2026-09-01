@@ -77,3 +77,12 @@ export function applyCatalyst(
   item.statsByType = sumStatsByModType(item.newMods);
   recalculateItemProperties(item, oldItem);
 }
+
+export enum AugmentSaveType {
+  Class = "class",
+  CasterWeapon = "casterWeapon",
+  MaritalWeapon = "maritalWeapon",
+  Spectre = "spectre",
+  Armour = "armour",
+  All = "all",
+}

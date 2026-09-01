@@ -502,5 +502,15 @@
     "output_folder": "Output Folder",
     "output_file_help": "Some info text",
     "record_count": "Session Rolls:"
+  },
+  "item_editor": {
+    "save_type": "Save for: ",
+    "caster_weapon": "Caster Weapons",
+    "marital_weapon": "Marital Weapons",
+    "spectre": "Spectres",
+    "armour": "Armours",
+    "all": "All Items",
+    "save": "Save",
+    "confirm": "Confirm"
   }
 }
