@@ -158,7 +158,6 @@ async function loadItems(language: string) {
   const ndjson = await (
     await fetch(`${import.meta.env.BASE_URL}data/${language}/items.ndjson`)
   ).text();
-  console.log(`char in items: ${ndjson.length}`);
 
   const INDEX_WIDTH = 2;
   const indexNames = new Uint32Array(
@@ -175,9 +174,6 @@ async function loadItems(language: string) {
       )
     ).arrayBuffer(),
   );
-
-  console.log(`indexNames.length: ${indexNames.length}`);
-  console.log(`indexRefNames.length: ${indexRefNames.length}`);
 
   function commonFind(index: Uint32Array, prop: "name" | "refName") {
     return function (
@@ -226,7 +222,6 @@ async function loadStats(language: string) {
     await fetch(`${import.meta.env.BASE_URL}data/${language}/stats.ndjson`)
   ).text();
 
-  console.log(`char in stats: ${ndjson.length}`);
   const INDEX_WIDTH = 2;
   const indexRef = new Uint32Array(
     await (
@@ -242,9 +237,6 @@ async function loadStats(language: string) {
       )
     ).arrayBuffer(),
   );
-
-  console.log(`indexRef.length: ${indexRef.length}`);
-  console.log(`indexMatcher.length: ${indexMatcher.length}`);
 
   STAT_BY_REF = function (ref: string) {
     let start = dataBinarySearch(
