@@ -1,7 +1,9 @@
-import { AugmentLineData, BaseType } from "@/assets/data";
-import { ItemCategory } from "./meta";
+import { AugmentLineData, BaseType, ITEM_BY_REF } from "@/assets/data";
+import { ARMOUR, ItemCategory, MARTIAL_WEAPON } from "./meta";
 import { replaceHashWithValues } from "./Parser";
-import { EditorItem } from "./ParsedItem";
+import { EditorItem, ParsedItem } from "./ParsedItem";
+import { PriceCheckWidget } from "@/web/overlay/widgets";
+import { AppConfig } from "@/web/Config";
 
 export function selectAugmentEffectByItemCategory(
   category: ItemCategory,
@@ -74,4 +76,43 @@ function buildEditorItem(
     stats,
     baseItem: augment,
   };
+}
+
+export function getSavedAugments(item: ParsedItem): Array<BaseType | null> {
+  if (!item.augmentSockets) return [];
+  const lookup = AppConfig<PriceCheckWidget>("price-check")!.savedAugments;
+
+  let refNames: Array<string | null> = [];
+  if (item.category && lookup[item.category]?.length) {
+    refNames = lookup[item.category]!;
+  } else if (
+    item.category &&
+    MARTIAL_WEAPON.has(item.category) &&
+    lookup.martialWeapon?.length
+  ) {
+    refNames = lookup.martialWeapon;
+  } else if (
+    (item.category === ItemCategory.Wand ||
+      item.category === ItemCategory.Staff) &&
+    lookup.casterWeapon?.length
+  ) {
+    refNames = lookup.casterWeapon;
+  } else if (item.category === ItemCategory.Sceptre && lookup.spectre?.length) {
+    refNames = lookup.spectre;
+  } else if (
+    item.category &&
+    ARMOUR.has(item.category) &&
+    lookup.armour?.length
+  ) {
+    refNames = lookup.armour;
+  } else if (lookup.all?.length) {
+    refNames = lookup.all;
+  }
+
+  const bases = refNames.map((refName) => {
+    if (!refName) return null;
+    return ITEM_BY_REF("ITEM", refName)?.at(0) ?? null;
+  });
+
+  return bases;
 }

@@ -511,6 +511,7 @@
     "armour": "Armours",
     "all": "All Items",
     "save": "Save",
-    "confirm": "Confirm"
+    "confirm": "Confirm",
+    "clear": "Clear"
   }
 }

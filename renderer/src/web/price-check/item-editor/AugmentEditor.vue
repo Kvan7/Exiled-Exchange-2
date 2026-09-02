@@ -120,7 +120,7 @@
     <div class="flex flex-row justify-between">
       <div class="flex flex-row gap-1">
         <div>{{ t(":save_type") }}</div>
-        <select v-model="saveType" class="p-1 rounded bg-gray-700 w-32">
+        <select v-model="saveType" class="p-1 rounded bg-gray-700 w-28">
           <option value="class">
             {{ item.info.craftable?.category ?? "Unknown" }}
           </option>
@@ -132,10 +132,7 @@
         </select>
       </div>
       <div class="flex flex-row gap-1">
-        <button
-          @click="handleClear"
-          class="btn border-red-700 border-2 active:bg-gray-900"
-        >
+        <button @click="handleClear" class="btn bg-red-800 active:bg-gray-900">
           {{ t(":clear") }}
         </button>
 
@@ -246,13 +243,13 @@ export default defineComponent({
       { immediate: true },
     );
     const savedConfig = computed(
-      () => AppConfig<PriceCheckWidget>("PriceCheckWidget")!.savedAugments,
+      () => AppConfig<PriceCheckWidget>("price-check")!.savedAugments,
     );
 
     function getSaveType() {
       switch (saveType.value) {
         case AugmentSaveType.Class:
-          return props.item?.info.craftable?.category ?? "Unknown";
+          return props.item?.category ?? "Unknown";
         case AugmentSaveType.CasterWeapon:
           return "casterWeapon";
         case AugmentSaveType.MaritalWeapon:
@@ -264,7 +261,7 @@ export default defineComponent({
         case AugmentSaveType.All:
           return "all";
         default:
-          return props.item?.info.craftable?.category ?? "Unknown";
+          return props.item?.category ?? "Unknown";
       }
     }
 

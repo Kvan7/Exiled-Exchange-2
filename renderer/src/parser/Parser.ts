@@ -42,7 +42,8 @@ import {
 } from "./advanced-mod-desc";
 import { calcPropPercentile, QUALITY_STATS } from "./calc-q20";
 import { AppConfig } from "@/web/Config";
-import { buildEditorItems } from "./augment-builder";
+import { buildEditorItems, getSavedAugments } from "./augment-builder";
+import { useAugment } from "@/web/price-check/item-editor/augment";
 
 type SectionParseResult =
   | "SECTION_PARSED"
@@ -1359,6 +1360,42 @@ function applyAugmentSockets(item: ParsedItem) {
       (augment) => augment === null,
     ).length;
     item.augmentSockets.augments = augments;
+  }
+
+  if (
+    item.augmentSockets &&
+    (item.augmentSockets.empty === item.augmentSockets.normal ||
+      (item.augmentSockets.empty === item.augmentSockets.current &&
+        item.augmentSockets.current > item.augmentSockets.normal))
+  ) {
+    // fill sockets, if all are empty && if chosen (also maybe check setting to enable it)
+    const augmentBases = getSavedAugments(item);
+    const editorItems = augmentBases.map((base) => {
+      if (!base) return null;
+      return buildEditorItems([base], item.category ?? ItemCategory.Unknown)[0];
+    });
+    if (!editorItems.length || editorItems.every((item) => item === null)) {
+      return;
+    }
+    // fill the correct number of sockets
+    const allSameAugment = new Set(augmentBases).size === 1;
+    const augmentCountToApply =
+      itemIsModifiable(item) &&
+      item.augmentSockets.normal > item.augmentSockets.current
+        ? item.augmentSockets.normal
+        : item.augmentSockets.current;
+
+    if (allSameAugment) {
+      const augmentToApply = editorItems[0];
+      for (let i = 0; i < augmentCountToApply; i++) {
+        useAugment(item, augmentToApply!, i);
+      }
+    } else {
+      for (let i = 0; i < augmentCountToApply; i++) {
+        if (!editorItems[i]) continue;
+        useAugment(item, editorItems[i]!, i);
+      }
+    }
   }
 }
 

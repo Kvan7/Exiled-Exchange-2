@@ -25,15 +25,9 @@ export function magicBasetype(name: string) {
         ITEM_BY_REF("ITEM", name) ?? ITEM_BY_TRANSLATED("ITEM", name);
       // TRADE_ITEM_BY_REF({ name }, true);
       if (result) {
-        console.warn("REF/TRANSLATED", name);
         return { name, found: result && result[0].craftable, tradeItem: false };
       }
       const tradeResult = TRADE_ITEM_BY_REF({ name }, true);
-      if (tradeResult) {
-        console.warn("TRADE", name);
-      } else {
-        console.warn("NOT FOUND", name);
-      }
       return {
         name,
         found: tradeResult && tradeResult[0].craftable,
