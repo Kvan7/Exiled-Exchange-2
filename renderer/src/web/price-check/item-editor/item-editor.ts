@@ -82,7 +82,7 @@ export enum AugmentSaveType {
   Class = "class",
   CasterWeapon = "casterWeapon",
   MaritalWeapon = "maritalWeapon",
-  Spectre = "spectre",
+  Sceptre = "spectre",
   Armour = "armour",
   All = "all",
 }

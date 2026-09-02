@@ -97,8 +97,6 @@ export function getSavedAugments(item: ParsedItem): Array<BaseType | null> {
     lookup.casterWeapon?.length
   ) {
     refNames = lookup.casterWeapon;
-  } else if (item.category === ItemCategory.Sceptre && lookup.spectre?.length) {
-    refNames = lookup.spectre;
   } else if (
     item.category &&
     ARMOUR.has(item.category) &&

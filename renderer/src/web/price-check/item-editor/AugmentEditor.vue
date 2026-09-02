@@ -122,24 +122,33 @@
         <div>{{ t(":save_type") }}</div>
         <select v-model="saveType" class="p-1 rounded bg-gray-700 w-28">
           <option value="class">
-            {{ item.info.craftable?.category ?? "Unknown" }}
+            {{ item.category ?? "Unknown" }}
           </option>
-          <option value="casterWeapon">{{ t(":caster_weapon") }}</option>
-          <option value="maritalWeapon">{{ t(":marital_weapon") }}</option>
-          <option value="spectre">{{ t(":spectre") }}</option>
-          <option value="armour">{{ t(":armour") }}</option>
+          <option
+            v-if="item.category === 'Wand' || item.category === 'Staff'"
+            value="casterWeapon"
+          >
+            {{ t(":caster_weapon") }}
+          </option>
+          <option v-if="isMaritalWeapon" value="maritalWeapon">
+            {{ t(":marital_weapon") }}
+          </option>
+          <option v-if="isArmour" value="armour">{{ t(":armour") }}</option>
           <option value="all">{{ t(":all") }}</option>
         </select>
       </div>
       <div class="flex flex-row gap-1">
-        <button @click="handleClear" class="btn bg-red-800 active:bg-gray-900">
+        <button
+          @click="handleClear"
+          class="btn hover:bg-red-800 active:bg-gray-900"
+        >
           {{ t(":clear") }}
         </button>
 
         <button
           v-if="saveButtonState === 'save'"
           @click="handleSave"
-          class="btn active:bg-gray-900"
+          class="btn hover:bg-green-800 active:bg-gray-900"
         >
           {{ t(":save") }}
         </button>
@@ -178,6 +187,7 @@ import { buildEditorItems } from "@/parser/augment-builder";
 import { AugmentSaveType } from "./item-editor";
 import { useI18nNs } from "@/web/i18n";
 import { PriceCheckWidget } from "@/web/overlay/widgets";
+import { ARMOUR, MARTIAL_WEAPON } from "@/parser/meta";
 
 export default defineComponent({
   props: {
@@ -254,8 +264,6 @@ export default defineComponent({
           return "casterWeapon";
         case AugmentSaveType.MaritalWeapon:
           return "maritalWeapon";
-        case AugmentSaveType.Spectre:
-          return "spectre";
         case AugmentSaveType.Armour:
           return "armour";
         case AugmentSaveType.All:
@@ -303,6 +311,16 @@ export default defineComponent({
       },
       handleSave,
       handleClear,
+      isMaritalWeapon: computed(
+        () =>
+          props.item &&
+          props.item.category &&
+          MARTIAL_WEAPON.has(props.item.category),
+      ),
+      isArmour: computed(
+        () =>
+          props.item && props.item.category && ARMOUR.has(props.item.category),
+      ),
     };
   },
 });
