@@ -6,7 +6,13 @@ import { Config, TipsFrequency } from "@/web/Config";
 
 vi.mock("@/web/Config", async () => {
   return {
-    AppConfig: vi.fn(() => mockConfig),
+    AppConfig: vi.fn((type?: string) => {
+      if (!type) {
+        return mockConfig;
+      } else {
+        return mockConfig.widgets.find((w) => w.wmType === type)!;
+      }
+    }),
     TipsFrequency: {
       Always: 1,
     },
@@ -132,7 +138,19 @@ export const defaultConfigMock = (overrides: Partial<Config> = {}) => {
     language: "en", // Default language
     preferredTradeSite: "default",
     realm: "pc-ggg",
-    widgets: [],
+    widgets: [
+      /* eslint-disable @typescript-eslint/no-explicit-any */
+      {
+        wmId: 2,
+        wmType: "price-check",
+        wmTitle: "",
+        wmWants: "hide",
+        wmZorder: "exclusive",
+        wmFlags: ["hide-on-blur", "menu::skip"],
+        savedAugments: {},
+      } as any,
+      /* eslint-enable */
+    ],
     fontSize: 12,
     showAttachNotification: true,
     overlayAlwaysClose: false,
