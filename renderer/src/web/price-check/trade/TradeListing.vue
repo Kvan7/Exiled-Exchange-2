@@ -73,6 +73,7 @@
           </template>
         </tbody>
       </table>
+      <!-- LIKELY PRICE FIXED -->
       <div
         v-if="isLikelyPriceFixed"
         class="p-2 border-2 border-gray-600 rounded mt-2"
@@ -88,6 +89,23 @@
               <i class="fas fa-history text-xs" />
             </button>
           </div>
+        </div>
+      </div>
+
+      <!-- ADDED AUGMENTS COST -->
+      <div
+        v-if="addedAugments && addedAugments.length"
+        class="p-2 border-2 border-gray-600 rounded mt-2 flex items-center"
+      >
+        <div class="w-fit">{{ t(":added_augments") }}</div>
+        <div class="flex px-2 items-center">
+          <item-sum-price
+            :items="
+              addedAugments.map((augment) =>
+                augment ? augment.baseItem : null,
+              )
+            "
+          />
         </div>
       </div>
     </div>
@@ -126,18 +144,28 @@ import { PriceCheckWidget } from "@/web/overlay/interfaces";
 import { ItemFilters, StatFilter } from "../filters/interfaces";
 import { ItemCategory, ParsedItem } from "@/parser";
 import { artificialSlowdown } from "./artificial-slowdown";
+import ItemQuickPrice from "@/web/ui/ItemQuickPrice.vue";
 import OnlineFilter from "./OnlineFilter.vue";
 import TradeLinks from "./TradeLinks.vue";
 import TradeItem from "./TradeItem.vue";
 import { useTradeApi } from "./trade-api";
 import { GEM, GRANTS_REAL_SKILL } from "@/parser/meta";
+import ItemSumPrice from "@/web/ui/ItemSumPrice.vue";
 
 const slowdown = artificialSlowdown(900);
 
 const SHOW_RESULTS = 20;
 
 export default defineComponent({
-  components: { OnlineFilter, TradeLinks, TradeItem, UiErrorBox, UiPopover },
+  components: {
+    ItemQuickPrice,
+    ItemSumPrice,
+    OnlineFilter,
+    TradeLinks,
+    TradeItem,
+    UiErrorBox,
+    UiPopover,
+  },
   props: {
     filters: {
       type: Object as PropType<ItemFilters>,
@@ -265,6 +293,11 @@ export default defineComponent({
         }
 
         return false;
+      }),
+      addedAugments: computed(() => {
+        return props.item.augmentSockets?.augments.filter(
+          (i) => i && !i.existing,
+        );
       }),
     };
   },
