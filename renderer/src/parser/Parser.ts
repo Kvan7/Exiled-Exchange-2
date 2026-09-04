@@ -44,6 +44,7 @@ import { calcPropPercentile, QUALITY_STATS } from "./calc-q20";
 import { AppConfig } from "@/web/Config";
 import { buildEditorItems, getSavedAugments } from "./augment-builder";
 import { useAugment } from "@/web/price-check/item-editor/augment";
+import { combinations } from "./utils";
 
 type SectionParseResult =
   | "SECTION_PARSED"
@@ -855,14 +856,16 @@ function parseAugmentSockets(section: string[], item: ParsedItem) {
         empty: 0,
         current,
         normal: categoryMax,
-        augments: Array(categoryMax).fill(null),
+        augments: Array(current).fill(null),
       };
     } else {
       item.augmentSockets = {
         empty: 0,
         current,
         normal: categoryMax,
-        augments: Array(categoryMax).fill(null),
+        augments: Array(categoryMax > current ? categoryMax : current).fill(
+          null,
+        ),
       };
     }
 
@@ -1322,22 +1325,43 @@ function applyAugmentSockets(item: ParsedItem) {
     const augmentMods = item.newMods.filter(
       (mod) => mod.info.type === ModifierType.Augment,
     );
+    console.log(augmentMods);
     const augmentStats = item.statsByType.filter(
       (calc) => calc.type === ModifierType.Augment,
     );
-    const augments: Array<EditorItem | null> = augmentMods
-      .map((mod) => {
-        const stat = augmentStats.find(
-          (stat) => stat.sources[0].stat === mod.stats[0],
-        );
-        if (!stat) return [];
+    console.log(augmentStats);
+
+    let statCombinations = combinations(augmentStats)
+      .filter((f) => f.length)
+      .toSorted((a, b) => b.length - a.length);
+    const augs: BaseType[][] = [];
+    for (let i = 0; i < statCombinations.length; ) {
+      const foundAugs = determineAugments(augmentMods[0], statCombinations[i]);
+      if (foundAugs.length) {
+        augs.push(foundAugs);
+        for (const combStat of statCombinations[i]) {
+          // drop any that we use here
+          statCombinations = statCombinations.filter(
+            (f) => f.find((s) => s === combStat) === undefined,
+          );
+        }
+        i = 0;
+        continue;
+      }
+      i++;
+    }
+
+    const augments: Array<EditorItem | null> = augs
+      .map((augGroup) => {
         return buildEditorItems(
-          determineAugments(mod, stat),
+          augGroup,
           item.category ?? ItemCategory.Unknown,
           true,
         );
       })
       .flat();
+
+    console.log(augments);
 
     if (
       augments.length <
@@ -2133,19 +2157,56 @@ function modifiedBfs(
 
 function determineAugments(
   mod: ParsedModifier,
-  statCalc: StatCalculated,
+  statCalcs: StatCalculated[],
 ): BaseType[] {
   if (mod.info.type !== ModifierType.Augment) return [];
-  const augmentAppliedValue = statCalc.sources[0].contributes?.value;
+  const augmentAppliedValue = statCalcs
+    .map((s) => s.sources[0].contributes?.value)
+    .filter((v) => v !== undefined);
 
-  const augmentTradeId = statCalc.stat.trade.ids[ModifierType.Augment][0];
-  const possibleAugments = AUGMENT_DATA_BY_TRADE_ID[augmentTradeId];
+  // const augmentTradeId = statCalcs[0].stat.trade.ids[ModifierType.Augment][0];
+  // const possibleAugments = AUGMENT_DATA_BY_TRADE_ID[augmentTradeId];
+
+  const allTradeIds = statCalcs.map(
+    (c) => c.stat.trade.ids[ModifierType.Augment][0],
+  );
+  const allPossibleAugments = allTradeIds.map(
+    (id) => AUGMENT_DATA_BY_TRADE_ID[id],
+  );
+  const augmentRefSets = allPossibleAugments.map(
+    (augGroup) => new Set(augGroup.map((a) => a.refName)),
+  );
+  console.log(augmentRefSets);
+
+  const morePossibleAugments = augmentRefSets.reduce((acc, set) => {
+    return set.intersection(acc);
+  }, augmentRefSets[0]);
+  console.log("morePossibleAugments", morePossibleAugments);
+
+  // intersect all possible augments
+  const possibleAugments = allPossibleAugments
+    .map((augGroup) =>
+      augGroup.filter((aug) => morePossibleAugments.has(aug.refName)),
+    )
+    .find((f) => f.length);
+
+  console.log(possibleAugments);
   if (!possibleAugments) return [];
 
   // something like "Raven-Touched"
-  if (!augmentAppliedValue) {
+  if (!augmentAppliedValue || !augmentAppliedValue.length) {
     const singleAugment = possibleAugments[0];
     return [ITEM_BY_REF("ITEM", singleAugment.refName)![0]];
+  }
+
+  if (augmentAppliedValue.length > 1) {
+    const likelyAugment = possibleAugments.find(
+      (aug) =>
+        new Set(aug.values).intersection(new Set(augmentAppliedValue)).size ===
+        augmentAppliedValue.length,
+    );
+    if (!likelyAugment) return [];
+    return [ITEM_BY_REF("ITEM", likelyAugment.refName)![0]];
   }
 
   // // Calculate how many of this augment are in the item
@@ -2166,7 +2227,7 @@ function determineAugments(
 
   // BFS to find all combinations with minimum count
   const likelyValues =
-    modifiedBfs(augmentAppliedValue, [], availableAugmentValues) ?? [];
+    modifiedBfs(augmentAppliedValue[0], [], availableAugmentValues) ?? [];
 
   return likelyValues.map((v) => {
     const augment = possibleAugments.find((aug) =>
@@ -2206,4 +2267,6 @@ export const __testExports = {
   parseTrials,
   determineAugments,
   modifiedBfs,
+  parseAugmentSockets,
+  applyAugmentSockets,
 };

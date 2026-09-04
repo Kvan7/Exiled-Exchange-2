@@ -1,11 +1,18 @@
 <template>
   <div class="flex items-center gap-x-1">
     <slot name="item">
-      <div class="flex items-center justify-center shrink-0" :class="imgSize">
+      <div
+        v-if="showImg"
+        class="flex items-center justify-center shrink-0"
+        :class="imgSize"
+      >
         <ui-item-img :icon="itemImg" overflow-hidden />
       </div>
     </slot>
-    <i class="fas fa-arrow-right text-gray-600 px-1 text-sm"></i>
+    <i
+      v-if="showArrow"
+      class="fas fa-arrow-right text-gray-600 px-1 text-sm"
+    ></i>
     <div class="whitespace-nowrap overflow-hidden">
       <span v-if="approx && !isRange" class="text-gray-600 font-sans">~ </span>
       <span :class="{ [$style.golden]: isValuable, 'px-1': minText === '?' }">{{
@@ -88,6 +95,14 @@ export default defineComponent({
     itemBase: {
       type: Object as PropType<BaseType>,
       default: undefined,
+    },
+    showImg: {
+      type: Boolean,
+      default: true,
+    },
+    showArrow: {
+      type: Boolean,
+      default: true,
     },
   },
   setup(props) {

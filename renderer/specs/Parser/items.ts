@@ -1333,3 +1333,81 @@ CharmQuality.prefixCount = 1;
 CharmQuality.suffixCount = 1;
 
 // #endregion CharmQuality
+
+// #region BowThreeAugments
+export const BowThreeAugments = new TestItem(`Item Class: Bows
+Rarity: Rare
+Oblivion Branch
+Obliterator Bow
+--------
+Quality: +20% (augmented)
+Physical Damage: 288-534 (augmented)
+Fire Damage: 47-92 (fire)
+Critical Hit Chance: 8.45% (augmented)
+Attacks per Second: 1.27 (augmented)
+--------
+Requires: Level 78, 163 Dex
+--------
+Sockets: S S S
+--------
+Item Level: 80
+--------
+38% increased Physical Damage (rune)
+Bow Attacks fire an additional Arrow (rune)
+--------
+{ Implicit Modifier }
+50% reduced Projectile Range
+--------
+{ Prefix Modifier "Cruel" (Tier: 3) — Damage, Physical, Attack }
+151(135-154)% increased Physical Damage
+{ Desecrated Prefix Modifier "Razor-sharp" (Tier: 3) — Damage, Physical, Attack }
+Adds 21(16-24) to 39(28-42) Physical Damage
+{ Prefix Modifier "Blasting" (Tier: 3) — Damage, Elemental, Fire, Attack }
+Adds 47(47-59) to 92(74-97) Fire Damage
+{ Suffix Modifier "of Renown" (Tier: 2) — Attack, Speed }
+15(14-16)% increased Attack Speed
+{ Suffix Modifier "of the Vampire" (Tier: 1) — Life, Physical, Attack }
+Leeches 9.6(9-9.9)% of Physical Damage as Life
+{ Crafted Suffix Modifier "of Calamity" (Tier: 3) — Attack, Critical }
++3.45(3.11-3.8)% to Critical Hit Chance
+--------
+Corrupted
+`);
+
+BowThreeAugments.category = ItemCategory.Bow;
+BowThreeAugments.rarity = ItemRarity.Rare;
+BowThreeAugments.itemLevel = 80;
+BowThreeAugments.quality = 20;
+BowThreeAugments.weaponPHYSICAL = 411;
+BowThreeAugments.weaponFIRE = 69.5;
+BowThreeAugments.weaponELEMENTAL = BowThreeAugments.weaponFIRE;
+BowThreeAugments.weaponCRIT = 8.45;
+BowThreeAugments.weaponAS = 1.27;
+BowThreeAugments.requires = {
+  level: 78,
+  str: 0,
+  dex: 163,
+  int: 0,
+};
+
+BowThreeAugments.info.refName = "Obliterator Bow";
+BowThreeAugments.sectionCount = 9;
+BowThreeAugments.prefixCount = 3;
+BowThreeAugments.suffixCount = 3;
+BowThreeAugments.implicitCount = 1;
+BowThreeAugments.augmentSockets = {
+  empty: 0,
+  current: 3,
+  normal: 2,
+  augments: [
+    createEditorItem("Perfect Iron Rune", "20% increased Physical Damage", 20),
+    createEditorItem("Greater Iron Rune", "18% increased Physical Damage", 18),
+    createEditorItem(
+      "Countess Seske's Rune of Archery",
+      "Bow Attacks fire an additional Arrow",
+      1,
+    ),
+  ],
+};
+
+// #endregion BowThreeAugments

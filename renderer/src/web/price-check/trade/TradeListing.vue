@@ -92,6 +92,9 @@
         </div>
       </div>
 
+      <!-- Extraction Value -->
+      <extraction-value :item="item" :first-result="groupedResults.at(0)" />
+
       <!-- ADDED AUGMENTS COST -->
       <div
         v-if="addedAugments && addedAugments.length"
@@ -151,6 +154,7 @@ import TradeItem from "./TradeItem.vue";
 import { useTradeApi } from "./trade-api";
 import { GEM, GRANTS_REAL_SKILL } from "@/parser/meta";
 import ItemSumPrice from "@/web/ui/ItemSumPrice.vue";
+import ExtractionValue from "./ExtractionValue.vue";
 
 const slowdown = artificialSlowdown(900);
 
@@ -158,6 +162,7 @@ const SHOW_RESULTS = 20;
 
 export default defineComponent({
   components: {
+    ExtractionValue,
     ItemQuickPrice,
     ItemSumPrice,
     OnlineFilter,
