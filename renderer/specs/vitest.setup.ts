@@ -6,7 +6,13 @@ import { Config, TipsFrequency } from "@/web/Config";
 
 vi.mock("@/web/Config", async () => {
   return {
-    AppConfig: vi.fn(() => mockConfig),
+    AppConfig: vi.fn((type?: string) => {
+      if (!type) {
+        return mockConfig;
+      } else {
+        return mockConfig.widgets.find((w) => w.wmType === type)!;
+      }
+    }),
     TipsFrequency: {
       Always: 1,
     },
@@ -54,7 +60,7 @@ export const setupFetchMock = () => {
       bodyUsed: false,
       json: async () => JSON.parse(body as string),
       text: async () => body,
-      arrayBuffer: async () => Buffer.from(body as string).buffer,
+      arrayBuffer: async () => body as ArrayBuffer,
       blob: async () => new Blob([body as string]),
       formData: async () => {
         throw new Error("formData not implemented");
@@ -68,7 +74,10 @@ export const setupFetchMock = () => {
       }
       if (filePath.endsWith(".bin")) {
         const data = fs.readFileSync(filePath);
-        return createResponse(data, 200);
+        return createResponse(
+          data.buffer.slice(data.byteOffset, data.byteOffset + data.byteLength),
+          200,
+        );
       }
       if (filePath.endsWith(".json")) {
         const data = fs.readFileSync(filePath, "utf8");
@@ -129,7 +138,19 @@ export const defaultConfigMock = (overrides: Partial<Config> = {}) => {
     language: "en", // Default language
     preferredTradeSite: "default",
     realm: "pc-ggg",
-    widgets: [],
+    widgets: [
+      /* eslint-disable @typescript-eslint/no-explicit-any */
+      {
+        wmId: 2,
+        wmType: "price-check",
+        wmTitle: "",
+        wmWants: "hide",
+        wmZorder: "exclusive",
+        wmFlags: ["hide-on-blur", "menu::skip"],
+        savedAugments: {},
+      } as any,
+      /* eslint-enable */
+    ],
     fontSize: 12,
     showAttachNotification: true,
     overlayAlwaysClose: false,
@@ -137,6 +158,7 @@ export const defaultConfigMock = (overrides: Partial<Config> = {}) => {
     alphas: [],
     tipsFrequency: TipsFrequency.Always,
     readClientLog: false,
+    hideOverlayOnBlur: false,
   };
 
   mockConfig = { ...defaultConfig, ...overrides };

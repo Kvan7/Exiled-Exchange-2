@@ -7,7 +7,6 @@ import {
 } from "./create-stat-filters";
 import { propToFilter } from "./pseudo/item-property";
 import { createFilters } from "./create-item-filters";
-import { PriceCheckWidget } from "@/web/overlay/widgets";
 
 export const PRESET_UNIQUES = new Set(["Mageblood"]);
 
@@ -28,7 +27,6 @@ export function createUniquePresets(
     searchStatRange: number;
     useEn: boolean;
     defaultAllSelected: boolean;
-    autoFillEmptyAugmentSockets: PriceCheckWidget["autoFillEmptyRuneSockets"];
   },
 ): {
   presets: FilterPreset[];

@@ -164,37 +164,33 @@
           "
         />
       </div>
-      <!--
-      <button
-        v-if="
-          hasEmptyAugmentSockets &&
-          filters.itemEditorSelection &&
-          !filters.itemEditorSelection.disabled
-        "
-        @click="
-          filters.itemEditorSelection.editing =
-            !filters.itemEditorSelection.editing
-        "
-        class="flex items-center bg-gray-900 rounded border"
-        :class="[
-          filters.itemEditorSelection.value !== 'None'
-            ? 'border-gray-500'
-            : 'border-transparent',
-        ]"
+      <div
+        v-if="showItemEditor !== 'none'"
+        class="flex items-center bg-gray-900 rounded border border-gray-500 justify-center shrink-0 w-8 h-8"
       >
-        <div class="flex items-center justify-center shrink-0 w-8 h-8">
-          <div
-            v-if="filters.itemEditorSelection.value === 'None'"
-            class="flex items-center justify-center shrink-0 w-8 h-8 border-2 border-dashed border-gray-400 rounded-full"
-          />
-          <img
-            v-else
-            :src="getAugmentImage(filters.itemEditorSelection.value)"
-            class="max-w-full max-h-full overflow-hidden"
-          />
-        </div>
-      </button>
-    --></div>
+        <popover :delay="[0, 500]" placement="right">
+          <template #target>
+            <i
+              v-if="canHaveCatalyst && !currentCatalyst"
+              class="fas fa-question-circle text-gray-400 text-xl" />
+            <img
+              v-else-if="currentCatalyst"
+              :src="currentCatalyst.icon"
+              class="max-w-full max-h-full overflow-hidden" /><img
+              v-else
+              :src="
+                item.augmentSockets?.augments.some((a) => a)
+                  ? '/images/augments/rune.png'
+                  : '/images/augments/empty-socket.png'
+              "
+              class="max-w-full max-h-full overflow-hidden"
+          /></template>
+          <template #content>
+            <item-editor-v2 :item="item" />
+          </template>
+        </popover>
+      </div>
+    </div>
     <!-- Handled parse error -->
     <div
       v-if="!statsVisibility.disabled && hasStats"
@@ -302,16 +298,24 @@ import {
 } from "vue";
 import { useI18n } from "vue-i18n";
 import UiToggle from "@/web/ui/UiToggle.vue";
+import ItemEditorV2 from "@/web/price-check/item-editor/ItemEditorV2.vue";
 import FilterModifier from "./FilterModifier.vue";
 import FilterBtnNumeric from "./FilterBtnNumeric.vue";
 import FilterBtnLogical from "./FilterBtnLogical.vue";
 import UnknownModifier from "./UnknownModifier.vue";
 import { ItemFilters, StatFilter } from "./interfaces";
-import { ParsedItem, ItemRarity, ItemCategory } from "@/parser";
+import {
+  ParsedItem,
+  ItemRarity,
+  ItemCategory,
+  itemIsModifiable,
+} from "@/parser";
 import FilterBtnDropdown from "./FilterBtnDropdown.vue";
-import { AUGMENT_DATA_BY_AUGMENT } from "@/assets/data";
-import { ARMOUR, MARTIAL_WEAPON } from "@/parser/meta";
 import { ModifierType } from "@/parser/modifiers";
+import Popover from "@/web/ui/Popover.vue";
+import { getItemEditorType } from "../item-editor/item-editor.js";
+import { ItemEditorType } from "@/parser/meta.js";
+import { CATALYST_TYPES } from "@/assets/data/index.js";
 
 export default defineComponent({
   name: "FiltersBlock",
@@ -321,7 +325,9 @@ export default defineComponent({
     FilterBtnNumeric,
     FilterBtnLogical,
     FilterBtnDropdown,
+    ItemEditorV2,
     UnknownModifier,
+    Popover,
     UiToggle,
   },
   props: {
@@ -364,6 +370,17 @@ export default defineComponent({
           props.item.rarity === ItemRarity.Unique
         ),
     );
+
+    const showItemEditor = computed(() => {
+      if (!itemIsModifiable(props.item)) {
+        // can still change socketed items on non-modifiable items
+        return (props.item.augmentSockets?.augments.length ?? 0) > 0
+          ? getItemEditorType(props.item)
+          : ItemEditorType.None;
+      }
+
+      return getItemEditorType(props.item);
+    });
     // For handling filling augments
     // watch(
     //   () => props.filters.itemEditorSelection?.value,
@@ -427,18 +444,6 @@ export default defineComponent({
       selectPreset(id: string) {
         ctx.emit("preset", id);
       },
-      hasEmptyAugmentSockets: computed(() => {
-        return (
-          props.item.augmentSockets &&
-          props.item.augmentSockets.empty > 0 &&
-          (MARTIAL_WEAPON.has(props.item.category!) ||
-            ARMOUR.has(props.item.category!))
-        );
-      }),
-      getAugmentImage(augment: string) {
-        const icon = AUGMENT_DATA_BY_AUGMENT[augment][0].icon;
-        return icon === "%NOT_FOUND%" ? "/images/404.png" : icon;
-      },
       hiddenLabel: computed(() => {
         if (
           props.item.category === ItemCategory.Map ||
@@ -462,6 +467,29 @@ export default defineComponent({
             (calc) => calc.type === ModifierType.Fractured,
           )
         );
+      }),
+      showItemEditor,
+      canHaveCatalyst: computed(() => {
+        return (
+          props.item.category === ItemCategory.Ring ||
+          props.item.category === ItemCategory.Amulet ||
+          props.item.category === ItemCategory.Jewel
+        );
+      }),
+      currentCatalyst: computed(() => {
+        if (
+          !props.item.qualityType ||
+          !props.item.quality ||
+          showItemEditor.value !== ItemEditorType.Catalyst
+        )
+          return undefined;
+
+        const catalysts =
+          props.item.category === ItemCategory.Jewel
+            ? CATALYST_TYPES.Refined
+            : CATALYST_TYPES.Normal;
+
+        return catalysts.find((c) => c.tags[1] === props.item.qualityType);
       }),
     };
   },

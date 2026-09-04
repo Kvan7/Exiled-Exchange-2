@@ -250,10 +250,15 @@ export const usePoeninja = createGlobalState(() => {
       case "Hardcore":
         return "hardcore";
     }
-    if (league.startsWith("HC ")) {
-      return proxy ? "leaguehc" : "runesofaldurhc";
+    if (proxy) {
+      return league;
     }
-    return proxy ? "league" : "runesofaldur";
+
+    const ninjaLeague = league.toLowerCase().replaceAll(" ", "");
+    if (ninjaLeague.startsWith("hc")) {
+      return ninjaLeague.slice(2) + "hc";
+    }
+    return ninjaLeague;
   }
 
   function findPriceByQuery(query: DbQuery) {
@@ -356,6 +361,78 @@ export const usePoeninja = createGlobalState(() => {
     return currency;
   }
 
+  function toDivine(value: CurrencyValue): CurrencyValue {
+    if (value.currency === "div") return value;
+    if (xchgRate.value) {
+      if (xchgRateCurrency.value !== value.currency) {
+        throw new Error(
+          `Cannot convert ${value.currency} to div, current core currency is ${xchgRateCurrency.value}`,
+        );
+      }
+
+      return {
+        min: value.min / xchgRate.value,
+        max: value.max / xchgRate.value,
+        currency: "div",
+      };
+    }
+    return value;
+  }
+
+  function addPrice(
+    addend1: CurrencyValue,
+    addend2: CurrencyValue,
+  ): CurrencyValue {
+    const addend1Div = toDivine(addend1);
+    const addend2Div = toDivine(addend2);
+
+    return autoCurrency([
+      addend1Div.min + addend2Div.min,
+      addend1Div.max + addend2Div.max,
+    ]);
+  }
+
+  function subtractPrice(
+    minuend: CurrencyValue,
+    subtrahend: CurrencyValue,
+  ): CurrencyValue {
+    const minuendDiv = toDivine(minuend);
+    const subtrahendDiv = toDivine(subtrahend);
+
+    return autoCurrency([
+      minuendDiv.min - subtrahendDiv.max,
+      minuendDiv.max - subtrahendDiv.min,
+    ]);
+  }
+
+  function comparePrice(
+    left: CurrencyValue,
+    op: ">" | ">=" | "==" | "===" | "<=" | "<",
+    right: CurrencyValue,
+  ): boolean {
+    const leftDiv = toDivine(left);
+    const rightDiv = toDivine(right);
+
+    switch (op) {
+      case ">":
+        return leftDiv.min > rightDiv.max;
+      case ">=":
+        return leftDiv.min >= rightDiv.max;
+      case "==":
+        return leftDiv.min === rightDiv.max && leftDiv.max === rightDiv.min;
+      case "===":
+        return (
+          left.currency === right.currency &&
+          leftDiv.min === rightDiv.max &&
+          leftDiv.max === rightDiv.min
+        );
+      case "<=":
+        return leftDiv.max <= rightDiv.min;
+      case "<":
+        return leftDiv.max < rightDiv.min;
+    }
+  }
+
   setInterval(() => {
     load();
   }, RETRY_INTERVAL_MS);
@@ -384,6 +461,10 @@ export const usePoeninja = createGlobalState(() => {
     initialLoading: () => isLoading.value && !PRICES_DB.length,
     availableCoreCurrencies: readonly(availableCoreCurrencies),
     ITEM_DROP,
+    // math
+    addPrice,
+    subtractPrice,
+    comparePrice,
   };
 });
 

@@ -24,7 +24,7 @@ import { applyRules as applyMirroredTabletRules } from "./pseudo/reflection-rule
 import { applyRules as applyMissingFracturedRules } from "./pseudo/missing-fractured-rules";
 import { filterItemProp, filterBasePercentile } from "./pseudo/item-property";
 import { decodeOils, applyAnointmentRules } from "./pseudo/anointments";
-import { StatBetter, CLIENT_STRINGS } from "@/assets/data";
+import { StatBetter, CLIENT_STRINGS, CATALYST_TYPES } from "@/assets/data";
 import { explicitModifierCount, maxUsefulItemLevel } from "./common";
 import { getMaxSockets } from "@/parser/Parser";
 
@@ -685,6 +685,16 @@ export function finalFilterTweaks(ctx: FiltersCreationContext) {
     applyAnointmentRules(ctx.filters, ctx.item);
   }
 
+  const possibleCatalyst = item.qualityType
+    ? (item.category === ItemCategory.Jewel
+        ? CATALYST_TYPES.Refined
+        : item.category === ItemCategory.Ring ||
+            item.category === ItemCategory.Amulet
+          ? CATALYST_TYPES.Normal
+          : undefined
+      )?.find((c) => c.tags[1] === item.qualityType)
+    : undefined;
+
   for (const filter of ctx.filters) {
     if (
       filter.tag === FilterTag.Fractured ||
@@ -719,6 +729,17 @@ export function finalFilterTweaks(ctx: FiltersCreationContext) {
       if (filter.statRef === "# uses remaining") {
         filter.hidden = undefined;
       }
+    }
+    if (filter.sources.some((s) => s.stat.fromAddedAugment)) {
+      filter.editorAdded = filter.sources.find(
+        (s) => s.stat.fromAddedAugment,
+      )?.stat.fromAddedAugment;
+    }
+    if (
+      filter.sources.some((s) => s.modifier.info.addedIncr) &&
+      possibleCatalyst
+    ) {
+      filter.editorAdded = possibleCatalyst;
     }
   }
 

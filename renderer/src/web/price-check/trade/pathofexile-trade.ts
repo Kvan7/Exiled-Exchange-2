@@ -1551,8 +1551,9 @@ function parseFetchResult(result: FetchResult): PricingResult["displayItem"] {
     grantSkill: buildGrantSkillBlock(result.item.grantedSkills),
     ...parseMods(result),
     veiledMods: result.item.veiledMods?.map((vm) => {
+      const text = typeof vm === "string" ? vm : vm.description;
       return {
-        text: (vm as string).startsWith("Prefix")
+        text: text.startsWith("Prefix")
           ? "Unrevealed Prefix"
           : "Unrevealed Suffix",
         color: TradeNumberColors.Desecrated,

@@ -215,3 +215,8 @@ export const EXPLICIT_MOD_TYPES = new Set([
   ModifierType.Crafted,
   ModifierType.Sanctum,
 ]);
+
+export const INTERNAL_AUGMENT_TYPES = new Set([
+  ModifierType.Augment,
+  ModifierType.AddedAugment,
+]);

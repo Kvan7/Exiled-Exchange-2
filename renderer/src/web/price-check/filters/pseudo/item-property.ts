@@ -54,9 +54,11 @@ export const ARMOUR_STATS = new Set<string>([
   ...QUALITY_STATS.ARMOUR.flat,
   ...QUALITY_STATS.EVASION.flat,
   ...QUALITY_STATS.ENERGY_SHIELD.flat,
+  ...QUALITY_STATS.WARD.flat,
   ...QUALITY_STATS.ARMOUR.incr,
   ...QUALITY_STATS.EVASION.incr,
   ...QUALITY_STATS.ENERGY_SHIELD.incr,
+  ...QUALITY_STATS.WARD.incr,
   stat("#% increased Block chance"),
 ]);
 
@@ -144,11 +146,7 @@ function armourProps(ctx: FiltersCreationContext) {
   }
 
   if (item.armourRW) {
-    const runicWard = calcPropBounds(
-      item.armourRW,
-      { flat: ["# to maximum Runic Ward"], incr: ["#% increased Runic Ward"] },
-      item,
-    );
+    const runicWard = calcPropBounds(item.armourRW, QUALITY_STATS.WARD, item);
 
     ctx.filters.push(
       propToFilter(
@@ -164,7 +162,13 @@ function armourProps(ctx: FiltersCreationContext) {
     );
   }
 
-  if (item.armourAR || item.armourEV || item.armourES || item.armourBLOCK) {
+  if (
+    item.armourAR ||
+    item.armourEV ||
+    item.armourES ||
+    item.armourRW ||
+    item.armourBLOCK
+  ) {
     removeUsedStats(ctx, ARMOUR_STATS);
   }
 }

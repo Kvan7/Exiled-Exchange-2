@@ -8,9 +8,9 @@ import { ParsedItem } from "@/parser";
 
 describe("filterPseudoSources", () => {
   beforeEach(async () => {
+    vi.clearAllMocks();
     setupTests();
     await init("en");
-    vi.clearAllMocks();
   });
 
   it("should do nothing if no stats", () => {
@@ -135,9 +135,9 @@ function createStatHelper(
 
 describe("filterPseudo", () => {
   beforeEach(async () => {
+    vi.clearAllMocks();
     setupTests();
     await init("en");
-    vi.clearAllMocks();
   });
 
   it("should do nothing if no stats by type", () => {

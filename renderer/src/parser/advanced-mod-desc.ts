@@ -25,6 +25,7 @@ export interface ModifierInfo {
   rank?: number;
   tags: string[];
   rollIncr?: number;
+  addedIncr?: boolean;
   hybridWithRef?: Set<string>;
 }
 

@@ -12,6 +12,7 @@ export interface HostConfig {
   libraryAlpha: boolean;
   libraryOutputPath: string | null;
   initialDelay: number;
+  hideOverlayOnBlur: boolean;
 }
 
 export interface ShortcutAction {
@@ -78,6 +79,7 @@ export type IpcEvent =
   | IpcFocusChange
   | IpcVisibility
   | IpcFocusGame
+  | IpcOverlayRenderState
   | IpcHideExclusiveWidget
   | IpcTrackArea
   // events used by any type of Client:
@@ -119,6 +121,13 @@ type IpcVisibility = Event<
 >;
 
 type IpcFocusGame = Event<"OVERLAY->MAIN::focus-game">;
+
+type IpcOverlayRenderState = Event<
+  "OVERLAY->MAIN::render-state",
+  {
+    shouldShow: boolean;
+  }
+>;
 
 type IpcHideExclusiveWidget = Event<"MAIN->OVERLAY::hide-exclusive-widget">;
 

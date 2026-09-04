@@ -347,7 +347,8 @@
     "fix_complex_query": "Disable \"Use pseudo mods\" in settings or log in with builtin browser",
     "likely_price_fixed": "Mostly non-standard currency: ",
     "filter_exalt_divine": "Filter by Exalt/Divine",
-    "highest_volume": "Highest volume:"
+    "highest_volume": "Highest volume:",
+    "added_augments": "Added Augment Cost:"
   },
   "settings": {
     "title": "Settings - Exiled Exchange 2",
@@ -394,7 +395,9 @@
     "tips_header": "Cycle Through All Tips:",
     "tip_number_header": "Tip #{0}",
     "read_client_log": "Allow reading of Client.txt file",
-    "client_log_explain": "Client.txt log file contains debugging info and chat logs. This is used to detect zone changes and player level ups."
+    "client_log_explain": "Client.txt log file contains debugging info and chat logs. This is used to detect zone changes and player level ups.",
+    "hide_overlay_on_blur": "Fully hide overlay when it loses focus instead of making it transparent.",
+    "hide_overlay_on_blur_hint": "This may gain performance improvements on some systems, but may induce flickering."
   },
   "price_check": {
     "name": "Price check",
@@ -500,5 +503,16 @@
     "output_folder": "Output Folder",
     "output_file_help": "Some info text",
     "record_count": "Session Rolls:"
+  },
+  "item_editor": {
+    "save_type": "Save for: ",
+    "caster_weapon": "Caster Weapons",
+    "marital_weapon": "Marital Weapons",
+    "sceptre": "Sceptres",
+    "armour": "Armours",
+    "all": "Default",
+    "save": "Save",
+    "confirm": "Confirm",
+    "clear": "Clear Saved"
   }
 }

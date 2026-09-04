@@ -24,7 +24,7 @@ export function likelyFinishedItem(item: ParsedItem) {
   return (
     item.rarity === ItemRarity.Unique ||
     item.statsByType.some((calc) => calc.type === ModifierType.Crafted) ||
-    item.quality === 20 || // quality > 20 can be used for selling bases, quality < 20 drops sometimes
+    (item.quality === 20 && !item.qualityType) || // quality > 20 can be used for selling bases, quality < 20 drops sometimes
     !itemIsModifiable(item)
   );
 }

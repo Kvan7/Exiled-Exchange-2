@@ -53,13 +53,14 @@ export interface PriceCheckWidget extends Widget {
   rememberCurrency: boolean;
   defaultAllSelected: boolean;
   itemHoverTooltip: "off" | "keybind" | "always";
-  autoFillEmptyRuneSockets: "Iron Rune" | false;
   alwaysShowTier: boolean;
-  openItemEditorAbove: boolean;
   coreCurrency: "exalted" | "chaos";
   currencyVolume: "none" | "value" | "item" | "both";
   rememberListingType: boolean;
   initialDelay: number;
+  savedAugments: {
+    [key: string]: Array<string | null>;
+  };
 }
 
 export interface StopwatchWidget extends Widget {

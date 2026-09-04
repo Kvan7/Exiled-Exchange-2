@@ -12,7 +12,6 @@
       :presets="presets"
       @preset="selectPreset"
       @submit="doSearch = true"
-      :rebuild-key="rebuildKey"
     />
     <trade-listing
       v-if="tradeAPI === 'trade' && doSearch"
@@ -120,10 +119,6 @@ export default defineComponent({
       type: Boolean,
       required: true,
     },
-    rebuildKey: {
-      type: Number,
-      required: true,
-    },
   },
   setup(props, ctx) {
     const widget = computed(() => AppConfig<PriceCheckWidget>("price-check")!);
@@ -181,7 +176,6 @@ export default defineComponent({
             ? prevListingType
             : undefined,
           defaultAllSelected: widget.value.defaultAllSelected,
-          autoFillEmptyAugmentSockets: widget.value.autoFillEmptyRuneSockets,
         });
 
         if (
