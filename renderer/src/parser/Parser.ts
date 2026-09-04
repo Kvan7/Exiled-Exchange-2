@@ -1325,11 +1325,9 @@ function applyAugmentSockets(item: ParsedItem) {
     const augmentMods = item.newMods.filter(
       (mod) => mod.info.type === ModifierType.Augment,
     );
-    console.log(augmentMods);
     const augmentStats = item.statsByType.filter(
       (calc) => calc.type === ModifierType.Augment,
     );
-    console.log(augmentStats);
 
     let statCombinations = combinations(augmentStats)
       .filter((f) => f.length)
@@ -1360,8 +1358,6 @@ function applyAugmentSockets(item: ParsedItem) {
         );
       })
       .flat();
-
-    console.log(augments);
 
     if (
       augments.length <
@@ -2177,12 +2173,10 @@ function determineAugments(
   const augmentRefSets = allPossibleAugments.map(
     (augGroup) => new Set(augGroup.map((a) => a.refName)),
   );
-  console.log(augmentRefSets);
 
   const morePossibleAugments = augmentRefSets.reduce((acc, set) => {
     return set.intersection(acc);
   }, augmentRefSets[0]);
-  console.log("morePossibleAugments", morePossibleAugments);
 
   // intersect all possible augments
   const possibleAugments = allPossibleAugments
@@ -2191,7 +2185,6 @@ function determineAugments(
     )
     .find((f) => f.length);
 
-  console.log(possibleAugments);
   if (!possibleAugments) return [];
 
   // something like "Raven-Touched"
