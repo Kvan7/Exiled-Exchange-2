@@ -250,10 +250,15 @@ export const usePoeninja = createGlobalState(() => {
       case "Hardcore":
         return "hardcore";
     }
-    if (league.startsWith("HC ")) {
-      return proxy ? "leaguehc" : "runesofaldurhc";
+    if (proxy) {
+      return league;
     }
-    return proxy ? "league" : "runesofaldur";
+
+    const ninjaLeague = league.toLowerCase().replaceAll(" ", "");
+    if (ninjaLeague.startsWith("hc")) {
+      return ninjaLeague.slice(2) + "hc";
+    }
+    return ninjaLeague;
   }
 
   function findPriceByQuery(query: DbQuery) {
