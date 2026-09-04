@@ -1,0 +1,6962 @@
+{
+    "recipes": {
+        "Adaptive|1|2": [
+            43,
+            9,
+            6
+        ],
+        "Adaptive|1|3": [
+            117,
+            73,
+            72,
+            43,
+            9,
+            6
+        ],
+        "Adaptive|1|4": [
+            151,
+            148,
+            147,
+            138,
+            117,
+            73,
+            72,
+            43,
+            9,
+            6
+        ],
+        "Adaptive|1|5": [
+            229,
+            228,
+            213,
+            212,
+            188,
+            151,
+            148,
+            147,
+            138,
+            117,
+            73,
+            72,
+            43,
+            9,
+            6
+        ],
+        "Adaptive|1|6": [
+            266,
+            265,
+            260,
+            229,
+            228,
+            213,
+            212,
+            188,
+            151,
+            148,
+            147,
+            138,
+            117,
+            73,
+            72,
+            43,
+            9,
+            6
+        ],
+        "Adaptive|1|8": [
+            289,
+            288,
+            266,
+            265,
+            260,
+            229,
+            228,
+            213,
+            212,
+            188,
+            151,
+            148,
+            147,
+            138,
+            117,
+            73,
+            72,
+            43,
+            9,
+            6
+        ],
+        "Adaptive|1|9": [
+            296,
+            295,
+            289,
+            288,
+            266,
+            265,
+            260,
+            229,
+            228,
+            213,
+            212,
+            188,
+            151,
+            148,
+            147,
+            138,
+            117,
+            73,
+            72,
+            43,
+            9,
+            6
+        ],
+        "Adaptive|2|2": [
+            50,
+            49,
+            48
+        ],
+        "Adaptive|2|3": [
+            81,
+            79,
+            78,
+            50,
+            49,
+            48
+        ],
+        "Adaptive|4|7": [
+            276,
+            271,
+            195,
+            194,
+            153,
+            129
+        ],
+        "Arcane|1|2": [
+            24,
+            23,
+            5
+        ],
+        "Arcane|1|4": [
+            178,
+            163,
+            159,
+            157,
+            108,
+            102,
+            96,
+            24,
+            23,
+            5
+        ],
+        "Arcane|2|3": [
+            77,
+            74,
+            72,
+            8
+        ],
+        "Arcane|2|5": [
+            194,
+            186,
+            183,
+            137,
+            134,
+            77,
+            74,
+            72,
+            8
+        ],
+        "Arcane|3|6": [
+            258,
+            177,
+            174,
+            141
+        ],
+        "Arcane|4|5": [
+            212,
+            211,
+            131,
+            128,
+            127
+        ],
+        "Bloodletting|2|5": [
+            227,
+            216,
+            178,
+            172,
+            165
+        ],
+        "Bloodletting|3|3": [
+            81,
+            80,
+            73
+        ],
+        "Bloodletting|4|5": [
+            319,
+            207,
+            135
+        ],
+        "Bloodletting|7|8": [
+            288,
+            279,
+            278
+        ],
+        "Bond|2|5": [
+            233,
+            230,
+            222,
+            220,
+            180
+        ],
+        "Bond|2|8": [
+            286,
+            285,
+            284,
+            283,
+            282,
+            281,
+            233,
+            230,
+            222,
+            220,
+            180
+        ],
+        "Bond|3|6": [
+            246,
+            241,
+            216,
+            189,
+            183,
+            109
+        ],
+        "Bond|5|5": [
+            210,
+            208,
+            195,
+            194
+        ],
+        "Celestial|1|3": [
+            70,
+            69,
+            68,
+            67
+        ],
+        "Celestial|1|5": [
+            208,
+            207,
+            181,
+            180,
+            179,
+            137,
+            136,
+            135,
+            134,
+            133,
+            132,
+            131,
+            130,
+            129,
+            128,
+            127,
+            126,
+            125,
+            70,
+            69,
+            68,
+            67
+        ],
+        "Celestial|1|6": [
+            267,
+            208,
+            207,
+            181,
+            180,
+            179,
+            137,
+            136,
+            135,
+            134,
+            133,
+            132,
+            131,
+            130,
+            129,
+            128,
+            127,
+            126,
+            125,
+            70,
+            69,
+            68,
+            67
+        ],
+        "Celestial|1|9": [
+            292,
+            291,
+            267,
+            208,
+            207,
+            181,
+            180,
+            179,
+            137,
+            136,
+            135,
+            134,
+            133,
+            132,
+            131,
+            130,
+            129,
+            128,
+            127,
+            126,
+            125,
+            70,
+            69,
+            68,
+            67
+        ],
+        "Celestial|2|2": [
+            47,
+            46,
+            45,
+            44
+        ],
+        "Cold|1|2": [
+            13,
+            12,
+            7
+        ],
+        "Cold|1|6": [
+            254,
+            141,
+            122,
+            115,
+            113,
+            101,
+            100,
+            13,
+            12,
+            7
+        ],
+        "Cold|2|2": [
+            21,
+            19,
+            2
+        ],
+        "Cold|2|5": [
+            232,
+            221,
+            179,
+            94,
+            93,
+            89,
+            87,
+            86,
+            21,
+            19,
+            2
+        ],
+        "Cold|2|7": [
+            273,
+            232,
+            221,
+            179,
+            94,
+            93,
+            89,
+            87,
+            86,
+            21,
+            19,
+            2
+        ],
+        "Cold|8|8": [
+            289,
+            286
+        ],
+        "Cyclonic|1|2": [
+            47,
+            25
+        ],
+        "Cyclonic|1|3": [
+            110,
+            92,
+            91,
+            90,
+            89,
+            88,
+            87,
+            86,
+            47,
+            25
+        ],
+        "Cyclonic|1|5": [
+            201,
+            200,
+            199,
+            198,
+            197,
+            196,
+            145,
+            118,
+            110,
+            92,
+            91,
+            90,
+            89,
+            88,
+            87,
+            86,
+            47,
+            25
+        ],
+        "Cyclonic|1|6": [
+            268,
+            201,
+            200,
+            199,
+            198,
+            197,
+            196,
+            145,
+            118,
+            110,
+            92,
+            91,
+            90,
+            89,
+            88,
+            87,
+            86,
+            47,
+            25
+        ],
+        "Cyclonic|1|7": [
+            270,
+            268,
+            201,
+            200,
+            199,
+            198,
+            197,
+            196,
+            145,
+            118,
+            110,
+            92,
+            91,
+            90,
+            89,
+            88,
+            87,
+            86,
+            47,
+            25
+        ],
+        "Cyclonic|1|9": [
+            293,
+            270,
+            268,
+            201,
+            200,
+            199,
+            198,
+            197,
+            196,
+            145,
+            118,
+            110,
+            92,
+            91,
+            90,
+            89,
+            88,
+            87,
+            86,
+            47,
+            25
+        ],
+        "Cyclonic|2|2": [
+            34,
+            30,
+            29,
+            27
+        ],
+        "Cyclonic|2|3": [
+            60,
+            56,
+            55,
+            53,
+            34,
+            30,
+            29,
+            27
+        ],
+        "Cyclonic|3|6": [
+            259,
+            221,
+            106,
+            104,
+            77
+        ],
+        "Cyclonic|4|4": [
+            152,
+            150,
+            149,
+            138
+        ],
+        "Death|3|5": [
+            213,
+            209,
+            188
+        ],
+        "Earth|1|3": [
+            318,
+            317,
+            316,
+            315,
+            314,
+            313,
+            312,
+            311,
+            310,
+            309,
+            308,
+            307,
+            306,
+            305,
+            76,
+            74,
+            45
+        ],
+        "Earth|1|4": [
+            318,
+            317,
+            316,
+            315,
+            314,
+            313,
+            312,
+            311,
+            310,
+            309,
+            308,
+            307,
+            306,
+            305,
+            175,
+            158,
+            155,
+            154,
+            76,
+            74,
+            45
+        ],
+        "Electrocuting|2|2": [
+            23,
+            22,
+            11
+        ],
+        "Electrocuting|3|3": [
+            116,
+            115,
+            114,
+            113,
+            112,
+            111
+        ],
+        "Electrocuting|3|5": [
+            194,
+            187,
+            171,
+            144,
+            118,
+            116,
+            115,
+            114,
+            113,
+            112,
+            111
+        ],
+        "Fire|1|2": [
+            20,
+            15,
+            10
+        ],
+        "Fire|1|6": [
+            255,
+            220,
+            20,
+            15,
+            10
+        ],
+        "Fire|2|2": [
+            39,
+            35,
+            3
+        ],
+        "Fire|2|5": [
+            195,
+            187,
+            99,
+            61,
+            39,
+            35,
+            3
+        ],
+        "Fire|2|7": [
+            274,
+            263,
+            195,
+            187,
+            99,
+            61,
+            39,
+            35,
+            3
+        ],
+        "Fire|4|8": [
+            288,
+            281,
+            196
+        ],
+        "Gasp|1|2": [
+            40,
+            39,
+            35
+        ],
+        "Gasp|1|4": [
+            170,
+            169,
+            168,
+            166,
+            165,
+            99,
+            98,
+            94,
+            85,
+            61,
+            40,
+            39,
+            35
+        ],
+        "Life|6|8": [
+            289,
+            285,
+            236
+        ],
+        "Lightning|1|2": [
+            18,
+            16,
+            8
+        ],
+        "Lightning|1|6": [
+            256,
+            222,
+            119,
+            111,
+            18,
+            16,
+            8
+        ],
+        "Lightning|2|7": [
+            275,
+            206,
+            201,
+            199,
+            193,
+            170,
+            91,
+            69,
+            68,
+            1
+        ],
+        "Lightning|8|8": [
+            304
+        ],
+        "Momentum|1|2": [
+            4,
+            3
+        ],
+        "Momentum|1|3": [
+            84,
+            82,
+            4,
+            3
+        ],
+        "Momentum|1|6": [
+            320,
+            319,
+            263,
+            262,
+            227,
+            218,
+            187,
+            186,
+            84,
+            82,
+            4,
+            3
+        ],
+        "Momentum|2|2": [
+            18,
+            15,
+            14,
+            12
+        ],
+        "Momentum|3|7": [
+            272,
+            243,
+            223,
+            168,
+            165,
+            162
+        ],
+        "Momentum|4|4": [
+            137,
+            134,
+            133,
+            126,
+            125
+        ],
+        "Moon|1|2": [
+            48,
+            28,
+            27
+        ],
+        "Moon|1|3": [
+            78,
+            54,
+            53,
+            48,
+            28,
+            27
+        ],
+        "Moon|1|4": [
+            164,
+            161,
+            156,
+            153,
+            78,
+            54,
+            53,
+            48,
+            28,
+            27
+        ],
+        "Moon|2|2": [
+            42,
+            24,
+            17,
+            9
+        ],
+        "Moon|2|4": [
+            152,
+            147,
+            138,
+            42,
+            24,
+            17,
+            9
+        ],
+        "Moon|4|6": [
+            244,
+            243,
+            182,
+            158
+        ],
+        "Moon|4|8": [
+            290,
+            287,
+            244,
+            243,
+            182,
+            158
+        ],
+        "Moon|7|8": [
+            289,
+            280
+        ],
+        "Oath|1|4": [
+            184,
+            183,
+            182
+        ],
+        "Oath|1|6": [
+            243,
+            242,
+            241,
+            184,
+            183,
+            182
+        ],
+        "Oath|2|4": [
+            150,
+            148
+        ],
+        "Power|1|9": [
+            298
+        ],
+        "Power|2|9": [
+            297
+        ],
+        "Power|3|10": [
+            303,
+            302,
+            301,
+            300,
+            299,
+            294,
+            264,
+            234,
+            185
+        ],
+        "Power|3|4": [
+            185
+        ],
+        "Power|3|5": [
+            234,
+            185
+        ],
+        "Power|3|6": [
+            264,
+            234,
+            185
+        ],
+        "Power|3|9": [
+            294,
+            264,
+            234,
+            185
+        ],
+        "Power|4|6": [
+            265,
+            260
+        ],
+        "Power|4|9": [
+            291,
+            265,
+            260
+        ],
+        "Power|5|6": [
+            266,
+            261
+        ],
+        "Power|6|6": [
+            247
+        ],
+        "Power|6|9": [
+            296,
+            247
+        ],
+        "Power|7|9": [
+            295,
+            270
+        ],
+        "Power|8|8": [
+            290
+        ],
+        "Power|9|9": [
+            293
+        ],
+        "Prismatic|1|2": [
+            44,
+            42,
+            41
+        ],
+        "Prismatic|1|3": [
+            109,
+            83,
+            77,
+            44,
+            42,
+            41
+        ],
+        "Prismatic|1|4": [
+            150,
+            140,
+            139,
+            109,
+            83,
+            77,
+            44,
+            42,
+            41
+        ],
+        "Prismatic|1|5": [
+            211,
+            210,
+            209,
+            150,
+            140,
+            139,
+            109,
+            83,
+            77,
+            44,
+            42,
+            41
+        ],
+        "Prismatic|3|3": [
+            117,
+            75,
+            71
+        ],
+        "Prismatic|3|6": [
+            256,
+            255,
+            254,
+            186,
+            117,
+            75,
+            71
+        ],
+        "Protective|1|2": [
+            38,
+            32,
+            29
+        ],
+        "Protective|1|3": [
+            66,
+            65,
+            64,
+            58,
+            55,
+            38,
+            32,
+            29
+        ],
+        "Protective|2|2": [
+            36,
+            33,
+            26,
+            6
+        ],
+        "Protective|2|3": [
+            112,
+            62,
+            59,
+            52,
+            36,
+            33,
+            26,
+            6
+        ],
+        "Protective|2|4": [
+            132,
+            131,
+            130,
+            127,
+            112,
+            62,
+            59,
+            52,
+            36,
+            33,
+            26,
+            6
+        ],
+        "Rage|1|2": [
+            50,
+            37,
+            30
+        ],
+        "Rage|1|3": [
+            81,
+            63,
+            56,
+            50,
+            37,
+            30
+        ],
+        "Rage|2|4": [
+            136,
+            135,
+            133,
+            129,
+            128,
+            97
+        ],
+        "Rage|2|5": [
+            224,
+            223,
+            136,
+            135,
+            133,
+            129,
+            128,
+            97
+        ],
+        "Rebirth|1|2": [
+            19,
+            17,
+            11
+        ],
+        "Rebirth|2|3": [
+            117,
+            85,
+            80,
+            76,
+            75,
+            43
+        ],
+        "Rebirth|2|4": [
+            151,
+            149,
+            117,
+            85,
+            80,
+            76,
+            75,
+            43
+        ],
+        "Rebirth|2|5": [
+            212,
+            210,
+            151,
+            149,
+            117,
+            85,
+            80,
+            76,
+            75,
+            43
+        ],
+        "Rebirth|2|6": [
+            266,
+            212,
+            210,
+            151,
+            149,
+            117,
+            85,
+            80,
+            76,
+            75,
+            43
+        ],
+        "Rebirth|2|7": [
+            272,
+            271,
+            266,
+            212,
+            210,
+            151,
+            149,
+            117,
+            85,
+            80,
+            76,
+            75,
+            43
+        ],
+        "Rebirth|2|8": [
+            280,
+            279,
+            272,
+            271,
+            266,
+            212,
+            210,
+            151,
+            149,
+            117,
+            85,
+            80,
+            76,
+            75,
+            43
+        ],
+        "Rebirth|3|3": [
+            62,
+            61,
+            59
+        ],
+        "Rebirth|8|8": [
+            288,
+            283
+        ],
+        "Sky|1|4": [
+            174,
+            171,
+            162,
+            160,
+            95,
+            80,
+            51,
+            46
+        ],
+        "Sky|2|3": [
+            110,
+            108,
+            107,
+            106,
+            105,
+            104,
+            103,
+            102,
+            101,
+            100
+        ],
+        "Sky|2|5": [
+            231,
+            225,
+            215,
+            181,
+            168,
+            110,
+            108,
+            107,
+            106,
+            105,
+            104,
+            103,
+            102,
+            101,
+            100
+        ],
+        "Sky|2|6": [
+            253,
+            252,
+            251,
+            250,
+            249,
+            248,
+            231,
+            225,
+            215,
+            181,
+            168,
+            110,
+            108,
+            107,
+            106,
+            105,
+            104,
+            103,
+            102,
+            101,
+            100
+        ],
+        "Sky|3|5": [
+            229,
+            228,
+            211,
+            176
+        ],
+        "Sky|3|6": [
+            257,
+            229,
+            228,
+            211,
+            176
+        ],
+        "Soul|1|7": [
+            277,
+            275,
+            274,
+            273
+        ],
+        "Soul|3|4": [
+            151,
+            138
+        ],
+        "Soul|6|7": [
+            278,
+            271,
+            263,
+            237
+        ],
+        "Stone|1|2": [
+            22,
+            21,
+            14
+        ],
+        "Stone|1|3": [
+            71,
+            22,
+            21,
+            14
+        ],
+        "Stone|2|2": [
+            10,
+            7,
+            4
+        ],
+        "Stone|2|3": [
+            116,
+            114,
+            113,
+            10,
+            7,
+            4
+        ],
+        "Stone|3|3": [
+            318,
+            317,
+            316,
+            315,
+            314,
+            313,
+            312,
+            311,
+            310,
+            309,
+            308,
+            307,
+            306,
+            305,
+            76,
+            58,
+            51
+        ],
+        "Stone|4|4": [
+            146,
+            145,
+            144,
+            143,
+            142,
+            141
+        ],
+        "Stone|4|5": [
+            193,
+            192,
+            191,
+            190,
+            189,
+            146,
+            145,
+            144,
+            143,
+            142,
+            141
+        ],
+        "Tempest|1|2": [
+            2,
+            1
+        ],
+        "Tempest|2|2": [
+            20,
+            16,
+            13,
+            5
+        ],
+        "Tempest|4|8": [
+            289,
+            284,
+            188,
+            171,
+            170
+        ],
+        "Tidal|1|2": [
+            49,
+            34,
+            31
+        ],
+        "Tidal|1|3": [
+            79,
+            60,
+            57,
+            49,
+            34,
+            31
+        ],
+        "Tidal|2|5": [
+            217,
+            214,
+            173,
+            171,
+            95,
+            88,
+            73,
+            64,
+            51,
+            41,
+            38,
+            25
+        ],
+        "Tidal|3|3": [
+            85,
+            83,
+            74,
+            72
+        ],
+        "Tidal|3|4": [
+            149,
+            147,
+            139,
+            85,
+            83,
+            74,
+            72
+        ],
+        "Tidal|5|5": [
+            188,
+            186
+        ],
+        "Time|1|6": [
+            259,
+            258,
+            257
+        ],
+        "Time|6|6": [
+            245,
+            242
+        ],
+        "Toxic|1|4": [
+            177,
+            176,
+            173,
+            172,
+            167,
+            152
+        ],
+        "Toxic|1|6": [
+            261,
+            177,
+            176,
+            173,
+            172,
+            167,
+            152
+        ],
+        "Toxic|2|5": [
+            226,
+            219,
+            218,
+            139,
+            83
+        ],
+        "Toxic|2|7": [
+            277,
+            226,
+            219,
+            218,
+            139,
+            83
+        ],
+        "Vision|2|2": [
+            40,
+            37,
+            31,
+            28
+        ],
+        "Vision|2|3": [
+            71,
+            63,
+            57,
+            54,
+            40,
+            37,
+            31,
+            28
+        ],
+        "Vision|2|6": [
+            247,
+            246,
+            245,
+            244,
+            125,
+            71,
+            63,
+            57,
+            54,
+            40,
+            37,
+            31,
+            28
+        ],
+        "Vision|2|7": [
+            269,
+            247,
+            246,
+            245,
+            244,
+            125,
+            71,
+            63,
+            57,
+            54,
+            40,
+            37,
+            31,
+            28
+        ],
+        "Vision|6|8": [
+            288,
+            282,
+            268
+        ],
+        "Ward|2|3": [
+            318,
+            317,
+            316,
+            315,
+            314,
+            313,
+            312,
+            311,
+            310,
+            309,
+            308,
+            307,
+            306,
+            305,
+            115,
+            111,
+            66,
+            65
+        ],
+        "Ward|2|4": [
+            318,
+            317,
+            316,
+            315,
+            314,
+            313,
+            312,
+            311,
+            310,
+            309,
+            308,
+            307,
+            306,
+            305,
+            146,
+            145,
+            144,
+            143,
+            142,
+            141,
+            115,
+            111,
+            66,
+            65
+        ],
+        "Ward|3|3": [
+            110,
+            99,
+            98,
+            97,
+            96,
+            95,
+            94,
+            93
+        ],
+        "Ward|3|5": [
+            319,
+            206,
+            205,
+            204,
+            203,
+            202,
+            180,
+            110,
+            99,
+            98,
+            97,
+            96,
+            95,
+            94,
+            93
+        ],
+        "Ward|4|4": [
+            124,
+            123,
+            122,
+            121,
+            120,
+            119,
+            118
+        ],
+        "Ward|4|6": [
+            240,
+            239,
+            238,
+            237,
+            236,
+            235,
+            124,
+            123,
+            122,
+            121,
+            120,
+            119,
+            118
+        ],
+        "Wisdom|1|7": [
+            278,
+            276,
+            269
+        ],
+        "Wisdom|4|4": [
+            181,
+            180,
+            179
+        ]
+    },
+    "rewards": [
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "10SlotBait",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Krillson's Bay Key",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": []
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotOrbofAugmentation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Augmentation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                0,
+                126
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotOrbofTransmutation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Transmutation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                0,
+                10,
+                92,
+                125
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotUncutSkillGem1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uncut Skill Gem",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                1,
+                5,
+                44,
+                83,
+                107,
+                127,
+                167
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotUncutSupportGem1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uncut Support Gem",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                1,
+                8,
+                44,
+                107,
+                163,
+                167
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotArtificersOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Artificer's Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                7,
+                9,
+                64,
+                169
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotExaltedOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Exalted Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                11,
+                27,
+                33,
+                34,
+                57,
+                66,
+                86,
+                101,
+                139,
+                153
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 2,
+            "gemLevel": 0,
+            "id": "2SlotArmourersScrap2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Armourer's Scrap",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                3,
+                8,
+                111,
+                163
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 2,
+            "gemLevel": 0,
+            "id": "2SlotArcanistsEtcher2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Arcanist's Etcher",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                4,
+                46,
+                84,
+                112
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotRegalOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Regal Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                11,
+                14,
+                34,
+                59,
+                66,
+                86,
+                101,
+                139,
+                153
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 2,
+            "gemLevel": 0,
+            "id": "2SlotBlacksmithsWhetstone2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Blacksmith's Whetstone",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                2,
+                8,
+                110,
+                163
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotLesserVisionRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Vision Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                15,
+                22
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotLesserGlacialRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Glacial Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                3,
+                6,
+                111
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotLesserAdeptRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Adept Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                3,
+                7,
+                111
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotLesserIronRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Iron Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                6,
+                12,
+                51
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotLesserDesertRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Desert Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                2,
+                6,
+                110
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotLesserResolveRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Resolve Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                4,
+                7,
+                112
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotLesserRebirthRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Rebirth Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                14,
+                22,
+                59
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotLesserStormRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Storm Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                4,
+                6,
+                112
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotLesserInspirationRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Inspiration Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                10,
+                22,
+                92,
+                125
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotLesserRobustRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Robust Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                2,
+                7,
+                110
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotLesserStoneRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Stone Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                10,
+                12,
+                51,
+                92,
+                125
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotLesserBodyRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Body Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                12,
+                15,
+                51
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotLesserMindRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Mind Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                9,
+                15,
+                64,
+                169
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotLesserWardRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Ward Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                9,
+                14,
+                59,
+                64,
+                169
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotLesserChargingRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Charging Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                13,
+                35,
+                81,
+                87,
+                124,
+                158,
+                159
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotVisionRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Vision Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                27,
+                33,
+                57
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotGlacialRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Glacial Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                18,
+                21,
+                29,
+                32,
+                68,
+                170
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotAdeptRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Adept Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                18,
+                24,
+                29,
+                39,
+                68,
+                102,
+                130,
+                170
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotIronRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Iron Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                20,
+                21,
+                31,
+                32
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotDesertRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Desert Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                17,
+                21,
+                28,
+                32
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotResolveRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Resolve Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                19,
+                24,
+                30,
+                39,
+                102,
+                130
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotBodyRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Body Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                20,
+                31
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotRebirthRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rebirth Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                27,
+                33,
+                57
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotStormRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Storm Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                19,
+                21,
+                30,
+                32
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotMindRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Mind Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                5,
+                23,
+                73,
+                83,
+                127,
+                174
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotInspirationRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Inspiration Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                27,
+                33,
+                57
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotRobustRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Robust Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                17,
+                24,
+                28,
+                39,
+                102,
+                130
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotStoneRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Stone Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                20,
+                31,
+                87
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotWardRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ward Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                5,
+                23,
+                73,
+                83,
+                127,
+                174
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 2,
+            "gemLevel": 0,
+            "id": "2SlotArtificersOrb2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Artificer's Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                23,
+                24,
+                39,
+                73,
+                102,
+                130,
+                174
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 2,
+            "gemLevel": 0,
+            "id": "2SlotOrbofAugmentation2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Augmentation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                16,
+                43,
+                65,
+                87,
+                89
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 2,
+            "gemLevel": 0,
+            "id": "2SlotOrbofTransmutation2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Transmutation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                14,
+                16,
+                43,
+                59,
+                65,
+                89
+            ]
+        },
+        {
+            "cat": "Alloys",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotRunicAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Runic Alloy",
+            "smallRecipeLabel": true,
+            "someFlags": 4424,
+            "weights": [
+                11,
+                34,
+                40,
+                66,
+                76,
+                86,
+                99,
+                101,
+                120,
+                133,
+                137,
+                139,
+                153
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotUncutSpiritGem1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uncut Spirit Gem",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                16,
+                25,
+                43,
+                65,
+                89
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotGlassblowersBauble1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Glassblower's Bauble",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                25,
+                48,
+                69,
+                171
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "2SlotGemcuttersPrism1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Gemcutter's Prism",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                25,
+                70,
+                172
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 2,
+            "gemLevel": 0,
+            "id": "2SlotRegalOrb2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Regal Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                13,
+                25,
+                35,
+                81,
+                124,
+                158,
+                159
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 4,
+            "gemLevel": 0,
+            "id": "2SlotArmourersScrap4",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Armourer's Scrap",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                18,
+                26,
+                29,
+                42,
+                68,
+                166,
+                170
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 4,
+            "gemLevel": 0,
+            "id": "2SlotArcanistsEtcher4",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Arcanist's Etcher",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                19,
+                26,
+                30,
+                42,
+                166
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 4,
+            "gemLevel": 0,
+            "id": "2SlotBlacksmithsWhetstone4",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Blacksmith's Whetstone",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                17,
+                26,
+                28,
+                42,
+                166
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotChargingRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Charging Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                52,
+                70,
+                87,
+                172
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGreaterVisionRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Vision Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                33,
+                57
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGreaterGlacialRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Glacial Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                29,
+                32,
+                68,
+                170
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGreaterAdeptRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Adept Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                29,
+                39,
+                68,
+                102,
+                130,
+                170
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGreaterIronRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Iron Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                31,
+                32
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGreaterDesertRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Desert Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                28,
+                32
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGreaterResolveRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Resolve Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                30,
+                39,
+                102,
+                130
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGreaterBodyRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Body Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                31,
+                52
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGreaterRebirthRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Rebirth Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                33,
+                53,
+                57
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGreaterStormRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Storm Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                30,
+                32
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGreaterMindRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Mind Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                53,
+                73,
+                83,
+                127,
+                174
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGreaterInspirationRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Inspiration Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                33,
+                53,
+                57
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGreaterRobustRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Robust Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                28,
+                39,
+                102,
+                130
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGreaterStoneRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Stone Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                31,
+                87
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGreaterWardRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Ward Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                31,
+                36,
+                63,
+                165,
+                168
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGreaterChargingRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Charging Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                31,
+                36,
+                63,
+                165,
+                168
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotUniqueBodyArmour1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Body Armour",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                37,
+                77,
+                113,
+                154
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotUniqueBoots1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Boots",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                37,
+                77,
+                113,
+                126,
+                154
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotUniqueGloves1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Gloves",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                37,
+                77,
+                113,
+                126,
+                154
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotUniqueHelmet1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Helmet",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                37,
+                77,
+                113,
+                154
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "3SlotArtificersOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Artificer's Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                39,
+                49,
+                51,
+                102,
+                109,
+                130
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 2,
+            "gemLevel": 0,
+            "id": "3SlotExaltedOrb2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Exalted Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                34,
+                41,
+                46,
+                58,
+                66,
+                84,
+                86,
+                101,
+                139,
+                153
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotChaosOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Chaos Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                34,
+                45,
+                66,
+                86,
+                87,
+                101,
+                139,
+                153
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "3SlotRegalOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Regal Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                41,
+                46,
+                48,
+                58,
+                69,
+                84,
+                171
+            ]
+        },
+        {
+            "cat": "Alloys",
+            "count": 2,
+            "gemLevel": 0,
+            "id": "3SlotRunicAlloy2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Runic Alloy",
+            "smallRecipeLabel": true,
+            "someFlags": 4424,
+            "weights": [
+                40,
+                49,
+                76,
+                99,
+                109,
+                120,
+                133,
+                137
+            ]
+        },
+        {
+            "cat": "Alloys",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotAdaptiveAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Adaptive Alloy",
+            "smallRecipeLabel": true,
+            "someFlags": 4424,
+            "weights": [
+                40,
+                48,
+                52,
+                69,
+                76,
+                99,
+                120,
+                133,
+                137,
+                171
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotLesserJewellersOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lesser Jeweller's Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                43,
+                46,
+                65,
+                84,
+                89,
+                117
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 6,
+            "gemLevel": 0,
+            "id": "3SlotArmourersScrap6",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Armourer's Scrap",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                29,
+                42,
+                68,
+                166,
+                170
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 6,
+            "gemLevel": 0,
+            "id": "3SlotArcanistsEtcher6",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Arcanist's Etcher",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                30,
+                42,
+                166
+            ]
+        },
+        {
+            "cat": "Alloys",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotProtectiveAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Protective Alloy",
+            "smallRecipeLabel": true,
+            "someFlags": 4424,
+            "weights": [
+                40,
+                45,
+                70,
+                76,
+                99,
+                120,
+                133,
+                137,
+                172
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 6,
+            "gemLevel": 0,
+            "id": "3SlotBlacksmithsWhetstone6",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Blacksmith's Whetstone",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                28,
+                42,
+                45,
+                166
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGreaterOrbofAugmentation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Orb of Augmentation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                44,
+                107,
+                167
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 2,
+            "gemLevel": 0,
+            "id": "3SlotGlassblowersBauble2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Glassblower's Bauble",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                41,
+                43,
+                58,
+                65,
+                89,
+                94,
+                128
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGreaterOrbofTransmutation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Orb of Transmutation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                44,
+                107,
+                167
+            ]
+        },
+        {
+            "cat": "Alloys",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotExpansiveAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Expansive Alloy",
+            "smallRecipeLabel": true,
+            "someFlags": 4424,
+            "weights": [
+                40,
+                41,
+                58,
+                73,
+                76,
+                99,
+                120,
+                133,
+                137,
+                174
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotDetonateLiving1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Detonate Living",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                35,
+                81,
+                92,
+                124,
+                125,
+                158,
+                159
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotEternalMarch1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Eternal March",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                35,
+                81,
+                92,
+                124,
+                125,
+                158,
+                159
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotFragmentsofthePast1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Fragments Of The Past",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                35,
+                81,
+                87,
+                124,
+                158,
+                159
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotFrostFlameNova1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Frostflame Nova",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                35,
+                81,
+                92,
+                124,
+                125,
+                158,
+                159
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotRepulsion1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Repulsion",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                35,
+                81,
+                124,
+                158,
+                159
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotRuneHazard1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Conductive Runes",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                35,
+                81,
+                124,
+                126,
+                158,
+                159
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotConcussiveRunes1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Concussive Runes",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                35,
+                81,
+                124,
+                158,
+                159
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotBitterDead1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Bitter Dead",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                47,
+                80,
+                92,
+                125
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotGrimPillars1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Grim Pillars",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                47,
+                73,
+                80,
+                92,
+                125,
+                174
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotRemnantsofKalguur1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Remnants of Kalguur",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                47,
+                70,
+                80,
+                87,
+                172
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotVerisiumInfusion1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Powered by Verisium",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                47,
+                64,
+                80,
+                169
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotVerisiumManifestation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Verisium Manifestations",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                47,
+                54,
+                80,
+                91
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotRuneforgedBlades1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Runeforged Blades",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                47,
+                73,
+                80,
+                174
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotScouringFlame1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Scouring Flame",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                47,
+                73,
+                80,
+                83,
+                127,
+                174
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotAnimusSplinters1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Animus Splinters",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                50,
+                90,
+                108,
+                111
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotExplosiveTransmutation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Explosive Transmutation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                50,
+                90,
+                108,
+                111
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotHollowShell1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Hollow Shell",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                50,
+                64,
+                90,
+                108,
+                169
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotVoltaicBarrier1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Voltaic Barrier",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                50,
+                90,
+                108
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotWardboundMinions1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Wardbound Minions",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                50,
+                90,
+                108,
+                117
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotFistofKalguur1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Fist Of Kalguur",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                50,
+                90,
+                108
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotRunicExtraction1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Runic Extraction",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                50,
+                90,
+                108,
+                117
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotRunicInfusion1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Runic Infusion",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                50,
+                90,
+                108
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotRainOfBlades",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rain of Blades",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                50,
+                64,
+                90,
+                108,
+                169
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 2,
+            "gemLevel": 0,
+            "id": "3SlotGemcuttersPrism2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Gemcutter's Prism",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                43,
+                65,
+                89,
+                104
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotPileofVerisium1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Verisium Pile",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                35,
+                47,
+                50,
+                80,
+                81,
+                90,
+                108,
+                124,
+                158,
+                159
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotWardingRuneofReinforcement1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Reinforcement",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                36,
+                38,
+                63,
+                93,
+                112,
+                164,
+                165,
+                168
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotWardingRuneofProtection1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Protection",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                33,
+                38,
+                57,
+                93,
+                164
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotWardingRuneofDisintegration1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Disintegration",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                38,
+                93,
+                111,
+                163,
+                164
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotWardingRuneofDesperation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Desperation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                38,
+                93,
+                163,
+                164
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotWardingRuneofCourage1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Courage",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                36,
+                38,
+                63,
+                93,
+                111,
+                164,
+                165,
+                168
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotWardingRuneofNourishment1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Nourishment",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                38,
+                93,
+                163,
+                164
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotOrbofAlchemy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Alchemy",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                34,
+                40,
+                49,
+                66,
+                76,
+                86,
+                99,
+                101,
+                109,
+                120,
+                133,
+                137,
+                139,
+                153
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotAnimusExchange1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Animus Exchange",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                60,
+                81,
+                93,
+                124,
+                158,
+                159,
+                160
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotLeylines1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Leylines",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                60,
+                112,
+                160
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotRuneWard1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Runic Reprieve",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                60,
+                160
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotRunicFortress1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Refutation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                60,
+                160
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotTriskelionCascade1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Triskelion Cascade",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                60,
+                111,
+                160
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotVerisiumComet1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Skyfall",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                60,
+                160
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotHealingRunes1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Healing Runes",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                60,
+                160
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotUniqueBow1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Bow",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                56,
+                77,
+                102,
+                113,
+                130,
+                154
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotUniqueCrossbow1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Crossbow",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                56,
+                77,
+                113,
+                154
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotUniqueFocus1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Focus",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                57,
+                77,
+                82,
+                113,
+                154
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotUniqueOneHandMace1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique One Hand Mace",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                54,
+                77,
+                82,
+                91,
+                113,
+                154
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotUniqueQuarterstaff1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Quarterstaff",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                54,
+                77,
+                91,
+                113,
+                134,
+                154
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotUniqueQuiver1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Quiver",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                57,
+                77,
+                113,
+                154
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotUniqueSceptre1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Sceptre",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                57,
+                77,
+                82,
+                113,
+                154
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotUniqueShield1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Shield",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                57,
+                77,
+                113,
+                154
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotUniqueSpear1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Spear",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                54,
+                56,
+                77,
+                91,
+                113,
+                154
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotUniqueStaff1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Staff",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                56,
+                77,
+                84,
+                113,
+                154
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotUniqueTalisman1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Talisman",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                54,
+                77,
+                91,
+                113,
+                154,
+                162
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotUniqueTwoHandMace1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Two Hand Mace",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                54,
+                77,
+                91,
+                113,
+                154
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotUniqueWand1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Wand",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                56,
+                77,
+                84,
+                113,
+                154
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "4SlotExaltedOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Exalted Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                59,
+                61,
+                66,
+                67,
+                86,
+                101,
+                139,
+                153
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "4SlotGlassblowersBauble3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Glassblower's Bauble",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                58,
+                65,
+                89,
+                94,
+                128
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "4SlotGemcuttersPrism3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Gemcutter's Prism",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                65,
+                89
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotWardingRuneofStability1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Stability",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                62,
+                63,
+                79,
+                111,
+                118,
+                168
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotWardingRuneofGlancing1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Glancing",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                62,
+                63,
+                79,
+                168
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotWardingRuneoftheHeart1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Heart",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                62,
+                63,
+                79,
+                168
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotWardingRuneofAnnihilation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Annihilation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                62,
+                63,
+                79,
+                93,
+                168
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotWardingRuneofSalvaging1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Salvaging",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                62,
+                63,
+                79,
+                81,
+                124,
+                158,
+                159,
+                168
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotWardingRuneofSymbiosis1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Symbiosis",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                62,
+                63,
+                79,
+                168
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "4SlotOrbofAlchemy3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Alchemy",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                58,
+                59,
+                66,
+                86,
+                101,
+                139,
+                153
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 2,
+            "gemLevel": 0,
+            "id": "4SlotChaosOrb2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Chaos Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                66,
+                72,
+                86,
+                101,
+                139,
+                153
+            ]
+        },
+        {
+            "cat": "Alloys",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotCyclonicAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Cyclonic Alloy",
+            "smallRecipeLabel": true,
+            "someFlags": 4424,
+            "weights": [
+                58,
+                61,
+                76,
+                99,
+                120,
+                133,
+                137
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotGreaterJewellersOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Jeweller's Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                61,
+                65,
+                72,
+                89
+            ]
+        },
+        {
+            "cat": "Alloys",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotSwiftAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Swift Alloy",
+            "smallRecipeLabel": true,
+            "someFlags": 4424,
+            "weights": [
+                66,
+                67,
+                76,
+                86,
+                99,
+                101,
+                120,
+                133,
+                137,
+                139,
+                153
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotUniqueJewellery1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Jewellery",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                59,
+                61,
+                71,
+                114,
+                173
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotRuneofConsistency1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Vitality",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                68,
+                134,
+                170
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotRuneofReach1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of the Hunt",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                69,
+                171
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotRuneofFoundations1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Acrobatics",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                69,
+                171
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotRuneofthePrism1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Culmination",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                68,
+                170
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotRuneoftheSoul1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Renown",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                64,
+                169
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotRuneofCulmination1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Accumulation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                69,
+                103,
+                146,
+                171
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotRuneofRenown1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Foundations",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                64,
+                169
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotRuneofAccumulation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of the Prism",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                70,
+                172
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotRuneoftheAdept1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of the Blossom",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                68,
+                170
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotRuneofDashing1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Consistency",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                70,
+                123,
+                172
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotRuneofAcrobatics1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Reach",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                64,
+                169
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotArchaicRuneofSplinters1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Splinters",
+            "smallRecipeLabel": true,
+            "someFlags": 4430,
+            "weights": [
+                68,
+                170
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotArchaicRuneoftheHorde1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of the Horde",
+            "smallRecipeLabel": true,
+            "someFlags": 4430,
+            "weights": [
+                73,
+                88,
+                123,
+                174
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotArchaicRuneofAnimosity1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Animosity",
+            "smallRecipeLabel": true,
+            "someFlags": 4430,
+            "weights": [
+                73,
+                174
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotArchaicRuneofDetonation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Detonation",
+            "smallRecipeLabel": true,
+            "someFlags": 4430,
+            "weights": [
+                71,
+                114,
+                173
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotArchaicRuneofRetaliation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Retaliation",
+            "smallRecipeLabel": true,
+            "someFlags": 4430,
+            "weights": [
+                73,
+                90,
+                108,
+                123,
+                174
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotArchaicRuneofDueling1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Dueling",
+            "smallRecipeLabel": true,
+            "someFlags": 4430,
+            "weights": [
+                73,
+                174
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotRuneofVitalFlame1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Vital Flame",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                73,
+                126,
+                143,
+                174
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotRuneofConfrontation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rune of Confrontation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                70,
+                87,
+                93,
+                143,
+                172
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotArchaicRuneoftheTitan1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of the Titan",
+            "smallRecipeLabel": true,
+            "someFlags": 4430,
+            "weights": [
+                71,
+                88,
+                114,
+                173
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotArchaicRuneofShattering1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Shattering",
+            "smallRecipeLabel": true,
+            "someFlags": 4430,
+            "weights": [
+                71,
+                87,
+                114,
+                173
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotArchaicRuneofProwess1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Prowess",
+            "smallRecipeLabel": true,
+            "someFlags": 4430,
+            "weights": [
+                70,
+                118,
+                172
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotArchaicRuneofControl1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Control",
+            "smallRecipeLabel": true,
+            "someFlags": 4430,
+            "weights": [
+                69,
+                171
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotArchaicRuneofDiscovery1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Discovery",
+            "smallRecipeLabel": true,
+            "someFlags": 4430,
+            "weights": [
+                71,
+                97,
+                114,
+                116,
+                173
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotArchaicRuneofDecay1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Decay",
+            "smallRecipeLabel": true,
+            "someFlags": 4430,
+            "weights": [
+                71,
+                114,
+                118,
+                173
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotArchaicRuneofWitchcraft1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ancient Rune of Witchcraft",
+            "smallRecipeLabel": true,
+            "someFlags": 4430,
+            "weights": [
+                64,
+                88,
+                169
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotUniqueAmulet1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Amulet",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                74,
+                77,
+                92,
+                113,
+                125,
+                154
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotUniqueBelt1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Belt",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                74,
+                77,
+                80,
+                85,
+                113,
+                138,
+                154
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotUniqueRing1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Unique Ring",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                74,
+                77,
+                90,
+                108,
+                113,
+                154
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotGreaterRegalOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Regal Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                55,
+                100,
+                103,
+                146
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotGreaterExaltedOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Exalted Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                55,
+                84,
+                100,
+                104
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotGreaterChaosOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Chaos Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                55,
+                100
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "4SlotDivineOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Divine Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                75,
+                98,
+                121,
+                152,
+                157
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotUncutSpiritGem(Level19)1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uncut Spirit Gem (Level 19)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                84,
+                96,
+                107,
+                109
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotUncutSkillGem(Level19)1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uncut Skill Gem (Level 19)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                83,
+                93,
+                107,
+                127
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotAstackofrandomcurrency1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "5x Random Currency",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                86,
+                95,
+                96,
+                101,
+                139,
+                143,
+                153
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotWardingRuneofArmature1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Armature",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                79,
+                104
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotWardingRuneofObsession1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Obsession",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                79
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotWardingRuneofEquinox1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Equinox",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                79
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotWardingRuneofBodyguards1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Bodyguards",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                79
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotWardingRuneofHollowing1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Warding Rune of Hollowing",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                79,
+                126
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "5SlotGreaterOrbofAugmentation3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Orb of Augmentation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                78,
+                84,
+                93,
+                134
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "5SlotGreaterOrbofTransmutation3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Orb of Transmutation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                78,
+                83,
+                127,
+                134
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20DetonateLiving1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Detonate Living",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                81,
+                124,
+                141,
+                158,
+                159
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20EternalMarch1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Eternal March",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                81,
+                124,
+                158,
+                159
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20FragmentsofthePast1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Fragments Of The Past",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                81,
+                124,
+                158,
+                159
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20FrostFlameNova1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Frostflame Nova",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                81,
+                124,
+                126,
+                158,
+                159
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20Repulsion1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Repulsion",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                81,
+                124,
+                158,
+                159
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20RuneHazard1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Conductive Runes",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                81,
+                124,
+                126,
+                158,
+                159
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20BitterDead1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Bitter Dead",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                80
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20GrimPillars1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Grim Pillars",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                80
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20RemnantsofKalguur1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Remnants of Kalguur",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                80
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20VerisiumInfusion1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Powered by Verisium",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                80
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "5SlotLevel20VerisiumManifestation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Verisium Manifestations",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                80,
+                126
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotOrbofChance1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Chance",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                77,
+                113,
+                154,
+                162
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotRareUnique1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rare Unique Item",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                77,
+                78,
+                113,
+                154
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotPerfectJewellersOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Jeweller's Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                89,
+                95
+            ]
+        },
+        {
+            "cat": "Alloys",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotPrismaticAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Prismatic Alloy",
+            "smallRecipeLabel": true,
+            "someFlags": 4424,
+            "weights": [
+                78,
+                89,
+                99,
+                120,
+                133,
+                137
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotMasterworkRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Masterwork Rune",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                82,
+                89,
+                97,
+                116
+            ]
+        },
+        {
+            "cat": "Alloys",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotMysticAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Mystic Alloy",
+            "smallRecipeLabel": true,
+            "someFlags": 4424,
+            "weights": [
+                82,
+                86,
+                99,
+                101,
+                120,
+                133,
+                137,
+                139,
+                153
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "5SlotChaosOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Chaos Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                86,
+                95,
+                101,
+                139,
+                153
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotCraiceannsRuneofWarding1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Craiceann's Rune of Warding",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                87
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotSaqawalsRuneofErosion1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Saqawal's Rune of Erosion",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                90,
+                108
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotFarrulsRuneoftheHunt1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Farrul's Rune of the Hunt",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                88,
+                104
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotCraiceannsRuneofRecovery1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Craiceann's Rune of Recovery",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                87
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotFenumusRuneofSpinning1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Fenumus' Rune of Spinning",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                94,
+                107,
+                128
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotFenumusRuneofDraining1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Fenumus' Rune of Draining",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                94,
+                128
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotThaneMyrksRuneofSummer1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Thane Myrk's Rune of Summer",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                85,
+                110,
+                138
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotLadyHestrasRuneofWinter1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Lady Hestra's Rune of Winter",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                92,
+                117,
+                125
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotThaneLeldsRuneofSpring1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Thane Leld's Rune of Spring",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                85,
+                112,
+                138
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotTheGreatwolfsRuneofClaws1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "The Greatwolf's Rune of Claws",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                91,
+                123
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotTheGreatwolfsRuneofWillpower1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "The Greatwolf's Rune of Willpower",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                91
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotSaqawalsRuneoftheSky1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Saqawal's Rune of the Sky",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                90,
+                108
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotFenumusRuneofAgony1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Fenumus' Rune of Agony",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                94,
+                128
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotFarrulsRuneofGrace1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Farrul's Rune of Grace",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                88,
+                107
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotPerfectOrbofAugmentation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Orb of Augmentation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                86,
+                97,
+                101,
+                116,
+                139,
+                153
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotPerfectOrbofTransmutation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Orb of Transmutation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                86,
+                97,
+                101,
+                116,
+                139,
+                153
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotThaneGrannellsRuneofMastery1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Thane Grannell's Rune of Mastery",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                85,
+                138
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotSaqawalsRuneofMemory1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Saqawal's Rune of Memory",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                90,
+                108
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotCourtesanMannansRuneofCruelty1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Courtesan Mannan's Rune of Cruelty",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                92,
+                125
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotThaneGirtsRuneofWildness1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Thane Girt's Rune of Wildness",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                85,
+                138
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 2,
+            "gemLevel": 0,
+            "id": "5SlotDivineOrb2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Divine Orb",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                98,
+                121,
+                152,
+                157
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20AnimusExchange1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Animus Exchange",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                160
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20Leylines1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Leylines",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                144,
+                160
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20RuneWard1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Runic Reprieve",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                132,
+                160
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20RunicFortress1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Refutation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                160
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20TriskelionCascade1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Triskelion Cascade",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                160
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20VerisiumComet1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Skyfall",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                160
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 20,
+            "id": "6SlotGreaterExaltedOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Exalted Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                100,
+                104
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "6SlotGreaterChaosOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Chaos Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                100,
+                105
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "6SlotGreaterRegalOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Greater Regal Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                100,
+                103,
+                123,
+                146
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotMedvedsLogbook1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Medved's Saga",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                102,
+                103,
+                130,
+                146
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotUhtredsLogbook1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uhtred's Saga",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                102,
+                105,
+                130
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotVoranasLogbook1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Vorana's Saga",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                102,
+                104,
+                130
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotOlrothsLogbook1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Olroth's Saga",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                102,
+                106,
+                130,
+                149
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20AnimusSplinters1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Animus Splinters",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                108
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20ExplosiveTransmutation1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Explosive Transmutation",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                108
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20HollowShell1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Hollow Shell",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                108
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20VoltaicBarrier1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Voltaic Barrier",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                108
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20WardboundMinions1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Wardbound Minions",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                108
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 20,
+            "id": "6SlotLevel20RainOfBlades",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Rain of Blades",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                108
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotChillingFlux1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Chilling Flux",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                109,
+                111
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotBlazingFlux1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Blazing Flux",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                109,
+                110
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotCracklingFlux1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Crackling Flux",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                109,
+                112
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotCountessSeskesRuneofArchery1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Countess Seske's Rune of Archery",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                115,
+                116
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotHedgewitchAssandrasRuneofWisdom1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Hedgewitch Assandra's Rune of Wisdom",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                115,
+                118
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotFarrulsRuneoftheChase1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Farrul's Rune of the Chase",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                115,
+                117
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotPerfectExaltedOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Exalted Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                101,
+                122,
+                139,
+                148,
+                153
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotVoidFlux1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Void Flux",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                114,
+                119
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotUncutSpiritGemLevel201",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uncut Spirit Gem (Level 20)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                107
+            ]
+        },
+        {
+            "cat": "Gems",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotUncutSkillGemLevel201",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uncut Skill Gem (Level 20)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                107,
+                127,
+                132
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "6SlotDivineOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Divine Orb",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                121,
+                152,
+                157
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotPerfectChaosOrb1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Chaos Orb",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                101,
+                122,
+                139,
+                148,
+                153
+            ]
+        },
+        {
+            "cat": "Alloys",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotSovereignAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Sovereign Alloy",
+            "smallRecipeLabel": true,
+            "someFlags": 4424,
+            "weights": [
+                101,
+                119,
+                120,
+                133,
+                137,
+                139,
+                153
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 2,
+            "gemLevel": 0,
+            "id": "6SlotOrbofChance2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Chance",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                113,
+                154
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotOrbofAnnulment1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Annulment",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                124,
+                142,
+                158,
+                159
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "7SlotAldursLogbook1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Aldur's Saga",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                130,
+                131
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 2,
+            "gemLevel": 0,
+            "id": "7SlotOrbofAnnulment2",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Annulment",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                124,
+                150,
+                159
+            ]
+        },
+        {
+            "cat": "Alloys",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "7SlotCelestialAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Celestial Alloy",
+            "smallRecipeLabel": false,
+            "someFlags": 4424,
+            "weights": [
+                132,
+                133,
+                134,
+                137
+            ]
+        },
+        {
+            "cat": "Alloys",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "7SlotKalguuranAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Transcendent Alloy",
+            "smallRecipeLabel": false,
+            "someFlags": 4424,
+            "weights": [
+                123,
+                133,
+                137
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "7SlotBreathofAldur1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Breath of Aldur",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                125,
+                129
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "7SlotPassionofAldur1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Passion of Aldur",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                127,
+                129
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "7SlotIreofAldur1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Ire of Aldur",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                126,
+                129
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "7SlotAstridsCreativity1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Astrid's Creativity",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                131,
+                134
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "7SlotBetrayalofAldur1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Betrayal of Aldur",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                128,
+                129
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "7SlotCadigansEpiphany1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Cadigan's Epiphany",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                131,
+                132,
+                135
+            ]
+        },
+        {
+            "cat": "Alloys",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "8SlotAldurAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "The Runebinder's Alloy",
+            "smallRecipeLabel": false,
+            "someFlags": 4424,
+            "weights": [
+                135,
+                137
+            ]
+        },
+        {
+            "cat": "Alloys",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "8SlotAncientAlloy1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "The Runefather's Alloy",
+            "smallRecipeLabel": false,
+            "someFlags": 4424,
+            "weights": [
+                136,
+                137
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "8SlotVoranasCarnage1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Vorana's Carnage",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                138,
+                141
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "8SlotKatlasGloom1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Katla's Gloom",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                138,
+                142
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "8SlotThrudsMight1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Thrud's Might",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                138,
+                140
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "8SlotKolrsHunt1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Kolr's Hunt",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                138,
+                143
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "8SlotMedvedsTending1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Medved's Tending",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                138,
+                144
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "8SlotUhtredsSidereus1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uhtred's Sidereus",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                138,
+                145
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "8SlotSerlesTriumph1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Serle's Triumph",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                146
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "8SlotPerfectOrbofAugmentation3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Orb of Augmentation",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                135,
+                139,
+                140,
+                141,
+                142,
+                153
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "8SlotPerfectOrbofTransmutation3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Orb of Transmutation",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                136,
+                139,
+                143,
+                144,
+                145,
+                153
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "8SlotPerfectRegalOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Regal Orb",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                146,
+                147
+            ]
+        },
+        {
+            "cat": "Uniques",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "9SlotExtremelyRareUnique1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Very Rare Unique item",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                148,
+                154
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "9SlotOrbofChance3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Chance",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                154
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "9SlotOrbofAnnulment3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Orb of Annulment",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                151,
+                159
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 10,
+            "gemLevel": 0,
+            "id": "9SlotDivineOrb10",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Divine Orb",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                152,
+                157
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "9SlotPerfectExaltedOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Exalted Orb",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                150,
+                153
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 3,
+            "gemLevel": 0,
+            "id": "9SlotPerfectChaosOrb3",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Chaos Orb",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                149,
+                153
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "9SlotHinekorasLock1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Hinekora's Lock",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                155
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "9SlotMirrorofKalandra1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Mirror of Kalandra",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                156
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "10SlotOlrothsBoon1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Olroth's Boon",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                157
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "10SlotVoranasBoon1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Vorana's Boon",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                157
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "10SlotUhtredsBoon1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Uhtred's Boon",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                157
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "10SlotMedvedsBoon1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Medved's Boon",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                157
+            ]
+        },
+        {
+            "cat": "Runes",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "10SlotOlrothsLegacyRune1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Aldur's Legacy",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                157
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "8SlotCurrencyPerfectFlux1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Perfect Flux",
+            "smallRecipeLabel": false,
+            "someFlags": 4833,
+            "weights": [
+                161
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotLevel5Flux1",
+            "maxLevel": 18,
+            "minLevel": 13,
+            "refReward": "Thaumaturgic Flux (Level 5)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                36,
+                48,
+                52,
+                63,
+                69,
+                165,
+                168,
+                171
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotLevel6Flux1",
+            "maxLevel": 22,
+            "minLevel": 19,
+            "refReward": "Thaumaturgic Flux (Level 6)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                36,
+                48,
+                52,
+                63,
+                69,
+                165,
+                168,
+                171
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotLevel7Flux1",
+            "maxLevel": 26,
+            "minLevel": 23,
+            "refReward": "Thaumaturgic Flux (Level 7)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                36,
+                48,
+                52,
+                63,
+                69,
+                165,
+                168,
+                171
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotLevel8Flux1",
+            "maxLevel": 31,
+            "minLevel": 27,
+            "refReward": "Thaumaturgic Flux (Level 8)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                36,
+                48,
+                52,
+                63,
+                69,
+                165,
+                168,
+                171
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotLevel9Flux1",
+            "maxLevel": 36,
+            "minLevel": 32,
+            "refReward": "Thaumaturgic Flux (Level 9)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                36,
+                48,
+                52,
+                63,
+                69,
+                165,
+                168,
+                171
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotLevel10Flux1",
+            "maxLevel": 41,
+            "minLevel": 37,
+            "refReward": "Thaumaturgic Flux (Level 10)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                36,
+                48,
+                52,
+                63,
+                69,
+                165,
+                168,
+                171
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotLevel11Flux1",
+            "maxLevel": 46,
+            "minLevel": 42,
+            "refReward": "Thaumaturgic Flux (Level 11)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                36,
+                48,
+                52,
+                63,
+                69,
+                165,
+                168,
+                171
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotLevel12Flux1",
+            "maxLevel": 52,
+            "minLevel": 47,
+            "refReward": "Thaumaturgic Flux (Level 12)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                36,
+                48,
+                52,
+                63,
+                69,
+                165,
+                168,
+                171
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotLevel13Flux1",
+            "maxLevel": 58,
+            "minLevel": 53,
+            "refReward": "Thaumaturgic Flux (Level 13)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                36,
+                48,
+                52,
+                63,
+                69,
+                165,
+                168,
+                171
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotLevel14Flux1",
+            "maxLevel": 61,
+            "minLevel": 59,
+            "refReward": "Thaumaturgic Flux (Level 14)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                36,
+                48,
+                52,
+                63,
+                69,
+                165,
+                168,
+                171
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotLevel15Flux1",
+            "maxLevel": 65,
+            "minLevel": 62,
+            "refReward": "Thaumaturgic Flux (Level 15)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                36,
+                48,
+                52,
+                63,
+                69,
+                165,
+                168,
+                171
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotLevel16Flux1",
+            "maxLevel": 70,
+            "minLevel": 66,
+            "refReward": "Thaumaturgic Flux (Level 16)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                36,
+                48,
+                52,
+                63,
+                69,
+                165,
+                168,
+                171
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotLevel17Flux1",
+            "maxLevel": 76,
+            "minLevel": 71,
+            "refReward": "Thaumaturgic Flux (Level 17)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                36,
+                48,
+                52,
+                63,
+                69,
+                165,
+                168,
+                171
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "3SlotLevel18Flux1",
+            "maxLevel": 100,
+            "minLevel": 77,
+            "refReward": "Thaumaturgic Flux (Level 18)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                36,
+                48,
+                52,
+                63,
+                69,
+                165,
+                168,
+                171
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "5SlotLevel19Flux1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Thaumaturgic Flux (Level 19)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                80,
+                107,
+                162
+            ]
+        },
+        {
+            "cat": "Currency",
+            "count": 1,
+            "gemLevel": 0,
+            "id": "6SlotLevel20Flux1",
+            "maxLevel": 100,
+            "minLevel": 1,
+            "refReward": "Thaumaturgic Flux (Level 20)",
+            "smallRecipeLabel": true,
+            "someFlags": 4833,
+            "weights": [
+                107
+            ]
+        }
+    ]
+}
