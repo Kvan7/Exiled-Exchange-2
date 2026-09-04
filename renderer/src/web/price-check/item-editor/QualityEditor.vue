@@ -23,6 +23,7 @@
         <!-- price of augments -->
         <item-quick-price
           :item-img="selectedCatalyst?.icon"
+          :show-img="selectedCatalyst !== undefined"
           :price="totalPrice"
         />
       </div>

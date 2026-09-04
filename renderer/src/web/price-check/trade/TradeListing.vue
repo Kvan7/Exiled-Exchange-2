@@ -96,7 +96,7 @@
       <extraction-value :item="item" :first-result="groupedResults.at(0)" />
 
       <!-- ADDED AUGMENTS COST -->
-      <div
+      <!-- <div
         v-if="addedAugments && addedAugments.length"
         class="p-2 border-2 border-gray-600 rounded mt-2 flex items-center"
       >
@@ -110,7 +110,7 @@
             "
           />
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
   <ui-error-box v-else>
