@@ -208,13 +208,15 @@ export default defineComponent({
     const saveType = shallowRef<AugmentSaveType>(AugmentSaveType.Class);
     const saveButtonState = shallowRef<"save" | "confirm">("save");
 
-    const selectedAugment = shallowRef<EditorItem | undefined>(
-      // TODO: see if this can be better
-      buildEditorItems(
+    const selectedAugment = shallowRef<EditorItem | undefined>();
+    // TODO: see if this can be better
+    function resetSelectedAugment() {
+      selectedAugment.value = buildEditorItems(
         [ITEM_BY_REF("ITEM", "Greater Iron Rune")![0]],
         props.item?.category ?? ItemCategory.Unknown,
-      )[0],
-    );
+      )[0];
+    }
+    resetSelectedAugment();
 
     const augmentCache = new Map<ItemCategory, AugmentGroup<EditorItem>>();
     const displayGroups = ref<AugmentGroup<EditorItem> | null>(null);
@@ -249,6 +251,7 @@ export default defineComponent({
         const augmentData = getCategoryGroups(GROUPED_AUGMENTS, curr);
         augmentCache.set(curr, augmentData);
         displayGroups.value = augmentData;
+        resetSelectedAugment();
       },
       { immediate: true },
     );

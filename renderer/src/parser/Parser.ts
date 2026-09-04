@@ -1390,7 +1390,8 @@ function applyAugmentSockets(item: ParsedItem) {
     item.augmentSockets &&
     (item.augmentSockets.empty === item.augmentSockets.normal ||
       (item.augmentSockets.empty === item.augmentSockets.current &&
-        item.augmentSockets.current > item.augmentSockets.normal))
+        item.augmentSockets.current > item.augmentSockets.normal)) &&
+    item.rarity !== ItemRarity.Unique
   ) {
     // fill sockets, if all are empty && if chosen (also maybe check setting to enable it)
     const augmentBases = getSavedAugments(item);
