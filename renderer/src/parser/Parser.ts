@@ -44,7 +44,7 @@ import { calcPropPercentile, QUALITY_STATS } from "./calc-q20";
 import { AppConfig } from "@/web/Config";
 import { buildEditorItems, getSavedAugments } from "./augment-builder";
 import { useAugment } from "@/web/price-check/item-editor/augment";
-import { combinations } from "./utils";
+import { avg, combinations } from "./utils";
 
 type SectionParseResult =
   | "SECTION_PARSED"
@@ -2116,6 +2116,7 @@ function modifiedBfs(
   available: number[],
 ): number[] | null {
   if (remaining === 0) return [...combo];
+  if (combo.length >= 7 || available.length > 8) return [];
 
   let best: number[] | null = null;
   for (const augValue of available) {
@@ -2209,7 +2210,7 @@ function determineAugments(
       if (augment.values.length === 1) return augment.values[0];
 
       // stats like "# to # added Lightning Damage"
-      if ((augment.baseStat.match(/#/) || []).length > 1) {
+      if ((augment.baseStat.match(/#/g) || []).length > 1) {
         const sum = augment.values.reduce((a, b) => a + b, 0);
         return sum / augment.values.length || 0;
       }
@@ -2224,8 +2225,9 @@ function determineAugments(
     modifiedBfs(augmentAppliedValue[0], [], availableAugmentValues) ?? [];
 
   return likelyValues.map((v) => {
-    const augment = possibleAugments.find((aug) =>
-      aug.values.some((augVal) => augVal === v),
+    const augment = possibleAugments.find(
+      (aug) =>
+        aug.values.some((augVal) => augVal === v) || avg(aug.values) === v,
     )!;
     return ITEM_BY_REF("ITEM", augment.refName)![0];
   });
