@@ -60,13 +60,15 @@ export function stashSearch(
   overlay: OverlayWindow,
 ) {
   clipboard.restoreShortly((clipboard) => {
-    overlay.assertGameActive();
-    clipboard.writeText(text);
-    uIOhook.keyTap(Key.F, [Key.Ctrl]);
+    setTimeout(() => {
+      overlay.assertGameActive();
+      clipboard.writeText(text);
+      uIOhook.keyTap(Key.F, [Key.Ctrl]);
 
-    uIOhook.keyTap(Key.V, [
-      process.platform === "darwin" ? Key.Meta : Key.Ctrl,
-    ]);
-    uIOhook.keyTap(Key.Enter);
+      uIOhook.keyTap(Key.V, [
+        process.platform === "darwin" ? Key.Meta : Key.Ctrl,
+      ]);
+      uIOhook.keyTap(Key.Enter);
+    }, 100);
   });
 }
