@@ -138,7 +138,8 @@ export default {
   // [Array]
   INCURSION_MODS: ['Guatelitzi\'s', 'Xopec\'s', 'Topotante\'s', 'Tacati\'s', 'Matatl\'s', 'of Matatl', 'Citaqualotl\'s', 'of Citaqualotl', 'of Tacati', 'of Guatelitzi', 'of Puhuarte'],
   ITEM_SUPERIOR: /^(.*) высокого качества$/,
-  ITEM_EXCEPTIONAL: /^Образцовое (.*)$/,
+  // [Override]
+  ITEM_EXCEPTIONAL: /^(?:Образцовый|Образцовая|Образцовое|Образцовые) (.*)$/,
   MAP_BLIGHTED: /^Заражённая (.*)$/,
   MAP_BLIGHT_RAVAGED: /^Разорённая Скверной (.*)$/,
   ITEM_SYNTHESISED: /^Синтезированное (.*)$/,

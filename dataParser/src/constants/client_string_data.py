@@ -276,7 +276,16 @@ CLIENT_STRING_ARRAYS: list[ArrayClientString] = [
 
 CLIENT_STRING_REGEX: list[RegexClientString] = [
     CapturePlaceholderClientString("ITEM_SUPERIOR", ["QualityItem"]),
-    CapturePlaceholderClientString("ITEM_EXCEPTIONAL", ["ExceptionalItem"]),
+    CapturePlaceholderClientString(
+        "ITEM_EXCEPTIONAL",
+        ["ExceptionalItem"],
+        # The in-game RU text conjugates the prefix to the gender of the base
+        # name (e.g. "Образцовый Золочёный доспех"), but the game's string
+        # template is neuter-only ("Образцовое"). See Kvan7/Exiled-Exchange-2#1033.
+        override={
+            RUSSIAN: "(?:Образцовый|Образцовая|Образцовое|Образцовые) (.*)"
+        },
+    ),
     # CapturePlaceholderClientString("ITEM_RUNEFORGED", ["RuneforgedItem"]),
     ConstRegexClientString("ITEM_RUNEFORGED", output="Runeforged (.*)"),
     CapturePlaceholderClientString("MAP_BLIGHTED", ["InfectedMap"]),
