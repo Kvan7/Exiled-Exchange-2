@@ -22,7 +22,11 @@ describe("determineAugments", () => {
           type: ModifierType.Augment,
         },
       } as unknown as ParsedModifier,
-      [makeCalcStat("#% increased Physical Damage", 36, ModifierType.Augment)],
+      [
+        makeCalcStat("#% increased Physical Damage", 36, {
+          type: ModifierType.Augment,
+        }),
+      ],
     );
 
     expect(result.map((augment) => augment.refName)).toEqual(expectedRef);
@@ -37,7 +41,11 @@ describe("determineAugments", () => {
           type: ModifierType.Augment,
         },
       } as unknown as ParsedModifier,
-      [makeCalcStat("#% to Lightning Resistance", 10, ModifierType.Augment)],
+      [
+        makeCalcStat("#% to Lightning Resistance", 10, {
+          type: ModifierType.Augment,
+        }),
+      ],
     );
 
     expect(result.map((augment) => augment.refName)).toEqual(expectedRef);
@@ -210,7 +218,7 @@ describe("determineAugments", () => {
         makeCalcStat(
           "Idols socketed in this item gain the benefits of their Bonded modifiers",
           1,
-          ModifierType.Augment,
+          { type: ModifierType.Augment },
         ),
       ],
     );
@@ -352,11 +360,9 @@ describe("applyAugmentSockets", () => {
       augments: [null, null],
     };
 
-    const stat = makeCalcStat(
-      "#% increased Physical Damage",
-      18,
-      ModifierType.Augment,
-    );
+    const stat = makeCalcStat("#% increased Physical Damage", 18, {
+      type: ModifierType.Augment,
+    });
     item.statsByType = [stat];
     item.newMods = [
       {
@@ -388,16 +394,12 @@ describe("applyAugmentSockets", () => {
       augments: [null, null],
     };
 
-    const stat1 = makeCalcStat(
-      "#% increased Physical Damage",
-      18,
-      ModifierType.Augment,
-    );
-    const stat2 = makeCalcStat(
-      "Bow Attacks fire # additional Arrows",
-      1,
-      ModifierType.Augment,
-    );
+    const stat1 = makeCalcStat("#% increased Physical Damage", 18, {
+      type: ModifierType.Augment,
+    });
+    const stat2 = makeCalcStat("Bow Attacks fire # additional Arrows", 1, {
+      type: ModifierType.Augment,
+    });
     item.statsByType = [stat1, stat2];
     item.newMods = [
       {
@@ -435,21 +437,15 @@ describe("applyAugmentSockets", () => {
       augments: [null, null],
     };
 
-    const stat1 = makeCalcStat(
-      "Meta Skills gain #% increased Energy",
-      40,
-      ModifierType.Augment,
-    );
-    const stat2 = makeCalcStat(
-      "#% increased Spirit",
-      -25,
-      ModifierType.Augment,
-    );
-    const stat3 = makeCalcStat(
-      "#% increased Mana Regeneration Rate",
-      20,
-      ModifierType.Augment,
-    );
+    const stat1 = makeCalcStat("Meta Skills gain #% increased Energy", 40, {
+      type: ModifierType.Augment,
+    });
+    const stat2 = makeCalcStat("#% increased Spirit", -25, {
+      type: ModifierType.Augment,
+    });
+    const stat3 = makeCalcStat("#% increased Mana Regeneration Rate", 20, {
+      type: ModifierType.Augment,
+    });
     item.statsByType = [stat1, stat2, stat3];
     item.newMods = [
       {
@@ -491,15 +487,13 @@ describe("applyAugmentSockets", () => {
       augments: [null, null],
     };
 
-    const Bonded = makeCalcStat(
-      "Bonded: #% to Quality of all Skills",
-      5,
-      ModifierType.Augment,
-    );
+    const Bonded = makeCalcStat("Bonded: #% to Quality of all Skills", 5, {
+      type: ModifierType.Augment,
+    });
     const nonBonded = makeCalcStat(
       "Idols socketed in this item gain the benefits of their Bonded modifiers",
       1,
-      ModifierType.Augment,
+      { type: ModifierType.Augment },
     );
     item.statsByType = [Bonded, nonBonded];
     item.newMods = [

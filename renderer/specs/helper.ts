@@ -4,6 +4,7 @@ import { ParsedModifier } from "@/parser/advanced-mod-desc";
 import { ModifierType, StatCalculated } from "@/parser/modifiers";
 import { createVirtualItem, ParsedItem } from "@/parser/ParsedItem";
 import { ParsedStat } from "@/parser/stat-translations";
+import { FiltersCreationContext } from "@/web/price-check/filters/create-stat-filters";
 import { FilterTag, StatFilter } from "@/web/price-check/filters/interfaces";
 
 export function createTestStatFilter(): StatFilter {
@@ -60,7 +61,10 @@ export function createTestItem(): ParsedItem {
 
 export function createParsedStat(
   statRef: string,
-  value: number | [number, number],
+  value: number,
+  opts?: {
+    roll?: { min: number; max: number };
+  },
 ): ParsedStat {
   const stat = resolveFirstStatRef(statRef)!;
 
@@ -70,16 +74,16 @@ export function createParsedStat(
     roll: {
       unscalable: false,
       dp: stat.dp || false,
-      value: Array.isArray(value) ? (value[0] + value[1]) / 2 : value,
-      min: Array.isArray(value) ? value[0] : value,
-      max: Array.isArray(value) ? value[1] : value,
+      value: value,
+      min: opts?.roll ? opts.roll.min : value,
+      max: opts?.roll ? opts.roll.max : value,
     },
   };
 }
 
 export function createParsedModifier(
   statRef: string,
-  value: number | [number, number],
+  value: number,
   type: ModifierType = ModifierType.Explicit,
 ): ParsedModifier {
   return {
@@ -94,9 +98,16 @@ export function createParsedModifier(
 export function makeCalcStat(
   ref: string,
   value: number,
-  type: ModifierType = ModifierType.Explicit,
+  opts: {
+    type?: ModifierType;
+    tier?: number;
+    roll?: { min: number; max: number };
+  } = {
+    type: ModifierType.Explicit,
+  },
 ): StatCalculated {
-  const parsedStat = createParsedStat(ref, value);
+  const parsedStat = createParsedStat(ref, value, opts);
+  const type = opts.type ?? ModifierType.Explicit;
 
   return {
     stat: parsedStat.stat,
@@ -106,6 +117,7 @@ export function makeCalcStat(
         contributes: parsedStat.roll,
         modifier: {
           info: {
+            tier: opts.tier,
             type,
             tags: [],
           },
@@ -114,5 +126,26 @@ export function makeCalcStat(
         stat: parsedStat,
       },
     ],
+  };
+}
+
+export function createFilterCreationContext(
+  item: ParsedItem,
+  searchInRange: number = 10,
+  filters: StatFilter[] = [],
+  statsByType: StatCalculated[] = [],
+  simpleStats: Array<{ ref: string; value: number; type: ModifierType }> = [],
+): FiltersCreationContext {
+  if (statsByType.length && simpleStats.length) {
+    throw new Error("dont do that, only use statsByType OR simpleStats");
+  }
+
+  return {
+    item,
+    searchInRange,
+    filters,
+    statsByType: simpleStats.length
+      ? simpleStats.map((e) => makeCalcStat(e.ref, e.value, { type: e.type }))
+      : statsByType,
   };
 }

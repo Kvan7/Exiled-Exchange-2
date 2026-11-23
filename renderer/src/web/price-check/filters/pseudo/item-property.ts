@@ -380,7 +380,7 @@ function weaponProps(ctx: FiltersCreationContext) {
           tradeId: "item.crit",
           roll: critChance.roll,
           sources: critChance.sources,
-          dp: true,
+          dp: 2 as unknown as boolean,
           disabled: true,
         },
         ctx,
@@ -685,6 +685,7 @@ export function propToFilter(
     matchers: [{ string: opts.ref }],
     trade: { ids: { pseudo: [opts.tradeId] } },
     better: StatBetter.PositiveRoll,
+    dp: (opts.dp ?? false) as true,
   };
   const filter = calculatedStatToFilter(
     {

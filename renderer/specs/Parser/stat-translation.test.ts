@@ -60,6 +60,22 @@ const OPTION_STAT = {
   },
   id: "local_jewel_display_radius_change",
 } as data.Stat;
+const CRIT_STAT = {
+  ref: "#% to Critical Hit Chance",
+  dp: true,
+  better: 1,
+  matchers: [{ string: "#% to Critical Hit Chance" }],
+  trade: {
+    ids: {
+      explicit: ["explicit.stat_518292764"],
+      fractured: ["fractured.stat_518292764"],
+      rune: ["rune.stat_518292764"],
+      desecrated: ["desecrated.stat_518292764"],
+      crafted: ["crafted.stat_518292764"],
+    },
+  },
+  id: "local_critical_strike_chance",
+} as data.Stat;
 
 describe("tryParseTranslation", () => {
   beforeEach(async () => {
@@ -264,5 +280,28 @@ describe("tryParseTranslation", () => {
 
     expect(data.STAT_BY_MATCH_STR_V2).toHaveBeenCalled();
     expect(data.TRADE_STAT_BY_MATCH_STR).toHaveBeenCalledOnce();
+  });
+
+  it("should handle decimal values", () => {
+    vi.mocked(data.STAT_BY_MATCH_STR_V2).mockImplementation((name) => {
+      if (!name.startsWith("#")) return;
+      return CRIT_STAT;
+    });
+    vi.mocked(data.TRADE_STAT_BY_MATCH_STR).mockReturnValue(undefined);
+
+    const result = __testExports.tryParseTranslation(
+      { string: "+4.95(4.41-5)% to Critical Hit Chance", unscalable: false },
+      ModifierType.Explicit,
+      undefined,
+    );
+
+    expect(result).toBeDefined();
+
+    expect(result?.stat).toBe(CRIT_STAT);
+    expect(result?.translation).toBe(CRIT_STAT.matchers[0]);
+    expect(result?.roll?.value).toBe(4.95);
+    expect(result?.roll?.legacy).toBeFalsy();
+
+    expect(data.STAT_BY_MATCH_STR_V2).toHaveBeenCalled();
   });
 });

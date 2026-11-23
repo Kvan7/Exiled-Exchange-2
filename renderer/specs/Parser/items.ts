@@ -1411,3 +1411,42 @@ BowThreeAugments.augmentSockets = {
 };
 
 // #endregion BowThreeAugments
+
+// #region HighCritWeapon
+export const HighCritWeapon = new TestItem(`Item Class: Talismans
+Rarity: Magic
+Devastating Spiny Talisman of Unmaking
+--------
+Physical Damage: 60-99
+Critical Hit Chance: 15.95% (augmented)
+Attacks per Second: 1.25
+--------
+Requires: Level 67, 258 (augmented) Str, 195 (augmented) Int
+--------
+Item Level: 81
+--------
+{ Prefix Modifier "Devastating" (Tier: 1) — Damage, Elemental, Fire, Cold, Lightning }
+121(120-139)% increased Elemental Damage with Attacks
+{ Suffix Modifier "of Unmaking" (Tier: 1) — Attack, Critical }
++4.95(4.41-5)% to Critical Hit Chance
+`);
+
+HighCritWeapon.category = ItemCategory.Talisman;
+HighCritWeapon.rarity = ItemRarity.Magic;
+HighCritWeapon.itemLevel = 81;
+HighCritWeapon.weaponPHYSICAL = 79.5;
+HighCritWeapon.weaponCRIT = 15.95;
+HighCritWeapon.weaponAS = 1.25;
+HighCritWeapon.requires = {
+  level: 67,
+  str: 258,
+  dex: 0,
+  int: 195,
+};
+
+HighCritWeapon.info.refName = "Spiny Talisman";
+HighCritWeapon.sectionCount = 5;
+HighCritWeapon.prefixCount = 1;
+HighCritWeapon.suffixCount = 1;
+
+// #endregion HighCritWeapon

@@ -508,7 +508,8 @@ export function calculatedStatToFilter(
     const filterDefault =
       calc.stat.better === StatBetter.NotComparable
         ? { min: roll.value, max: roll.value }
-        : item.rarity === ItemRarity.Unique
+        : // @ts-expect-error dp is hijacked for the crit change pseudo, so when it is 2 then use deltas
+          item.rarity === ItemRarity.Unique || dp === 2
           ? {
               min: percentRollDelta(
                 roll.value,

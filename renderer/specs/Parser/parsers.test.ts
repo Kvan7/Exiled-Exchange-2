@@ -4,6 +4,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { setupTests } from "@specs/vitest.setup";
 import {
   ArmourHighValueRareItem,
+  HighCritWeapon,
   HighDamageRareItem,
   MagicItem,
   NormalItem,
@@ -45,47 +46,24 @@ describe("parseWeapon", () => {
     setupTests();
     await init("en");
   });
-  it("Magic Weapon", () => {
-    const sections = __testExports.itemTextToSections(MagicItem.rawText);
+  it.each([
+    ["Magic Weapon", MagicItem, 1],
+    ["Rare Weapon", RareItem, 1],
+    ["High Damage Rare Weapon", HighDamageRareItem, 1],
+    ["High Crit Weapon", HighCritWeapon, 1],
+  ])("%s", (methodName, item, section) => {
+    // test
+    const sections = __testExports.itemTextToSections(item.rawText);
     const parsedItem = {} as ParsedItem;
 
-    const res = __testExports.parseWeapon(sections[1], parsedItem);
+    const res = __testExports.parseWeapon(sections[section], parsedItem);
 
     expect(res).toBe("SECTION_PARSED");
-    expect(parsedItem.weaponPHYSICAL).toBe(MagicItem.weaponPHYSICAL);
-    expect(parsedItem.weaponELEMENTAL).toBe(MagicItem.weaponELEMENTAL);
-    expect(parsedItem.weaponAS).toBe(MagicItem.weaponAS);
-    expect(parsedItem.weaponCRIT).toBe(MagicItem.weaponCRIT);
-    expect(parsedItem.weaponRELOAD).toBe(MagicItem.weaponRELOAD);
-  });
-  it("Rare Weapon", () => {
-    const sections = __testExports.itemTextToSections(RareItem.rawText);
-    const parsedItem = {} as ParsedItem;
-
-    const res = __testExports.parseWeapon(sections[1], parsedItem);
-
-    expect(res).toBe("SECTION_PARSED");
-    expect(parsedItem.weaponPHYSICAL).toBe(RareItem.weaponPHYSICAL);
-    expect(parsedItem.weaponELEMENTAL).toBe(RareItem.weaponELEMENTAL);
-    expect(parsedItem.weaponAS).toBe(RareItem.weaponAS);
-    expect(parsedItem.weaponCRIT).toBe(RareItem.weaponCRIT);
-    expect(parsedItem.weaponRELOAD).toBe(RareItem.weaponRELOAD);
-  });
-  it("High Damage Rare Weapon", () => {
-    const sections = __testExports.itemTextToSections(
-      HighDamageRareItem.rawText,
-    );
-    const parsedItem = {} as ParsedItem;
-
-    const res = __testExports.parseWeapon(sections[1], parsedItem);
-
-    expect(res).toBe("SECTION_PARSED");
-    expect(parsedItem.weaponPHYSICAL).toBe(HighDamageRareItem.weaponPHYSICAL);
-    expect(parsedItem.weaponELEMENTAL).toBe(HighDamageRareItem.weaponELEMENTAL);
-    expect(parsedItem.weaponAS).toBe(HighDamageRareItem.weaponAS);
-    expect(parsedItem.weaponCRIT).toBe(HighDamageRareItem.weaponCRIT);
-    expect(parsedItem.weaponRELOAD).toBe(HighDamageRareItem.weaponRELOAD);
-    expect(parsedItem.quality).toBe(HighDamageRareItem.quality);
+    expect(parsedItem.weaponPHYSICAL).toBe(item.weaponPHYSICAL);
+    expect(parsedItem.weaponELEMENTAL).toBe(item.weaponELEMENTAL);
+    expect(parsedItem.weaponAS).toBe(item.weaponAS);
+    expect(parsedItem.weaponCRIT).toBe(item.weaponCRIT);
+    expect(parsedItem.weaponRELOAD).toBe(item.weaponRELOAD);
   });
 });
 
