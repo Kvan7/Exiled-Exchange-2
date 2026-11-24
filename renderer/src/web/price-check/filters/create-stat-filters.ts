@@ -42,7 +42,10 @@ export function createExactStatFilters(
 ): StatFilter[] {
   performance.mark("create-exact-filters-start");
   let searchInRange = Math.min(2, opts.searchStatRange);
-  if (item.category === ItemCategory.Tablet) {
+  if (
+    item.category === ItemCategory.Tablet ||
+    item.category === ItemCategory.Relic
+  ) {
     searchInRange = 0;
   }
 

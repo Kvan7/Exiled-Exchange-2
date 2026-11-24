@@ -204,13 +204,12 @@ export function createFilters(
     };
     if (item.category && CATEGORY_TO_TRADE_ID.has(item.category)) {
       let disabled = opts.exact;
-      if (item.category === ItemCategory.ClusterJewel) {
-        disabled = true;
-      } else if (
-        item.category === ItemCategory.SanctumRelic ||
-        item.category === ItemCategory.Charm
+      if (
+        item.category === ItemCategory.ClusterJewel ||
+        item.category === ItemCategory.Charm ||
+        item.category === ItemCategory.SanctumRelic
       ) {
-        disabled = false;
+        disabled = true;
       }
       filters.searchRelaxed = {
         category: item.category,

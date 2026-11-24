@@ -48,6 +48,7 @@ export function createPresets(
     (!item.info.craftable && item.rarity !== ItemRarity.Unique) ||
     ((item.category === ItemCategory.Flask ||
       item.category === ItemCategory.Relic ||
+      item.category === ItemCategory.SanctumRelic ||
       item.category === ItemCategory.Tincture ||
       item.category === ItemCategory.MemoryLine ||
       item.category === ItemCategory.Invitation ||
