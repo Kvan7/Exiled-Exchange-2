@@ -339,6 +339,7 @@ describe("applyAugmentSockets", () => {
     item.augmentSockets = {
       empty: 0,
       current: 2,
+      available: 2,
       normal: 2,
       augments: [null, null],
     };
@@ -356,6 +357,7 @@ describe("applyAugmentSockets", () => {
     item.augmentSockets = {
       empty: 0,
       current: 2,
+      available: 2,
       normal: 2,
       augments: [null, null],
     };
@@ -390,6 +392,7 @@ describe("applyAugmentSockets", () => {
     item.augmentSockets = {
       empty: 0,
       current: 2,
+      available: 2,
       normal: 2,
       augments: [null, null],
     };
@@ -433,6 +436,7 @@ describe("applyAugmentSockets", () => {
     item.augmentSockets = {
       empty: 0,
       current: 2,
+      available: 2,
       normal: 2,
       augments: [null, null],
     };
@@ -483,6 +487,7 @@ describe("applyAugmentSockets", () => {
     item.augmentSockets = {
       empty: 1,
       current: 1,
+      available: 2,
       normal: 2,
       augments: [null, null],
     };

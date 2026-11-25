@@ -33,7 +33,7 @@ export enum StatBetter {
 
 export interface Stat {
   ref: string;
-  dp?: true;
+  dp?: true; // rarely also number
   matchers: StatMatcher[];
   better: StatBetter;
   fromAreaMods?: true;
@@ -136,6 +136,7 @@ export interface AugmentLineData {
   string: string;
   values: number[];
   tradeId?: string[];
+  socketBound: boolean;
 }
 
 export interface TranslationDict {

@@ -41,6 +41,7 @@ export class TestItem implements ParsedItem {
     | {
         empty: number;
         current: number;
+        available: number;
         normal: number;
         augments: Array<EditorItem | null>;
       }
@@ -137,6 +138,7 @@ function createEditorItem(
         categories: [],
         string: displayString,
         values: [value],
+        socketBound: false,
       },
     ],
     baseItem: {
@@ -526,6 +528,7 @@ HighDamageRareItem.requires = {
 HighDamageRareItem.augmentSockets = {
   empty: 0,
   current: 2,
+  available: 2,
   normal: 2,
   augments: [
     createEditorItem("Greater Iron Rune", "18% increased Physical Damage", 18),
@@ -587,6 +590,7 @@ ArmourHighValueRareItem.suffixCount = 3;
 ArmourHighValueRareItem.augmentSockets = {
   empty: 0,
   current: 3,
+  available: 3,
   normal: 2,
   augments: [
     createEditorItem(
@@ -931,6 +935,7 @@ FracturedItem.sectionCount = 9;
 FracturedItem.augmentSockets = {
   empty: 0,
   current: 2,
+  available: 2,
   normal: 2,
   augments: [
     createEditorItem("Greater Iron Rune", "18% increased Physical Damage", 18),
@@ -1006,6 +1011,7 @@ FracturedItemNoModMarked.sectionCount = 9;
 FracturedItemNoModMarked.augmentSockets = {
   empty: 0,
   current: 2,
+  available: 2,
   normal: 2,
   augments: [
     createEditorItem("Greater Iron Rune", "18% increased Physical Damage", 18),
@@ -1169,6 +1175,7 @@ ItemAllTheModifierTypes.suffixCount = 3;
 ItemAllTheModifierTypes.augmentSockets = {
   empty: 0,
   current: 2,
+  available: 2,
   normal: 2,
   augments: [
     createEditorItem("Greater Iron Rune", "18% increased Physical Damage", 18),
@@ -1233,6 +1240,7 @@ SpectreIncSpirit.skillCount = 1;
 SpectreIncSpirit.augmentSockets = {
   empty: 0,
   current: 1,
+  available: 1,
   normal: 1,
   augments: [null],
 };
@@ -1398,6 +1406,7 @@ BowThreeAugments.implicitCount = 1;
 BowThreeAugments.augmentSockets = {
   empty: 0,
   current: 3,
+  available: 3,
   normal: 2,
   augments: [
     createEditorItem("Perfect Iron Rune", "20% increased Physical Damage", 20),

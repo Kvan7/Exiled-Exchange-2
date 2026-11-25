@@ -80,6 +80,7 @@ export interface ParsedItem {
   augmentSockets?: {
     empty: number;
     current: number;
+    available: number;
     normal: number;
     augments: Array<EditorItem | null>;
   };

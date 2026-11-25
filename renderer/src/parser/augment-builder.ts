@@ -75,6 +75,7 @@ function buildEditorItem(
     ),
     stats,
     baseItem: augment,
+    socketBound: stats.some((s) => s.socketBound),
   };
 }
 

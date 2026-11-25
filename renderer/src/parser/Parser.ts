@@ -855,6 +855,7 @@ function parseAugmentSockets(section: string[], item: ParsedItem) {
       item.augmentSockets = {
         empty: 0,
         current,
+        available: current,
         normal: categoryMax,
         augments: Array(current).fill(null),
       };
@@ -862,6 +863,7 @@ function parseAugmentSockets(section: string[], item: ParsedItem) {
       item.augmentSockets = {
         empty: 0,
         current,
+        available: current,
         normal: categoryMax,
         augments: Array(categoryMax > current ? categoryMax : current).fill(
           null,
@@ -876,6 +878,7 @@ function parseAugmentSockets(section: string[], item: ParsedItem) {
     item.augmentSockets = {
       empty: categoryMax,
       current: 0,
+      available: 0,
       normal: categoryMax,
       augments: Array(categoryMax).fill(null),
     };
@@ -1380,6 +1383,9 @@ function applyAugmentSockets(item: ParsedItem) {
       (augment) => augment === null,
     ).length;
     item.augmentSockets.augments = augments;
+    item.augmentSockets.available = augments.filter(
+      (aug) => aug == null || !aug.socketBound,
+    ).length;
   }
 
   if (
