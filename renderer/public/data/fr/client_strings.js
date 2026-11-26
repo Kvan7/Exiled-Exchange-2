@@ -137,11 +137,11 @@ export default {
   VEILED_MODS: ['Chosen', 'of the Order'],
   // [Array]
   INCURSION_MODS: ['Guatelitzi\'s', 'Xopec\'s', 'Topotante\'s', 'Tacati\'s', 'Matatl\'s', 'of Matatl', 'Citaqualotl\'s', 'of Citaqualotl', 'of Tacati', 'of Guatelitzi', 'of Puhuarte'],
-  ITEM_SUPERIOR: /^(.*) supérieur$/,
-  ITEM_EXCEPTIONAL: /^Exceptionnel (.*)$/,
+  ITEM_SUPERIOR: /^(.*) (?:supérieur|supérieure|supérieurs|supérieures)$/,
+  ITEM_EXCEPTIONAL: /^(?:Exceptionnel|Exceptionnelle|Exceptionnels|Exceptionnelles) (.*)$/,
   MAP_BLIGHTED: /^(.*) infestée$/,
   MAP_BLIGHT_RAVAGED: /^(.*) ravagée par l'Infestation$/,
-  ITEM_SYNTHESISED: /^(.*) synthétisé$/,
+  ITEM_SYNTHESISED: /^(.*) (?:synthétisé|synthétisée|synthétisés|synthétisées)$/,
   FLASK_CHARGES: /^Contient actuellement \d+ charges$/,
   // [Manual]
   METAMORPH_BRAIN: /^.* Brain$/,
@@ -153,9 +153,9 @@ export default {
   METAMORPH_HEART: /^.* Heart$/,
   // [Manual]
   METAMORPH_LIVER: /^.* Liver$/,
-  QUALITY_ANOMALOUS: /^(.*) anormal$/,
-  QUALITY_DIVERGENT: /^(.*) divergent$/,
-  QUALITY_PHANTASMAL: /^(.*) fantasmatique$/,
+  QUALITY_ANOMALOUS: /^(.*) (?:anormal|anormale|anormaux|anormales)$/,
+  QUALITY_DIVERGENT: /^(.*) (?:divergent|divergente|divergents|divergentes)$/,
+  QUALITY_PHANTASMAL: /^(.*) (?:fantasmatique|fantasmatique|fantasmatiques|fantasmatiques)$/,
   // [Override]
   MODIFIER_LINE: /^(?<type>[^"]+)(?:\s+«(?<name>[^»]*)»)?(?:\s*\(Palier : (?<tier>\d+)\))?(?:\s*\(Rang : (?<rank>\d+)\))?$/,
   MODIFIER_INCREASED: /^Augmentation : (.*)%$/,

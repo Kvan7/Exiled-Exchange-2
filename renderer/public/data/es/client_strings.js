@@ -137,11 +137,11 @@ export default {
   VEILED_MODS: ['Chosen', 'of the Order'],
   // [Array]
   INCURSION_MODS: ['Guatelitzi\'s', 'Xopec\'s', 'Topotante\'s', 'Tacati\'s', 'Matatl\'s', 'of Matatl', 'Citaqualotl\'s', 'of Citaqualotl', 'of Tacati', 'of Guatelitzi', 'of Puhuarte'],
-  ITEM_SUPERIOR: /^(.*) Superior$/,
-  ITEM_EXCEPTIONAL: /^(.*) excepcional$/,
+  ITEM_SUPERIOR: /^(.*) (?:Superior|Superior|Superiores|Superiores)$/,
+  ITEM_EXCEPTIONAL: /^(.*) (?:excepcional|excepcional|excepcionales|excepcionales)$/,
   MAP_BLIGHTED: /^(.*) infestado $/,
   MAP_BLIGHT_RAVAGED: /^(.*) devastado por la plaga$/,
-  ITEM_SYNTHESISED: /^(.*) Sintetizado$/,
+  ITEM_SYNTHESISED: /^(.*) (?:Sintetizado|Sintetizada|Sintetizados|Sintetizadas)$/,
   FLASK_CHARGES: /^Actualmente tiene \d+ cargas$/,
   // [Manual]
   METAMORPH_BRAIN: /^.* Brain$/,

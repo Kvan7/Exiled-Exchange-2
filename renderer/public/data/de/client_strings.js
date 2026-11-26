@@ -138,10 +138,10 @@ export default {
   // [Array]
   INCURSION_MODS: ['Guatelitzi\'s', 'Xopec\'s', 'Topotante\'s', 'Tacati\'s', 'Matatl\'s', 'of Matatl', 'Citaqualotl\'s', 'of Citaqualotl', 'of Tacati', 'of Guatelitzi', 'of Puhuarte'],
   ITEM_SUPERIOR: /^(.*) \(hochwertig\)$/,
-  ITEM_EXCEPTIONAL: /^Außergewöhnliches (.*)$/,
+  ITEM_EXCEPTIONAL: /^(?:Außergewöhnlicher|Außergewöhnliche|Außergewöhnliches|Außergewöhnliche|Außergewöhnliche|Außergewöhnliche) (.*)$/,
   MAP_BLIGHTED: /^Befallene (.*)$/,
   MAP_BLIGHT_RAVAGED: /^Extrem befallene (.*)$/,
-  ITEM_SYNTHESISED: /^Synthetisiertes (.*)$/,
+  ITEM_SYNTHESISED: /^(?:Synthetisierter|Synthetisierte|Synthetisiertes|Synthetisierte|Synthetisierte|Synthetisierte) (.*)$/,
   FLASK_CHARGES: /^Hat derzeit \d+ Füllungen$/,
   // [Manual]
   METAMORPH_BRAIN: /^.* Brain$/,

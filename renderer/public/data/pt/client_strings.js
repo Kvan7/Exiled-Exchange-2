@@ -138,7 +138,7 @@ export default {
   // [Array]
   INCURSION_MODS: ['Guatelitzi\'s', 'Xopec\'s', 'Topotante\'s', 'Tacati\'s', 'Matatl\'s', 'of Matatl', 'Citaqualotl\'s', 'of Citaqualotl', 'of Tacati', 'of Guatelitzi', 'of Puhuarte'],
   ITEM_SUPERIOR: /^(.*) Superior$/,
-  ITEM_EXCEPTIONAL: /^(.*) Excepcional$/,
+  ITEM_EXCEPTIONAL: /^(.*) (?:Excepcional|Excepcional|Excepcionais|Excepcionais)$/,
   MAP_BLIGHTED: /^(.*) Infestado$/,
   MAP_BLIGHT_RAVAGED: /^(.*) Devastado pela Infestação$/,
   ITEM_SYNTHESISED: /^(.*) com Sintetização$/,
