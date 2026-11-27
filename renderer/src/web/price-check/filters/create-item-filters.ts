@@ -266,9 +266,9 @@ export function createFilters(
   }
 
   if (item.augmentSockets) {
-    if (item.augmentSockets.current) {
+    if (item.augmentSockets.available) {
       filters.augmentSockets = {
-        value: item.augmentSockets.current,
+        value: item.augmentSockets.available,
         disabled:
           item.augmentSockets.current <= item.augmentSockets.normal &&
           !item.isCorrupted,
